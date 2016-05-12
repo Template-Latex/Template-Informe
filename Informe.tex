@@ -1,0 +1,359 @@
+% Informe/Reporte
+% Template LaTeX
+% Versión 1.7.8 (11/05/2016)
+%
+% Autor:
+% Pablo Pizarro R.
+% Estudiante Ingeniería Civil en Construcción.
+% Facultad de Ciencias Físicas y Matemáticas.
+% Universidad de Chile.
+%
+% Licencia:
+% CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+% DEFINICIÓN DE CLASES
+\documentclass[letterpaper,11pt]{article}	% Documento clase artículo
+\usepackage[utf8]{inputenc}					% Codificación UTF-8
+\usepackage[T1]{fontenc}					% Soporta caracteres acentuados
+\usepackage{lmodern}						% Tipografía moderna
+\usepackage[spanish]{babel}					% Define el idioma del documento en español
+\makeatletter
+
+% INFORMACIÓN DEL DOCUMENTO
+\newcommand{\nombreDelInforme}{Titulo del informe}
+\newcommand{\temaATratar}{Tema a tratar}
+\newcommand{\nombreDelCurso}{Curso}
+\newcommand{\codigoDelCurso}{CO-1234}
+\newcommand{\nombreUniversidad}{Universidad de Chile}
+\newcommand{\nombreFacultad}{Facultad de Ciencias Físicas y Matem\'aticas}
+\newcommand{\departamentoUniversidad}{Departamento de la Universidad}
+\newcommand{\imagenDelDepartamento}{fcfm_horizontal_eps.eps}
+\newcommand{\imagenDelDepartamentoEscala}{0.2}
+
+%BEGIN_FOLD
+% CONFIGURACIONES
+\newcommand{\defaultcaptionmargin}{3.0}					% Márgenes de las leyendas por defecto
+\newcommand{\tipofuentetitulo}{\huge}					% Tamaño por defecto de los títulos
+\newcommand{\tipofuentesubtitulo}{\large}				% Tamaño por defecto de los subtítulos
+\newcommand{\tiporeferencias}{apa}						% Tipo de referencias
+\newcommand{\nombreltformulas}{Lista de F\'ormulas}		% Nombre de la lista de fórmulas
+\newcommand{\nombrelttablas}{Lista de Tablas}			% Nombre de la lista de tablas
+\newcommand{\nombreltfiguras}{Lista de Figuras}			% Nombre de la lista de figuras
+\newcommand{\nombreltcontend}{\'Indice de Contenidos}	% Nombre del índice de contenidos
+\newcommand{\nombreltwtablas}{Tabla}					% Nombre de las tablas
+\newcommand{\nombreltwfigura}{Figura}					% Nombre de las figuras
+
+% LIBRERÍAS INDEPENDIENTES
+\usepackage[ampersand]{easylist}		% Listas
+\usepackage{amsmath} 					% Fórmulas matemáticas
+\usepackage{amssymb} 					% Símbolos matemáticos
+%\usepackage{amsthm}					% Teoremas matemáticos
+\usepackage{caption}					% Leyendas
+\usepackage{color}						% Colores
+\usepackage{fancyhdr}					% Encabezados y pié de páginas
+\usepackage{float}						% Administrador de posiciones de objetos
+\usepackage{geometry}					% Dimensiones y geometría del documento
+\usepackage{graphicx}					% Propiedades extra para los gráficos
+\usepackage{hyperref}					% Permite añadir enlaces y referencias
+\usepackage[makeroom]{cancel}			% Cancelar términos en fórmulas
+%\usepackage[version=4]{mhchem}			% Fórmulas químicas
+\usepackage{multicol}					% Múltiples columnas
+\usepackage{lipsum}						% Permite crear textos dummy
+%\usepackage{listings}					% Permite añadir código fuente
+\usepackage{setspace}					% Cambia el espacio entre líneas
+\usepackage{subfig}						% Permite agrupar imágenes
+\usepackage{titlesec}					% Cambia el estilo de los títulos
+\usepackage{url}						% Permite añadir enlaces
+\usepackage{wrapfig}					% Permite comprimir imágenes
+
+% LIBRERÍAS DEPENDIENTES
+\usepackage{epstopdf}					% Convierte archivos .eps a pdf
+\usepackage{multirow}					% Añade nuevas opciones a las tablas
+
+% DECLARACIÓN DE FUNCIONES
+\newcommand{\quotes}[1]{``#1''}						% Insertar cita
+\newcommand{\quotesit}[1]{\textit{\quotes{#1}}}		% Insertar cita itálica
+\newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}}		% Cambiar el margen
+\newcommand{\newpar}[1]{\hbadness=10000 #1 ~\newline \par}			% Nuevo párrafo
+\newcommand{\newparnl}[1]{#1 \par}		% Nuevo párrafo sin nueva linea al final
+\newcommand{\lpow}[2]{{#1}_{#2}}		% Insertar sub-índice
+\newcommand{\pow}[2]{{#1}^{#2}}			% Insertar elevado
+\newcommand{\insertauxiliar}[1]{& $ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $ #1 \\}		
+\newcommand{\insertayudante}[1]{& $ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $ #1 \\}
+\newcommand{\insertintegrante}[1]{& $ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $ #1 \\}
+\newcommand{\insertprofesor}[1]{& $ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $ #1 \\}
+\newcommand{\newtitleanum}[1]{			% Insertar un título sin número
+	\addcontentsline{toc}{section}{#1}
+	\hbadness=10000 \noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par
+}
+\newcommand{\newsubtitleanum}[1]{		% Insertar un subtítulo sin número
+	\addcontentsline{toc}{subsection}{#1}
+	\hbadness=10000 \noindent \tipofuentesubtitulo #1 \\ \\ \normalsize \par
+}
+\newcommand{\newtitleanumnoi}[1]{		% Insertar un título sin número sin salir en el índice
+	\noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par
+}
+\newcommand{\newsubtitleanumnoi}[1]{	% Insertar un subtítulo sin número sin salir en el índice
+	\noindent \tipofuentesubtitulo \textbf{#1} \\ \\ \normalsize \par
+}
+\newcommand{\insertequation}[1]{ 			% Insertar una ecuación
+	\vspace{-0.1cm}
+	\begin{mycapequ}[H]
+		\begin{equation}
+		#1
+		\end{equation}
+	\end{mycapequ}
+	\vspace{-0.4cm}
+}
+\newcommand{\insertequationcaptioned}[2]{	% Insertar una ecuación con leyenda
+	\vspace{-0.2cm}
+	\begin{mycapequ}[H]
+		\begin{equation}
+		#1
+		\end{equation}
+		\vspace{-0.6cm}
+		\caption{#2}
+	\end{mycapequ}
+	\vspace{-0.25cm}
+}
+\newcommand{\insertimage}[3]{				% Insertar una imagen
+	\vspace{-0.3cm}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=#2]{#1}
+		\caption{#3}
+	\end{figure}
+	\vspace{-0.2cm}
+}
+\newcommand{\insertimageboxed}[3]{			% Insertar una imagen con recuadro
+	\vspace{-0.3cm}
+	\begin{figure}[H]
+		\centering
+		\fbox{\includegraphics[scale=#2]{#1}}
+		\caption{#3}
+	\end{figure}
+	\vspace{-0.2cm}
+}
+\newcommand{\insertdoubleimage}[7]{			% Insertar una imagen doble
+	\captionsetup{margin=0.5cm}
+	\vspace{-0.3cm}
+	\begin{figure}[H] \centering
+		\subfloat[#3]{
+			\includegraphics[scale=#2]{#1}}
+		\subfloat[#6]{
+			\includegraphics[scale=#5]{#4}}
+		\caption{#7}
+	\end{figure}
+	\vspace{-0.2cm}
+	\setcaptionmargincm{\defaultcaptionmargin}
+}
+
+% DECLARACIÓN DE AMBIENTES
+\captionsetup[mycapequ]{labelformat=empty}
+\DeclareCaptionType{mycapequ}[][\nombreltformulas]	% Nombre del índice de fórmulas
+\newenvironment{enumeratenosep}{					% Enumerate sin separación
+	\begin{enumerate}
+		\setlength{\itemsep}{0pt}
+		\setlength{\parskip}{0pt}
+	\end{enumerate}
+}
+\makeatletter										% Bibliografía en 2 columnas
+\renewenvironment{thebibliography}[1]
+{\begin{multicols}{2}[\section*{\refname}]%
+		\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+		\list{\@biblabel{\@arabic\c@enumiv}}%
+		{\settowidth\labelwidth{\@biblabel{#1}}%
+			\leftmargin\labelwidth
+			\advance\leftmargin\labelsep
+			\@openbib@code
+			\usecounter{enumiv}%
+			\let\p@enumiv\@empty
+			\renewcommand\theenumiv{\@arabic\c@enumiv}}%
+		\sloppy
+		\clubpenalty4000
+		\@clubpenalty \clubpenalty
+		\widowpenalty4000%
+		\sfcode`\.\@m}
+	{\def\@noitemerr
+		{\@latex@warning{Empty `thebibliography' environment}}%
+		\endlist\end{multicols}}
+\makeatother
+
+% CONFIGURACIÓN DEL DOCUMENTO
+\setlength{\headheight}{54pt}
+\bibliographystyle{\tiporeferencias}						% Estilo APA para las referencias
+\setcaptionmargincm{\defaultcaptionmargin}					% Margen por defecto
+%\captionsetup[table]{font={stretch=0.2}}					% Fuente de las tablas
+\titleformat*{\section}{\tipofuentetitulo\bfseries}			% Tamaño de los títulos
+\titleformat*{\subsection}{\tipofuentesubtitulo\bfseries}	% Tamaño de los títulos
+\ListProperties(											% Propiedades de las listas
+	Hide=100,
+	Hang=true,
+	Progressive=3ex,
+	Style*=-- ,
+	Style2*=$\bullet$,
+	Style3*=$\circ$,
+	Style4*=\tiny$\blacksquare$)
+% LENGUAJE C
+%\lstset{
+%	language=C,
+%  	numbers=left,
+%  	stepnumber=1,        
+%  	numbersep=5pt,
+%  	backgroundcolor=\color{white}, 
+%  	showspaces=false,
+%  	showstringspaces=false,
+%  	showtabs=false,
+%  	tabsize=2,
+%  	captionpos=b,
+%  	breaklines=true,
+%  	breakatwhitespace=true,
+%  	title=\lstname,
+%}
+% LENGUAJE JAVA
+%\lstset{
+%	frame=tb,
+%   language=Java,
+%   aboveskip=3mm,
+%   belowskip=3mm,
+%   showstringspaces=false,
+%   columns=flexible,
+%   basicstyle={\small\ttfamily},
+%   numbers=none,
+%   numberstyle=\tiny\color{gray},
+%   keywordstyle=\color{blue},
+%   commentstyle=\color{dkgreen},
+%   stringstyle=\color{mauve},
+%   breaklines=true,
+%   breakatwhitespace=true,
+%   tabsize=3
+%}
+%END_FOLD
+
+% INICIO DEL DOCUMENTO
+\begin{document}
+
+%BEGIN_FOLD
+% PORTADA
+\newpage
+\newgeometry{left=1.5cm, top=3.2cm, right=1.5cm, bottom=1.6cm}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L] {\nombreUniversidad \\ \nombreFacultad \\ \departamentoUniversidad}
+\fancyhead[R]{\includegraphics[scale=\imagenDelDepartamentoEscala]{\imagenDelDepartamento}}
+\vspace*{5cm}
+\begin{center}
+	\huge  {\nombreDelCurso}\\
+	\vspace{1cm}
+	\Huge {\nombreDelInforme}\\
+	\vspace{0.3cm}
+	\large {\temaATratar} \\
+\end{center}
+\vfill
+
+% Datos del informe, creador y profesores
+\begin{flushright}
+	\begin{tabular}{ll}
+		& Integrantes: INTEGRANTE 1 \\
+		\insertintegrante{INTEGRANTE 2}
+		\insertintegrante{INTEGRANTE 3}
+		& Profesores: PROFESOR 1  \\
+		\insertprofesor{PROFESOR 2}
+		\insertprofesor{PROFESOR 3}
+		& Auxiliares: AUXILIAR \\
+		\insertauxiliar{AUXILIAR 2}
+		\insertauxiliar{AUXILIAR 3}
+		& Ayudante de laboratorio: AYUDANTE \\
+		& Ayudantes: AYUDANTE 1\\
+		\insertayudante{AYUDANTE 2}
+		\insertayudante{AYUDANTE 3}
+		\insertayudante{AYUDANTE 4}
+		& \\
+		& Fecha realización: \today \\
+		& Fecha entrega: \today \\
+		& Santiago, Chile.
+	\end{tabular}
+\end{flushright}
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\newpage
+\newgeometry{left=1.5cm,top=2.15cm,right=1.5cm, bottom=2.0cm}
+\renewcommand{\listfigurename}{\nombreltfiguras}	% Nombre del índice de figuras
+\renewcommand{\listtablename}{\nombrelttablas}		% Nombre del índice de tablas
+\renewcommand{\contentsname}{\nombreltcontend}		% Nombre del índice
+\renewcommand{\tablename}{\nombreltwtablas} 		% Nombre de la leyenda de las tablas
+\renewcommand{\figurename}{\nombreltwfigura}		% Nombre de la leyenda de las figuras
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small \rm \thepage}
+\fancyfoot[L]{\small \rm \textit{\nombreDelInforme}}
+\fancyfoot[R]{\small \rm \textit{\codigoDelCurso \ \nombreDelCurso}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% PREÁMBULO DEL DOCUMENTO
+\setcounter{page}{1} 	% Nueva indización
+\renewcommand{\thepage}{\roman{page}} 	% Se establece la numeración del tipo romano
+
+% ABSTRACT
+\newtitleanum{Abstract}
+\lipsum[1]
+
+% TABLA DE CONTENIDOS
+\newpage
+\tableofcontents 		% Tabla de contenidos
+\listoffigures 			% Índice de figuras
+\listoftables 			% Índice de tablas
+\listofmycapequs 		% Índice de fórmulas
+
+% INICIO DE LAS SECCIONES
+\newpage
+\fancyhead[L]{\small \rm \textit{\rightmark}}
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+%END_FOLD
+
+% NUEVA SECCIÓN
+\section{Tema 1}
+
+	% SUB-SECCIÓN
+	\subsection{Subtema 1}
+		\lipsum[1]
+		
+		\insertequation{\pow{a}{k}=\pow{b}{k}+\pow{c}{k}, \forall k>2}
+		
+		\newpar{Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como \quotesit{Citas en itálico}, los párrafos añaden una entrada libre por defecto, a continuación se muestra un ejemplo de inserción de imágenes:}
+		
+		\insertimage{image.png}{0.2}{Where are you? de \quotesit{Internet}}
+		
+		\newparnl{Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como \quotesit{Citas en itálico} y citas \cite{latexcompanion}, los párrafos añaden una entrada libre por defecto, a continuación se muestra un ejemplo de inserción de imágenes:}
+		
+		\insertequationcaptioned{\int_{a}^{b} f(x) dx = \textstyle \sum_{x=a}^{b} f(x)(1+\Delta x)}{Ecuación sin sentido}
+		
+		\newparnl{Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos, con preguntas de respuestas abiertas (donde el estudiante responde libremente) o preguntas de respuestas múltiples (el estudiante debe seleccionar la respuesta correcta de un listado).}
+
+% REFERENCIAS
+\newpage
+\begin{thebibliography}{99}
+	\addcontentsline{toc}{section}{Referencias}
+	
+	\bibitem{latexcompanion} 
+		Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
+		\textit{The \LaTeX\ Companion}. 
+		Addison-Wesley, Reading, Massachusetts, 1993.
+	
+	\bibitem{einstein}
+		\hbadness=10000 Albert Einstein. 
+		\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
+		[\textit{On the electrodynamics of moving bodies}]. 
+		Annalen der Physik, 322(10):891–921, 1905.
+	
+	\bibitem{knuthwebsite} 
+		Knuth: Computers and Typesetting,
+		\\\url{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
+	
+\end{thebibliography}
+
+% FIN DEL DOCUMENTO
+\end{document}
