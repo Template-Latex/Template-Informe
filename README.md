@@ -58,9 +58,23 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **url**: Permite añadir enlaces.
 + **wrapfig**: Permite comprimir imágenes.
 
+## Añadiendo integrantes, profesores, auxiliares y fechas
+Hola
+
 ## Insertando figuras, fórmulas, citas y otros
 También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, para ello existen las siguientes funciones:
-+ __underline__: **Añadir una imagen**: Existen dos funciones para añadir imágenes:
++ **Añadir una imagen**: Existen tres funciones para añadir imágenes, _\insertimage_, _\insertimageboxed_ y _\insertdoubleimage_, las cuales en escencia requieren de la ubicación de la imagen, su escala y su correspondiente título (caption, o leyenda), la syntax para cada una de ellas es:
+  - **\insertimage**{*Dirección de la imagen*}{*Escala*}{*Leyenda*}: Inserta una simple imagen.
+  - **\insertimageboxed**{*Dirección de la imagen*}{*Escala*}{*Leyenda*}: Inserta una imagen recuadrada.
+  - **\insertdoubleimage**{*Dirección de la imagen 1*}{*Escala 1*}{*Leyenda 1*}{*Dirección de la imagen 2*}{*Escala 2*}{*Leyenda 2*}{*Leyenda general*}: Inserta dos imagenes en un sólo elemento.
++ **Insertar una fórmula**: Existen dos funciones para añadir fórmulas: _\insertequation_ y _\insertequationcaptioned_, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
+    - **\insertequation**{*Fórmula*}: Inserta una fórmula.
+    - **\insertequationcaptioned**{*Fórmula*}{*Leyenda*}: Inserta una fórmula con leyenda.
++ **Insertar títulos sin número, y títulos sin aparecer en el índice**: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para ello existen las siguientes funciones:
+  - **\newtitleanum**{*Título*}: Inserta un título sin número.
+  - **\newsubtitleanum**{*Título*}: Inserta un subtítulo sin número.
+  - **\newtitleanumnoi**{*Título*}: Inserta un título sin número sin que aparezca en el índice.
+  - **\newsubtitleanumnoi**{*Título*}: Inserta un subtítulo sin número sin que aparezca en el índice.
 
 ## Autor
 Pablo Pizarro, 2016.
