@@ -67,6 +67,11 @@ Esta información de la portada se encuentra en la sección *%INTEGRANTES, PROFE
 
 ## Insertando figuras, fórmulas, citas y otros
 También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, para ello existen las siguientes funciones:
++ **Insertar párrafos y citas**: Para esto existen las siguientes funciones:
+  - **\newpar**{*Párrafo*}: Inserta un nuevo párrafo con un salto de linea al terminar.
+  - **\newparnl**{*Párrafo*}: Inserta un nuevo párrafo sin un salto de linea al terminar.
+  - **\quotes**{*Texto*}: Función simplificada para insertar "citas" sin lidiar con carácteres.
+  - **\quotesit**{*Texto*}: Función simplificada para insertar _"citas en itálico"_ sin lidiar con carácteres.
 + **Añadir una imagen**: Existen tres funciones para añadir imágenes, _\insertimage_, _\insertimageboxed_ y _\insertdoubleimage_, las cuales en escencia requieren de la ubicación de la imagen, su escala y su correspondiente título (caption, o leyenda), la syntax para cada una de ellas es:
   - **\insertimage**{*Dirección de la imagen*}{*Escala*}{*Leyenda*}: Inserta una simple imagen.
   - **\insertimageboxed**{*Dirección de la imagen*}{*Escala*}{*Leyenda*}: Inserta una imagen recuadrada.
@@ -81,8 +86,6 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
   - **\newsubtitleanum**{*Título*}: Inserta un subtítulo sin número.
   - **\newtitleanumnoi**{*Título*}: Inserta un título sin número sin que aparezca en el índice.
   - **\newsubtitleanumnoi**{*Título*}: Inserta un subtítulo sin número sin que aparezca en el índice.
-+ **Insertar párrafos y citas**: Para esto existen las siguientes funciones:
-  - **\newpar**{*Párrafo}
 
 ## Autor
 Pablo Pizarro, 2016.
