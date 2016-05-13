@@ -90,4 +90,4 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
 ## Autor
 Pablo Pizarro, 2016.
 
-Si tienes alguna sugerencia envíame un correo a: [pablopizarro9@gmail.com](mailto:pablopizarro9@gmail.com).
+Si tienes alguna sugerencia envíame un correo a: [pablopizarro9@gmail.com](mailto:pablopizarro9@gmail.com), o sencillamente ten la libertad de enviar un _pull request_.
