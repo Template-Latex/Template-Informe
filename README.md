@@ -60,4 +60,9 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 
 ## Insertando figuras, fórmulas, citas y otros
 También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, para ello existen las siguientes funciones:
-+ **Añadir una imagen**: 
++ __underline__: **Añadir una imagen**: Existen dos funciones para añadir imágenes:
+
+## Autor
+Pablo Pizarro, 2016.
+
+Si tienes alguna sugerencia envíame un correo a: [pablopizarro9@gmail.com](mailto:pablopizarro9@gmail.com).
