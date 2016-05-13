@@ -31,7 +31,6 @@
 
 %BEGIN_FOLD
 % CONFIGURACIONES
-\newcommand{\defaultcaptionmargin}{3.0}					% Márgenes de las leyendas por defecto
 \newcommand{\tipofuentetitulo}{\huge}					% Tamaño por defecto de los títulos
 \newcommand{\tipofuentesubtitulo}{\large}				% Tamaño por defecto de los subtítulos
 \newcommand{\tiporeferencias}{apa}						% Tipo de referencias
@@ -41,6 +40,12 @@
 \newcommand{\nombreltcontend}{\'Indice de Contenidos}	% Nombre del índice de contenidos
 \newcommand{\nombreltwtablas}{Tabla}					% Nombre de las tablas
 \newcommand{\nombreltwfigura}{Figura}					% Nombre de las figuras
+\newcommand{\defaultcaptionmargin}{3.0}					% Márgenes de las leyendas por defecto
+\newcommand{\defaultpagemarginleft}{1.5}				% Márgen izquierdo de las páginas [cm]
+\newcommand{\defaultpagemarginright}{1.5}				% Márgen derecho de las páginas [cm]
+\newcommand{\defaultpagemargintop}{2.15}				% Márgen superior de las páginas [cm]
+\newcommand{\defaultpagemarginbottom}{2.0}				% Márgen inferior de las páginas [cm]
+\newcommand{\defaultfirstpagemargintop}{3.2}			% Márgen superior de la portada [cm]
 
 % LIBRERÍAS INDEPENDIENTES
 \usepackage[ampersand]{easylist}		% Listas
@@ -71,9 +76,11 @@
 \usepackage{multirow}					% Añade nuevas opciones a las tablas
 
 % DECLARACIÓN DE FUNCIONES
-\newcommand{\quotes}[1]{``#1''}						% Insertar cita
+\newcommand{\quotes}[1]{``#1''}		% Insertar cita
 \newcommand{\quotesit}[1]{\textit{\quotes{#1}}}		% Insertar cita itálica
 \newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}}		% Cambiar el margen
+\newcommand{\setpagemargincm}[4]{	% Cambia márgenes de las páginas en centímetros	
+	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
 \newcommand{\newpar}[1]{\hbadness=10000 #1 ~\newline \par}			% Nuevo párrafo
 \newcommand{\newparnl}[1]{#1 \par}		% Nuevo párrafo sin nueva linea al final
 \newcommand{\lpow}[2]{{#1}_{#2}}		% Insertar sub-índice
@@ -236,7 +243,7 @@
 %BEGIN_FOLD
 % PORTADA
 \newpage
-\newgeometry{left=1.5cm, top=3.2cm, right=1.5cm, bottom=1.6cm}
+\setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L] {\nombreUniversidad \\ \nombreFacultad \\ \departamentoUniversidad}
@@ -277,7 +284,7 @@
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \newpage
-\newgeometry{left=1.5cm,top=2.15cm,right=1.5cm, bottom=2.0cm}
+\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}
 \renewcommand{\listfigurename}{\nombreltfiguras}	% Nombre del índice de figuras
 \renewcommand{\listtablename}{\nombrelttablas}		% Nombre del índice de tablas
 \renewcommand{\contentsname}{\nombreltcontend}		% Nombre del índice
