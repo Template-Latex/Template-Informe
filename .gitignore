@@ -1,0 +1,13 @@
+# Archivos creados por TeXstudio
+*.aux
+*.lof
+*.
+*.lomycapequ
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.log
+
+# Imagenes convertidas de los departamentos
+images/departamentos/*-eps-converted-to.pdf
