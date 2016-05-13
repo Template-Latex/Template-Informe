@@ -59,7 +59,11 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **wrapfig**: Permite comprimir imágenes.
 
 ## Añadiendo integrantes, profesores, auxiliares y fechas
-Hola
+Esta información de la portada se encuentra en la sección *%INTEGRANTES, PROFESORES Y FECHAS*, en esta se pueden agregar integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc. Para ello existen las siguientes funciones auxiliares:
++ **\insertintegrante**{*Nombre*}: Añade un nuevo integrante.
++ **\insertprofesor**{*Nombre*}: Añade un nuevo profesor del curso.
++ **\insertauxiliar**{*Nombre*}: Añade un nuevo profesor auxiliar del curso.
++ **\insertayudante**{*Nombre*}: Añade un nuevo ayudante del curso.
 
 ## Insertando figuras, fórmulas, citas y otros
 También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, para ello existen las siguientes funciones:
@@ -70,11 +74,15 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
 + **Insertar una fórmula**: Existen dos funciones para añadir fórmulas: _\insertequation_ y _\insertequationcaptioned_, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
     - **\insertequation**{*Fórmula*}: Inserta una fórmula.
     - **\insertequationcaptioned**{*Fórmula*}{*Leyenda*}: Inserta una fórmula con leyenda.
+    - **\pow**{*a*}{*b*}: Forma simplificada de añadir una potencia del tipo a^b.
+    - **\lpow**{*a*}{*b*}: Forma simplificada de añadir una sub potencia del tipo a_b.
 + **Insertar títulos sin número, y títulos sin aparecer en el índice**: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para ello existen las siguientes funciones:
   - **\newtitleanum**{*Título*}: Inserta un título sin número.
   - **\newsubtitleanum**{*Título*}: Inserta un subtítulo sin número.
   - **\newtitleanumnoi**{*Título*}: Inserta un título sin número sin que aparezca en el índice.
   - **\newsubtitleanumnoi**{*Título*}: Inserta un subtítulo sin número sin que aparezca en el índice.
++ **Insertar párrafos y citas**: Para esto existen las siguientes funciones:
+  - **\newpar**{*Párrafo}
 
 ## Autor
 Pablo Pizarro, 2016.
