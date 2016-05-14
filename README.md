@@ -17,7 +17,7 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
 También se pueden modificar los márgenes de los títulos de tablas y figuras _(caption)_, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de *%INFORMACIÓN DEL DOCUMENTO*, entre las cuales se encuentran:
 + **\tipofuentetitulo**: Tamaño por defecto de los títulos.
 + **\tipofuentesubtitulo**: Tamaño por defecto de los subtítulos.
-+ **\tiporeferencias}{apa}**: Tipo de referencias.
++ **\tiporeferencias**: Tipo de referencias, por defecto se usa la norma APA.
 + **\nombreltformulas**: Nombre de la lista de fórmulas.
 + **\nombrelttablas**: Nombre de la lista de tablas.
 + **\nombreltfiguras**: Nombre de la lista de figuras.
@@ -25,11 +25,11 @@ También se pueden modificar los márgenes de los títulos de tablas y figuras _
 + **\nombreltwtablas**: Nombre de las tablas.
 + **\nombreltwfigura**: Nombre de las figuras.
 + **\defaultcaptionmargin**: Márgenes de las leyendas por defecto.
-+ **\defaultpagemarginleft**: Márgen izquierdo de las páginas en centímetros.
-+ **\defaultpagemarginright**: Márgen derecho de las páginas en centímetros.
-+ **\defaultpagemargintop**: Márgen superior de las páginas en centímetros.
-+ **\defaultpagemarginbottom**: Márgen inferior de las páginas en centímetros.
-+ **\defaultfirstpagemargintop**: Márgen superior de la portada en centímetros.
++ **\defaultpagemarginleft**: Margen izquierdo de las páginas en centímetros.
++ **\defaultpagemarginright**: Margen derecho de las páginas en centímetros.
++ **\defaultpagemargintop**: Margen superior de las páginas en centímetros.
++ **\defaultpagemarginbottom**: Margen inferior de las páginas en centímetros.
++ **\defaultfirstpagemargintop**: Margen superior de la portada en centímetros.
 
 ## Añadiendo librerías
 Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRERÍAS DEPENDIENTES*, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación de otras, o que su importación no genera algún error. Las librerías utilizadas son:
