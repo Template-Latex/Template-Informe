@@ -1,9 +1,9 @@
 ## Template de informe en latex
 Este corresponde a un template para confeccionar [geniales informes en latex](https://github.com/ppizarror/Template-Informe/blob/master/Informe.pdf), contiene funciones básicas para agregar imágenes, fórmulas, etc.
 
-<center>
-  <img src="https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/informe/informe_data.png" alt="Informe" width="200px" height="200px"/>
-</center>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/informe/informe_data.png" alt="Informe" width="400px" height="400px"/>
+</p>
 
 ## Configurando el documento
 Para modificar el documento (Título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de *%INFORMACIÓN DEL DOCUMENTO* al principio del documento, estas son del estilo _\newcommand{_**\nombreVariable**_}{_ **Valor**}, entre las cuales se encuentran:
