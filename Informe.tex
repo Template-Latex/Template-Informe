@@ -1,5 +1,5 @@
 % Template:		Informe/Reporte LaTeX
-% Versión: 		1.8.8 (14/05/2016)
+% Versión: 		1.8.9 (14/05/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -61,7 +61,7 @@
 \usepackage{float}					% Administrador de posiciones de objetos
 \usepackage{geometry}				% Dimensiones y geometría del documento
 \usepackage{graphicx}				% Propiedades extra para los gráficos
-\usepackage{hyperref}				% Permite añadir enlaces y referencias
+\usepackage[hidelinks]{hyperref}				% Permite añadir enlaces y referencias
 \usepackage[makeroom]{cancel}		% Cancelar términos en fórmulas
 %\usepackage[version=4]{mhchem}		% Fórmulas químicas
 \usepackage{multicol}				% Múltiples columnas
@@ -175,13 +175,11 @@
 		\endlist\end{multicols}}
 \makeatother
 
-% CONFIGURACIÓN DEL DOCUMENTO
+% CONFIGURACIÓN INICIAL DEL DOCUMENTO
 \setlength{\headheight}{54pt}
 \bibliographystyle{\tiporeferencias}						% Estilo APA para las referencias
 \setcaptionmargincm{\defaultcaptionmargin}					% Margen por defecto
 %\captionsetup[table]{font={stretch=0.2}}					% Fuente de las tablas
-\titleformat*{\section}{\tipofuentetitulo\bfseries}			% Tamaño de los títulos
-\titleformat*{\subsection}{\tipofuentesubtitulo\bfseries}	% Tamaño de los títulos
 \ListProperties(											% Propiedades de las listas
 	Hide=100,
 	Hang=true,
@@ -311,9 +309,11 @@
 \listoftables 			% Índice de tablas
 \listofmycapequs 		% Índice de fórmulas
 
-% INICIO DE LAS SECCIONES
+% CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
-\fancyhead[L]{\small \rm \textit{\rightmark}}
+\fancyhead[L]{\small \rm \textit{\rightmark}}				% Configuración del header
+\titleformat*{\section}{\tipofuentetitulo\bfseries}			% Tamaño de los títulos
+\titleformat*{\subsection}{\tipofuentesubtitulo\bfseries}	% Tamaño de los títulos
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
 %END_FOLD
