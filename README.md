@@ -14,7 +14,21 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
 + **\nombreUniversidad**: Universidad, Instituto, etc.
 + **\nombreFacultad**: Facultad relacionada a la Universidad, Instituto, etc.
 + **\departamentoUniversidad**: Departamento de la Universidad.
-+ **\imagenDelDepartamento**: Imagen del departamento o universidad a usar en la portada.
++ **\imagenDelDepartamento**: Imagen del departamento o universidad a usar en la portada, estos se pueden encontrar en la carpeta _/images/departamentos/_. Actualmente existen las siguientes imágenes:
+  - **das**: Departamento de Astronomía.
+  - **dcc**: Departamento de Ciencias de la Computación.
+  - **dfi**: Departamento de Física.
+  - **dgf**: Departamento de Geofísica.
+  - **dic**: Departamento de Ingeniería Civil.
+  - **die**: Departamento de Ingeniería Eléctrica.
+  - **dii**: Departamnto de Ingeniería Industrial.
+  - **dim**: Departamento de Ingeniería Matemática.
+  - **dimec**: Departamnto de Ingeniería Mecánica.
+  - **diqbt**: Departamnto de Ingeniería Química y Biotecnología.
+  - **fcfm**: Facultad de Ciencias Físicas y Matemáticas.
+  - **geo**: Departamento de geología.
+  - **humanidades**: Área de Humanidades.
+  - **minas**: Departamnto de Ingeniería en Minas.
 + **\imagenDelDepartamentoEscala**: Escala de la imagen a usar.
 
 ## Configurando otros elementos del documento
