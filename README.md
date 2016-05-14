@@ -7,14 +7,14 @@ Este corresponde a un template para confeccionar [geniales informes en latex](ht
 
 ## Configurando el documento
 Para modificar el documento (Título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de *%INFORMACIÓN DEL DOCUMENTO* al principio del documento, estas son del estilo _\newcommand{_**\nombreVariable**_}{_ **Valor**}, entre las cuales se encuentran:
-+ **\nombreDelInformeTitulo**: Título del informe.
-+ **\temaATratar**: Tema a tratar.
-+ **\nombreDelCurso**: Curso - Ramo referido al informe.
-+ **\codigoDelCurso**: Código del curso.
-+ **\nombreUniversidad**: Universidad, Instituto, etc.
-+ **\nombreFacultad**: Facultad relacionada a la Universidad, Instituto, etc.
-+ **\departamentoUniversidad**: Departamento de la Universidad.
-+ **\imagenDelDepartamento**: Imagen del departamento o universidad a usar en la portada, estos se pueden encontrar en la carpeta _/images/departamentos/_. Actualmente existen las siguientes imágenes:
++ **\nombredelinformetitulo**: Título del informe.
++ **\temaatratar**: Tema a tratar.
++ **\fecharealizacion**: Fecha en que se realizó el experimento / informe.
++ **\fechaentrega**: Fecha en que se entregó el informe.
++ **\nombreuniversidad**: Universidad, Instituto, etc.
++ **\nombrefacultad**: Facultad relacionada a la Universidad, Instituto, etc.
++ **\departamentouniversidad**: Departamento de la Universidad.
++ **\imagendeldepartamento**: Imagen del departamento o universidad a usar en la portada, estos se pueden encontrar en la carpeta _/images/departamentos/_. Actualmente existen las siguientes imágenes:
   - **das**: Departamento de Astronomía.
   - **dcc**: Departamento de Ciencias de la Computación.
   - **dfi**: Departamento de Física.
@@ -29,7 +29,10 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
   - **geo**: Departamento de geología.
   - **humanidades**: Área de Humanidades.
   - **minas**: Departamnto de Ingeniería en Minas.
-+ **\imagenDelDepartamentoEscala**: Escala de la imagen a usar.
++ **\imagendeldepartamentoescala**: Escala de la imagen a usar.
++ **\localizacionuniversidad**: Ciudad o región en donde se ubica la universidad / instituto.
++ **\nombredelcurso**: Curso - Ramo referido al informe.
++ **\codigodelcurso**: Código del curso.
 
 ## Configurando otros elementos del documento
 También se pueden modificar los márgenes de los títulos de tablas y figuras _(caption)_, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de *%INFORMACIÓN DEL DOCUMENTO*, entre las cuales se encuentran:
@@ -77,11 +80,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **wrapfig**: Permite comprimir imágenes.
 
 ## Añadiendo integrantes, profesores, auxiliares y fechas
-Esta información de la portada se encuentra en la sección *%INTEGRANTES, PROFESORES Y FECHAS*, en esta se pueden agregar integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc. Para ello existen las siguientes funciones auxiliares:
-+ **\insertintegrante**{*Nombre*}: Añade un nuevo integrante.
-+ **\insertprofesor**{*Nombre*}: Añade un nuevo profesor del curso.
-+ **\insertauxiliar**{*Nombre*}: Añade un nuevo profesor auxiliar del curso.
-+ **\insertayudante**{*Nombre*}: Añade un nuevo ayudante del curso.
+Esta información de la portada se encuentra en la sección *%INTEGRANTES, PROFESORES Y FECHAS*, en esta se pueden agregar integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
 
 ## Insertando figuras, fórmulas, citas y otros
 También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, para ello existen las siguientes funciones:

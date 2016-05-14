@@ -1,14 +1,12 @@
-% Informe/Reporte
-% Template LaTeX
-% Versión 1.8.5 (14/05/2016)
+% Template:		Informe/Reporte LaTeX
+% Versión: 		1.8.8 (14/05/2016)
+% Codificación: UTF-8
 %
-% Autor:
-% Pablo Pizarro R.
-% Facultad de Ciencias Físicas y Matemáticas.
-% Universidad de Chile.
+% Autor: Pablo Pizarro R.
+% 		 Facultad de Ciencias Físicas y Matemáticas.
+% 		 Universidad de Chile.
 %
-% Licencia:
-% CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+% Licencia: CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 % DEFINICIÓN DE CLASES
 \documentclass[letterpaper,11pt]{article}	% Documento clase artículo
@@ -19,61 +17,66 @@
 \makeatletter
 
 % INFORMACIÓN DEL DOCUMENTO
-\newcommand{\nombreDelInforme}{Titulo del informe}
-\newcommand{\temaATratar}{Tema a tratar}
-\newcommand{\nombreDelCurso}{Curso}
-\newcommand{\codigoDelCurso}{CO-1234}
-\newcommand{\nombreUniversidad}{Universidad de Chile}
-\newcommand{\nombreFacultad}{Facultad de Ciencias Físicas y Matemáticas}
-\newcommand{\departamentoUniversidad}{Departamento de la Universidad}
-\newcommand{\imagenDelDepartamento}{images/departamentos/fcfm}
-\newcommand{\imagenDelDepartamentoEscala}{0.2}
+\newcommand{\nombredelinforme}{Titulo del informe}
+\newcommand{\temaatratar}{Tema a tratar}
+\newcommand{\fecharealizacion}{\today}
+\newcommand{\fechaentrega}{\today}
+
+\newcommand{\nombreuniversidad}{Universidad de Chile}
+\newcommand{\nombrefacultad}{Facultad de Ciencias Físicas y Matemáticas}
+\newcommand{\departamentouniversidad}{Departamento de la Universidad}
+\newcommand{\imagendeldepartamento}{images/departamentos/fcfm}
+\newcommand{\imagendeldepartamentoescala}{0.2}
+\newcommand{\localizacionuniversidad}{Santiago, Chile}
+
+\newcommand{\nombredelcurso}{Curso}
+\newcommand{\codigodelcurso}{CO-1234}
 
 %BEGIN_FOLD
 % CONFIGURACIONES
-\newcommand{\tipofuentetitulo}{\huge}					% Tamaño por defecto de los títulos
-\newcommand{\tipofuentesubtitulo}{\large}				% Tamaño por defecto de los subtítulos
-\newcommand{\tiporeferencias}{apa}						% Tipo de referencias
-\newcommand{\nombreltformulas}{Lista de Fórmulas}		% Nombre de la lista de fórmulas
-\newcommand{\nombrelttablas}{Lista de Tablas}			% Nombre de la lista de tablas
-\newcommand{\nombreltfiguras}{Lista de Figuras}			% Nombre de la lista de figuras
-\newcommand{\nombreltcontend}{Índice de Contenidos}		% Nombre del índice de contenidos
-\newcommand{\nombreltwtablas}{Tabla}					% Nombre de las tablas
-\newcommand{\nombreltwfigura}{Figura}					% Nombre de las figuras
-\newcommand{\defaultcaptionmargin}{3.0}					% Márgenes de las leyendas por defecto
-\newcommand{\defaultpagemarginleft}{1.5}				% Margen izquierdo de las páginas [cm]
-\newcommand{\defaultpagemarginright}{1.5}				% Margen derecho de las páginas [cm]
-\newcommand{\defaultpagemargintop}{2.15}				% Margen superior de las páginas [cm]
-\newcommand{\defaultpagemarginbottom}{2.0}				% Margen inferior de las páginas [cm]
-\newcommand{\defaultfirstpagemargintop}{3.2}			% Margen superior de la portada [cm]
+\newcommand{\tipofuentetitulo}{\huge}				% Tamaño por defecto de los títulos
+\newcommand{\tipofuentesubtitulo}{\large}			% Tamaño por defecto de los subtítulos
+\newcommand{\tiporeferencias}{apa}					% Tipo de referencias
+\newcommand{\nombreltformulas}{Lista de Fórmulas}	% Nombre de la lista de fórmulas
+\newcommand{\nombrelttablas}{Lista de Tablas}		% Nombre de la lista de tablas
+\newcommand{\nombreltfiguras}{Lista de Figuras}		% Nombre de la lista de figuras
+\newcommand{\nombreltcontend}{Índice de Contenidos}	% Nombre del índice de contenidos
+\newcommand{\nombreltwtablas}{Tabla}				% Nombre de las tablas
+\newcommand{\nombreltwfigura}{Figura}				% Nombre de las figuras
+\newcommand{\defaultcaptionmargin}{3.0}				% Márgenes de las leyendas por defecto
+\newcommand{\defaultpagemarginleft}{1.5}			% Margen izquierdo de las páginas [cm]
+\newcommand{\defaultpagemarginright}{1.5}			% Margen derecho de las páginas [cm]
+\newcommand{\defaultpagemargintop}{2.15}			% Margen superior de las páginas [cm]
+\newcommand{\defaultpagemarginbottom}{2.0}			% Margen inferior de las páginas [cm]
+\newcommand{\defaultfirstpagemargintop}{3.2}		% Margen superior de la portada [cm]
 
 % LIBRERÍAS INDEPENDIENTES
-\usepackage[ampersand]{easylist}		% Listas
-\usepackage{amsmath} 					% Fórmulas matemáticas
-\usepackage{amssymb} 					% Símbolos matemáticos
-%\usepackage{amsthm}					% Teoremas matemáticos
-\usepackage{caption}					% Leyendas
-\usepackage{color}						% Colores
-\usepackage{fancyhdr}					% Encabezados y pié de páginas
-\usepackage{float}						% Administrador de posiciones de objetos
-\usepackage{geometry}					% Dimensiones y geometría del documento
-\usepackage{graphicx}					% Propiedades extra para los gráficos
-\usepackage{hyperref}					% Permite añadir enlaces y referencias
-\usepackage[makeroom]{cancel}			% Cancelar términos en fórmulas
-%\usepackage[version=4]{mhchem}			% Fórmulas químicas
-\usepackage{multicol}					% Múltiples columnas
-\usepackage{lipsum}						% Permite crear textos dummy
-\usepackage{longtable}					% Permite utilizar tablas en varias hojas
-%\usepackage{listings}					% Permite añadir código fuente
-\usepackage{setspace}					% Cambia el espacio entre líneas
-\usepackage{subfig}						% Permite agrupar imágenes
-\usepackage{titlesec}					% Cambia el estilo de los títulos
-\usepackage{url}						% Permite añadir enlaces
-\usepackage{wrapfig}					% Permite comprimir imágenes
+\usepackage[ampersand]{easylist}	% Listas
+\usepackage{amsmath} 				% Fórmulas matemáticas
+\usepackage{amssymb} 				% Símbolos matemáticos
+%\usepackage{amsthm}				% Teoremas matemáticos
+\usepackage{caption}				% Leyendas
+\usepackage{color}					% Colores
+\usepackage{fancyhdr}				% Encabezados y pié de páginas
+\usepackage{float}					% Administrador de posiciones de objetos
+\usepackage{geometry}				% Dimensiones y geometría del documento
+\usepackage{graphicx}				% Propiedades extra para los gráficos
+\usepackage{hyperref}				% Permite añadir enlaces y referencias
+\usepackage[makeroom]{cancel}		% Cancelar términos en fórmulas
+%\usepackage[version=4]{mhchem}		% Fórmulas químicas
+\usepackage{multicol}				% Múltiples columnas
+\usepackage{lipsum}					% Permite crear textos dummy
+\usepackage{longtable}				% Permite utilizar tablas en varias hojas
+%\usepackage{listings}				% Permite añadir código fuente
+\usepackage{setspace}				% Cambia el espacio entre líneas
+\usepackage{subfig}					% Permite agrupar imágenes
+\usepackage{titlesec}				% Cambia el estilo de los títulos
+\usepackage{url}					% Permite añadir enlaces
+\usepackage{wrapfig}				% Permite comprimir imágenes
 
 % LIBRERÍAS DEPENDIENTES
-\usepackage{epstopdf}					% Convierte archivos .eps a pdf
-\usepackage{multirow}					% Añade nuevas opciones a las tablas
+\usepackage{epstopdf}				% Convierte archivos .eps a pdf
+\usepackage{multirow}				% Añade nuevas opciones a las tablas
 
 % DECLARACIÓN DE FUNCIONES
 \newcommand{\quotes}[1]{``#1''}		% Insertar cita
@@ -85,24 +88,16 @@
 \newcommand{\newparnl}[1]{#1 \par}		% Nuevo párrafo sin nueva linea al final
 \newcommand{\lpow}[2]{{#1}_{#2}}		% Insertar sub-índice
 \newcommand{\pow}[2]{{#1}^{#2}}			% Insertar elevado
-\newcommand{\insertauxiliar}[1]{& $ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $ #1 \\}		
-\newcommand{\insertayudante}[1]{& $ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $ #1 \\}
-\newcommand{\insertintegrante}[1]{& $ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $ #1 \\}
-\newcommand{\insertprofesor}[1]{& $ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $ #1 \\}
 \newcommand{\newtitleanum}[1]{			% Insertar un título sin número
 	\addcontentsline{toc}{section}{#1}
-	\hbadness=10000 \noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par
-}
+	\hbadness=10000 \noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par}
 \newcommand{\newsubtitleanum}[1]{		% Insertar un subtítulo sin número
 	\addcontentsline{toc}{subsection}{#1}
-	\hbadness=10000 \noindent \tipofuentesubtitulo #1 \\ \\ \normalsize \par
-}
+	\hbadness=10000 \noindent \tipofuentesubtitulo #1 \\ \\ \normalsize \par}
 \newcommand{\newtitleanumnoi}[1]{		% Insertar un título sin número sin salir en el índice
-	\noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par
-}
+	\noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par}
 \newcommand{\newsubtitleanumnoi}[1]{	% Insertar un subtítulo sin número sin salir en el índice
-	\noindent \tipofuentesubtitulo \textbf{#1} \\ \\ \normalsize \par
-}
+	\noindent \tipofuentesubtitulo \textbf{#1} \\ \\ \normalsize \par}
 \newcommand{\insertequation}[1]{ 			% Insertar una ecuación
 	\vspace{-0.1cm}
 	\begin{mycapequ}[H]
@@ -110,8 +105,7 @@
 		#1
 		\end{equation}
 	\end{mycapequ}
-	\vspace{-0.4cm}
-}
+	\vspace{-0.4cm}}
 \newcommand{\insertequationcaptioned}[2]{	% Insertar una ecuación con leyenda
 	\vspace{-0.2cm}
 	\begin{mycapequ}[H]
@@ -121,8 +115,7 @@
 		\vspace{-0.6cm}
 		\caption{#2}
 	\end{mycapequ}
-	\vspace{-0.25cm}
-}
+	\vspace{-0.25cm}}
 \newcommand{\insertimage}[3]{				% Insertar una imagen
 	\vspace{-0.3cm}
 	\begin{figure}[H]
@@ -130,8 +123,7 @@
 		\includegraphics[scale=#2]{#1}
 		\caption{#3}
 	\end{figure}
-	\vspace{-0.2cm}
-}
+	\vspace{-0.2cm}}
 \newcommand{\insertimageboxed}[3]{			% Insertar una imagen con recuadro
 	\vspace{-0.3cm}
 	\begin{figure}[H]
@@ -139,8 +131,7 @@
 		\fbox{\includegraphics[scale=#2]{#1}}
 		\caption{#3}
 	\end{figure}
-	\vspace{-0.2cm}
-}
+	\vspace{-0.2cm}}
 \newcommand{\insertdoubleimage}[7]{			% Insertar una imagen doble
 	\captionsetup{margin=0.5cm}
 	\vspace{-0.3cm}
@@ -152,8 +143,7 @@
 		\caption{#7}
 	\end{figure}
 	\vspace{-0.2cm}
-	\setcaptionmargincm{\defaultcaptionmargin}
-}
+	\setcaptionmargincm{\defaultcaptionmargin}}
 
 % DECLARACIÓN DE AMBIENTES
 \captionsetup[mycapequ]{labelformat=empty}
@@ -162,8 +152,7 @@
 	\begin{enumerate}
 		\setlength{\itemsep}{0pt}
 		\setlength{\parskip}{0pt}
-	\end{enumerate}
-}
+	\end{enumerate}}
 \makeatletter										% Bibliografía en 2 columnas
 \renewenvironment{thebibliography}[1]
 {\begin{multicols}{2}[\section*{\refname}]%
@@ -246,41 +235,49 @@
 \setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L] {\nombreUniversidad \\ \nombreFacultad \\ \departamentoUniversidad}
-\fancyhead[R]{\includegraphics[scale=\imagenDelDepartamentoEscala]{\imagenDelDepartamento}}
+\fancyhead[L] {\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
+\fancyhead[R]{\includegraphics[scale=\imagendeldepartamentoescala]{\imagendeldepartamento}}
 \vspace*{5cm}
 \begin{center}
-	\huge  {\nombreDelCurso}\\
+	\huge  {\nombredelcurso}\\
 	\vspace{1cm}
-	\Huge {\nombreDelInforme}\\
+	\Huge {\nombredelinforme}\\
 	\vspace{0.3cm}
-	\large {\temaATratar} \\
+	\large {\temaatratar} \\
 \end{center}
 \vfill
 
 % INTEGRANTES, PROFESORES Y FECHAS
-\begin{flushright}
-	\begin{tabular}{ll}
-		& Integrantes: INTEGRANTE 1 \\
-		\insertintegrante{INTEGRANTE 2}
-		\insertintegrante{INTEGRANTE 3}
-		& Profesores: PROFESOR 1  \\
-		\insertprofesor{PROFESOR 2}
-		\insertprofesor{PROFESOR 3}
-		& Auxiliares: AUXILIAR \\
-		\insertauxiliar{AUXILIAR 2}
-		\insertauxiliar{AUXILIAR 3}
-		& Ayudante de laboratorio: AYUDANTE \\
-		& Ayudantes: AYUDANTE 1\\
-		\insertayudante{AYUDANTE 2}
-		\insertayudante{AYUDANTE 3}
-		\insertayudante{AYUDANTE 4}
-		& \\
-		& Fecha realización: \today \\
-		& Fecha entrega: \today \\
-		& Santiago, Chile.
-	\end{tabular}
-\end{flushright}
+\begin{minipage}{0.965\textwidth}
+	\begin{flushright}
+		\begin{tabular}{ll}
+			Integrantes: 
+				& \begin{tabular}[t]{@{}l@{}}
+					Integrante 1 \\
+					Integrante 2 \\
+					Integrante 3
+				\end{tabular} \\
+			Profesores: 
+				& \begin{tabular}[t]{@{}l@{}}
+					Profesor 1 \\
+					Profesor 2 \\
+					Profesor 3
+				\end{tabular} \\
+			Ayudantes: 
+				& \begin{tabular}[t]{@{}l@{}}
+					Ayudante 1 \\
+					Ayudante 2 \\
+					Ayudante 3
+				\end{tabular}\\
+			\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante} \\
+			& \\
+			\multicolumn{2}{l}{Fecha de realización: \fecharealizacion} \\
+			\multicolumn{2}{l}{Fecha de entrega: \fechaentrega} \\
+			\multicolumn{2}{l}{\localizacionuniversidad}
+		\end{tabular}
+	\end{flushright}
+\end{minipage}
+
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \newpage
@@ -293,8 +290,8 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\small \rm \thepage}
-\fancyfoot[L]{\small \rm \textit{\nombreDelInforme}}
-\fancyfoot[R]{\small \rm \textit{\codigoDelCurso \ \nombreDelCurso}}
+\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}
+\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
