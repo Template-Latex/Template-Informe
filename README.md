@@ -23,12 +23,12 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
   - **die**: Departamento de Ingeniería Eléctrica.
   - **dii**: Departamnto de Ingeniería Industrial.
   - **dim**: Departamento de Ingeniería Matemática.
-  - **dimec**: Departamnto de Ingeniería Mecánica.
-  - **diqbt**: Departamnto de Ingeniería Química y Biotecnología.
+  - **dimec**: Departamento de Ingeniería Mecánica.
+  - **diqbt**: Departamento de Ingeniería Química y Biotecnología.
   - **fcfm**: Facultad de Ciencias Físicas y Matemáticas.
-  - **geo**: Departamento de geología.
+  - **geo**: Departamento de Geología.
   - **humanidades**: Área de Humanidades.
-  - **minas**: Departamnto de Ingeniería en Minas.
+  - **minas**: Departamento de Ingeniería en Minas.
 + **\imagendeldepartamentoescala**: Escala de la imagen a usar.
 + **\localizacionuniversidad**: Ciudad o región en donde se ubica la universidad / instituto.
 + **\nombredelcurso**: Curso - Ramo referido al informe.

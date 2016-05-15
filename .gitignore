@@ -13,3 +13,6 @@ images/departamentos/*-eps-converted-to.pdf
 
 # Releases
 releases/*
+
+# Windows files
+desktop.ini
