@@ -1,14 +1,14 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      1.8.9 (14/05/2016)
+% Versión:      1.8.9-2 (14/05/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
-% 		 Facultad de Ciencias Físicas y Matemáticas.
-% 		 Universidad de Chile.
+%        Facultad de Ciencias Físicas y Matemáticas.
+%        Universidad de Chile.
 %
 % Licencia: CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-% DEFINICIÓN DE CLASES
+% CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
 \documentclass[letterpaper,11pt]{article}	% Documento clase artículo
 \usepackage[utf8]{inputenc}					% Codificación UTF-8
 \usepackage[T1]{fontenc}					% Soporta caracteres acentuados
@@ -34,71 +34,71 @@
 
 %BEGIN_FOLD
 % CONFIGURACIONES
-\newcommand{\tipofuentetitulo}{\huge}				% Tamaño por defecto de los títulos
-\newcommand{\tipofuentesubtitulo}{\large}			% Tamaño por defecto de los subtítulos
-\newcommand{\tiporeferencias}{apa}					% Tipo de referencias
-\newcommand{\nombreltformulas}{Lista de Fórmulas}	% Nombre de la lista de fórmulas
-\newcommand{\nombrelttablas}{Lista de Tablas}		% Nombre de la lista de tablas
-\newcommand{\nombreltfiguras}{Lista de Figuras}		% Nombre de la lista de figuras
-\newcommand{\nombreltcontend}{Índice de Contenidos}	% Nombre del índice de contenidos
-\newcommand{\nombreltwtablas}{Tabla}				% Nombre de las tablas
-\newcommand{\nombreltwfigura}{Figura}				% Nombre de las figuras
-\newcommand{\defaultcaptionmargin}{3.0}				% Márgenes de las leyendas por defecto
-\newcommand{\defaultpagemarginleft}{1.5}			% Margen izquierdo de las páginas [cm]
-\newcommand{\defaultpagemarginright}{1.5}			% Margen derecho de las páginas [cm]
-\newcommand{\defaultpagemargintop}{2.15}			% Margen superior de las páginas [cm]
-\newcommand{\defaultpagemarginbottom}{2.0}			% Margen inferior de las páginas [cm]
-\newcommand{\defaultfirstpagemargintop}{3.2}		% Margen superior de la portada [cm]
+\newcommand{\tipofuentetitulo}{\huge}               % Tamaño por defecto de los títulos
+\newcommand{\tipofuentesubtitulo}{\large}           % Tamaño por defecto de los subtítulos
+\newcommand{\tiporeferencias}{apa}                  % Tipo de referencias
+\newcommand{\nombreltformulas}{Lista de Fórmulas}   % Nombre de la lista de fórmulas
+\newcommand{\nombrelttablas}{Lista de Tablas}       % Nombre de la lista de tablas
+\newcommand{\nombreltfiguras}{Lista de Figuras}     % Nombre de la lista de figuras
+\newcommand{\nombreltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
+\newcommand{\nombreltwtablas}{Tabla}                % Nombre de las tablas
+\newcommand{\nombreltwfigura}{Figura}               % Nombre de las figuras
+\newcommand{\defaultcaptionmargin}{3.0}             % Márgenes de las leyendas por defecto
+\newcommand{\defaultpagemarginleft}{1.5}            % Margen izquierdo de las páginas [cm]
+\newcommand{\defaultpagemarginright}{1.5}           % Margen derecho de las páginas [cm]
+\newcommand{\defaultpagemargintop}{2.15}            % Margen superior de las páginas [cm]
+\newcommand{\defaultpagemarginbottom}{2.0}          % Margen inferior de las páginas [cm]
+\newcommand{\defaultfirstpagemargintop}{3.2}        % Margen superior de la portada [cm]
 
 % LIBRERÍAS INDEPENDIENTES
-\usepackage[ampersand]{easylist}	% Listas
-\usepackage{amsmath} 				% Fórmulas matemáticas
-\usepackage{amssymb} 				% Símbolos matemáticos
-%\usepackage{amsthm}				% Teoremas matemáticos
-\usepackage{caption}				% Leyendas
-\usepackage{color}					% Colores
-\usepackage{fancyhdr}				% Encabezados y pié de páginas
-\usepackage{float}					% Administrador de posiciones de objetos
-\usepackage{geometry}				% Dimensiones y geometría del documento
-\usepackage{graphicx}				% Propiedades extra para los gráficos
-\usepackage[hidelinks]{hyperref}				% Permite añadir enlaces y referencias
-\usepackage[makeroom]{cancel}		% Cancelar términos en fórmulas
-%\usepackage[version=4]{mhchem}		% Fórmulas químicas
-\usepackage{multicol}				% Múltiples columnas
-\usepackage{lipsum}					% Permite crear textos dummy
-\usepackage{longtable}				% Permite utilizar tablas en varias hojas
-%\usepackage{listings}				% Permite añadir código fuente
-\usepackage{setspace}				% Cambia el espacio entre líneas
-\usepackage{subfig}					% Permite agrupar imágenes
-\usepackage{titlesec}				% Cambia el estilo de los títulos
-\usepackage{url}					% Permite añadir enlaces
-\usepackage{wrapfig}				% Permite comprimir imágenes
+\usepackage[ampersand]{easylist}    % Listas
+\usepackage{amsmath}                % Fórmulas matemáticas
+\usepackage{amssymb}                % Símbolos matemáticos
+%\usepackage{amsthm}                % Teoremas matemáticos
+\usepackage{caption}                % Leyendas
+\usepackage{color}                  % Colores
+\usepackage{fancyhdr}               % Encabezados y pié de páginas
+\usepackage{float}                  % Administrador de posiciones de objetos
+\usepackage{geometry}               % Dimensiones y geometría del documento
+\usepackage{graphicx}               % Propiedades extra para los gráficos
+\usepackage[hidelinks]{hyperref}    % Permite añadir enlaces y referencias
+\usepackage[makeroom]{cancel}       % Cancelar términos en fórmulas
+%\usepackage[version=4]{mhchem}     % Fórmulas químicas
+\usepackage{multicol}               % Múltiples columnas
+\usepackage{lipsum}                 % Permite crear textos dummy
+\usepackage{longtable}              % Permite utilizar tablas en varias hojas
+%\usepackage{listings}              % Permite añadir código fuente
+\usepackage{setspace}               % Cambia el espacio entre líneas
+\usepackage{subfig}                 % Permite agrupar imágenes
+\usepackage{titlesec}               % Cambia el estilo de los títulos
+\usepackage{url}                    % Permite añadir enlaces
+\usepackage{wrapfig}                % Permite comprimir imágenes
 
 % LIBRERÍAS DEPENDIENTES
-\usepackage{epstopdf}				% Convierte archivos .eps a pdf
-\usepackage{multirow}				% Añade nuevas opciones a las tablas
+\usepackage{epstopdf}               % Convierte archivos .eps a pdf
+\usepackage{multirow}               % Añade nuevas opciones a las tablas
 
 % DECLARACIÓN DE FUNCIONES
-\newcommand{\quotes}[1]{``#1''}		% Insertar cita
-\newcommand{\quotesit}[1]{\textit{\quotes{#1}}}		% Insertar cita itálica
-\newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}}		% Cambiar el margen
-\newcommand{\setpagemargincm}[4]{	% Cambia márgenes de las páginas en centímetros	
+\newcommand{\quotes}[1]{``#1''} % Insertar cita
+\newcommand{\quotesit}[1]{\textit{\quotes{#1}}} % Insertar cita itálica
+\newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}} % Cambiar el margen
+\newcommand{\setpagemargincm}[4]{ % Cambia márgenes de las páginas en centímetros	
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
-\newcommand{\newpar}[1]{\hbadness=10000 #1 ~\newline \par}			% Nuevo párrafo
-\newcommand{\newparnl}[1]{#1 \par}		% Nuevo párrafo sin nueva linea al final
-\newcommand{\lpow}[2]{{#1}_{#2}}		% Insertar sub-índice
-\newcommand{\pow}[2]{{#1}^{#2}}			% Insertar elevado
-\newcommand{\newtitleanum}[1]{			% Insertar un título sin número
+\newcommand{\newpar}[1]{\hbadness=10000 #1 ~\newline \par} % Nuevo párrafo
+\newcommand{\newparnl}[1]{#1 \par}      % Nuevo párrafo sin nueva linea al final
+\newcommand{\lpow}[2]{{#1}_{#2}}        % Insertar sub-índice
+\newcommand{\pow}[2]{{#1}^{#2}}         % Insertar elevado
+\newcommand{\newtitleanum}[1]{          % Insertar un título sin número
 	\addcontentsline{toc}{section}{#1}
 	\hbadness=10000 \noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par}
-\newcommand{\newsubtitleanum}[1]{		% Insertar un subtítulo sin número
+\newcommand{\newsubtitleanum}[1]{       % Insertar un subtítulo sin número
 	\addcontentsline{toc}{subsection}{#1}
 	\hbadness=10000 \noindent \tipofuentesubtitulo #1 \\ \\ \normalsize \par}
-\newcommand{\newtitleanumnoi}[1]{		% Insertar un título sin número sin salir en el índice
+\newcommand{\newtitleanumnoi}[1]{       % Insertar un título sin número sin salir en el índice
 	\noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par}
-\newcommand{\newsubtitleanumnoi}[1]{	% Insertar un subtítulo sin número sin salir en el índice
+\newcommand{\newsubtitleanumnoi}[1]{    % Insertar un subtítulo sin número sin salir en el índice
 	\noindent \tipofuentesubtitulo \textbf{#1} \\ \\ \normalsize \par}
-\newcommand{\insertequation}[1]{ 			% Insertar una ecuación
+\newcommand{\insertequation}[1]{        % Insertar una ecuación
 	\vspace{-0.1cm}
 	\begin{mycapequ}[H]
 		\begin{equation}
@@ -106,7 +106,7 @@
 		\end{equation}
 	\end{mycapequ}
 	\vspace{-0.4cm}}
-\newcommand{\insertequationcaptioned}[2]{	% Insertar una ecuación con leyenda
+\newcommand{\insertequationcaptioned}[2]{   % Insertar una ecuación con leyenda
 	\vspace{-0.2cm}
 	\begin{mycapequ}[H]
 		\begin{equation}
@@ -116,7 +116,7 @@
 		\caption{#2}
 	\end{mycapequ}
 	\vspace{-0.25cm}}
-\newcommand{\insertimage}[3]{				% Insertar una imagen
+\newcommand{\insertimage}[3]{               % Insertar una imagen
 	\vspace{-0.3cm}
 	\begin{figure}[H]
 		\centering
@@ -124,7 +124,7 @@
 		\caption{#3}
 	\end{figure}
 	\vspace{-0.2cm}}
-\newcommand{\insertimageboxed}[3]{			% Insertar una imagen con recuadro
+\newcommand{\insertimageboxed}[3]{          % Insertar una imagen con recuadro
 	\vspace{-0.3cm}
 	\begin{figure}[H]
 		\centering
@@ -132,7 +132,7 @@
 		\caption{#3}
 	\end{figure}
 	\vspace{-0.2cm}}
-\newcommand{\insertdoubleimage}[7]{			% Insertar una imagen doble
+\newcommand{\insertdoubleimage}[7]{         % Insertar una imagen doble
 	\captionsetup{margin=0.5cm}
 	\vspace{-0.3cm}
 	\begin{figure}[H] \centering
@@ -147,14 +147,14 @@
 
 % DECLARACIÓN DE AMBIENTES
 \captionsetup[mycapequ]{labelformat=empty}
-\DeclareCaptionType{mycapequ}[][\nombreltformulas]	% Nombre del índice de fórmulas
-\newenvironment{enumeratenosep}{					% Enumerate sin separación
+\DeclareCaptionType{mycapequ}[][\nombreltformulas]  % Nombre del índice de fórmulas
+\newenvironment{enumeratenosep}{                    % Enumerate sin separación
 	\begin{enumerate}
 		\setlength{\itemsep}{0pt}
 		\setlength{\parskip}{0pt}
 	\end{enumerate}}
-\makeatletter										% Bibliografía en 2 columnas
-\renewenvironment{thebibliography}[1]
+\makeatletter
+\renewenvironment{thebibliography}[1] % Bibliografía en 2 columnas
 {\begin{multicols}{2}[\section*{\refname}]%
 		\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
 		\list{\@biblabel{\@arabic\c@enumiv}}%
@@ -177,10 +177,10 @@
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
 \setlength{\headheight}{54pt}
-\bibliographystyle{\tiporeferencias}						% Estilo APA para las referencias
-\setcaptionmargincm{\defaultcaptionmargin}					% Margen por defecto
-%\captionsetup[table]{font={stretch=0.2}}					% Fuente de las tablas
-\ListProperties(											% Propiedades de las listas
+\bibliographystyle{\tiporeferencias}        % Estilo APA para las referencias
+\setcaptionmargincm{\defaultcaptionmargin}  % Margen por defecto
+%\captionsetup[table]{font={stretch=0.2}}   % Fuente de las tablas
+\ListProperties(                            % Propiedades de las listas
 	Hide=100,
 	Hang=true,
 	Progressive=3ex,
@@ -276,27 +276,26 @@
 	\end{flushright}
 \end{minipage}
 
-
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \newpage
 \setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}
-\renewcommand{\listfigurename}{\nombreltfiguras}	% Nombre del índice de figuras
-\renewcommand{\listtablename}{\nombrelttablas}		% Nombre del índice de tablas
-\renewcommand{\contentsname}{\nombreltcontend}		% Nombre del índice
-\renewcommand{\tablename}{\nombreltwtablas} 		% Nombre de la leyenda de las tablas
-\renewcommand{\figurename}{\nombreltwfigura}		% Nombre de la leyenda de las figuras
+\renewcommand{\listfigurename}{\nombreltfiguras}    % Nombre del índice de figuras
+\renewcommand{\listtablename}{\nombrelttablas}      % Nombre del índice de tablas
+\renewcommand{\contentsname}{\nombreltcontend}      % Nombre del índice
+\renewcommand{\tablename}{\nombreltwtablas}         % Nombre de la leyenda de las tablas
+\renewcommand{\figurename}{\nombreltwfigura}        % Nombre de la leyenda de las figuras
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\small \rm \thepage}
 \fancyfoot[L]{\small \rm \textit{\nombredelinforme}}
 \fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0.5pt}
+\renewcommand{\headrulewidth}{0.5pt} % Ancho de la barra del header
+\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 
 % PREÁMBULO DEL DOCUMENTO
-\setcounter{page}{1} 	% Nueva indización
-\renewcommand{\thepage}{\roman{page}} 	% Se establece la numeración del tipo romano
+\setcounter{page}{1} % Nueva indización
+\renewcommand{\thepage}{\roman{page}} % Se establece la numeración del tipo romano
 
 % ABSTRACT
 \newtitleanum{Abstract}
@@ -304,16 +303,16 @@
 
 % TABLA DE CONTENIDOS
 \newpage
-\tableofcontents 		% Tabla de contenidos
-\listoffigures 			% Índice de figuras
-\listoftables 			% Índice de tablas
-\listofmycapequs 		% Índice de fórmulas
+\tableofcontents        % Tabla de contenidos
+\listoffigures          % Índice de figuras
+\listoftables           % Índice de tablas
+\listofmycapequs        % Índice de fórmulas
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
-\fancyhead[L]{\small \rm \textit{\rightmark}}				% Configuración del header
-\titleformat*{\section}{\tipofuentetitulo\bfseries}			% Tamaño de los títulos
-\titleformat*{\subsection}{\tipofuentesubtitulo\bfseries}	% Tamaño de los títulos
+\fancyhead[L]{\small \rm \textit{\rightmark}}               % Configuración del header
+\titleformat*{\section}{\tipofuentetitulo\bfseries}         % Tamaño de los títulos
+\titleformat*{\subsection}{\tipofuentesubtitulo\bfseries}   % Tamaño de los títulos
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
 %END_FOLD
@@ -323,6 +322,7 @@
 
 	% SUB-SECCIÓN
 	\subsection{Una breve introducción}
+	
 		\lipsum[1]
 		
 		\insertequation{\pow{a}{k}=\pow{b}{k}+\pow{c}{k}, \forall k>2}
@@ -335,8 +335,8 @@
 		
 	% SUB-SECCIÓN
 	\subsection{Tablas!}
-		
-		\newparnl{También puedes usar tablas, insertarlas es muy fácil, puedes usar directamente el \quotes{conversor de tablas} \textsuperscript{\cite{conversortabla}}, ahí puedes convertir en un solo clic tablas excel, o crearlas tú mismo sin tener que hacer todo el aburridísimo código.}
+
+		\newparnl{También puedes usar tablas, insertarlas es muy fácil, puedes usar directamente el \quotes{conversor de tablas} \textsuperscript{\cite{conversortabla}}, ahí puedes convertir en un solo clic tablas Excel, o crearlas tú mismo sin tener que hacer todo el aburridísimo código.}
 		
 		\begin{longtable}{ccc}
 			\caption{Esta es una tabla que se \quotes{corta} en varias páginas si es que le falta espacio, útil para cuando tienes que pegar tablas con más de 60 o 1000? filas.}\label{foo}\\
@@ -384,7 +384,6 @@
 			\end{tabular}
 		\end{table}
 		
-	
 	% SUB-SECCIÓN
 	\subsection{Relleno}
 		
