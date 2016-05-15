@@ -9,7 +9,7 @@
 % Licencia: CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 % CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
-\documentclass[letterpaper,11pt]{article}   % Documento clase artículo
+\documentclass[letterpaper,11pt]{article}   % Documento clase artículo, tamaño letra 11pt
 \usepackage[utf8]{inputenc}                 % Codificación UTF-8
 \usepackage[T1]{fontenc}                    % Soporta caracteres acentuados
 \usepackage{lmodern}                        % Tipografía moderna
@@ -79,26 +79,26 @@
 \usepackage{multirow}               % Añade nuevas opciones a las tablas
 
 % DECLARACIÓN DE FUNCIONES
-\newcommand{\quotes}[1]{``#1''} % Insertar cita
+\newcommand{\quotes}[1]{``#1''}             % Insertar cita
 \newcommand{\quotesit}[1]{\textit{\quotes{#1}}} % Insertar cita itálica
 \newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}} % Cambiar el margen
-\newcommand{\setpagemargincm}[4]{ % Cambia márgenes de las páginas en centímetros	
+\newcommand{\setpagemargincm}[4]{           % Cambia márgenes de las páginas en centímetros	
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
 \newcommand{\newpar}[1]{\hbadness=10000 #1 ~\newline \par} % Nuevo párrafo
-\newcommand{\newparnl}[1]{#1 \par}      % Nuevo párrafo sin nueva linea al final
-\newcommand{\lpow}[2]{{#1}_{#2}}        % Insertar sub-índice
-\newcommand{\pow}[2]{{#1}^{#2}}         % Insertar elevado
-\newcommand{\newtitleanum}[1]{          % Insertar un título sin número
+\newcommand{\newparnl}[1]{#1 \par}          % Nuevo párrafo sin nueva linea al final
+\newcommand{\lpow}[2]{{#1}_{#2}}            % Insertar sub-índice
+\newcommand{\pow}[2]{{#1}^{#2}}             % Insertar elevado
+\newcommand{\newtitleanum}[1]{              % Insertar un título sin número
 	\addcontentsline{toc}{section}{#1}
 	\hbadness=10000 \noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par}
-\newcommand{\newsubtitleanum}[1]{       % Insertar un subtítulo sin número
+\newcommand{\newsubtitleanum}[1]{           % Insertar un subtítulo sin número
 	\addcontentsline{toc}{subsection}{#1}
 	\hbadness=10000 \noindent \tipofuentesubtitulo #1 \\ \\ \normalsize \par}
-\newcommand{\newtitleanumnoi}[1]{       % Insertar un título sin número sin salir en el índice
+\newcommand{\newtitleanumnoi}[1]{           % Insertar un título sin número sin salir en el índice
 	\noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par}
-\newcommand{\newsubtitleanumnoi}[1]{    % Insertar un subtítulo sin número sin salir en el índice
+\newcommand{\newsubtitleanumnoi}[1]{        % Insertar un subtítulo sin número sin salir en el índice
 	\noindent \tipofuentesubtitulo \textbf{#1} \\ \\ \normalsize \par}
-\newcommand{\insertequation}[1]{        % Insertar una ecuación
+\newcommand{\insertequation}[1]{            % Insertar una ecuación
 	\vspace{-0.1cm}
 	\begin{mycapequ}[H]
 		\begin{equation}
@@ -146,7 +146,7 @@
 	\setcaptionmargincm{\defaultcaptionmargin}}
 
 % DECLARACIÓN DE AMBIENTES
-\captionsetup[mycapequ]{labelformat=empty}
+\captionsetup[mycapequ]{labelformat=empty}          % Leyenda para fórmulas
 \DeclareCaptionType{mycapequ}[][\nombreltformulas]  % Nombre del índice de fórmulas
 \newenvironment{enumeratenosep}{                    % Enumerate sin separación
 	\begin{enumerate}
@@ -230,16 +230,17 @@
 %BEGIN_FOLD
 % PORTADA
 \newpage
-\setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}
+\setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}
+{\defaultpagemarginright}{\defaultpagemarginbottom}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L] {\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
 \fancyhead[R]{\includegraphics[scale=\imagendeldepartamentoescala]{\imagendeldepartamento}}
 \vspace*{5cm}
 \begin{center}
-	\huge  {\nombredelcurso}\\
+	\huge  {\nombredelcurso} \\
 	\vspace{1cm}
-	\Huge {\nombredelinforme}\\
+	\Huge {\nombredelinforme} \\
 	\vspace{0.3cm}
 	\large {\temaatratar} \\
 \end{center}
@@ -278,7 +279,8 @@
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \newpage
-\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}
+\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}
+{\defaultpagemarginright}{\defaultpagemarginbottom}
 \renewcommand{\listfigurename}{\nombreltfiguras}    % Nombre del índice de figuras
 \renewcommand{\listtablename}{\nombrelttablas}      % Nombre del índice de tablas
 \renewcommand{\contentsname}{\nombreltcontend}      % Nombre del índice
@@ -290,11 +292,11 @@
 \fancyfoot[L]{\small \rm \textit{\nombredelinforme}}
 \fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
-\renewcommand{\headrulewidth}{0.5pt} % Ancho de la barra del header
-\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
+\renewcommand{\headrulewidth}{0.5pt}                % Ancho de la barra del header
+\renewcommand{\footrulewidth}{0.5pt}                % Ancho de la barra del footer
 
 % PREÁMBULO DEL DOCUMENTO
-\setcounter{page}{1} % Nueva indización
+\setcounter{page}{1}                  % Nueva indización
 \renewcommand{\thepage}{\roman{page}} % Se establece la numeración del tipo romano
 
 % ABSTRACT
