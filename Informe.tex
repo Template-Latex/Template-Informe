@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      1.9.0 (14/05/2016)
+% Versión:      1.9.0-1 (16/05/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -34,8 +34,10 @@
 
 %BEGIN_FOLD
 % CONFIGURACIONES
-\newcommand{\tipofuentetitulo}{\huge}               % Tamaño por defecto de los títulos
-\newcommand{\tipofuentesubtitulo}{\large}           % Tamaño por defecto de los subtítulos
+\newcommand{\tipofuentetitulo}{\huge}               % Tamaño de los títulos
+\newcommand{\tipofuentesubtitulo}{\large}           % Tamaño de los subtítulos
+\newcommand{\tipofuentetituloi}{\Large}             % Tamaño de los títulos en el índice
+\newcommand{\tipofuentesubtituloi}{\large}          % Tamaño de los subtítulos en el índice
 \newcommand{\tiporeferencias}{apa}                  % Tipo de referencias
 \newcommand{\nombreltformulas}{Lista de Fórmulas}   % Nombre de la lista de fórmulas
 \newcommand{\nombrelttablas}{Lista de Tablas}       % Nombre de la lista de tablas
@@ -305,6 +307,8 @@
 
 % TABLA DE CONTENIDOS
 \newpage
+\titleformat*{\section}{\tipofuentetituloi \bfseries}         % Tamaño de los títulos
+\titleformat*{\subsection}{\tipofuentesubtituloi \bfseries}   % Tamaño de los títulos
 \tableofcontents        % Tabla de contenidos
 \listoffigures          % Índice de figuras
 \listoftables           % Índice de tablas
@@ -313,8 +317,8 @@
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
 \fancyhead[L]{\small \rm \textit{\rightmark}}               % Configuración del header
-\titleformat*{\section}{\tipofuentetitulo\bfseries}         % Tamaño de los títulos
-\titleformat*{\subsection}{\tipofuentesubtitulo\bfseries}   % Tamaño de los títulos
+\titleformat*{\section}{\tipofuentetitulo \bfseries}         % Tamaño de los títulos
+\titleformat*{\subsection}{\tipofuentesubtitulo \bfseries}   % Tamaño de los títulos
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
 %END_FOLD

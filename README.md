@@ -38,6 +38,8 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
 También se pueden modificar los márgenes de los títulos de tablas y figuras _(caption)_, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de *%INFORMACIÓN DEL DOCUMENTO*, entre las cuales se encuentran:
 + **\tipofuentetitulo**: Tamaño por defecto de los títulos.
 + **\tipofuentesubtitulo**: Tamaño por defecto de los subtítulos.
++ **\tipofuentetituloi**: Tamaño por defecto de los títulos en el índice.
++ **\tipofuentesubtituloi**: Tamaño por defecto de los subtítulos en el índice.
 + **\tiporeferencias**: Tipo de referencias, por defecto se usa la norma APA.
 + **\nombreltformulas**: Nombre de la lista de fórmulas.
 + **\nombrelttablas**: Nombre de la lista de tablas.
