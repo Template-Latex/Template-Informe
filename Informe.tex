@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      1.9.1 (17/05/2016)
+% Versión:      1.9.2 (17/05/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -9,11 +9,11 @@
 % Licencia: CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 % CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
-\documentclass[letterpaper,11pt]{article}   % Documento clase artículo, tamaño letra 11pt
-\usepackage[utf8]{inputenc}                 % Codificación UTF-8
-\usepackage[T1]{fontenc}                    % Soporta caracteres acentuados
-\usepackage{lmodern}                        % Tipografía moderna
-\usepackage[spanish]{babel}                 % Define el idioma del documento en español
+\documentclass[letterpaper,11pt]{article} % Documento clase artículo, tamaño letra 11pt
+\usepackage[utf8]{inputenc}                           % Codificación UTF-8
+\usepackage[T1]{fontenc}                              % Soporta caracteres acentuados
+\usepackage{lmodern}                                  % Tipografía moderna
+\usepackage[spanish]{babel}                           % Define el idioma del documento en español
 \makeatletter
 
 % INFORMACIÓN DEL DOCUMENTO
@@ -34,25 +34,27 @@
 
 %BEGIN_FOLD
 % CONFIGURACIONES
-\newcommand{\defaultimagefolder}{images/}           % Directorio de las imágenes 
-\newcommand{\tipofuentetitulo}{\huge}               % Tamaño de los títulos
-\newcommand{\tipofuentesubtitulo}{\large}           % Tamaño de los subtítulos
-\newcommand{\tipofuentetituloi}{\Large}             % Tamaño de los títulos en el índice
-\newcommand{\tipofuentesubtituloi}{\large}          % Tamaño de los subtítulos en el índice
-\newcommand{\tiporeferencias}{apa}                  % Tipo de referencias
-\newcommand{\nombreltformulas}{Lista de Fórmulas}   % Nombre de la lista de fórmulas
-\newcommand{\nombrelttablas}{Lista de Tablas}       % Nombre de la lista de tablas
-\newcommand{\nombreltfiguras}{Lista de Figuras}     % Nombre de la lista de figuras
-\newcommand{\nombreltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
-\newcommand{\nombreltwtablas}{Tabla}                % Nombre de las tablas
-\newcommand{\nombreltwfigura}{Figura}               % Nombre de las figuras
-\newcommand{\defaultcaptionmargin}{3.0}             % Márgenes de las leyendas por defecto
-\newcommand{\defaultpagemarginleft}{1.5}            % Margen izquierdo de las páginas [cm]
-\newcommand{\defaultpagemarginright}{1.5}           % Margen derecho de las páginas [cm]
-\newcommand{\defaultpagemargintop}{2.15}            % Margen superior de las páginas [cm]
-\newcommand{\defaultpagemarginbottom}{2.0}          % Margen inferior de las páginas [cm]
-\newcommand{\defaultfirstpagemargintop}{3.2}        % Margen superior de la portada [cm]
-\newcommand{\defaultmarginfloatimages}{-13pt}       % Margen sup.de las figuras flotantes [pt]
+\newcommand{\defaultfontsize}{11pt}                   % Tamaño de la fuente
+\newcommand{\defaultnewlinesize}{11pt}                % Tamaño del salto de línea
+\newcommand{\defaultimagefolder}{images/}             % Directorio de las imágenes 
+\newcommand{\tipofuentetitulo}{\huge}                 % Tamaño de los títulos
+\newcommand{\tipofuentesubtitulo}{\large}             % Tamaño de los subtítulos
+\newcommand{\tipofuentetituloi}{\Large}               % Tamaño de los títulos en el índice
+\newcommand{\tipofuentesubtituloi}{\large}            % Tamaño de los subtítulos en el índice
+\newcommand{\tiporeferencias}{apa}                    % Tipo de referencias
+\newcommand{\nombreltformulas}{Lista de Fórmulas}     % Nombre de la lista de fórmulas
+\newcommand{\nombrelttablas}{Lista de Tablas}         % Nombre de la lista de tablas
+\newcommand{\nombreltfiguras}{Lista de Figuras}       % Nombre de la lista de figuras
+\newcommand{\nombreltcontend}{Índice de Contenidos}   % Nombre del índice de contenidos
+\newcommand{\nombreltwtablas}{Tabla}                  % Nombre de las tablas
+\newcommand{\nombreltwfigura}{Figura}                 % Nombre de las figuras
+\newcommand{\defaultcaptionmargin}{3.0}               % Márgenes de las leyendas por defecto
+\newcommand{\defaultpagemarginleft}{1.5}              % Margen izquierdo de las páginas [cm]
+\newcommand{\defaultpagemarginright}{1.5}             % Margen derecho de las páginas [cm]
+\newcommand{\defaultpagemargintop}{2.15}              % Margen superior de las páginas [cm]
+\newcommand{\defaultpagemarginbottom}{2.0}            % Margen inferior de las páginas [cm]
+\newcommand{\defaultfirstpagemargintop}{3.2}          % Margen superior de la portada [cm]
+\newcommand{\defaultmarginfloatimages}{-13pt}         % Margen sup.de las figuras flotantes [pt]
 
 % LIBRERÍAS INDEPENDIENTES
 \usepackage[ampersand]{easylist}    % Listas
@@ -80,28 +82,28 @@
 
 % LIBRERÍAS DEPENDIENTES
 \usepackage{epstopdf}               % Convierte archivos .eps a pdf
-\usepackage{multirow}               % Añade nuevas opciones a las tablas
+\usepackage{multirow}               % Agrega nuevas opciones a las tablas
 
 % DECLARACIÓN DE FUNCIONES
-\newcommand{\quotes}[1]{``#1''}             % Insertar cita
+\newcommand{\quotes}[1]{``#1''} % Insertar cita
 \newcommand{\quotesit}[1]{\textit{\quotes{#1}}} % Insertar cita itálica
 \newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}} % Cambiar el margen
-\newcommand{\setpagemargincm}[4]{           % Cambia márgenes de las páginas en centímetros	
+\newcommand{\setpagemargincm}[4]{ % Cambia márgenes de las páginas en centímetros	
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
-\newcommand{\newpar}[1]{\hbadness=10000 #1 ~\newline \par} % Nuevo párrafo
+\newcommand{\newpar}[1]{\hbadness=10000 #1 \vspace{\defaultnewlinesize} \par} % Nuevo párrafo
 \newcommand{\newparnl}[1]{#1 \par}          % Nuevo párrafo sin nueva linea al final
 \newcommand{\lpow}[2]{{#1}_{#2}}            % Insertar sub-índice
 \newcommand{\pow}[2]{{#1}^{#2}}             % Insertar elevado
 \newcommand{\newtitleanum}[1]{              % Insertar un título sin número
 	\addcontentsline{toc}{section}{#1}
-	\hbadness=10000 \noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par}
+	\hbadness=10000 \noindent \tipofuentetitulo \textbf{#1} \vspace{\defaultnewlinesize} \vspace{\defaultnewlinesize} \normalsize \par}
 \newcommand{\newsubtitleanum}[1]{           % Insertar un subtítulo sin número
 	\addcontentsline{toc}{subsection}{#1}
-	\hbadness=10000 \noindent \tipofuentesubtitulo #1 \\ \\ \normalsize \par}
+	\hbadness=10000 \noindent \tipofuentesubtitulo #1 \vspace{\defaultnewlinesize} \vspace{\defaultnewlinesize} \normalsize \par}
 \newcommand{\newtitleanumnoi}[1]{           % Insertar un título sin número sin salir en el índice
-	\noindent \tipofuentetitulo \textbf{#1} \\ \\ \normalsize \par}
+	\noindent \tipofuentetitulo \textbf{#1} \vspace{\defaultnewlinesize} \vspace{\defaultnewlinesize} \normalsize \par}
 \newcommand{\newsubtitleanumnoi}[1]{        % Insertar un subtítulo sin número sin salir en el índice
-	\noindent \tipofuentesubtitulo \textbf{#1} \\ \\ \normalsize \par}
+	\noindent \tipofuentesubtitulo \textbf{#1} \vspace{\defaultnewlinesize} \vspace{\defaultnewlinesize} \normalsize \par}
 \newcommand{\insertequation}[1]{            % Insertar una ecuación
 	\vspace{-0.1cm}
 	\begin{mycapequ}[H]
@@ -338,7 +340,7 @@
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
-\fancyhead[L]{\small \rm \textit{\rightmark}}               % Configuración del header
+\fancyhead[L]{\small \nouppercase\ \rm \textit{\rightmark}}               % Configuración del header
 \titleformat*{\section}{\tipofuentetitulo \bfseries}         % Tamaño de los títulos
 \titleformat*{\subsection}{\tipofuentesubtitulo \bfseries}   % Tamaño de los títulos
 \renewcommand{\thepage}{\arabic{page}}
@@ -415,13 +417,14 @@
 	% SUB-SECCIÓN
 	\subsection{Relleno}
 	
-		\insertimageleft{test-image-wrap}{0.24}{Apolo}{16}
+		\insertimageleft{test-image-wrap}{0.22}{Apolo}{14}
 		
 		\insertequationcaptioned{\int_{a}^{b} f(x) dx = \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
 		
 		\newpar{Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos, con preguntas de respuestas abiertas (donde el estudiante responde libremente) o preguntas de respuestas múltiples (el estudiante debe seleccionar la respuesta correcta de un listado).}
 		
 		\lipsum[12]
+		\newpage
 
 % REFERENCIAS
 \begin{thebibliography}{99}
