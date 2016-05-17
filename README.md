@@ -56,6 +56,8 @@ También se pueden modificar los márgenes de los títulos de tablas y figuras _
 + **\defaultpagemarginbottom**: Margen inferior de las páginas en centímetros.
 + **\defaultfirstpagemargintop**: Margen superior de la portada en centímetros.
 + **\defaultmarginfloatimages**: Margen superior de las figuras flotantes en pt.
++ **\defaultmargintopimages**: Margen superior de las figuras en centímetros.
++ **\defaultmarginbottomimages**: Margen inferior de las figuras en centímetros.
 
 ## Añadiendo librerías
 Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRERÍAS DEPENDIENTES*, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación de otras, o que su importación no genera algún error. Las librerías utilizadas son:

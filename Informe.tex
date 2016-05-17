@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      1.9.3 (17/05/2016)
+% Versión:      1.9.4 (17/05/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -55,6 +55,8 @@
 \newcommand{\defaultpagemarginbottom}{2.0}            % Margen inferior de las páginas [cm]
 \newcommand{\defaultfirstpagemargintop}{3.2}          % Margen superior de la portada [cm]
 \newcommand{\defaultmarginfloatimages}{-13pt}         % Margen sup. de las figuras flotantes [pt]
+\newcommand{\defaultmargintopimages}{-0.2cm}          % Margen sup. de las figuras [cm]
+\newcommand{\defaultmarginbottomimages}{-0.2cm}       % Margen inf. de las figuras [cm]
 
 % LIBRERÍAS INDEPENDIENTES
 \usepackage[ampersand]{easylist}               % Listas
@@ -76,7 +78,6 @@
 \usepackage{longtable}                         % Permite utilizar tablas en varias hojas
 \usepackage{listings}\include{lib/sourcecolor} % Permite añadir código fuente
 \usepackage{setspace}                          % Cambia el espacio entre líneas
-\usepackage{stringstrings}                     % Manejo de strings
 \usepackage{subfig}                            % Permite agrupar imágenes
 \usepackage{titlesec}                          % Cambia el estilo de los títulos
 \usepackage{url}                               % Permite añadir enlaces
@@ -127,24 +128,24 @@
 	\end{mycapequ}
 	\vspace{-0.4cm}}
 \newcommand{\insertimage}[3]{                  % Insertar una imagen
-	\vspace{-0.3cm}
+	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=#2]{\defaultimagefolder#1}
 		\caption{#3}
 	\end{figure}
-	\vspace{-0.2cm}}
+	\vspace{\defaultmarginbottomimages}}
 \newcommand{\insertimageboxed}[3]{             % Insertar una imagen con recuadro
-	\vspace{-0.3cm}
+	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
 		\fbox{\includegraphics[scale=#2]{\defaultimagefolder#1}}
 		\caption{#3}
 	\end{figure}
-	\vspace{-0.2cm}}
+	\vspace{\defaultmarginbottomimages}}
 \newcommand{\insertdoubleimage}[7]{            % Insertar una imagen doble
 	\captionsetup{margin=0.5cm}
-	\vspace{-0.3cm}
+	\vspace{\defaultmargintopimages}
 	\begin{figure}[H] \centering
 		\subfloat[#3]{
 			\includegraphics[scale=#2]{\defaultimagefolder#1}}
@@ -152,7 +153,7 @@
 			\includegraphics[scale=#5]{\defaultimagefolder#4}}
 		\caption{#7}
 	\end{figure}
-	\vspace{-0.2cm}
+	\vspace{\defaultmarginbottomimages}
 	\setcaptionmargincm{\defaultcaptionmargin}}
 \newcommand{\insertimageleft}[4]{              % Insertar una imagen a la izquierda
 	\begin{wrapfigure}[#4]{l}{#2\textwidth}
