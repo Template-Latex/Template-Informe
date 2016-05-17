@@ -36,6 +36,8 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
 
 ## Configurando otros elementos del documento
 También se pueden modificar los márgenes de los títulos de tablas y figuras _(caption)_, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de *%INFORMACIÓN DEL DOCUMENTO*, entre las cuales se encuentran:
++ **\defaultimagefolder**: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
++ **\tipofuentetitulo**: Tamaño por defecto de los títulos.
 + **\tipofuentetitulo**: Tamaño por defecto de los títulos.
 + **\tipofuentesubtitulo**: Tamaño por defecto de los subtítulos.
 + **\tipofuentetituloi**: Tamaño por defecto de los títulos en el índice.
@@ -53,6 +55,7 @@ También se pueden modificar los márgenes de los títulos de tablas y figuras _
 + **\defaultpagemargintop**: Margen superior de las páginas en centímetros.
 + **\defaultpagemarginbottom**: Margen inferior de las páginas en centímetros.
 + **\defaultfirstpagemargintop**: Margen superior de la portada en centímetros.
++ **\defaultmarginfloatimages**: Margen superior de las figuras flotantes en pt.
 
 ## Añadiendo librerías
 Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRERÍAS DEPENDIENTES*, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación de otras, o que su importación no genera algún error. Las librerías utilizadas son:
@@ -91,10 +94,12 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
   - **\newparnl**{*Párrafo*}: Inserta un nuevo párrafo sin un salto de linea al terminar.
   - **\quotes**{*Texto*}: Función simplificada para insertar "citas" sin lidiar con carácteres.
   - **\quotesit**{*Texto*}: Función simplificada para insertar _"citas en itálico"_ sin lidiar con carácteres.
-+ **Añadir una imagen**: Existen tres funciones para añadir imágenes, _\insertimage_, _\insertimageboxed_ y _\insertdoubleimage_, las cuales en escencia requieren de la ubicación de la imagen, su escala y su correspondiente título (caption, o leyenda), la syntax para cada una de ellas es:
-  - **\insertimage**{*Dirección de la imagen*}{*Escala*}{*Leyenda*}: Inserta una simple imagen.
-  - **\insertimageboxed**{*Dirección de la imagen*}{*Escala*}{*Leyenda*}: Inserta una imagen recuadrada.
-  - **\insertdoubleimage**{*Dirección de la imagen 1*}{*Escala 1*}{*Leyenda 1*}{*Dirección de la imagen 2*}{*Escala 2*}{*Leyenda 2*}{*Leyenda general*}: Inserta dos imagenes en un sólo elemento.
++ **Añadir una imagen**: Existen tres funciones para añadir imágenes, _\insertimage_, _\insertimageboxed_ y _\insertdoubleimage_, las cuales en escencia requieren del nombre de la imagen, su escala y su correspondiente título (caption, o leyenda), la syntax para cada una de ellas es:
+  - **\insertimage**{*Archivo*}{*Escala*}{*Leyenda*}: Inserta una simple imagen.
+  - **\insertimageboxed**{*Archivo*}{*Escala*}{*Leyenda*}: Inserta una imagen recuadrada.
+  - **\insertdoubleimage**{*Archivo*}{*Escala 1*}{*Leyenda 1*}{*Dirección de la imagen 2*}{*Escala 2*}{*Leyenda 2*}{*Leyenda general*}: Inserta dos imagenes en un sólo elemento.
+  - **\insertimageleft**{*Archivo*}{*Escala*}{*Leyenda*}{*Número de columnas a usar*}: Inserta una imagen alineada a la izquierda, flotante.
+  - **\insertimageright**{*Archivo*}{*Escala*}{*Leyenda*}{*Número de columnas a usar*}: Inserta una imagen alineada a la derecha, flotante.
 + **Insertar una fórmula**: Existen dos funciones para añadir fórmulas: _\insertequation_ y _\insertequationcaptioned_, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
     - **\insertequation**{*Fórmula*}: Inserta una fórmula.
     - **\insertequationcaptioned**{*Fórmula*}{*Leyenda*}: Inserta una fórmula con leyenda.

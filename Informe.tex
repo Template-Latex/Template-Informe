@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      1.9.0-2 (16/05/2016)
+% Versión:      1.9.1 (17/05/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -17,7 +17,7 @@
 \makeatletter
 
 % INFORMACIÓN DEL DOCUMENTO
-\newcommand{\nombredelinforme}{Titulo del informe}
+\newcommand{\nombredelinforme}{Título del informe}
 \newcommand{\temaatratar}{Tema a tratar}
 \newcommand{\fecharealizacion}{\today}
 \newcommand{\fechaentrega}{\today}
@@ -34,6 +34,7 @@
 
 %BEGIN_FOLD
 % CONFIGURACIONES
+\newcommand{\defaultimagefolder}{images/}           % Directorio de las imágenes 
 \newcommand{\tipofuentetitulo}{\huge}               % Tamaño de los títulos
 \newcommand{\tipofuentesubtitulo}{\large}           % Tamaño de los subtítulos
 \newcommand{\tipofuentetituloi}{\Large}             % Tamaño de los títulos en el índice
@@ -51,6 +52,7 @@
 \newcommand{\defaultpagemargintop}{2.15}            % Margen superior de las páginas [cm]
 \newcommand{\defaultpagemarginbottom}{2.0}          % Margen inferior de las páginas [cm]
 \newcommand{\defaultfirstpagemargintop}{3.2}        % Margen superior de la portada [cm]
+\newcommand{\defaultmarginfloatimages}{-13pt}       % Margen sup.de las figuras flotantes [pt]
 
 % LIBRERÍAS INDEPENDIENTES
 \usepackage[ampersand]{easylist}    % Listas
@@ -122,7 +124,7 @@
 	\vspace{-0.3cm}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=#2]{#1}
+		\includegraphics[scale=#2]{\defaultimagefolder#1}
 		\caption{#3}
 	\end{figure}
 	\vspace{-0.2cm}}
@@ -130,7 +132,7 @@
 	\vspace{-0.3cm}
 	\begin{figure}[H]
 		\centering
-		\fbox{\includegraphics[scale=#2]{#1}}
+		\fbox{\includegraphics[scale=#2]{\defaultimagefolder#1}}
 		\caption{#3}
 	\end{figure}
 	\vspace{-0.2cm}}
@@ -139,13 +141,29 @@
 	\vspace{-0.3cm}
 	\begin{figure}[H] \centering
 		\subfloat[#3]{
-			\includegraphics[scale=#2]{#1}}
+			\includegraphics[scale=#2]{\defaultimagefolder#1}}
 		\subfloat[#6]{
-			\includegraphics[scale=#5]{#4}}
+			\includegraphics[scale=#5]{\defaultimagefolder#4}}
 		\caption{#7}
 	\end{figure}
 	\vspace{-0.2cm}
 	\setcaptionmargincm{\defaultcaptionmargin}}
+\newcommand{\insertimageleft}[4]{		    % Insertar una imagen a la izquierda
+	\begin{wrapfigure}[#4]{l}{#2\textwidth}
+		\setcaptionmargincm{0}
+		\vspace{\defaultmarginfloatimages}
+		\centering\includegraphics[width=\linewidth]{\defaultimagefolder#1}
+		\caption{#3}
+		\setcaptionmargincm{\defaultcaptionmargin}
+	\end{wrapfigure}}
+\newcommand{\insertimageright}[4]{		    % Insertar una imagen a la derecha
+	\begin{wrapfigure}[#4]{r}{#2\textwidth}
+		\setcaptionmargincm{0}
+		\vspace{\defaultmarginfloatimages}
+		\centering\includegraphics[width=\linewidth]{\defaultimagefolder#1}
+		\caption{#3}
+		\setcaptionmargincm{\defaultcaptionmargin}
+	\end{wrapfigure}}
 
 % DECLARACIÓN DE AMBIENTES
 \captionsetup[mycapequ]{labelformat=empty}          % Leyenda para fórmulas
@@ -339,7 +357,7 @@
 		
 		\newpar{Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como \quotesit{Citas en itálico}, los párrafos añaden una entrada libre por defecto, a continuación se muestra un ejemplo de inserción de imágenes:}
 		
-		\insertimage{images/test-image.png}{0.2}{Where are you? de \quotesit{Internet}}
+		\insertimage{test-image.png}{0.2}{Where are you? de \quotesit{Internet}}
 		
 		\newparnl{Este es un párrafo sin nueva linea (de ahí el \textit{nl}, esto se puede usar para terminar un tema, o si vienen imágenes nuevas), si no te gustan los comandos \textbf{newpar} o \textbf{newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones, así puedes tener comandos más intuitivos para ti.}
 		
@@ -396,16 +414,20 @@
 		
 	% SUB-SECCIÓN
 	\subsection{Relleno}
+	
+		\insertimageleft{test-image-wrap}{0.24}{Apolo}{16}
 		
 		\insertequationcaptioned{\int_{a}^{b} f(x) dx = \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
 		
 		\newpar{Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos, con preguntas de respuestas abiertas (donde el estudiante responde libremente) o preguntas de respuestas múltiples (el estudiante debe seleccionar la respuesta correcta de un listado).}
+		
+		\lipsum[12]
 
 % REFERENCIAS
 \begin{thebibliography}{99}
 	\addcontentsline{toc}{section}{Referencias}
 	
-	\bibitem{entrada1} 
+	\bibitem{referencia1} 
 		\hbadness=10000 Autor 1, Autor 2.
 		\textit{Título}.
 		Editorial, versión(revisión):página1:página2, año.
@@ -418,7 +440,7 @@
 	
 	\bibitem{pjd} 
 		Pedro, Juan y Diego. 
-		\textit{Como hacer informes en \LaTeX\.}. 
+		\textit{Como hacer informes en \LaTeX}. 
 		Universidad de Chile, Facultad de Ciencias Físicas y Matemáticas, 2016.
 	
 	\bibitem{conversortabla}
