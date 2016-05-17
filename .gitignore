@@ -12,7 +12,7 @@
 images/departamentos/*-eps-converted-to.pdf
 
 # Releases
-releases/*
+.releases/*
 *.zip
 
 # Windows files
