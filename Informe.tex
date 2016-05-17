@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      1.9.0-1 (16/05/2016)
+% Versión:      1.9.0-2 (16/05/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -261,9 +261,13 @@
 			Profesores: 
 				& \begin{tabular}[t]{@{}l@{}}
 					Profesor 1 \\
-					Profesor 2 \\
-					Profesor 3
+					Profesor 2
 				\end{tabular} \\
+			Auxiliares: 
+				& \begin{tabular}[t]{@{}l@{}}
+					Auxiliar 1 \\
+					Auxiliar 2
+				\end{tabular}\\
 			Ayudantes: 
 				& \begin{tabular}[t]{@{}l@{}}
 					Ayudante 1 \\
@@ -401,21 +405,21 @@
 \begin{thebibliography}{99}
 	\addcontentsline{toc}{section}{Referencias}
 	
-	\bibitem{pjd} 
-		Pedro, Juan y Diego. 
-		\textit{Como hacer informes en \LaTeX\.}. 
-		Universidad de Chile, Facultad de Ciencias Físicas y Matemáticas, 2016.
-	
+	\bibitem{entrada1} 
+		\hbadness=10000 Autor 1, Autor 2.
+		\textit{Título}.
+		Editorial, versión(revisión):página1:página2, año.
+		\\\url{https://www.enlace.com/}
+		
 	\bibitem{einstein}
 		\hbadness=10000 El mismísimo Albert Einstein. 
 		\textit{Otro titulo complicado e interesante}. 
 		Análisis de físicas de informes, 322(10):891–921, 1905.
 	
-	\bibitem{ucursos} 
-		También puedes agregar enlaces.
-		\textit{U-Cursos al fin conoció \LaTeX.}
-		2016.
-		\\\url{https://www.u-cursos.cl/}
+	\bibitem{pjd} 
+		Pedro, Juan y Diego. 
+		\textit{Como hacer informes en \LaTeX\.}. 
+		Universidad de Chile, Facultad de Ciencias Físicas y Matemáticas, 2016.
 	
 	\bibitem{conversortabla}
 		Tables Generator.
