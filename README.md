@@ -97,14 +97,14 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
   - **\quotes**{*Texto*}: Función simplificada para insertar "citas" sin lidiar con carácteres.
   - **\quotesit**{*Texto*}: Función simplificada para insertar _"citas en itálico"_ sin lidiar con carácteres.
 + **Añadir una imagen**: Existen tres funciones para añadir imágenes, _\insertimage_, _\insertimageboxed_ y _\insertdoubleimage_, las cuales en escencia requieren del nombre de la imagen, su escala y su correspondiente título (caption, o leyenda), la syntax para cada una de ellas es:
-  - **\insertimage**{*Archivo*}{*Escala*}{*Leyenda*}: Inserta una simple imagen.
-  - **\insertimageboxed**{*Archivo*}{*Escala*}{*Leyenda*}: Inserta una imagen recuadrada.
-  - **\insertdoubleimage**{*Archivo*}{*Escala 1*}{*Leyenda 1*}{*Dirección de la imagen 2*}{*Escala 2*}{*Leyenda 2*}{*Leyenda general*}: Inserta dos imagenes en un sólo elemento.
-  - **\insertimageleft**{*Archivo*}{*Escala*}{*Leyenda*}{*Número de columnas a usar*}: Inserta una imagen alineada a la izquierda, flotante.
-  - **\insertimageright**{*Archivo*}{*Escala*}{*Leyenda*}{*Número de columnas a usar*}: Inserta una imagen alineada a la derecha, flotante.
+  - **\insertimage**{*Archivo*}{*Escala*}{*Leyenda*}{*Label (opcional)*}: Inserta una simple imagen.
+  - **\insertimageboxed**{*Archivo*}{*Escala*}{*Leyenda*}{*Label (opcional)*}: Inserta una imagen recuadrada.
+  - **\insertdoubleimage**{*Archivo*}{*Escala 1*}{*Leyenda 1*}{*Dirección de la imagen 2*}{*Escala 2*}{*Leyenda 2*}{*Leyenda general*}{*Label (opcional)*}: Inserta dos imagenes en un sólo elemento.
+  - **\insertimageleft**{*Archivo*}{*Escala*}{*Leyenda*}{*Número de columnas a usar*}{*Label (opcional)*}: Inserta una imagen alineada a la izquierda, flotante.
+  - **\insertimageright**{*Archivo*}{*Escala*}{*Leyenda*}{*Número de columnas a usar*}{*Label (opcional)*}: Inserta una imagen alineada a la derecha, flotante.
 + **Insertar una fórmula**: Existen dos funciones para añadir fórmulas: _\insertequation_ y _\insertequationcaptioned_, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
-    - **\insertequation**{*Fórmula*}: Inserta una fórmula.
-    - **\insertequationcaptioned**{*Fórmula*}{*Leyenda*}: Inserta una fórmula con leyenda.
+    - **\insertequation**{*Fórmula*}{*Label (opcional)*}: Inserta una fórmula.
+    - **\insertequationcaptioned**{*Fórmula*}{*Leyenda*}{*Label (opcional)*}: Inserta una fórmula con leyenda.
     - **\pow**{*a*}{*b*}: Forma simplificada de añadir una potencia del tipo a^b.
     - **\lpow**{*a*}{*b*}: Forma simplificada de añadir una sub potencia del tipo a_b.
 + **Insertar títulos sin número, y títulos sin aparecer en el índice**: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para ello existen las siguientes funciones:
