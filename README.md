@@ -66,10 +66,10 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **amsthm**: Teoremas matemáticos.
 + **cancel**: Cancelar términos en fórmulas.
 + **caption**: Leyendas (o títulos de objetos).
-+ **chngcntr**: Agrega números de secciones a las leyendas.
++ **chngcntr**: Agrega números de secciones a las leyendas *[dependiente]*.
 + **color**: Colores.
 + **easylist**: Listas.
-+ **epstopdf**: Convierte archivos .eps a pdf [dependiente].
++ **epstopdf**: Convierte archivos .eps a pdf *[dependiente]*.
 + **fancyhdr**: Encabezados y pié de páginas.
 + **float**: Administrador de posiciones de objetos.
 + **geometry**: Dimensiones y geometría del documento.
@@ -77,7 +77,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **hyperref**: Permite añadir enlaces y referencias.
 + **mhchem**:	Fórmulas químicas [versión 4].
 + **multicol**: Múltiples columnas.
-+ **multirow**: Añade nuevas opciones a las tablas [dependiente].
++ **multirow**: Añade nuevas opciones a las tablas *[dependiente]*.
 + **lipsum**: Permite crear textos dummy.
 + **longtable**: Permite utilizar tablas en varias hojas.
 + **listings**: Permite añadir código fuente.
