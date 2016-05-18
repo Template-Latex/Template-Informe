@@ -1,0 +1,106 @@
+% NUEVA SECCIÓN
+\section{Informes con \LaTeX}
+
+	% SUB-SECCIÓN
+	\subsection{Una breve introducción}
+	
+		\lipsum[1]
+		
+		\insertequation{\pow{a}{k}=\pow{b}{k}+\pow{c}{k}, \forall k>2}
+		
+		\newpar{Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como \quotesit{Citas en itálico}, los párrafos añaden una entrada libre por defecto, a continuación se muestra un ejemplo de inserción de imágenes:}
+		
+		\insertimage{test-image.png}{0.2}{Where are you? de \quotesit{Internet}}
+		
+		\newparnl{Este es un párrafo sin nueva linea (de ahí el \textit{nl}, esto se puede usar para terminar un tema, o si vienen imágenes nuevas), si no te gustan los comandos \textbf{newpar} o \textbf{newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones, así puedes tener comandos más intuitivos para ti.}
+		
+	% SUB-SECCIÓN
+	\subsection{Tablas!}
+
+		\newparnl{También puedes usar tablas, insertarlas es muy fácil, puedes usar directamente el \quotes{conversor de tablas} \textsuperscript{\cite{conversortabla}}, ahí puedes convertir en un solo clic tablas Excel, o crearlas tú mismo sin tener que hacer todo el aburridísimo código.}
+		
+		\begin{longtable}{ccc}
+			\caption{Esta es una tabla que se \quotes{corta} en varias páginas si es que le falta espacio, útil para cuando tienes que pegar tablas con más de 60 o 1000? filas.}\label{foo}\\
+			\hline
+			Columna 1 & Columna 2 & Columna 3\\\hline
+			\endfirsthead
+			\hline
+			Columna 1 & Columna 2 & Columna 3\\
+			\hline
+			\endhead
+			\hline
+			\endfoot
+			\hline
+			\endlastfoot
+			$\omega$ & $\nu$ & $\delta$\\     
+			$\partial$ & $\nabla$ & $\mho$\\
+			$\beta$ & $\gamma$ & $\epsilon$\\   
+			$\varepsilon$ & $\upsilon$ & $\varphi$\\
+			$\Phi$ & $\Theta$ & $\varSigma$\\
+			$\omega$ & $\nu$ & $\delta$\\     
+			$\partial$ & $\nabla$ & $\mho$\\ 
+		\end{longtable}
+		
+		\newparnl{También puedes usar tablas muy aburridas (ver Tabla \ref{tablafome}), puedes hacer de todo en \LaTeX.}
+		
+		\begin{table}[H]
+			\centering
+			\caption{También puedes usar tablas así, aburridas!}
+			\label{tablafome}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+				\hline
+				Ítems & ${V}_{1}$ & ${V}_{2}$ & ${V}_{3}$ & ${V}_{4}$ & ${V}_{5}$ & ${V}_{6}$ & ${V}_{7}$ & ${V}_{8}$ & ${V}_{9}$ & ${V}_{10}$ & ${V}_{11}$ & ${V}_{12}$ \\ \hline
+				${X}_{1}$             & 0  & 0  & 2  & 0  & 0  & 0  & 0  & -1 & 0  & 0   & 0   & 1   \\ \hline
+				${X}_{2}$             & 0  & -2 & 1  & 0  & -1 & 0  & 0  & -1 & 0  & 0   & -1  & 1   \\ \hline
+				${X}_{3}$             & 2  & 0  & 2  & 0  & 0  & 1  & 1  & 0  & 1  & 0   & 1   & 0   \\ \hline
+				${X}_{4}$             & -1 & -1 & 0  & 0  & -1 & -1 & 0  & 0  & -1 & 0   & -1  & -1  \\ \hline
+				${X}_{5}$             & -1 & -1 & 0  & 0  & -1 & 0  & 0  & 0  & 0  & 0   & -1  & 0   \\ \hline
+				${X}_{6}$             & -1 & -1 & 0  & 0  & -1 & -1 & -1 & -1 & 0  & 0   & -1  & -1  \\ \hline
+				${X}_{7}$             & 1  & 0  & 1  & 0  & 0  & 0  & 0  & 0  & 1  & 0   & 0   & 0   \\ \hline
+				${X}_{8}$             & 1  & -1 & 2  & 0  & 0  & 0  & 0  & -1 & 0  & 0   & 0   & 0   \\ \hline
+				${X}_{9}$             & 0  & -1 & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0   & 0   & 0   \\ \hline
+				${X}_{10}$            & 1  & 0  & 2  & 0  & 0  & 0  & 0  & -1 & 0  & 0   & 0   & -1  \\ \hline
+				${X}_{11}$            & -1 & -2 & -1 & 0  & -2 & 0  & 0  & -1 & -1 & 0   & -2  & -1  \\ \hline
+				${X}_{12}$            & -1 & 0  & 1  & 0  & 0  & 0  & 0  & -1 & 1  & 0   & 0   & 0   \\ \hline
+			\end{tabular}
+		\end{table}
+		
+	% SUB-SECCIÓN
+	\subsection{Relleno}
+	
+		\insertimageleft{test-image-wrap}{0.22}{Apolo}{14}
+		
+		\newpar{Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos, con preguntas de respuestas abiertas (donde el estudiante responde libremente) o preguntas de respuestas múltiples (el estudiante debe seleccionar la respuesta correcta de un listado).}
+		
+		\lipsum[12]
+		
+		\insertequationcaptioned{\int_{a}^{b} f(x) dx = \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
+		
+		\newpage
+
+% REFERENCIAS
+\begin{thebibliography}{99}
+	\addcontentsline{toc}{section}{Referencias}
+	
+	\bibitem{referencia1} 
+		\hbadness=10000 Autor 1, Autor 2.
+		\textit{Título}.
+		Editorial, versión(revisión):página1:página2, año.
+		\\\url{https://www.enlace.com/}
+		
+	\bibitem{einstein}
+		\hbadness=10000 El mismísimo Albert Einstein. 
+		\textit{Otro titulo complicado e interesante}. 
+		Análisis de físicas de informes, 322(10):891–921, 1905.
+	
+	\bibitem{pjd} 
+		Pedro, Juan y Diego. 
+		\textit{Como hacer informes en \LaTeX}. 
+		Universidad de Chile, Facultad de Ciencias Físicas y Matemáticas, 2016.
+	
+	\bibitem{conversortabla}
+		Tables Generator.
+		\textit{Convierte fácilmente tus tablas, o crea unas con un intuitivo editor de tablas.}
+		\\\url{http://www.tablesgenerator.com/}
+	
+\end{thebibliography}
