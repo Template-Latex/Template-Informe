@@ -66,6 +66,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **amsthm**: Teoremas matemáticos.
 + **cancel**: Cancelar términos en fórmulas.
 + **caption**: Leyendas (o títulos de objetos).
++ **chngcntr**: Agrega números de secciones a las leyendas.
 + **color**: Colores.
 + **easylist**: Listas.
 + **epstopdf**: Convierte archivos .eps a pdf [dependiente].
