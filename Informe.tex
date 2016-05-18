@@ -175,11 +175,6 @@
 % DECLARACIÓN DE AMBIENTES
 \captionsetup[mycapequ]{labelformat=empty}          % Leyenda para fórmulas
 \DeclareCaptionType{mycapequ}[][\nombreltformulas]  % Nombre del índice de fórmulas
-\newenvironment{enumeratenosep}{                    % Enumerate sin separación
-	\begin{enumerate}
-		\setlength{\itemsep}{0pt}
-		\setlength{\parskip}{0pt}
-	\end{enumerate}}
 \makeatletter
 \renewenvironment{thebibliography}[1] % Bibliografía en 2 columnas
 {\begin{multicols}{2}[\section*{\refname}]%
@@ -400,11 +395,12 @@
 	
 		\insertimageleft{test-image-wrap}{0.22}{Apolo}{14}
 		
-		\insertequationcaptioned{\int_{a}^{b} f(x) dx = \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
-		
 		\newpar{Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos, con preguntas de respuestas abiertas (donde el estudiante responde libremente) o preguntas de respuestas múltiples (el estudiante debe seleccionar la respuesta correcta de un listado).}
 		
 		\lipsum[12]
+		
+		\insertequationcaptioned{\int_{a}^{b} f(x) dx = \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
+		
 		\newpage
 
 % REFERENCIAS
