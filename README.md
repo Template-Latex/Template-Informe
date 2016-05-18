@@ -96,7 +96,7 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
   - **\newparnl**{*Párrafo*}: Inserta un nuevo párrafo sin un salto de linea al terminar.
   - **\quotes**{*Texto*}: Función simplificada para insertar "citas" sin lidiar con carácteres.
   - **\quotesit**{*Texto*}: Función simplificada para insertar _"citas en itálico"_ sin lidiar con carácteres.
-+ **Añadir una imagen**: Existen tres funciones para añadir imágenes, _\insertimage_, _\insertimageboxed_ y _\insertdoubleimage_, las cuales en escencia requieren del nombre de la imagen, su escala y su correspondiente título (caption, o leyenda), la syntax para cada una de ellas es:
++ **Añadir una imagen**: Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la variable **\defaultimagefolder**), su escala y su correspondiente título (caption, o leyenda), la syntax para cada una de ellas es:
   - **\insertimage**{*Archivo*}{*Escala*}{*Leyenda*}: Inserta una simple imagen.
   - **\insertimageboxed**{*Archivo*}{*Escala*}{*Leyenda*}: Inserta una imagen recuadrada.
   - **\insertdoubleimage**{*Archivo*}{*Escala 1*}{*Leyenda 1*}{*Dirección de la imagen 2*}{*Escala 2*}{*Leyenda 2*}{*Leyenda general*}: Inserta dos imagenes en un sólo elemento.
