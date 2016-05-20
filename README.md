@@ -69,7 +69,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **chngcntr**: Agrega números de secciones a las leyendas *[dependiente]*.
 + **color**: Colores.
 + **easylist**: Listas.
-+ **epstopdf**: Convierte archivos .eps a pdf *[dependiente]*.
++ **enumitem**: Enumeraciones avanzadas.
 + **fancyhdr**: Encabezados y pié de páginas.
 + **float**: Administrador de posiciones de objetos.
 + **geometry**: Dimensiones y geometría del documento.
