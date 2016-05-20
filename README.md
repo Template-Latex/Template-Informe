@@ -83,6 +83,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **listings**: Permite añadir código fuente.
 + **setspace**: Cambia el espacio entre líneas.
 + **subfig**: Permite agrupar imágenes.
++ **tikz**: Permite dibujar.
 + **titlesec**: Cambia el estilo de los títulos.
 + **url**: Permite añadir enlaces.
 + **wrapfig**: Permite comprimir imágenes.
