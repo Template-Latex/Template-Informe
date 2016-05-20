@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      1.9.5 (18/05/2016)
+% Versión:      1.9.6 (18/05/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -75,9 +75,10 @@
 \usepackage{multicol}                      % Múltiples columnas
 \usepackage{lipsum}                        % Permite crear textos dummy
 \usepackage{longtable}                     % Permite utilizar tablas en varias hojas
-\usepackage{listings}\include{lib/srcolor} % Permite añadir código fuente
+\usepackage{listings}                      % Permite añadir código fuente
 \usepackage{setspace}                      % Cambia el espacio entre líneas
 \usepackage{subfig}                        % Permite agrupar imágenes
+\usepackage{tikz}                          % Permite dibujar
 \usepackage{titlesec}                      % Cambia el estilo de los títulos
 \usepackage{url}                           % Permite añadir enlaces
 \usepackage{wrapfig}                       % Permite comprimir imágenes
@@ -86,6 +87,10 @@
 \usepackage{chngcntr}                      % Agrega números de secciones a las leyendas
 \usepackage{epstopdf}                      % Convierte archivos .eps a pdf
 \usepackage{multirow}                      % Agrega nuevas opciones a las tablas
+
+% CARGA DE MÓDULOS PARA LIBRERÍAS
+\include{lib/srcolor}                      % Asociado a listings
+\usetikzlibrary{babel}                     % Asociado a tikz
 
 % DECLARACIÓN DE FUNCIONES
 \newcommand{\quotes}[1]{``#1''}            % Insertar cita
@@ -201,7 +206,7 @@
 \counterwithin{equation}{section}          % Añade número de sección a las ecuaciones, ej: 1.x
 \counterwithin{figure}{section}            % Añade número de sección a las figuras, ej: 1.x
 \counterwithin{table}{section}             % Añade número de sección a las tablas, ej: 1.x
-\counterwithin{mycapequ}{section}             % Añade número de sección a las tablas, ej: 1.x
+\counterwithin{mycapequ}{section}          % Añade número de sección a las tablas, ej: 1.x
 \bibliographystyle{\tiporeferencias}       % Estilo APA para las referencias
 \setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
 \ListProperties(                           % Propiedades de las listas

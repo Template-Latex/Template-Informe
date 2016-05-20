@@ -41,30 +41,6 @@
 			$\partial$ & $\nabla$ & $\mho$\\ 
 		\end{longtable}
 		
-		\newparnl{También puedes usar tablas muy aburridas (ver Tabla \ref{tablafome}), puedes hacer de todo en \LaTeX.}
-		
-		\begin{table}[H]
-			\centering
-			\caption{También puedes usar tablas así, aburridas!}
-			\label{tablafome}
-			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-				\hline
-				Ítems & ${V}_{1}$ & ${V}_{2}$ & ${V}_{3}$ & ${V}_{4}$ & ${V}_{5}$ & ${V}_{6}$ & ${V}_{7}$ & ${V}_{8}$ & ${V}_{9}$ & ${V}_{10}$ & ${V}_{11}$ & ${V}_{12}$ \\ \hline
-				${X}_{1}$             & 0  & 0  & 2  & 0  & 0  & 0  & 0  & -1 & 0  & 0   & 0   & 1   \\ \hline
-				${X}_{2}$             & 0  & -2 & 1  & 0  & -1 & 0  & 0  & -1 & 0  & 0   & -1  & 1   \\ \hline
-				${X}_{3}$             & 2  & 0  & 2  & 0  & 0  & 1  & 1  & 0  & 1  & 0   & 1   & 0   \\ \hline
-				${X}_{4}$             & -1 & -1 & 0  & 0  & -1 & -1 & 0  & 0  & -1 & 0   & -1  & -1  \\ \hline
-				${X}_{5}$             & -1 & -1 & 0  & 0  & -1 & 0  & 0  & 0  & 0  & 0   & -1  & 0   \\ \hline
-				${X}_{6}$             & -1 & -1 & 0  & 0  & -1 & -1 & -1 & -1 & 0  & 0   & -1  & -1  \\ \hline
-				${X}_{7}$             & 1  & 0  & 1  & 0  & 0  & 0  & 0  & 0  & 1  & 0   & 0   & 0   \\ \hline
-				${X}_{8}$             & 1  & -1 & 2  & 0  & 0  & 0  & 0  & -1 & 0  & 0   & 0   & 0   \\ \hline
-				${X}_{9}$             & 0  & -1 & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0   & 0   & 0   \\ \hline
-				${X}_{10}$            & 1  & 0  & 2  & 0  & 0  & 0  & 0  & -1 & 0  & 0   & 0   & -1  \\ \hline
-				${X}_{11}$            & -1 & -2 & -1 & 0  & -2 & 0  & 0  & -1 & -1 & 0   & -2  & -1  \\ \hline
-				${X}_{12}$            & -1 & 0  & 1  & 0  & 0  & 0  & 0  & -1 & 1  & 0   & 0   & 0   \\ \hline
-			\end{tabular}
-		\end{table}
-		
 % NUEVA SECCIÓN
 \section{Aquí un nuevo tema}
 		
@@ -78,6 +54,27 @@
 		\lipsum[12]
 		
 		\insertequationcaptioned{\int_{a}^{b} f(x) dx = \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
+		
+		\begin{wrapfigure}[16]{r}{0.33\textwidth}
+			\setcaptionmargincm{0}
+			\vspace{-1.0cm}
+			\begin{center}
+				\begin{tikzpicture}[domain=0:4] 
+					\draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);
+					\draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$}; 
+					\draw[->] (0,-1.2) -- (0,4.2) node[above] {$f(x)$};
+					\draw[color=red]    plot (\x,\x)             node[right] {$f(x) =x$}; 
+					\draw[color=blue]   plot (\x,{sin(\x r)})    node[right] {$f(x) = \sin x$}; 
+					\draw[color=orange] plot (\x,{0.05*exp(\x)}) node[right] {$f(x) = \frac{1}{20} \mathrm e^x$};
+				 \end{tikzpicture}
+			\end{center}
+			\caption{También puedes graficar con \LaTeX !}
+			\setcaptionmargincm{\defaultcaptionmargin}
+		\end{wrapfigure}
+		
+		\lipsum[2]
+		\vspace{\defaultnewlinesize}
+		\lipsum[9]
 		
 		\newpage
 
