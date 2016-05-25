@@ -25,7 +25,7 @@
 \newcommand{\nombrefacultad}{Facultad de Ciencias Físicas y Matemáticas}
 \newcommand{\departamentouniversidad}{Departamento de la Universidad}
 \newcommand{\imagendeldepartamento}{images/departamentos/fcfm}
-\newcommand{\imagendeldepartamentoescala}{0.2}
+\newcommand{\imagendeldepartamentoescl}{0.2}
 \newcommand{\localizacionuniversidad}{Santiago, Chile}
 
 \newcommand{\nombredelcurso}{Curso}
@@ -285,14 +285,13 @@
 
 % PORTADA
 \newpage
-\setcounter{page}{1}  % Nueva indización
-\pagenumbering{roman} % Estilo de números romanos
+\renewcommand{\thepage}{Portada}
 \setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}
 {\defaultpagemarginright}{\defaultpagemarginbottom}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
-\fancyhead[R]{\includegraphics[scale=\imagendeldepartamentoescala]{\imagendeldepartamento}}
+\fancyhead[R]{\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}}
 \vspace*{5cm}
 \begin{center}
 	\huge  {\nombredelcurso} \\
@@ -340,6 +339,8 @@
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \newpage
+\pagenumbering{Roman} % Estilo de carácteres romanos en minúscula
+\setcounter{page}{1}
 \setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}
 {\defaultpagemarginright}{\defaultpagemarginbottom}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}

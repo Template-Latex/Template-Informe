@@ -29,7 +29,7 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
   - **geo**: Departamento de Geología.
   - **humanidades**: Área de Humanidades.
   - **minas**: Departamento de Ingeniería en Minas.
-+ **\imagendeldepartamentoescala**: Escala de la imagen a usar.
++ **\imagendeldepartamentoescl**: Escala de la imagen a usar.
 + **\localizacionuniversidad**: Ciudad o región en donde se ubica la universidad / instituto.
 + **\nombredelcurso**: Curso - Ramo referido al informe.
 + **\codigodelcurso**: Código del curso.
@@ -43,12 +43,12 @@ También se pueden modificar los márgenes de los títulos de tablas y figuras _
 + **\tipofuentetituloi**: Tamaño por defecto de los títulos en el índice.
 + **\tipofuentesubtituloi**: Tamaño por defecto de los subtítulos en el índice.
 + **\tiporeferencias**: Tipo de referencias, por defecto se usa la norma APA.
-+ **\nombreltformulas**: Nombre de la lista de fórmulas.
-+ **\nombrelttablas**: Nombre de la lista de tablas.
-+ **\nombreltfiguras**: Nombre de la lista de figuras.
-+ **\nombreltcontend**: Nombre del índice de contenidos.
-+ **\nombreltwtablas**: Nombre de las tablas.
-+ **\nombreltwfigura**: Nombre de las figuras.
++ **\nombltformulas**: Nombre de la lista de fórmulas.
++ **\nomblttablas**: Nombre de la lista de tablas.
++ **\nombltfiguras**: Nombre de la lista de figuras.
++ **\nombltcontend**: Nombre del índice de contenidos.
++ **\nombltwtablas**: Nombre de las tablas.
++ **\nombltwfigura**: Nombre de las figuras.
 + **\defaultcaptionmargin**: Márgenes de las leyendas por defecto.
 + **\defaultpagemarginleft**: Margen izquierdo de las páginas en centímetros.
 + **\defaultpagemarginright**: Margen derecho de las páginas en centímetros.
@@ -109,6 +109,9 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
     - **\insertequationcaptioned**{*Fórmula*}{*Leyenda*}: Inserta una fórmula con leyenda.
     - **\pow**{*a*}{*b*}: Forma simplificada de añadir una potencia del tipo a^b.
     - **\lpow**{*a*}{*b*}: Forma simplificada de añadir una sub potencia del tipo a_b.
+    - **\fracpartial**{*a*}{*b*}: Crea una fracción de derivadas parciales del estilo ∂a/∂b.
+    - **\fracdpartial**{*a*}{*b*}: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 a/∂b^2.
+    - **\fracnpartial**{*a*}{*b*}{*c*}: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2.
 + **Insertar títulos sin número, y títulos sin aparecer en el índice**: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para ello existen las siguientes funciones:
   - **\newtitleanum**{*Título*}: Inserta un título sin número.
   - **\newsubtitleanum**{*Título*}: Inserta un subtítulo sin número.
