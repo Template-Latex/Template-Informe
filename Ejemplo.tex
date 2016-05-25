@@ -1,3 +1,13 @@
+% Template:     Archivo de ejemplo
+% Versión:      1.9.7 (25/05/2016)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas.
+%        Universidad de Chile.
+%
+% Licencia: CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 % NUEVA SECCIÓN
 \section{Informes con \LaTeX}
 
@@ -53,7 +63,7 @@
 		
 		\lipsum[12]
 		
-		\insertequationcaptioned{\int_{a}^{b} f(x) dx = \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
+		\insertequationcaptioned{\int_{a}^{b} f(x) dx = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
 		
 		\begin{wrapfigure}[16]{r}{0.4\textwidth}
 			\setcaptionmargincm{0}

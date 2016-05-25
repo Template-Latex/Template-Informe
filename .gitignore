@@ -15,5 +15,5 @@ images/departamentos/*-eps-converted-to.pdf
 .releases/*
 *.zip
 
-# Windows files
+# Windows
 desktop.ini

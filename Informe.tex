@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      1.9.6 (18/05/2016)
+% Versión:      1.9.7 (25/05/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -90,7 +90,6 @@
 \usepackage{multirow}                      % Agrega nuevas opciones a las tablas
 
 % CARGA DE MÓDULOS PARA LIBRERÍAS
-\include{lib/srcolor}                      % Asociado a listings
 \usetikzlibrary{babel}                     % Asociado a tikz
 
 % DECLARACIÓN DE FUNCIONES
@@ -103,6 +102,12 @@
 \newcommand{\newparnl}[1]{#1 \par}         % Nuevo párrafo sin nueva linea al final
 \newcommand{\lpow}[2]{{#1}_{#2}}           % Insertar sub-índice
 \newcommand{\pow}[2]{{#1}^{#2}}            % Insertar elevado
+\newcommand{\fracpartial}[2]{              % Fración de derivadas parciales af/ax
+\frac{\partial #1}{\partial #2}}
+\newcommand{\fracdpartial}[2]{             % Fración de derivadas parciales dobles a^2/ax^2
+\frac{{\partial}^{2} #1}{\partial {#2}^{2}}}
+\newcommand{\fracnpartial}[3]{             % Fración de derivadas parciales en n a^n/ax^n
+\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}}
 \newcommand{\newtitleanum}[1]{             % Insertar un título sin número
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}}
@@ -176,7 +181,7 @@
 		\setcaptionmargincm{\defaultcaptionmargin}
 	\end{wrapfigure}}
 
-% DECLARACIÓN DE AMBIENTES
+% DECLARACIÓN DE AMBIENTES Y ESTILOS
 \captionsetup[mycapequ]{labelformat=empty}         % Leyenda para fórmulas
 \DeclareCaptionType{mycapequ}[][\nombreltformulas] % Nombre del índice de fórmulas
 \makeatletter
@@ -200,12 +205,62 @@
 		{\@latex@warning{Empty `thebibliography' environment}}
 		\endlist\end{multicols}}
 \makeatother
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstdefinestyle{C}{ % Estilo de lenguaje C
+	language=C,
+  	numbers=left,
+  	stepnumber=1,        
+  	numbersep=5pt,
+  	backgroundcolor=\color{white}, 
+  	showspaces=false,
+  	showstringspaces=false,
+  	showtabs=false,
+  	tabsize=2,
+  	captionpos=b,
+  	breaklines=true,
+  	breakatwhitespace=true,
+  	title=\lstname}
+\lstdefinestyle{Java}{ % Estilo de lenguaje Java
+	language=Java,
+	frame=tb,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3}
+\lstdefinestyle{Matlab}{ % Estilo de lenguaje Matlab
+	language=Matlab,
+    breaklines=true,
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},
+    showstringspaces=false,
+    numbers=left,
+    numberstyle={\tiny \color{black}},
+    numbersep=9pt,
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}}
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
-\counterwithin{equation}{section}          % Añade número de sección a las ecuaciones, ej: 1.x
-\counterwithin{figure}{section}            % Añade número de sección a las figuras, ej: 1.x
-\counterwithin{table}{section}             % Añade número de sección a las tablas, ej: 1.x
-\counterwithin{mycapequ}{section}          % Añade número de sección a las tablas, ej: 1.x
+\counterwithin{equation}{section}          % Añade número de sección a las ecuaciones
+\counterwithin{figure}{section}            % Añade número de sección a las figuras
+\counterwithin{table}{section}             % Añade número de sección a las tablas
+\counterwithin{mycapequ}{section}          % Añade número de sección a las tablas
 \bibliographystyle{\tiporeferencias}       % Estilo APA para las referencias
 \setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
 \ListProperties(                           % Propiedades de las listas
@@ -328,7 +383,7 @@
 % ================================ INICIO DEL DOCUMENTO ================================
 
 % EJEMPLO DE DOCUMENTO
-\include{lib/example}
+\include{Ejemplo}
 
 % FIN DEL DOCUMENTO
 \end{document}
