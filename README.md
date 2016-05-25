@@ -35,7 +35,7 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
 + **\codigodelcurso**: Código del curso.
 
 ## Configurando otros elementos del documento
-También se pueden modificar los márgenes de los títulos de tablas y figuras _(caption)_, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de *% CONFIGURACIONES*, entre las cuales se encuentran:
+También se pueden modificar los márgenes de los títulos de tablas y figuras _(caption)_, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de *%CONFIGURACIONES*, entre las cuales se encuentran:
 + **\defaultimagefolder**: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
 + **\tipofuentetitulo**: Tamaño por defecto de los títulos.
 + **\tipofuentetitulo**: Tamaño por defecto de los títulos.
