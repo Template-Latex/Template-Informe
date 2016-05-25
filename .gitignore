@@ -8,9 +8,6 @@
 *.toc
 *.log
 
-# Imagenes convertidas de los departamentos
-images/departamentos/*-eps-converted-to.pdf
-
 # Releases
 .releases/*
 *.zip
