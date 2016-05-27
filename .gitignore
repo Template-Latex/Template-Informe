@@ -12,5 +12,8 @@
 .releases/*
 *.zip
 
+# Archivos de testeo
+ejemplo-formulae.tex
+
 # Windows
 desktop.ini
