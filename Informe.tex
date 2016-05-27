@@ -31,31 +31,6 @@
 \newcommand{\nombredelcurso}{Curso}
 \newcommand{\codigodelcurso}{CO-1234}
 
-%BEGIN_FOLD
-% CONFIGURACIONES
-\newcommand{\defaultfontsize}{11pt}               % Tamaño de la fuente
-\newcommand{\defaultnewlinesize}{11pt}            % Tamaño del salto de línea
-\newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes 
-\newcommand{\tipofuentetitulo}{\huge}             % Tamaño de los títulos
-\newcommand{\tipofuentesubtitulo}{\large}         % Tamaño de los subtítulos
-\newcommand{\tipofuentetituloi}{\huge}            % Tamaño de los títulos en el índice
-\newcommand{\tipofuentesubtituloi}{\large}        % Tamaño de los subtítulos en el índice
-\newcommand{\tiporeferencias}{apa}                % Tipo de referencias
-\newcommand{\nomblttablas}{Lista de Tablas}       % Nombre de la lista de tablas
-\newcommand{\nombltfiguras}{Lista de Figuras}     % Nombre de la lista de figuras
-\newcommand{\nombltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
-\newcommand{\nombltwtablas}{Tabla}                % Nombre de las tablas
-\newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
-\newcommand{\defaultcaptionmargin}{3.0}           % Márgenes de las leyendas por defecto
-\newcommand{\defaultpagemarginleft}{1.5}          % Margen izquierdo de las páginas [cm]
-\newcommand{\defaultpagemarginright}{1.5}         % Margen derecho de las páginas [cm]
-\newcommand{\defaultpagemargintop}{2.15}          % Margen superior de las páginas [cm]
-\newcommand{\defaultpagemarginbottom}{2.0}        % Margen inferior de las páginas [cm]
-\newcommand{\defaultfirstpagemargintop}{3.2}      % Margen superior de la portada [cm]
-\newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. de figuras flotantes [pt]
-\newcommand{\defaultmargintopimages}{-0.2cm}      % Margen sup. de las figuras [cm]
-\newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inf. de las figuras [cm]
-
 % INTEGRANTES, PROFESORES Y FECHAS
 \newcommand{\tablaintegrantes}{
 \begin{minipage}{0.965\textwidth}
@@ -92,6 +67,31 @@
 	\end{flushright}
 \end{minipage}}
 
+%BEGIN_FOLD
+% CONFIGURACIONES
+\newcommand{\defaultfontsize}{11pt}               % Tamaño de la fuente
+\newcommand{\defaultnewlinesize}{11pt}            % Tamaño del salto de línea
+\newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes 
+\newcommand{\tipofuentetitulo}{\huge}             % Tamaño de los títulos
+\newcommand{\tipofuentesubtitulo}{\large}         % Tamaño de los subtítulos
+\newcommand{\tipofuentetituloi}{\huge}            % Tamaño de los títulos en el índice
+\newcommand{\tipofuentesubtituloi}{\large}        % Tamaño de los subtítulos en el índice
+\newcommand{\tiporeferencias}{apa}                % Tipo de referencias
+\newcommand{\nomblttablas}{Lista de Tablas}       % Nombre de la lista de tablas
+\newcommand{\nombltfiguras}{Lista de Figuras}     % Nombre de la lista de figuras
+\newcommand{\nombltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
+\newcommand{\nombltwtablas}{Tabla}                % Nombre de las tablas
+\newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
+\newcommand{\defaultcaptionmargin}{3.0}           % Márgenes de las leyendas por defecto
+\newcommand{\defaultpagemarginleft}{1.5}          % Margen izquierdo de las páginas [cm]
+\newcommand{\defaultpagemarginright}{1.5}         % Margen derecho de las páginas [cm]
+\newcommand{\defaultpagemargintop}{2.15}          % Margen superior de las páginas [cm]
+\newcommand{\defaultpagemarginbottom}{2.0}        % Margen inferior de las páginas [cm]
+\newcommand{\defaultfirstpagemargintop}{3.2}      % Margen superior de la portada [cm]
+\newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. de figuras flotantes [pt]
+\newcommand{\defaultmargintopimages}{-0.2cm}      % Margen sup. de las figuras [cm]
+\newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inf. de las figuras [cm]
+
 % LIBRERÍAS INDEPENDIENTES
 \usepackage[ampersand]{easylist}       % Listas
 \usepackage{amsmath}                   % Fórmulas matemáticas
@@ -105,9 +105,8 @@
 \usepackage{float}                     % Administrador de posiciones de objetos
 \usepackage{geometry}                  % Dimensiones y geometría del documento
 \usepackage{graphicx}                  % Propiedades extra para los gráficos
-\usepackage[hidelinks]{hyperref}       % Permite añadir enlaces y referencias
 \usepackage[makeroom]{cancel}          % Cancelar términos en fórmulas
-%\usepackage[version=4]{mhchem}        % Fórmulas químicas
+\usepackage[norule]{footmisc}          % Elimina la barra vertical de las notas
 \usepackage{multicol}                  % Múltiples columnas
 \usepackage{lipsum}                    % Permite crear textos dummy
 \usepackage{longtable}                 % Permite utilizar tablas en varias hojas
@@ -117,11 +116,13 @@
 \usepackage{tikz}                      % Permite dibujar
 \usepackage{titlesec}                  % Cambia el estilo de los títulos
 \usepackage{url}                       % Permite añadir enlaces
+%\usepackage[version=4]{mhchem}        % Fórmulas químicas
 \usepackage{wrapfig}                   % Permite comprimir imágenes
 
 % LIBRERÍAS DEPENDIENTES
 \usepackage{chngcntr}                  % Agrega números de secciones a las leyendas
 \usepackage{epstopdf}                  % Convierte archivos .eps a pdf
+\usepackage[hidelinks]{hyperref}       % Permite añadir enlaces y referencias
 \usepackage{multirow}                  % Agrega nuevas opciones a las tablas
 
 % CARGA DE MÓDULOS PARA LIBRERÍAS
@@ -164,7 +165,7 @@
 		\text{#1} #2
 	\end{equation}}
 \newcommand{\insertequationcaptioned}[3][]{ % Insertar una ecuación con leyenda
-	\vspace{-0.2cm}
+	\vspace{-0.1cm}
 	\begin{equation}
 		\text{#1} #2
 	\end{equation}
