@@ -6,7 +6,7 @@ Este corresponde a un template para confeccionar [geniales informes en latex](ht
 </p>
 
 ## Configurando el documento
-Para modificar el documento (Título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de *%INFORMACIÓN DEL DOCUMENTO* al principio del documento, estas son del estilo _\newcommand<b>{</b>_**\nombreVariable**_<b>}</b><b>{</b>_ **Valor**<b>}</b>, entre las cuales se encuentran:
+Para modificar el documento (Título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de *%INFORMACIÓN DEL DOCUMENTO* al principio del documento, estas son del estilo _\newcommand_{**\nombreVariable**}{**Valor**}, entre las cuales se encuentran:
 + **\nombredelinformetitulo**: Título del informe.
 + **\temaatratar**: Tema a tratar.
 + **\fecharealizacion**: Fecha en que se realizó el experimento / informe.
