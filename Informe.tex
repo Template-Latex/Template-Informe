@@ -18,8 +18,8 @@
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
 \newcommand{\temaatratar}{Tema a tratar}
-\newcommand{\fecharealizacion}{\today}
-\newcommand{\fechaentrega}{\today}
+\newcommand{\nombredelcurso}{Curso}
+\newcommand{\codigodelcurso}{CO-1234}
 
 \newcommand{\nombreuniversidad}{Universidad de Chile}
 \newcommand{\nombrefacultad}{Facultad de Ciencias Físicas y Matemáticas}
@@ -27,9 +27,6 @@
 \newcommand{\imagendeldepartamento}{images/departamentos/fcfm}
 \newcommand{\imagendeldepartamentoescl}{0.2}
 \newcommand{\localizacionuniversidad}{Santiago, Chile}
-
-\newcommand{\nombredelcurso}{Curso}
-\newcommand{\codigodelcurso}{CO-1234}
 
 % INTEGRANTES, PROFESORES Y FECHAS
 \newcommand{\tablaintegrantes}{
@@ -60,8 +57,8 @@
 			\end{tabular}\\
 		\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante} \\
 		& \\
-		\multicolumn{2}{l}{Fecha de realización: \fecharealizacion} \\
-		\multicolumn{2}{l}{Fecha de entrega: \fechaentrega} \\
+		\multicolumn{2}{l}{Fecha de realización: \today} \\
+		\multicolumn{2}{l}{Fecha de entrega: \today} \\
 		\multicolumn{2}{l}{\localizacionuniversidad}
 		\end{tabular}
 	\end{flushright}
@@ -173,7 +170,7 @@
 		\vspace{-0.15cm}
 		\textit{#3} \par
 	\end{center}}
-\newcommand{\insertimage}[4][]{         % Insertar una imagen
+\newcommand{\insertimage}[4][]{        % Insertar una imagen
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -181,7 +178,7 @@
 		\caption{#4 #1}
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}}
-\newcommand{\insertimageboxed}[4][]{    % Insertar una imagen con recuadro
+\newcommand{\insertimageboxed}[4][]{   % Insertar una imagen con recuadro
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -189,7 +186,7 @@
 		\caption{#4 #1}
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}}
-\newcommand{\insertdoubleimage}[8][]{   % Insertar una imagen doble
+\newcommand{\insertdoubleimage}[8][]{  % Insertar una imagen doble
 	\captionsetup{margin=0.5cm}
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H] \centering
@@ -201,7 +198,7 @@
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
 	\setcaptionmargincm{\defaultcaptionmargin}}
-\newcommand{\insertimageleft}[5][]{     % Insertar una imagen a la izquierda
+\newcommand{\insertimageleft}[5][]{    % Insertar una imagen a la izquierda
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
@@ -209,7 +206,7 @@
 		\caption{#4 #1}
 		\setcaptionmargincm{\defaultcaptionmargin}
 	\end{wrapfigure}}
-\newcommand{\insertimageright}[5][]{    % Insertar una imagen a la derecha
+\newcommand{\insertimageright}[5][]{   % Insertar una imagen a la derecha
 	\begin{wrapfigure}[#5]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
@@ -219,26 +216,6 @@
 	\end{wrapfigure}}
 
 % DECLARACIÓN DE AMBIENTES Y ESTILOS
-\makeatletter \renewenvironment{thebibliography}[1] % Bibliografía en 2 columnas
-{\begin{multicols}{2}[\section*{\refname}]
-	\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
-	\list{\@biblabel{\@arabic\c@enumiv}}
-	{\settowidth\labelwidth{\@biblabel{#1}}
-		\leftmargin\labelwidth
-		\advance\leftmargin\labelsep
-		\@openbib@code
-		\usecounter{enumiv}
-		\let\p@enumiv\@empty
-		\renewcommand\theenumiv{\@arabic\c@enumiv}}
-	\sloppy
-	\clubpenalty 4000
-	\@clubpenalty \clubpenalty
-	\widowpenalty 4000
-	\sfcode`\.\@m}
-	{\def\@noitemerr
-		{\@latex@warning{Empty `thebibliography' environment}}
-		\endlist\end{multicols}}
-\makeatother
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -313,6 +290,26 @@
 	pdfproducer={LaTeX},
 	pdfcreator={pdfLaTeX}}
 \setlength{\headheight}{54pt}
+\makeatletter \renewenvironment{thebibliography}[1] % Bibliografía en 2 columnas
+{\begin{multicols}{2}[\section*{\refname}]
+	\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
+	\list{\@biblabel{\@arabic\c@enumiv}}
+	{\settowidth\labelwidth{\@biblabel{#1}}
+		\leftmargin\labelwidth
+		\advance\leftmargin\labelsep
+		\@openbib@code
+		\usecounter{enumiv}
+		\let\p@enumiv\@empty
+		\renewcommand\theenumiv{\@arabic\c@enumiv}}
+	\sloppy
+	\clubpenalty 4000
+	\@clubpenalty \clubpenalty
+	\widowpenalty 4000
+	\sfcode`\.\@m}
+	{\def\@noitemerr
+		{\@latex@warning{Empty `thebibliography' environment}}
+		\endlist\end{multicols}}
+\makeatother
 
 %END_FOLD
 \begin{document}
@@ -359,7 +356,7 @@
 \renewcommand{\footrulewidth}{0.5pt}                 % Ancho de la barra del footer
 
 % ABSTRACT- RESUMEN
-\titleformat*{\section}{\tipofuentetitulo \bfseries} % Tamaño de los títulos
+\titleformat*{\section}{\tipofuentetitulo \bfseries}
 \newtitleanum{Resumen}
 \lipsum[1]
 
@@ -373,8 +370,8 @@
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
-\titleformat*{\section}{\tipofuentetitulo \bfseries}        % Tamaño de los títulos
-\titleformat*{\subsection}{\tipofuentesubtitulo \bfseries}  % Tamaño de los títulos
+\titleformat*{\section}{\tipofuentetitulo \bfseries}
+\titleformat*{\subsection}{\tipofuentesubtitulo \bfseries}
 \setcounter{page}{1}
 \renewcommand{\thepage}{\arabic{page}}
 %END_FOLD
