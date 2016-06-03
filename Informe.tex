@@ -18,6 +18,9 @@
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
 \newcommand{\temaatratar}{Tema a tratar}
+\newcommand{\fecharealizacion}{\today}
+\newcommand{\fechaentrega}{\today}
+
 \newcommand{\nombredelcurso}{Curso}
 \newcommand{\codigodelcurso}{CO-1234}
 
@@ -57,8 +60,8 @@
 			\end{tabular}\\
 		\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante} \\
 		& \\
-		\multicolumn{2}{l}{Fecha de realización: \today} \\
-		\multicolumn{2}{l}{Fecha de entrega: \today} \\
+		\multicolumn{2}{l}{Fecha de realización: \fecharealizacion} \\
+		\multicolumn{2}{l}{Fecha de entrega: \fechaentrega} \\
 		\multicolumn{2}{l}{\localizacionuniversidad}
 		\end{tabular}
 	\end{flushright}
@@ -83,7 +86,7 @@
 \newcommand{\defaultpagemarginleft}{1.5}          % Margen izquierdo de las páginas [cm]
 \newcommand{\defaultpagemarginright}{1.5}         % Margen derecho de las páginas [cm]
 \newcommand{\defaultpagemargintop}{2.15}          % Margen superior de las páginas [cm]
-\newcommand{\defaultpagemarginbottom}{2.0}        % Margen inferior de las páginas [cm]
+\newcommand{\defaultpagemarginbottom}{2.15}       % Margen inferior de las páginas [cm]
 \newcommand{\defaultfirstpagemargintop}{3.2}      % Margen superior de la portada [cm]
 \newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. de figuras flotantes [pt]
 \newcommand{\defaultmargintopimages}{-0.2cm}      % Margen sup. de las figuras [cm]
@@ -131,8 +134,10 @@
 \newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}} % Cambiar el margen
 \newcommand{\setpagemargincm}[4]{      % Cambia márgenes de las páginas [cm]
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
+\newcommand{\newp}{                    % Inserta nueva línea
+	\vspace{\defaultnewlinesize} \par}
 \newcommand{\newpar}[1]{               % Nuevo párrafo
-	\hbadness=10000 #1 \vspace{\defaultnewlinesize} \par}
+	\hbadness=10000 #1 \newp}
 \newcommand{\newparnl}[1]{#1 \par}     % Nuevo párrafo sin nueva linea al final
 \newcommand{\lpow}[2]{{#1}_{#2}}       % Insertar sub-índice
 \newcommand{\pow}[2]{{#1}^{#2}}        % Insertar elevado
@@ -192,6 +197,7 @@
 	\begin{figure}[H] \centering
 		\subfloat[#4]{
 			\includegraphics[scale=#3]{\defaultimagefolder#2}}
+		\hspace{0.1cm}
 		\subfloat[#7]{
 			\includegraphics[scale=#6]{\defaultimagefolder#5}}
 		\caption{#8 #1}
