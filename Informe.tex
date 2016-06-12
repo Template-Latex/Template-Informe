@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      1.9.8 (26/05/2016)
+% Versión:      1.9.9 (26/05/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -71,9 +71,10 @@
 % CONFIGURACIONES
 \newcommand{\defaultfontsize}{11pt}               % Tamaño de la fuente
 \newcommand{\defaultnewlinesize}{11pt}            % Tamaño del salto de línea
+\newcommand{\defaultinterlind}{1.0}               % Interlineado por defecto
 \newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes 
 \newcommand{\tipofuentetitulo}{\huge}             % Tamaño de los títulos
-\newcommand{\tipofuentesubtitulo}{\large}         % Tamaño de los subtítulos
+\newcommand{\tipofuentesubtitulo}{\Large}         % Tamaño de los subtítulos
 \newcommand{\tipofuentetituloi}{\huge}            % Tamaño de los títulos en el índice
 \newcommand{\tipofuentesubtituloi}{\large}        % Tamaño de los subtítulos en el índice
 \newcommand{\tiporeferencias}{apa}                % Tipo de referencias
@@ -82,7 +83,7 @@
 \newcommand{\nombltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
 \newcommand{\nombltwtablas}{Tabla}                % Nombre de las tablas
 \newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
-\newcommand{\defaultcaptionmargin}{3.0}           % Márgenes de las leyendas por defecto
+\newcommand{\defaultcaptionmargin}{2.9}           % Márgenes de las leyendas por defecto
 \newcommand{\defaultpagemarginleft}{1.5}          % Margen izquierdo de las páginas [cm]
 \newcommand{\defaultpagemarginright}{1.5}         % Margen derecho de las páginas [cm]
 \newcommand{\defaultpagemargintop}{2.15}          % Margen superior de las páginas [cm]
@@ -135,7 +136,7 @@
 \newcommand{\setpagemargincm}[4]{      % Cambia márgenes de las páginas [cm]
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
 \newcommand{\newp}{                    % Inserta nueva línea
-	\vspace{\defaultnewlinesize} \par}
+	\hbadness=10000 \vspace{\defaultnewlinesize} \par}
 \newcommand{\newpar}[1]{               % Nuevo párrafo
 	\hbadness=10000 #1 \newp}
 \newcommand{\newparnl}[1]{#1 \par}     % Nuevo párrafo sin nueva linea al final
@@ -179,7 +180,7 @@
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=#3]{\defaultimagefolder#2}
+		\includegraphics[#3]{\defaultimagefolder#2}
 		\caption{#4 #1}
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}}
@@ -187,7 +188,7 @@
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
-		\fbox{\includegraphics[scale=#3]{\defaultimagefolder#2}}
+		\fbox{\includegraphics[#3]{\defaultimagefolder#2}}
 		\caption{#4 #1}
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}}
@@ -196,10 +197,10 @@
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H] \centering
 		\subfloat[#4]{
-			\includegraphics[scale=#3]{\defaultimagefolder#2}}
+			\includegraphics[#3]{\defaultimagefolder#2}}
 		\hspace{0.1cm}
 		\subfloat[#7]{
-			\includegraphics[scale=#6]{\defaultimagefolder#5}}
+			\includegraphics[#6]{\defaultimagefolder#5}}
 		\caption{#8 #1}
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
@@ -279,6 +280,7 @@
 \counterwithin{table}{section}             % Añade número de sección a las tablas
 \bibliographystyle{\tiporeferencias}       % Estilo APA para las referencias
 \setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
+\renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del interlineado
 \ListProperties(                           % Propiedades de las listas
 	Hide=100,
 	Hang=true,

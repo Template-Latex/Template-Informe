@@ -9,33 +9,37 @@ Este corresponde a un template para confeccionar [geniales informes en latex](ht
 Para modificar el documento (Título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de *%INFORMACIÓN DEL DOCUMENTO* al principio del documento, estas son del estilo _\newcommand_{**\nombreVariable**}{**Valor**}, entre las cuales se encuentran:
 + **\nombredelinformetitulo**: Título del informe.
 + **\temaatratar**: Tema a tratar.
-+ **\fecharealizacion**: Fecha en que se realizó el experimento / informe.
++ **\fecharealizacion**: Fecha en que se realizó el experimento o informe.
 + **\fechaentrega**: Fecha en que se entregó el informe.
++ **\nombredelcurso**: Curso - Ramo referido al informe.
++ **\codigodelcurso**: Código del curso.
 + **\nombreuniversidad**: Universidad, Instituto, etc.
 + **\nombrefacultad**: Facultad relacionada a la Universidad, Instituto, etc.
 + **\departamentouniversidad**: Departamento de la Universidad.
 + **\imagendeldepartamento**: Imagen del departamento o universidad a usar en la portada, estos se pueden encontrar en la carpeta _/images/departamentos/_. Actualmente existen las siguientes imágenes:
+  - **adh**: Área de Humanidades.
   - **das**: Departamento de Astronomía.
   - **dcc**: Departamento de Ciencias de la Computación.
   - **dfi**: Departamento de Física.
   - **dgf**: Departamento de Geofísica.
   - **dic**: Departamento de Ingeniería Civil.
   - **die**: Departamento de Ingeniería Eléctrica.
-  - **dii**: Departamnto de Ingeniería Industrial.
+  - **dii**: Departamento de Ingeniería Industrial.
+  - **dii2**: Departamento de Ingeniería Industrial Largo.
   - **dim**: Departamento de Ingeniería Matemática.
   - **dimec**: Departamento de Ingeniería Mecánica.
   - **diqbt**: Departamento de Ingeniería Química y Biotecnología.
   - **fcfm**: Facultad de Ciencias Físicas y Matemáticas.
   - **geo**: Departamento de Geología.
-  - **humanidades**: Área de Humanidades.
   - **minas**: Departamento de Ingeniería en Minas.
 + **\imagendeldepartamentoescl**: Escala de la imagen a usar.
-+ **\localizacionuniversidad**: Ciudad o región en donde se ubica la universidad / instituto.
-+ **\nombredelcurso**: Curso - Ramo referido al informe.
-+ **\codigodelcurso**: Código del curso.
++ **\localizacionuniversidad**: Ciudad o región en donde se ubica la universidad o instituto.
 
 ## Configurando otros elementos del documento
 También se pueden modificar los márgenes de los títulos de tablas y figuras _(caption)_, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de *%CONFIGURACIONES*, entre las cuales se encuentran:
++ **\defaultfontsize**: Tamaño de la fuente por defecto en pt.
++ **\defaultnewlinesize**: Tamaño del salto de línea en pt.
++ **\defaultinterlind**: Tamaño del interlineado.
 + **\defaultimagefolder**: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
 + **\tipofuentetitulo**: Tamaño por defecto de los títulos.
 + **\tipofuentetitulo**: Tamaño por defecto de los títulos.
@@ -73,6 +77,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **easylist**: Listas.
 + **enumitem**: Enumeraciones avanzadas.
 + **fancyhdr**: Encabezados y pié de páginas.
++ **footmisc**: Elimina la barra vertical de las notas al pié de página.
 + **float**: Administrador de posiciones de objetos.
 + **geometry**: Dimensiones y geometría del documento.
 + **graphicx**: Propiedades extra para los gráficos.
@@ -93,16 +98,17 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 ## Insertando figuras, fórmulas, citas y otros
 También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, para ello existen las siguientes funciones:
 + **Insertar párrafos y citas**: Para esto existen las siguientes funciones:
+  - **\newp**: Inserta una nueva línea de manera inteligente.
   - **\newpar**<b><b>{</b></b>*Párrafo*<b>}</b>: Inserta un nuevo párrafo con un salto de linea al terminar.
   - **\newparnl**<b>{</b>*Párrafo*<b>}</b>: Inserta un nuevo párrafo sin un salto de linea al terminar.
   - **\quotes**<b>{</b>*Texto*<b>}</b>: Función simplificada para insertar "citas" sin lidiar con carácteres.
   - **\quotesit**<b>{</b>*Texto*<b>}</b>: Función simplificada para insertar _"citas en itálico"_ sin lidiar con carácteres.
-+ **Añadir una imagen**: Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la variable **\defaultimagefolder**), su escala y su correspondiente título (caption, o leyenda), la syntax para cada una de ellas es:
-  - **\insertimage**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Escala*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una simple imagen.
-  - **\insertimageboxed**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Escala*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una imagen recuadrada.
-  - **\insertimageleft**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Escala*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la izquierda, flotante.
++ **Añadir una imagen**: Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la variable **\defaultimagefolder**), sus parámetros y su correspondiente título (caption, o leyenda). Los parámetros pueden ser **scale=0.5**, **width=5cm**, **width=50%**, etc.
+  - **\insertimage**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una simple imagen.
+  - **\insertimageboxed**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una imagen recuadrada.
+  - **\insertdoubleimage**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros 1*<b>}</b><b>{</b>*Leyenda 1*<b>}</b><b>{</b>*Dirección de la imagen 2*<b>}</b><b>{</b>*Parámetros 2*<b>}</b><b>{</b>*Leyenda 2*<b>}</b><b>{</b>*Leyenda general*<b>}</b>: Inserta dos imagenes en un sólo elemento.
+  - **\insertimageleft**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la izquierda, flotante.
   - **\insertimageright**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Escala*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la derecha, flotante.
-  - **\insertdoubleimage**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Escala 1*<b>}</b><b>{</b>*Leyenda 1*<b>}</b><b>{</b>*Dirección de la imagen 2*<b>}</b><b>{</b>*Escala 2*<b>}</b><b>{</b>*Leyenda 2*<b>}</b><b>{</b>*Leyenda general*<b>}</b>: Inserta dos imagenes en un sólo elemento.
 + **Insertar una fórmula**: Existen dos funciones para añadir fórmulas: **\insertequation** y **\insertequationcaptioned**, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
     - **\insertequation**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b>: Inserta una fórmula.
     - **\insertequationcaptioned**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una fórmula con leyenda.
