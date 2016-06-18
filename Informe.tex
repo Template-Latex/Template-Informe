@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      1.9.9 (26/05/2016)
+% Versión:      1.9.9 (18/06/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -9,7 +9,7 @@
 % Licencia: CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 % CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
-\documentclass[letterpaper,11pt]{article} % Documento clase artículo, tamaño letra 11pt
+\documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, fuente de 11pt
 \usepackage[utf8]{inputenc}               % Codificación UTF-8
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
@@ -55,8 +55,7 @@
 		Ayudantes: 
 			& \begin{tabular}[t]{@{}l@{}}
 				Ayudante 1 \\
-				Ayudante 2 \\
-				Ayudante 3
+				Ayudante 2
 			\end{tabular}\\
 		\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante} \\
 		& \\
@@ -67,11 +66,9 @@
 	\end{flushright}
 \end{minipage}}
 
-%BEGIN_FOLD
 % CONFIGURACIONES
-\newcommand{\defaultfontsize}{11pt}               % Tamaño de la fuente
 \newcommand{\defaultnewlinesize}{11pt}            % Tamaño del salto de línea
-\newcommand{\defaultinterlind}{1.0}               % Interlineado por defecto
+\newcommand{\defaultinterlind}{1.0}               % Entrelineado por defecto
 \newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes 
 \newcommand{\tipofuentetitulo}{\huge}             % Tamaño de los títulos
 \newcommand{\tipofuentesubtitulo}{\Large}         % Tamaño de los subtítulos
@@ -83,6 +80,7 @@
 \newcommand{\nombltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
 \newcommand{\nombltwtablas}{Tabla}                % Nombre de las tablas
 \newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
+\newcommand{\indexdepth}{3}                       % Profundidad del índice
 \newcommand{\defaultcaptionmargin}{2.9}           % Márgenes de las leyendas por defecto
 \newcommand{\defaultpagemarginleft}{1.5}          % Margen izquierdo de las páginas [cm]
 \newcommand{\defaultpagemarginright}{1.5}         % Margen derecho de las páginas [cm]
@@ -94,75 +92,74 @@
 \newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inf. de las figuras [cm]
 
 % LIBRERÍAS INDEPENDIENTES
-\usepackage[ampersand]{easylist}       % Listas
-\usepackage{amsmath}                   % Fórmulas matemáticas
-\usepackage{amssymb}                   % Símbolos matemáticos
-%\usepackage{amsthm}                   % Teoremas matemáticos
-\usepackage{caption}                   % Leyendas
-\usepackage{color}                     % Colores
-\usepackage{datetime}                  % Fechas
-\usepackage{enumitem}                  % Enumeraciones
-\usepackage{fancyhdr}                  % Encabezados y pié de páginas
-\usepackage{float}                     % Administrador de posiciones de objetos
-\usepackage{geometry}                  % Dimensiones y geometría del documento
-\usepackage{graphicx}                  % Propiedades extra para los gráficos
-\usepackage[makeroom]{cancel}          % Cancelar términos en fórmulas
-\usepackage[norule]{footmisc}          % Elimina la barra vertical de las notas
-\usepackage{multicol}                  % Múltiples columnas
-\usepackage{lipsum}                    % Permite crear textos dummy
-\usepackage{longtable}                 % Permite utilizar tablas en varias hojas
-\usepackage{listings}                  % Permite añadir código fuente
-\usepackage{setspace}                  % Cambia el espacio entre líneas
-\usepackage{subfig}                    % Permite agrupar imágenes
-\usepackage{tikz}                      % Permite dibujar
-\usepackage{titlesec}                  % Cambia el estilo de los títulos
-\usepackage{url}                       % Permite añadir enlaces
-%\usepackage[version=4]{mhchem}        % Fórmulas químicas
-\usepackage{wrapfig}                   % Permite comprimir imágenes
+\usepackage{amsmath}                  % Fórmulas matemáticas
+\usepackage{amssymb}                  % Símbolos matemáticos
+\usepackage{amsthm}                   % Teoremas matemáticos
+\usepackage{caption}                  % Leyendas
+\usepackage{color}                    % Colores
+\usepackage{datetime}                 % Fechas
+\usepackage{enumitem}                 % Enumeraciones
+\usepackage{fancyhdr}                 % Encabezados y pié de páginas
+\usepackage{float}                    % Administrador de posiciones de objetos
+\usepackage{geometry}                 % Dimensiones y geometría del documento
+\usepackage{graphicx}                 % Propiedades extra para los gráficos
+\usepackage[makeroom]{cancel}         % Cancelar términos en fórmulas
+\usepackage[norule]{footmisc}         % Elimina la barra vertical de las notas
+\usepackage{multicol}                 % Múltiples columnas
+\usepackage{lipsum}                   % Permite crear textos dummy
+\usepackage{longtable}                % Permite utilizar tablas en varias hojas
+\usepackage{listings}                 % Permite añadir código fuente
+\usepackage{setspace}                 % Cambia el espacio entre líneas
+\usepackage{subfig}                   % Permite agrupar imágenes
+\usepackage{tikz}                     % Permite dibujar
+\usepackage{titlesec}                 % Cambia el estilo de los títulos
+\usepackage{url}                      % Permite añadir enlaces
+\usepackage[version=4]{mhchem}        % Fórmulas químicas
+\usepackage{wrapfig}                  % Permite comprimir imágenes
 
 % LIBRERÍAS DEPENDIENTES
-\usepackage{chngcntr}                  % Agrega números de secciones a las leyendas
-\usepackage{epstopdf}                  % Convierte archivos .eps a pdf
-\usepackage[hidelinks]{hyperref}       % Permite añadir enlaces y referencias
-\usepackage{multirow}                  % Agrega nuevas opciones a las tablas
+\usepackage{chngcntr}                 % Agrega números de secciones a las leyendas
+\usepackage{epstopdf}                 % Convierte archivos .eps a pdf
+\usepackage[hidelinks]{hyperref}      % Permite añadir enlaces y referencias
+\usepackage{multirow}                 % Agrega nuevas opciones a las tablas
 
 % CARGA DE MÓDULOS PARA LIBRERÍAS
-\usetikzlibrary{babel}                 % Asociado a tikz
+\usetikzlibrary{babel}                % Asociado a tikz
 
 % DECLARACIÓN DE FUNCIONES
-\newcommand{\quotes}[1]{``#1''}        % Insertar cita
+\newcommand{\quotes}[1]{``#1''}       % Insertar cita
 \newcommand{\quotesit}[1]{\textit{\quotes{#1}}} % Insertar cita en itálico
 \newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}} % Cambiar el margen
-\newcommand{\setpagemargincm}[4]{      % Cambia márgenes de las páginas [cm]
+\newcommand{\setpagemargincm}[4]{     % Cambia márgenes de las páginas [cm]
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
-\newcommand{\newp}{                    % Inserta nueva línea
+\newcommand{\newp}{                   % Inserta nueva línea
 	\hbadness=10000 \vspace{\defaultnewlinesize} \par}
-\newcommand{\newpar}[1]{               % Nuevo párrafo
+\newcommand{\newpar}[1]{              % Nuevo párrafo
 	\hbadness=10000 #1 \newp}
-\newcommand{\newparnl}[1]{#1 \par}     % Nuevo párrafo sin nueva linea al final
-\newcommand{\lpow}[2]{{#1}_{#2}}       % Insertar sub-índice
-\newcommand{\pow}[2]{{#1}^{#2}}        % Insertar elevado
-\newcommand{\fracpartial}[2]{          % Fracción de derivadas parciales af/ax
+\newcommand{\newparnl}[1]{#1 \par}    % Nuevo párrafo sin nueva linea al final
+\newcommand{\lpow}[2]{{#1}_{#2}}      % Insertar sub-índice
+\newcommand{\pow}[2]{{#1}^{#2}}       % Insertar elevado
+\newcommand{\fracpartial}[2]{         % Fracción de derivadas parciales af/ax
 	\frac{\partial #1}{\partial #2}}
-\newcommand{\fracdpartial}[2]{         % Fracción de derivadas parciales dobles a^2/ax^2
+\newcommand{\fracdpartial}[2]{        % Fracción de derivadas parciales dobles a^2/ax^2
 	\frac{{\partial}^{2} #1}{\partial {#2}^{2}}}
-\newcommand{\fracnpartial}[3]{         % Fracción de derivadas parciales en n a^n/ax^n
+\newcommand{\fracnpartial}[3]{        % Fracción de derivadas parciales en n a^n/ax^n
 	\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}}
-\newcommand{\fracderivat}[2]{          % Fracción de derivadas df/dx
+\newcommand{\fracderivat}[2]{         % Fracción de derivadas df/dx
 	\frac{d #1}{d #2}}
-\newcommand{\fracdderivat}[2]{         % Fracción de derivadas dobles d^2/dx^2
+\newcommand{\fracdderivat}[2]{        % Fracción de derivadas dobles d^2/dx^2
 	\frac{{d}^{2} #1}{d {#2}^{2}}}
-\newcommand{\fracnderivat}[3]{         % Fracción de derivadas en n d^n/dx^n
+\newcommand{\fracnderivat}[3]{        % Fracción de derivadas en n d^n/dx^n
 	\frac{{d}^{#3} #1}{d {#2}^{#3}}}
-\newcommand{\newtitleanum}[1]{         % Insertar un título sin número
+\newcommand{\newtitleanum}[1]{        % Insertar un título sin número
 	\addcontentsline{toc}{section}{#1} \section*{#1}}
-\newcommand{\newsubtitleanum}[1]{      % Insertar un subtítulo sin número
+\newcommand{\newsubtitleanum}[1]{     % Insertar un subtítulo sin número
 	\addcontentsline{toc}{subsection}{#1} \subsection*{#1}}
-\newcommand{\newtitleanumnoi}[1]{      % Insertar un título sin num. fuera del índice
+\newcommand{\newtitleanumnoi}[1]{     % Insertar un título sin num. fuera del índice
 	\section*{#1}}
-\newcommand{\newsubtitleanumnoi}[1]{   % Insertar un subtítulo sin num. fuera del índice
+\newcommand{\newsubtitleanumnoi}[1]{  % Insertar un subtítulo sin num. fuera del índice
 	\subsection*{#1}}
-\newcommand{\insertequation}[2][]{     % Insertar una ecuación
+\newcommand{\insertequation}[2][]{    % Insertar una ecuación
 	\vspace{-0.2cm}
 	\begin{equation}
 		\text{#1} #2
@@ -176,7 +173,7 @@
 		\vspace{-0.15cm}
 		\textit{#3} \par
 	\end{center}}
-\newcommand{\insertimage}[4][]{        % Insertar una imagen
+\newcommand{\insertimage}[4][]{       % Insertar una imagen
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -184,7 +181,7 @@
 		\caption{#4 #1}
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}}
-\newcommand{\insertimageboxed}[4][]{   % Insertar una imagen con recuadro
+\newcommand{\insertimageboxed}[4][]{  % Insertar una imagen con recuadro
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -192,7 +189,27 @@
 		\caption{#4 #1}
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}}
-\newcommand{\insertdoubleimage}[8][]{  % Insertar una imagen doble
+\newcommand{\insertimagefixed}[5][]{  % Insertar una imagen de ancho fijo a la página
+	\vspace{\defaultmargintopimages}
+	\begin{figure}[H]
+		\centering
+		\resizebox{#3\textwidth}{!}{
+			\includegraphics[#4]{\defaultimagefolder#2}
+		}
+		\caption{#5 #1}
+	\end{figure}
+	\vspace{\defaultmarginbottomimages}}
+\newcommand{\insertimageboxedfixed}[5][]{ % Insertar una imagen recuadrada de ancho fijo
+	\vspace{\defaultmargintopimages}
+	\begin{figure}[H]
+		\centering
+		\resizebox{#3\textwidth}{!}{
+			\fbox{\includegraphics[#4]{\defaultimagefolder#2}}
+		}
+		\caption{#5 #1}
+	\end{figure}
+	\vspace{\defaultmarginbottomimages}}
+\newcommand{\insertdoubleimage}[8][]{ % Insertar una imagen doble
 	\captionsetup{margin=0.5cm}
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H] \centering
@@ -205,7 +222,7 @@
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
 	\setcaptionmargincm{\defaultcaptionmargin}}
-\newcommand{\insertimageleft}[5][]{    % Insertar una imagen a la izquierda
+\newcommand{\insertimageleft}[5][]{   % Insertar una imagen a la izquierda
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
@@ -213,7 +230,7 @@
 		\caption{#4 #1}
 		\setcaptionmargincm{\defaultcaptionmargin}
 	\end{wrapfigure}}
-\newcommand{\insertimageright}[5][]{   % Insertar una imagen a la derecha
+\newcommand{\insertimageright}[5][]{  % Insertar una imagen a la derecha
 	\begin{wrapfigure}[#5]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
@@ -280,15 +297,8 @@
 \counterwithin{table}{section}             % Añade número de sección a las tablas
 \bibliographystyle{\tiporeferencias}       % Estilo APA para las referencias
 \setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
-\renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del interlineado
-\ListProperties(                           % Propiedades de las listas
-	Hide=100,
-	Hang=true,
-	Progressive=3ex,
-	Style*=-- ,
-	Style2*=$\bullet$,
-	Style3*=$\circ$,
-	Style4*=\tiny$\blacksquare$)
+\setlength{\headheight}{54pt}              % Tamaño de la cabecera sin fancyhdr
+\setcounter{tocdepth}{\indexdepth}         % Se ajusta la profundidad del índice
 \hypersetup{
 	%pdfauthor={Author},
 	pdftitle={\nombredelinforme},
@@ -297,7 +307,7 @@
 	\codigodelcurso, \localizacionuniversidad},
 	pdfproducer={LaTeX},
 	pdfcreator={pdfLaTeX}}
-\setlength{\headheight}{54pt}
+\renewcommand{\baselinestretch}{\defaultinterlind}  % Ajuste del entrelineado
 \makeatletter \renewenvironment{thebibliography}[1] % Bibliografía en 2 columnas
 {\begin{multicols}{2}[\section*{\refname}]
 	\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
@@ -319,10 +329,8 @@
 		\endlist\end{multicols}}
 \makeatother
 
-%END_FOLD
 \begin{document}
-%BEGIN_FOLD
-
+	
 % PORTADA
 \newpage
 \renewcommand{\thepage}{Portada}
@@ -382,10 +390,8 @@
 \titleformat*{\subsection}{\tipofuentesubtitulo \bfseries}
 \setcounter{page}{1}
 \renewcommand{\thepage}{\arabic{page}}
-%END_FOLD
 
 % ================================ INICIO DEL DOCUMENTO ================================
-
 % EJEMPLO DE DOCUMENTO
 \include{ejemplo}
 
