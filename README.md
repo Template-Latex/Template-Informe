@@ -25,13 +25,14 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
   - **dic**: Departamento de Ingeniería Civil.
   - **die**: Departamento de Ingeniería Eléctrica.
   - **dii**: Departamento de Ingeniería Industrial.
-  - **dii2**: Departamento de Ingeniería Industrial Largo.
+  - **dii2**: Departamento de Ingeniería Industrial (otra versión).
   - **dim**: Departamento de Ingeniería Matemática.
   - **dimec**: Departamento de Ingeniería Mecánica.
   - **diqbt**: Departamento de Ingeniería Química y Biotecnología.
   - **fcfm**: Facultad de Ciencias Físicas y Matemáticas.
   - **geo**: Departamento de Geología.
   - **minas**: Departamento de Ingeniería en Minas.
+  - **uchile**: Escudo de la Universidad de Chile.
 + **\imagendeldepartamentoescl**: Escala de la imagen a usar.
 + **\localizacionuniversidad**: Ciudad o región en donde se ubica la universidad o instituto.
 
