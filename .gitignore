@@ -1,4 +1,4 @@
-# Archivos creados por TeXstudio
+# Archivos creados por TeXstudio.
 *.aux
 *.lof
 *.lomycapequ
@@ -8,12 +8,16 @@
 *.toc
 *.log
 
-# Releases
+# Releases.
 .releases/*
 *.zip
 
-# Archivos de testeo
+# Archivos de testeo.
 ejemplo-formulae.tex
 
-# Windows
+# Windows.
 desktop.ini
+
+# OSX.
+__MACOSX/
+.DS_Store
