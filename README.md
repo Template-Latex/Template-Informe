@@ -1,4 +1,4 @@
-## Template de informe en latex
+﻿## Template de informe en latex
 Este corresponde a un template para confeccionar [geniales informes en latex](https://github.com/ppizarror/Template-Informe/blob/master/Informe.pdf), contiene funciones básicas para agregar imágenes, fórmulas, etc.
 
 <p align="center">
@@ -43,10 +43,17 @@ También se pueden modificar los márgenes de los títulos de tablas y figuras _
 + **\defaultinterlind**: Tamaño del interlineado.
 + **\defaultimagefolder**: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
 + **\tipofuentetitulo**: Tamaño por defecto de los títulos.
-+ **\tipofuentetitulo**: Tamaño por defecto de los títulos.
 + **\tipofuentesubtitulo**: Tamaño por defecto de los subtítulos.
++ **\tipofuentesubsubtitulo**: Tamaño por defecto de los sub-subtítulos.
 + **\tipofuentetituloi**: Tamaño por defecto de los títulos en el índice.
 + **\tipofuentesubtituloi**: Tamaño por defecto de los subtítulos en el índice.
++ **\tipofuentesubsubtituloi**: Tamaño por defecto de los sub-subtítulos en el índice.
++ **\etipofuentetitulo**: Estilo por defecto de los títulos.
++ **\etipofuentesubtitulo**: Estilo por defecto de los subtítulos.
++ **\etipofuentesubsubtitulo**: Estilo por defecto de los sub-subtítulos.
++ **\etipofuentetituloi**: Estilo por defecto de los títulos en el índice.
++ **\etipofuentesubtituloi**: Estilo por defecto de los subtítulos en el índice.
++ **\etipofuentesubsubtituloi**: Estilo por defecto de los sub-subtítulos en el índice.
 + **\tiporeferencias**: Tipo de referencias, por defecto se usa la norma APA.
 + **\nomblttablas**: Nombre de la lista de tablas.
 + **\nombltfiguras**: Nombre de la lista de figuras.
@@ -62,6 +69,7 @@ También se pueden modificar los márgenes de los títulos de tablas y figuras _
 + **\defaultmarginfloatimages**: Margen superior de las figuras flotantes en pt.
 + **\defaultmargintopimages**: Margen superior de las figuras en centímetros.
 + **\defaultmarginbottomimages**: Margen inferior de las figuras en centímetros.
++ **\nombrepaginaportada**: Nombre de la primera página (portada).
 
 ## Añadiendo integrantes, profesores, auxiliares y fechas
 Esta información de la portada se encuentra en la sección *%INTEGRANTES, PROFESORES Y FECHAS*, en esta se pueden agregar integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
@@ -90,10 +98,10 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **lipsum**: Permite crear textos dummy.
 + **longtable**: Permite utilizar tablas en varias hojas.
 + **listings**: Permite añadir código fuente.
++ **sectsty**: Cambia el estilo de los títulos.
 + **setspace**: Cambia el espacio entre líneas.
 + **subfig**: Permite agrupar imágenes.
 + **tikz**: Permite dibujar.
-+ **titlesec**: Cambia el estilo de los títulos.
 + **ulem**: Permite cachar, subrayar, etc.
 + **url**: Permite añadir enlaces.
 + **wrapfig**: Permite comprimir imágenes.
