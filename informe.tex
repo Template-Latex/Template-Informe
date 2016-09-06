@@ -1,0 +1,412 @@
+% Template:     Informe/Reporte LaTeX
+% Versión:      2.0.1 (06/09/2016)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas.
+%        Universidad de Chile.
+%
+% Licencia: CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+% CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
+\documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, fuente de 11pt
+\usepackage[utf8]{inputenc}               % Codificación UTF-8
+\usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
+\usepackage{lmodern}                      % Tipografía moderna
+\usepackage[spanish]{babel}               % Define el idioma del documento en español
+
+% INFORMACIÓN DEL DOCUMENTO
+\newcommand{\nombredelinforme}{Título del informe}
+\newcommand{\temaatratar}{Tema a tratar}
+\newcommand{\fecharealizacion}{\today}
+\newcommand{\fechaentrega}{\today}
+
+\newcommand{\nombredelcurso}{Curso}
+\newcommand{\codigodelcurso}{CO-1234}
+
+\newcommand{\nombreuniversidad}{Universidad de Chile}
+\newcommand{\nombrefacultad}{Facultad de Ciencias Físicas y Matemáticas}
+\newcommand{\departamentouniversidad}{Departamento de la Universidad}
+\newcommand{\imagendeldepartamento}{images/departamentos/fcfm}
+\newcommand{\imagendeldepartamentoescl}{0.2}
+\newcommand{\localizacionuniversidad}{Santiago, Chile}
+
+% INTEGRANTES, PROFESORES Y FECHAS
+\newcommand{\tablaintegrantes}{
+\begin{minipage}{0.965\textwidth}
+	\begin{flushright}
+		\begin{tabular}{ll}
+		Integrantes: 
+			& \begin{tabular}[t]{@{}l@{}}
+				Integrante 1 \\
+				Integrante 2 \\
+				Integrante 3
+			\end{tabular} \\
+		Profesores: 
+			& \begin{tabular}[t]{@{}l@{}}
+				Profesor 1 \\
+				Profesor 2
+			\end{tabular} \\
+		Auxiliares: 
+			& \begin{tabular}[t]{@{}l@{}}
+				Auxiliar 1 \\
+				Auxiliar 2
+			\end{tabular}\\
+		Ayudantes: 
+			& \begin{tabular}[t]{@{}l@{}}
+				Ayudante 1 \\
+				Ayudante 2
+			\end{tabular}\\
+		\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante} \\
+		& \\
+		\multicolumn{2}{l}{Fecha de realización: \fecharealizacion} \\
+		\multicolumn{2}{l}{Fecha de entrega: \fechaentrega} \\
+		\multicolumn{2}{l}{\localizacionuniversidad}
+		\end{tabular}
+	\end{flushright}
+\end{minipage}}
+
+% CONFIGURACIONES
+\newcommand{\defaultnewlinesize}{11pt}            % Tamaño del salto de línea
+\newcommand{\defaultinterlind}{1.0}               % Entrelineado por defecto
+\newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes 
+\newcommand{\tipofuentetitulo}{\huge}             % Tamaño de los títulos
+\newcommand{\tipofuentesubtitulo}{\Large}         % Tamaño de los subtítulos
+\newcommand{\tipofuentesubsubtitulo}{\large}      % Tamaño de los subsubtítulos
+\newcommand{\tipofuentetituloi}{\huge}            % Tamaño de los títulos en el índice
+\newcommand{\tipofuentesubtituloi}{\large}        % Tamaño de los subtítulos en el índice
+\newcommand{\tipofuentesubsubtituloi}{\large}     % Tamaño de los subsubtítulos en el índice
+\newcommand{\etipofuentetitulo}{\bfseries}        % Estilo de los títulos
+\newcommand{\etipofuentesubtitulo}{\bfseries}     % Estilo de los subtítulos
+\newcommand{\etipofuentesubsubtitulo}{\bfseries}  % Estilo de los subsubtítulos
+\newcommand{\etipofuentetituloi}{\bfseries}       % Estilo de los títulos en el índice
+\newcommand{\etipofuentesubtituloi}{\bfseries}    % Estilo de los subtítulos en el índice
+\newcommand{\etipofuentesubsubtituloi}{\bfseries} % Estilo de los subsubtítulos en el índice
+\newcommand{\tiporeferencias}{apa}                % Tipo de referencias
+\newcommand{\nomblttablas}{Lista de Tablas}       % Nombre de la lista de tablas
+\newcommand{\nombltfiguras}{Lista de Figuras}     % Nombre de la lista de figuras
+\newcommand{\nombltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
+\newcommand{\nombltwtablas}{Tabla}                % Nombre de las tablas
+\newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
+\newcommand{\indexdepth}{3}                       % Profundidad del índice
+\newcommand{\defaultcaptionmargin}{2.9}           % Márgenes de las leyendas por defecto
+\newcommand{\defaultpagemarginleft}{1.5}          % Margen izquierdo de las páginas [cm]
+\newcommand{\defaultpagemarginright}{1.5}         % Margen derecho de las páginas [cm]
+\newcommand{\defaultpagemargintop}{2.15}          % Margen superior de las páginas [cm]
+\newcommand{\defaultpagemarginbottom}{2.15}       % Margen inferior de las páginas [cm]
+\newcommand{\defaultfirstpagemargintop}{3.2}      % Margen superior de la portada [cm]
+\newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. de figuras flotantes [pt]
+\newcommand{\defaultmargintopimages}{-0.2cm}      % Margen sup. de las figuras [cm]
+\newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inf. de las figuras [cm]
+\newcommand{\nombrepaginaportada}{P}              % Nombre de la primera página (portada)
+
+% LIBRERÍAS INDEPENDIENTES
+\usepackage{amsmath}                  % Fórmulas matemáticas
+\usepackage{amssymb}                  % Símbolos matemáticos
+\usepackage{amsthm}                   % Teoremas matemáticos
+\usepackage{caption}                  % Leyendas
+\usepackage{color}                    % Colores
+\usepackage{datetime}                 % Fechas
+\usepackage{enumitem}                 % Enumeraciones
+\usepackage{fancyhdr}                 % Encabezados y pié de páginas
+\usepackage{float}                    % Administrador de posiciones de objetos
+\usepackage{gensymb}                  % Simbología común
+\usepackage{geometry}                 % Dimensiones y geometría del documento
+\usepackage{graphicx}                 % Propiedades extra para los gráficos
+\usepackage[makeroom]{cancel}         % Cancelar términos en fórmulas
+\usepackage[norule]{footmisc}         % Elimina la barra vertical de las notas
+\usepackage{multicol}                 % Múltiples columnas
+\usepackage{lipsum}                   % Permite crear textos dummy
+\usepackage{longtable}                % Permite utilizar tablas en varias hojas
+\usepackage{listings}                 % Permite añadir código fuente
+\usepackage{sectsty}                  % Cambia el estilo de los títulos
+\usepackage{setspace}                 % Cambia el espacio entre líneas
+\usepackage{subfig}                   % Permite agrupar imágenes
+\usepackage{tikz}                     % Permite dibujar 
+\usepackage{url}                      % Permite añadir enlaces
+\usepackage[version=4]{mhchem}        % Fórmulas químicas
+\usepackage{ulem}                     % Permite tachar, subrayar, etc
+\usepackage{wrapfig}                  % Permite comprimir imágenes
+
+% LIBRERÍAS DEPENDIENTES
+\usepackage{chngcntr}                 % Agrega números de secciones a las leyendas
+\usepackage{epstopdf}                 % Convierte archivos .eps a pdf
+\usepackage[hidelinks]{hyperref}      % Permite añadir enlaces y referencias
+\usepackage{multirow}                 % Agrega nuevas opciones a las tablas
+
+% CARGA DE MÓDULOS PARA LIBRERÍAS
+\usetikzlibrary{babel}                % Asociado a tikz
+
+% DECLARACIÓN DE FUNCIONES
+\newcommand{\quotes}[1]{``#1''}       % Insertar cita
+\newcommand{\quotesit}[1]{\textit{\quotes{#1}}} % Insertar cita en itálico
+\newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}} % Cambiar el margen
+\newcommand{\setpagemargincm}[4]{     % Cambia márgenes de las páginas [cm]
+	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
+\newcommand{\newp}{                   % Inserta nueva línea
+	\hbadness=10000 \vspace{\defaultnewlinesize} \par}
+\newcommand{\newpar}[1]{              % Nuevo párrafo
+	\hbadness=10000 #1 \newp}
+\newcommand{\newparnl}[1]{#1 \par}    % Nuevo párrafo sin nueva linea al final
+\newcommand{\lpow}[2]{{#1}_{#2}}      % Insertar sub-índice
+\newcommand{\pow}[2]{{#1}^{#2}}       % Insertar elevado
+\newcommand{\fracpartial}[2]{         % Fracción de derivadas parciales af/ax
+	\frac{\partial #1}{\partial #2}}
+\newcommand{\fracdpartial}[2]{        % Fracción de derivadas parciales dobles a^2/ax^2
+	\frac{{\partial}^{2} #1}{\partial {#2}^{2}}}
+\newcommand{\fracnpartial}[3]{        % Fracción de derivadas parciales en n a^n/ax^n
+	\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}}
+\newcommand{\fracderivat}[2]{         % Fracción de derivadas df/dx
+	\frac{d #1}{d #2}}
+\newcommand{\fracdderivat}[2]{        % Fracción de derivadas dobles d^2/dx^2
+	\frac{{d}^{2} #1}{d {#2}^{2}}}
+\newcommand{\fracnderivat}[3]{        % Fracción de derivadas en n d^n/dx^n
+	\frac{{d}^{#3} #1}{d {#2}^{#3}}}
+\newcommand{\newtitleanum}[1]{        % Insertar un título sin número
+	\addcontentsline{toc}{section}{#1} \section*{#1}}
+\newcommand{\newsubtitleanum}[1]{     % Insertar un subtítulo sin número
+	\addcontentsline{toc}{subsection}{#1} \subsection*{#1}}
+\newcommand{\newtitleanumnoi}[1]{     % Insertar un título sin num. fuera del índice
+	\section*{#1}}
+\newcommand{\newsubtitleanumnoi}[1]{  % Insertar un subtítulo sin num. fuera del índice
+	\subsection*{#1}}
+\newcommand{\insertequation}[2][]{    % Insertar una ecuación
+	\vspace{-0.2cm}
+	\begin{equation}
+		\text{#1} #2
+	\end{equation}}
+\newcommand{\insertequationcaptioned}[3][]{ % Insertar una ecuación con leyenda
+	\vspace{-0.1cm}
+	\begin{equation}
+		\text{#1} #2
+	\end{equation}
+	\begin{center}
+		\vspace{-0.15cm}
+		\textit{#3} \par
+	\end{center}}
+\newcommand{\insertimage}[4][]{       % Insertar una imagen
+	\vspace{\defaultmargintopimages}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[#3]{\defaultimagefolder#2}
+		\caption{#4 #1}
+	\end{figure}
+	\vspace{\defaultmarginbottomimages}}
+\newcommand{\insertimageboxed}[4][]{  % Insertar una imagen con recuadro
+	\vspace{\defaultmargintopimages}
+	\begin{figure}[H]
+		\centering
+		\fbox{\includegraphics[#3]{\defaultimagefolder#2}}
+		\caption{#4 #1}
+	\end{figure}
+	\vspace{\defaultmarginbottomimages}}
+\newcommand{\insertimagefixed}[5][]{  % Insertar una imagen de ancho fijo a la página
+	\vspace{\defaultmargintopimages}
+	\begin{figure}[H]
+		\centering
+		\resizebox{#3\textwidth}{!}{
+			\includegraphics[#4]{\defaultimagefolder#2}
+		}
+		\caption{#5 #1}
+	\end{figure}
+	\vspace{\defaultmarginbottomimages}}
+\newcommand{\insertimageboxedfixed}[5][]{ % Insertar una imagen recuadrada de ancho fijo
+	\vspace{\defaultmargintopimages}
+	\begin{figure}[H]
+		\centering
+		\resizebox{#3\textwidth}{!}{
+			\fbox{\includegraphics[#4]{\defaultimagefolder#2}}
+		}
+		\caption{#5 #1}
+	\end{figure}
+	\vspace{\defaultmarginbottomimages}}
+\newcommand{\insertdoubleimage}[8][]{ % Insertar una imagen doble
+	\captionsetup{margin=0.5cm}
+	\vspace{\defaultmargintopimages}
+	\begin{figure}[H] \centering
+		\subfloat[#4]{
+			\includegraphics[#3]{\defaultimagefolder#2}}
+		\hspace{0.1cm}
+		\subfloat[#7]{
+			\includegraphics[#6]{\defaultimagefolder#5}}
+		\caption{#8 #1}
+	\end{figure}
+	\vspace{\defaultmarginbottomimages}
+	\setcaptionmargincm{\defaultcaptionmargin}}
+\newcommand{\insertimageleft}[5][]{   % Insertar una imagen a la izquierda
+	\begin{wrapfigure}[#5]{l}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\vspace{\defaultmarginfloatimages}
+		\centering\includegraphics[width=\linewidth]{\defaultimagefolder#2}
+		\caption{#4 #1}
+		\setcaptionmargincm{\defaultcaptionmargin}
+	\end{wrapfigure}}
+\newcommand{\insertimageright}[5][]{  % Insertar una imagen a la derecha
+	\begin{wrapfigure}[#5]{r}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\vspace{\defaultmarginfloatimages}
+		\centering\includegraphics[width=\linewidth]{\defaultimagefolder#2}
+		\caption{#4 #1}
+		\setcaptionmargincm{\defaultcaptionmargin}
+	\end{wrapfigure}}
+
+% DECLARACIÓN DE AMBIENTES Y ESTILOS
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstdefinestyle{C}{ % Estilo de lenguaje C
+	language=C,
+  	numbers=left,
+  	stepnumber=1,        
+  	numbersep=5pt,
+  	backgroundcolor=\color{white}, 
+  	showspaces=false,
+  	showstringspaces=false,
+  	showtabs=false,
+  	tabsize=2,
+  	captionpos=b,
+  	breaklines=true,
+  	breakatwhitespace=true,
+  	title=\lstname}
+\lstdefinestyle{Java}{ % Estilo de lenguaje Java
+	language=Java,
+	frame=tb,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3}
+\lstdefinestyle{Matlab}{ % Estilo de lenguaje Matlab
+	language=Matlab,
+	breaklines=true,
+	morekeywords={matlab2tikz},
+	keywordstyle=\color{blue},
+	morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+	identifierstyle=\color{black},
+	stringstyle=\color{mylilas},
+	commentstyle=\color{mygreen},
+	showstringspaces=false,
+	numbers=left,
+	numberstyle={\tiny \color{black}},
+	numbersep=9pt,
+	emph=[1]{for,end,break},emphstyle=[1]\color{red}}
+
+% CONFIGURACIÓN INICIAL DEL DOCUMENTO
+\counterwithin{equation}{section}          % Añade número de sección a las ecuaciones
+\counterwithin{figure}{section}            % Añade número de sección a las figuras
+\counterwithin{table}{section}             % Añade número de sección a las tablas
+\bibliographystyle{\tiporeferencias}       % Estilo APA para las referencias
+\setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
+\setlength{\headheight}{54pt}              % Tamaño de la cabecera sin fancyhdr
+\setcounter{tocdepth}{\indexdepth}         % Se ajusta la profundidad del índice
+\hypersetup{
+	%pdfauthor={Author},
+	pdftitle={\nombredelinforme},
+	pdfsubject={\temaatratar},
+	pdfkeywords={\nombreuniversidad, \nombredelcurso,
+	\codigodelcurso, \localizacionuniversidad},
+	pdfproducer={LaTeX},
+	pdfcreator={pdfLaTeX}}
+\renewcommand{\baselinestretch}{\defaultinterlind}  % Ajuste del entrelineado
+\makeatletter \renewenvironment{thebibliography}[1] % Bibliografía en 2 columnas
+{\begin{multicols}{2}[\section*{\refname}]
+	\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
+	\list{\@biblabel{\@arabic\c@enumiv}}
+	{\settowidth\labelwidth{\@biblabel{#1}}
+		\leftmargin\labelwidth
+		\advance\leftmargin\labelsep
+		\@openbib@code
+		\usecounter{enumiv}
+		\let\p@enumiv\@empty
+		\renewcommand\theenumiv{\@arabic\c@enumiv}}
+	\sloppy
+	\clubpenalty 4000
+	\@clubpenalty \clubpenalty
+	\widowpenalty 4000
+	\sfcode`\.\@m}
+	{\def\@noitemerr
+		{\@latex@warning{Empty `thebibliography' environment}}
+		\endlist\end{multicols}}
+\makeatother
+
+\begin{document}
+	
+% PORTADA
+\newpage
+\renewcommand{\thepage}{\nombrepaginaportada}
+\setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}
+{\defaultpagemarginright}{\defaultpagemarginbottom}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
+\fancyhead[R]{\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}}
+\vspace*{5cm}
+\begin{center}
+	\huge  {\nombredelcurso} \\
+	\vspace{1cm}
+	\Huge {\nombredelinforme} \\
+	\vspace{0.3cm}
+	\large {\temaatratar}
+\end{center}
+\vfill
+\tablaintegrantes
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\newpage
+\pagenumbering{Roman} % Estilo de caracteres romanos en minúscula
+\setcounter{page}{1}
+\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}
+{\defaultpagemarginright}{\defaultpagemarginbottom}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\renewcommand{\listfigurename}{\nombltfiguras}       % Nombre del índice de figuras
+\renewcommand{\listtablename}{\nomblttablas}         % Nombre del índice de tablas
+\renewcommand{\contentsname}{\nombltcontend}         % Nombre del índice
+\renewcommand{\tablename}{\nombltwtablas}            % Nombre de la leyenda de las tablas
+\renewcommand{\figurename}{\nombltwfigura}           % Nombre de la leyenda de las figuras
+\pagestyle{fancy} \fancyhf{}                         % Se crean los headers y footers
+\fancyhead[L]{\nouppercase{\rightmark}}              % Header izq, nombre sección
+\fancyhead[R]{\small \rm \thepage}                   % Header der, número página
+\fancyfoot[L]{\small \rm \textit{\nombredelinforme}} % Footer izq, título del informe
+\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}} % Footer der, curso
+\renewcommand{\headrulewidth}{0.5pt}                 % Ancho de la barra del header
+\renewcommand{\footrulewidth}{0.5pt}                 % Ancho de la barra del footer
+
+% ABSTRACT- RESUMEN
+\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
+\newtitleanum{Resumen}
+\lipsum[1]
+
+% TABLA DE CONTENIDOS
+\newpage
+\sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}
+\subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}
+\subsubsectionfont{\tipofuentesubsubtituloi \etipofuentesubsubtituloi \selectfont}
+\tableofcontents         % Tabla de contenidos
+\listoffigures           % Índice de figuras
+\listoftables            % Índice de tablas
+
+% CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
+\newpage
+\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
+\subsectionfont{\tipofuentesubtitulo \etipofuentesubtitulo \selectfont}
+\subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
+
+% ================================ INICIO DEL DOCUMENTO ================================
+% EJEMPLO DE DOCUMENTO
+\include{ejemplo}
+
+% FIN DEL DOCUMENTO
+\end{document}
