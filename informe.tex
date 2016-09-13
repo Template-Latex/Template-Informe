@@ -9,11 +9,11 @@
 % Licencia: CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 % CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
-\documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, fuente de 11pt
-\usepackage[utf8]{inputenc}               % Codificación UTF-8
-\usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
-\usepackage{lmodern}                      % Tipografía moderna
-\usepackage[spanish]{babel}               % Define el idioma del documento en español
+\documentclass[letterpaper,11pt]{article}  % Articulo tamaño carta, fuente de 11pt
+\usepackage[utf8]{inputenc}                % Codificación UTF-8
+\usepackage[T1]{fontenc}                   % Soporta caracteres acentuados
+\usepackage{lmodern}                       % Tipografía moderna
+\usepackage[spanish]{babel}                % Define el idioma del documento en español
 
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
@@ -104,6 +104,7 @@
 \usepackage{amsmath}                  % Fórmulas matemáticas
 \usepackage{amssymb}                  % Símbolos matemáticos
 \usepackage{amsthm}                   % Teoremas matemáticos
+\usepackage[bottom, norule]{footmisc} % Estilo pié de página
 \usepackage{caption}                  % Leyendas
 \usepackage{color}                    % Colores
 \usepackage{datetime}                 % Fechas
@@ -114,7 +115,6 @@
 \usepackage{geometry}                 % Dimensiones y geometría del documento
 \usepackage{graphicx}                 % Propiedades extra para los gráficos
 \usepackage[makeroom]{cancel}         % Cancelar términos en fórmulas
-\usepackage[norule]{footmisc}         % Elimina la barra vertical de las notas
 \usepackage{multicol}                 % Múltiples columnas
 \usepackage{lipsum}                   % Permite crear textos dummy
 \usepackage{longtable}                % Permite utilizar tablas en varias hojas
@@ -126,6 +126,7 @@
 \usepackage{url}                      % Permite añadir enlaces
 \usepackage[version=4]{mhchem}        % Fórmulas químicas
 \usepackage{ulem}                     % Permite tachar, subrayar, etc
+\usepackage{wasysym}                  % Contiene carácteres misceláneos
 \usepackage{wrapfig}                  % Permite comprimir imágenes
 
 % LIBRERÍAS DEPENDIENTES
@@ -171,10 +172,11 @@
 \newcommand{\newsubtitleanumnoi}[1]{  % Insertar un subtítulo sin num. fuera del índice
 	\subsection*{#1}}
 \newcommand{\insertequation}[2][]{    % Insertar una ecuación
-	\vspace{-0.2cm}
+	\vspace{-0.18cm}
 	\begin{equation}
 		\text{#1} #2
 	\end{equation}}
+	\vspace{0.18cm}
 \newcommand{\insertequationcaptioned}[3][]{ % Insertar una ecuación con leyenda
 	\vspace{-0.1cm}
 	\begin{equation}
