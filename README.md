@@ -104,7 +104,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **tikz**: Permite dibujar.
 + **ulem**: Permite cachar, subrayar, etc.
 + **url**: Permite añadir enlaces.
-+ **wasysym**: Contiene carácteres misceláneos.
++ **wasysym**: Contiene caracteres misceláneos.
 + **wrapfig**: Permite comprimir imágenes.
 
 ## Insertar figuras, fórmulas, citas y otros
