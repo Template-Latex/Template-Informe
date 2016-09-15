@@ -2,39 +2,20 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Template informe</title>
+    <title>Template-informe by ppizarror</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-	<link rel="apple-touch-icon" sizes="57x57" href="resources/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="resources/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="resources/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="resources/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="resources/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="resources/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="resources/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="resources/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="resources/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="resources/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="resources/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
-	<link rel="manifest" href="resources/manifest.json">
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="resources/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff">
-	<link rel="image_src" href="resources/ms-icon-310x310.png" / >
-	<meta property='og:image' content='resources/ms-icon-310x310.png'/>
-
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Template para informes</h1>
-      <h2 class="project-tagline">Template de informe en <img src="resources/latex.png" alt="LaTeX" width="5%" height="5%" style="top:10px;position:relative;"> para tareas y trabajos.</h2>
-      <a href="https://github.com/ppizarror/Template-Informe" class="btn">Ver en GitHub</a>
-      <a href="https://github.com/ppizarror/Template-Informe/releases/download/2.0.3/Template_informe_v2.0.3.zip" class="btn" version="2.0.3">Descargar última versión (2.0.3)</a>
+      <h1 class="project-name">Template-informe</h1>
+      <h2 class="project-tagline">Template de informe para tareas, trabajos, etc.</h2>
+      <a href="https://github.com/ppizarror/Template-Informe" class="btn">View on GitHub</a>
+      <a href="https://github.com/ppizarror/Template-Informe/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ppizarror/Template-Informe/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
@@ -54,7 +35,7 @@
 
 <ul>
 <li>
-<strong>\nombredelinformetitulo</strong>: Título del informe.</li>
+<strong>\nombredelinforme</strong>: Título del informe.</li>
 <li>
 <strong>\temaatratar</strong>: Tema a tratar.</li>
 <li>
@@ -122,8 +103,6 @@
 
 <ul>
 <li>
-<strong>\defaultfontsize</strong>: Tamaño de la fuente por defecto en pt.</li>
-<li>
 <strong>\defaultnewlinesize</strong>: Tamaño del salto de línea en pt.</li>
 <li>
 <strong>\defaultinterlind</strong>: Tamaño del interlineado.</li>
@@ -166,6 +145,8 @@
 <li>
 <strong>\nombltwfigura</strong>: Nombre de las figuras.</li>
 <li>
+<strong>\indexdepth</strong>: Profundidad del índice.</li>
+<li>
 <strong>\defaultcaptionmargin</strong>: Márgenes de las leyendas por defecto.</li>
 <li>
 <strong>\defaultpagemarginleft</strong>: Margen izquierdo de las páginas en centímetros.</li>
@@ -205,6 +186,10 @@
 <li>
 <strong>amsthm</strong>: Teoremas matemáticos.</li>
 <li>
+<strong>babel</strong>: Soporte para idiomas.</li>
+<li>
+<strong>booktabs</strong>: Permite manejar elementos visuales en tablas.</li>
+<li>
 <strong>cancel</strong>: Cancelar términos en fórmulas.</li>
 <li>
 <strong>caption</strong>: Leyendas (o títulos de objetos).</li>
@@ -213,9 +198,11 @@
 <li>
 <strong>color</strong>: Colores.</li>
 <li>
-<strong>easylist</strong>: Listas.</li>
+<strong>datetime</strong>: Fechas.</li>
 <li>
-<strong>enumitem</strong>: Enumeraciones avanzadas.</li>
+<strong>enumerate</strong>: Permite enumerar ítemes.</li>
+<li>
+<strong>epstopdf</strong>: Convierte archivos .eps a pdf <em>[dependiente]</em>.</li>
 <li>
 <strong>fancyhdr</strong>: Encabezados y pié de páginas.</li>
 <li>
@@ -229,7 +216,7 @@
 <li>
 <strong>graphicx</strong>: Propiedades extra para los gráficos.</li>
 <li>
-<strong>hyperref</strong>: Permite añadir enlaces y referencias.</li>
+<strong>hyperref</strong>: Permite añadir enlaces y referencias <em>[dependiente]</em>.</li>
 <li>
 <strong>mhchem</strong>:   Fórmulas químicas [versión 4].</li>
 <li>
@@ -247,7 +234,7 @@
 <li>
 <strong>setspace</strong>: Cambia el espacio entre líneas.</li>
 <li>
-<strong>subfig</strong>: Permite agrupar imágenes.</li>
+<strong>subcaption</strong>: Permite agrupar imágenes.</li>
 <li>
 <strong>tikz</strong>: Permite dibujar.</li>
 <li>
@@ -345,14 +332,16 @@
 
 <p>Pablo Pizarro, 2016.</p>
 
-<p>Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.</p>
+<p>Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>, o sencillamente ten la libertad de enviar un <em>pull request</em>.</p>
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/ppizarror/Template-Informe">Template-informe</a> es desarrollado por <a href="https://github.com/ppizarror">ppizarror</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/ppizarror/Template-Informe">Template-informe</a> is maintained by <a href="https://github.com/ppizarror">ppizarror</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
 
     </section>
 
-
+  
   </body>
 </html>
