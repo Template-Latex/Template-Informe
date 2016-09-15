@@ -79,12 +79,14 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **amsmath**: Fórmulas matemáticas.
 + **amssymb**: Símbolos matemáticos.
 + **amsthm**: Teoremas matemáticos.
++ **babel**: Soporte para idiomas.
++ **booktabs**: Permite manejar elementos visuales en tablas.
 + **cancel**: Cancelar términos en fórmulas.
 + **caption**: Leyendas (o títulos de objetos).
 + **chngcntr**: Agrega números de secciones a las leyendas *[dependiente]*.
 + **color**: Colores.
-+ **easylist**: Listas.
-+ **enumitem**: Enumeraciones avanzadas.
++ **datetime**: Fechas.
++ **enumerate**: Permite enumerar ítemes.
 + **epstopdf**: Convierte archivos .eps a pdf *[dependiente]*.
 + **fancyhdr**: Encabezados y pié de páginas.
 + **footmisc**: Elimina la barra vertical de las notas al pié de página.
@@ -101,7 +103,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **listings**: Permite añadir código fuente.
 + **sectsty**: Cambia el estilo de los títulos.
 + **setspace**: Cambia el espacio entre líneas.
-+ **subfig**: Permite agrupar imágenes.
++ **subcaption**: Permite agrupar imágenes.
 + **tikz**: Permite dibujar.
 + **ulem**: Permite cachar, subrayar, etc.
 + **url**: Permite añadir enlaces.
