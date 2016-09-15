@@ -1,0 +1,13 @@
+# Latex
+*.tex
+*.aux
+*.swp
+*.lof
+*.out
+*.synctex.gz
+*.toc
+*.log
+*.lot
+
+# Releases
+.releases/
