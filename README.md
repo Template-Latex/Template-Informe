@@ -7,7 +7,7 @@ Este corresponde a un template para confeccionar [geniales informes en latex](ht
 
 ## Configurando el documento
 Para modificar el documento (Título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de *%INFORMACIÓN DEL DOCUMENTO* al principio del documento, estas son del estilo _\newcommand_{**\nombreVariable**}{**Valor**}, entre las cuales se encuentran:
-+ **\nombredelinformetitulo**: Título del informe.
++ **\nombredelinforme**: Título del informe.
 + **\temaatratar**: Tema a tratar.
 + **\fecharealizacion**: Fecha en que se realizó el experimento o informe.
 + **\fechaentrega**: Fecha en que se entregó el informe.
@@ -38,7 +38,6 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
 
 ## Configurar otros elementos del documento
 También se pueden modificar los márgenes de los títulos de tablas y figuras _(caption)_, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de *%CONFIGURACIONES*, entre las cuales se encuentran:
-+ **\defaultfontsize**: Tamaño de la fuente por defecto en pt.
 + **\defaultnewlinesize**: Tamaño del salto de línea en pt.
 + **\defaultinterlind**: Tamaño del interlineado.
 + **\defaultimagefolder**: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
@@ -60,6 +59,7 @@ También se pueden modificar los márgenes de los títulos de tablas y figuras _
 + **\nombltcontend**: Nombre del índice de contenidos.
 + **\nombltwtablas**: Nombre de las tablas.
 + **\nombltwfigura**: Nombre de las figuras.
++ **\indexdepth**: Profundidad del índice.
 + **\defaultcaptionmargin**: Márgenes de las leyendas por defecto.
 + **\defaultpagemarginleft**: Margen izquierdo de las páginas en centímetros.
 + **\defaultpagemarginright**: Margen derecho de las páginas en centímetros.
@@ -85,13 +85,14 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **color**: Colores.
 + **easylist**: Listas.
 + **enumitem**: Enumeraciones avanzadas.
++ **epstopdf**: Convierte archivos .eps a pdf *[dependiente]*.
 + **fancyhdr**: Encabezados y pié de páginas.
 + **footmisc**: Elimina la barra vertical de las notas al pié de página.
 + **float**: Administrador de posiciones de objetos.
 + **geometry**: Dimensiones y geometría del documento.
 + **gensymb**: Simbología común.
 + **graphicx**: Propiedades extra para los gráficos.
-+ **hyperref**: Permite añadir enlaces y referencias.
++ **hyperref**: Permite añadir enlaces y referencias *[dependiente]*.
 + **mhchem**:	Fórmulas químicas [versión 4].
 + **multicol**: Múltiples columnas.
 + **multirow**: Añade nuevas opciones a las tablas *[dependiente]*.
