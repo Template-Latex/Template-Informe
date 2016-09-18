@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="98" height="20">
+    <script>
+      function SetParams()
+      {
+        var paramArray = [];
+        if ( document.defaultView.frameElement )
+        {
+           var params = document.defaultView.frameElement.getElementsByTagName("param");
+
+           for ( var i = 0, iLen = params.length; iLen > i; i++ )
+           {
+              var eachParam = params[ i ];
+              var name = eachParam.getAttribute( "name" );
+              var value = eachParam.getAttribute( "value" );
+
+              paramArray[ name ] = value;
+           }
+        }
+
+        alert('hola');
+        document.getElementById('total-download-counter-1').innerHTML = paramArray["descargas"];
+        document.getElementById('total-download-counter-2').innerHTML = paramArray["descargas"];
+      };
+    </script>
+    <linearGradient id="b" x2="0" y2="100%">
+        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+        <stop offset="1" stop-opacity=".1"/>
+    </linearGradient>
+    <mask id="a">
+        <rect width="98" height="20" rx="3" fill="#fff"/>
+    </mask>
+    <g mask="url(#a)">
+        <path fill="#555" d="M0 0h67v20H0z"/>
+        <path fill="#4c1" d="M67 0h31v20H67z"/>
+        <path fill="url(#b)" d="M0 0h98v20H0z"/>
+    </g>
+    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+        <text x="33.5" y="15" fill="#010101" fill-opacity=".3">Descargas</text>
+        <text x="33.5" y="14">Descargas</text>
+        <text x="81.5" y="15" fill="#010101" fill-opacity=".3" id="total-download-counter-1"></text>
+        <text x="81.5" y="14" id="total-download-counter-2"></text>
+    </g>
+</svg>
