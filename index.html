@@ -31,7 +31,9 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
     <style>
-        a#aimg, a:hover#aimg, .page-header#aimg {
+        a#aimg,
+        a:hover#aimg,
+        .page-header#aimg {
             background: #fff;
             border: none;
             color: #fff;
@@ -71,10 +73,10 @@
             }
             var last_version = "$VERSION";
             var last_version_link = "$VERSION_LINK";
-            try{
+            try {
                 last_version = json[0].tag_name;
                 last_version_link = json[0].assets[0].browser_download_url;
-            } catch(err){
+            } catch (err) {
                 console.log('Error al obtener la última versión del software');
             }
             $('total-download-counter').each(function() {
@@ -91,8 +93,8 @@
             document.getElementById('total-download-counter-2').innerHTML = total_downloads;
 
             // Se establece la versión en el botón de descargas
-            document.getElementById("download-button").href=last_version_link;
-            document.getElementById("download-button").innerHTML=String.format('Descargar última versión ({0})', last_version);
+            document.getElementById("download-button").href = last_version_link;
+            document.getElementById("download-button").innerHTML = String.format('Descargar última versión ({0})', last_version);
         });
     </script>
 
@@ -114,13 +116,34 @@
         <!-- Badges -->
         <p>
             <a href="https://opensource.org/licenses/MIT" id="aimg">
-                <img src="resources/Licencia-MIT-blue.svg"/>
+                <img src="resources/Licencia-MIT-blue.svg" />
             </a>
             <a href="http://ppizarror.github.io/" id="aimg">
-                <img src="resources/autor.svg"/>
+                <img src="resources/autor.svg" />
             </a>
-            <img src="resources/mantencion.svg"/>
-            <img src="resources/build.svg"/>
+            <img src="resources/mantencion.svg" />
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="96" height="20">
+                <linearGradient id="b" x2="0" y2="100%">
+                    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+                    <stop offset="1" stop-opacity=".1"/>
+                </linearGradient>
+                <mask id="a">
+                    <rect width="96" height="20" rx="3" fill="#fff"/>
+                </mask>
+                <g mask="url(#a)">
+                    <path fill="#555" d="M0 0h51v20H0z"/>
+                    <path fill="#97CA00" d="M51 0h45v20H51z"/>
+                    <path fill="url(#b)" d="M0 0h96v20H0z"/>
+                </g>
+                <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+                    <text x="25.5" y="15" fill="#010101" fill-opacity=".3">Versión</text>
+                    <text x="25.5" y="14">Versión</text>
+                    <text x="72.5" y="15" fill="#010101" fill-opacity=".3">v2.0.4
+                    </text>
+                    <text x="72.5" y="14">v2.0.4</text>
+                </g>
+            </svg> -->
+            <img src="resources/build.svg" />
             <svg xmlns="http://www.w3.org/2000/svg" width="98" height="20">
                 <linearGradient id="b" x2="0" y2="100%">
                     <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
