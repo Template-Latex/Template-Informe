@@ -125,10 +125,6 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
   - **\insertimageleft**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la izquierda, flotante.
   - **\insertimageright**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Escala*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la derecha, flotante.
 + **Insertar una fórmula**: Existen dos funciones para añadir fórmulas: **\insertequation** y **\insertequationcaptioned**, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
-> ```latex
-\insertequation[\label{eqn-1}]{e = 2\pi}
-```
-> <img src='https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/informe/examples/pow.png?raw=true' alt='Curva de distribución' align='center'>
 
     - **\insertequation**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b>: Inserta una fórmula.
     - **\insertequationcaptioned**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una fórmula con leyenda.
@@ -145,6 +141,12 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
   - **\newsubtitleanum**<b>{</b>*Título*<b>}</b>: Inserta un subtítulo sin número.
   - **\newtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un título sin número sin que aparezca en el índice.
   - **\newsubtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un subtítulo sin número sin que aparezca en el índice.
+
+
+> ```latex
+\insertequation[\label{eqn-1}]{e = 2\pi}
+```
+> <img src='https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/informe/examples/pow.png?raw=true' alt='Curva de distribución' align='center'>
 
 ## Autor
 Pablo Pizarro, 2016.
