@@ -28,8 +28,8 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="image_src" href="resources/ms-icon-310x310.png" />
     <meta property='og:image' content='resources/ms-icon-310x310.png' />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/parallax.js"></script>
     <style>
         a#aimg,
         a:hover#aimg,
@@ -96,15 +96,20 @@
             document.getElementById("download-button").href = last_version_link;
             document.getElementById("download-button").innerHTML = String.format('Descargar última versión ({0})', last_version);
         });
+
+        $('.scrollable').parallax({
+            imageSrc: '/images/background4.jpg'
+        });
     </script>
 
 </head>
 
 <body>
-    <section class="page-header">
+    <section class="page-header scrollable scroll">
         <h1 class="project-name">Template para informes</h1>
-        <h2 class="project-tagline">Template de informe en <img src="resources/latex.png" alt="LaTeX" width="60px" height="25px" style="top: 7px;position:relative;"> para tareas y trabajos.</h2>
+        <h2 class="project-tagline">Template de informe en LaTeX<!--<img src="resources/latex.png" alt="LaTeX" width="60px" height="25px" style="top: 7px;position:relative;">--> para tareas y trabajos.</h2>
         <a href="https://github.com/ppizarror/Template-Informe" class="btn">Ver en GitHub</a>
+        <a href="https://github.com/ppizarror/Template-Informe/wiki" class="btn">Ver Ejemplo <img src="resources/pdf.png" width="16px" height="16px" style="top:2px; position:relative" /></a>
         <a href="https://github.com/ppizarror/Template-Informe/wiki" class="btn">Ver Wiki</a>
         <a href="#Error_al_cargar_enlace_descarga" class="btn" id="download-button">Descargar última versión</a>
     </section>
@@ -143,7 +148,7 @@
                     <text x="72.5" y="14">v2.0.4</text>
                 </g>
             </svg> -->
-            <img src="resources/build.svg" />
+            <!-- <img src="resources/build.svg" /> -->
             <svg xmlns="http://www.w3.org/2000/svg" width="98" height="20">
                 <linearGradient id="b" x2="0" y2="100%">
                     <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
@@ -169,7 +174,7 @@
         <p>Este corresponde a un template para confeccionar <a href="https://github.com/ppizarror/Template-Informe/blob/master/Informe.pdf">geniales informes en latex</a>, contiene funciones básicas para agregar imágenes, fórmulas, etc.</p>
 
         <p align="center">
-            <img src="https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/informe/informe_data.png" alt="Informe" width="80%px" height="80%px">
+            <img src="images/informe_data.png" alt="Informe" width="80%px" height="80%px">
         </p>
 
         <h2>
@@ -442,11 +447,11 @@
                 <ul>
                     <li>
                         <strong>\insertequation</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula.</li>
-                        <blockquote>
+                        <!-- <blockquote>
                         <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\insertequation</span>[<span class="pl-c1">\label</span>{eqn-1}]{e = 2<span class="pl-c1">\pi</span>}</pre></div>
 
                         <p><img src="https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/informe/examples/pow.png?raw=true" alt="Curva de distribución" align="center"></p>
-                        </blockquote>
+                        </blockquote> -->
                     <li>
                         <strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.</li>
                     <li>
@@ -492,7 +497,7 @@
         <p>Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.</p>
 
         <footer class="site-footer">
-            <span class="site-footer-owner"><a href="https://github.com/ppizarror/Template-Informe">Template-informe</a> es desarrollado por <a href="https://github.com/ppizarror">ppizarror</a>.</span>
+            <span class="site-footer-owner"><a href="https://github.com/ppizarror/Template-Informe">Template-informe</a> es desarrollado por <a href="http://ppizarror.com/">ppizarror</a>.</span>
         </footer>
 
     </section>
