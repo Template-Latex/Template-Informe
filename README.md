@@ -96,6 +96,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **graphicx**: Propiedades extra para los gráficos.
 + **hyperref**: Permite añadir enlaces y referencias *[dependiente]*.
 + **mhchem**:	Fórmulas químicas [versión 4].
++ **mathtools**: Permite utilizar notaciones matemáticas avanzadas.
 + **multicol**: Múltiples columnas.
 + **multirow**: Añade nuevas opciones a las tablas *[dependiente]*.
 + **lipsum**: Permite crear textos dummy.
@@ -128,25 +129,23 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
 
     - **\insertequation**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b>: Inserta una fórmula.
     - **\insertequationcaptioned**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una fórmula con leyenda.
-    - **\pow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.
-    - **\lpow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una sub potencia del tipo a_b.
-    - **\fracpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas parciales del estilo ∂a/∂b.
-    - **\fracdpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 a/∂b^2.
-    - **\fracnpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b><b>{</b>*c*<b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2.
-    - **\fracderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas del estilo da/db.
-    - **\fracdderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas al cuadrado al estilo d^2 a/db^2.
-    - **\fracnderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b><b>{</b>*c*<b>}</b>: Crea una fracción de derivadas a la n al estilo d^c a/db^2.
+    - **\pow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una potencia del tipo **a**^**b**.
+    - **\lpow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una sub potencia del tipo **a**_**b**.
+    - **\fracpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas parciales del estilo ∂**a**/∂**b**.
+    - **\fracdpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 **a**/∂**b**^2.
+    - **\fracnpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b><b>{</b>*c*<b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^**c** **a**/∂**b**^2.
+    - **\fracderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas del estilo d**a**/d**b**.
+    - **\fracdderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas al cuadrado al estilo d^2 **a**/d**b**^2.
+    - **\fracnderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b><b>{</b>*c*<b>}</b>: Crea una fracción de derivadas a la n al estilo d^**c** **a**/d**b**^2.
+    - **\topequal**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave sobre el elemento **a** con valor **b**.
+    - **\underequal**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave bajo el elemento **a** con valor **b**.
+    - **\topsqual**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave rectangular sobre el elemento **a** con valor **b**.
+    - **\undersqual**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave rectangular bajo el elemento **a** con valor **b**.
 + **Insertar títulos sin número, y títulos sin aparecer en el índice**: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para ello existen las siguientes funciones:
   - **\newtitleanum**<b>{</b>*Título*<b>}</b>: Inserta un título sin número.
   - **\newsubtitleanum**<b>{</b>*Título*<b>}</b>: Inserta un subtítulo sin número.
   - **\newtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un título sin número sin que aparezca en el índice.
   - **\newsubtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un subtítulo sin número sin que aparezca en el índice.
-
-
-> ```latex
-\insertequation[\label{eqn-1}]{e = 2\pi}
-```
-> <img src='https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/informe/examples/pow.png?raw=true' alt='Curva de distribución' align='center'>
 
 ## Autor
 Pablo Pizarro, 2016.
