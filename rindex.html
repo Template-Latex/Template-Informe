@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Template informe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="apple-touch-icon" sizes="57x57" href="resources/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="resources/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="resources/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="resources/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="resources/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="resources/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="resources/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="resources/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="resources/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="resources/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
+    <link rel="manifest" href="resources/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="resources/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="image_src" href="resources/ms-icon-310x310.png" />
+    <meta property='og:image' content='resources/ms-icon-310x310.png' />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <style>
+        a#aimg,
+        a:hover#aimg,
+        .page-header#aimg {
+            background: #fff;
+            border: none;
+            color: #fff;
+            font: normal;
+            height: auto;
+            letter-spacing: normal;
+            line-height: normal;
+            margin: 0;
+            padding: 0;
+            text-transform: normal;
+            visibility: visible;
+            width: auto;
+            word-spacing: normal;
+            z-index: auto;
+        }
+    </style>
+    <script>
+        if (!String.format) {
+            String.format = function(format) {
+                var args = Array.prototype.slice.call(arguments, 1);
+                return format.replace(/{(\d+)}/g, function(match, number) {
+                    return typeof args[number] != 'undefined' ?
+                        args[number] :
+                        match;
+                });
+            };
+        }
+        $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
+            var jlen = json.length;
+            var total_downloads = 0;
+            for (i = 0; i < jlen; i++) {
+                try {
+                    total_downloads += parseInt(json[i].assets[0].download_count);
+                } catch (err) {
+                    console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
+                }
+            }
+            var last_version = "$VERSION";
+            var last_version_link = "$VERSION_LINK";
+            try {
+                last_version = json[0].tag_name;
+                last_version_link = json[0].assets[0].browser_download_url;
+            } catch (err) {
+                console.log('Error al obtener la última versión del software');
+            }
+            $('total-download-counter').each(function() {
+                this.id.innerHTML = total_downloads;
+            });
+
+            //Se imprimen estados en consola
+            console.log(String.format('Cantidad de descargas totales: {0}', total_downloads));
+            console.log(String.format('Última versión: {0}', last_version));
+            console.log(String.format('Última versión - enlace descarga: {0}', last_version_link));
+
+            // Se establece la versión en el contador de descargas totales
+            document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+            document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+
+            // Se establece la versión en el botón de descargas
+            document.getElementById("download-button").href = last_version_link;
+            document.getElementById("download-button").innerHTML = String.format('Descargar última versión ({0})', last_version);
+        });
+    </script>
+
+</head>
+
+<body>
+    <section class="page-header">
+        <h1 class="project-name">Template para informes</h1>
+        <h2 class="project-tagline">Template de informe en <img src="resources/latex.png" alt="LaTeX" width="60px" height="25px" style="top: 7px;position:relative;"> para tareas y trabajos.</h2>
+        <a href="https://github.com/ppizarror/Template-Informe" class="btn">Ver en GitHub</a>
+        <a href="https://github.com/ppizarror/Template-Informe/wiki" class="btn">Ver Wiki</a>
+        <a href="#Error_al_cargar_enlace_descarga" class="btn" id="download-button">Descargar última versión</a>
+    </section>
+
+    <section class="main-content">
+        <h2>
+<a id="template-de-informe-en-latex" class="anchor" href="#template-de-informe-en-latex" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Template de informe en latex</h2>
+
+        <!-- Badges -->
+        <p>
+            <a href="https://opensource.org/licenses/MIT" id="aimg">
+                <img src="resources/Licencia-MIT-blue.svg" />
+            </a>
+            <a href="http://ppizarror.github.io/" id="aimg">
+                <img src="resources/autor.svg" />
+            </a>
+            <img src="resources/mantencion.svg" />
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="96" height="20">
+                <linearGradient id="b" x2="0" y2="100%">
+                    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+                    <stop offset="1" stop-opacity=".1"/>
+                </linearGradient>
+                <mask id="a">
+                    <rect width="96" height="20" rx="3" fill="#fff"/>
+                </mask>
+                <g mask="url(#a)">
+                    <path fill="#555" d="M0 0h51v20H0z"/>
+                    <path fill="#97CA00" d="M51 0h45v20H51z"/>
+                    <path fill="url(#b)" d="M0 0h96v20H0z"/>
+                </g>
+                <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+                    <text x="25.5" y="15" fill="#010101" fill-opacity=".3">Versión</text>
+                    <text x="25.5" y="14">Versión</text>
+                    <text x="72.5" y="15" fill="#010101" fill-opacity=".3">v2.0.4
+                    </text>
+                    <text x="72.5" y="14">v2.0.4</text>
+                </g>
+            </svg> -->
+            <img src="resources/build.svg" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="98" height="20">
+                <linearGradient id="b" x2="0" y2="100%">
+                    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+                    <stop offset="1" stop-opacity=".1"/>
+                </linearGradient>
+                <mask id="a">
+                    <rect width="98" height="20" rx="3" fill="#fff"/>
+                </mask>
+                <g mask="url(#a)">
+                    <path fill="#555" d="M0 0h67v20H0z"/>
+                    <path fill="#4c1" d="M67 0h31v20H67z"/>
+                    <path fill="url(#b)" d="M0 0h98v20H0z"/>
+                </g>
+                <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+                    <text x="33.5" y="15" fill="#010101" fill-opacity=".3">Descargas</text>
+                    <text x="33.5" y="14">Descargas</text>
+                    <text x="81.5" y="15" fill="#010101" fill-opacity=".3" id="total-download-counter-1"></text>
+                    <text x="81.5" y="14" id="total-download-counter-2"></text>
+                </g>
+            </svg>
+        </p>
+
+        <p>Este corresponde a un template para confeccionar <a href="https://github.com/ppizarror/Template-Informe/blob/master/Informe.pdf">geniales informes en latex</a>, contiene funciones básicas para agregar imágenes, fórmulas, etc.</p>
+
+        <p align="center">
+            <img src="https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/informe/informe_data.png" alt="Informe" width="80%px" height="80%px">
+        </p>
+
+        <h2>
+<a id="configurando-el-documento" class="anchor" href="#configurando-el-documento" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configurando el documento</h2>
+
+        <p>Para modificar el documento (Título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de <em>%INFORMACIÓN DEL DOCUMENTO</em> al principio del documento, estas son del estilo <em>\newcommand</em>{<strong>\nombreVariable</strong>}{<strong>Valor</strong>},
+            entre las cuales se encuentran:</p>
+
+        <ul>
+            <li>
+                <strong>\nombredelinforme</strong>: Título del informe.</li>
+            <li>
+                <strong>\temaatratar</strong>: Tema a tratar.</li>
+            <li>
+                <strong>\fecharealizacion</strong>: Fecha en que se realizó el experimento o informe.</li>
+            <li>
+                <strong>\fechaentrega</strong>: Fecha en que se entregó el informe.</li>
+            <li>
+                <strong>\nombredelcurso</strong>: Curso - Ramo referido al informe.</li>
+            <li>
+                <strong>\codigodelcurso</strong>: Código del curso.</li>
+            <li>
+                <strong>\nombreuniversidad</strong>: Universidad, Instituto, etc.</li>
+            <li>
+                <strong>\nombrefacultad</strong>: Facultad relacionada a la Universidad, Instituto, etc.</li>
+            <li>
+                <strong>\departamentouniversidad</strong>: Departamento de la Universidad.</li>
+            <li>
+                <strong>\imagendeldepartamento</strong>: Imagen del departamento o universidad a usar en la portada, estos se pueden encontrar en la carpeta <em>/images/departamentos/</em>. Actualmente existen las siguientes imágenes:
+
+                <ul>
+                    <li>
+                        <strong>adh</strong>: Área de Humanidades.</li>
+                    <li>
+                        <strong>das</strong>: Departamento de Astronomía.</li>
+                    <li>
+                        <strong>dcc</strong>: Departamento de Ciencias de la Computación.</li>
+                    <li>
+                        <strong>dfi</strong>: Departamento de Física.</li>
+                    <li>
+                        <strong>dgf</strong>: Departamento de Geofísica.</li>
+                    <li>
+                        <strong>dic</strong>: Departamento de Ingeniería Civil.</li>
+                    <li>
+                        <strong>die</strong>: Departamento de Ingeniería Eléctrica.</li>
+                    <li>
+                        <strong>dii</strong>: Departamento de Ingeniería Industrial.</li>
+                    <li>
+                        <strong>dii2</strong>: Departamento de Ingeniería Industrial (otra versión).</li>
+                    <li>
+                        <strong>dim</strong>: Departamento de Ingeniería Matemática.</li>
+                    <li>
+                        <strong>dimec</strong>: Departamento de Ingeniería Mecánica.</li>
+                    <li>
+                        <strong>diqbt</strong>: Departamento de Ingeniería Química y Biotecnología.</li>
+                    <li>
+                        <strong>fcfm</strong>: Facultad de Ciencias Físicas y Matemáticas.</li>
+                    <li>
+                        <strong>geo</strong>: Departamento de Geología.</li>
+                    <li>
+                        <strong>minas</strong>: Departamento de Ingeniería en Minas.</li>
+                    <li>
+                        <strong>uchile</strong>: Escudo de la Universidad de Chile.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>\imagendeldepartamentoescl</strong>: Escala de la imagen a usar.</li>
+            <li>
+                <strong>\localizacionuniversidad</strong>: Ciudad o región en donde se ubica la universidad o instituto.</li>
+        </ul>
+
+        <h2>
+<a id="configurar-otros-elementos-del-documento" class="anchor" href="#configurar-otros-elementos-del-documento" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configurar otros elementos del documento</h2>
+
+        <p>También se pueden modificar los márgenes de los títulos de tablas y figuras <em>(caption)</em>, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de <em>%CONFIGURACIONES</em>, entre las cuales se encuentran:</p>
+
+        <ul>
+            <li>
+                <strong>\defaultnewlinesize</strong>: Tamaño del salto de línea en pt.</li>
+            <li>
+                <strong>\defaultinterlind</strong>: Tamaño del interlineado.</li>
+            <li>
+                <strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.</li>
+            <li>
+                <strong>\tipofuentetitulo</strong>: Tamaño por defecto de los títulos.</li>
+            <li>
+                <strong>\tipofuentesubtitulo</strong>: Tamaño por defecto de los subtítulos.</li>
+            <li>
+                <strong>\tipofuentesubsubtitulo</strong>: Tamaño por defecto de los sub-subtítulos.</li>
+            <li>
+                <strong>\tipofuentetituloi</strong>: Tamaño por defecto de los títulos en el índice.</li>
+            <li>
+                <strong>\tipofuentesubtituloi</strong>: Tamaño por defecto de los subtítulos en el índice.</li>
+            <li>
+                <strong>\tipofuentesubsubtituloi</strong>: Tamaño por defecto de los sub-subtítulos en el índice.</li>
+            <li>
+                <strong>\etipofuentetitulo</strong>: Estilo por defecto de los títulos.</li>
+            <li>
+                <strong>\etipofuentesubtitulo</strong>: Estilo por defecto de los subtítulos.</li>
+            <li>
+                <strong>\etipofuentesubsubtitulo</strong>: Estilo por defecto de los sub-subtítulos.</li>
+            <li>
+                <strong>\etipofuentetituloi</strong>: Estilo por defecto de los títulos en el índice.</li>
+            <li>
+                <strong>\etipofuentesubtituloi</strong>: Estilo por defecto de los subtítulos en el índice.</li>
+            <li>
+                <strong>\etipofuentesubsubtituloi</strong>: Estilo por defecto de los sub-subtítulos en el índice.</li>
+            <li>
+                <strong>\tiporeferencias</strong>: Tipo de referencias, por defecto se usa la norma APA.</li>
+            <li>
+                <strong>\nomblttablas</strong>: Nombre de la lista de tablas.</li>
+            <li>
+                <strong>\nombltfiguras</strong>: Nombre de la lista de figuras.</li>
+            <li>
+                <strong>\nombltcontend</strong>: Nombre del índice de contenidos.</li>
+            <li>
+                <strong>\nombltwtablas</strong>: Nombre de las tablas.</li>
+            <li>
+                <strong>\nombltwfigura</strong>: Nombre de las figuras.</li>
+            <li>
+                <strong>\indexdepth</strong>: Profundidad del índice.</li>
+            <li>
+                <strong>\defaultcaptionmargin</strong>: Márgenes de las leyendas por defecto.</li>
+            <li>
+                <strong>\defaultpagemarginleft</strong>: Margen izquierdo de las páginas en centímetros.</li>
+            <li>
+                <strong>\defaultpagemarginright</strong>: Margen derecho de las páginas en centímetros.</li>
+            <li>
+                <strong>\defaultpagemargintop</strong>: Margen superior de las páginas en centímetros.</li>
+            <li>
+                <strong>\defaultpagemarginbottom</strong>: Margen inferior de las páginas en centímetros.</li>
+            <li>
+                <strong>\defaultfirstpagemargintop</strong>: Margen superior de la portada en centímetros.</li>
+            <li>
+                <strong>\defaultmarginfloatimages</strong>: Margen superior de las figuras flotantes en pt.</li>
+            <li>
+                <strong>\defaultmargintopimages</strong>: Margen superior de las figuras en centímetros.</li>
+            <li>
+                <strong>\defaultmarginbottomimages</strong>: Margen inferior de las figuras en centímetros.</li>
+            <li>
+                <strong>\nombrepaginaportada</strong>: Nombre de la primera página (portada).</li>
+        </ul>
+
+        <h2>
+<a id="añadiendo-integrantes-profesores-auxiliares-y-fechas" class="anchor" href="#a%C3%B1adiendo-integrantes-profesores-auxiliares-y-fechas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Añadiendo integrantes, profesores, auxiliares y fechas</h2>
+
+        <p>Esta información de la portada se encuentra en la sección <em>%INTEGRANTES, PROFESORES Y FECHAS</em>, en esta se pueden agregar integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.</p>
+
+        <h2>
+<a id="importar-librerías" class="anchor" href="#importar-librer%C3%ADas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Importar librerías</h2>
+
+        <p>Las librerías se cargan en la sección <em>%LIBRERÍAS INDEPENDIENTES</em> y <em>%LIBRERÍAS DEPENDIENTES</em>, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación de otras, o que
+            su importación no genera algún error. Las librerías utilizadas son:</p>
+
+        <ul>
+            <li>
+                <strong>amsmath</strong>: Fórmulas matemáticas.</li>
+            <li>
+                <strong>amssymb</strong>: Símbolos matemáticos.</li>
+            <li>
+                <strong>amsthm</strong>: Teoremas matemáticos.</li>
+            <li>
+                <strong>babel</strong>: Soporte para idiomas.</li>
+            <li>
+                <strong>booktabs</strong>: Permite manejar elementos visuales en tablas.</li>
+            <li>
+                <strong>cancel</strong>: Cancelar términos en fórmulas.</li>
+            <li>
+                <strong>caption</strong>: Leyendas (o títulos de objetos).</li>
+            <li>
+                <strong>chngcntr</strong>: Agrega números de secciones a las leyendas <em>[dependiente]</em>.</li>
+            <li>
+                <strong>color</strong>: Colores.</li>
+            <li>
+                <strong>datetime</strong>: Fechas.</li>
+            <li>
+                <strong>enumerate</strong>: Permite enumerar ítemes.</li>
+            <li>
+                <strong>epstopdf</strong>: Convierte archivos .eps a pdf <em>[dependiente]</em>.</li>
+            <li>
+                <strong>fancyhdr</strong>: Encabezados y pié de páginas.</li>
+            <li>
+                <strong>footmisc</strong>: Elimina la barra vertical de las notas al pié de página.</li>
+            <li>
+                <strong>float</strong>: Administrador de posiciones de objetos.</li>
+            <li>
+                <strong>geometry</strong>: Dimensiones y geometría del documento.</li>
+            <li>
+                <strong>gensymb</strong>: Simbología común.</li>
+            <li>
+                <strong>graphicx</strong>: Propiedades extra para los gráficos.</li>
+            <li>
+                <strong>hyperref</strong>: Permite añadir enlaces y referencias <em>[dependiente]</em>.</li>
+            <li>
+                <strong>mhchem</strong>: Fórmulas químicas [versión 4].</li>
+            <li>
+                <strong>multicol</strong>: Múltiples columnas.</li>
+            <li>
+                <strong>multirow</strong>: Añade nuevas opciones a las tablas <em>[dependiente]</em>.</li>
+            <li>
+                <strong>lipsum</strong>: Permite crear textos dummy.</li>
+            <li>
+                <strong>longtable</strong>: Permite utilizar tablas en varias hojas.</li>
+            <li>
+                <strong>listings</strong>: Permite añadir código fuente.</li>
+            <li>
+                <strong>sectsty</strong>: Cambia el estilo de los títulos.</li>
+            <li>
+                <strong>setspace</strong>: Cambia el espacio entre líneas.</li>
+            <li>
+                <strong>subcaption</strong>: Permite agrupar imágenes.</li>
+            <li>
+                <strong>tikz</strong>: Permite dibujar.</li>
+            <li>
+                <strong>ulem</strong>: Permite cachar, subrayar, etc.</li>
+            <li>
+                <strong>url</strong>: Permite añadir enlaces.</li>
+            <li>
+                <strong>wasysym</strong>: Contiene caracteres misceláneos.</li>
+            <li>
+                <strong>wrapfig</strong>: Permite comprimir imágenes.</li>
+        </ul>
+
+        <h2>
+<a id="insertar-figuras-fórmulas-citas-y-otros" class="anchor" href="#insertar-figuras-f%C3%B3rmulas-citas-y-otros" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Insertar figuras, fórmulas, citas y otros</h2>
+
+        <p>También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, para ello existen las siguientes funciones:</p>
+
+        <ul>
+            <li>
+                <strong>Insertar párrafos y citas</strong>: Para esto existen las siguientes funciones:
+
+                <ul>
+                    <li>
+                        <strong>\newp</strong>: Inserta una nueva línea de manera inteligente.</li>
+                    <li>
+                        <strong>\newpar</strong><b><b>{</b></b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo con un salto de linea al terminar.</li>
+                    <li>
+                        <strong>\newparnl</strong><b>{</b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo sin un salto de linea al terminar.</li>
+                    <li>
+                        <strong>\quotes</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar "citas" sin lidiar con carácteres.</li>
+                    <li>
+                        <strong>\quotesit</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar <em>"citas en itálico"</em> sin lidiar con carácteres.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Añadir una imagen</strong>: Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la variable <strong>\defaultimagefolder</strong>), sus parámetros y su correspondiente
+                título (caption, o leyenda). Los parámetros pueden ser <strong>scale=0.5</strong>, <strong>width=5cm</strong>, <strong>width=50%</strong>, etc.
+
+                <ul>
+                    <li>
+                        <strong>\insertimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una simple imagen.</li>
+                    <li>
+                        <strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.</li>
+                    <li>
+                        <strong>\insertdoubleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+                        Inserta dos imagenes en un sólo elemento.</li>
+                    <li>
+                        <strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b>: Inserta
+                        una imagen alineada a la izquierda, flotante.</li>
+                    <li>
+                        <strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Escala</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b>: Inserta
+                        una imagen alineada a la derecha, flotante.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Insertar una fórmula</strong>: Existen dos funciones para añadir fórmulas: <strong>\insertequation</strong> y <strong>\insertequationcaptioned</strong>, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $)
+                y la leyenda para la segunda.
+
+                <ul>
+                    <li>
+                        <strong>\insertequation</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula.</li>
+                    <li>
+                        <strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.</li>
+                    <li>
+                        <strong>\pow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.</li>
+                    <li>
+                        <strong>\lpow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una sub potencia del tipo a_b.</li>
+                    <li>
+                        <strong>\fracpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales del estilo ∂a/∂b.</li>
+                    <li>
+                        <strong>\fracdpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 a/∂b^2.</li>
+                    <li>
+                        <strong>\fracnpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2.</li>
+                    <li>
+                        <strong>\fracderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas del estilo da/db.</li>
+                    <li>
+                        <strong>\fracdderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas al cuadrado al estilo d^2 a/db^2.</li>
+                    <li>
+                        <strong>\fracnderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas a la n al estilo d^c a/db^2.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Insertar títulos sin número, y títulos sin aparecer en el índice</strong>: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para ello existen las siguientes
+                funciones:
+
+                <ul>
+                    <li>
+                        <strong>\newtitleanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número.</li>
+                    <li>
+                        <strong>\newsubtitleanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta un subtítulo sin número.</li>
+                    <li>
+                        <strong>\newtitleanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número sin que aparezca en el índice.</li>
+                    <li>
+                        <strong>\newsubtitleanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta un subtítulo sin número sin que aparezca en el índice.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>
+<a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor</h2>
+
+        <p>Pablo Pizarro, 2016.</p>
+
+        <p>Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.</p>
+
+        <footer class="site-footer">
+            <span class="site-footer-owner"><a href="https://github.com/ppizarror/Template-Informe">Template-informe</a> es desarrollado por <a href="https://github.com/ppizarror">ppizarror</a>.</span>
+        </footer>
+
+    </section>
+
+
+</body>
+
+</html>
