@@ -117,6 +117,7 @@
 \usepackage{textcomp, gensymb}        % Simbología común                
 \usepackage{geometry}                 % Dimensiones y geometría del documento
 \usepackage{graphicx}                 % Propiedades extra para los gráficos
+\usepackage{mathtools}                % Permite utilizar notaciones matemáticas avanzadas
 \usepackage[version=4]{mhchem}        % Fórmulas químicas
 \usepackage{multicol}                 % Múltiples columnas
 \usepackage{lipsum}                   % Permite crear textos dummy
@@ -165,6 +166,14 @@
 	\frac{{d}^{2} #1}{d {#2}^{2}}}
 \newcommand{\fracnderivat}[3]{        % Fracción de derivadas en n d^n/dx^n
 	\frac{{d}^{#3} #1}{d {#2}^{#3}}}
+\newcommand{\topequal}[2]{            % Llave superior de equivalencia
+	\overbrace{#1}^{\mathclap{#2}}}
+\newcommand{\underequal}[2]{          % Llave inferior de equivalencia
+	\underbrace{#1}_{\mathclap{#2}}}
+\newcommand{\topsequal}[2]{           % Rectángulo superior de equivalencia
+	\overbracket{#1}^{\mathclap{#2}}}
+\newcommand{\undersequal}[2]{         % Rectángulo inferior de equivalencia
+	\underbracket{#1}_{\mathclap{#2}}}
 \newcommand{\newtitleanum}[1]{        % Insertar un título sin número
 	\addcontentsline{toc}{section}{#1} \section*{#1}}
 \newcommand{\newsubtitleanum}[1]{     % Insertar un subtítulo sin número
@@ -389,7 +398,7 @@
 % ABSTRACT- RESUMEN
 \sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
 \newtitleanum{Resumen}
-\lipsum[1]
+\lipsum[1-2]
 
 % TABLA DE CONTENIDOS
 \newpage
