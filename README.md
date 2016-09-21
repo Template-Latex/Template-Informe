@@ -126,6 +126,9 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
   - **\insertimageright**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Escala*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la derecha, flotante.
 + **Insertar una fórmula**: Existen dos funciones para añadir fórmulas: **\insertequation** y **\insertequationcaptioned**, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
     - **\insertequation**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b>: Inserta una fórmula.
+> ```plot_granulometry_table(table, 'mm');
+  ```
+> <img src='https://github.com/ppizarror/ppizarror.github.io/blob/master/resources/images/granulometric-graph.png?raw=true' alt='Curva de distribución' height='35%' align='center'>
     - **\insertequationcaptioned**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una fórmula con leyenda.
     - **\pow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.
     - **\lpow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una sub potencia del tipo a_b.
