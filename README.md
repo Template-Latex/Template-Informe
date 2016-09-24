@@ -95,8 +95,8 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **gensymb**: Simbología común.
 + **graphicx**: Propiedades extra para los gráficos.
 + **hyperref**: Permite añadir enlaces y referencias *[dependiente]*.
-+ **mhchem**:	Fórmulas químicas [versión 4].
 + **mathtools**: Permite utilizar notaciones matemáticas avanzadas.
++ **mhchem**:	Fórmulas químicas [versión 4].
 + **multicol**: Múltiples columnas.
 + **multirow**: Añade nuevas opciones a las tablas *[dependiente]*.
 + **lipsum**: Permite crear textos dummy.
