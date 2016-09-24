@@ -235,9 +235,16 @@ a:hover {
     margin-top: 0;
 }
 
+.main-content li pre b{
+    color: #000;
+    font-size: 1.0rem;
+    position: relative;
+    margin-top: -2px;
+}
+
 .main-content blockquote {
     padding: 0 1rem;
-    margin-left: 0;
+    margin-left: 5px;
     color: #819198;
     border-left: 0.3rem solid #dce6f0;
 }

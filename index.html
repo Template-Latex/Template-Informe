@@ -458,14 +458,14 @@
                     <li>
                         <strong>\insertequation</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertequation</span>[<span class="pl-c1">\label</span>{eqn-1}]{e = 2<span class="pl-c1">\pi</span> <span class="pl-c1">\int</span>^{a}_{b} f(x)dx}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertequation</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b>e = 2<span class="pl-c1">\pi</span> <span class="pl-c1">\int</span>^{a}_{b} f(x)dx<b>}</b></pre></div>
                             <p><img src="examples/formula.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertequationcaptioned</span>[<span class="pl-c1">\label</span>{formula-1}]{<span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\pi</span> <span class="pl-c1">\nu</span> 4 <span class="pl-c1">\pow</span>{t}{4}}}{Título de fórmula}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertequationcaptioned</span><b>[</b><span class="pl-c1">\label</span>{formula-1}<b>]</b><b>{</b><span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\pi</span> <span class="pl-c1">\nu</span> 4 <span class="pl-c1">\pow</span>{t}{4}}<b>}{</b>Título de fórmula<b>}</b></pre></div>
                             <p><img src="examples/titleformula.png" align="center"></p>
                         </blockquote>
                     </li>
@@ -478,88 +478,88 @@
                     <li>
                         <strong>\pow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\pow</span>{(1 + <span class="pl-c1">\pow</span>{<span class="pl-c1">\pi</span>}{<span class="pl-c1">\epsilon</span>})}{2}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\pow</span><b>{</b> (1 + <span class="pl-e">\pow</span><b>{</b><span class="pl-c1">\pi</span><b>}{</b><span class="pl-c1">\epsilon</span><b>}</b>) <b>}{</b>2<b>}</b></pre></div>
                             <p><img src="examples/pow.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\lpow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una sub potencia del tipo a_b.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\lpow</span>{f}{i+1} = 2 <span class="pl-e">\lpow</span>{f}{i} + <span class="pl-e">\lpow</span>{f}{i-2}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i+1<b>}</b> = 2 <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i<b>}</b> + <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i-2<b>}</b></pre></div>
                             <p><img src="examples/lpow.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\fracpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales del estilo ∂a/∂b.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre>f(x) = <span class="pl-e">\fracpartial</span>{g}{x}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre>f(x) = <span class="pl-e">\fracpartial</span><b>{</b>g<b>}{</b>x<b>}</b></pre></div>
                             <p><img src="examples/fpartial.png" align="center"></p>
                         </blockquote>
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\lpow</span>{h}{y} = 2 + <span class="pl-e">\fracpartial</span>{}{y} h</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\lpow</span>{h}{y} = 2 + <span class="pl-e">\fracpartial</span><b>{}{</b>y<b>}</b> h</pre></div>
                             <p><img src="examples/fpartial2.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\fracdpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 a/∂b^2.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracdpartial</span>{u}{t} = <span class="pl-c1">\pow</span>{c}{2} + <span class="pl-e">\fracdpartial</span>{u}{x}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracdpartial</span><b>{</b>u<b>}</b><b>{</b>t<b>}</b> = <span class="pl-c1">\pow</span>{c}{2} + <span class="pl-e">\fracdpartial</span><b>{</b>u<b>}{</b>x<b>}</b></pre></div>
                             <p><img src="examples/fracdpartial.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\fracnpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2. \frac{\partial {f}^{n+m}}{\partial {x}^{n+m}} =
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracnpartial</span>{f}{x}{n+m} = <span class="pl-c1">\widehat</span>{<span class="pl-e">\fracnpartial</span>{h}{x}{n} + <span class="pl-e">\fracnpartial</span>{g}{x}{m}}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracnpartial</span><b>{</b>f<b>}</b><b>{</b>x<b>}</b><b>{</b>n+m<b>}</b> = <span class="pl-c1">\widehat</span>{<span class="pl-e">\fracnpartial</span><b>{</b>h<b>}</b><b>{</b>x<b>}</b><b>{</b>n<b>}</b>+<span class="pl-e">\fracnpartial</span><b>{</b>g<b>}</b><b>{</b>x<b>}</b><b>{</b>m<b>}</b>}</pre></div>
                             <p><img src="examples/fracnpartial.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\fracderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas del estilo da/db.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracderivat</span>{}{x}<span class="pl-c1">\arccos</span>(x) = -{<span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\sqrt</span>{ 1 - <span class="pl-c1">\pow</span>{x}{2} }}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracderivat</span><b>{}{</b>x<b>}</b><span class="pl-c1">\arccos</span>(x) = -{<span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\sqrt</span>{ 1 - <span class="pl-c1">\pow</span>{x}{2} }}</pre></div>
                             <p><img src="examples/fracderivativ.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\fracdderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas al cuadrado al estilo d^2 a/db^2.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre>m <span class="pl-e">\fracdderivat</span>{x}{t} + kx = 0</pre></div>
+                            <div class="highlight highlight-text-tex"><pre>m <span class="pl-e">\fracdderivat</span><b>{</b>x<b>}{</b>t<b>}</b> + kx = 0</pre></div>
                             <p><img src="examples/fracddpartial.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\fracnderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas a la n al estilo d^c a/db^2.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracnderivat</span>{y}{x}{3} <span class="pl-c1">\times</span> <span class="pl-e">\fracnderivat</span>{h}{x}{n} = <span class="pl-c1">\chi</span></pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracnderivat</span><b>{</b>y<b>}{</b>x<b>}{</b>3<b>}</b> <span class="pl-c1">\times</span> <span class="pl-e">\fracnderivat</span><b>{</b>h<b>}{</b>x<b>}{</b>n<b>}</b> = <span class="pl-c1">\chi</span></pre></div>
                             <p><img src="examples/fracndpartial.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\topequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave sobre el elemento a con valor b.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\topequal</span>{ 1+<span class="pl-c1">\sqrt</span>{1+x} }{f(x)}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\topequal</span><b>{</b>1 + <span class="pl-c1">\sqrt</span>{1+x}<b>}{</b>f(x)<b>}</b></pre></div>
                             <p><img src="examples/topequal.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\underequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave bajo el elemento a con valor b.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\pi</span> + <span class="pl-e">\underequal</span>{1 - \frac{1}{e}}{e <span class="pl-c1">\approx</span> 2.718}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\pi</span> + <span class="pl-e">\underequal</span><b>{</b>1 - <span class="pl-c1">\frac</span>{1}{e}<b>}</b><b>{</b>e <span class="pl-c1">\approx</span> 2.718<b>}</b></pre></div>
                             <p><img src="examples/underequal.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\topsequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave rectangular sobre el elemento a con valor b.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\topsequal</span>{ 1+x+<span class="pl-c1">\ldots</span>+<span class="pl-c1">\pow</span>{x}{n} }{x <span class="pl-c1">\in \Re</span>} = <span class="pl-c1">\sum</span>_{i=0}^{n}<span class="pl-c1">\pow</span>{x}{i}</pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\topsequal</span><b>{</b> 1+x+<span class="pl-c1">\ldots</span>+<span class="pl-c1">\pow</span>{x}{n} <b>}{</b>x <span class="pl-c1">\in \Re</span><b>}</b> = <span class="pl-c1">\sum</span>_{i=0}^{n}<span class="pl-c1">\pow</span>{x}{i}</pre></div>
                             <p><img src="examples/topsequal.png" align="center"></p>
                         </blockquote>
                     </li>
                     <li>
                         <strong>\undersequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave rectangular bajo el elemento a con valor b.
                         <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\lim</span>_{n} <span class="pl-c1">\pow</span>{2}{n} <span class="pl-e">\undersequal</span>{<span class="pl-c1">\sqrt</span>{2 - <span class="pl-c1">\sqrt</span>{2+ <span class="pl-c1">\ldots</span> + <span class="pl-c1">\sqrt</span>{2}}}}{n} = <span class="pl-c1">\pi</span></pre></div>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\lim</span>_{n} <span class="pl-c1">\pow</span>{2}{n} <span class="pl-e">\undersequal</span><b>{</b> <span class="pl-c1">\sqrt</span>{2 - <span class="pl-c1">\sqrt</span>{2+ <span class="pl-c1">\ldots</span> + <span class="pl-c1">\sqrt</span>{2}}} <b>}</b><b>{</b>n<b>}</b> = <span class="pl-c1">\pi</span></pre></div>
                             <p><img src="examples/undersequal.png" width="33%" align="center"></p>
                         </blockquote>
                     </li>
