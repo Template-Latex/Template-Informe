@@ -11,3 +11,13 @@
 
 # Releases
 .releases/
+
+# Ejemplo formulae
+ejemplo.aux
+ejemplo-formulae
+informe.aux
+informe.lof
+informe
+informe.lot
+informe.synctex
+informe.toc
