@@ -212,6 +212,7 @@ a:hover {
     font-size: 0.85rem;
     line-height: 1.45;
     border-radius: 0.3rem;
+    margin-bottom: -9px;
 }
 
 .main-content pre code, .main-content pre tt {

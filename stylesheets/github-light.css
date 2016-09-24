@@ -35,6 +35,7 @@ SOFTWARE.
 .pl-e /* entity */,
 .pl-en /* entity.name */ {
   color: #795da3;
+  font-weight: bold;
 }
 
 .pl-smi /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
@@ -121,4 +122,3 @@ SOFTWARE.
 .pl-mo /* meta.output */ {
   color: #1d3e81;
 }
-
