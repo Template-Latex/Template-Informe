@@ -125,10 +125,10 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
   - **\insertdoubleimage**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros 1*<b>}</b><b>{</b>*Leyenda 1*<b>}</b><b>{</b>*Dirección de la imagen 2*<b>}</b><b>{</b>*Parámetros 2*<b>}</b><b>{</b>*Leyenda 2*<b>}</b><b>{</b>*Leyenda general*<b>}</b>: Inserta dos imagenes en un sólo elemento.
   - **\insertimageleft**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la izquierda, flotante.
   - **\insertimageright**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Escala*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la derecha, flotante.
-+ **Insertar una fórmula**: Existen dos funciones para añadir fórmulas: **\insertequation** y **\insertequationcaptioned**, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
-
++ **Insertar una fórmula en el documento**: Existen dos funciones para añadir fórmulas: **\insertequation** y **\insertequationcaptioned**, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
     - **\insertequation**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b>: Inserta una fórmula.
     - **\insertequationcaptioned**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una fórmula con leyenda.
++ **Insertar una fórmula**: Existen varias funciones para añadir expresiones matemáticas de forma sencilla:
     - **\pow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una potencia del tipo **a**^**b**.
     - **\lpow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una sub potencia del tipo **a**_**b**.
     - **\fracpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas parciales del estilo ∂**a**/∂**b**.
