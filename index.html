@@ -28,6 +28,85 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="image_src" href="resources/ms-icon-310x310.png" />
     <meta property='og:image' content='resources/ms-icon-310x310.png' />
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/parallax.js"></script>
+    <script type="text/javascript" src="js/parallax.min.js"></script>
+    <script>
+        if (!String.format) {
+            String.format = function(format) {
+                var args = Array.prototype.slice.call(arguments, 1);
+                return format.replace(/{(\d+)}/g, function(match, number) {
+                    return typeof args[number] != 'undefined' ?
+                        args[number] :
+                        match;
+                });
+            };
+        }
+        $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
+            var jlen = json.length;
+            var total_downloads = 0;
+            for (i = 0; i < jlen; i++) {
+                try {
+                    total_downloads += parseInt(json[i].assets[0].download_count);
+                } catch (err) {
+                    console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
+                }
+            }
+            var last_version = "$VERSION";
+            var last_version_link = "$VERSION_LINK";
+            try {
+                last_version = json[0].tag_name;
+                last_version_link = json[0].assets[0].browser_download_url;
+            } catch (err) {
+                console.log('Error al obtener la última versión del software');
+            }
+            $('total-download-counter').each(function() {
+                this.id.innerHTML = total_downloads;
+            });
+
+            //Se imprimen estados en consola
+            console.log(String.format('Cantidad de descargas totales: {0}', total_downloads));
+            console.log(String.format('Última versión: {0}', last_version));
+            console.log(String.format('Última versión - enlace descarga: {0}', last_version_link));
+
+            // Se establece la versión en el contador de descargas totales
+            document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+            document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+
+            // Se establece la versión en el botón de descargas
+            document.getElementById("download-button").href = last_version_link;
+            document.getElementById("download-button").innerHTML = String.format('Descargar última versión ({0})', last_version);
+
+            // Se establece la última versión del pdf
+            console.log(String.format('Archivo pdf a mostrar: versions/Template v{0}.pdf', last_version))
+            document.getElementById("template-preview-pdf").href = String.format('versions/Template v{0}.pdf', last_version);
+        });
+
+        $('#scrolld').parallax({
+            imageSrc: 'images/background4.jpg',
+            speed: 0.15
+        });
+    </script>
+    <style>
+        a#aimg,
+        a:hover#aimg,
+        .page-header#aimg {
+            background: #fff;
+            border: none;
+            color: #fff;
+            font: normal;
+            height: auto;
+            letter-spacing: normal;
+            line-height: normal;
+            margin: 0;
+            padding: 0;
+            text-transform: normal;
+            visibility: visible;
+            width: auto;
+            word-spacing: normal;
+            z-index: auto;
+        }
+    </style>
 
 </head>
 
@@ -36,7 +115,7 @@
         <h1 class="project-name">Template para informes</h1>
         <h2 class="project-tagline">Template de informe en LaTeX<!--<img src="resources/latex.png" alt="LaTeX" width="60px" height="25px" style="top: 7px;position:relative;">--> para tareas y trabajos.</h2>
         <a href="https://github.com/ppizarror/Template-Informe" class="btn">Ver en GitHub</a>
-        <a href="versions/Template v2.0.5.pdf" class="btn">Ver Ejemplo <img src="resources/pdf.png" width="16px" height="16px" style="top:2px; position:relative" /></a>
+        <a id="template-preview-pdf" href="#bad-pdf-preview-url" class="btn">Ver Ejemplo <img src="resources/pdf.png" width="16px" height="16px" style="top:2px; position:relative" /></a>
         <a href="https://github.com/ppizarror/Template-Informe/wiki" class="btn">Ver Wiki</a>
         <a href="#Error_al_cargar_enlace_descarga" class="btn" id="download-button">Descargar última versión</a>
     </section>
@@ -370,8 +449,8 @@
                 </ul>
             </li>
             <li>
-                <strong>Insertar una fórmula en el documento</strong>: Existen dos funciones para añadir fórmulas: <strong>\insertequation</strong> y <strong>\insertequationcaptioned</strong>, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $)
-                y la leyenda para la segunda.
+                <strong>Insertar una fórmula en el documento</strong>: Existen dos funciones para añadir fórmulas: <strong>\insertequation</strong> y <strong>\insertequationcaptioned</strong>, las cuales consideran la fórmula en sí (escrita en forma bruta,
+                sin los $) y la leyenda para la segunda.
 
                 <ul>
                     <li>
@@ -513,82 +592,6 @@
         </footer>
 
     </section>
-
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="js/parallax.js"></script>
-    <script type="text/javascript" src="js/parallax.min.js"></script>
-    <style>
-        a#aimg,
-        a:hover#aimg,
-        .page-header#aimg {
-            background: #fff;
-            border: none;
-            color: #fff;
-            font: normal;
-            height: auto;
-            letter-spacing: normal;
-            line-height: normal;
-            margin: 0;
-            padding: 0;
-            text-transform: normal;
-            visibility: visible;
-            width: auto;
-            word-spacing: normal;
-            z-index: auto;
-        }
-    </style>
-    <script>
-        if (!String.format) {
-            String.format = function(format) {
-                var args = Array.prototype.slice.call(arguments, 1);
-                return format.replace(/{(\d+)}/g, function(match, number) {
-                    return typeof args[number] != 'undefined' ?
-                        args[number] :
-                        match;
-                });
-            };
-        }
-        $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
-            var jlen = json.length;
-            var total_downloads = 0;
-            for (i = 0; i < jlen; i++) {
-                try {
-                    total_downloads += parseInt(json[i].assets[0].download_count);
-                } catch (err) {
-                    console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
-                }
-            }
-            var last_version = "$VERSION";
-            var last_version_link = "$VERSION_LINK";
-            try {
-                last_version = json[0].tag_name;
-                last_version_link = json[0].assets[0].browser_download_url;
-            } catch (err) {
-                console.log('Error al obtener la última versión del software');
-            }
-            $('total-download-counter').each(function() {
-                this.id.innerHTML = total_downloads;
-            });
-
-            //Se imprimen estados en consola
-            console.log(String.format('Cantidad de descargas totales: {0}', total_downloads));
-            console.log(String.format('Última versión: {0}', last_version));
-            console.log(String.format('Última versión - enlace descarga: {0}', last_version_link));
-
-            // Se establece la versión en el contador de descargas totales
-            document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-            document.getElementById('total-download-counter-2').innerHTML = total_downloads;
-
-            // Se establece la versión en el botón de descargas
-            document.getElementById("download-button").href = last_version_link;
-            document.getElementById("download-button").innerHTML = String.format('Descargar última versión ({0})', last_version);
-        });
-
-        $('#scrolld').parallax({
-            imageSrc: 'images/background4.jpg',
-            speed: 0.15
-        });
-    </script>
 
 </body>
 
