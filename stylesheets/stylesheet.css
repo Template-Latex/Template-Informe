@@ -209,7 +209,7 @@ a:hover {
 .main-content .highlight pre, .main-content pre {
     padding: 0.8rem;
     overflow: auto;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.45;
     border-radius: 0.3rem;
 }

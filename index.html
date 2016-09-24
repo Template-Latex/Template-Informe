@@ -28,84 +28,11 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="image_src" href="resources/ms-icon-310x310.png" />
     <meta property='og:image' content='resources/ms-icon-310x310.png' />
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="js/parallax.js"></script>
-    <style>
-        a#aimg,
-        a:hover#aimg,
-        .page-header#aimg {
-            background: #fff;
-            border: none;
-            color: #fff;
-            font: normal;
-            height: auto;
-            letter-spacing: normal;
-            line-height: normal;
-            margin: 0;
-            padding: 0;
-            text-transform: normal;
-            visibility: visible;
-            width: auto;
-            word-spacing: normal;
-            z-index: auto;
-        }
-    </style>
-    <script>
-        if (!String.format) {
-            String.format = function(format) {
-                var args = Array.prototype.slice.call(arguments, 1);
-                return format.replace(/{(\d+)}/g, function(match, number) {
-                    return typeof args[number] != 'undefined' ?
-                        args[number] :
-                        match;
-                });
-            };
-        }
-        $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
-            var jlen = json.length;
-            var total_downloads = 0;
-            for (i = 0; i < jlen; i++) {
-                try {
-                    total_downloads += parseInt(json[i].assets[0].download_count);
-                } catch (err) {
-                    console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
-                }
-            }
-            var last_version = "$VERSION";
-            var last_version_link = "$VERSION_LINK";
-            try {
-                last_version = json[0].tag_name;
-                last_version_link = json[0].assets[0].browser_download_url;
-            } catch (err) {
-                console.log('Error al obtener la última versión del software');
-            }
-            $('total-download-counter').each(function() {
-                this.id.innerHTML = total_downloads;
-            });
-
-            //Se imprimen estados en consola
-            console.log(String.format('Cantidad de descargas totales: {0}', total_downloads));
-            console.log(String.format('Última versión: {0}', last_version));
-            console.log(String.format('Última versión - enlace descarga: {0}', last_version_link));
-
-            // Se establece la versión en el contador de descargas totales
-            document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-            document.getElementById('total-download-counter-2').innerHTML = total_downloads;
-
-            // Se establece la versión en el botón de descargas
-            document.getElementById("download-button").href = last_version_link;
-            document.getElementById("download-button").innerHTML = String.format('Descargar última versión ({0})', last_version);
-        });
-
-        $('.scrollable').parallax({
-            imageSrc: '/images/background4.jpg'
-        });
-    </script>
 
 </head>
 
 <body>
-    <section class="page-header scrollable scroll">
+    <section class="page-header scrollable scroll" id="scrolld">
         <h1 class="project-name">Template para informes</h1>
         <h2 class="project-tagline">Template de informe en LaTeX<!--<img src="resources/latex.png" alt="LaTeX" width="60px" height="25px" style="top: 7px;position:relative;">--> para tareas y trabajos.</h2>
         <a href="https://github.com/ppizarror/Template-Informe" class="btn">Ver en GitHub</a>
@@ -446,24 +373,59 @@
 
                 <ul>
                     <li>
-                        <strong>\insertequation</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula.</li>
-                    <!-- <blockquote>
-                        <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\insertequation</span>[<span class="pl-c1">\label</span>{eqn-1}]{e = 2<span class="pl-c1">\pi</span>}</pre></div>
-
-                        <p><img src="https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/informe/examples/pow.png?raw=true" alt="Curva de distribución" align="center"></p>
-                        </blockquote> -->
+                        <strong>\insertequation</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\insertequation</span>[<span class="pl-c1">\label</span>{eqn-1}]{e = 2<span class="pl-c1">\pi</span> <span class="pl-c1">\int</span>^{a}_{b} f(x)dx}</pre></div>
+                            <p><img src="examples/formula.png" align="center"></p>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.</li>
+                        <strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\insertequationcaptioned</span>[<span class="pl-c1">\label</span>{formula-1}]{<span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\pi</span> <span class="pl-c1">\nu</span> 4 <span class="pl-c1">\pow</span>{t}{4}}}{Título de fórmula}</pre></div>
+                            <p><img src="examples/titleformula.png" align="center"></p>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\pow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.</li>
+                        <strong>\pow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\pow</span>{(1 + <span class="pl-c1">\pow</span>{<span class="pl-c1">\pi</span>}{<span class="pl-c1">\epsilon</span>})}{2}</pre></div>
+                            <p><img src="examples/pow.png" align="center"></p>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\lpow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una sub potencia del tipo a_b.</li>
+                        <strong>\lpow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una sub potencia del tipo a_b.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\lpow</span>{f}{i+1} = 2 <span class="pl-c1">\lpow</span>{f}{i} + <span class="pl-c1">\lpow</span>{f}{i-2}</pre></div>
+                            <p><img src="examples/lpow.png" align="center"></p>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\fracpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales del estilo ∂a/∂b.</li>
+                        <strong>\fracpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales del estilo ∂a/∂b.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre>f(x) = <span class="pl-c1">\fracpartial</span>{g}{x}</pre></div>
+                            <p><img src="examples/fpartial.png" align="center"></p>
+                        </blockquote>
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\lpow</span>{h}{y} = 2 + <span class="pl-c1">\fracpartial</span>{}{y} h</pre></div>
+                            <p><img src="examples/fpartial2.png" align="center"></p>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\fracdpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 a/∂b^2.</li>
+                        <strong>\fracdpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 a/∂b^2.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\fracdpartial</span>{u}{t} = <span class="pl-c1">\lpow</span>{c}{2} + <span class="pl-c1">\fracdpartial</span>{u}{x}</pre></div>
+                            <p><img src="examples/fracdpartial.png" align="center"></p>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\fracnpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2.</li>
+                        <strong>\fracnpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2.
+                        \frac{\partial {f}^{n+m}}{\partial {x}^{n+m}}  = \widehat{\frac{\partial {h}^{n}}{\partial {x}^{n}} + \frac{\partial {g}^{m}}{\partial {x}^{m}}}
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\fracnpartial</span>{f}{x}{n+m} = <span class="pl-c1">\widehat</span>{<span class="pl-c1">\fracnpartial</span>{h}{x}{n} + <span class="pl-c1">\fracnpartial</span>{g}{x}{m}}</pre></div>
+                            <p><img src="examples/fracnpartial.png" align="center"></p>
+                        </blockquote>
+                    </li>
                     <li>
                         <strong>\fracderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas del estilo da/db.</li>
                     <li>
@@ -502,6 +464,81 @@
 
     </section>
 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/parallax.js"></script>
+    <script type="text/javascript" src="js/parallax.min.js"></script>
+    <style>
+        a#aimg,
+        a:hover#aimg,
+        .page-header#aimg {
+            background: #fff;
+            border: none;
+            color: #fff;
+            font: normal;
+            height: auto;
+            letter-spacing: normal;
+            line-height: normal;
+            margin: 0;
+            padding: 0;
+            text-transform: normal;
+            visibility: visible;
+            width: auto;
+            word-spacing: normal;
+            z-index: auto;
+        }
+    </style>
+    <script>
+        if (!String.format) {
+            String.format = function(format) {
+                var args = Array.prototype.slice.call(arguments, 1);
+                return format.replace(/{(\d+)}/g, function(match, number) {
+                    return typeof args[number] != 'undefined' ?
+                        args[number] :
+                        match;
+                });
+            };
+        }
+        $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
+            var jlen = json.length;
+            var total_downloads = 0;
+            for (i = 0; i < jlen; i++) {
+                try {
+                    total_downloads += parseInt(json[i].assets[0].download_count);
+                } catch (err) {
+                    console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
+                }
+            }
+            var last_version = "$VERSION";
+            var last_version_link = "$VERSION_LINK";
+            try {
+                last_version = json[0].tag_name;
+                last_version_link = json[0].assets[0].browser_download_url;
+            } catch (err) {
+                console.log('Error al obtener la última versión del software');
+            }
+            $('total-download-counter').each(function() {
+                this.id.innerHTML = total_downloads;
+            });
+
+            //Se imprimen estados en consola
+            console.log(String.format('Cantidad de descargas totales: {0}', total_downloads));
+            console.log(String.format('Última versión: {0}', last_version));
+            console.log(String.format('Última versión - enlace descarga: {0}', last_version_link));
+
+            // Se establece la versión en el contador de descargas totales
+            document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+            document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+
+            // Se establece la versión en el botón de descargas
+            document.getElementById("download-button").href = last_version_link;
+            document.getElementById("download-button").innerHTML = String.format('Descargar última versión ({0})', last_version);
+        });
+
+        $('#scrolld').parallax({
+            imageSrc: 'images/background4.jpg',
+            speed: 0.15
+        });
+    </script>
 
 </body>
 
