@@ -36,6 +36,45 @@ Para modificar el documento (Título, nombre de la universidad, curso, etc.) se 
 + **\imagendeldepartamentoescl**: Escala de la imagen a usar.
 + **\localizacionuniversidad**: Ciudad o región en donde se ubica la universidad o instituto.
 
+## Añadiendo integrantes, profesores, auxiliares y fechas
+Esta información de la portada se encuentra en la sección *%INTEGRANTES, PROFESORES Y FECHAS*, en esta se pueden agregar integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
+
+## Insertar párrafos, figuras, fórmulas, citas y otros
+También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, para ello existen las siguientes funciones:
++ **Insertar párrafos y citas**: Para esto existen las siguientes funciones:
+  - **\newp**: Inserta una nueva línea de manera inteligente.
+  - **\newpar**<b><b>{</b></b>*Párrafo*<b>}</b>: Inserta un nuevo párrafo con un salto de linea al terminar.
+  - **\newparnl**<b>{</b>*Párrafo*<b>}</b>: Inserta un nuevo párrafo sin un salto de linea al terminar.
+  - **\quotes**<b>{</b>*Texto*<b>}</b>: Función simplificada para insertar "citas" sin lidiar con carácteres.
+  - **\quotesit**<b>{</b>*Texto*<b>}</b>: Función simplificada para insertar _"citas en itálico"_ sin lidiar con carácteres.
++ **Añadir una imagen**: Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la variable **\defaultimagefolder**), sus parámetros y su correspondiente título (caption, o leyenda). Los parámetros pueden ser **scale=0.5**, **width=5cm**, **width=50%**, etc.
+  - **\insertimage**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una simple imagen.
+  - **\insertimageboxed**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una imagen recuadrada.
+  - **\insertdoubleimage**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros 1*<b>}</b><b>{</b>*Leyenda 1*<b>}</b><b>{</b>*Dirección de la imagen 2*<b>}</b><b>{</b>*Parámetros 2*<b>}</b><b>{</b>*Leyenda 2*<b>}</b><b>{</b>*Leyenda general*<b>}</b>: Inserta dos imagenes en un sólo elemento.
+  - **\insertimageleft**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la izquierda, flotante.
+  - **\insertimageright**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Escala*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la derecha, flotante.
++ **Insertar una fórmula en el documento**: Existen dos funciones para añadir fórmulas: **\insertequation** y **\insertequationcaptioned**, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
+    - **\insertequation**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b>: Inserta una fórmula.
+    - **\insertequationcaptioned**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una fórmula con leyenda.
++ **Expresiones matemáticas**: Existen varias funciones para añadir expresiones matemáticas de forma sencilla:
+    - **\pow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una potencia del tipo **a**^**b**.
+    - **\lpow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una sub potencia del tipo **a**_**b**.
+    - **\fracpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas parciales del estilo ∂**a**/∂**b**.
+    - **\fracdpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 **a**/∂**b**^2.
+    - **\fracnpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b><b>{</b>*c*<b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^**c** **a**/∂**b**^2.
+    - **\fracderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas del estilo d**a**/d**b**.
+    - **\fracdderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas al cuadrado al estilo d^2 **a**/d**b**^2.
+    - **\fracnderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b><b>{</b>*c*<b>}</b>: Crea una fracción de derivadas a la n al estilo d^**c** **a**/d**b**^2.
+    - **\topequal**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave sobre el elemento **a** con valor **b**.
+    - **\underequal**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave bajo el elemento **a** con valor **b**.
+    - **\topsqual**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave rectangular sobre el elemento **a** con valor **b**.
+    - **\undersqual**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave rectangular bajo el elemento **a** con valor **b**.
++ **Insertar títulos sin número, y títulos sin aparecer en el índice**: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para ello existen las siguientes funciones:
+  - **\newtitleanum**<b>{</b>*Título*<b>}</b>: Inserta un título sin número.
+  - **\newsubtitleanum**<b>{</b>*Título*<b>}</b>: Inserta un subtítulo sin número.
+  - **\newtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un título sin número sin que aparezca en el índice.
+  - **\newsubtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un subtítulo sin número sin que aparezca en el índice.
+
 ## Configurar otros elementos del documento
 También se pueden modificar los márgenes de los títulos de tablas y figuras _(caption)_, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de *%CONFIGURACIONES*, entre las cuales se encuentran:
 + **\defaultnewlinesize**: Tamaño del salto de línea en pt.
@@ -71,9 +110,6 @@ También se pueden modificar los márgenes de los títulos de tablas y figuras _
 + **\defaultmarginbottomimages**: Margen inferior de las figuras en centímetros.
 + **\nombrepaginaportada**: Nombre de la primera página (portada).
 
-## Añadiendo integrantes, profesores, auxiliares y fechas
-Esta información de la portada se encuentra en la sección *%INTEGRANTES, PROFESORES Y FECHAS*, en esta se pueden agregar integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
-
 ## Importar librerías
 Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRERÍAS DEPENDIENTES*, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación de otras, o que su importación no genera algún error. Las librerías utilizadas son:
 + **amsmath**: Fórmulas matemáticas.
@@ -104,48 +140,12 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **listings**: Permite añadir código fuente.
 + **sectsty**: Cambia el estilo de los títulos.
 + **setspace**: Cambia el espacio entre líneas.
-+ **subcaption**: Permite agrupar imágenes.
++ **subfig**: Permite agrupar imágenes.
 + **tikz**: Permite dibujar.
 + **ulem**: Permite cachar, subrayar, etc.
 + **url**: Permite añadir enlaces.
 + **wasysym**: Contiene caracteres misceláneos.
 + **wrapfig**: Permite comprimir imágenes.
-
-## Insertar figuras, fórmulas, citas y otros
-También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, para ello existen las siguientes funciones:
-+ **Insertar párrafos y citas**: Para esto existen las siguientes funciones:
-  - **\newp**: Inserta una nueva línea de manera inteligente.
-  - **\newpar**<b><b>{</b></b>*Párrafo*<b>}</b>: Inserta un nuevo párrafo con un salto de linea al terminar.
-  - **\newparnl**<b>{</b>*Párrafo*<b>}</b>: Inserta un nuevo párrafo sin un salto de linea al terminar.
-  - **\quotes**<b>{</b>*Texto*<b>}</b>: Función simplificada para insertar "citas" sin lidiar con carácteres.
-  - **\quotesit**<b>{</b>*Texto*<b>}</b>: Función simplificada para insertar _"citas en itálico"_ sin lidiar con carácteres.
-+ **Añadir una imagen**: Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la variable **\defaultimagefolder**), sus parámetros y su correspondiente título (caption, o leyenda). Los parámetros pueden ser **scale=0.5**, **width=5cm**, **width=50%**, etc.
-  - **\insertimage**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una simple imagen.
-  - **\insertimageboxed**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una imagen recuadrada.
-  - **\insertdoubleimage**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros 1*<b>}</b><b>{</b>*Leyenda 1*<b>}</b><b>{</b>*Dirección de la imagen 2*<b>}</b><b>{</b>*Parámetros 2*<b>}</b><b>{</b>*Leyenda 2*<b>}</b><b>{</b>*Leyenda general*<b>}</b>: Inserta dos imagenes en un sólo elemento.
-  - **\insertimageleft**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Parámetros*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la izquierda, flotante.
-  - **\insertimageright**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Archivo*<b>}</b><b>{</b>*Escala*<b>}</b><b>{</b>*Leyenda*<b>}</b><b>{</b>*Número de columnas a usar*<b>}</b>: Inserta una imagen alineada a la derecha, flotante.
-+ **Insertar una fórmula en el documento**: Existen dos funciones para añadir fórmulas: **\insertequation** y **\insertequationcaptioned**, las cuales consideran la fórmula en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
-    - **\insertequation**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b>: Inserta una fórmula.
-    - **\insertequationcaptioned**<b>[</b>*Label* (opcional)<b>]</b><b>{</b>*Fórmula*<b>}</b><b>{</b>*Leyenda*<b>}</b>: Inserta una fórmula con leyenda.
-+ **Expresiones matemáticas**: Existen varias funciones para añadir expresiones matemáticas de forma sencilla:
-    - **\pow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una potencia del tipo **a**^**b**.
-    - **\lpow**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Forma simplificada de añadir una sub potencia del tipo **a**_**b**.
-    - **\fracpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas parciales del estilo ∂**a**/∂**b**.
-    - **\fracdpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 **a**/∂**b**^2.
-    - **\fracnpartial**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b><b>{</b>*c*<b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^**c** **a**/∂**b**^2.
-    - **\fracderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas del estilo d**a**/d**b**.
-    - **\fracdderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una fracción de derivadas al cuadrado al estilo d^2 **a**/d**b**^2.
-    - **\fracnderivat**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b><b>{</b>*c*<b>}</b>: Crea una fracción de derivadas a la n al estilo d^**c** **a**/d**b**^2.
-    - **\topequal**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave sobre el elemento **a** con valor **b**.
-    - **\underequal**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave bajo el elemento **a** con valor **b**.
-    - **\topsqual**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave rectangular sobre el elemento **a** con valor **b**.
-    - **\undersqual**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave rectangular bajo el elemento **a** con valor **b**.
-+ **Insertar títulos sin número, y títulos sin aparecer en el índice**: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para ello existen las siguientes funciones:
-  - **\newtitleanum**<b>{</b>*Título*<b>}</b>: Inserta un título sin número.
-  - **\newsubtitleanum**<b>{</b>*Título*<b>}</b>: Inserta un subtítulo sin número.
-  - **\newtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un título sin número sin que aparezca en el índice.
-  - **\newsubtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un subtítulo sin número sin que aparezca en el índice.
 
 ## Autor
 Pablo Pizarro, 2016.
