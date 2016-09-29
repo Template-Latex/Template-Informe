@@ -209,10 +209,14 @@ a:hover {
 .main-content .highlight pre, .main-content pre {
     padding: 0.8rem;
     overflow: auto;
-    font-size: 0.85rem;
+    font-size: 0.80rem;
     line-height: 1.45;
     border-radius: 0.3rem;
     margin-bottom: -9px;
+}
+
+.newline_br {
+    display: block;
 }
 
 .main-content pre code, .main-content pre tt {
@@ -229,6 +233,10 @@ a:hover {
 
 .main-content pre code:before, .main-content pre code:after, .main-content pre tt:before, .main-content pre tt:after {
     content: normal;
+}
+
+.li-code-parent {
+    margin-bottom: 30px
 }
 
 .main-content ul, .main-content ol {

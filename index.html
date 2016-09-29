@@ -95,7 +95,7 @@
                     if (target.length) {
                         $('html, body').animate({
                             scrollTop: target.offset().top
-                        }, 1000);
+                        }, 1200);
                         return false;
                     }
                 }
@@ -295,43 +295,82 @@
         <p>También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, para ello existen las siguientes funciones:</p>
 
         <ul>
-            <li>
+            <li class="li-code-parent">
                 <strong>Insertar párrafos y citas <a id="hlp-parrafo"></a></strong>: Para esto existen las siguientes funciones:
 
                 <ul>
                     <li>
-                        <strong>\newp</strong>: Sencilla forma de añadir un nuevo párrafo.</li>
+                        <strong>\newp</strong>: Sencilla forma de añadir un nuevo párrafo.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre>Este es un parrafo. <span class="pl-e">\newp</span> Este es otro.</pre></div>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\newpar</strong><b><b>{</b></b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo con un salto de linea al terminar.</li>
+                        <strong>\newpar</strong><b><b>{</b></b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo con un salto de linea al terminar.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\newpar</span><b>{</b>Este es un parrafo.<b>}</b> <span class="pl-e">\newpar</span><b>{</b>Este es otro.<b>}</b></pre></div>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\newparnl</strong><b>{</b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo sin un salto de linea al terminar.</li>
+                        <strong>\newparnl</strong><b>{</b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo sin un salto de linea al terminar.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\newparnl</span><b>{</b>Este es un parrafo sin salto de línea.<b>}</b><br><span class="pl-e">\newparnl</span><b>{</b>Este es otro párrafo sin salto de línea.<b>}</b></pre></div>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\quotes</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar "citas" sin lidiar con carácteres.</li>
+                        <strong>\quotes</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar "citas".
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre>Así se insertan las <span class="pl-e">\quotes</span><b>{</b>cítas<b>}</b> de manera sencilla.</pre></div>
+                        </blockquote>
                     <li>
-                        <strong>\quotesit</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar <em>"citas en itálico"</em> sin lidiar con carácteres.</li>
+                        <strong>\quotesit</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar <em>"citas en itálico"</em>.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre>Así se insertan las <span class="pl-e">\quotesit</span><b>{</b>cítas en itálico<b>}</b> de manera sencilla.</pre></div>
+                        </blockquote>
+                    </li>
                 </ul>
             </li>
-            <li>
+            <li class="li-code-parent">
                 <strong>Añadir una imagen <a id="hlp-imagen"></a></strong>: Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la variable <strong>\defaultimagefolder</strong>), sus
                 parámetros y su correspondiente título (caption, o leyenda). Los parámetros pueden ser <strong>scale=0.5</strong>, <strong>width=5cm</strong>, <strong>width=50%</strong>, etc.
 
                 <ul>
                     <li>
-                        <strong>\insertimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una simple imagen.</li>
+                        <strong>\insertimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una simple imagen.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimage</span><b>[</b><span class="pl-c1">\label</span>{img-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=1.0<b>}</b><b>{</b>Descripción de la imagen<b>}</b></pre></div>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.</li>
+                        <strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimageboxed</span><b>[]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.5<b>}</b><b>{</b>Descripción de la imagen<b>}</b></pre></div>
+                        </blockquote>
+                    </li>
                     <li>
                         <strong>\insertdoubleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
-                        Inserta dos imagenes en un sólo elemento.</li>
+                        Inserta dos imagenes en un sólo elemento.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertdoubleimage</span><b>[</b><span class="pl-c1">\label</span>{img-double-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.4<b>}</b><b>{</b>Descripción A<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b><span class="pl-v">width</span>=5cm<b>}</b><b>{</b>Descripción B<b>}</b><b>{</b>Descripción general de las imágenes<b>}</b></pre></div>
+                        </blockquote>
+                    </li>
                     <li>
-                        <strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b>: Inserta
-                        una imagen alineada a la izquierda, flotante.</li>
+                        <strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b>: Inserta
+                        una imagen alineada a la izquierda, flotante.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimageleft</span><b>[</b><span class="pl-c1">\label</span>{img-left-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>0.25<b>}</b><b>{</b>Descripción<b>}</b><b>{</b>15<b>}</b></pre></div>
+                        </blockquote>
+                    </li>
                     <li>
                         <strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Escala</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b>: Inserta
-                        una imagen alineada a la derecha, flotante.</li>
+                        una imagen alineada a la derecha, flotante.
+                        <blockquote>
+                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimageright</span><b>[]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>Descripción<b>}</b><b>{</b>22<b>}</b></pre></div>
+                        </blockquote>
+                    </li>
                 </ul>
             </li>
-            <li>
+            <li class="li-code-parent">
                 <strong>Insertar una fórmula en el documento <a id="hlp-formulae"></a></strong>: Existen dos funciones para añadir fórmulas: <strong>\insertequation</strong> y <strong>\insertequationcaptioned</strong>, las cuales consideran la fórmula
                 en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
 
@@ -352,7 +391,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li class="li-code-parent">
                 <strong>Expresiones matemáticas <a id="hlp-math"></a></strong>: Existen varias funciones para añadir expresiones matemáticas de forma sencilla:
 
                 <ul>
