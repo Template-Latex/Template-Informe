@@ -135,6 +135,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **mhchem**:	Fórmulas químicas [versión 4].
 + **multicol**: Múltiples columnas.
 + **multirow**: Añade nuevas opciones a las tablas *[dependiente]*.
++ **pdfpages**:	Permite administrar páginas en pdf.
 + **lipsum**: Permite crear textos dummy.
 + **longtable**: Permite utilizar tablas en varias hojas.
 + **listings**: Permite añadir código fuente.
