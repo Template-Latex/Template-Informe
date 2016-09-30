@@ -72,11 +72,11 @@
 \newcommand{\defaultnewlinesize}{11pt}            % Tamaño del salto de línea
 \newcommand{\defaultinterlind}{1.0}               % Entrelineado por defecto
 \newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes 
-\newcommand{\tipofuentetitulo}{\huge}             % Tamaño de los títulos
+\newcommand{\tipofuentetitulo}{\LARGE}            % Tamaño de los títulos
 \newcommand{\tipofuentesubtitulo}{\Large}         % Tamaño de los subtítulos
 \newcommand{\tipofuentesubsubtitulo}{\large}      % Tamaño de los sub-subtítulos
-\newcommand{\tipofuentetituloi}{\huge}            % Tamaño de los títulos en el índice
-\newcommand{\tipofuentesubtituloi}{\large}        % Tamaño de los subtítulos en el índice
+\newcommand{\tipofuentetituloi}{\LARGE}           % Tamaño de los títulos en el índice
+\newcommand{\tipofuentesubtituloi}{\Large}        % Tamaño de los subtítulos en el índice
 \newcommand{\tipofuentesubsubtituloi}{\large}     % Tamaño de los sub-subtítulos en el índice
 \newcommand{\etipofuentetitulo}{\bfseries}        % Estilo de los títulos
 \newcommand{\etipofuentesubtitulo}{\bfseries}     % Estilo de los subtítulos
@@ -92,15 +92,15 @@
 \newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
 \newcommand{\indexdepth}{3}                       % Profundidad del índice
 \newcommand{\defaultcaptionmargin}{2.9}           % Márgenes de las leyendas por defecto
-\newcommand{\defaultpagemarginleft}{1.5}          % Margen izquierdo de las páginas [cm]
-\newcommand{\defaultpagemarginright}{1.5}         % Margen derecho de las páginas [cm]
-\newcommand{\defaultpagemargintop}{2.15}          % Margen superior de las páginas [cm]
-\newcommand{\defaultpagemarginbottom}{2.15}       % Margen inferior de las páginas [cm]
-\newcommand{\defaultfirstpagemargintop}{3.2}      % Margen superior de la portada [cm]
+\newcommand{\defaultpagemarginleft}{2.5}          % Margen izquierdo de las páginas [cm]
+\newcommand{\defaultpagemarginright}{2.5}         % Margen derecho de las páginas [cm]
+\newcommand{\defaultpagemargintop}{3.0}           % Margen superior de las páginas [cm]
+\newcommand{\defaultpagemarginbottom}{2.7}        % Margen inferior de las páginas [cm]
+\newcommand{\defaultfirstpagemargintop}{3.4}      % Margen superior de la portada [cm]
 \newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. de figuras flotantes [pt]
 \newcommand{\defaultmargintopimages}{-0.2cm}      % Margen sup. de las figuras [cm]
 \newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inf. de las figuras [cm]
-\newcommand{\nombrepaginaportada}{P}              % Nombre de la primera página (portada)
+\newcommand{\nombrepaginaportada}{P}              % Identificador de la primera página (portada)
 
 % LIBRERÍAS INDEPENDIENTES
 \usepackage{amsmath}                  % Fórmulas matemáticas
@@ -121,6 +121,7 @@
 \usepackage{mathtools}                % Permite utilizar notaciones matemáticas avanzadas
 \usepackage[version=4]{mhchem}        % Fórmulas químicas
 \usepackage{multicol}                 % Múltiples columnas
+\usepackage{pdfpages}                 % Permite administrar páginas en pdf
 \usepackage{lipsum}                   % Permite crear textos dummy
 \usepackage{longtable}                % Permite utilizar tablas en varias hojas
 \usepackage{listings}                 % Permite añadir código fuente
@@ -383,7 +384,7 @@
 \setcounter{page}{1}
 \setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}
 {\defaultpagemarginright}{\defaultpagemarginbottom}
-\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}      % Se modifica el estilo del header
 \renewcommand{\listfigurename}{\nombltfiguras}       % Nombre del índice de figuras
 \renewcommand{\listtablename}{\nomblttablas}         % Nombre del índice de tablas
 \renewcommand{\contentsname}{\nombltcontend}         % Nombre del índice
@@ -391,7 +392,7 @@
 \renewcommand{\figurename}{\nombltwfigura}           % Nombre de la leyenda de las figuras
 \pagestyle{fancy} \fancyhf{}                         % Se crean los headers y footers
 \fancyhead[L]{\nouppercase{\rightmark}}              % Header izq, nombre sección
-\fancyhead[R]{\small \rm \thepage}                   % Header der, número página
+\fancyhead[R]{\small \rm \nouppercase{\thepage}}     % Header der, número página
 \fancyfoot[L]{\small \rm \textit{\nombredelinforme}} % Footer izq, título del informe
 \fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}} % Footer der, curso
 \renewcommand{\headrulewidth}{0.5pt}                 % Ancho de la barra del header
@@ -413,6 +414,7 @@
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
+\fancyhead[L]{\nouppercase{\leftmark}}
 \sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
 \subsectionfont{\tipofuentesubtitulo \etipofuentesubtitulo \selectfont}
 \subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}
