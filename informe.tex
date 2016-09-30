@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.0.7 (29/09/2016)
+% Versión:      2.0.9 (29/09/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -318,14 +318,14 @@
 	emph=[1]{for,end,break},emphstyle=[1]\color{red}}
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
-\decimalpoint                               % Se define el punto decimal
-\counterwithin{equation}{section}           % Añade número de sección a las ecuaciones
-\counterwithin{figure}{section}             % Añade número de sección a las figuras
-\counterwithin{table}{section}              % Añade número de sección a las tablas
-\bibliographystyle{\tiporeferencias}        % Estilo APA para las referencias
-\setcaptionmargincm{\defaultcaptionmargin}  % Margen por defecto
-\setlength{\headheight}{54pt}               % Tamaño de la cabecera sin fancyhdr
-\setcounter{tocdepth}{\indexdepth}          % Se ajusta la profundidad del índice
+\decimalpoint                              % Se define el punto decimal
+\counterwithin{equation}{section}          % Añade número de sección a las ecuaciones
+\counterwithin{figure}{section}            % Añade número de sección a las figuras
+\counterwithin{table}{section}             % Añade número de sección a las tablas
+\bibliographystyle{\tiporeferencias}       % Estilo APA para las referencias
+\setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
+\setlength{\headheight}{54pt}              % Tamaño de la cabecera sin fancyhdr
+\setcounter{tocdepth}{\indexdepth}         % Se ajusta la profundidad del índice
 \hypersetup{
 	%pdfauthor={Author},
 	pdftitle={\nombredelinforme},
@@ -334,8 +334,8 @@
 	\codigodelcurso, \localizacionuniversidad},
 	pdfproducer={LaTeX},
 	pdfcreator={pdfLaTeX}}
-\renewcommand{\baselinestretch}{\defaultinterlind}   % Ajuste del entrelineado
-\makeatletter \renewenvironment{thebibliography}[1]  % Bibliografía en 2 columnas
+\renewcommand{\baselinestretch}{\defaultinterlind}  % Ajuste del entrelineado
+\makeatletter \renewenvironment{thebibliography}[1] % Bibliografía en 2 columnas
 {\begin{multicols}{2}[\section*{\refname}]
 	\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
 	\list{\@biblabel{\@arabic\c@enumiv}}
