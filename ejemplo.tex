@@ -25,12 +25,12 @@
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k}, \forall k>2}
 		
 		% Los párrafos se pueden añadir con \newpar o simplemente se puede escribir, esta función se hizo para evitar errores y warnings por parte del compilador. Además da la opción de poder cambiar la estructura de todos los párrafos del documento directamente al cambiar las propiedades de la función (definida en la sección DECLARACIÓN DE FUNCIONES).
-		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como \quotesit{Citas en itálico} o referencias \footnote{Las referencias se hacen utilizando la expresión \textbackslash label\{etiqueta\}} a fórmulas como (\ref{formulasinsentido}), a continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{testimage}):
+		Este es un párrafo, \textbf{newp} puede contener múltiples \quotes{Expresiones} así como \quotesit{Citas en itálico} o referencias \footnote{Las referencias se hacen utilizando la expresión \textbackslash label\{etiqueta\}} a fórmulas como (\ref{formulasinsentido}), a continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{testimage}):
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta, luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.2) y un título de imagen (el cual va debajo de la imagen)
-		\insertimage[\label{testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotesit{Internet}}
+		\insertimage[\label{testimage}]{ejemplos/test-image.png}{scale=0.2}{Where are you? de \quotesit{Internet}}
 		
-		\newparnl{Este es un párrafo sin nueva linea (de ahí el \textit{nl}, esto se puede usar para terminar un tema, o si vienen imágenes nuevas), si no te gustan los comandos \textbf{newpar} o \textbf{newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones, así puedes tener comandos más intuitivos para ti.}
+		\newparnl{Este es un párrafo sin nueva linea, si no te gustan los comandos \textbf{newp}, \textbf{newpar} o \textbf{newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones, así puedes tener comandos más intuitivos para ti.}
 		
 	% SUB-SECCIÓN
 	\subsection{Tablas!}
