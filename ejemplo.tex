@@ -1,5 +1,5 @@
 % Template:     Archivo de ejemplo
-% Versión:      2.1.0 (29/09/2016)
+% Versión:      2.1.1 (01/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -25,7 +25,7 @@
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k}, \forall k>2}
 		
 		% Los párrafos se pueden añadir con \newpar o simplemente se puede escribir, esta función se hizo para evitar errores y warnings por parte del compilador. Además da la opción de poder cambiar la estructura de todos los párrafos del documento directamente al cambiar las propiedades de la función (definida en la sección DECLARACIÓN DE FUNCIONES).
-		\newpar{Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como \quotesit{Citas en itálico} o referencias \footnote{Las referencias se hacen utilizando la expresión \textbackslash label\{etiqueta\}} a fórmulas como (\ref{formulasinsentido}), a continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{testimage}):}
+		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como \quotesit{Citas en itálico} o referencias \footnote{Las referencias se hacen utilizando la expresión \textbackslash label\{etiqueta\}} a fórmulas como (\ref{formulasinsentido}), a continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{testimage}):
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta, luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.2) y un título de imagen (el cual va debajo de la imagen)
 		\insertimage[\label{testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotesit{Internet}}
@@ -66,16 +66,16 @@
 	\subsection{Haciendo informes como un profesional}
 	
 		% Se inserta una imagen fija en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, un título y por último el número de líneas que 'cortará' hacia abajo. Para insertar una imagen fija en la derecha se utiliza \insertimageright usando los mismos parámetros.
-		\insertimageleft[\label{imagen-izquierda}]{ejemplos/test-image-wrap}{0.22}{Apolo}{14}
-		
+		\insertimageleft[\label{imagen-izquierda}]{ejemplos/test-image-wrap}{0.19}{Apolo}{12}
+	
 		Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos, con preguntas de respuestas abiertas (donde el estudiante responde libremente) o preguntas de respuestas múltiples (el estudiante debe seleccionar la respuesta correcta de un listado).
 		
 		% Se inserta un nuevo párrafo de modo inteligente, evita errores de hbox, crea un nuevo par e espacia de manera fija
-		\newp \lipsum[144]
+		\newp \lipsum[2]
 		
 		\insertequationcaptioned[\label{formulasinsentido}]{\int_{a}^{b} f(x) dx = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
 		
-		\begin{wrapfigure}[15]{r}{0.4\textwidth}
+		\begin{wrapfigure}[16]{r}{0.4\textwidth}
 			\setcaptionmargincm{0}
 			\vspace{-1.0cm}
 			\begin{center}
@@ -94,7 +94,7 @@
 		
 		\lipsum[115]
 		\vspace{\defaultnewlinesize}
-		\lipsum[114]
+		\lipsum[4]
 
 % REFERENCIAS
 \newpage

@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.1.0 (29/09/2016)
+% Versión:      2.1.1 (01/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -185,11 +185,12 @@
 \newcommand{\newsubtitleanumnoi}[1]{  % Insertar un subtítulo sin número sin indexar
 	\subsection*{#1}}
 \newcommand{\insertequation}[2][]{    % Insertar una ecuación
-	\vspace{-0.18cm}
+	\vspace{-0.16cm}
 	\begin{equation}
 		\text{#1} #2
-	\end{equation}}
-	\vspace{0.18cm}
+	\end{equation}
+	\par
+}
 \newcommand{\insertequationcaptioned}[3][]{ % Insertar una ecuación con leyenda
 	\vspace{-0.1cm}
 	\begin{equation}
@@ -197,8 +198,10 @@
 	\end{equation}
 	\begin{center}
 		\vspace{-0.15cm}
-		\textit{#3} \par
-	\end{center}}
+		\textit{#3}
+	\end{center}
+	\par
+}
 \newcommand{\insertimage}[4][]{ % Insertar una imagen
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
@@ -206,7 +209,8 @@
 		\includegraphics[#3]{\defaultimagefolder#2}
 		\caption{#4 #1}
 	\end{figure}
-	\vspace{\defaultmarginbottomimages}}
+	\vspace{\defaultmarginbottomimages}
+}
 \newcommand{\insertimageboxed}[4][]{ % Insertar una imagen con recuadro
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
@@ -214,7 +218,8 @@
 		\fbox{\includegraphics[#3]{\defaultimagefolder#2}}
 		\caption{#4 #1}
 	\end{figure}
-	\vspace{\defaultmarginbottomimages}}
+	\vspace{\defaultmarginbottomimages}
+}
 \newcommand{\insertimagefixed}[5][]{ % Insertar una imagen de ancho fijo a la página
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
@@ -224,7 +229,8 @@
 		}
 		\caption{#5 #1}
 	\end{figure}
-	\vspace{\defaultmarginbottomimages}}
+	\vspace{\defaultmarginbottomimages}
+}
 \newcommand{\insertimageboxedfixed}[5][]{ % Insertar una imagen recuadrada de ancho fijo
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
@@ -234,7 +240,8 @@
 		}
 		\caption{#5 #1}
 	\end{figure}
-	\vspace{\defaultmarginbottomimages}}
+	\vspace{\defaultmarginbottomimages}
+}
 \newcommand{\insertdoubleimage}[8][]{ % Insertar una imagen doble
 	\captionsetup{margin=0.5cm}
 	\vspace{\defaultmargintopimages}
@@ -247,7 +254,8 @@
 		\caption{#8 #1}
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
-	\setcaptionmargincm{\defaultcaptionmargin}}
+	\setcaptionmargincm{\defaultcaptionmargin}
+}
 \newcommand{\insertimageleft}[5][]{ % Insertar una imagen a la izquierda
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
@@ -255,7 +263,8 @@
 		\centering\includegraphics[width=\linewidth]{\defaultimagefolder#2}
 		\caption{#4 #1}
 		\setcaptionmargincm{\defaultcaptionmargin}
-	\end{wrapfigure}}
+	\end{wrapfigure}
+}
 \newcommand{\insertimageright}[5][]{ % Insertar una imagen a la derecha
 	\begin{wrapfigure}[#5]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
@@ -263,7 +272,8 @@
 		\centering\includegraphics[width=\linewidth]{\defaultimagefolder#2}
 		\caption{#4 #1}
 		\setcaptionmargincm{\defaultcaptionmargin}
-	\end{wrapfigure}}
+	\end{wrapfigure}
+}
 
 % DECLARACIÓN DE AMBIENTES Y ESTILOS
 \definecolor{dkgreen}{rgb}{0,0.6,0}
