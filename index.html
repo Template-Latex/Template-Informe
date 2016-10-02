@@ -42,9 +42,22 @@
                 });
             };
         }
+
+        var total_downloads = 0;
+        // Se añaden las descargas de template-informe-cursos
+        $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases", function(json) {
+            var jlen = json.length;
+            for (i = 0; i < jlen; i++) {
+                try {
+                    total_downloads += parseInt(json[i].assets[0].download_count);
+                } catch (err) {
+                    console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
+                }
+            }
+        });
+        // Se añaden las descargas del template base
         $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
             var jlen = json.length;
-            var total_downloads = 0;
             for (i = 0; i < jlen; i++) {
                 try {
                     total_downloads += parseInt(json[i].assets[0].download_count);
