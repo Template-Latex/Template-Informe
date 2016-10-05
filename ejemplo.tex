@@ -1,5 +1,5 @@
-% Template:     Archivo de ejemplo
-% Versión:      2.1.5 (02/10/2016)
+% Template:     Archivo de ejemplo LaTeX
+% Versión:      2.1.6 (04/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -16,7 +16,7 @@
 
 	% SUB-SECCIÓN
 	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin "número" se pueden usar las funciones \newsubtitleanum (nuevo subtitulo sin numeración) o la función \newsubtitleanumnoi para crear el mismo subtítulo sin numerar pero sin aparecer en el índice.
-	\newsubtitleanum{Una breve introducción}
+	\subsection{Una breve introducción}
 	
 		% Esta función sirve para rellenar con un párrafo.
 		\lipsum[4]
@@ -33,7 +33,7 @@
 		\newparnl{Este es un párrafo sin nueva linea, si no te gustan los comandos \textbf{newp}, \textbf{newpar} o \textbf{newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones, así puedes tener comandos más intuitivos para ti.}
 		
 	% SUB-SECCIÓN
-	\subsection{Tablas!}
+	\newsubtitleanum{Tablas!}
 
 		\newparnl{También puedes usar tablas, insertarlas es muy fácil, puedes usar directamente el \quotes{conversor de tablas} \textsuperscript{\cite{conversortabla}}, ahí puedes convertir en un solo clic tablas Excel, o crearlas tú mismo sin tener que hacer todo el aburridísimo código.}
 		
@@ -60,7 +60,7 @@
 		\end{longtable}
 		
 % NUEVA SECCIÓN
-\section{Aquí un nuevo tema}
+\newtitleanum{Aquí un nuevo tema} % Inserta un título (similar a una sección) sin número
 		
 	% SUB-SECCIÓN
 	\subsection{Haciendo informes como un profesional}
@@ -68,7 +68,7 @@
 		% Se inserta una imagen fija en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, un título y por último el número de líneas que 'cortará' hacia abajo. Para insertar una imagen fija en la derecha se utiliza \insertimageright usando los mismos parámetros.
 		\insertimageleft[\label{imagen-izquierda}]{ejemplos/test-image-wrap}{0.19}{Apolo}{12}
 	
-		Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos, con preguntas de respuestas abiertas (donde el estudiante responde libremente) o preguntas de respuestas múltiples (el estudiante debe seleccionar la respuesta correcta de un listado).
+		Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos.
 		
 		% Se inserta un nuevo párrafo de modo inteligente, evita errores de hbox, crea un nuevo par e espacia de manera fija
 		\newp \lipsum[2]
@@ -100,6 +100,7 @@
 \newpage
 \begin{thebibliography}{99}
 	\addcontentsline{toc}{section}{Referencias}
+	\fancyhead[L]{\nouppercase{Referencias}}
 	
 	\bibitem{referencia1} 
 		\hbadness=10000 Autor 1, Autor 2.

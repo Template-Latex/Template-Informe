@@ -71,15 +71,17 @@ También es posible añadir fórmulas, citas, figuras y otros elementos de forma
     - **\undersqual**<b>{</b>*a*<b>}</b><b>{</b>*b*<b>}</b>: Crea una llave rectangular bajo el elemento **a** con valor **b**.
 + **Insertar títulos sin número, y títulos sin aparecer en el índice**: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para ello existen las siguientes funciones:
   - **\newtitleanum**<b>{</b>*Título*<b>}</b>: Inserta un título sin número.
-  - **\newsubtitleanum**<b>{</b>*Título*<b>}</b>: Inserta un subtítulo sin número.
-  - **\newtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un título sin número sin que aparezca en el índice.
-  - **\newsubtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un subtítulo sin número sin que aparezca en el índice.
+  - **\newsubtitleanum**<b>{</b>*Subtítulo*<b>}</b>: Inserta un subtítulo sin número.
+  - **\newsubsubtitleanum**<b>{</b>*Sub-Subtítulo*<b>}</b>: Inserta un sub-subtítulo sin número.
+  - **\newtitleanumnoi**<b>{</b>*Título*<b>}</b>: Inserta un título sin número y sin que aparezca en el índice.
+  - **\newsubtitleanumnoi**<b>{</b>*Subtítulo*<b>}</b>: Inserta un subtítulo sin número y sin que aparezca en el índice.
+  - **\newsubsubtitleanumnoi**<b>{</b>*Sub-Subtítulo*<b>}</b>: Inserta un sub-subtítulo sin número y sin que aparezca en el índice.
 
 ## Configurar otros elementos del documento
 También se pueden modificar los márgenes de los títulos de tablas y figuras _(caption)_, el tamaño de los títulos de las secciones, etc. Estas se encuentran en el bloque de *%CONFIGURACIONES*, entre las cuales se encuentran:
++ **\defaultimagefolder**: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
 + **\defaultnewlinesize**: Tamaño del salto de línea en pt.
 + **\defaultinterlind**: Tamaño del interlineado.
-+ **\defaultimagefolder**: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
 + **\tipofuentetitulo**: Tamaño por defecto de los títulos.
 + **\tipofuentesubtitulo**: Tamaño por defecto de los subtítulos.
 + **\tipofuentesubsubtitulo**: Tamaño por defecto de los sub-subtítulos.
