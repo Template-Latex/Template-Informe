@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.1.3 (02/10/2016)
+% Versión:      2.1.4 (04/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -126,6 +126,7 @@
 \usepackage{longtable}                % Permite utilizar tablas en varias hojas
 \usepackage{listings}                 % Permite añadir código fuente
 \usepackage{sectsty}                  % Cambia el estilo de los títulos
+\usepackage{selinput}                 % Compatibilidad con acentos
 \usepackage{setspace}                 % Cambia el espacio entre líneas
 \usepackage{subfig}                   % Permite agrupar imágenes
 \usepackage{tikz}                     % Permite dibujar 
@@ -177,11 +178,17 @@
 \newcommand{\undersequal}[2]{         % Rectángulo inferior de equivalencia
 	\underbracket{#1}_{\mathclap{#2}}}
 \newcommand{\newtitleanum}[1]{        % Insertar un título sin número
-	\addcontentsline{toc}{section}{#1} \section*{#1}}
+	\addcontentsline{toc}{section}{#1} \section*{#1}
+	\fancyhead[L]{\nouppercase{#1}}
+	\stepcounter{section}
+}
 \newcommand{\newsubtitleanum}[1]{     % Insertar un subtítulo sin número
 	\addcontentsline{toc}{subsection}{#1} \subsection*{#1}}
 \newcommand{\newtitleanumnoi}[1]{     % Insertar un título sin número sin indexar
-	\section*{#1}}
+	\section*{#1}
+	\fancyhead[L]{\nouppercase{#1}}
+	\stepcounter{section}
+}
 \newcommand{\newsubtitleanumnoi}[1]{  % Insertar un subtítulo sin número sin indexar
 	\subsection*{#1}}
 \newcommand{\insertequation}[2][]{    % Insertar una ecuación
@@ -281,6 +288,11 @@
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
+\SelectInputMappings{
+  aacute={á},
+  Ntilde={Ñ},
+  Euro={€}
+}
 \lstdefinestyle{C}{ % Estilo de lenguaje C
 	language=C,
   	numbers=left,
@@ -430,6 +442,7 @@
 \subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
+\setcounter{section}{0}
 
 
 % ================================ INICIO DEL DOCUMENTO ================================

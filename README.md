@@ -140,6 +140,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **longtable**: Permite utilizar tablas en varias hojas.
 + **listings**: Permite añadir código fuente.
 + **sectsty**: Cambia el estilo de los títulos.
++ **selinput**: Agrega mayor compatibilidad para caracteres acentuados.
 + **setspace**: Cambia el espacio entre líneas.
 + **subfig**: Permite agrupar imágenes.
 + **tikz**: Permite dibujar.
