@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.1.4 (04/10/2016)
+% Versión:      2.1.5 (04/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -69,9 +69,9 @@
 \end{minipage}}
 
 % CONFIGURACIONES
+\newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes 
 \newcommand{\defaultnewlinesize}{11pt}            % Tamaño del salto de línea
 \newcommand{\defaultinterlind}{1.0}               % Entrelineado por defecto
-\newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes 
 \newcommand{\tipofuentetitulo}{\LARGE}            % Tamaño de los títulos
 \newcommand{\tipofuentesubtitulo}{\Large}         % Tamaño de los subtítulos
 \newcommand{\tipofuentesubsubtitulo}{\large}      % Tamaño de los sub-subtítulos
@@ -178,19 +178,35 @@
 \newcommand{\undersequal}[2]{         % Rectángulo inferior de equivalencia
 	\underbracket{#1}_{\mathclap{#2}}}
 \newcommand{\newtitleanum}[1]{        % Insertar un título sin número
-	\addcontentsline{toc}{section}{#1} \section*{#1}
+	\addcontentsline{toc}{section}{#1}
+	\section*{#1}
 	\fancyhead[L]{\nouppercase{#1}}
 	\stepcounter{section}
 }
 \newcommand{\newsubtitleanum}[1]{     % Insertar un subtítulo sin número
-	\addcontentsline{toc}{subsection}{#1} \subsection*{#1}}
+	\addcontentsline{toc}{subsection}{#1}
+	\subsection*{#1}
+	\stepcounter{subsection}
+}
+\newcommand{\newsubsubtitleanum}[1]{  % Insertar un sub-subtítulo sin número
+	\addcontentsline{toc}{subsubsection}{#1}
+	\subsubsection*{#1}
+	\stepcounter{subsubsection}
+}
 \newcommand{\newtitleanumnoi}[1]{     % Insertar un título sin número sin indexar
 	\section*{#1}
 	\fancyhead[L]{\nouppercase{#1}}
 	\stepcounter{section}
 }
 \newcommand{\newsubtitleanumnoi}[1]{  % Insertar un subtítulo sin número sin indexar
-	\subsection*{#1}}
+	\subsection*{#1}
+	\stepcounter{subsection}
+}
+\newcommand{\newsubsubtitleanumnoi}[1]{ % Insertar un sub-subtítulo sin num. sin indexar
+	\addcontentsline{toc}{subsubsection}{#1}
+	\subsubsection*{#1}
+	\stepcounter{subsubsection}
+}
 \newcommand{\insertequation}[2][]{    % Insertar una ecuación
 	\vspace{-0.16cm}
 	\begin{equation}
@@ -423,7 +439,7 @@
 % ABSTRACT- RESUMEN
 \sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
 \newtitleanum{Resumen}
-\lipsum[1] \newp \lipsum[3]
+\lipsum[1] \newp \lipsum[3]  % Ejemplo de dos párrafos en latín
 
 % TABLA DE CONTENIDOS
 \newpage
