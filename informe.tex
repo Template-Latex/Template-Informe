@@ -103,46 +103,46 @@
 \newcommand{\nombrepaginaportada}{P}              % Identificador de la primera página (portada)
 
 % LIBRERÍAS INDEPENDIENTES
-\usepackage{amsmath}                  % Fórmulas matemáticas
-\usepackage{amssymb}                  % Símbolos matemáticos
-\usepackage{amsthm}                   % Teoremas matemáticos
-\usepackage{booktabs}                 % Permite manejar elementos visuales en tablas
-\usepackage[makeroom]{cancel}         % Cancelar términos en fórmulas
-\usepackage{caption}                  % Leyendas
-\usepackage{color}                    % Colores
-\usepackage{datetime}                 % Fechas
-\usepackage{enumerate}                % Permite enumerar ítemes
-\usepackage[bottom, norule]{footmisc} % Estilo pié de página
-\usepackage{fancyhdr}                 % Encabezados y pié de páginas
-\usepackage{float}                    % Administrador de posiciones de objetos
-\usepackage{textcomp, gensymb}        % Simbología común                
-\usepackage{geometry}                 % Dimensiones y geometría del documento
-\usepackage{graphicx}                 % Propiedades extra para los gráficos
-\usepackage{mathtools}                % Permite utilizar notaciones matemáticas avanzadas
-\usepackage[version=4]{mhchem}        % Fórmulas químicas
-\usepackage{multicol}                 % Múltiples columnas
-\usepackage{pdfpages}                 % Permite administrar páginas en pdf
-\usepackage{lipsum}                   % Permite crear textos dummy
-\usepackage{longtable}                % Permite utilizar tablas en varias hojas
-\usepackage{listings}                 % Permite añadir código fuente
-\usepackage{sectsty}                  % Cambia el estilo de los títulos
-\usepackage{selinput}                 % Compatibilidad con acentos
-\usepackage{setspace}                 % Cambia el espacio entre líneas
-\usepackage{subfig}                   % Permite agrupar imágenes
-\usepackage{tikz}                     % Permite dibujar 
-\usepackage{ulem}                     % Permite tachar, subrayar, etc
-\usepackage{url}                      % Permite añadir enlaces
-\usepackage{wasysym}                  % Contiene caracteres misceláneos
-\usepackage{wrapfig}                  % Permite comprimir imágenes
+\usepackage{amsmath}                   % Fórmulas matemáticas
+\usepackage{amssymb}                   % Símbolos matemáticos
+\usepackage{amsthm}                    % Teoremas matemáticos
+\usepackage{booktabs}                  % Permite manejar elementos visuales en tablas
+\usepackage[makeroom]{cancel}          % Cancelar términos en fórmulas
+\usepackage{caption}                   % Leyendas
+\usepackage{color}                     % Colores
+\usepackage{datetime}                  % Fechas
+\usepackage{enumerate}                 % Permite enumerar ítemes
+\usepackage[bottom, norule]{footmisc}  % Estilo pié de página
+\usepackage{fancyhdr}                  % Encabezados y pié de páginas
+\usepackage{float}                     % Administrador de posiciones de objetos
+\usepackage{textcomp, gensymb}         % Simbología común                
+\usepackage{geometry}                  % Dimensiones y geometría del documento
+\usepackage{graphicx}                  % Propiedades extra para los gráficos
+\usepackage{mathtools}                 % Permite utilizar notaciones matemáticas avanzadas
+\usepackage[version=4]{mhchem}         % Fórmulas químicas
+\usepackage{multicol}                  % Múltiples columnas
+\usepackage{pdfpages}                  % Permite administrar páginas en pdf
+\usepackage{lipsum}                    % Permite crear textos dummy
+\usepackage{longtable}                 % Permite utilizar tablas en varias hojas
+\usepackage{listings}                  % Permite añadir código fuente
+\usepackage{sectsty}                   % Cambia el estilo de los títulos
+\usepackage{selinput}                  % Compatibilidad con acentos
+\usepackage{setspace}                  % Cambia el espacio entre líneas
+\usepackage{subfig}                    % Permite agrupar imágenes
+\usepackage{tikz}                      % Permite dibujar 
+\usepackage{ulem}                      % Permite tachar, subrayar, etc
+\usepackage{url}                       % Permite añadir enlaces
+\usepackage{wasysym}                   % Contiene caracteres misceláneos
+\usepackage{wrapfig}                   % Permite comprimir imágenes
 
 % LIBRERÍAS DEPENDIENTES
-\usepackage{chngcntr}                 % Agrega números de secciones a las leyendas
-\usepackage{epstopdf}                 % Convierte archivos .eps a pdf
-\usepackage[hidelinks]{hyperref}      % Permite añadir enlaces y referencias
-\usepackage{multirow}                 % Agrega nuevas opciones a las tablas
+\usepackage{chngcntr}                  % Agrega números de secciones a las leyendas
+\usepackage{epstopdf}                  % Convierte archivos .eps a pdf
+\usepackage[hidelinks]{hyperref}       % Permite añadir enlaces y referencias
+\usepackage{multirow}                  % Agrega nuevas opciones a las tablas
 
 % CARGA DE MÓDULOS PARA LIBRERÍAS
-\usetikzlibrary{babel}                % Asociado a tikz
+\usetikzlibrary{babel}                 % Asociado a tikz
 
 % DECLARACIÓN DE FUNCIONES
 \newcommand{\quotes}[1]{``#1''}        % Insertar cita
@@ -234,7 +234,7 @@
 		\textit{#3} \par
 	\end{center}
 }
-\newcommand{\insertimage}[4][]{ % Insertar una imagen
+\newcommand{\insertimage}[4][]{        % Insertar una imagen
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -243,7 +243,7 @@
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
 }
-\newcommand{\insertimageboxed}[4][]{ % Insertar una imagen con recuadro
+\newcommand{\insertimageboxed}[4][]{   % Insertar una imagen con recuadro
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -252,7 +252,7 @@
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
 }
-\newcommand{\insertimagefixed}[5][]{ % Insertar una imagen de ancho fijo a la página
+\newcommand{\insertimagefixed}[5][]{   % Insertar una imagen de ancho fijo a la página
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
