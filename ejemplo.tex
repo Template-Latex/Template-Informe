@@ -1,5 +1,5 @@
 % Template:     Archivo de ejemplo LaTeX
-% Versión:      2.1.7 (04/10/2016)
+% Versión:      2.1.8 (04/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -33,7 +33,7 @@
 		\newparnl{Este es un párrafo sin nueva linea, si no te gustan los comandos \textbf{newp}, \textbf{newpar} o \textbf{newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones, así puedes tener comandos más intuitivos para ti.}
 		
 	% SUB-SECCIÓN
-	\newsubtitleanum{Tablas!}
+	\subsection{Tablas!}
 
 		\newparnl{También puedes usar tablas, insertarlas es muy fácil, puedes usar directamente el \quotes{conversor de tablas} \textsuperscript{\cite{conversortabla}}, ahí puedes convertir en un solo clic tablas Excel, o crearlas tú mismo sin tener que hacer todo el aburridísimo código.}
 		
@@ -63,7 +63,7 @@
 \newtitleanum{Aquí un nuevo tema} % Inserta un título (similar a una sección) sin número
 		
 	% SUB-SECCIÓN
-	\subsection{Haciendo informes como un profesional}
+	\newsubtitleanum{Haciendo informes como un profesional}
 	
 		% Se inserta una imagen fija en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, un título y por último el número de líneas que 'cortará' hacia abajo. Para insertar una imagen fija en la derecha se utiliza \insertimageright usando los mismos parámetros.
 		\insertimageleft[\label{imagen-izquierda}]{ejemplos/test-image-wrap}{0.19}{Apolo}{12}
