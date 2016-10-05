@@ -55,6 +55,7 @@
                 }
             }
         });
+
         // Se añaden las descargas del template base
         $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
             var jlen = json.length;
@@ -73,9 +74,6 @@
             } catch (err) {
                 console.log('Error al obtener la última versión del software');
             }
-            $('total-download-counter').each(function() {
-                this.id.innerHTML = total_downloads;
-            });
 
             //Se imprimen estados en consola
             console.log(String.format('Cantidad de descargas totales: {0}', total_downloads));
@@ -100,6 +98,10 @@
             speed: 0.15
         });
 
+        $('total-download-counter').each(function() {
+            this.id.innerHTML = total_downloads;
+        });
+
         $(function() {
             $('a[href*="#"]:not([href="#"])').click(function() {
                 if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -112,6 +114,14 @@
                         return false;
                     }
                 }
+            });
+        });
+
+        $(function() {
+            $('#download-button').click(function() {
+                total_downloads += 1;
+                document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+                document.getElementById('total-download-counter-2').innerHTML = total_downloads;
             });
         });
     </script>
@@ -506,11 +516,15 @@
                     <li>
                         <strong>\newtitleanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número.</li>
                     <li>
-                        <strong>\newsubtitleanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta un subtítulo sin número.</li>
+                        <strong>\newsubtitleanum</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta un subtítulo sin número.</li>
                     <li>
-                        <strong>\newtitleanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número sin que aparezca en el índice.</li>
+                        <strong>\newsubsubtitleanum</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta un sub-subtítulo sin número.</li>
                     <li>
-                        <strong>\newsubtitleanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta un subtítulo sin número sin que aparezca en el índice.</li>
+                        <strong>\newtitleanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número y sin que aparezca en el índice.</li>
+                    <li>
+                        <strong>\newsubtitleanumnoi</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta un subtítulo sin número y sin que aparezca en el índice.</li>
+                    <li>
+                        <strong>\newsubsubtitleanumnoi</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta un sub-subtítulo sin número y sin que aparezca en el índice.</li>
                 </ul>
             </li>
         </ul>
@@ -522,11 +536,11 @@
 
         <ul>
             <li>
+                <strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.</li>
+            <li>
                 <strong>\defaultnewlinesize</strong>: Tamaño del salto de línea en pt.</li>
             <li>
                 <strong>\defaultinterlind</strong>: Tamaño del interlineado.</li>
-            <li>
-                <strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.</li>
             <li>
                 <strong>\tipofuentetitulo</strong>: Tamaño por defecto de los títulos.</li>
             <li>
