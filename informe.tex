@@ -11,11 +11,11 @@
 % Sitio web del proyecto: http://ppizarror.com/Template-Informe/
 
 % CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
-\documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, fuente de 11pt
-\usepackage[utf8]{inputenc}               % Codificación UTF-8
-\usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
-\usepackage{lmodern}                      % Tipografía moderna
-\usepackage[spanish]{babel}               % Define el idioma del documento en español
+\documentclass[letterpaper,11pt]{article}  % Articulo tamaño carta, fuente de 11pt
+\usepackage[utf8]{inputenc}                % Codificación UTF-8
+\usepackage[T1]{fontenc}                   % Soporta caracteres acentuados
+\usepackage{lmodern}                       % Tipografía moderna
+\usepackage[spanish]{babel}                % Define el idioma del documento en español
 
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
@@ -96,109 +96,109 @@
 \newcommand{\defaultpagemarginright}{2.5}         % Margen derecho de las páginas [cm]
 \newcommand{\defaultpagemargintop}{3.0}           % Margen superior de las páginas [cm]
 \newcommand{\defaultpagemarginbottom}{2.7}        % Margen inferior de las páginas [cm]
-\newcommand{\defaultfirstpagemargintop}{3.4}      % Margen superior de la portada [cm]
+\newcommand{\defaultfirstpagemargintop}{3.8}      % Margen superior de la portada [cm]
 \newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. de figuras flotantes [pt]
 \newcommand{\defaultmargintopimages}{-0.2cm}      % Margen sup. de las figuras [cm]
 \newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inf. de las figuras [cm]
 \newcommand{\nombrepaginaportada}{P}              % Identificador de la primera página (portada)
 
 % LIBRERÍAS INDEPENDIENTES
-\usepackage{amsmath}                   % Fórmulas matemáticas
-\usepackage{amssymb}                   % Símbolos matemáticos
-\usepackage{amsthm}                    % Teoremas matemáticos
-\usepackage{booktabs}                  % Permite manejar elementos visuales en tablas
-\usepackage[makeroom]{cancel}          % Cancelar términos en fórmulas
-\usepackage{caption}                   % Leyendas
-\usepackage{color}                     % Colores
-\usepackage{datetime}                  % Fechas
-\usepackage{enumerate}                 % Permite enumerar ítemes
-\usepackage[bottom, norule]{footmisc}  % Estilo pié de página
-\usepackage{fancyhdr}                  % Encabezados y pié de páginas
-\usepackage{float}                     % Administrador de posiciones de objetos
-\usepackage{textcomp, gensymb}         % Simbología común                
-\usepackage{geometry}                  % Dimensiones y geometría del documento
-\usepackage{graphicx}                  % Propiedades extra para los gráficos
-\usepackage{mathtools}                 % Permite utilizar notaciones matemáticas avanzadas
-\usepackage[version=4]{mhchem}         % Fórmulas químicas
-\usepackage{multicol}                  % Múltiples columnas
-\usepackage{pdfpages}                  % Permite administrar páginas en pdf
-\usepackage{lipsum}                    % Permite crear textos dummy
-\usepackage{longtable}                 % Permite utilizar tablas en varias hojas
-\usepackage{listings}                  % Permite añadir código fuente
-\usepackage{sectsty}                   % Cambia el estilo de los títulos
-\usepackage{selinput}                  % Compatibilidad con acentos
-\usepackage{setspace}                  % Cambia el espacio entre líneas
-\usepackage{subfig}                    % Permite agrupar imágenes
-\usepackage{tikz}                      % Permite dibujar 
-\usepackage{ulem}                      % Permite tachar, subrayar, etc
-\usepackage{url}                       % Permite añadir enlaces
-\usepackage{wasysym}                   % Contiene caracteres misceláneos
-\usepackage{wrapfig}                   % Permite comprimir imágenes
+\usepackage{amsmath}                      % Fórmulas matemáticas
+\usepackage{amssymb}                      % Símbolos matemáticos
+\usepackage{amsthm}                       % Teoremas matemáticos
+\usepackage{booktabs}                     % Permite manejar elementos visuales en tablas
+\usepackage[makeroom]{cancel}             % Cancelar términos en fórmulas
+\usepackage{caption}                      % Leyendas
+\usepackage{color}                        % Colores
+\usepackage{datetime}                     % Fechas
+\usepackage{enumerate}                    % Permite enumerar ítemes
+\usepackage[bottom, norule]{footmisc}     % Estilo pié de página
+\usepackage{fancyhdr}                     % Encabezados y pié de páginas
+\usepackage{float}                        % Administrador de posiciones de objetos
+\usepackage{textcomp, gensymb}            % Simbología común                
+\usepackage{geometry}                     % Dimensiones y geometría del documento
+\usepackage{graphicx}                     % Propiedades extra para los gráficos
+\usepackage{mathtools}                    % Permite utilizar notaciones matemáticas avanzadas
+\usepackage[version=4]{mhchem}            % Fórmulas químicas
+\usepackage{multicol}                     % Múltiples columnas
+\usepackage{pdfpages}                     % Permite administrar páginas en pdf
+\usepackage{lipsum}                       % Permite crear textos dummy
+\usepackage{longtable}                    % Permite utilizar tablas en varias hojas
+\usepackage{listings}                     % Permite añadir código fuente
+\usepackage{sectsty}                      % Cambia el estilo de los títulos
+\usepackage{selinput}                     % Compatibilidad con acentos
+\usepackage{setspace}                     % Cambia el espacio entre líneas
+\usepackage{subfig}                       % Permite agrupar imágenes
+\usepackage{tikz}                         % Permite dibujar 
+\usepackage{ulem}                         % Permite tachar, subrayar, etc
+\usepackage{url}                          % Permite añadir enlaces
+\usepackage{wasysym}                      % Contiene caracteres misceláneos
+\usepackage{wrapfig}                      % Permite comprimir imágenes
 
 % LIBRERÍAS DEPENDIENTES
-\usepackage{chngcntr}                  % Agrega números de secciones a las leyendas
-\usepackage{epstopdf}                  % Convierte archivos .eps a pdf
-\usepackage[hidelinks]{hyperref}       % Permite añadir enlaces y referencias
-\usepackage{multirow}                  % Agrega nuevas opciones a las tablas
+\usepackage{chngcntr}                     % Agrega números de secciones a las leyendas
+\usepackage{epstopdf}                     % Convierte archivos .eps a pdf
+\usepackage[hidelinks]{hyperref}          % Permite añadir enlaces y referencias
+\usepackage{multirow}                     % Agrega nuevas opciones a las tablas
 
 % CARGA DE MÓDULOS PARA LIBRERÍAS
-\usetikzlibrary{babel}                 % Asociado a tikz
+\usetikzlibrary{babel}                    % Asociado a tikz
 
 % DECLARACIÓN DE FUNCIONES
-\newcommand{\quotes}[1]{``#1''}        % Insertar cita
+\newcommand{\quotes}[1]{``#1''}           % Insertar cita
 \newcommand{\quotesit}[1]{\textit{\quotes{#1}}} % Insertar cita en itálico
 \newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}} % Cambiar el margen
-\newcommand{\setpagemargincm}[4]{      % Cambia márgenes de las páginas [cm]
+\newcommand{\setpagemargincm}[4]{         % Cambia márgenes de las páginas [cm]
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
-\newcommand{\newp}{                    % Inserta nueva línea
+\newcommand{\newp}{                       % Inserta nueva línea
 	\hbadness=10000 \vspace{\defaultnewlinesize} \par}
-\newcommand{\newpar}[1]{               % Nuevo párrafo
+\newcommand{\newpar}[1]{                  % Nuevo párrafo
 	\hbadness=10000 #1 \newp}
-\newcommand{\newparnl}[1]{#1 \par}     % Nuevo párrafo sin nueva linea al final
-\newcommand{\lpow}[2]{{#1}_{#2}}       % Insertar sub-índice
-\newcommand{\pow}[2]{{#1}^{#2}}        % Insertar elevado
-\newcommand{\fracpartial}[2]{          % Fracción de derivadas parciales af/ax
+\newcommand{\newparnl}[1]{#1 \par}        % Nuevo párrafo sin nueva linea al final
+\newcommand{\lpow}[2]{{#1}_{#2}}          % Insertar sub-índice
+\newcommand{\pow}[2]{{#1}^{#2}}           % Insertar elevado
+\newcommand{\fracpartial}[2]{             % Fracción de derivadas parciales af/ax
 	\frac{\partial #1}{\partial #2}}
-\newcommand{\fracdpartial}[2]{         % Fracción de derivadas parciales dobles a^2/ax^2
+\newcommand{\fracdpartial}[2]{            % Fracción de derivadas parciales dobles a^2/ax^2
 	\frac{{\partial}^{2} #1}{\partial {#2}^{2}}}
-\newcommand{\fracnpartial}[3]{         % Fracción de derivadas parciales en n a^n/ax^n
+\newcommand{\fracnpartial}[3]{            % Fracción de derivadas parciales en n a^n/ax^n
 	\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}}
-\newcommand{\fracderivat}[2]{          % Fracción de derivadas df/dx
+\newcommand{\fracderivat}[2]{             % Fracción de derivadas df/dx
 	\frac{\text{d} #1}{\text{d} #2}}
-\newcommand{\fracdderivat}[2]{         % Fracción de derivadas dobles d^2/dx^2
+\newcommand{\fracdderivat}[2]{            % Fracción de derivadas dobles d^2/dx^2
 	\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}}
-\newcommand{\fracnderivat}[3]{         % Fracción de derivadas en n d^n/dx^n
+\newcommand{\fracnderivat}[3]{            % Fracción de derivadas en n d^n/dx^n
 	\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}}
-\newcommand{\topequal}[2]{             % Llave superior de equivalencia
+\newcommand{\topequal}[2]{                % Llave superior de equivalencia
 	\overbrace{#1}^{\mathclap{#2}}}
-\newcommand{\underequal}[2]{           % Llave inferior de equivalencia
+\newcommand{\underequal}[2]{              % Llave inferior de equivalencia
 	\underbrace{#1}_{\mathclap{#2}}}
-\newcommand{\topsequal}[2]{            % Rectángulo superior de equivalencia
+\newcommand{\topsequal}[2]{               % Rectángulo superior de equivalencia
 	\overbracket{#1}^{\mathclap{#2}}}
-\newcommand{\undersequal}[2]{          % Rectángulo inferior de equivalencia
+\newcommand{\undersequal}[2]{             % Rectángulo inferior de equivalencia
 	\underbracket{#1}_{\mathclap{#2}}}
-\newcommand{\newtitleanum}[1]{         % Insertar un título sin número
+\newcommand{\newtitleanum}[1]{            % Insertar un título sin número
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
 	\fancyhead[L]{\nouppercase{#1}}
 	\stepcounter{section}
 }
-\newcommand{\newtitleanumheadless}[1]{ % Insertar un título sin número sin cambiar el header
+\newcommand{\newtitleanumheadless}[1]{    % Insertar un título sin número sin cambiar el header
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
 	\stepcounter{section}
 }
-\newcommand{\newsubtitleanum}[1]{      % Insertar un subtítulo sin número
+\newcommand{\newsubtitleanum}[1]{         % Insertar un subtítulo sin número
 	\addcontentsline{toc}{subsection}{#1}
 	\subsection*{#1}
 	\stepcounter{subsection}
 }
-\newcommand{\newsubsubtitleanum}[1]{   % Insertar un sub-subtítulo sin número
+\newcommand{\newsubsubtitleanum}[1]{      % Insertar un sub-subtítulo sin número
 	\addcontentsline{toc}{subsubsection}{#1}
 	\subsubsection*{#1}
 	\stepcounter{subsubsection}
 }
-\newcommand{\newtitleanumnoi}[1]{      % Insertar un título sin número sin indexar
+\newcommand{\newtitleanumnoi}[1]{         % Insertar un título sin número sin indexar
 	\section*{#1}
 	\fancyhead[L]{\nouppercase{#1}}
 	\stepcounter{section}
@@ -208,16 +208,16 @@
 	\fancyhead[L]{\nouppercase{#1}}
 	\stepcounter{section}
 }
-\newcommand{\newsubtitleanumnoi}[1]{   % Insertar un subtítulo sin número sin indexar
+\newcommand{\newsubtitleanumnoi}[1]{      % Insertar un subtítulo sin número sin indexar
 	\subsection*{#1}
 	\stepcounter{subsection}
 }
-\newcommand{\newsubsubtitleanumnoi}[1]{% Insertar un sub-subtítulo sin num. sin indexar
+\newcommand{\newsubsubtitleanumnoi}[1]{   % Insertar un sub-subtítulo sin num. sin indexar
 	\addcontentsline{toc}{subsubsection}{#1}
 	\subsubsection*{#1}
 	\stepcounter{subsubsection}
 }
-\newcommand{\insertequation}[2][]{     % Insertar una ecuación
+\newcommand{\insertequation}[2][]{        % Insertar una ecuación
 	\vspace{-0.16cm}
 	\begin{equation}
 		\text{#1} #2
@@ -234,7 +234,7 @@
 		\textit{#3} \par
 	\end{center}
 }
-\newcommand{\insertimage}[4][]{        % Insertar una imagen
+\newcommand{\insertimage}[4][]{           % Insertar una imagen
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -243,7 +243,7 @@
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
 }
-\newcommand{\insertimageboxed}[4][]{   % Insertar una imagen con recuadro
+\newcommand{\insertimageboxed}[4][]{      % Insertar una imagen con recuadro
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -252,7 +252,7 @@
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
 }
-\newcommand{\insertimagefixed}[5][]{   % Insertar una imagen de ancho fijo a la página
+\newcommand{\insertimagefixed}[5][]{      % Insertar una imagen de ancho fijo a la página
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -274,7 +274,7 @@
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
 }
-\newcommand{\insertdoubleimage}[8][]{ % Insertar una imagen doble
+\newcommand{\insertdoubleimage}[8][]{     % Insertar una imagen doble
 	\captionsetup{margin=0.5cm}
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H] \centering
@@ -288,7 +288,7 @@
 	\vspace{\defaultmarginbottomimages}
 	\setcaptionmargincm{\defaultcaptionmargin}
 }
-\newcommand{\insertimageleft}[5][]{ % Insertar una imagen a la izquierda
+\newcommand{\insertimageleft}[5][]{       % Insertar una imagen a la izquierda
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
@@ -297,7 +297,7 @@
 		\setcaptionmargincm{\defaultcaptionmargin}
 	\end{wrapfigure}
 }
-\newcommand{\insertimageright}[5][]{ % Insertar una imagen a la derecha
+\newcommand{\insertimageright}[5][]{      % Insertar una imagen a la derecha
 	\begin{wrapfigure}[#5]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
@@ -319,7 +319,7 @@
   Ntilde={Ñ},
   Euro={€}
 }
-\lstdefinestyle{C}{ % Estilo de lenguaje C
+\lstdefinestyle{C}{      % Estilo de lenguaje C
 	language=C,
   	numbers=left,
   	stepnumber=1,        
@@ -333,7 +333,7 @@
   	breaklines=true,
   	breakatwhitespace=true,
   	title=\lstname}
-\lstdefinestyle{Java}{ % Estilo de lenguaje Java
+\lstdefinestyle{Java}{   % Estilo de lenguaje Java
 	language=Java,
 	frame=tb,
 	aboveskip=3mm,
@@ -371,7 +371,7 @@
 \counterwithin{table}{section}             % Añade número de sección a las tablas
 \bibliographystyle{\tiporeferencias}       % Estilo APA para las referencias
 \setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
-\setlength{\headheight}{54pt}              % Tamaño de la cabecera sin fancyhdr
+\setlength{\headheight}{64pt}              % Tamaño de la cabecera sin fancyhdr
 \setcounter{tocdepth}{\indexdepth}         % Se ajusta la profundidad del índice
 \setcounter{MaxMatrixCols}{20}             % Número máximo de columnas para las matrices
 \hypersetup{
@@ -456,9 +456,9 @@
 \sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}
 \subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}
 \subsubsectionfont{\tipofuentesubsubtituloi \etipofuentesubsubtituloi \selectfont}
-\tableofcontents         % Tabla de contenidos
-\listoffigures           % Índice de figuras
-\listoftables            % Índice de tablas
+\tableofcontents          % Tabla de contenidos
+\listoffigures            % Índice de figuras
+\listoftables             % Índice de tablas
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
