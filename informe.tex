@@ -106,6 +106,7 @@
 \usepackage{amsmath}                      % Fórmulas matemáticas
 \usepackage{amssymb}                      % Símbolos matemáticos
 \usepackage{amsthm}                       % Teoremas matemáticos
+\usepackage{array}                        % Añade nuevas características a las tablas
 \usepackage{booktabs}                     % Permite manejar elementos visuales en tablas
 \usepackage[makeroom]{cancel}             % Cancelar términos en fórmulas
 \usepackage{caption}                      % Leyendas
@@ -363,6 +364,7 @@
 	numberstyle={\tiny \color{black}},
 	numbersep=9pt,
 	emph=[1]{for,end,break},emphstyle=[1]\color{red}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}} % Columna centrada en tablas
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
 \decimalpoint                              % Se define el punto decimal
