@@ -102,6 +102,9 @@
 \newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inf. de las figuras [cm]
 \newcommand{\nombrepaginaportada}{P}              % Identificador de la primera página (portada)
 
+% CONFIGURACIONES BOOLEANAS (TRUE, FALSE)
+\newcommand{\twocolumnreferences}{true}           % Referencias en dos columnas
+
 % LIBRERÍAS INDEPENDIENTES
 \usepackage{amsmath}                      % Fórmulas matemáticas
 \usepackage{amssymb}                      % Símbolos matemáticos
@@ -119,6 +122,7 @@
 \usepackage{textcomp, gensymb}            % Simbología común                
 \usepackage{geometry}                     % Dimensiones y geometría del documento
 \usepackage{graphicx}                     % Propiedades extra para los gráficos
+\usepackage{ifthen}                       % Permite el manejo de condicionales
 \usepackage{mathtools}                    % Permite utilizar notaciones matemáticas avanzadas
 \usepackage[version=4]{mhchem}            % Fórmulas químicas
 \usepackage{multicol}                     % Múltiples columnas
@@ -364,6 +368,20 @@
 	numberstyle={\tiny \color{black}},
 	numbersep=9pt,
 	emph=[1]{for,end,break},emphstyle=[1]\color{red}}
+\lstset{literate=
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+	{€}{{\EUR}}1 {£}{{\pounds}}1
+}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}} % Columna centrada en tablas
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
@@ -385,25 +403,29 @@
 	pdfcreator={pdfLaTeX, ppizarror.com},
 	pdfproducer={Template LaTeX informe v2.1.8}}
 \renewcommand{\baselinestretch}{\defaultinterlind}  % Ajuste del entrelineado
-\makeatletter \renewenvironment{thebibliography}[1] % Bibliografía en 2 columnas
-{\begin{multicols}{2}[\section*{\refname}]
-	\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
-	\list{\@biblabel{\@arabic\c@enumiv}}
-	{\settowidth\labelwidth{\@biblabel{#1}}
-		\leftmargin\labelwidth
-		\advance\leftmargin\labelsep
-		\@openbib@code
-		\usecounter{enumiv}
-		\let\p@enumiv\@empty
-		\renewcommand\theenumiv{\@arabic\c@enumiv}}
-	\sloppy
-	\clubpenalty 4000
-	\@clubpenalty \clubpenalty
-	\widowpenalty 4000
-	\sfcode`\.\@m}
-	{\def\@noitemerr
-		{\@latex@warning{Empty `thebibliography' environment}}
-		\endlist\end{multicols}}
+\makeatletter
+\ifthenelse{\equal{\twocolumnreferences}{true}}{
+	\renewenvironment{thebibliography}[1] % Bibliografía en 2 columnas
+	{\begin{multicols}{2}[\section*{\refname}]
+		\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
+		\list{\@biblabel{\@arabic\c@enumiv}}
+		{\settowidth\labelwidth{\@biblabel{#1}}
+			\leftmargin\labelwidth
+			\advance\leftmargin\labelsep
+			\@openbib@code
+			\usecounter{enumiv}
+			\let\p@enumiv\@empty
+			\renewcommand\theenumiv{\@arabic\c@enumiv}}
+		\sloppy
+		\clubpenalty 4000
+		\@clubpenalty \clubpenalty
+		\widowpenalty 4000
+		\sfcode`\.\@m}
+		{\def\@noitemerr
+			{\@latex@warning{Empty `thebibliography' environment}}
+			\endlist\end{multicols}
+		}
+}{}
 \makeatother
 
 \begin{document}
@@ -445,11 +467,12 @@
 \fancyhead[R]{\small \rm \nouppercase{\thepage}}     % Header der, número página
 \fancyfoot[L]{\small \rm \textit{\nombredelinforme}} % Footer izq, título del informe
 \fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}} % Footer der, curso
+\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont} % Tipo de título para abstract
 \renewcommand{\headrulewidth}{0.5pt}                 % Ancho de la barra del header
 \renewcommand{\footrulewidth}{0.5pt}                 % Ancho de la barra del footer
 
-% ABSTRACT- RESUMEN
-\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
+
+% ================================= RESUMEN O ABSTRACT =================================
 \newtitleanumheadless{Resumen}
 \lipsum[1] \newp \lipsum[3]  % Ejemplo de dos párrafos en latín
 
@@ -475,8 +498,9 @@
 
 % ================================ INICIO DEL DOCUMENTO ================================
 
-% EJEMPLO DE DOCUMENTO
+% SE INCLUYE EL EJEMPLO DEL DOCUMENTO (IMPORTACIÓN DEL CÓDIGO)
 \include{ejemplo}
+
 
 % FIN DEL DOCUMENTO
 \end{document}
