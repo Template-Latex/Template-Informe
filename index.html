@@ -31,7 +31,12 @@
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="js/parallax.js"></script>
     <script type="text/javascript" src="js/parallax.min.js"></script>
+    <script type="text/javascript" src="js/showdown.min.js"></script>
+    <script type="text/javascript" src="js/showdown.js"></script>
     <script>
+        // Se instancia el convertidor de md
+        var md_converter = new showdown.Converter();
+
         if (!String.format) {
             String.format = function(format) {
                 var args = Array.prototype.slice.call(arguments, 1);
@@ -91,8 +96,27 @@
             // Se establece la última versión del pdf
             console.log(String.format('Archivo pdf a mostrar: versions/Template v{0}.pdf', last_version))
             document.getElementById("template-preview-pdf").href = String.format('versions/Template v{0}.pdf', last_version);
+
+            // Se obtiene el what's new
+            var whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
+            var whats_new_versions = 5;
+            try {
+                var new_version_entry = "";
+                for (i = 0; i < whats_new_versions; i++) {
+                    title_new_version = String.format('<b>Versión {0}</b>:', json[i].tag_name)
+                    content_version = md_converter.makeHtml(json[i].body);
+                    new_version_entry += String.format(whats_new_html, title_new_version, content_version);
+                }
+                new_version_entry += "Puedes ver la lista de cambios completa <a href='https://github.com/ppizarror/Template-Informe/releases'>en Github</a>.";
+                document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
+            } catch (err) {
+                console.log('Error al obtener los contenidos de las últimas versiones');
+                document.getElementById('whatsnew').style = 'display:none';
+                document.getElementById('changelog-menu').style = 'display:none';
+            }
         });
 
+        // Paralaje en el fondo
         $('#scrolld').parallax({
             imageSrc: 'images/background4.jpg',
             speed: 0.15
@@ -102,6 +126,7 @@
             this.id.innerHTML = total_downloads;
         });
 
+        // Smooth scrolling al clickear un anchor
         $(function() {
             $('a[href*="#"]:not([href="#"])').click(function() {
                 if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -117,6 +142,7 @@
             });
         });
 
+        // Se actualiza la cantidad de descargas al hacer click
         $(function() {
             $('#download-button').click(function() {
                 total_downloads += 1;
@@ -125,6 +151,7 @@
             });
         });
     </script>
+
     <style>
         a#aimg,
         a:hover#aimg,
@@ -230,6 +257,8 @@
             </li>
             <li><a href="#configurar-otros-elementos-del-documento" class="menu-big-entry">Configurar otros elementos del documento</a> </li>
             <li><a href="#importar-librerias" class="menu-big-entry">Importar librerías</a> </li>
+            <li id='changelog-menu'><a href="#que-hay-de-nuevo" class="menu-big-entry">Changelog</a> </li>
+            <li><a href="#author" class="menu-big-entry">Autor</a> </li>
         </ul>
         <p>Este corresponde a un template para confeccionar geniales informes en <img src="resources/latex.png" alt="LaTeX" width="60px" height="25px" style="top: 7px;position:relative;">, contiene funciones básicas para agregar imágenes, fórmulas, etc.</p>
 
@@ -345,188 +374,189 @@
                         <blockquote>
                             <div class="highlight highlight-text-tex"><pre>Así se insertan las <span class="pl-e">\quotes</span><b>{</b>cítas<b>}</b> de manera sencilla.</pre></div>
                         </blockquote>
-                    <li>
-                        <strong>\quotesit</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar <em>"citas en itálico"</em>.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre>Así se insertan las <span class="pl-e">\quotesit</span><b>{</b>cítas en itálico<b>}</b> de manera sencilla.</pre></div>
-                        </blockquote>
-                    </li>
+                        <li>
+                            <strong>\quotesit</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar <em>"citas en itálico"</em>.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre>Así se insertan las <span class="pl-e">\quotesit</span><b>{</b>cítas en itálico<b>}</b> de manera sencilla.</pre></div>
+                            </blockquote>
+                        </li>
                 </ul>
-            </li>
-            <li class="li-code-parent">
-                <strong>Añadir una imagen <a id="hlp-imagen"></a></strong>: Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la variable <strong>\defaultimagefolder</strong>), sus
-                parámetros y su correspondiente título (caption, o leyenda). Los parámetros pueden ser <strong>scale=0.5</strong>, <strong>width=5cm</strong>, <strong>width=50%</strong>, etc.
+                </li>
+                <li class="li-code-parent">
+                    <strong>Añadir una imagen <a id="hlp-imagen"></a></strong>: Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la variable <strong>\defaultimagefolder</strong>),
+                    sus parámetros y su correspondiente título (caption, o leyenda). Los parámetros pueden ser <strong>scale=0.5</strong>, <strong>width=5cm</strong>, <strong>width=50%</strong>, etc.
 
-                <ul>
-                    <li>
-                        <strong>\insertimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una simple imagen.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimage</span><b>[</b><span class="pl-c1">\label</span>{img-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=1.0<b>}</b><b>{</b>Descripción de la imagen<b>}</b></pre></div>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimageboxed</span><b>[]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.5<b>}</b><b>{</b>Descripción de la imagen<b>}</b></pre></div>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\insertdoubleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
-                        Inserta dos imagenes en un sólo elemento.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertdoubleimage</span><b>[</b><span class="pl-c1">\label</span>{img-double-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.4<b>}</b><b>{</b>Descripción A<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b><span class="pl-v">width</span>=5cm<b>}</b><b>{</b>Descripción B<b>}</b><b>{</b>Descripción general de las imágenes<b>}</b></pre></div>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b>: Inserta
-                        una imagen alineada a la izquierda, flotante.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimageleft</span><b>[</b><span class="pl-c1">\label</span>{img-left-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>0.25<b>}</b><b>{</b>Descripción<b>}</b><b>{</b>15<b>}</b></pre></div>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Escala</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b>: Inserta
-                        una imagen alineada a la derecha, flotante.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimageright</span><b>[]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>Descripción<b>}</b><b>{</b>22<b>}</b></pre></div>
-                        </blockquote>
-                    </li>
-                </ul>
-            </li>
-            <li class="li-code-parent">
-                <strong>Insertar una fórmula en el documento <a id="hlp-formulae"></a></strong>: Existen dos funciones para añadir fórmulas: <strong>\insertequation</strong> y <strong>\insertequationcaptioned</strong>, las cuales consideran la fórmula
-                en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
+                    <ul>
+                        <li>
+                            <strong>\insertimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una simple imagen.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimage</span><b>[</b><span class="pl-c1">\label</span>{img-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=1.0<b>}</b><b>{</b>Descripción de la imagen<b>}</b></pre></div>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimageboxed</span><b>[]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.5<b>}</b><b>{</b>Descripción de la imagen<b>}</b></pre></div>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\insertdoubleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+                            Inserta dos imagenes en un sólo elemento.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertdoubleimage</span><b>[</b><span class="pl-c1">\label</span>{img-double-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.4<b>}</b><b>{</b>Descripción A<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b><span class="pl-v">width</span>=5cm<b>}</b><b>{</b>Descripción B<b>}</b><b>{</b>Descripción general de las imágenes<b>}</b></pre></div>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b>:
+                            Inserta una imagen alineada a la izquierda, flotante.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimageleft</span><b>[</b><span class="pl-c1">\label</span>{img-left-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>0.25<b>}</b><b>{</b>Descripción<b>}</b><b>{</b>15<b>}</b></pre></div>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Escala</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b>: Inserta
+                            una imagen alineada a la derecha, flotante.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertimageright</span><b>[]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>Descripción<b>}</b><b>{</b>22<b>}</b></pre></div>
+                            </blockquote>
+                        </li>
+                    </ul>
+                </li>
+                <li class="li-code-parent">
+                    <strong>Insertar una fórmula en el documento <a id="hlp-formulae"></a></strong>: Existen dos funciones para añadir fórmulas: <strong>\insertequation</strong> y <strong>\insertequationcaptioned</strong>, las cuales consideran la fórmula
+                    en sí (escrita en forma bruta, sin los $) y la leyenda para la segunda.
 
-                <ul>
-                    <li>
-                        <strong>\insertequation</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertequation</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b>e = 2<span class="pl-c1">\pi</span> <span class="pl-c1">\int</span>^{a}_{b} f(x)dx<b>}</b></pre></div>
-                            <p><img src="examples/formula.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertequationcaptioned</span><b>[</b><span class="pl-c1">\label</span>{formula-1}<b>]</b><b>{</b><span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\pi</span> <span class="pl-c1">\nu</span> 4 <span class="pl-c1">\pow</span>{t}{4}}<b>}{</b>Título de fórmula<b>}</b></pre></div>
-                            <p><img src="examples/titleformula.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                </ul>
-            </li>
-            <li class="li-code-parent">
-                <strong>Expresiones matemáticas <a id="hlp-math"></a></strong>: Existen varias funciones para añadir expresiones matemáticas de forma sencilla:
+                    <ul>
+                        <li>
+                            <strong>\insertequation</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertequation</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b>e = 2<span class="pl-c1">\pi</span> <span class="pl-c1">\int</span>^{a}_{b} f(x)dx<b>}</b></pre></div>
+                                <p><img src="examples/formula.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\insertequationcaptioned</span><b>[</b><span class="pl-c1">\label</span>{formula-1}<b>]</b><b>{</b><span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\pi</span> <span class="pl-c1">\nu</span> 4 <span class="pl-c1">\pow</span>{t}{4}}<b>}{</b>Título de fórmula<b>}</b></pre></div>
+                                <p><img src="examples/titleformula.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                    </ul>
+                </li>
+                <li class="li-code-parent">
+                    <strong>Expresiones matemáticas <a id="hlp-math"></a></strong>: Existen varias funciones para añadir expresiones matemáticas de forma sencilla:
 
-                <ul>
-                    <li>
-                        <strong>\pow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\pow</span><b>{</b> (1 + <span class="pl-e">\pow</span><b>{</b><span class="pl-c1">\pi</span><b>}{</b><span class="pl-c1">\epsilon</span><b>}</b>) <b>}{</b>2<b>}</b></pre></div>
-                            <p><img src="examples/pow.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\lpow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una sub potencia del tipo a_b.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i+1<b>}</b> = 2 <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i<b>}</b> + <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i-2<b>}</b></pre></div>
-                            <p><img src="examples/lpow.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\fracpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales del estilo ∂a/∂b.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre>f(x) = <span class="pl-e">\fracpartial</span><b>{</b>g<b>}{</b>x<b>}</b></pre></div>
-                            <p><img src="examples/fpartial.png" align="center"></p>
-                        </blockquote>
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\lpow</span>{h}{y} = 2 + <span class="pl-e">\fracpartial</span><b>{}{</b>y<b>}</b> h</pre></div>
-                            <p><img src="examples/fpartial2.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\fracdpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 a/∂b^2.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracdpartial</span><b>{</b>u<b>}</b><b>{</b>t<b>}</b> = <span class="pl-c1">\pow</span>{c}{2} <span class="pl-e">\fracdpartial</span><b>{</b>u<b>}{</b>x<b>}</b></pre></div>
-                            <p><img src="examples/fracdpartial.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\fracnpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2. \frac{\partial {f}^{n+m}}{\partial {x}^{n+m}} =
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracnpartial</span><b>{</b>f<b>}</b><b>{</b>x<b>}</b><b>{</b>n+m<b>}</b> = <span class="pl-c1">\widehat</span>{<span class="pl-e">\fracnpartial</span><b>{</b>h<b>}</b><b>{</b>x<b>}</b><b>{</b>n<b>}</b> + <span class="pl-e">\fracnpartial</span><b>{</b>g<b>}</b><b>{</b>x<b>}</b><b>{</b>m<b>}</b>}</pre></div>
-                            <p><img src="examples/fracnpartial.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\fracderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas del estilo da/db.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracderivat</span><b>{}{</b>x<b>}</b><span class="pl-c1">\arccos</span>(x) = -{<span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\sqrt</span>{ 1 - <span class="pl-c1">\pow</span>{x}{2} }}</pre></div>
-                            <p><img src="examples/fracderivativ.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\fracdderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas al cuadrado al estilo d^2 a/db^2.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre>m <span class="pl-e">\fracdderivat</span><b>{</b>x<b>}{</b>t<b>}</b> + kx = 0</pre></div>
-                            <p><img src="examples/fracddpartial.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\fracnderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas a la n al estilo d^c a/db^2.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracnderivat</span><b>{</b>y<b>}{</b>x<b>}{</b>3<b>}</b> <span class="pl-c1">\times</span> <span class="pl-e">\fracnderivat</span><b>{</b>h<b>}{</b>x<b>}{</b>n<b>}</b> = <span class="pl-c1">\chi</span></pre></div>
-                            <p><img src="examples/fracndpartial.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\topequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave sobre el elemento a con valor b.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\topequal</span><b>{</b>1 + <span class="pl-c1">\sqrt</span>{1+x}<b>}{</b>f(x)<b>}</b></pre></div>
-                            <p><img src="examples/topequal.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\underequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave bajo el elemento a con valor b.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\pi</span> + <span class="pl-e">\underequal</span><b>{</b>1 - <span class="pl-c1">\frac</span>{1}{e}<b>}</b><b>{</b>e <span class="pl-c1">\approx</span> 2.718<b>}</b></pre></div>
-                            <p><img src="examples/underequal.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\topsequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave rectangular sobre el elemento a con valor b.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-e">\topsequal</span><b>{</b> 1+x+<span class="pl-c1">\ldots</span>+<span class="pl-c1">\pow</span>{x}{n} <b>}{</b>x <span class="pl-c1">\in \Re</span><b>}</b> = <span class="pl-c1">\sum</span>_{i=0}^{n}<span class="pl-c1">\pow</span>{x}{i}</pre></div>
-                            <p><img src="examples/topsequal.png" align="center"></p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <strong>\undersequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave rectangular bajo el elemento a con valor b.
-                        <blockquote>
-                            <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\lim</span>_{n} <span class="pl-c1">\pow</span>{2}{n} <span class="pl-e">\undersequal</span><b>{</b> <span class="pl-c1">\sqrt</span>{2 - <span class="pl-c1">\sqrt</span>{2+ <span class="pl-c1">\ldots</span> + <span class="pl-c1">\sqrt</span>{2}}} <b>}</b><b>{</b>n<b>}</b> = <span class="pl-c1">\pi</span></pre></div>
-                            <p><img src="examples/undersequal.png" width="33%" align="center"></p>
-                        </blockquote>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <strong>Insertar títulos sin número y títulos sin aparecer en el índice <a id="hlp-title"></a></strong>: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para ello
-                existen las siguientes funciones:
+                    <ul>
+                        <li>
+                            <strong>\pow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\pow</span><b>{</b> (1 + <span class="pl-e">\pow</span><b>{</b><span class="pl-c1">\pi</span><b>}{</b><span class="pl-c1">\epsilon</span><b>}</b>) <b>}{</b>2<b>}</b></pre></div>
+                                <p><img src="examples/pow.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\lpow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una sub potencia del tipo a_b.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i+1<b>}</b> = 2 <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i<b>}</b> + <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i-2<b>}</b></pre></div>
+                                <p><img src="examples/lpow.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\fracpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales del estilo ∂a/∂b.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre>f(x) = <span class="pl-e">\fracpartial</span><b>{</b>g<b>}{</b>x<b>}</b></pre></div>
+                                <p><img src="examples/fpartial.png" align="center"></p>
+                            </blockquote>
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\lpow</span>{h}{y} = 2 + <span class="pl-e">\fracpartial</span><b>{}{</b>y<b>}</b> h</pre></div>
+                                <p><img src="examples/fpartial2.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\fracdpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 a/∂b^2.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracdpartial</span><b>{</b>u<b>}</b><b>{</b>t<b>}</b> = <span class="pl-c1">\pow</span>{c}{2} <span class="pl-e">\fracdpartial</span><b>{</b>u<b>}{</b>x<b>}</b></pre></div>
+                                <p><img src="examples/fracdpartial.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\fracnpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2. \frac{\partial {f}^{n+m}}{\partial {x}^{n+m}}
+                            =
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracnpartial</span><b>{</b>f<b>}</b><b>{</b>x<b>}</b><b>{</b>n+m<b>}</b> = <span class="pl-c1">\widehat</span>{<span class="pl-e">\fracnpartial</span><b>{</b>h<b>}</b><b>{</b>x<b>}</b><b>{</b>n<b>}</b> + <span class="pl-e">\fracnpartial</span><b>{</b>g<b>}</b><b>{</b>x<b>}</b><b>{</b>m<b>}</b>}</pre></div>
+                                <p><img src="examples/fracnpartial.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\fracderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas del estilo da/db.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracderivat</span><b>{}{</b>x<b>}</b><span class="pl-c1">\arccos</span>(x) = -{<span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\sqrt</span>{ 1 - <span class="pl-c1">\pow</span>{x}{2} }}</pre></div>
+                                <p><img src="examples/fracderivativ.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\fracdderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas al cuadrado al estilo d^2 a/db^2.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre>m <span class="pl-e">\fracdderivat</span><b>{</b>x<b>}{</b>t<b>}</b> + kx = 0</pre></div>
+                                <p><img src="examples/fracddpartial.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\fracnderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas a la n al estilo d^c a/db^2.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\fracnderivat</span><b>{</b>y<b>}{</b>x<b>}{</b>3<b>}</b> <span class="pl-c1">\times</span> <span class="pl-e">\fracnderivat</span><b>{</b>h<b>}{</b>x<b>}{</b>n<b>}</b> = <span class="pl-c1">\chi</span></pre></div>
+                                <p><img src="examples/fracndpartial.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\topequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave sobre el elemento a con valor b.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\topequal</span><b>{</b>1 + <span class="pl-c1">\sqrt</span>{1+x}<b>}{</b>f(x)<b>}</b></pre></div>
+                                <p><img src="examples/topequal.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\underequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave bajo el elemento a con valor b.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\pi</span> + <span class="pl-e">\underequal</span><b>{</b>1 - <span class="pl-c1">\frac</span>{1}{e}<b>}</b><b>{</b>e <span class="pl-c1">\approx</span> 2.718<b>}</b></pre></div>
+                                <p><img src="examples/underequal.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\topsequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave rectangular sobre el elemento a con valor b.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-e">\topsequal</span><b>{</b> 1+x+<span class="pl-c1">\ldots</span>+<span class="pl-c1">\pow</span>{x}{n} <b>}{</b>x <span class="pl-c1">\in \Re</span><b>}</b> = <span class="pl-c1">\sum</span>_{i=0}^{n}<span class="pl-c1">\pow</span>{x}{i}</pre></div>
+                                <p><img src="examples/topsequal.png" align="center"></p>
+                            </blockquote>
+                        </li>
+                        <li>
+                            <strong>\undersequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave rectangular bajo el elemento a con valor b.
+                            <blockquote>
+                                <div class="highlight highlight-text-tex"><pre><span class="pl-c1">\lim</span>_{n} <span class="pl-c1">\pow</span>{2}{n} <span class="pl-e">\undersequal</span><b>{</b> <span class="pl-c1">\sqrt</span>{2 - <span class="pl-c1">\sqrt</span>{2+ <span class="pl-c1">\ldots</span> + <span class="pl-c1">\sqrt</span>{2}}} <b>}</b><b>{</b>n<b>}</b> = <span class="pl-c1">\pi</span></pre></div>
+                                <p><img src="examples/undersequal.png" width="33%" align="center"></p>
+                            </blockquote>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Insertar títulos sin número y títulos sin aparecer en el índice <a id="hlp-title"></a></strong>: También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el índice, para
+                    ello existen las siguientes funciones:
 
-                <ul>
-                    <li>
-                        <strong>\newtitleanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número.</li>
-                    <li>
-                        <strong>\newsubtitleanum</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta un subtítulo sin número.</li>
-                    <li>
-                        <strong>\newsubsubtitleanum</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta un sub-subtítulo sin número.</li>
-                    <li>
-                        <strong>\newtitleanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número y sin que aparezca en el índice.</li>
-                    <li>
-                        <strong>\newsubtitleanumnoi</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta un subtítulo sin número y sin que aparezca en el índice.</li>
-                    <li>
-                        <strong>\newsubsubtitleanumnoi</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta un sub-subtítulo sin número y sin que aparezca en el índice.</li>
-                </ul>
-            </li>
+                    <ul>
+                        <li>
+                            <strong>\newtitleanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número.</li>
+                        <li>
+                            <strong>\newsubtitleanum</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta un subtítulo sin número.</li>
+                        <li>
+                            <strong>\newsubsubtitleanum</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta un sub-subtítulo sin número.</li>
+                        <li>
+                            <strong>\newtitleanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número y sin que aparezca en el índice.</li>
+                        <li>
+                            <strong>\newsubtitleanumnoi</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta un subtítulo sin número y sin que aparezca en el índice.</li>
+                        <li>
+                            <strong>\newsubsubtitleanumnoi</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta un sub-subtítulo sin número y sin que aparezca en el índice.</li>
+                    </ul>
+                </li>
         </ul>
 
         <h2>
@@ -601,6 +631,16 @@
                 <strong>\nombrepaginaportada</strong>: Nombre de la primera página (portada).</li>
         </ul>
 
+        Configuraciones booleanas:
+        <ul>
+            <li>
+                <strong>\showfooter</strong>: Muestra el footer (nombre informe y curso).</li>
+            <li>
+                <strong>\showheadertitle</strong>: Muestra el título de la sección en el header.</li>
+            <li>
+                <strong>\twocolumnreferences</strong>: Referencias en dos columnas..</li>
+        </ul>
+
         <h2>
 <a id="importar-librerias" class="anchor" href="#importar-librerias" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Importar librerías</h2>
 
@@ -647,6 +687,8 @@
             <li>
                 <strong><a href="https://www.ctan.org/pkg/hyperref">hyperref</a></strong>: Permite añadir enlaces y referencias <em>[dependiente]</em>.</li>
             <li>
+                <strong><a href="https://www.ctan.org/pkg/ifthen">ifthen</a></strong>: Permite el manejo de condicionales.</li>
+            <li>
                 <strong><a href="https://www.ctan.org/pkg/mathtools">mathtools</a></strong>: Permite utilizar notaciones matemáticas avanzadas.</li>
             <li>
                 <strong><a href="https://www.ctan.org/pkg/mhchem">mhchem</a></strong>: Fórmulas químicas [versión 4].</li>
@@ -656,41 +698,49 @@
                 <strong><a href="https://www.ctan.org/pkg/multirow">multirow</a></strong>: Añade nuevas opciones a las tablas <em>[dependiente]</em>.</li>
             <li>
                 <strong><a href="https://www.ctan.org/pkg/pdfpages">pdfpages</a></strong>: Permite administrar páginas en pdf.
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/lipsum">lipsum</a></strong>: Permite crear textos dummy.</li>
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/longtable">longtable</a></strong>: Permite utilizar tablas en varias hojas.</li>
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/listings">listings</a></strong>: Permite añadir código fuente.</li>
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/sectsty">sectsty</a></strong>: Cambia el estilo de los títulos.</li>
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/setspace">setspace</a></strong>: Cambia el espacio entre líneas.</li>
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/subfig">subfig</a></strong>: Permite agrupar imágenes.</li>
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/tikz">tikz</a></strong>: Permite dibujar.</li>
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/ulem">ulem</a></strong>: Permite cachar, subrayar, etc.</li>
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/url">url</a></strong>: Permite añadir enlaces.</li>
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/wasysym">wasysym</a></strong>: Contiene caracteres misceláneos.</li>
-            <li>
-                <strong><a href="https://www.ctan.org/pkg/wrapfig">wrapfig</a></strong>: Permite comprimir imágenes.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/lipsum">lipsum</a></strong>: Permite crear textos dummy.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/longtable">longtable</a></strong>: Permite utilizar tablas en varias hojas.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/listings">listings</a></strong>: Permite añadir código fuente.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/sectsty">sectsty</a></strong>: Cambia el estilo de los títulos.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/setspace">setspace</a></strong>: Cambia el espacio entre líneas.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/subfig">subfig</a></strong>: Permite agrupar imágenes.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/tikz">tikz</a></strong>: Permite dibujar.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/ulem">ulem</a></strong>: Permite cachar, subrayar, etc.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/url">url</a></strong>: Permite añadir enlaces.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/wasysym">wasysym</a></strong>: Contiene caracteres misceláneos.</li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/wrapfig">wrapfig</a></strong>: Permite comprimir imágenes.</li>
         </ul>
 
 
-        <h2>
-<a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor</h2>
+        <div id='whatsnew'>
+            <h2 style='margin-top: 2.5rem;'>
+        <a id="qhaydenuevo" class="anchor" href="#que-hay-de-nuevo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changelog</h2>
 
-        <p>Pablo Pizarro, 2016.</p>
+            <div id="que-hay-de-nuevo">
+            </div>
+        </div>
+
+        <h2>
+        <a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor</h2>
+
+        <p><a href="http://ppizarror.com/">Pablo Pizarro</a>, 2016.</p>
 
         <p>Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.</p>
 
-        <footer class="site-footer">
-            <span class="site-footer-owner"><a href="https://github.com/ppizarror/Template-Informe">Template-informe</a> es desarrollado por <a href="http://ppizarror.com/">ppizarror</a>.</span>
-        </footer>
+        <!-- <footer class="site-footer">
+            <span class="site-footer-owner"><a href="https://github.com/ppizarror/Template-Informe">Template-informe</a> es desarrollado por <a href="">ppizarror</a>.</span>
+        </footer> -->
 
     </section>
 
