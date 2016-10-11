@@ -20,6 +20,14 @@ a:hover {
     text-decoration: underline;
 }
 
+.fecha-estilo {
+    color: #819198;
+    font-size: 15px;
+    position: relative;
+    bottom: 1px;
+}
+
+
 .btn {
     display: inline-block;
     margin-bottom: 1rem;
@@ -241,6 +249,7 @@ a:hover {
 
 .main-content ul, .main-content ol {
     margin-top: 0;
+    padding-left: 3%;
 }
 
 .menu-big-entry {
@@ -255,9 +264,9 @@ a:hover {
 
 .main-content li pre b {
     color: #000;
-    font-size: 1.0rem;
+    font-size: 1.1rem;
     position: relative;
-    margin-top: -2px;
+    bottom: -2px;
 }
 
 .main-content blockquote {
