@@ -115,7 +115,7 @@ También se pueden modificar los márgenes de los títulos de tablas y figuras _
 Configuraciones booleanas:
 + **\showfooter**: Muestra el footer (nombre informe y curso). [Booleano]
 + **\showheadertitle**: Muestra el título de la sección en el header. [Booleano]
-+ **\twocolumnreferences**: MReferencias en dos columnas. [Booleano]
++ **\twocolumnreferences**: Referencias en dos columnas. [Booleano]
 
 ## Importar librerías
 Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRERÍAS DEPENDIENTES*, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación de otras, o que su importación no genera algún error. Las librerías utilizadas son:
