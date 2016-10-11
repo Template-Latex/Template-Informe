@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.1.9 (10/10/2016)
+% Versión:      2.2.0 (11/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -103,6 +103,8 @@
 \newcommand{\nombrepaginaportada}{P}              % Identificador de la primera página (portada)
 
 % CONFIGURACIONES BOOLEANAS (TRUE, FALSE)
+\newcommand{\showfooter}{true}                    % Muestra el footer (nombre informe y curso)
+\newcommand{\showheadertitle}{true}               % Muestra el título de la sección en el header
 \newcommand{\twocolumnreferences}{true}           % Referencias en dos columnas
 
 % LIBRERÍAS INDEPENDIENTES
@@ -141,13 +143,11 @@
 \usepackage{wrapfig}                      % Permite comprimir imágenes
 
 % LIBRERÍAS DEPENDIENTES
+\usetikzlibrary{babel}                    % Asociado a tikz
 \usepackage{chngcntr}                     % Agrega números de secciones a las leyendas
 \usepackage{epstopdf}                     % Convierte archivos .eps a pdf
 \usepackage[hidelinks]{hyperref}          % Permite añadir enlaces y referencias
 \usepackage{multirow}                     % Agrega nuevas opciones a las tablas
-
-% CARGA DE MÓDULOS PARA LIBRERÍAS
-\usetikzlibrary{babel}                    % Asociado a tikz
 
 % DECLARACIÓN DE FUNCIONES
 \newcommand{\quotes}[1]{``#1''}           % Insertar cita
@@ -185,7 +185,8 @@
 \newcommand{\newtitleanum}[1]{            % Insertar un título sin número
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
-	\fancyhead[L]{\nouppercase{#1}}
+	\ifthenelse{\equal{\showheadertitle}{true}}{
+		\fancyhead[L]{\nouppercase{#1}}}{}
 	\stepcounter{section}
 }
 \newcommand{\newtitleanumheadless}[1]{    % Insertar un título sin número sin cambiar el header
@@ -205,12 +206,14 @@
 }
 \newcommand{\newtitleanumnoi}[1]{         % Insertar un título sin número sin indexar
 	\section*{#1}
-	\fancyhead[L]{\nouppercase{#1}}
+	\ifthenelse{\equal{\showheadertitle}{true}}{
+		\fancyhead[L]{\nouppercase{#1}}}{}
 	\stepcounter{section}
 }
 \newcommand{\newtitleanumnoiheadless}[1]{ % Insertar un título sin número sin indexar sin cambiar el header
 	\section*{#1}
-	\fancyhead[L]{\nouppercase{#1}}
+	\ifthenelse{\equal{\showheadertitle}{true}}{
+		\fancyhead[L]{\nouppercase{#1}}}{}
 	\stepcounter{section}
 }
 \newcommand{\newsubtitleanumnoi}[1]{      % Insertar un subtítulo sin número sin indexar
@@ -401,7 +404,7 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX, ppizarror.com},
-	pdfproducer={Template LaTeX informe v2.1.8}}
+	pdfproducer={Template LaTeX informe v2.2.0}}
 \renewcommand{\baselinestretch}{\defaultinterlind}  % Ajuste del entrelineado
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
@@ -424,8 +427,7 @@
 		{\def\@noitemerr
 			{\@latex@warning{Empty `thebibliography' environment}}
 			\endlist\end{multicols}
-		}
-}{}
+		}}{}
 \makeatother
 
 \begin{document}
@@ -463,10 +465,13 @@
 \renewcommand{\tablename}{\nombltwtablas}            % Nombre de la leyenda de las tablas
 \renewcommand{\figurename}{\nombltwfigura}           % Nombre de la leyenda de las figuras
 \pagestyle{fancy} \fancyhf{}                         % Se crean los headers y footers
-\fancyhead[L]{\nouppercase{\rightmark}}              % Header izq, nombre sección
+\ifthenelse{\equal{\showheadertitle}{true}}{         % Header izq, nombre sección
+	\fancyhead[L]{\nouppercase{\rightmark}}}{}
 \fancyhead[R]{\small \rm \nouppercase{\thepage}}     % Header der, número página
-\fancyfoot[L]{\small \rm \textit{\nombredelinforme}} % Footer izq, título del informe
-\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}} % Footer der, curso
+\ifthenelse{\equal{\showfooter}{true}}{
+	\fancyfoot[L]{\small \rm \textit{\nombredelinforme}} % Footer izq, título del informe
+	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}} % Footer der, curso
+}{}
 \sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont} % Tipo de título para abstract
 \renewcommand{\headrulewidth}{0.5pt}                 % Ancho de la barra del header
 \renewcommand{\footrulewidth}{0.5pt}                 % Ancho de la barra del footer
@@ -476,7 +481,6 @@
 \newtitleanumheadless{Resumen}
 \lipsum[1] \newp \lipsum[3]  % Ejemplo de dos párrafos en latín
 
-% TABLA DE CONTENIDOS
 \newpage
 \sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}
 \subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}
@@ -487,7 +491,8 @@
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
-\fancyhead[L]{\nouppercase{\leftmark}}
+\ifthenelse{\equal{\showheadertitle}{true}}{
+	\fancyhead[L]{\nouppercase{\leftmark}}}{}
 \sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
 \subsectionfont{\tipofuentesubtitulo \etipofuentesubtitulo \selectfont}
 \subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}
@@ -498,7 +503,7 @@
 
 % ================================ INICIO DEL DOCUMENTO ================================
 
-% SE INCLUYE EL EJEMPLO DEL DOCUMENTO (IMPORTACIÓN DEL CÓDIGO)
+% SE INCLUYE EL EJEMPLO DEL DOCUMENTO
 \include{ejemplo}
 
 

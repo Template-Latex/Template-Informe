@@ -112,6 +112,11 @@ También se pueden modificar los márgenes de los títulos de tablas y figuras _
 + **\defaultmarginbottomimages**: Margen inferior de las figuras en centímetros.
 + **\nombrepaginaportada**: Nombre de la primera página (portada).
 
+Configuraciones booleanas:
++ **\showfooter**: Muestra el footer (nombre informe y curso). [Booleano]
++ **\showheadertitle**: Muestra el título de la sección en el header. [Booleano]
++ **\twocolumnreferences**: MReferencias en dos columnas. [Booleano]
+
 ## Importar librerías
 Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRERÍAS DEPENDIENTES*, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación de otras, o que su importación no genera algún error. Las librerías utilizadas son:
 + **amsmath**: Fórmulas matemáticas.
@@ -133,6 +138,7 @@ Las librerías se cargan en la sección *%LIBRERÍAS INDEPENDIENTES* y *%LIBRER�
 + **gensymb**: Simbología común.
 + **graphicx**: Propiedades extra para los gráficos.
 + **hyperref**: Permite añadir enlaces y referencias *[dependiente]*.
++ **ifthen**: Permite el manejo de condicionales.
 + **mathtools**: Permite utilizar notaciones matemáticas avanzadas.
 + **mhchem**:	Fórmulas químicas [versión 4].
 + **multicol**: Múltiples columnas.
