@@ -36,6 +36,7 @@
 		// Se instancia el convertidor de md
 		var md_converter = new showdown.Converter();
 
+        // Función String.format(...)
 		if (!String.format) {
 		    String.format = function(format) {
 		        var args = Array.prototype.slice.call(arguments, 1);
@@ -47,11 +48,12 @@
 		    };
 		}
 
+        // Descargas totales
 		var total_downloads = 0;
+
 		// Se añaden las descargas de template-informe-cursos
 		$.getJSON("https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases", function(json) {
-		    var jlen = json.length;
-		    for (i = 0; i < jlen; i++) {
+		    for (i = 0; i < json.length; i++) {
 		        try {
 		            total_downloads += parseInt(json[i].assets[0].download_count);
 		        } catch (err) {
@@ -62,8 +64,7 @@
 
 		// Se añaden las descargas del template base
 		$.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
-		    var jlen = json.length;
-		    for (i = 0; i < jlen; i++) {
+		    for (i = 0; i < json.length;; i++) {
 		        try {
 		            total_downloads += parseInt(json[i].assets[0].download_count);
 		        } catch (err) {
@@ -922,6 +923,6 @@
 		</footer>
 		-->
 	</section>
-    
+
 </body>
 </html>
