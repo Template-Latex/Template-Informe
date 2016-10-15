@@ -64,7 +64,7 @@
 
 		// Se añaden las descargas del template base
 		$.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
-		    for (i = 0; i < json.length;; i++) {
+		    for (i = 0; i < json.length; i++) {
 		        try {
 		            total_downloads += parseInt(json[i].assets[0].download_count);
 		        } catch (err) {
