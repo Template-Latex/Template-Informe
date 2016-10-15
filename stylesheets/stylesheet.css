@@ -217,7 +217,7 @@ a:hover {
 .main-content .highlight pre, .main-content pre {
     padding: 0.8rem;
     overflow: auto;
-    font-size: 0.80rem;
+    font-size: 0.79rem;
     line-height: 1.45;
     border-radius: 0.3rem;
     margin-bottom: -9px;
@@ -266,7 +266,7 @@ a:hover {
     color: #000;
     font-size: 1.1rem;
     position: relative;
-    bottom: -2px;
+    bottom: -0.5px;
 }
 
 .main-content blockquote {
@@ -274,6 +274,10 @@ a:hover {
     margin-left: 5px;
     color: #819198;
     border-left: 0.3rem solid #dce6f0;
+}
+
+.section-template {
+    color: #159957;
 }
 
 .main-content blockquote> :first-child {
