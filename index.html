@@ -36,7 +36,7 @@
 		// Se instancia el convertidor de md
 		var md_converter = new showdown.Converter();
 
-        // Función String.format(...)
+		// Función String.format(...)
 		if (!String.format) {
 		    String.format = function(format) {
 		        var args = Array.prototype.slice.call(arguments, 1);
@@ -48,7 +48,7 @@
 		    };
 		}
 
-        // Descargas totales
+		// Descargas totales
 		var total_downloads = 0;
 
 		// Se añaden las descargas de template-informe-cursos
@@ -96,7 +96,7 @@
 		    // Se establece la última versión del pdf
 		    console.log(String.format('Archivo pdf a mostrar: versions/Template v{0}.pdf', last_version))
 		    document.getElementById("template-preview-pdf").href = String.format('versions/Template v{0}.pdf', last_version);
-            $( ".badgeejemplopdf" ).prop("href", String.format('versions/Template v{0}.pdf', last_version));
+		    $( ".badgeejemplopdf" ).prop("href", String.format('versions/Template v{0}.pdf', last_version));
 
 		    // Se obtiene el what's new
 		    var whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
@@ -153,7 +153,6 @@
 		    });
 		});
 	</script>
-
 	<style>
 		a#aimg,
 		a:hover#aimg,
@@ -203,7 +202,7 @@
 			<a href="http://ppizarror.com" id="aimg">
 			<img src="resources/autor.svg" />
 			</a>
-            <a href="" id="aimg" class="badgeejemplopdf" >
+			<a href="" id="aimg" class="badgeejemplopdf" >
 			<img src="resources/pdfejemplobadge.svg" />
 			</a>
 			<!-- <img src="resources/mantencion.svg" /> -->
@@ -785,7 +784,7 @@
 		<!-- Importar librerías -->
 		<h2>
 			<a id="importar-librerias" class="anchor" href="#importar-librerias" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
-            Importar librerías
+			Importar librerías
 		</h2>
 		<p>Las librerías se cargan en la sección <em class="section-template">%LIBRERÍAS INDEPENDIENTES</em> y <em class="section-template">%LIBRERÍAS DEPENDIENTES</em>,
 			en librerías independientes se cargan las librerías que, como bien dice su nombre, no
@@ -923,6 +922,5 @@
 		</footer>
 		-->
 	</section>
-
 </body>
 </html>
