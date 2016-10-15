@@ -48,6 +48,13 @@
 		    };
 		}
 
+		// Se definen las líneas de cada sección en la página web
+		var linea_info_documento = 21;
+		var linea_tabla = 39;
+		var linea_configuraciones = 75;
+		var linea_importaciones = 122;
+		var linea_inicio = 562;
+
 		// Descargas totales
 		var total_downloads = 0;
 
@@ -257,24 +264,42 @@
 			<li>
 				<a href="#agregar-fig-form-cita" class="menu-big-entry">Insertar párrafos, figuras, fórmulas, citas y otros</a>
 				<ul>
-					<li><a href="#hlp-parrafo" class="menu-little-entry">Insertar párrafos y citas</a> </li>
-					<li><a href="#hlp-imagen" class="menu-little-entry">Añadir una imagen</a> </li>
-					<li><a href="#hlp-formulae" class="menu-little-entry">Insertar una fórmula en el documento</a> </li>
-					<li><a href="#hlp-math" class="menu-little-entry">Expresiones matemáticas</a> </li>
-					<li><a href="#hlp-title" class="menu-little-entry">Insertar títulos sin número y títulos sin aparecer en el índice</a> </li>
+					<li><a href="#hlp-parrafo" class="menu-little-entry">Insertar párrafos y citas</a></li>
+					<li><a href="#hlp-imagen" class="menu-little-entry">Añadir una imagen</a></li>
+					<li><a href="#hlp-formulae" class="menu-little-entry">Insertar una fórmula en el documento</a></li>
+					<li><a href="#hlp-math" class="menu-little-entry">Expresiones matemáticas</a></li>
+					<li><a href="#hlp-title" class="menu-little-entry">Insertar títulos sin número y títulos sin aparecer en el índice</a></li>
 				</ul>
 			</li>
-			<li><a href="#configurar-otros-elementos-del-documento" class="menu-big-entry">Configurar otros elementos del documento</a> </li>
+			<li>
+				<a href="#configurar-otros-elementos-del-documento" class="menu-big-entry">Configurar otros elementos del documento</a>
+				<ul>
+					<li><a href="#config-bool" class="menu-little-entry">Configuraciones booleanas</a></li>
+				</ul>
+			</li>
 			<li><a href="#importar-librerias" class="menu-big-entry">Importar librerías</a> </li>
 			<li id='changelog-menu'><a href="#que-hay-de-nuevo" class="menu-big-entry">Changelog</a> </li>
 			<li><a href="#author" class="menu-big-entry">Autor</a> </li>
 		</ul>
 		<p>
 			Este corresponde a un template para confeccionar geniales informes en
-			<img src="resources/latex.png" alt="LaTeX" width="60px" height="25px" style="top: 9px;position:relative;">, contiene funciones básicas para agregar imágenes, fórmulas, etc.
+			<img src="resources/latex.png" alt="LaTeX" width="60px" height="25px" style="top: 9px;position:relative;">, contiene múltiples funciones <i>adicionales</i> para
+			insertar imágenes, fórmulas o párrafos de forma sencilla, sin tener que recurrir a las largas instrucciones que ofrece latex por defecto.
 		</p>
 		<p align="center">
 			<img src="images/informe_data.png" alt="Informe" width="90%px" height="90%px">
+		</p>
+		<p>
+			Para empezar con el documento debes primero <a href="#configurando-el-documento">editar la información del documento</a> (título, nombre de la universidad, etc),
+			en la sección <em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> <i id="linea-informacion-documento"></i> del archivo principal,
+			luego <a href="tabla-integrantes">editar la tabla</a> de datos de la portada en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em>
+			<i id="linea-integrantes"></i> y por último empezar a escribir tu documento en la sección <em class="section-template">INICIO DEL DOCUMENTO</em>
+			<i id="linea-inicio"></i>.
+		</p>
+
+		<p>
+			Para ver más información sobre cómo utilizar las funciones exclusivas del template, o cómo configurar a gusto el template, visita el resto de las secciones de
+			este manual!
 		</p>
 
 		<!-- Configurando el documento -->
@@ -284,7 +309,7 @@
 			</a> Configurando el documento
 		</h2>
 		<p>Para modificar el documento (Título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de
-			<em class="section-template">%INFORMACIÓN DEL DOCUMENTO</em> al principio del documento, estas son del estilo
+			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> al principio del documento, estas son del estilo
 			<em>\newcommand</em>{<strong>\nombreVariable</strong>}{<strong>Valor</strong>}, entre las cuales se encuentran:
 		</p>
 		<ul>
@@ -299,6 +324,9 @@
 			</li>
 			<li>
 				<strong>\fechaentrega</strong>: Fecha en que se entregó el informe.
+			</li>
+			<li>
+				<strong>\autordeldocumento</strong>: Nombre del autor o grupo, <b>no</b> es usado en la portada.
 			</li>
 			<li>
 				<strong>\nombredelcurso</strong>: Curso - Ramo referido al informe.
@@ -383,8 +411,8 @@
 			<span aria-hidden="true" class="octicon octicon-link"></span>
 			</a> Añadiendo integrantes, profesores, auxiliares y fechas
 		</h2>
-		<p>Esta información de la portada se encuentra en la sección <em class="section-template">%INTEGRANTES, PROFESORES Y FECHAS</em>, en esta se pueden agregar integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización,
-			etc.
+		<p>Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em>, en esta se pueden agregar
+			integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
 		</p>
 
 		<!-- Insertar párrafos, figuras, fórmulas, citas y otros -->
@@ -668,7 +696,7 @@
 		</h2>
 		<p>
 			También se pueden modificar los márgenes de los títulos de tablas y figuras <em>(caption)</em>, el tamaño de los títulos de las secciones, etc.
-			Estas se encuentran en el bloque de <em class="section-template">%CONFIGURACIONES</em>, entre las cuales se encuentran:
+			Estas se encuentran en el bloque de <em class="section-template">CONFIGURACIONES</em>, entre las cuales se encuentran:
 		</p>
 		<ul>
 			<li>
@@ -720,19 +748,25 @@
 				<strong>\tiporeferencias</strong>: Tipo de referencias, por defecto se usa la norma APA.
 			</li>
 			<li>
+				<strong>\nombltcontend</strong>: Nombre del índice de contenidos.
+			</li>
+			<li>
 				<strong>\nomblttablas</strong>: Nombre de la lista de tablas.
 			</li>
 			<li>
 				<strong>\nombltfiguras</strong>: Nombre de la lista de figuras.
 			</li>
 			<li>
-				<strong>\nombltcontend</strong>: Nombre del índice de contenidos.
+				<strong>\nombltcodfuente</strong>: Nombre de la lista de código fuente.
 			</li>
 			<li>
 				<strong>\nombltwtablas</strong>: Nombre de las tablas.
 			</li>
 			<li>
 				<strong>\nombltwfigura</strong>: Nombre de las figuras.
+			</li>
+			<li>
+				<strong>\nombltwcodfuente</strong>: Nombre del código fuente.
 			</li>
 			<li>
 				<strong>\indexdepth</strong>: Profundidad del índice.
@@ -768,7 +802,7 @@
 				<strong>\nombrepaginaportada</strong>: Nombre de la primera página (portada).
 			</li>
 		</ul>
-		Configuraciones booleanas:
+		<a id="config-bool"></a>Configuraciones booleanas:
 		<ul>
 			<li>
 				<strong>\showfooter</strong>: Muestra el footer (nombre informe y curso).
@@ -777,7 +811,22 @@
 				<strong>\showheadertitle</strong>: Muestra el título de la sección en el header.
 			</li>
 			<li>
-				<strong>\twocolumnreferences</strong>: Referencias en dos columnas..
+				<strong>\twocolumnreferences</strong>: Referencias en dos columnas.
+			</li>
+			<li>
+				<strong>\showindexofcontents</strong>: Muestra la lista de contenidos.
+			</li>
+			<li>
+				<strong>\showindexoffigures</strong>: Muestra la lista de figuras en el índice.
+			</li>
+			<li>
+				<strong>\showindexoftables</strong>: Muestra la lista de tablas en el índice.
+			</li>
+			<li>
+				<strong>\showindexofsourcecode</strong>: Muestra la lista de códigos fuente en el índice.
+			</li>
+			<li>
+				<strong>\showborderonlinks</strong>: Muestra un recuadro en cada enlace del documento.
 			</li>
 		</ul>
 
@@ -786,7 +835,7 @@
 			<a id="importar-librerias" class="anchor" href="#importar-librerias" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 			Importar librerías
 		</h2>
-		<p>Las librerías se cargan en la sección <em class="section-template">%LIBRERÍAS INDEPENDIENTES</em> y <em class="section-template">%LIBRERÍAS DEPENDIENTES</em>,
+		<p>Las librerías se cargan en la sección <em class="section-template">LIBRERÍAS INDEPENDIENTES</em> y <em class="section-template">LIBRERÍAS DEPENDIENTES</em>,
 			en librerías independientes se cargan las librerías que, como bien dice su nombre, no
 			dependen de la previa importación de otras, o que su importación no genera algún error. Las librerías utilizadas son:
 		</p>
