@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.2.0 (11/10/2016)
+% Versión:      2.2.1 (15/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -17,12 +17,14 @@
 \usepackage{lmodern}                       % Tipografía moderna
 \usepackage[spanish]{babel}                % Define el idioma del documento en español
 
+
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
 \newcommand{\temaatratar}{Tema a tratar}
 \newcommand{\fecharealizacion}{\today}
 \newcommand{\fechaentrega}{\today}
 
+\newcommand{\autordeldocumento}{Nombre del autor o grupo}
 \newcommand{\nombredelcurso}{Curso}
 \newcommand{\codigodelcurso}{CO-1234}
 
@@ -32,6 +34,7 @@
 \newcommand{\imagendeldepartamento}{images/departamentos/fcfm}
 \newcommand{\imagendeldepartamentoescl}{0.2}
 \newcommand{\localizacionuniversidad}{Santiago, Chile}
+
 
 % INTEGRANTES, PROFESORES Y FECHAS
 \newcommand{\tablaintegrantes}{
@@ -68,6 +71,7 @@
 	\end{flushright}
 \end{minipage}}
 
+
 % CONFIGURACIONES
 \newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes 
 \newcommand{\defaultnewlinesize}{11pt}            % Tamaño del salto de línea
@@ -85,11 +89,13 @@
 \newcommand{\etipofuentesubtituloi}{\bfseries}    % Estilo de los subtítulos en el índice
 \newcommand{\etipofuentesubsubtituloi}{\bfseries} % Estilo de los sub-subtítulos en el índice
 \newcommand{\tiporeferencias}{apa}                % Tipo de referencias
+\newcommand{\nombltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
 \newcommand{\nomblttablas}{Lista de Tablas}       % Nombre de la lista de tablas
 \newcommand{\nombltfiguras}{Lista de Figuras}     % Nombre de la lista de figuras
-\newcommand{\nombltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
+\newcommand{\nombltcodfuente}{Lista de Códigos Fuente} % Nombre del código fuente
 \newcommand{\nombltwtablas}{Tabla}                % Nombre de las tablas
 \newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
+\newcommand{\nombltwcodfuente}{Código Fuente}     % Nombre del código fuente
 \newcommand{\indexdepth}{3}                       % Profundidad del índice
 \newcommand{\defaultcaptionmargin}{2.9}           % Márgenes de las leyendas por defecto
 \newcommand{\defaultpagemarginleft}{2.5}          % Margen izquierdo de las páginas [cm]
@@ -106,48 +112,54 @@
 \newcommand{\showfooter}{true}                    % Muestra el footer (nombre informe y curso)
 \newcommand{\showheadertitle}{true}               % Muestra el título de la sección en el header
 \newcommand{\twocolumnreferences}{true}           % Referencias en dos columnas
+\newcommand{\showindexofcontents}{true}           % Muestra la lista de contenidos
+\newcommand{\showindexoffigures}{true}            % Muestra la lista de figuras en el índice
+\newcommand{\showindexoftables}{true}             % Muestra la lista de tablas en el índice
+\newcommand{\showindexofsourcecode}{false}        % Muestra la lista de códigos fuente
+
 
 % LIBRERÍAS INDEPENDIENTES
-\usepackage{amsmath}                      % Fórmulas matemáticas
-\usepackage{amssymb}                      % Símbolos matemáticos
-\usepackage{amsthm}                       % Teoremas matemáticos
-\usepackage{array}                        % Añade nuevas características a las tablas
-\usepackage{booktabs}                     % Permite manejar elementos visuales en tablas
-\usepackage[makeroom]{cancel}             % Cancelar términos en fórmulas
-\usepackage{caption}                      % Leyendas
-\usepackage{color}                        % Colores
-\usepackage{datetime}                     % Fechas
-\usepackage{enumerate}                    % Permite enumerar ítemes
-\usepackage[bottom, norule]{footmisc}     % Estilo pié de página
-\usepackage{fancyhdr}                     % Encabezados y pié de páginas
-\usepackage{float}                        % Administrador de posiciones de objetos
-\usepackage{textcomp, gensymb}            % Simbología común                
-\usepackage{geometry}                     % Dimensiones y geometría del documento
-\usepackage{graphicx}                     % Propiedades extra para los gráficos
-\usepackage{ifthen}                       % Permite el manejo de condicionales
-\usepackage{mathtools}                    % Permite utilizar notaciones matemáticas avanzadas
-\usepackage[version=4]{mhchem}            % Fórmulas químicas
-\usepackage{multicol}                     % Múltiples columnas
-\usepackage{pdfpages}                     % Permite administrar páginas en pdf
-\usepackage{lipsum}                       % Permite crear textos dummy
-\usepackage{longtable}                    % Permite utilizar tablas en varias hojas
-\usepackage{listings}                     % Permite añadir código fuente
-\usepackage{sectsty}                      % Cambia el estilo de los títulos
-\usepackage{selinput}                     % Compatibilidad con acentos
-\usepackage{setspace}                     % Cambia el espacio entre líneas
-\usepackage{subfig}                       % Permite agrupar imágenes
-\usepackage{tikz}                         % Permite dibujar 
-\usepackage{ulem}                         % Permite tachar, subrayar, etc
-\usepackage{url}                          % Permite añadir enlaces
-\usepackage{wasysym}                      % Contiene caracteres misceláneos
-\usepackage{wrapfig}                      % Permite comprimir imágenes
+\usepackage{amsmath}                   % Fórmulas matemáticas
+\usepackage{amssymb}                   % Símbolos matemáticos
+\usepackage{amsthm}                    % Teoremas matemáticos
+\usepackage{array}                     % Añade nuevas características a las tablas
+\usepackage{booktabs}                  % Permite manejar elementos visuales en tablas
+\usepackage[makeroom]{cancel}          % Cancelar términos en fórmulas
+\usepackage{caption}                   % Leyendas
+\usepackage{color}                     % Colores
+\usepackage{datetime}                  % Fechas
+\usepackage{enumerate}                 % Permite enumerar ítemes
+\usepackage[bottom, norule]{footmisc}  % Estilo pié de página
+\usepackage{fancyhdr}                  % Encabezados y pié de páginas
+\usepackage{float}                     % Administrador de posiciones de objetos
+\usepackage{textcomp, gensymb}         % Simbología común                
+\usepackage{geometry}                  % Dimensiones y geometría del documento
+\usepackage{graphicx}                  % Propiedades extra para los gráficos
+\usepackage{ifthen}                    % Permite el manejo de condicionales
+\usepackage{mathtools}                 % Permite utilizar notaciones matemáticas avanzadas
+\usepackage[version=4]{mhchem}         % Fórmulas químicas
+\usepackage{multicol}                  % Múltiples columnas
+\usepackage{pdfpages}                  % Permite administrar páginas en pdf
+\usepackage{lipsum}                    % Permite crear textos dummy
+\usepackage{longtable}                 % Permite utilizar tablas en varias hojas
+\usepackage{listings}                  % Permite añadir código fuente
+\usepackage{sectsty}                   % Cambia el estilo de los títulos
+\usepackage{selinput}                  % Compatibilidad con acentos
+\usepackage{setspace}                  % Cambia el espacio entre líneas
+\usepackage{subfig}                    % Permite agrupar imágenes
+\usepackage{tikz}                      % Permite dibujar 
+\usepackage{ulem}                      % Permite tachar, subrayar, etc
+\usepackage{url}                       % Permite añadir enlaces
+\usepackage{wasysym}                   % Contiene caracteres misceláneos
+\usepackage{wrapfig}                   % Permite comprimir imágenes
 
 % LIBRERÍAS DEPENDIENTES
-\usetikzlibrary{babel}                    % Asociado a tikz
-\usepackage{chngcntr}                     % Agrega números de secciones a las leyendas
-\usepackage{epstopdf}                     % Convierte archivos .eps a pdf
-\usepackage[hidelinks]{hyperref}          % Permite añadir enlaces y referencias
-\usepackage{multirow}                     % Agrega nuevas opciones a las tablas
+\usetikzlibrary{babel}                 % Asociado a tikz
+\usepackage{chngcntr}                  % Agrega números de secciones a las leyendas
+\usepackage{epstopdf}                  % Convierte archivos .eps a pdf
+\usepackage[hidelinks]{hyperref}       % Permite añadir enlaces y referencias
+\usepackage{multirow}                  % Agrega nuevas opciones a las tablas
+
 
 % DECLARACIÓN DE FUNCIONES
 \newcommand{\quotes}[1]{``#1''}           % Insertar cita
@@ -314,6 +326,7 @@
 	\end{wrapfigure}
 }
 
+
 % DECLARACIÓN DE AMBIENTES Y ESTILOS
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -321,7 +334,11 @@
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
-\SelectInputMappings{
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\SelectInputMappings{    % Definición de acentos
   aacute={á},
   Ntilde={Ñ},
   Euro={€}
@@ -370,6 +387,24 @@
 	numberstyle={\tiny \color{black}},
 	numbersep=9pt,
 	emph=[1]{for,end,break},emphstyle=[1]\color{red}}
+\lstdefinestyle{Python}{ % Estilo de lenguaje Python
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
 \lstset{literate=
 	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
 	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
@@ -397,14 +432,14 @@
 \setcounter{tocdepth}{\indexdepth}         % Se ajusta la profundidad del índice
 \setcounter{MaxMatrixCols}{20}             % Número máximo de columnas para las matrices
 \hypersetup{
-	%pdfauthor={Author},
+	pdfauthor={\autordeldocumento},
 	pdftitle={\nombredelinforme},
 	pdfsubject={\temaatratar},
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
-	pdfcreator={pdfLaTeX, ppizarror.com},
-	pdfproducer={Template LaTeX informe v2.2.0}}
-\renewcommand{\baselinestretch}{\defaultinterlind}  % Ajuste del entrelineado
+	pdfcreator={pdfLaTeX},
+	pdfproducer={Template LaTeX informe v2.2.1}}
+\renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
 	\renewenvironment{thebibliography}[1] % Bibliografía en 2 columnas
@@ -428,10 +463,10 @@
 			\endlist\end{multicols}
 		}}{}
 \makeatother
-
-\begin{document}
+	
 	
 % PORTADA
+\begin{document}
 \newpage
 \renewcommand{\thepage}{\nombrepaginaportada}
 \setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}
@@ -451,6 +486,7 @@
 \vfill
 \tablaintegrantes
 
+
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \newpage
 \pagenumbering{Roman}
@@ -461,8 +497,10 @@
 \renewcommand{\listfigurename}{\nombltfiguras}       % Nombre del índice de figuras
 \renewcommand{\listtablename}{\nomblttablas}         % Nombre del índice de tablas
 \renewcommand{\contentsname}{\nombltcontend}         % Nombre del índice
+\renewcommand{\lstlistlistingname}{\nombltcodfuente} % Nombre del índice de códigos fuente
 \renewcommand{\tablename}{\nombltwtablas}            % Nombre de la leyenda de las tablas
 \renewcommand{\figurename}{\nombltwfigura}           % Nombre de la leyenda de las figuras
+\renewcommand{\lstlistingname}{\nombltwcodfuente}    % Nombre de la leyenda del código fuente
 \pagestyle{fancy} \fancyhf{}                         % Se crean los headers y footers
 \ifthenelse{\equal{\showheadertitle}{true}}{         % Header izq, nombre sección
 	\fancyhead[L]{\nouppercase{\rightmark}}}{}
@@ -478,15 +516,28 @@
 
 % ================================= RESUMEN O ABSTRACT =================================
 \newtitleanumheadless{Resumen}
-\lipsum[1] \newp \lipsum[3]  % Ejemplo de dos párrafos en latín
 
+\lipsum[1] \newp \lipsum[3]   % Ejemplo de dos párrafos en latín
+
+
+% INDICE - TABLA DE CONTENIDOS
 \newpage
 \sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}
 \subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}
 \subsubsectionfont{\tipofuentesubsubtituloi \etipofuentesubsubtituloi \selectfont}
-\tableofcontents          % Tabla de contenidos
-\listoffigures            % Índice de figuras
-\listoftables             % Índice de tablas
+\ifthenelse{\equal{\showindexofcontents}{true}}{
+	\tableofcontents          % Tabla de contenidos
+}{}
+\ifthenelse{\equal{\showindexoffigures}{true}}{
+	\listoffigures            % Índice de figuras
+}{}
+\ifthenelse{\equal{\showindexoftables}{true}}{
+	\listoftables             % Índice de tablas
+}{}
+\ifthenelse{\equal{\showindexofsourcecode}{true}}{
+	\lstlistoflistings        % Lista de códigos fuente
+}{}
+
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
@@ -502,7 +553,7 @@
 
 % ================================ INICIO DEL DOCUMENTO ================================
 
-% SE INCLUYE EL EJEMPLO DEL DOCUMENTO
+% SE INCLUYE EL EJEMPLO DEL DOCUMENTO, ESTA LÍNEA PUEDE BORRARSE SIN PROBLEMA
 \include{ejemplo}
 
 
