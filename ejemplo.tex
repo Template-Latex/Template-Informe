@@ -1,5 +1,5 @@
 % Template:     Archivo de ejemplo LaTeX
-% Versión:      2.2.1 (15/10/2016)
+% Versión:      2.2.2 (15/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -59,8 +59,9 @@
 			$\partial$ & $\nabla$ & $\mho$\\ 
 		\end{longtable}
 		
+		
 % NUEVA SECCIÓN
-\newtitleanum{Aquí un nuevo tema} % Inserta un título (similar a una sección) sin número
+\section{Aquí un nuevo tema}
 		
 	% SUB-SECCIÓN
 	\newsubtitleanum{Haciendo informes como un profesional}
@@ -96,12 +97,17 @@
 		\vspace{\defaultnewlinesize}
 		\lipsum[4]
 		
-\section{Más ejemplos}
+		
+% NUEVA SECCIÓN
+\newpage	
+\newtitleanum{Más ejemplos} % Inserta un título (similar a una sección) sin número, una vez que se inserta un título así no se pueden volver a usar los títulos numerados
 
-	A continuación se presenta un ejemplo de inserción de código fuente (Python y Java):
+\newsubtitleanum{Ejemplos de inserción de código fuente}
+
+	A continuación se presenta un ejemplo de inserción de código fuente en Python, Java y Matlab:
 
 \lstset{style=Python}
-\begin{lstlisting}[language=Python, caption=Python example]
+\begin{lstlisting}[language=Python, caption=Ejemplo en Python]
 import numpy as np
  
 def incmatrix(genl1,genl2):
@@ -109,29 +115,49 @@ def incmatrix(genl1,genl2):
     n = len(genl2)
     M = None #to become the incidence matrix
     VT = np.zeros((n*m,1), int)  #dummy variable
- 
-    #compute the bitwise xor matrix
-    M1 = bitxormatrix(genl1)
-    M2 = np.triu(bitxormatrix(genl2),1) 
- 
-    for i in range(m-1):
-        for j in range(i+1, m):
-            [r,c] = np.where(M2 == M1[i,j])
-            for k in range(len(r)):
-                VT[(i)*n + r[k]] = 1;
-                VT[(i)*n + c[k]] = 1;
-                VT[(j)*n + r[k]] = 1;
-                VT[(j)*n + c[k]] = 1;
- 
-                if M is None:
-                    M = np.copy(VT)
-                else:
-                    M = np.concatenate((M, VT), 1)
- 
-                VT = np.zeros((n*m,1), int)
- 
-    return M
 \end{lstlisting}
+
+
+\lstset{style=Java}
+\begin{lstlisting}[language=Java, caption=Ejemplo en Java]
+import java.io.IOException; 
+import javax.servlet.*;
+
+// Hola mundo
+public class Hola extends GenericServlet 
+{
+    public void service(ServletRequest request, ServletResponse response)
+        throws ServletException, IOException
+    {
+        response.setContentType("text/html");
+        PrintWriter pw = response.getWriter();
+        pw.println("Hola, mundo!");
+        pw.close();
+    }
+}
+\end{lstlisting}
+
+
+\lstset{style=Matlab}
+\begin{lstlisting}[language=Java, caption=Ejemplo en Matlab]
+function list = find_coordinates( matrix, value )
+l = size(matrix);
+coordenates_list = cell(l(1)*l(2),1);
+total = 1;
+
+% Evaluación de la matriz
+for i=1:l(1)
+    for j=1:l(2)
+        if matrix(i,j)==value
+            coordenates_list{total} = [i j];
+            total = total + 1;
+        end
+    end
+end
+
+end
+\end{lstlisting}
+
 
 % REFERENCIAS
 \newpage
@@ -159,5 +185,10 @@ def incmatrix(genl1,genl2):
 		\hbadness=10000 Tables Generator.
 		\textit{Convierte fácilmente tus tablas, o crea unas con un intuitivo editor de tablas.}
 		\\\url{http://www.tablesgenerator.com/}
+		
+	\bibitem{pagwebproyecto}
+		\hbadness=10000 Template Informe en \LaTeX.
+		\textit{Revisa el manual online de este template!}
+		\\\url{http://ppizarror.com/Template-Informe/}
 	
 \end{thebibliography}

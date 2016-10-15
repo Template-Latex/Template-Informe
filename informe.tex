@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.2.1 (15/10/2016)
+% Versión:      2.2.2 (15/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -116,6 +116,7 @@
 \newcommand{\showindexoffigures}{true}            % Muestra la lista de figuras en el índice
 \newcommand{\showindexoftables}{true}             % Muestra la lista de tablas en el índice
 \newcommand{\showindexofsourcecode}{false}        % Muestra la lista de códigos fuente
+\newcommand{\showborderonlinks}{false}            % Muestra un recuadro en cada enlace del documento
 
 
 % LIBRERÍAS INDEPENDIENTES
@@ -157,8 +158,12 @@
 \usetikzlibrary{babel}                 % Asociado a tikz
 \usepackage{chngcntr}                  % Agrega números de secciones a las leyendas
 \usepackage{epstopdf}                  % Convierte archivos .eps a pdf
-\usepackage[hidelinks]{hyperref}       % Permite añadir enlaces y referencias
 \usepackage{multirow}                  % Agrega nuevas opciones a las tablas
+\ifthenelse{\equal{\showborderonlinks}{true}}{
+	\usepackage{hyperref}              % Permite añadir enlaces y referencias
+}{
+	\usepackage[hidelinks]{hyperref}   % Permite añadir enlaces y referencias (sin recuadro rojo)
+}
 
 
 % DECLARACIÓN DE FUNCIONES
@@ -359,20 +364,20 @@
   	title=\lstname}
 \lstdefinestyle{Java}{   % Estilo de lenguaje Java
 	language=Java,
-	frame=tb,
 	aboveskip=3mm,
 	belowskip=3mm,
 	showstringspaces=false,
 	columns=flexible,
 	basicstyle={\small\ttfamily},
-	numbers=none,
+	numbers=left,
 	numberstyle=\tiny\color{gray},
 	keywordstyle=\color{blue},
 	commentstyle=\color{dkgreen},
 	stringstyle=\color{mauve},
 	breaklines=true,
 	breakatwhitespace=true,
-	tabsize=3}
+	tabsize=3,
+	backgroundcolor=\color{backcolour}}
 \lstdefinestyle{Matlab}{ % Estilo de lenguaje Matlab
 	language=Matlab,
 	breaklines=true,
@@ -388,6 +393,7 @@
 	numbersep=9pt,
 	emph=[1]{for,end,break},emphstyle=[1]\color{red}}
 \lstdefinestyle{Python}{ % Estilo de lenguaje Python
+	language=Python,
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
@@ -403,7 +409,8 @@
     showspaces=false,                
     showstringspaces=false,
     showtabs=false,                  
-    tabsize=2
+    tabsize=3,
+    basicstyle={\small\ttfamily}
 }
 \lstset{literate=
 	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
@@ -420,6 +427,7 @@
 	{€}{{\EUR}}1 {£}{{\pounds}}1
 }
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}} % Columna centrada en tablas
+
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
 \decimalpoint                              % Se define el punto decimal
@@ -438,7 +446,7 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX},
-	pdfproducer={Template LaTeX informe v2.2.1}}
+	pdfproducer={Template LaTeX informe v2.2.2}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
