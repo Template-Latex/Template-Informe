@@ -28,7 +28,8 @@
 		Este es un párrafo, \textbf{newp} puede contener múltiples \quotes{Expresiones} así como \quotesit{Citas en itálico} o referencias \footnote{Las referencias se hacen utilizando la expresión \textbackslash label\{etiqueta\}} a fórmulas como (\ref{formulasinsentido}), a continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{testimage}):
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta, luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.2) y un título de imagen (el cual va debajo de la imagen)
-		\insertimage[\label{testimage}]{ejemplos/test-image.png}{scale=0.2}{Where are you? de \quotesit{Internet}}
+		\insertimage[\label{testimage}]{ejemplos/test-image.png}{scale=0.2}{Where are you? de \quotesit{Internet} \protect\footnotemark}
+		\footnotetext{Imagen obtenida desde Internet}
 		
 		\newparnl{Este es un párrafo sin nueva linea, si no te gustan los comandos \textbf{newp}, \textbf{newpar} o \textbf{newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones, así puedes tener comandos más intuitivos para ti.}
 		
