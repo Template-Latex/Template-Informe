@@ -1,5 +1,5 @@
 % Template:     Archivo de ejemplo LaTeX
-% Versión:      2.2.3 (16/10/2016)
+% Versión:      2.2.4 (18/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -29,7 +29,7 @@
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta, luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.2) y un título de imagen (el cual va debajo de la imagen)
 		\insertimage[\label{testimage}]{ejemplos/test-image.png}{scale=0.2}{Where are you? de \quotesit{Internet} \protect\footnotemark}
-		\footnotetext{ Imagen obtenida desde Internet}
+		\footnotetext{ Imagen obtenida desde Internet \url{https://www.themebeta.com/chrome/theme/159344}}
 		
 		\newparnl{Este es un párrafo sin nueva linea, si no te gustan los comandos \textbf{newp}, \textbf{newpar} o \textbf{newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones, así puedes tener comandos más intuitivos para ti.}
 		
@@ -65,7 +65,7 @@
 \section{Aquí un nuevo tema}
 		
 	% SUB-SECCIÓN
-	\newsubtitleanum{Haciendo informes como un profesional}
+	\subsection{Haciendo informes como un profesional}
 	
 		% Se inserta una imagen fija en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, un título y por último el número de líneas que 'cortará' hacia abajo. Para insertar una imagen fija en la derecha se utiliza \insertimageright usando los mismos parámetros.
 		\insertimageleft[\label{imagen-izquierda}]{ejemplos/test-image-wrap}{0.19}{Apolo}{12}
@@ -101,8 +101,11 @@
 		
 % NUEVA SECCIÓN
 \newpage	
-\newtitleanum{Más ejemplos} % Inserta un título (similar a una sección) sin número, una vez que se inserta un título así no se pueden volver a usar los títulos numerados
 
+% Inserta un título (similar a una sección) sin número, una vez que se inserta un título así no se pueden volver a usar los títulos numerados
+\newtitleanum{Más ejemplos}
+
+% Inserta un subtítulo sin número
 \newsubtitleanum{Ejemplos de inserción de código fuente}
 
 	A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{ El mejor lenguaje del mundo}, Java y Matlab:
