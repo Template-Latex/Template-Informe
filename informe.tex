@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.2.4 (18/10/2016)
+% Versión:      2.2.5 (21/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -97,6 +97,7 @@
 \newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
 \newcommand{\nombltwcodfuente}{Código Fuente}     % Nombre del código fuente
 \newcommand{\indexdepth}{3}                       % Profundidad del índice
+\newcommand{\tablepadding}{1.1}                   % Padding de las tablas
 \newcommand{\defaultcaptionmargin}{2.9}           % Márgenes de las leyendas por defecto
 \newcommand{\defaultpagemarginleft}{2.5}          % Margen izquierdo de las páginas [cm]
 \newcommand{\defaultpagemarginright}{2.5}         % Margen derecho de las páginas [cm]
@@ -446,8 +447,8 @@
 	pdfsubject={\temaatratar},
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
-	pdfcreator={pdfLaTeX},
-	pdfproducer={Template LaTeX informe v2.2.4}}
+	pdfcreator={pdfLaTeX, ppizarror},
+	pdfproducer={Template LaTeX informe v2.2.5}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
@@ -500,8 +501,10 @@
 \newpage
 \pagenumbering{Roman}
 \setcounter{page}{1}
+\setcounter{footnote}{1}
 \setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}
 {\defaultpagemarginright}{\defaultpagemarginbottom}
+\def\arraystretch{\tablepadding}                     % Se ajusta el padding de las tablas
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}      % Se modifica el estilo del header
 \renewcommand{\listfigurename}{\nombltfiguras}       % Nombre del índice de figuras
 \renewcommand{\listtablename}{\nomblttablas}         % Nombre del índice de tablas
