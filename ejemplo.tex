@@ -1,5 +1,5 @@
 % Template:     Archivo de ejemplo LaTeX
-% Versión:      2.2.5 (21/10/2016)
+% Versión:      2.2.6 (22/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -96,6 +96,35 @@
 		
 		\lipsum[115]
 		\vspace{\defaultnewlinesize}
+		\lipsum[4]
+		
+	% SUB-SECCIÓN
+	\subsection{Otros párrafos más normales}
+	
+		% Párrafos con lipsum
+		\lipsum[7]
+		
+		\newp \lipsum[2]
+		
+		% Se inserta una ecuación larga
+		\insertequationalign[\label{eqn-larga}]{\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}+ \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}
+		
+		% Se inserta un multicols, con esto se pueden escribir en varias columnas
+		\begin{multicols}{2}
+		
+			% Párrafo 1
+			\lipsum[114]
+			
+			% Cuando se usan multicols los espacios en blanco verticales se multiplican por dos, por lo que se necesita utilizar \vspace para eliminar los espacios abusivos de las ecuaciones para que se vea mejor
+			\vspace{-0.1cm}
+			\insertequation[]{ f(x) = \fracdpartial{u}{t}}
+			
+			% Párrafo 2 del multicols
+			\lipsum[5]
+			
+		\end{multicols}
+		
+		% Último párrafo de la subsección
 		\lipsum[4]
 		
 		

@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.2.5 (21/10/2016)
+% Versión:      2.2.6 (22/10/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -105,7 +105,7 @@
 \newcommand{\defaultpagemarginbottom}{2.7}        % Margen inferior de las páginas [cm]
 \newcommand{\defaultfirstpagemargintop}{3.8}      % Margen superior de la portada [cm]
 \newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. de figuras flotantes [pt]
-\newcommand{\defaultmargintopimages}{-0.2cm}      % Margen sup. de las figuras [cm]
+\newcommand{\defaultmargintopimages}{0.0cm}       % Margen sup. de las figuras [cm]
 \newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inf. de las figuras [cm]
 \newcommand{\nombrepaginaportada}{P}              % Identificador de la primera página (portada)
 
@@ -121,50 +121,50 @@
 
 
 % LIBRERÍAS INDEPENDIENTES
-\usepackage{amsmath}                   % Fórmulas matemáticas
-\usepackage{amssymb}                   % Símbolos matemáticos
-\usepackage{amsthm}                    % Teoremas matemáticos
-\usepackage{array}                     % Añade nuevas características a las tablas
-\usepackage{booktabs}                  % Permite manejar elementos visuales en tablas
-\usepackage[makeroom]{cancel}          % Cancelar términos en fórmulas
-\usepackage{caption}                   % Leyendas
-\usepackage{color}                     % Colores
-\usepackage{datetime}                  % Fechas
-\usepackage[inline]{enumitem}          % Permite enumerar ítemes
-\usepackage[bottom, norule]{footmisc}  % Estilo pié de página
-\usepackage{fancyhdr}                  % Encabezados y pié de páginas
-\usepackage{float}                     % Administrador de posiciones de objetos
-\usepackage{textcomp, gensymb}         % Simbología común                
-\usepackage{geometry}                  % Dimensiones y geometría del documento
-\usepackage{graphicx}                  % Propiedades extra para los gráficos
-\usepackage{ifthen}                    % Permite el manejo de condicionales
-\usepackage{mathtools}                 % Permite utilizar notaciones matemáticas avanzadas
-\usepackage[version=4]{mhchem}         % Fórmulas químicas
-\usepackage{multicol}                  % Múltiples columnas
-\usepackage{pdfpages}                  % Permite administrar páginas en pdf
-\usepackage{lipsum}                    % Permite crear textos dummy
-\usepackage{longtable}                 % Permite utilizar tablas en varias hojas
-\usepackage{listings}                  % Permite añadir código fuente
-\usepackage{sectsty}                   % Cambia el estilo de los títulos
-\usepackage{selinput}                  % Compatibilidad con acentos
-\usepackage{setspace}                  % Cambia el espacio entre líneas
-\usepackage{subfig}                    % Permite agrupar imágenes
-\usepackage{tikz}                      % Permite dibujar 
-\usepackage{ulem}                      % Permite tachar, subrayar, etc
-\usepackage{url}                       % Permite añadir enlaces
-\usepackage{wasysym}                   % Contiene caracteres misceláneos
-\usepackage{wrapfig}                   % Permite comprimir imágenes
-\usepackage{xcolor}                    % Paquete de colores avanzado
+\usepackage{amsmath}                    % Fórmulas matemáticas
+\usepackage{amssymb}                    % Símbolos matemáticos
+\usepackage{amsthm}                     % Teoremas matemáticos
+\usepackage{array}                      % Añade nuevas características a las tablas
+\usepackage{booktabs}                   % Permite manejar elementos visuales en tablas
+\usepackage[makeroom]{cancel}           % Cancelar términos en fórmulas
+\usepackage{caption}                    % Leyendas
+\usepackage{color}                      % Colores
+\usepackage{datetime}                   % Fechas
+\usepackage[inline]{enumitem}           % Permite enumerar ítemes
+\usepackage[bottom, norule]{footmisc}   % Estilo pié de página
+\usepackage{fancyhdr}                   % Encabezados y pié de páginas
+\usepackage{float}                      % Administrador de posiciones de objetos
+\usepackage{textcomp, gensymb}          % Simbología común                
+\usepackage{geometry}                   % Dimensiones y geometría del documento
+\usepackage{graphicx}                   % Propiedades extra para los gráficos
+\usepackage{ifthen}                     % Permite el manejo de condicionales
+\usepackage{mathtools}                  % Permite utilizar notaciones matemáticas avanzadas
+\usepackage[version=4]{mhchem}          % Fórmulas químicas
+\usepackage{multicol}                   % Múltiples columnas
+\usepackage{pdfpages}                   % Permite administrar páginas en pdf
+\usepackage{lipsum}                     % Permite crear textos dummy
+\usepackage{longtable}                  % Permite utilizar tablas en varias hojas
+\usepackage{listings}                   % Permite añadir código fuente
+\usepackage{sectsty}                    % Cambia el estilo de los títulos
+\usepackage{selinput}                   % Compatibilidad con acentos
+\usepackage{setspace}                   % Cambia el espacio entre líneas
+\usepackage{subfig}                     % Permite agrupar imágenes
+\usepackage{tikz}                       % Permite dibujar 
+\usepackage{ulem}                       % Permite tachar, subrayar, etc
+\usepackage{url}                        % Permite añadir enlaces
+\usepackage{wasysym}                    % Contiene caracteres misceláneos
+\usepackage{wrapfig}                    % Permite comprimir imágenes
+\usepackage{xcolor}                     % Paquete de colores avanzado
 
 % LIBRERÍAS DEPENDIENTES
-\usetikzlibrary{babel}                 % Asociado a tikz
-\usepackage{chngcntr}                  % Agrega números de secciones a las leyendas
-\usepackage{epstopdf}                  % Convierte archivos .eps a pdf
-\usepackage{multirow}                  % Agrega nuevas opciones a las tablas
+\usetikzlibrary{babel}                  % Asociado a tikz
+\usepackage{chngcntr}                   % Agrega números de secciones a las leyendas
+\usepackage{epstopdf}                   % Convierte archivos .eps a pdf
+\usepackage{multirow}                   % Agrega nuevas opciones a las tablas
 \ifthenelse{\equal{\showborderonlinks}{true}}{
-	\usepackage{hyperref}              % Permite añadir enlaces y referencias
+	\usepackage{hyperref}               % Permite añadir enlaces y referencias
 }{
-	\usepackage[hidelinks]{hyperref}   % Permite añadir enlaces y referencias (sin recuadro rojo)
+	\usepackage[hidelinks]{hyperref}    % Permite añadir enlaces y referencias (sin recuadro rojo)
 }
 
 
@@ -201,6 +201,9 @@
 	\overbracket{#1}^{\mathclap{#2}}}
 \newcommand{\undersequal}[2]{             % Rectángulo inferior de equivalencia
 	\underbracket{#1}_{\mathclap{#2}}}
+\newcommand{\resizeitem}[2]{              % Crea un resizebox de tamaño en relación a textwidth
+	\resizebox{#1\textwidth}{!}{#2}
+}
 \newcommand{\newtitleanum}[1]{            % Insertar un título sin número
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
@@ -245,10 +248,11 @@
 	\stepcounter{subsubsection}
 }
 \newcommand{\insertequation}[2][]{        % Insertar una ecuación
-	\vspace{-0.16cm}
+	\vspace{-0.1cm}
 	\begin{equation}
 		\text{#1} #2
 	\end{equation}
+	\vspace{-0.43cm}
 	\par
 }
 \newcommand{\insertequationcaptioned}[3][]{ % Insertar una ecuación con leyenda
@@ -256,6 +260,43 @@
 	\begin{equation}
 		\text{#1} #2
 	\end{equation}
+	\begin{center}
+		\vspace{-0.15cm}
+		\textit{#3} \par
+		\vspace{0.05cm}
+	\end{center}
+}
+\newcommand{\insertequationgathered}[2][]{ % Insertar una ecuación con el ambiente gather
+	\vspace{-0.4cm}
+	\begin{gather}
+		\text{#1} #2
+	\end{gather}
+	\par
+	\vspace{-0.10cm}
+}
+\newcommand{\insertequationgatheredcaptioned}[3][]{ % Insertar una ecuación (gather) con leyenda
+	\vspace{-0.3cm}
+	\begin{gather}
+		\text{#1} #2
+	\end{gather}
+	\begin{center}
+		\vspace{-0.15cm}
+		\textit{#3} \par
+	\end{center}
+}
+\newcommand{\insertequationalign}[2][]{ % Insertar una ecuación con el ambiente align
+	\vspace{-0.4cm}
+	\begin{align}
+		\text{#1} #2
+	\end{align}
+	\par
+	\vspace{-0.10cm}
+}
+\newcommand{\insertequationaligncaptioned}[3][]{ % Insertar una ecuación (align) con leyenda
+	\vspace{-0.1cm}
+	\begin{align}
+		\text{#1} #2
+	\end{align}
 	\begin{center}
 		\vspace{-0.15cm}
 		\textit{#3} \par
@@ -448,7 +489,7 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX informe v2.2.5}}
+	pdfproducer={Template LaTeX informe v2.2.6}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
