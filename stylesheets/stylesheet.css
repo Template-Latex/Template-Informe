@@ -390,3 +390,20 @@ a:hover {
         font-size: 0.9rem;
     }
 }
+
+a#aimg, a:hover#aimg, .page-header#aimg {
+    background: #fff;
+    border: none;
+    color: #fff;
+    font: normal;
+    height: auto;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    text-transform: normal;
+    visibility: visible;
+    width: auto;
+    word-spacing: normal;
+    z-index: auto;
+}
