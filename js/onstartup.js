@@ -109,7 +109,7 @@ $(function() {
             if (target.length) {
                 $('html, body').animate({
                     scrollTop: target.offset().top
-                }, 1200);
+                }, 1000);
                 return false;
             }
         }

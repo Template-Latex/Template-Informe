@@ -146,9 +146,9 @@
 			en la sección <em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> (línea 21)<i id="linea-informacion-documento"></i> del archivo principal,
 			luego <a href="tabla-integrantes">editar la tabla</a> de datos de la portada en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em>
 			<i id="linea-integrantes"></i>(línea 39) y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección
-			<em class="section-template">INICIO DEL DOCUMENTO</em> <i id="linea-inicio"></i> (al final del archivo
-			<i><a href="https://github.com/ppizarror/Template-Informe/blob/master/informe.tex">informe.tex</a></i>, en la línea 608) o en la sección del abstract-resumen
-			<em class="section-template">RESUMEN O ABSTRACT</em> (línea 570).
+			del abstract-resumen <em class="section-template">RESUMEN O ABSTRACT</em> (línea 570) o en la <b>sección principal</b> del documento
+			<em class="section-template">INICIO DEL DOCUMENTO</em> <i id="linea-inicio"></i> al final del archivo
+			<i><a href="https://github.com/ppizarror/Template-Informe/blob/master/informe.tex">informe.tex</a></i>, en la línea 608.
 		</p>
 		<p align="center">
 			<img src="images/informe_data.png" alt="Informe" width="90%px" height="90%px">
@@ -166,7 +166,8 @@
 		</h2>
 		<p>Para modificar el documento (Título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de
 			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> al principio del documento, estas son del estilo
-			<em>\newcommand</em>{<strong>\nombreVariable</strong>}{<strong>Valor</strong>}, entre las cuales se encuentran:
+			<em>\newcommand</em>{<strong>\nombreVariable</strong>}{<strong>Valor</strong>}, si por ejemplo tu informe no tiene un tema, debes dejar el valor
+			en blanco, pero <b> no eliminar la variable</b>.
 		</p>
 		<ul>
 			<li>
@@ -387,6 +388,24 @@
 						</blockquote>
 					</li>
 					<li>
+						<strong>\insertequationgathered</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el ambiente <b>gather</b> el cual permite insertar nuevas lineas, y ajusta un alineado especial con respecto al ambiente <b>equation</b>.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\insertequationgathered</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b><span class="pl-c1">\Delta</span> = <span class="pl-c1">\begin</span>{bmatrix}y&x\\z&w<span class="pl-c1">\end</span>{bmatrix}<span class="pl-c1">\cdot</span> f(x)<b>}</b></pre>
+							</div>
+							<p><img src="examples/insertequationgathered.png" align="center"></p>
+						</blockquote>
+					</li>
+					<li>
+						<strong>\insertequationalign</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el ambiente <b>align</b> el cual permite insertar nuevas lineas, y ajusta un alineado especial con respecto al ambiente <b>equation</b> mediante los <b>=</b> de cada fórmula.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\insertequationalign</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b>F(<span class="pl-c1">\vec</span>{f},y, y') = <span class="pl-c1">\widehat</span>{<<span class="pl-c1">\vec</span>{f},y>} <span class="pl-c1">\times</span> y'<b>}</b></pre>
+							</div>
+							<p><img src="examples/insertequationalign.png" align="center"></p>
+						</blockquote>
+					</li>
+					<li>
 						<strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.
 						<blockquote>
 							<div class="highlight highlight-text-tex">
@@ -394,6 +413,12 @@
 							</div>
 							<p><img src="examples/titleformula.png" align="center"></p>
 						</blockquote>
+					</li>
+					<li style="margin-bottom: 10px">
+						<strong>\insertequationgatheredcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el ambiente <b>gather</b>.
+					</li>
+					<li>
+						<strong>\insertequationaligncaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el ambiente <b>align</b>.
 					</li>
 				</ul>
 			</li>
