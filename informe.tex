@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.2.7 (05/11/2016)
+% Versión:      2.2.8 (20/11/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -8,7 +8,7 @@
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
 % Licencia: CC BY-NC-SA 4.0 [http://creativecommons.org/licenses/by-nc-sa/4.0/]
-% Sitio web del proyecto: http://ppizarror.com/Template-Informe/
+% Sitio web del proyecto:   [http://ppizarror.com/Template-Informe/]
 
 % CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
 \documentclass[letterpaper,11pt]{article}  % Articulo tamaño carta, fuente de 11pt
@@ -107,17 +107,18 @@
 \newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. de figuras flotantes [pt]
 \newcommand{\defaultmargintopimages}{0.0cm}       % Margen sup. de las figuras [cm]
 \newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inf. de las figuras [cm]
-\newcommand{\nombrepaginaportada}{P}              % Identificador de la primera página (portada)
+\newcommand{\nombrepaginaportada}{P}              % Etiqueta de la primera página (portada)
 
 % CONFIGURACIONES BOOLEANAS (TRUE, FALSE)
-\newcommand{\showborderonlinks}{false}            % Muestra un recuadro en cada enlace del documento
-\newcommand{\showfooter}{true}                    % Muestra el footer (nombre informe y curso)
-\newcommand{\showheadertitle}{true}               % Muestra el título de la sección en el header
-\newcommand{\showindexofcontents}{true}           % Muestra la lista de contenidos
-\newcommand{\showindexoffigures}{true}            % Muestra la lista de figuras en el índice
-\newcommand{\showindexofsourcecode}{false}        % Muestra la lista de códigos fuente
-\newcommand{\showindexoftables}{true}             % Muestra la lista de tablas en el índice
-\newcommand{\twocolumnreferences}{true}           % Referencias en dos columnas
+\newcommand{\codigocursoenportada}{false}   % Muestra el código del curso en la portada
+\newcommand{\showborderonlinks}{false}      % Muestra un recuadro en cada enlace del documento
+\newcommand{\showfooter}{true}              % Muestra el footer (nombre informe y curso)
+\newcommand{\showheadertitle}{true}         % Muestra el título de la sección en el header
+\newcommand{\showindexofcontents}{true}     % Muestra la lista de contenidos
+\newcommand{\showindexoffigures}{true}      % Muestra la lista de figuras en el índice
+\newcommand{\showindexofsourcecode}{false}  % Muestra la lista de códigos fuente
+\newcommand{\showindexoftables}{true}       % Muestra la lista de tablas en el índice
+\newcommand{\twocolumnreferences}{true}     % Referencias en dos columnas
 
 
 % LIBRERÍAS INDEPENDIENTES
@@ -130,7 +131,7 @@
 \usepackage{caption}                    % Leyendas
 \usepackage{color}                      % Colores
 \usepackage{datetime}                   % Fechas
-\usepackage[inline]{enumitem}           % Permite enumerar ítemes
+\usepackage[inline]{enumitem}           % Permite enumerar ítems
 \usepackage[bottom, norule]{footmisc}   % Estilo pié de página
 \usepackage{fancyhdr}                   % Encabezados y pié de páginas
 \usepackage{float}                      % Administrador de posiciones de objetos
@@ -164,7 +165,7 @@
 \ifthenelse{\equal{\showborderonlinks}{true}}{
 	\usepackage{hyperref}               % Permite añadir enlaces y referencias
 }{
-	\usepackage[hidelinks]{hyperref}    % Permite añadir enlaces y referencias (sin recuadro rojo)
+	\usepackage[hidelinks]{hyperref}    % Links sin recuadro rojo
 }
 
 
@@ -343,7 +344,6 @@
 	\vspace{\defaultmarginbottomimages}
 }
 \newcommand{\insertdoubleimage}[8][]{     % Insertar una imagen doble
-	\captionsetup{margin=0.5cm}
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H] \centering
 		\subfloat[#4]{
@@ -353,7 +353,6 @@
 		\caption{#8 #1}
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
-	\setcaptionmargincm{\defaultcaptionmargin}
 }
 \newcommand{\insertimageleft}[5][]{       % Insertar una imagen a la izquierda
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
@@ -489,7 +488,7 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX informe v2.2.7}}
+	pdfproducer={Template LaTeX informe v2.2.8}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
@@ -510,7 +509,7 @@
 		\widowpenalty 4000
 		\sfcode`\.\@m}
 		{\def\@noitemerr
-			{\@latex@warning{Empty `thebibliography' environment}}
+			{\@latex@warning{Ambiente `thebibliography' no definido}}
 			\endlist\end{multicols}
 		}}{}
 \makeatother
@@ -526,14 +525,27 @@
 \fancyhf{}
 \fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
 \fancyhead[R]{\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}}
-\vspace*{5cm}
-\begin{center}
-	\huge  {\nombredelcurso} \\
-	\vspace{1cm}
-	\Huge {\nombredelinforme} \\
-	\vspace{0.3cm}
-	\large {\temaatratar}
-\end{center}
+\ifthenelse{\equal{\codigocursoenportada}{true}}{
+	\vspace*{3cm}
+	\begin{center}
+		\huge  {\nombredelcurso} \\
+		\vspace{0.3cm}
+		\large  {Código del curso: \codigodelcurso} \\
+		\vspace{1.5cm}
+		\Huge {\nombredelinforme} \\
+		\vspace{0.3cm}
+		\large {\temaatratar}
+	\end{center}
+}{
+	\vspace*{5cm}
+	\begin{center}
+		\huge  {\nombredelcurso} \\
+		\vspace{1cm}
+		\Huge {\nombredelinforme} \\
+		\vspace{0.3cm}
+		\large {\temaatratar}
+	\end{center}
+}
 \vfill
 \tablaintegrantes
 
@@ -567,29 +579,21 @@
 \renewcommand{\footrulewidth}{0.5pt}                 % Ancho de la barra del footer
 
 
-% ================================= RESUMEN O ABSTRACT =================================
+% ================================== RESUMEN O ABSTRACT =================================
 \newtitleanumheadless{Resumen}
 
 \lipsum[1] \newp \lipsum[3]   % Ejemplo de dos párrafos en latín, esta linea puede borrarse
 
 
-% INDICE - TABLA DE CONTENIDOS
+% TABLA DE CONTENIDOS - ÍNDICE
 \newpage
 \sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}
 \subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}
 \subsubsectionfont{\tipofuentesubsubtituloi \etipofuentesubsubtituloi \selectfont}
-\ifthenelse{\equal{\showindexofcontents}{true}}{
-	\tableofcontents          % Tabla de contenidos
-}{}
-\ifthenelse{\equal{\showindexoffigures}{true}}{
-	\listoffigures            % Índice de figuras
-}{}
-\ifthenelse{\equal{\showindexoftables}{true}}{
-	\listoftables             % Índice de tablas
-}{}
-\ifthenelse{\equal{\showindexofsourcecode}{true}}{
-	\lstlistoflistings        % Lista de códigos fuente
-}{}
+\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}     % Tabla de contenidos
+\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}        % Índice de figuras
+\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}          % Índice de tablas
+\ifthenelse{\equal{\showindexofsourcecode}{true}}{\lstlistoflistings}{} % Lista de códigos fuente
 
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
