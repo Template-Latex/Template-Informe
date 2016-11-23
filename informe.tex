@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.2.9 (20/11/2016)
+% Versión:      2.3.0 (20/11/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -110,15 +110,15 @@
 \newcommand{\nombrepaginaportada}{P}              % Etiqueta de la primera página (portada)
 
 % CONFIGURACIONES BOOLEANAS (TRUE, FALSE)
-\newcommand{\codigocursoenportada}{false}   % Muestra el código del curso en la portada
-\newcommand{\showborderonlinks}{false}      % Muestra un recuadro en cada enlace del documento
-\newcommand{\showfooter}{true}              % Muestra el footer (nombre informe y curso)
-\newcommand{\showheadertitle}{true}         % Muestra el título de la sección en el header
-\newcommand{\showindexofcontents}{true}     % Muestra la lista de contenidos
-\newcommand{\showindexoffigures}{true}      % Muestra la lista de figuras en el índice
-\newcommand{\showindexofsourcecode}{false}  % Muestra la lista de códigos fuente
-\newcommand{\showindexoftables}{true}       % Muestra la lista de tablas en el índice
-\newcommand{\twocolumnreferences}{true}     % Referencias en dos columnas
+\newcommand{\codigocursoenportada}{false}  % Muestra el código del curso en la portada
+\newcommand{\showborderonlinks}{false}     % Muestra un recuadro en cada enlace del documento
+\newcommand{\showfooter}{true}             % Muestra el footer (nombre informe y curso)
+\newcommand{\showheadertitle}{true}        % Muestra el título de la sección en el header
+\newcommand{\showindexofcontents}{true}    % Muestra la lista de contenidos
+\newcommand{\showindexoffigures}{true}     % Muestra la lista de figuras en el índice
+\newcommand{\showindexofsourcecode}{false} % Muestra la lista de códigos fuente
+\newcommand{\showindexoftables}{true}      % Muestra la lista de tablas en el índice
+\newcommand{\twocolumnreferences}{true}    % Referencias en dos columnas
 
 
 % LIBRERÍAS INDEPENDIENTES
@@ -172,6 +172,8 @@
 % DECLARACIÓN DE FUNCIONES
 \newcommand{\quotes}[1]{``#1''}           % Insertar cita
 \newcommand{\quotesit}[1]{\textit{\quotes{#1}}} % Insertar cita en itálico
+\newcommand{\newemptypage}{               % Crea una página vacía
+\newpage\null\thispagestyle{empty}\newpage}
 \newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}} % Cambiar el margen
 \newcommand{\setpagemargincm}[4]{         % Cambia márgenes de las páginas [cm]
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
@@ -202,7 +204,7 @@
 	\overbracket{#1}^{\mathclap{#2}}}
 \newcommand{\undersequal}[2]{             % Rectángulo inferior de equivalencia
 	\underbracket{#1}_{\mathclap{#2}}}
-\newcommand{\resizeitem}[2]{              % Crea un resizebox de tamaño en relación a textwidth
+\newcommand{\resizeitem}[2]{              % Crea un resizebox de tamaño textwidth
 	\resizebox{#1\textwidth}{!}{#2}
 }
 \newcommand{\newtitleanum}[1]{            % Insertar un título sin número
@@ -212,7 +214,7 @@
 		\fancyhead[L]{\nouppercase{#1}}}{}
 	\stepcounter{section}
 }
-\newcommand{\newtitleanumheadless}[1]{    % Insertar un título sin número sin cambiar el header
+\newcommand{\newtitleanumheadless}[1]{    % Insertar un título sin número sin alterar el header
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
 	\stepcounter{section}
@@ -489,7 +491,7 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX informe v2.2.9}}
+	pdfproducer={Template LaTeX informe v2.3.0}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
