@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.3.0 (20/11/2016)
+% Versión:      2.3.0 (24/11/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -173,7 +173,8 @@
 \newcommand{\quotes}[1]{``#1''}           % Insertar cita
 \newcommand{\quotesit}[1]{\textit{\quotes{#1}}} % Insertar cita en itálico
 \newcommand{\newemptypage}{               % Crea una página vacía
-\newpage\null\thispagestyle{empty}\newpage}
+\newpage\null\thispagestyle{empty}\newpage
+\addtocounter{page}{-1}}
 \newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}} % Cambiar el margen
 \newcommand{\setpagemargincm}[4]{         % Cambia márgenes de las páginas [cm]
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}
@@ -353,9 +354,10 @@
 			\includegraphics[#3]{\defaultimagefolder#2}}
 		\subfloat[#7]{
 			\includegraphics[#6]{\defaultimagefolder#5}}
-		\vspace{\defaultmarginbottomimages}
+		\setcaptionmargincm{\defaultcaptionmargin}
 		\caption{#8 #1}
 	\end{figure}
+	\vspace{\defaultmarginbottomimages}
 }
 \newcommand{\insertimageleft}[5][]{       % Insertar una imagen a la izquierda
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
