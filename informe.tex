@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.3.0 (24/11/2016)
+% Versión:      2.3.1 (26/11/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -118,7 +118,7 @@
 \newcommand{\showindexoffigures}{true}     % Muestra la lista de figuras en el índice
 \newcommand{\showindexofsourcecode}{false} % Muestra la lista de códigos fuente
 \newcommand{\showindexoftables}{true}      % Muestra la lista de tablas en el índice
-\newcommand{\twocolumnreferences}{true}    % Referencias en dos columnas
+\newcommand{\twocolumnreferences}{false}   % Referencias en dos columnas
 
 
 % LIBRERÍAS INDEPENDIENTES
@@ -126,6 +126,7 @@
 \usepackage{amssymb}                    % Símbolos matemáticos
 \usepackage{amsthm}                     % Teoremas matemáticos
 \usepackage{array}                      % Añade nuevas características a las tablas
+\usepackage{bigstrut}                   % Lineas horizontales en tablas
 \usepackage{booktabs}                   % Permite manejar elementos visuales en tablas
 \usepackage[makeroom]{cancel}           % Cancelar términos en fórmulas
 \usepackage{caption}                    % Leyendas
@@ -493,7 +494,7 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX informe v2.3.0}}
+	pdfproducer={Template LaTeX informe v2.3.1}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
