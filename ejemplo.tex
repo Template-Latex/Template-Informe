@@ -7,8 +7,8 @@
 %        Universidad de Chile.
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Licencia: CC BY-NC-SA 4.0 [http://creativecommons.org/licenses/by-nc-sa/4.0/]
 % Sitio web del proyecto:   [http://ppizarror.com/Template-Informe/]
+% Licencia: CC BY-NC-SA 4.0 [http://creativecommons.org/licenses/by-nc-sa/4.0/]
 
 % NUEVA SECCIÓN
 % Las secciones se inician con \section, si se quiere una sección sin "número" se pueden usar las funciones \newtitleanum (nuevo titulo sin numeración) o la función \newtitleanumnoi para crear el mismo título sin numerar pero sin aparecer en el índice.
@@ -39,7 +39,7 @@
 		\newparnl{También puedes usar tablas, insertarlas es muy fácil, puedes usar directamente el \quotes{conversor de tablas} \textsuperscript{\cite{conversortabla}}, ahí puedes convertir en un solo clic tablas Excel, o crearlas tú mismo sin tener que hacer todo el aburridísimo código.}
 		
 		\begin{longtable}{ccc}
-			\caption{Esta es una tabla que se \quotes{corta} en varias páginas si es que le falta espacio.}\label{foo}\\
+			\caption{Esta es una tabla que se \quotes{corta} en varias páginas si es que le falta espacio.}\label{tabl:foo}\\
 			\hline
 			Columna 1 & Columna 2 & Columna 3\\\hline
 			\endfirsthead
@@ -68,14 +68,14 @@
 	\subsection{Haciendo informes como un profesional}
 	
 		% Se inserta una imagen fija en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, un título y por último el número de líneas que 'cortará' hacia abajo. Para insertar una imagen fija en la derecha se utiliza \insertimageright usando los mismos parámetros.
-		\insertimageleft[\label{imagen-izquierda}]{ejemplos/test-image-wrap}{0.185}{Apolo}{11}
+		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.185}{Apolo}{11}
 	
 		Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos.
 		
 		% Se inserta un nuevo párrafo de modo inteligente, evita errores de hbox, crea un nuevo par e espacia de manera fija
 		\newp \lipsum[2]
 		
-		\insertequationcaptioned[\label{formulasinsentido}]{\int_{a}^{b} f(x) dx = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
+		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) dx = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
 		
 		\begin{wrapfigure}[15]{r}{0.4\textwidth}
 			\setcaptionmargincm{0}
@@ -107,7 +107,7 @@
 		\newp \lipsum[2]
 		
 		% Se inserta una ecuación larga
-		\insertequationalign[\label{eqn-larga}]{\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}+ \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}
+		\insertequationalign[\label{eqn:eqn-larga}]{\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}+ \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}
 		
 		% Se inserta un multicols, con esto se pueden escribir en varias columnas
 		\begin{multicols}{2}
