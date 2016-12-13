@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.3.1 (26/11/2016)
+% Versión:      2.3.2 (13/12/2016)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -131,6 +131,7 @@
 \usepackage[makeroom]{cancel}           % Cancelar términos en fórmulas
 \usepackage{caption}                    % Leyendas
 \usepackage{color}                      % Colores
+\usepackage{colortbl}                   % Administración de color en tablas
 \usepackage{datetime}                   % Fechas
 \usepackage[inline]{enumitem}           % Permite enumerar ítems
 \usepackage[bottom, norule]{footmisc}   % Estilo pié de página
@@ -147,11 +148,12 @@
 \usepackage{lipsum}                     % Permite crear textos dummy
 \usepackage{longtable}                  % Permite utilizar tablas en varias hojas
 \usepackage{listings}                   % Permite añadir código fuente
+\usepackage{rotating}                   % Permite rotación de objetos
 \usepackage{sectsty}                    % Cambia el estilo de los títulos
 \usepackage{selinput}                   % Compatibilidad con acentos
 \usepackage{setspace}                   % Cambia el espacio entre líneas
 \usepackage{subfig}                     % Permite agrupar imágenes
-\usepackage{tikz}                       % Permite dibujar 
+\usepackage{tikz}                       % Permite dibujar
 \usepackage{ulem}                       % Permite tachar, subrayar, etc
 \usepackage{url}                        % Permite añadir enlaces
 \usepackage{wasysym}                    % Contiene caracteres misceláneos
@@ -353,6 +355,7 @@
 	\begin{figure}[H] \centering
 		\subfloat[#4]{
 			\includegraphics[#3]{\defaultimagefolder#2}}
+		\hspace{0.2cm}
 		\subfloat[#7]{
 			\includegraphics[#6]{\defaultimagefolder#5}}
 		\setcaptionmargincm{\defaultcaptionmargin}
@@ -494,7 +497,7 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX informe v2.3.1}}
+	pdfproducer={Template LaTeX informe v2.3.2}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
