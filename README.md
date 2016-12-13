@@ -1,5 +1,5 @@
 ﻿## Template de informe en latex
-Este corresponde a un template para confeccionar [geniales informes en latex](https://github.com/ppizarror/Template-Informe/blob/master/Informe.pdf), contiene funciones básicas para agregar imágenes, fórmulas, etc.
+Este corresponde a un template para confeccionar [geniales informes en latex](https://github.com/ppizarror/Template-Informe/blob/master/Informe.pdf), contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
 
 <p align="center">
   <img src="http://ppizarror.com/Template-Informe/images/informe_data.png" alt="Informe" width="80%px" height="80%px"/>
