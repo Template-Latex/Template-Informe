@@ -89,7 +89,7 @@ a:hover {
 .page-header {
     color: #fff;
     text-align: center;
-    background: #161415 url(../images/background4.jpg) no-repeat center;
+    background: #161415 url(../images/background6.jpg) no-repeat top;
     background-attachment: fixed;
     /* transform: translateZ(1px) scale(1.0); */
     -webkit-background-size: cover !important;
