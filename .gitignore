@@ -8,6 +8,8 @@
 *.toc
 *.log
 *.lol
+*.bbl
+*.blg
 
 # Releases.
 .releases/*
