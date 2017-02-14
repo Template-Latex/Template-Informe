@@ -72,7 +72,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
 
     // Se obtiene el what's new
     var whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
-    var whats_new_versions = 7;
+    var whats_new_versions = 10;
     try {
         var new_version_entry = "";
         for (i = 0; i < whats_new_versions; i++) {
