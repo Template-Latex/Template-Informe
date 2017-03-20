@@ -11,6 +11,6 @@ Este corresponde a un template para confeccionar [geniales informes en latex](ht
 El manual de uso se encuentra disponible en su página web: <a href="http://ppizarror.com/Template-Informe/">Template-Informe</a>.
 
 ## Autor
-Pablo Pizarro, 2016.
+Pablo Pizarro, 2016-2017.
 
 Si tienes alguna sugerencia envíame un correo a: [pablo.pizarro@ing.uchile.cl](mailto:pablo.pizarro@ing.uchile.cl), o sencillamente ten la libertad de enviar un _pull request_.
