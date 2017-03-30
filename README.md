@@ -7,8 +7,10 @@ Este corresponde a un template para confeccionar [geniales informes en latex](ht
 </p>
 
 ## Manual de uso
-
 El manual de uso se encuentra disponible en su página web: <a href="http://ppizarror.com/Template-Informe/">Template-Informe</a>.
+
+## Licencia
+Este proyecto está licenciado bajo GPLv2 (GNU General Public License, version 2) [https://www.gnu.org/licenses/gpl-2.0.html].
 
 ## Autor
 Pablo Pizarro, 2016-2017.
