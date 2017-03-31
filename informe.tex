@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.3.9 (31/03/2017)
+% Versión:      2.4.0 (31/03/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -449,6 +449,53 @@
 	\setcaptionmargincm{\defaultcaptionmargin}
 	\vspace{\defaultmarginbottomimages}
 }
+\newcommand{\insertquadimage}[7][]{
+	% Insertar una imagen cuádruple
+	\vspace{\defaultmargintopimages}
+	\captionsetup{margin=0.45cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#6]{\defaultimagefolder#2}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#6]{\defaultimagefolder#3}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#6]{\defaultimagefolder#4}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#6]{\defaultimagefolder#5}}
+		\setcaptionmargincm{\defaultcaptionmargin}
+		\caption{#7 #1}
+	\end{figure}
+	\setcaptionmargincm{\defaultcaptionmargin}
+	\vspace{\defaultmarginbottomimages}
+}
+\newcommand{\insertpentaimage}[8][]{
+	% Insertar una imagen quíntuple
+	\vspace{\defaultmargintopimages}
+	\captionsetup{margin=0.45cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#7]{\defaultimagefolder#2}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{\defaultimagefolder#3}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{\defaultimagefolder#4}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{\defaultimagefolder#5}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{\defaultimagefolder#6}}
+		\setcaptionmargincm{\defaultcaptionmargin}
+		\caption{#8 #1}
+	\end{figure}
+	\setcaptionmargincm{\defaultcaptionmargin}
+	\vspace{\defaultmarginbottomimages}
+}
 \newcommand{\insertimageleft}[5][]{
 	% Insertar una imagen a la izquierda
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
@@ -596,7 +643,7 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX informe v2.3.9}}
+	pdfproducer={Template LaTeX informe v2.4.0}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \setcaptionmargincm{\defaultcaptionmargin}         % Margen por defecto
 \makeatletter
@@ -634,7 +681,9 @@
 {\defaultpagemarginright}{\defaultpagemarginbottom}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
+\fancyhead[L]{
+	\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad
+}
 \fancyhead[R]{
 	\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}
 }
