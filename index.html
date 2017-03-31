@@ -147,9 +147,9 @@
 			en la sección <em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> (línea 21)<i id="linea-informacion-documento"></i> del archivo principal,
 			luego <a href="tabla-integrantes">editar la tabla</a> de datos de la portada en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em>
 			<i id="linea-integrantes"></i>(línea 39) y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección
-			del abstract-resumen <em class="section-template">RESUMEN O ABSTRACT</em> (línea 646) o en la <b>sección principal</b> del documento
+			del abstract-resumen <em class="section-template">RESUMEN O ABSTRACT</em> (línea 751) o en la <b>sección principal</b> del documento
 			<em class="section-template">INICIO DEL DOCUMENTO</em> <i id="linea-inicio"></i> al final del archivo
-			<i><a href="https://github.com/ppizarror/Template-Informe/blob/master/informe.tex">informe.tex</a></i>, en la línea 677.
+			<i><a href="https://github.com/ppizarror/Template-Informe/blob/master/informe.tex">informe.tex</a></i>, en la línea 783.
 		</p>
 		<p align="center">
 			<img src="images/informe_data.png" alt="Informe" width="90%px" height="90%px">
@@ -366,6 +366,24 @@
 						<blockquote>
 							<div class="highlight highlight-text-tex">
 								<pre><span class="pl-e">\inserttripleimage</span><b>[</b><span class="pl-c1">\label</span>{img-triple-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b><span class="pl-v">scale</span>=0.4<b>}</b><b>{</b>ejemplos/test-<span class="newline_br"></span>image-2.png<b>}</b><b>{</b><span class="pl-v">height</span>=6cm<b>}</b><b>{</b>ejemplos/test-image-3.pdf<b>}</b><b>{</b><span class="pl-v">width</span>=3cm<b>}</b><b>{</b>Descripción general<b>}</b></pre>
+							</div>
+						</blockquote>
+					</li>
+					<li>
+						<strong>\insertquadimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+						Inserta cuatro imágenes en un sólo elemento.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\insertquadimage</span><b>[</b><span class="pl-c1">\label</span>{img-quad-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b><span class="pl-v">width</span>=6cm<b>}</b><b>{</b>Descripción general<b>}</b></pre>
+							</div>
+						</blockquote>
+					</li>
+					<li>
+						<strong>\insertpentaimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Dirección de la imagen 5</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+						Inserta cinco imágenes en un sólo elemento.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\insertpentaimage</span><b>[</b><span class="pl-c1">\label</span>{img-penta-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b>ejemplos/test-image-5.jpg<b>}</b><b>{</b><span class="pl-v">scale</span>=0.7<b>}</b><span class="newline_br"></span><b>{</b>Descripción general<b>}</b></pre>
 							</div>
 						</blockquote>
 					</li>
