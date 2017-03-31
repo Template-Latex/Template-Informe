@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.3.7 (31/03/2017)
+% Versión:      2.3.8 (31/03/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -39,36 +39,36 @@
 % INTEGRANTES, PROFESORES Y FECHAS
 \newcommand{\tablaintegrantes}{
 \begin{minipage}{1.0\textwidth}
-	\begin{flushright}
-		\begin{tabular}{ll}
-		Integrantes:
-			& \begin{tabular}[t]{@{}l@{}}
-				Integrante 1 \\
-				Integrante 2 \\
-				Integrante 3
-			\end{tabular} \\
-		Profesores:
-			& \begin{tabular}[t]{@{}l@{}}
-				Profesor 1 \\
-				Profesor 2
-			\end{tabular} \\
-		Auxiliares:
-			& \begin{tabular}[t]{@{}l@{}}
-				Auxiliar 1 \\
-				Auxiliar 2
-			\end{tabular}\\
-		Ayudantes:
-			& \begin{tabular}[t]{@{}l@{}}
-				Ayudante 1 \\
-				Ayudante 2
-			\end{tabular}\\
-		\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante} \\
-		& \\
-		\multicolumn{2}{l}{Fecha de realización: \fecharealizacion} \\
-		\multicolumn{2}{l}{Fecha de entrega: \fechaentrega} \\
-		\multicolumn{2}{l}{\localizacionuniversidad}
-		\end{tabular}
-	\end{flushright}
+\begin{flushright}
+\begin{tabular}{ll}
+	Integrantes:
+		& \begin{tabular}[t]{@{}l@{}}
+			Integrante 1 \\
+			Integrante 2 \\
+			Integrante 3
+		\end{tabular} \\
+	Profesores:
+		& \begin{tabular}[t]{@{}l@{}}
+			Profesor 1 \\
+			Profesor 2
+		\end{tabular} \\
+	Auxiliares:
+		& \begin{tabular}[t]{@{}l@{}}
+			Auxiliar 1 \\
+			Auxiliar 2
+		\end{tabular}\\
+	Ayudantes:
+		& \begin{tabular}[t]{@{}l@{}}
+			Ayudante 1 \\
+			Ayudante 2
+		\end{tabular}\\
+	\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante} \\
+	& \\
+	\multicolumn{2}{l}{Fecha de realización: \fecharealizacion} \\
+	\multicolumn{2}{l}{Fecha de entrega: \fechaentrega} \\
+	\multicolumn{2}{l}{\localizacionuniversidad}
+\end{tabular}
+\end{flushright}
 \end{minipage}}
 
 
@@ -304,7 +304,7 @@
 	\stepcounter{subsection}
 }
 \newcommand{\newsubsubtitleanumnoi}[1]{
-	% Insertar un sub-subtítulo sin num. sin indexar
+	% Insertar un sub-subtítulo sin número sin indexar
 	\addcontentsline{toc}{subsubsection}{#1}
 	\subsubsection*{#1}
 	\stepcounter{subsubsection}
@@ -492,9 +492,9 @@
 	% Estilo de lenguaje C
 	language=C,
   	numbers=left,
-  	stepnumber=1,        
+  	stepnumber=1,
   	numbersep=5pt,
-  	backgroundcolor=\color{white}, 
+  	backgroundcolor=\color{white},
   	showspaces=false,
   	showstringspaces=false,
   	showtabs=false,
@@ -545,21 +545,21 @@
 \lstdefinestyle{Python}{
 	% Estilo de lenguaje Python
 	language=Python,
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=3,
     basicstyle={\small\ttfamily}
 }
@@ -581,15 +581,14 @@
 
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
-\decimalpoint                              % Se define el punto decimal
-\counterwithin{equation}{section}          % Añade número de sección a las ecuaciones
-\counterwithin{figure}{section}            % Añade número de sección a las figuras
-\counterwithin{table}{section}             % Añade número de sección a las tablas
-\bibliographystyle{\tiporeferencias}       % Estilo APA para las referencias
-\setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
-\setlength{\headheight}{64pt}              % Tamaño de la cabecera sin fancyhdr
-\setcounter{tocdepth}{\indexdepth}         % Se ajusta la profundidad del índice
-\setcounter{MaxMatrixCols}{20}             % Número máximo de columnas en matrices
+\decimalpoint                          % Se define el punto decimal
+\counterwithin{equation}{section}      % Añade número de sección a las ecuaciones
+\counterwithin{figure}{section}        % Añade número de sección a las figuras
+\counterwithin{table}{section}         % Añade número de sección a las tablas
+\bibliographystyle{\tiporeferencias}   % Estilo APA para las referencias
+\setlength{\headheight}{64pt}          % Tamaño de la cabecera sin fancyhdr
+\setcounter{tocdepth}{\indexdepth}     % Se ajusta la profundidad del índice
+\setcounter{MaxMatrixCols}{20}         % Número máximo de columnas en matrices
 \hypersetup{
 	pdfauthor={\autordeldocumento},
 	pdftitle={\nombredelinforme},
@@ -597,8 +596,9 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX informe v2.3.6}}
+	pdfproducer={Template LaTeX informe v2.3.8}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
+\setcaptionmargincm{\defaultcaptionmargin}         % Margen por defecto
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
 	% Bibliografía en 2 columnas
@@ -699,7 +699,7 @@
 }
 
 
-% ================================== RESUMEN O ABSTRACT =================================
+% =============================== RESUMEN O ABSTRACT ==============================
 \newtitleanumheadless{Resumen}
 
 % Ejemplo de dos párrafos en latín, esta linea puede borrarse
@@ -711,16 +711,17 @@
 \sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}
 \subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}
 \subsubsectionfont{\tipofuentesubsubtituloi \etipofuentesubsubtituloi \selectfont}
-\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}     % Tabla de contenidos
-\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}        % Índice de figuras
-\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}          % Índice de tablas
-\ifthenelse{\equal{\showindexofsourcecode}{true}}{\lstlistoflistings}{} % Lista de códigos fuente
+\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}     % Contenido
+\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}        % Figuras
+\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}          % Tablas
+\ifthenelse{\equal{\showindexofsourcecode}{true}}{\lstlistoflistings}{} % Código
 
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
-\ifthenelse{\equal{\showheadertitle}{true}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{}
+\ifthenelse{
+	\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\leftmark}}
+}{}
 \sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
 \subsectionfont{\tipofuentesubtitulo \etipofuentesubtitulo \selectfont}
 \subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}
@@ -730,9 +731,9 @@
 \setcounter{footnote}{0}
 
 
-% ================================ INICIO DEL DOCUMENTO ================================
+% ============================== INICIO DEL DOCUMENTO =============================
 
-% SE INCLUYE EL EJEMPLO DEL DOCUMENTO, ESTA LÍNEA PUEDE BORRARSE SIN PROBLEMA
+% Se incluye el ejemplo del documento, esta línea puede borrarse sin problema
 \include{ejemplo}
 
 
