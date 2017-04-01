@@ -1,0 +1,109 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Archivo principal
+% Versión:      3.0.0 (01/04/17)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas.
+%        Universidad de Chile.
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
+% Licencia: MIT           [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
+\documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, fuente 11
+\usepackage[utf8]{inputenc}               % Codificación UTF-8
+\usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
+\usepackage{lmodern}                      % Tipografía moderna
+\usepackage[spanish]{babel}               % Idioma del documento en español
+\def\templateversion{3.0.0}               % Versión del template
+
+% INFORMACIÓN DEL DOCUMENTO
+\newcommand{\nombredelinforme}{Título del informe}
+\newcommand{\temaatratar}{Tema a tratar}
+\newcommand{\fecharealizacion}{\today}
+\newcommand{\fechaentrega}{\today}
+
+\newcommand{\autordeldocumento}{Nombre del autor o grupo}
+\newcommand{\nombredelcurso}{Curso}
+\newcommand{\codigodelcurso}{CO-1234}
+
+\newcommand{\nombreuniversidad}{Universidad de Chile}
+\newcommand{\nombrefacultad}{Facultad de Ciencias Físicas y Matemáticas}
+\newcommand{\departamentouniversidad}{Departamento de la Universidad}
+\newcommand{\imagendeldepartamento}{images/departamentos/fcfm}
+\newcommand{\imagendeldepartamentoescl}{0.2}
+\newcommand{\localizacionuniversidad}{Santiago, Chile}
+
+% INTEGRANTES, PROFESORES Y FECHAS
+\newcommand{\tablaintegrantes}{
+\begin{minipage}{1.0\textwidth}
+\begin{flushright}
+\begin{tabular}{ll}
+	Integrantes:
+		& \begin{tabular}[t]{@{}l@{}}
+			Integrante 1 \\
+			Integrante 2 \\
+			Integrante 3
+		\end{tabular} \\
+	Profesores:
+		& \begin{tabular}[t]{@{}l@{}}
+			Profesor 1 \\
+			Profesor 2
+		\end{tabular} \\
+	Auxiliares:
+		& \begin{tabular}[t]{@{}l@{}}
+			Auxiliar 1 \\
+			Auxiliar 2
+		\end{tabular}\\
+	Ayudantes:
+		& \begin{tabular}[t]{@{}l@{}}
+			Ayudante 1 \\
+			Ayudante 2
+		\end{tabular}\\
+	\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante} \\
+	& \\
+	\multicolumn{2}{l}{Fecha de realización: \fecharealizacion} \\
+	\multicolumn{2}{l}{Fecha de entrega: \fechaentrega} \\
+	\multicolumn{2}{l}{\localizacionuniversidad}
+\end{tabular}
+\end{flushright}
+\end{minipage}}
+
+% CONFIGURACIONES
+\input{lib/config}
+
+% IMPORTACIÓN DE LIBRERÍAS
+\input{lib/imports}
+
+% IMPORTACIÓN DE FUNCIONES
+\input{lib/functions}
+
+% IMPORTACIÓN DE AMBIENTES Y ESTILOS
+\input{lib/styles}
+
+% CONFIGURACIÓN INICIAL DEL DOCUMENTO
+\input{lib/initconf}
+	
+% PORTADA
+\begin{document}
+\input{lib/portrait}
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\input{lib/pageconf}
+
+% ========================= RESUMEN O ABSTRACT =========================
+\input{abstract} % Se incluye un ejemplo de resumen, se puede borrar
+
+% TABLA DE CONTENIDOS - ÍNDICE
+\input{lib/index}
+
+% CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
+\input{lib/finalconf}
+
+% ======================== INICIO DEL DOCUMENTO ========================
+\input{ejemplo} % Se incluye el ejemplo del documento, se puede borrar
+
+% FIN DEL DOCUMENTO
+\end{document}
