@@ -1,0 +1,24 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Archivo principal
+% Versión:      3.0.0 (01/03/2017)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas.
+%        Universidad de Chile.
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
+% Licencia: MIT           [https://opensource.org/licenses/MIT]
+
+\newpage
+\ifthenelse{
+	\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\leftmark}}
+}{}
+\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
+\subsectionfont{\tipofuentesubtitulo \etipofuentesubtitulo \selectfont}
+\subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+\setcounter{section}{0}
+\setcounter{footnote}{0}

@@ -1,0 +1,55 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Configuración inicial del template
+% Versión:      3.0.0 (01/03/2017)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas.
+%        Universidad de Chile.
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
+% Licencia: MIT           [https://opensource.org/licenses/MIT]
+
+\decimalpoint                        % Se define el punto decimal
+\counterwithin{equation}{section}    % Añade número de sección a las ecuaciones
+\counterwithin{figure}{section}      % Añade número de sección a las figuras
+\counterwithin{table}{section}       % Añade número de sección a las tablas
+\bibliographystyle{\tiporeferencias} % Estilo APA para las referencias
+\setlength{\headheight}{64pt}        % Tamaño de la cabecera sin fancyhdr
+\setcounter{tocdepth}{\indexdepth}   % Se ajusta la profundidad del índice
+\setcounter{MaxMatrixCols}{20}       % Número máximo de columnas en matrices
+\hypersetup{
+	pdfauthor={\autordeldocumento},
+	pdftitle={\nombredelinforme},
+	pdfsubject={\temaatratar},
+	pdfkeywords={\nombreuniversidad, \nombredelcurso,
+	\codigodelcurso, \localizacionuniversidad},
+	pdfcreator={pdfLaTeX, ppizarror},
+	pdfproducer={Template LaTeX informe v\templateversion}}
+\renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
+\setcaptionmargincm{\defaultcaptionmargin}         % Margen por defecto
+\makeatletter
+\ifthenelse{\equal{\twocolumnreferences}{true}}{
+	% Bibliografía en 2 columnas
+	\renewenvironment{thebibliography}[1]
+	{\begin{multicols}{2}[\section*{\refname}]
+		\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
+		\list{\@biblabel{\@arabic\c@enumiv}}
+		{\settowidth\labelwidth{\@biblabel{#1}}
+			\leftmargin\labelwidth
+			\advance\leftmargin\labelsep
+			\@openbib@code
+			\usecounter{enumiv}
+			\let\p@enumiv\@empty
+			\renewcommand\theenumiv{\@arabic\c@enumiv}}
+		\sloppy
+		\clubpenalty 4000
+		\@clubpenalty \clubpenalty
+		\widowpenalty 4000
+		\sfcode`\.\@m}
+		{\def\@noitemerr
+		{\@latex@warning{Ambiente `thebibliography' no definido}}
+		\endlist\end{multicols}}}
+{}
+\makeatother

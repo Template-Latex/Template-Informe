@@ -1,0 +1,46 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Portada
+% Versión:      3.0.0 (01/03/2017)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas.
+%        Universidad de Chile.
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
+% Licencia: MIT           [https://opensource.org/licenses/MIT]
+
+\newpage
+\renewcommand{\thepage}{\nombrepaginaportada}
+\setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}
+{\defaultpagemarginright}{\defaultpagemarginbottom}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{
+\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
+\fancyhead[R]{
+\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}}
+\ifthenelse{\equal{\codigocursoenportada}{true}}{
+	\vspace*{3cm}
+	\begin{center}
+		\huge {\nombredelcurso} \\
+		\vspace{0.3cm}
+		\large {Código del curso: \codigodelcurso} \\
+		\vspace{1.5cm}
+		\Huge {\nombredelinforme} \\
+		\vspace{0.3cm}
+		\large {\temaatratar}
+	\end{center}
+}{
+	\vspace*{5cm}
+	\begin{center}
+		\huge {\nombredelcurso} \\
+		\vspace{1cm}
+		\Huge {\nombredelinforme} \\
+		\vspace{0.3cm}
+		\large {\temaatratar}
+	\end{center}
+}
+\vfill
+\tablaintegrantes
