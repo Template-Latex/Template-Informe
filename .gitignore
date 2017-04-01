@@ -24,3 +24,16 @@ informe
 informe.lot
 informe.synctex
 informe.toc
+
+# Exports
+export/
+
+# Main pdf
+main.pdf
+
+# Archivos python
+*.py
+*.pyc
+
+# PyCharm
+.idea/
