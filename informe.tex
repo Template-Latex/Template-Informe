@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.4.0 (31/03/2017)
+% Versión:      2.4.2 (01/03/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -89,13 +89,13 @@
 \newcommand{\etipofuentesubtituloi}{\bfseries}    % Estilo subtítulos en el índice
 \newcommand{\etipofuentesubsubtituloi}{\bfseries} % Estilo sub-subti. en el índice
 \newcommand{\tiporeferencias}{apa}                % Tipo de referencias
-\newcommand{\nombltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
-\newcommand{\nomblttablas}{Lista de Tablas}       % Nombre de la lista de tablas
-\newcommand{\nombltfiguras}{Lista de Figuras}     % Nombre de la lista de figuras
-\newcommand{\nombltcodfuente}{Lista de Códigos Fuente} % Nombre del código fuente
-\newcommand{\nombltwtablas}{Tabla}                % Nombre de las tablas
-\newcommand{\nombltwfigura}{Figura}               % Nombre de las figuras
-\newcommand{\nombltwcodfuente}{Código Fuente}     % Nombre del código fuente
+\newcommand{\nomltcontend}{Índice de Contenidos} % Nombre del índice de contenidos
+\newcommand{\nomlttablas}{Lista de Tablas}       % Nombre de la lista de tablas
+\newcommand{\nomltfiguras}{Lista de Figuras}     % Nombre de la lista de figuras
+\newcommand{\nomltsrc}{Lista de Códigos Fuente}  % Nombre del código fuente
+\newcommand{\nomltwtablas}{Tabla}                % Nombre de las tablas
+\newcommand{\nomltwfigura}{Figura}               % Nombre de las figuras
+\newcommand{\nomltwcodfuente}{Código Fuente}     % Nombre del código fuente
 \newcommand{\indexdepth}{3}                       % Profundidad del índice
 \newcommand{\tablepadding}{1.1}                   % Padding de las tablas
 \newcommand{\defaultcaptionmargin}{2.9}           % Márgenes de las leyendas [cm]
@@ -643,7 +643,7 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX informe v2.4.0}}
+	pdfproducer={Template LaTeX informe v2.4.2}}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \setcaptionmargincm{\defaultcaptionmargin}         % Margen por defecto
 \makeatletter
@@ -721,13 +721,13 @@
 {\defaultpagemarginright}{\defaultpagemarginbottom}
 \def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header
-\renewcommand{\listfigurename}{\nombltfiguras} % Nombre del índice de figuras
-\renewcommand{\listtablename}{\nomblttablas} % Nombre del índice de tablas
-\renewcommand{\contentsname}{\nombltcontend} % Nombre del índice
-\renewcommand{\lstlistlistingname}{\nombltcodfuente} % Nombre índice código fuente
-\renewcommand{\tablename}{\nombltwtablas} % Nombre de la leyenda de las tablas
-\renewcommand{\figurename}{\nombltwfigura} % Nombre de la leyenda de las figuras
-\renewcommand{\lstlistingname}{\nombltwcodfuente} % Nombre leyenda del código fuente
+\renewcommand{\listfigurename}{\nomltfiguras} % Nombre del índice de figuras
+\renewcommand{\listtablename}{\nomlttablas} % Nombre del índice de tablas
+\renewcommand{\contentsname}{\nomltcontend} % Nombre del índice
+\renewcommand{\lstlistlistingname}{\nomltcodfuente} % Nombre índice código fuente
+\renewcommand{\tablename}{\nomltwtablas} % Nombre de la leyenda de las tablas
+\renewcommand{\figurename}{\nomltwfigura} % Nombre de la leyenda de las figuras
+\renewcommand{\lstlistingname}{\nomltsrc} % Nombre leyenda del código fuente
 \pagestyle{fancy} \fancyhf{} % Se crean los headers y footers
 \ifthenelse{\equal{\showheadertitle}{true}}{ % Header izq, nombre sección
 	\fancyhead[L]{\nouppercase{\rightmark}}
