@@ -31,5 +31,8 @@ _*
 # Ignora proyecto PyCharm
 .idea/
 
+# Ignora archivos compilados de python
+*.pyc
+
 # Ignora el main.pdf
 main.pdf
