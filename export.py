@@ -2,16 +2,21 @@
 """
 Exporta main.tex a informe.tex (template sin archivos externos).
 Cambia versión y fecha a archivos.
+
+Autor: PABLO PIZARRO @ github.com/ppizarror
+Fecha: ABRIL 2017
+Licencia: MIT
 """
 
 # Importación de librerías
 import time
 from subprocess import call
+from ziputility import ZipUtility as Zip
 
 # Constantes
 CODEVERSION = '\def\\templateversion{0}               % Versión del template\n'
 CODEVERSIONPOS = 19
-EXAMPLEFILE = 'ejemplo.tex'
+EXAMPLEFILE = 'example.tex'
 HEADERSIZE = 13
 HEADERVERSIONPOS = 2
 MAINFILE = 'main.tex'
@@ -123,3 +128,19 @@ fl.close()
 
 # Compila el archivo
 call(['pdflatex', MAINFILESINGLE])
+
+# Se exporta el proyecto normal
+export_normal = Zip('export/Template-Informe.zip')
+export_normal.add_file('main.tex')
+export_normal.add_folder('images')
+export_normal.add_folder('lib')
+export_normal.add_file('abstract.tex')
+export_normal.add_file(EXAMPLEFILE)
+export_normal.save()
+
+# Se exporta el proyecto unico
+export_single = Zip('export/Template-Informe-Single.zip')
+export_single.add_file('informe.tex')
+export_single.add_folder('images')
+export_single.add_file(EXAMPLEFILE)
+export_single.save()
