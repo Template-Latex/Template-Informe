@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.4.5 (01/03/2017)
+% Versión:      2.4.6 (01/03/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -16,7 +16,7 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{2.4.5}               % Versión del template
+\def\templateversion{2.4.6}               % Versión del template
 
 
 % INFORMACIÓN DEL DOCUMENTO
@@ -669,9 +669,8 @@
 		\widowpenalty 4000
 		\sfcode`\.\@m}
 		{\def\@noitemerr
-			{\@latex@warning{Ambiente `thebibliography' no definido}}
-			\endlist\end{multicols}
-		}}
+		{\@latex@warning{Ambiente `thebibliography' no definido}}
+		\endlist\end{multicols}}}
 {}
 \makeatother
 	
@@ -685,11 +684,9 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{
-	\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad
-}
+\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
 \fancyhead[R]{
-	\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}
-}
+\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}}
 \ifthenelse{\equal{\codigocursoenportada}{true}}{
 	\vspace*{3cm}
 	\begin{center}
