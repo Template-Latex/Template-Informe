@@ -6,6 +6,7 @@ Cambia versión y fecha a archivos.
 
 # Importación de librerías
 import time
+from subprocess import call
 
 # Constantes
 CODEVERSION = '\def\\templateversion{0}               % Versión del template\n'
@@ -38,7 +39,7 @@ version = raw_input('Ingrese la nueva version: ')
 version = version.strip()
 
 # Se obtiene el día
-dia = time.strftime("%d/%m/%y")
+dia = time.strftime("%d/%m/%Y")
 
 # Se crea el header de la version
 versionhead = VERSIONHEADER.format(version, dia)
@@ -72,10 +73,14 @@ for f in FILES.keys():
 # Se crea el archivo unificado
 fl = open(MAINFILESINGLE, 'w')
 data = FILES[MAINFILE]
+data.pop(1)  # Se elimina el tipo de documento del header
+data.insert(1, '% Advertencia:  Documento generado automáticamente a partir '
+               'del main.tex y los\n%               archivos .tex de la '
+               'carpeta lib/ para crear un sólo archivo.\n')
 line = 0
 for d in data:
     write = True
-    if line < CODEVERSIONPOS:
+    if line < CODEVERSIONPOS + 1:
         fl.write(d)
         write = False
     # Si es una línea en blanco se agrega
@@ -103,7 +108,7 @@ for d in data:
         except Exception, e:
             pass
         # Se agrega un espacio en blanco a la pagina despues del comentario
-        if line >= CODEVERSIONPOS and write:
+        if line >= CODEVERSIONPOS + 1 and write:
             if d[0:2] == '% ' and d[3] != ' ':
                 fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
@@ -115,3 +120,6 @@ for d in data:
     line += 1
 
 fl.close()
+
+# Compila el archivo
+call(['pdflatex', MAINFILESINGLE])
