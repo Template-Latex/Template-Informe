@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.4.6 (01/03/2017)
+% Versión:      2.4.8 (01/03/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -16,7 +16,7 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{2.4.6}               % Versión del template
+\def\templateversion{2.4.8}               % Versión del template
 
 
 % INFORMACIÓN DEL DOCUMENTO
@@ -82,7 +82,7 @@
 \newcommand{\tipofuentesubsubtitulo}{\large}      % Tamaño sub-subtítulos
 \newcommand{\tipofuentetituloi}{\LARGE}           % Tamaño títulos en el índice
 \newcommand{\tipofuentesubtituloi}{\Large}        % Tamaño subtítulos en el índice
-\newcommand{\tipofuentesubsubtituloi}{\large}     % Tamaño sub-subtit. en el índice
+\newcommand{\tipofuentesubsubtituloi}{\large}     % Tamaño sub-subtit. en el índ.
 \newcommand{\etipofuentetitulo}{\bfseries}        % Estilo títulos
 \newcommand{\etipofuentesubtitulo}{\bfseries}     % Estilo subtítulos
 \newcommand{\etipofuentesubsubtitulo}{\bfseries}  % Estilo sub-subtítulos
@@ -90,7 +90,7 @@
 \newcommand{\etipofuentesubtituloi}{\bfseries}    % Estilo subtítulos en el índice
 \newcommand{\etipofuentesubsubtituloi}{\bfseries} % Estilo sub-subti. en el índice
 \newcommand{\tiporeferencias}{apa}                % Tipo de referencias
-\newcommand{\nomltcontend}{Índice de Contenidos}  % Nombre del índice de contenidos
+\newcommand{\nomltcontend}{Índice de Contenidos}  % Nombre del índ. de contenidos
 \newcommand{\nomlttablas}{Lista de Tablas}        % Nombre de la lista de tablas
 \newcommand{\nomltfiguras}{Lista de Figuras}      % Nombre de la lista de figuras
 \newcommand{\nomltsrc}{Lista de Códigos Fuente}   % Nombre del código fuente
@@ -430,6 +430,10 @@
 	\setcaptionmargincm{\defaultcaptionmargin}
 	\vspace{\defaultmarginbottomimages}
 }
+\newcommand{\insertdoubleeqimage}[7][]{
+	% Insertar una imagen doble, igual propiedades
+	\insertdoubleimage[#1]{#2}{#6}{#3}{#4}{#6}{#5}{#7}
+}
 \newcommand{\inserttripleimage}[8][]{
 	% Insertar una imagen triple
 	\vspace{\defaultmargintopimages}
@@ -449,8 +453,12 @@
 	\setcaptionmargincm{\defaultcaptionmargin}
 	\vspace{\defaultmarginbottomimages}
 }
+\newcommand{\inserttripleeqimage}[6][]{
+	% Insertar una imagen triple, igual propiedades
+	\inserttripleimage[#1]{#2}{#5}{#3}{#5}{#4}{#5}{#6}
+}
 \newcommand{\insertquadimage}[7][]{
-	% Insertar una imagen cuádruple
+	% Insertar una imagen cuádruple, igual propiedades
 	\vspace{\defaultmargintopimages}
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
@@ -472,7 +480,7 @@
 	\vspace{\defaultmarginbottomimages}
 }
 \newcommand{\insertpentaimage}[8][]{
-	% Insertar una imagen quíntuple
+	% Insertar una imagen quíntuple, igual propiedades
 	\vspace{\defaultmargintopimages}
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
@@ -748,10 +756,10 @@
 }
 
 
-% =============================== RESUMEN O ABSTRACT ==============================
+% ============================== RESUMEN O ABSTRACT ==============================
 \newtitleanumheadless{Resumen}
 
-% Ejemplo de dos párrafos en latín, esta linea puede borrarse
+% Ejemplo de dos párrafos en latín, esta linea puede borrarse sin problema
 \lipsum[1] \newp \lipsum[3]
 
 
@@ -760,9 +768,9 @@
 \sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}
 \subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}
 \subsubsectionfont{\tipofuentesubsubtituloi \etipofuentesubsubtituloi \selectfont}
-\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}     % Contenido
-\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}        % Figuras
-\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}          % Tablas
+\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{} % Contenido
+\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{} % Figuras
+\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{} % Tablas
 \ifthenelse{\equal{\showindexofsourcecode}{true}}{\lstlistoflistings}{} % Código
 
 
@@ -780,7 +788,7 @@
 \setcounter{footnote}{0}
 
 
-% ============================== INICIO DEL DOCUMENTO =============================
+% ============================= INICIO DEL DOCUMENTO =============================
 
 % Se incluye el ejemplo del documento, esta línea puede borrarse sin problema
 \include{ejemplo}
