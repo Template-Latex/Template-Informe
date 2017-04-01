@@ -19,7 +19,7 @@
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
 \def\templateversion{3.0.0-beta-7}        % Versión del template
-      
+       
 
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
@@ -742,8 +742,7 @@
 \renewcommand{\lstlistingname}{\nomltsrc} % Nombre leyenda del código fuente
 \pagestyle{fancy} \fancyhf{} % Se crean los headers y footers
 \ifthenelse{\equal{\showheadertitle}{true}}{ % Header izq, nombre sección
-	\fancyhead[L]{\nouppercase{\rightmark}}
-}{}
+	\fancyhead[L]{\nouppercase{\rightmark}}}{}
 \fancyhead[R]{\small \rm \nouppercase{\thepage}} % Header der, número página
 \ifthenelse{\equal{\showfooter}{true}}{
 	\fancyfoot[L]{
