@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.4.4 (01/03/2017)
+% Versión:      2.4.5 (01/03/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -16,7 +16,7 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{2.4.4}               % Versión del template
+\def\templateversion{2.4.5}               % Versión del template
 
 
 % INFORMACIÓN DEL DOCUMENTO
@@ -529,6 +529,10 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\newcolumntype{P}[1]{
+	% Columna centrada en tablas
+	>{\centering\arraybackslash}p{#1}
+}
 \SelectInputMappings{
 	% Definición de acentos
 	aacute={á},
@@ -592,23 +596,23 @@
 \lstdefinestyle{Python}{
 	% Estilo de lenguaje Python
 	language=Python,
-    backgroundcolor=\color{backcolour},
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\footnotesize,
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    keepspaces=true,
-    numbers=left,
-    numbersep=5pt,
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    tabsize=3,
-    basicstyle={\small\ttfamily}
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=3,
+	basicstyle={\small\ttfamily}
 }
 \lstset{literate=
 	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
@@ -624,18 +628,17 @@
 	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
 	{€}{{\EUR}}1 {£}{{\pounds}}1
 }
-\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}} % Columna centrada en tablas
 
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
-\decimalpoint                          % Se define el punto decimal
-\counterwithin{equation}{section}      % Añade número de sección a las ecuaciones
-\counterwithin{figure}{section}        % Añade número de sección a las figuras
-\counterwithin{table}{section}         % Añade número de sección a las tablas
-\bibliographystyle{\tiporeferencias}   % Estilo APA para las referencias
-\setlength{\headheight}{64pt}          % Tamaño de la cabecera sin fancyhdr
-\setcounter{tocdepth}{\indexdepth}     % Se ajusta la profundidad del índice
-\setcounter{MaxMatrixCols}{20}         % Número máximo de columnas en matrices
+\decimalpoint                        % Se define el punto decimal
+\counterwithin{equation}{section}    % Añade número de sección a las ecuaciones
+\counterwithin{figure}{section}      % Añade número de sección a las figuras
+\counterwithin{table}{section}       % Añade número de sección a las tablas
+\bibliographystyle{\tiporeferencias} % Estilo APA para las referencias
+\setlength{\headheight}{64pt}        % Tamaño de la cabecera sin fancyhdr
+\setcounter{tocdepth}{\indexdepth}   % Se ajusta la profundidad del índice
+\setcounter{MaxMatrixCols}{20}       % Número máximo de columnas en matrices
 \hypersetup{
 	pdfauthor={\autordeldocumento},
 	pdftitle={\nombredelinforme},
