@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Versión:      2.4.8 (01/03/2017)
+% Versión:      2.4.9 (01/03/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -16,7 +16,7 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{2.4.8}               % Versión del template
+\def\templateversion{2.4.9}               % Versión del template
 
 
 % INFORMACIÓN DEL DOCUMENTO
@@ -509,7 +509,8 @@
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
-		\centering\includegraphics[width=\linewidth]{\defaultimagefolder#2}
+		\centering
+		\includegraphics[width=\linewidth]{\defaultimagefolder#2}
 		\caption{#4 #1}
 		\setcaptionmargincm{\defaultcaptionmargin}
 	\end{wrapfigure}
@@ -519,7 +520,8 @@
 	\begin{wrapfigure}[#5]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
-		\centering\includegraphics[width=\linewidth]{\defaultimagefolder#2}
+		\centering
+		\includegraphics[width=\linewidth]{\defaultimagefolder#2}
 		\caption{#4 #1}
 		\setcaptionmargincm{\defaultcaptionmargin}
 	\end{wrapfigure}
