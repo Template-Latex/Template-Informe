@@ -14,7 +14,7 @@ from subprocess import call
 from ziputility import ZipUtility as Zip
 
 # Constantes
-CODEVERSION = '\def\\templateversion{0}               % Versión del template\n'
+CODEVERSION = '\def\\templateversion{0}{1}% Versión del template\n '
 CODEVERSIONPOS = 19
 EXAMPLEFILE = 'example.tex'
 HEADERSIZE = 13
@@ -48,7 +48,8 @@ dia = time.strftime("%d/%m/%Y")
 
 # Se crea el header de la version
 versionhead = VERSIONHEADER.format(version, dia)
-versioncode = CODEVERSION.format('{' + version + '}')
+versionstrlen = max(0, 15 - (len(version) - 5))
+versioncode = CODEVERSION.format('{' + version + '}', ' ' * versionstrlen)
 
 # Carga los archivos y cambia las versiones
 for f in FILES.keys():
@@ -117,6 +118,9 @@ for d in data:
             if d[0:2] == '% ' and d[3] != ' ':
                 fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
+                if d == '% RESUMEN O ABSTRACT':
+                    d = '% ========================= RESUMEN O ABSTRACT ' \
+                        '========================= '
                 fl.write(d)
             else:
                 fl.write(d)

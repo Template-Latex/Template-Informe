@@ -24,7 +24,7 @@ class ZipUtility(object):
             filename += '.zip'
 
         # Crea un objeto zipfile
-        self.zip = zipfile.ZipFile(filename, 'w')
+        self.zip = zipfile.ZipFile(filename, 'w', zipfile.ZIP_DEFLATED)
 
     def save(self):
         """
