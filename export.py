@@ -116,7 +116,8 @@ for d in data:
         # Se agrega un espacio en blanco a la pagina despues del comentario
         if line >= CODEVERSIONPOS + 1 and write:
             if d[0:2] == '% ' and d[3] != ' ':
-                fl.write('\n')
+                if d != '% FIN DEL DOCUMENTO\n':
+                    fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
                 if d == '% RESUMEN O ABSTRACT':
                     d = '% ========================= RESUMEN O ABSTRACT ' \

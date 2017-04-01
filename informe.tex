@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
 % Advertencia:  Documento generado automáticamente a partir del main.tex y los
 %               archivos .tex de la carpeta lib/ para crear un sólo archivo.
-% Versión:      3.0.0-beta-7 (01/04/2017)
+% Versión:      3.0.0-beta-8 (01/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,8 +18,8 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.0.0-beta-7}        % Versión del template
-       
+\def\templateversion{3.0.0-beta-8}        % Versión del template
+            
 
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
@@ -47,8 +47,7 @@
 	Integrantes:
 		& \begin{tabular}[t]{@{}l@{}}
 			Integrante 1 \\
-			Integrante 2 \\
-			Integrante 3
+			Integrante 2
 		\end{tabular} \\
 	Profesores:
 		& \begin{tabular}[t]{@{}l@{}}
@@ -742,7 +741,8 @@
 \renewcommand{\lstlistingname}{\nomltsrc} % Nombre leyenda del código fuente
 \pagestyle{fancy} \fancyhf{} % Se crean los headers y footers
 \ifthenelse{\equal{\showheadertitle}{true}}{ % Header izq, nombre sección
-	\fancyhead[L]{\nouppercase{\rightmark}}}{}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+}{}
 \fancyhead[R]{\small \rm \nouppercase{\thepage}} % Header der, número página
 \ifthenelse{\equal{\showfooter}{true}}{
 	\fancyfoot[L]{

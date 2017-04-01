@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      3.0.0-beta-7 (01/04/2017)
+% Versión:      3.0.0-beta-8 (01/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -28,7 +28,8 @@
 \renewcommand{\lstlistingname}{\nomltsrc} % Nombre leyenda del código fuente
 \pagestyle{fancy} \fancyhf{} % Se crean los headers y footers
 \ifthenelse{\equal{\showheadertitle}{true}}{ % Header izq, nombre sección
-	\fancyhead[L]{\nouppercase{\rightmark}}}{}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+}{}
 \fancyhead[R]{\small \rm \nouppercase{\thepage}} % Header der, número página
 \ifthenelse{\equal{\showfooter}{true}}{
 	\fancyfoot[L]{
