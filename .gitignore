@@ -30,3 +30,6 @@ _*
 
 # Ignora proyecto PyCharm
 .idea/
+
+# Ignora el main.pdf
+main.pdf
