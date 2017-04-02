@@ -24,15 +24,16 @@ var linea_inicio = 562;
 var total_downloads = 0;
 
 // Se añaden las descargas de template-informe-cursos
-$.getJSON("https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases", function(json) {
-    for (i = 0; i < json.length; i++) {
-        try {
-            total_downloads += parseInt(json[i].assets[0].download_count);
-        } catch (err) {
-            console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
-        }
-    }
-});
+// $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases", function(json) {
+//     for (i = 0; i < json.length; i++) {
+//         try {
+//             total_downloads += parseInt(json[i].assets[0].download_count);
+//
+//         } catch (err) {
+//             console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
+//         }
+//     }
+// });
 
 // Se añaden las descargas del template base
 $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
@@ -57,13 +58,24 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     console.log(String.format('Última versión: {0}', last_version));
     console.log(String.format('Última versión - enlace descarga: {0}', last_version_link));
 
+    // Se añaden las 129 descargas de https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases
+    if (total_downloads == 0){
+        total_downloads = 'NaN';
+    }
+    else{
+        total_downloads += 129;
+    }
+
     // Se establece la versión en el contador de descargas totales
     document.getElementById('total-download-counter-1').innerHTML = total_downloads;
     document.getElementById('total-download-counter-2').innerHTML = total_downloads;
 
     // Se establece la versión en el botón de descargas
+    msg_download_normal = '{1} <font style="color: #333333;">({0})</font> <img src="resources/zip.png" width="16px" height="16px" style="top:4px; position:relative" />'
+    msg_download_compact = '{1} <font style="color: #999999;">({0})</font>'
     document.getElementById("download-button").href = last_version_link;
-    document.getElementById("download-button").innerHTML = String.format('Descargar última versión ({0})', last_version);
+    document.getElementById("download-button").innerHTML = String.format(msg_download_normal, last_version, document.getElementById("download-button").innerHTML);
+    document.getElementById("download-button-1file").innerHTML = String.format(msg_download_compact, last_version, document.getElementById("download-button-1file").innerHTML);
 
     // Se establece la última versión del pdf
     console.log(String.format('Archivo pdf a mostrar: versions/Template v{0}.pdf', last_version))

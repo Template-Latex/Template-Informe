@@ -3,7 +3,7 @@
 }
 @font-face {
   font-family: "San Francisco";
-  font-weight: 400;
+  font-weight: 300;
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
 
@@ -33,12 +33,11 @@ a:hover {
     bottom: 0px;
 }
 
-
 .btn {
     display: inline-block;
     margin-bottom: 1rem;
     color: rgba(255, 255, 255, 1);
-    background-color: rgba(100, 100, 100, 0.5);
+    background-color: rgba(100, 100, 100, 0.4);
     border-color: rgba(255, 255, 255, 0.2);
     border-style: solid;
     border-width: 1px;
@@ -47,10 +46,40 @@ a:hover {
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.btn-pro {
+    display: inline-block;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.3rem;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(10, 10, 10, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(10, 10, 10, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(10, 10, 10, 0.75);
+    background-color: rgba(210, 210, 210, 0.85);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(20, 20, 20, 1);
+    font-weight: bold;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.btn-pro:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 1.0);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .btn+.btn {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
+}
+
+.btn-pro+.btn-pro {
+    margin-left: 0.5rem;
 }
 
 .btn:hover {
@@ -61,26 +90,26 @@ a:hover {
 }
 
 @media screen and (min-width: 64em) {
-    .btn {
+    .btn, .btn-pro {
         padding: 0.75rem 1rem;
     }
 }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
-    .btn {
+    .btn, .btn-pro {
         padding: 0.6rem 0.9rem;
         font-size: 0.9rem;
     }
 }
 
 @media screen and (max-width: 42em) {
-    .btn {
+    .btn, .btn-pro {
         display: block;
         width: 100%;
         padding: 0.75rem;
         font-size: 0.9rem;
     }
-    .btn+.btn {
+    .btn+.btn, .btn-pro+.btn-pro {
         margin-top: 1rem;
         margin-left: 0;
     }
@@ -284,6 +313,7 @@ a:hover {
 
 .section-template {
     color: #159957;
+    font-size: 0.9rem;
 }
 
 .main-content blockquote> :first-child {
@@ -347,7 +377,7 @@ a:hover {
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .main-content {
         padding: 2rem 4rem;
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
 }
 
