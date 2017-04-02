@@ -119,9 +119,9 @@ for d in data:
                 if d != '% FIN DEL DOCUMENTO\n':
                     fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
-                if d == '% RESUMEN O ABSTRACT':
+                if d == '% RESUMEN O ABSTRACT\n':
                     d = '% ========================= RESUMEN O ABSTRACT ' \
-                        '========================= '
+                        '=========================\n'
                 fl.write(d)
             else:
                 fl.write(d)
