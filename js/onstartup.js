@@ -39,7 +39,9 @@ var total_downloads = 0;
 $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
     for (i = 0; i < json.length; i++) {
         try {
-            total_downloads += parseInt(json[i].assets[0].download_count);
+            for (j=0; j<json[i].assets.length; j++){
+                total_downloads += parseInt(json[i].assets[j].download_count);
+            }
         } catch (err) {
             console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
         }
@@ -49,6 +51,14 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     try {
         last_version = json[0].tag_name;
         last_version_link = json[0].assets[0].browser_download_url;
+        last_version_link_1 = json[0].assets[1].browser_download_url;
+        if (last_version_link.includes('-Single')){
+            normal_link = last_version_link_1;
+            compact_link = last_version_link;
+        }else{
+            normal_link = last_version_link;
+            compact_link = last_version_link_1;
+        }
     } catch (err) {
         console.log('Error al obtener la última versión del software');
     }
@@ -73,9 +83,10 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     // Se establece la versión en el botón de descargas
     msg_download_normal = '{1} <font style="color: #333333;">({0})</font> <img src="resources/zip.png" width="16px" height="16px" style="top:4px; position:relative" />'
     msg_download_compact = '{1} <font style="color: #999999;">({0})</font>'
-    document.getElementById("download-button").href = last_version_link;
+    document.getElementById("download-button").href = normal_link;
     document.getElementById("download-button").innerHTML = String.format(msg_download_normal, last_version, document.getElementById("download-button").innerHTML);
     document.getElementById("download-button-1file").innerHTML = String.format(msg_download_compact, last_version, document.getElementById("download-button-1file").innerHTML);
+    document.getElementById("download-button-1file").href = compact_link;
 
     // Se establece la última versión del pdf
     console.log(String.format('Archivo pdf a mostrar: versions/Template v{0}.pdf', last_version))
@@ -131,6 +142,13 @@ $(function() {
 // Se actualiza la cantidad de descargas al hacer click
 $(function() {
     $('#download-button').click(function() {
+        total_downloads += 1;
+        document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+        document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+    });
+});
+$(function() {
+    $('#download-button-1file').click(function() {
         total_downloads += 1;
         document.getElementById('total-download-counter-1').innerHTML = total_downloads;
         document.getElementById('total-download-counter-2').innerHTML = total_downloads;

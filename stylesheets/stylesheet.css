@@ -305,7 +305,10 @@ a:hover {
 }
 
 .main-content blockquote {
-    padding: 0 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     margin-left: 5px;
     color: #819198;
     border-left: 0.3rem solid #dce6f0;
@@ -370,7 +373,7 @@ a:hover {
         max-width: 64rem;
         padding: 2rem 6rem;
         margin: 0 auto;
-        font-size: 1.1rem;
+        font-size: 1.0rem;
     }
 }
 
