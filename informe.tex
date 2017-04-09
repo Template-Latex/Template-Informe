@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
 % Advertencia:  Documento generado automáticamente a partir del main.tex y los
 %               archivos .tex de la carpeta lib/ para crear un sólo archivo.
-% Versión:      3.0.0 (01/04/2017)
+% Versión:      3.0.1 (09/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,8 +18,8 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.0.0}               % Versión del template
-               
+\def\templateversion{3.0.1}               % Versión del template
+                   
 
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
@@ -81,7 +81,7 @@
 \newcommand{\tipofuentetitulo}{\huge}             % Tamaño títulos
 \newcommand{\tipofuentesubtitulo}{\Large}         % Tamaño subtítulos
 \newcommand{\tipofuentesubsubtitulo}{\large}      % Tamaño sub-subtítulos
-\newcommand{\tipofuentetituloi}{\LARGE}           % Tamaño títulos en el índice
+\newcommand{\tipofuentetituloi}{\huge}           % Tamaño títulos en el índice
 \newcommand{\tipofuentesubtituloi}{\Large}        % Tamaño subtítulos en el índice
 \newcommand{\tipofuentesubsubtituloi}{\large}     % Tamaño sub-subtit. en el índ.
 \newcommand{\etipofuentetitulo}{\bfseries}        % Estilo títulos
@@ -109,7 +109,7 @@
 \newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. fig. flotante [pt]
 \newcommand{\defaultmargintopimages}{0.0cm}       % Margen superior figura [cm]
 \newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inferior figura [cm]
-\newcommand{\nombrepaginaportada}{P}              % Etiqueta página de la portada
+\newcommand{\nombrepaginaportada}{Portada}        % Etiqueta página de la portada
 
 % CONFIGURACIONES BOOLEANAS (TRUE, FALSE)
 \newcommand{\codigocursoenportada}{false}  % Muestra el código del curso
@@ -144,7 +144,6 @@
 \usepackage{graphicx}                 % Propiedades extra para los gráficos
 \usepackage{ifthen}                   % Permite el manejo de condicionales
 \usepackage{mathtools}                % Permite utilizar notaciones matemáticas
-\usepackage[version=4]{mhchem}        % Fórmulas químicas
 \usepackage{multicol}                 % Múltiples columnas
 \usepackage{pdfpages}                 % Permite administrar páginas en pdf
 \usepackage{lipsum}                   % Permite crear textos dummy
@@ -553,18 +552,19 @@
 \lstdefinestyle{C}{
 	% Estilo de lenguaje C
 	language=C,
-  	numbers=left,
-  	stepnumber=1,
-  	numbersep=5pt,
-  	backgroundcolor=\color{white},
-  	showspaces=false,
-  	showstringspaces=false,
-  	showtabs=false,
-  	tabsize=2,
-  	captionpos=b,
-  	breaklines=true,
-  	breakatwhitespace=true,
-  	title=\lstname}
+	numbers=left,
+	stepnumber=1,
+	numbersep=5pt,
+	backgroundcolor=\color{white},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	breakatwhitespace=true,
+	title=\lstname
+}
 \lstdefinestyle{Java}{
 	% Estilo de lenguaje Java
 	language=Java,
@@ -581,7 +581,8 @@
 	breaklines=true,
 	breakatwhitespace=true,
 	tabsize=3,
-	backgroundcolor=\color{backcolour}}
+	backgroundcolor=\color{backcolour}
+}
 \lstdefinestyle{Matlab}{
 	% Estilo de lenguaje Matlab
 	language=Matlab,
@@ -596,14 +597,15 @@
 	showstringspaces=false,
 	numbers=left,
 	showstringspaces=false,
-	numberstyle={\tiny \color{black}},
+	numberstyle=\tiny\color{gray},
 	numbersep=9pt,
 	basicstyle={\small\ttfamily},
 	tabsize=3,
 	breaklines=true,
 	aboveskip=3mm,
 	belowskip=3mm,
-	emph=[1]{for,end,break},emphstyle=[1]\color{red}}
+	emph=[1]{for,end,break},emphstyle=[1]\color{red}
+}
 \lstdefinestyle{Python}{
 	% Estilo de lenguaje Python
 	language=Python,
@@ -681,8 +683,7 @@
 		\sfcode`\.\@m}
 		{\def\@noitemerr
 		{\@latex@warning{Ambiente `thebibliography' no definido}}
-		\endlist\end{multicols}}}
-{}
+		\endlist\end{multicols}}}{}
 \makeatother
 	
 
@@ -780,8 +781,7 @@
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage
 \ifthenelse{
-	\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\leftmark}}
-}{}
+	\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\leftmark}}}{}
 \sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
 \subsectionfont{\tipofuentesubtitulo \etipofuentesubtitulo \selectfont}
 \subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}
