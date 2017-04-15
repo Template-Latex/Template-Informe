@@ -23,6 +23,10 @@ MAINFILE = 'main.tex'
 MAINFILESINGLE = 'informe.tex'
 VERSIONHEADER = '% Versión:      {0} ({1})\n'
 
+# Configuraciones
+AUTOCOMPILE = True
+DELETECOMMENTS = True
+
 # Archivos a revisar
 FILES = {
     'lib/config.tex': [],
@@ -37,6 +41,34 @@ FILES = {
     'abstract.tex': [],
     EXAMPLEFILE: [],
     MAINFILE: []
+}
+FILEDELCOMMENTS = {
+    'lib/config.tex': False,
+    'lib/finalconf.tex': True,
+    'lib/functions.tex': True,
+    'lib/imports.tex': True,
+    'lib/index.tex': True,
+    'lib/initconf.tex': True,
+    'lib/pageconf.tex': True,
+    'lib/portrait.tex': True,
+    'lib/styles.tex': True,
+    'abstract.tex': False,
+    EXAMPLEFILE: False,
+    MAINFILE: False
+}
+FILESTRIP = {
+    'lib/config.tex': False,
+    'lib/finalconf.tex': True,
+    'lib/functions.tex': True,
+    'lib/imports.tex': True,
+    'lib/index.tex': True,
+    'lib/initconf.tex': True,
+    'lib/pageconf.tex': True,
+    'lib/portrait.tex': True,
+    'lib/styles.tex': True,
+    'abstract.tex': False,
+    EXAMPLEFILE: False,
+    MAINFILE: False
 }
 
 # Se pide la versión
@@ -103,9 +135,33 @@ for d in data:
                 if libr != EXAMPLEFILE:
 
                     # Se escribe desde el largo del header en adelante
-                    libdata = FILES[libr]
+                    libdata = FILES[libr]  # Datos del import
+                    libstirp = FILESTRIP[libr]  # Eliminar espacios en blanco
+                    libdelcom = FILEDELCOMMENTS[libr]  # Borrar comentarios
+
                     for libdatapos in range(HEADERSIZE, len(libdata)):
-                        fl.write(libdata[libdatapos])
+                        srclin = libdata[libdatapos]
+
+                        # Se borran los comentarios
+                        if DELETECOMMENTS and libdelcom:
+                            if '%' in srclin:
+                                comments = srclin.strip().split('%')
+                                if comments[0] is '':
+                                    srclin = ''
+                                else:
+                                    srclin = srclin.replace('%' + comments[1],
+                                                            '')
+                            elif srclin.strip() is '':
+                                srclin = ''
+
+                        # Se ecribe la linea
+                        if srclin is not '':
+                            # Se aplica strip dependiendo del archivo
+                            if libstirp:
+                                fl.write(srclin.strip())
+                            else:
+                                fl.write(srclin)
+
                     fl.write('\n')  # Se agrega espacio vacío
 
                 else:
@@ -132,7 +188,8 @@ for d in data:
 fl.close()
 
 # Compila el archivo
-call(['pdflatex', MAINFILESINGLE])
+if AUTOCOMPILE:
+    call(['pdflatex', MAINFILESINGLE])
 
 # Se exporta el proyecto normal
 export_normal = Zip('export/Template-Informe.zip')
