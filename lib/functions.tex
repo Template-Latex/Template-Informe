@@ -146,11 +146,14 @@
 	% Crea un resizebox de tamaño textwidth
 	% 	#1	Tamaño del nuevo objeto (En textwidth)
 	%	#2	Objeto a redimensionar
+	\emptyvarerr{\resizeitem}{#1}{Tamano del nuevo objeto no definido}
+	\emptyvarerr{\resizeitem}{#2}{Objeto a redimensionar no definido}
 	\resizebox{#1\textwidth}{!}{#2}
 }
 \newcommand{\newtitleanum}[1]{
 	% Insertar un título sin número
 	% 	#1	Título
+	\emptyvarerr{\newtitleanum}{#1}{Titulo no definido}
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
@@ -160,6 +163,7 @@
 \newcommand{\newtitleanumheadless}[1]{
 	% Insertar un título sin número sin alterar el header
 	% 	#1	Título
+	\emptyvarerr{\newtitleanumheadless}{#1}{Titulo no definido}
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
 	\stepcounter{section}
@@ -167,13 +171,15 @@
 \newcommand{\newsubtitleanum}[1]{
 	% Insertar un subtítulo sin número
 	% 	#1	Subtítulo
+	\emptyvarerr{\newsubtitleanum}}{#1}{Subtitulo no definido}
 	\addcontentsline{toc}{subsection}{#1}
 	\subsection*{#1}
 	\stepcounter{subsection}
 }
 \newcommand{\newsubsubtitleanum}[1]{
 	% Insertar un sub-subtítulo sin número
-	% 	#1	Subtítulo
+	% 	#1	Sub-subtítulo
+	\emptyvarerr{\newsubsubtitleanum}{#1}{Sub-subtitulo no definido}
 	\addcontentsline{toc}{subsubsection}{#1}
 	\subsubsection*{#1}
 	\stepcounter{subsubsection}
@@ -181,6 +187,7 @@
 \newcommand{\newtitleanumnoi}[1]{
 	% Insertar un título sin número sin indexar
 	% 	#1	Título
+	\emptyvarerr{\newtitleanumnoi}{#1}{Titulo no definido}
 	\section*{#1}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
 		\fancyhead[L]{\nouppercase{#1}}}{}
@@ -189,6 +196,7 @@
 \newcommand{\newtitleanumnoiheadless}[1]{
 	% Insertar un título sin número sin indexar sin cambiar el header
 	% 	#1	Título
+	\emptyvarerr{\newtitleanumnoiheadless}{#1}{Titulo no definido}
 	\section*{#1}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
 		\fancyhead[L]{\nouppercase{#1}}}{}
@@ -197,12 +205,14 @@
 \newcommand{\newsubtitleanumnoi}[1]{
 	% Insertar un subtítulo sin número sin indexar
 	% 	#1	Subtítulo
+	\emptyvarerr{\newsubtitleanumnoi}{#1}{Subtitulo no definido}
 	\subsection*{#1}
 	\stepcounter{subsection}
 }
 \newcommand{\newsubsubtitleanumnoi}[1]{
 	% Insertar un sub-subtítulo sin número sin indexar
 	% 	#1	Sub-subtítulo
+	\emptyvarerr{\newsubsubtitleanumnoi}{#1}{Sub-subtitulo no definido}
 	\addcontentsline{toc}{subsubsection}{#1}
 	\subsubsection*{#1}
 	\stepcounter{subsubsection}
@@ -211,6 +221,7 @@
 	% Insertar una ecuación
 	% 	#1	Label (opcional)
 	%	#2	Ecuación
+	\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}
 	\vspace{-0.1cm}
 	\begin{equation}
 		\text{#1} #2
