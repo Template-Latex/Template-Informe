@@ -25,6 +25,7 @@ VERSIONHEADER = '% Versión:      {0} ({1})\n'
 
 # Configuraciones
 AUTOCOMPILE = True
+ADDWHITESPACE = False
 DELETECOMMENTS = True
 
 # Archivos a revisar
@@ -172,7 +173,7 @@ for d in data:
         # Se agrega un espacio en blanco a la pagina despues del comentario
         if line >= CODEVERSIONPOS + 1 and write:
             if d[0:2] == '% ' and d[3] != ' ':
-                if d != '% FIN DEL DOCUMENTO\n':
+                if d != '% FIN DEL DOCUMENTO\n' and ADDWHITESPACE:
                     fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
                 if d == '% RESUMEN O ABSTRACT\n':
