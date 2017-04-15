@@ -171,7 +171,7 @@
 \newcommand{\newsubtitleanum}[1]{
 	% Insertar un subtítulo sin número
 	% 	#1	Subtítulo
-	\emptyvarerr{\newsubtitleanum}}{#1}{Subtitulo no definido}
+	\emptyvarerr{\newsubtitleanum}{#1}{Subtitulo no definido}
 	\addcontentsline{toc}{subsection}{#1}
 	\subsection*{#1}
 	\stepcounter{subsection}
@@ -235,16 +235,19 @@
 	%	#2	Ecuación
 	%	#3	Caption
 	\emptyvarerr{\insertequationcaptioned}{#2}{Ecuacion no definida}
-	\emptyvarerr{\insertequationcaptioned}{#3}{Caption no definido}
-	\vspace{0cm}
-	\begin{equation}
+	\ifx\hfuzz#3\hfuzz
+		\insertequation[#1]{#2}
+	\else
+		\vspace{0cm}
+		\begin{equation}
 		\text{#1} #2
-	\end{equation}
-	\begin{center}
-		\vspace{-0.15cm}
-		\textit{#3} \par
-		\vspace{0.05cm}
-	\end{center}
+		\end{equation}
+		\begin{center}
+			\vspace{-0.15cm}
+			\textit{#3} \par
+			\vspace{0.05cm}
+		\end{center}	
+	\fi
 }
 \newcommand{\insertequationgathered}[2][]{
 	% Insertar una ecuación con el ambiente gather
@@ -264,15 +267,18 @@
 	%	#2	Ecuación
 	%	#3	Caption
 	\emptyvarerr{\insertequationgatheredcaptioned}{#2}{Ecuacion no definida}
-	\emptyvarerr{\insertequationgatheredcaptioned}{#3}{Caption no definido}
-	\vspace{0cm}
-	\begin{gather}
-		\text{#1} #2
-	\end{gather}
-	\begin{center}
-		\vspace{-0.15cm}
-		\textit{#3} \par
-	\end{center}
+	\ifx\hfuzz#3\hfuzz
+		\insertequationgathered[#1]{#2}
+	\else
+		\vspace{0cm}
+		\begin{gather}
+			\text{#1} #2
+		\end{gather}
+		\begin{center}
+			\vspace{-0.15cm}
+			\textit{#3} \par
+		\end{center}
+	\fi
 }
 \newcommand{\insertequationalign}[2][]{
 	% Insertar una ecuación con el ambiente align
@@ -292,15 +298,18 @@
 	%	#2	Ecuación
 	%	#3	Caption
 	\emptyvarerr{\insertequationaligncaptioned}{#2}{Ecuacion no definida}
-	\emptyvarerr{\insertequationaligncaptioned}{#3}{Caption no definido}
-	\vspace{0cm}
-	\begin{align}
-		\text{#1} #2
-	\end{align}
-	\begin{center}
-		\vspace{-0.15cm}
-		\textit{#3} \par
-	\end{center}
+	\ifx\hfuzz#3\hfuzz
+		\insertequationalign[#1]{#2}
+	\else
+		\vspace{0cm}
+		\begin{align}
+			\text{#1} #2
+		\end{align}
+		\begin{center}
+			\vspace{-0.15cm}
+			\textit{#3} \par
+		\end{center}
+	\fi
 }
 \newcommand{\insertimage}[4][]{
 	% Insertar una imagen
