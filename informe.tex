@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
 % Advertencia:  Documento generado automáticamente a partir del main.tex y los
 %               archivos .tex de la carpeta lib/ para crear un sólo archivo.
-% Versión:      3.0.1 (09/04/2017)
+% Versión:      3.0.2 (15/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,8 +18,8 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.0.1}               % Versión del template
-                   
+\def\templateversion{3.0.2}               % Versión del template
+                    
 
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
@@ -173,12 +173,20 @@
 
 
 % DECLARACIÓN DE FUNCIONES
+\newcommand{\throwerror}[2]{
+	% Lanza un mensaje de error
+	% 	#1	Función del error
+	%	#2	Mensaje
+	\errmessage{Error: \noexpand#1 #2 (linea \the\inputlineno)}
+}
 \newcommand{\quotes}[1]{
 	% Insertar cita
+	% 	#1	Texto
 	''#1''
 }
 \newcommand{\quotesit}[1]{
 	% Insertar cita en itálico
+	% 	#1	Texto
 	\textit{\quotes{#1}}
 }
 \newcommand{\newemptypage}{
@@ -188,78 +196,114 @@
 }
 \newcommand{\setcaptionmargincm}[1]{
 	% Cambiar el margen
+	% 	#1	Margen en centímetros
 	\captionsetup{margin=#1cm}
 }
 \newcommand{\setpagemargincm}[4]{
 	% Cambia márgenes de las páginas [cm]
+	% 	#1	Margen izquierdo
+	%	#2	Margen superior
+	%	#3	Margen derecho
+	%	#4	Margen inferior
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}
 }
 \newcommand{\newp}{
-	% Inserta nueva línea
+	% Inserta nueva línea	
 	\hbadness=10000 \vspace{\defaultnewlinesize} \par
 }
 \newcommand{\newpar}[1]{
-	% Nuevo párrafo
+	% Insertar párrafo
+	% 	#1	Párrafo
 	\hbadness=10000 #1 \newp
 }
 \newcommand{\newparnl}[1]{
-	% Nuevo párrafo sin nueva línea al final
+	% Insertar párrafo sin nueva línea al final
+	% 	#1	Párrafo
 	#1 \par
 }
 \newcommand{\lpow}[2]{
-	% Insertar sub-índice
+	% Insertar sub-índice, a_b
+	% 	#1	Elemento inferior (a)
+	%	#2	Elemento superior (b)
 	{#1}_{#2}
 }
 \newcommand{\pow}[2]{
-	% Insertar elevado
+	% Insertar elevado, a^b
+	% 	#1	Elemento inferior (a)
+	%	#2	Elemento superior (b)
 	{#1}^{#2}
 }
 \newcommand{\fracpartial}[2]{
 	% Fracción de derivadas parciales af/ax
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
 	\frac{\partial #1}{\partial #2}
 }
 \newcommand{\fracdpartial}[2]{
-	% Fracción de derivadas parciales dobles a^2/ax^2
+	% Fracción de derivadas parciales dobles a^2f/ax^2
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
 	\frac{{\partial}^{2} #1}{\partial {#2}^{2}}
 }
 \newcommand{\fracnpartial}[3]{
-	% Fracción de derivadas parciales en n a^n/ax^n
+	% Fracción de derivadas parciales en n, a^nf/ax^n
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
+	%	#3	Orden (n)
 	\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}
 }
 \newcommand{\fracderivat}[2]{
 	% Fracción de derivadas df/dx
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
 	\frac{\text{d} #1}{\text{d} #2}
 }
 \newcommand{\fracdderivat}[2]{
 	% Fracción de derivadas dobles d^2/dx^2
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
 	\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}
 }
 \newcommand{\fracnderivat}[3]{
-	% Fracción de derivadas en n d^n/dx^n
+	% Fracción de derivadas en n d^nf/dx^n
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
+	%	#3	Orden de la derivada (n)	
 	\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}
 }
 \newcommand{\topequal}[2]{
 	% Llave superior de equivalencia
+	% 	#1	Elemento a igualar
+	%	#2	Igualdad
 	\overbrace{#1}^{\mathclap{#2}}
 }
 \newcommand{\underequal}[2]{
 	% Llave inferior de equivalencia
+	% 	#1	Elemento a igualar
+	%	#2	Igualdad
 	\underbrace{#1}_{\mathclap{#2}}
 }
 \newcommand{\topsequal}[2]{
 	% Rectángulo superior de equivalencia
+	% 	#1	Elemento a igualar
+	%	#2	Igualdad
 	\overbracket{#1}^{\mathclap{#2}}
 }
 \newcommand{\undersequal}[2]{
 	% Rectángulo inferior de equivalencia
+	% 	#1	Elemento a igualar
+	%	#2	Igualdad
 	\underbracket{#1}_{\mathclap{#2}}
 }
 \newcommand{\resizeitem}[2]{
 	% Crea un resizebox de tamaño textwidth
+	% 	#1	Tamaño del nuevo objeto (En textwidth)
+	%	#2	Objeto a redimensionar
 	\resizebox{#1\textwidth}{!}{#2}
 }
 \newcommand{\newtitleanum}[1]{
 	% Insertar un título sin número
+	% 	#1	Título
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
@@ -268,24 +312,28 @@
 }
 \newcommand{\newtitleanumheadless}[1]{
 	% Insertar un título sin número sin alterar el header
+	% 	#1	Título
 	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
 	\stepcounter{section}
 }
 \newcommand{\newsubtitleanum}[1]{
 	% Insertar un subtítulo sin número
+	% 	#1	Subtítulo
 	\addcontentsline{toc}{subsection}{#1}
 	\subsection*{#1}
 	\stepcounter{subsection}
 }
 \newcommand{\newsubsubtitleanum}[1]{
 	% Insertar un sub-subtítulo sin número
+	% 	#1	Subtítulo
 	\addcontentsline{toc}{subsubsection}{#1}
 	\subsubsection*{#1}
 	\stepcounter{subsubsection}
 }
 \newcommand{\newtitleanumnoi}[1]{
 	% Insertar un título sin número sin indexar
+	% 	#1	Título
 	\section*{#1}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
 		\fancyhead[L]{\nouppercase{#1}}}{}
@@ -293,6 +341,7 @@
 }
 \newcommand{\newtitleanumnoiheadless}[1]{
 	% Insertar un título sin número sin indexar sin cambiar el header
+	% 	#1	Título
 	\section*{#1}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
 		\fancyhead[L]{\nouppercase{#1}}}{}
@@ -300,17 +349,21 @@
 }
 \newcommand{\newsubtitleanumnoi}[1]{
 	% Insertar un subtítulo sin número sin indexar
+	% 	#1	Subtítulo
 	\subsection*{#1}
 	\stepcounter{subsection}
 }
 \newcommand{\newsubsubtitleanumnoi}[1]{
 	% Insertar un sub-subtítulo sin número sin indexar
+	% 	#1	Sub-subtítulo
 	\addcontentsline{toc}{subsubsection}{#1}
 	\subsubsection*{#1}
 	\stepcounter{subsubsection}
 }
 \newcommand{\insertequation}[2][]{
 	% Insertar una ecuación
+	% 	#1	Label (opcional)
+	%	#2	Ecuación
 	\vspace{-0.1cm}
 	\begin{equation}
 		\text{#1} #2
@@ -320,7 +373,10 @@
 }
 \newcommand{\insertequationcaptioned}[3][]{
 	% Insertar una ecuación con leyenda
-	\vspace{-0.1cm}
+	% 	#1	Label (opcional)
+	%	#2	Ecuación
+	%	#3	Caption
+	\vspace{0cm}
 	\begin{equation}
 		\text{#1} #2
 	\end{equation}
@@ -332,6 +388,8 @@
 }
 \newcommand{\insertequationgathered}[2][]{
 	% Insertar una ecuación con el ambiente gather
+	% 	#1	Label (opcional)
+	%	#2	Ecuación
 	\vspace{-0.4cm}
 	\begin{gather}
 		\text{#1} #2
@@ -341,7 +399,10 @@
 }
 \newcommand{\insertequationgatheredcaptioned}[3][]{
 	% Insertar una ecuación (gather) con leyenda
-	\vspace{-0.3cm}
+	% 	#1	Label (opcional)
+	%	#2	Ecuación
+	%	#3	Caption
+	\vspace{0cm}
 	\begin{gather}
 		\text{#1} #2
 	\end{gather}
@@ -352,6 +413,8 @@
 }
 \newcommand{\insertequationalign}[2][]{
 	% Insertar una ecuación con el ambiente align
+	% 	#1	Label (opcional)
+	%	#2	Ecuación
 	\vspace{-0.4cm}
 	\begin{align}
 		\text{#1} #2
@@ -361,7 +424,10 @@
 }
 \newcommand{\insertequationaligncaptioned}[3][]{
 	% Insertar una ecuación (align) con leyenda
-	\vspace{-0.1cm}
+	% 	#1	Label (opcional)
+	%	#2	Ecuación
+	%	#3	Caption
+	\vspace{0cm}
 	\begin{align}
 		\text{#1} #2
 	\end{align}
@@ -372,16 +438,32 @@
 }
 \newcommand{\insertimage}[4][]{
 	% Insertar una imagen
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Parámetros de la imagen
+	%	#4	Caption de la imagen
 	\vspace{\defaultmargintopimages}
+	\ifx\hfuzz#2\hfuzz
+		\throwerror{\insertimage}{}
+	\fi
 	\begin{figure}[H]
 		\centering
 		\includegraphics[#3]{\defaultimagefolder#2}
-		\caption{#4 #1}
+		\ifx\hfuzz#4\hfuzz
+			\vspace{0.2cm}
+		\else
+			\caption{#4 #1}
+		\fi
 	\end{figure}
+	#1
 	\vspace{\defaultmarginbottomimages}
 }
 \newcommand{\insertimageboxed}[4][]{
 	% Insertar una imagen con recuadro
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Parámetros de la imagen
+	%	#4	Caption de la imagen
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -392,6 +474,11 @@
 }
 \newcommand{\insertimagefixed}[5][]{
 	% Insertar una imagen de ancho fijo a la página
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Parámetros de la imagen
+	%	#4	Tamaño de la imagen en textwidth
+	%	#5	Caption de la imagen
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -404,6 +491,11 @@
 }
 \newcommand{\insertimageboxedfixed}[5][]{
 	% Insertar una imagen recuadrada de ancho fijo
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Parámetros de la imagen
+	%	#4	Tamaño de la imagen en textwidth
+	%	#5	Caption de la imagen
 	\vspace{\defaultmargintopimages}
 	\begin{figure}[H]
 		\centering
@@ -416,6 +508,14 @@
 }
 \newcommand{\insertdoubleimage}[8][]{
 	% Insertar una imagen doble
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Parámetros de la imagen 1
+	%	#4	Caption de la imagen 1
+	%	#5	Dirección de la imagen 2
+	%	#6	Parámetros de la imagen 2
+	%	#7	Caption de la imagen 2
+	%	#8	Caption de la imagen doble
 	\vspace{\defaultmargintopimages}
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
@@ -432,10 +532,25 @@
 }
 \newcommand{\insertdoubleeqimage}[7][]{
 	% Insertar una imagen doble, igual propiedades
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Caption de la imagen 1
+	%	#4	Dirección de la imagen 2
+	%	#5	Caption de la imagen 2
+	%	#6	Propiedades de las imágenes
+	%	#7 	Caption de la imagen doble
 	\insertdoubleimage[#1]{#2}{#6}{#3}{#4}{#6}{#5}{#7}
 }
 \newcommand{\inserttripleimage}[8][]{
 	% Insertar una imagen triple
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Parámetros de la imagen 1
+	%	#4	Dirección de la imagen 2
+	%	#5	Parámetros de la imagen 2
+	%	#6	Dirección de la imagen 3
+	%	#7	Parámetros de la imagen 3
+	%	#8	Caption de la imagen triple
 	\vspace{\defaultmargintopimages}
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
@@ -455,10 +570,23 @@
 }
 \newcommand{\inserttripleeqimage}[6][]{
 	% Insertar una imagen triple, igual propiedades
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Dirección de la imagen 2
+	%	#4	Dirección de la imagen 3
+	%	#5	Propiedades de las imágenes
+	%	#6	Caption de la imagen triple
 	\inserttripleimage[#1]{#2}{#5}{#3}{#5}{#4}{#5}{#6}
 }
 \newcommand{\insertquadimage}[7][]{
 	% Insertar una imagen cuádruple, igual propiedades
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Dirección de la imagen 2
+	%	#4	Dirección de la imagen 3
+	%	#5	Dirección de la imagen 4
+	%	#6	Propiedades de las imágenes
+	%	#7	Caption de la imagen cuádruple
 	\vspace{\defaultmargintopimages}
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
@@ -481,6 +609,14 @@
 }
 \newcommand{\insertpentaimage}[8][]{
 	% Insertar una imagen quíntuple, igual propiedades
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Dirección de la imagen 2
+	%	#4	Dirección de la imagen 3
+	%	#5	Dirección de la imagen 4
+	%	#6	Dirección de la imagen 5
+	%	#7	Propiedades de las imágenes
+	%	#8	Caption de la imagen quíntuple
 	\vspace{\defaultmargintopimages}
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
@@ -506,6 +642,11 @@
 }
 \newcommand{\insertimageleft}[5][]{
 	% Insertar una imagen a la izquierda
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Ancho de la imagen (en textwidth)
+	%	#4	Caption de la imagen
+	%	#5	Altura en líneas de la imagen
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
@@ -517,6 +658,11 @@
 }
 \newcommand{\insertimageright}[5][]{
 	% Insertar una imagen a la derecha
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Ancho de la imagen (en textwidth)
+	%	#4	Caption de la imagen
+	%	#5	Altura en líneas de la imagen
 	\begin{wrapfigure}[#5]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\vspace{\defaultmarginfloatimages}
