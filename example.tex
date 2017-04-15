@@ -29,6 +29,7 @@
 		Este es un párrafo, \textbf{newp} puede contener múltiples \quotes{Expresiones} así como \quotesit{Citas en itálico} o referencias \footnote{ Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:formulasinsentido}, a continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}):
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta, luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.2) y un título de imagen (el cual va debajo de la imagen)
+		
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Where are you? de \quotesit{Internet} \protect\footnotemark}
 		\footnotetext{ Imagen obtenida desde Internet \url{https://www.themebeta.com/chrome/theme/159344}}
 		
@@ -69,7 +70,7 @@
 	\subsection{Haciendo informes como un profesional}
 	
 		% Se inserta una imagen fija en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, un título y por último el número de líneas que 'cortará' hacia abajo. Para insertar una imagen fija en la derecha se utiliza \insertimageright usando los mismos parámetros
-		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.27}{Apolo}{15}
+		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.27}{15}{Apolo}
 	
 		Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos.
 		
