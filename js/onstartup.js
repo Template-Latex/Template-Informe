@@ -81,7 +81,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     document.getElementById('total-download-counter-2').innerHTML = total_downloads;
 
     // Se establece la versión en el botón de descargas
-    msg_download_normal = '{1} <font style="color: #333333;">({0})</font> <img src="resources/zip.png" width="16px" height="16px" style="top:4px; position:relative" />'
+    msg_download_normal = '{1} <font style="color: #333333;">({0})</font> <img src="resources/zip.png" width="16px" height="16px" class="iconbutton" />'
     msg_download_compact = '{1} <font style="color: #999999;">({0})</font>'
     document.getElementById("download-button").href = normal_link;
     document.getElementById("download-button").innerHTML = String.format(msg_download_normal, last_version, document.getElementById("download-button").innerHTML);
