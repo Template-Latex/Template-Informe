@@ -17,6 +17,7 @@
 	%	#2	Mensaje
 	\errmessage{Error: \noexpand#1 #2 (linea \the\inputlineno)}
 }
+
 \newcommand{\emptyvarerr}[3]{
 	% Lanza un mensaje de error si una variable no ha sido definida
 	% 	#1	Función del error
@@ -26,6 +27,7 @@
 		\throwerror{#1}{#3}
 	\fi
 }
+
 \newcommand{\quotes}[1]{
 	% Insertar cita
 	% 	#1	Texto

@@ -11,11 +11,21 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-\newpage
-\sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}
-\subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}
-\subsubsectionfont{\tipofuentesubsubtituloi \etipofuentesubsubtituloi \selectfont}
-\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{} % Contenido
-\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{} % Figuras
-\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{} % Tablas
-\ifthenelse{\equal{\showindexofsourcecode}{true}}{\lstlistoflistings}{} % Código
+\ifthenelse{\equal{\showindex}{true}}{ % Mostrar el Índice
+	\newpage
+	\sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}
+	\subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}
+	\subsubsectionfont{\tipofuentesubsubtituloi \etipofuentesubsubtituloi \selectfont}
+	
+	% Índice de Contenidos
+	\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}
+	
+	% Lista de Figuras
+	\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}
+	
+	% Lista de Tablas
+	\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}
+	
+	% Lista del Código Fuente
+	\ifthenelse{\equal{\showindexofsourcecode}{true}}{\lstlistoflistings}{}
+}{}

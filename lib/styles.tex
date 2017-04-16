@@ -11,6 +11,7 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
+% Definición de colores
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -21,18 +22,21 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Columna centrada en tablas
 \newcolumntype{P}[1]{
-	% Columna centrada en tablas
 	>{\centering\arraybackslash}p{#1}
 }
+
+% Definición de acentos
 \SelectInputMappings{
-	% Definición de acentos
 	aacute={á},
 	Ntilde={Ñ},
 	Euro={€}
 }
+
+% Estilo de lenguaje C
 \lstdefinestyle{C}{
-	% Estilo de lenguaje C
 	language=C,
 	numbers=left,
 	stepnumber=1,
@@ -47,8 +51,9 @@
 	breakatwhitespace=true,
 	title=\lstname
 }
+
+% Estilo de lenguaje Java
 \lstdefinestyle{Java}{
-	% Estilo de lenguaje Java
 	language=Java,
 	aboveskip=3mm,
 	belowskip=3mm,
@@ -65,8 +70,9 @@
 	tabsize=3,
 	backgroundcolor=\color{backcolour}
 }
+
+% Estilo de lenguaje Matlab
 \lstdefinestyle{Matlab}{
-	% Estilo de lenguaje Matlab
 	language=Matlab,
 	breaklines=true,
 	morekeywords={matlab2tikz},
@@ -88,8 +94,9 @@
 	belowskip=3mm,
 	emph=[1]{for,end,break},emphstyle=[1]\color{red}
 }
+
+% Estilo de lenguaje Python
 \lstdefinestyle{Python}{
-	% Estilo de lenguaje Python
 	language=Python,
 	backgroundcolor=\color{backcolour},
 	commentstyle=\color{codegreen},
@@ -109,6 +116,8 @@
 	tabsize=3,
 	basicstyle={\small\ttfamily}
 }
+
+% Se definen acentos de carácteres especiales
 \lstset{literate=
 	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
 	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
