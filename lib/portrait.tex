@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Portada
-% Versión:      3.1.0 (15/04/2017)
+% Versión:      3.1.2 (16/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -21,6 +21,8 @@
 \nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
 \fancyhead[R]{
 \includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}}
+
+% Estilo que muestra el código en la portada
 \ifthenelse{\equal{\codigocursoenportada}{true}}{
 	\vspace*{3cm}
 	\begin{center}
@@ -32,6 +34,8 @@
 		\vspace{0.3cm}
 		\large {\temaatratar}
 	\end{center}
+
+% Estilo normal
 }{
 	\vspace*{5cm}
 	\begin{center}
@@ -42,5 +46,6 @@
 		\large {\temaatratar}
 	\end{center}
 }
+
 \vfill
 \tablaintegrantes

@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
 % Advertencia:  Documento generado automáticamente a partir del main.tex y los
 %               archivos .tex de la carpeta lib/ para crear un sólo archivo.
-% Versión:      3.1.0 (15/04/2017)
+% Versión:      3.1.2 (16/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,8 +18,8 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.1.0}               % Versión del template
-             
+\def\templateversion{3.1.2}               % Versión del template
+              
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
 \newcommand{\temaatratar}{Tema a tratar}
@@ -114,6 +114,7 @@
 \newcommand{\showborderonlinks}{false}     % Muestra un recuadro en cada enlace
 \newcommand{\showfooter}{true}             % Muestra el footer
 \newcommand{\showheadertitle}{true}        % Muestra título de la sección
+\newcommand{\showindex}{true}              % Muestra la página del índice
 \newcommand{\showindexofcontents}{true}    % Muestra la lista de contenidos
 \newcommand{\showindexoffigures}{true}     % Muestra la lista de figuras
 \newcommand{\showindexofsourcecode}{false} % Muestra la lista de códigos fuente
@@ -137,7 +138,7 @@
 \newpage\renewcommand{\thepage}{\nombrepaginaportada}\setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}\fancyhead[R]{\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}}\ifthenelse{\equal{\codigocursoenportada}{true}}{\vspace*{3cm}\begin{center}\huge {\nombredelcurso} \\\vspace{0.3cm}\large {Código del curso: \codigodelcurso} \\\vspace{1.5cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}{\vspace*{5cm}\begin{center}\huge {\nombredelcurso} \\\vspace{1cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}\vfill\tablaintegrantes
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
-\newpage\pagenumbering{Roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\def\arraystretch{\tablepadding}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfiguras}\renewcommand{\listtablename}{\nomlttablas}\renewcommand{\contentsname}{\nomltcontend}\renewcommand{\lstlistlistingname}{\nomltcodfuente}\renewcommand{\tablename}{\nomltwtablas}\renewcommand{\figurename}{\nomltwfigura}\renewcommand{\lstlistingname}{\nomltsrc}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \nouppercase{\thepage}}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
+\newpage \pagenumbering{Roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\def\arraystretch{\tablepadding}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfiguras}\renewcommand{\listtablename}{\nomlttablas}\renewcommand{\contentsname}{\nomltcontend}\renewcommand{\lstlistlistingname}{\nomltsrc}\renewcommand{\tablename}{\nomltwtablas}\renewcommand{\figurename}{\nomltwfigura}\renewcommand{\lstlistingname}{\nomltsrc}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \nouppercase{\thepage}}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
 
 % ========================= RESUMEN O ABSTRACT =========================
 \newtitleanumheadless{Resumen}
@@ -146,7 +147,7 @@
 \lipsum[1] \newp \lipsum[3]
 
 % TABLA DE CONTENIDOS - ÍNDICE
-\newpage\sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}\subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}\subsubsectionfont{\tipofuentesubsubtituloi \etipofuentesubsubtituloi \selectfont}\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}\ifthenelse{\equal{\showindexofsourcecode}{true}}{\lstlistoflistings}{}
+\ifthenelse{\equal{\showindex}{true}}{\newpage\sectionfont{\tipofuentetituloi \etipofuentetituloi \selectfont}\subsectionfont{\tipofuentesubtituloi \etipofuentesubtituloi \selectfont}\subsubsectionfont{\tipofuentesubsubtituloi \etipofuentesubsubtituloi \selectfont}\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}\ifthenelse{\equal{\showindexofsourcecode}{true}}{\lstlistoflistings}{}}{}
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\leftmark}}}{}\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}\subsectionfont{\tipofuentesubtitulo \etipofuentesubtitulo \selectfont}\subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}\setcounter{section}{0}\setcounter{footnote}{0}

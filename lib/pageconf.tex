@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      3.1.0 (15/04/2017)
+% Versión:      3.1.2 (16/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,13 +11,15 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-\newpage
-\pagenumbering{Roman}
+% Se crea la numeración y los márgenes
+\newpage \pagenumbering{Roman}
 \setcounter{page}{1}
 \setcounter{footnote}{1}
 \setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}
 {\defaultpagemarginright}{\defaultpagemarginbottom}
 \def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
+
+% Definición de nombres a objetos
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header
 \renewcommand{\listfigurename}{\nomltfiguras} % Nombre del índice de figuras
 \renewcommand{\listtablename}{\nomlttablas} % Nombre del índice de tablas
@@ -26,6 +28,8 @@
 \renewcommand{\tablename}{\nomltwtablas} % Nombre de la leyenda de las tablas
 \renewcommand{\figurename}{\nomltwfigura} % Nombre de la leyenda de las figuras
 \renewcommand{\lstlistingname}{\nomltsrc} % Nombre leyenda del código fuente
+
+% Se crean los estílos de página
 \pagestyle{fancy} \fancyhf{} % Se crean los headers y footers
 \ifthenelse{\equal{\showheadertitle}{true}}{ % Header izq, nombre sección
 	\fancyhead[L]{\nouppercase{\rightmark}}
