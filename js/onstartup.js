@@ -70,12 +70,13 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
 
     // Se añaden las 129 descargas de https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases
     // Se añaden 60 descargas entre 1.8.5 y 1.9.6
-    // Se añaden 138 descargas entre 1.9.6 y 2.0.7
+    // Se añaden 138 descargas entre 1.9.6 y 2.0.6
+    // Se añaden 3 descargas de version 2.0.7
     if (total_downloads == 0){
         total_downloads = 'NaN';
     }
     else{
-        total_downloads += 129 + 60 + 138;
+        total_downloads += 129 + 60 + 138 + 3;
     }
 
     // Se establece la versión en el contador de descargas totales
