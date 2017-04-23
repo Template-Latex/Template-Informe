@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
-% Advertencia:  Documento generado automáticamente a partir del main.tex y los
-%               archivos .tex de la carpeta lib/ para crear un sólo archivo.
-% Versión:      3.1.3 (17/04/2017)
+% Advertencia:  Documento generado automáticamente a partir del main.tex y
+%               los archivos .tex de la carpeta lib/
+% Versión:      3.1.4 (23/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,8 +18,8 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.1.3}               % Versión del template
-               
+\def\templateversion{3.1.4}               % Versión del template
+                                  
 % INFORMACIÓN DEL DOCUMENTO
 \newcommand{\nombredelinforme}{Título del informe}
 \newcommand{\temaatratar}{Tema a tratar}
@@ -72,55 +72,56 @@
 \end{minipage}}
 
 % CONFIGURACIONES
-\newcommand{\defaultimagefolder}{images/}         % Directorio de las imágenes
-\newcommand{\defaultnewlinesize}{11pt}            % Tamaño del salto de línea
-\newcommand{\defaultinterlind}{1.0}               % Entrelineado por defecto
-\newcommand{\tipofuentetitulo}{\huge}             % Tamaño títulos
-\newcommand{\tipofuentesubtitulo}{\Large}         % Tamaño subtítulos
-\newcommand{\tipofuentesubsubtitulo}{\large}      % Tamaño sub-subtítulos
-\newcommand{\tipofuentetituloi}{\huge}            % Tamaño títulos en el índice
-\newcommand{\tipofuentesubtituloi}{\Large}        % Tamaño subtítulos en el índice
-\newcommand{\tipofuentesubsubtituloi}{\large}     % Tamaño sub-subtit. en el índ.
-\newcommand{\etipofuentetitulo}{\bfseries}        % Estilo títulos
-\newcommand{\etipofuentesubtitulo}{\bfseries}     % Estilo subtítulos
-\newcommand{\etipofuentesubsubtitulo}{\bfseries}  % Estilo sub-subtítulos
-\newcommand{\etipofuentetituloi}{\bfseries}       % Estilo títulos en el índice
-\newcommand{\etipofuentesubtituloi}{\bfseries}    % Estilo subtítulos en el índice
-\newcommand{\etipofuentesubsubtituloi}{\bfseries} % Estilo sub-subti. en el índice
-\newcommand{\tiporeferencias}{apa}                % Tipo de referencias
-\newcommand{\nomltcontend}{Índice de Contenidos}  % Nombre del índ. de contenidos
-\newcommand{\nomlttablas}{Lista de Tablas}        % Nombre de la lista de tablas
-\newcommand{\nomltfiguras}{Lista de Figuras}      % Nombre de la lista de figuras
-\newcommand{\nomltsrc}{Lista de Códigos Fuente}   % Nombre del código fuente
-\newcommand{\nomltwtablas}{Tabla}                 % Nombre de las tablas
-\newcommand{\nomltwfigura}{Figura}                % Nombre de las figuras
-\newcommand{\nomltwcodfuente}{Código Fuente}      % Nombre del código fuente
-\newcommand{\indexdepth}{3}                       % Profundidad del índice
-\newcommand{\tablepadding}{1.1}                   % Padding de las tablas
-\newcommand{\defaultcaptionmargin}{2.9}           % Márgenes de las leyendas [cm]
-\newcommand{\defaultpagemarginleft}{2.5}          % Margen izquierdo página [cm]
-\newcommand{\defaultpagemarginright}{2.5}         % Margen derecho página [cm]
-\newcommand{\defaultpagemargintop}{3.0}           % Margen superior página [cm]
-\newcommand{\defaultpagemarginbottom}{2.7}        % Margen inferior página [cm]
-\newcommand{\defaultfirstpagemargintop}{3.8}      % Margen superior portada [cm]
-\newcommand{\defaultmarginfloatimages}{-13pt}     % Margen sup. fig. flotante [pt]
-\newcommand{\defaultmargintopimages}{0.0cm}       % Margen superior figura [cm]
-\newcommand{\defaultmarginbottomimages}{-0.2cm}   % Margen inferior figura [cm]
-\newcommand{\defaultcaptionlessmargin}{0.1cm}     % Margen si no hay caption [cm]
-\newcommand{\defaultindextitlemargin}{7pt}        % Margen títulos en índice [pt]
-\newcommand{\nombrepaginaportada}{Portada}        % Etiqueta página de la portada
+\newcommand{\defaultimagefolder}{images/}
+\newcommand{\defaultnewlinesize}{11pt}
+\newcommand{\defaultinterlind}{1.0}
+\newcommand{\tipofuentetitulo}{\huge}
+\newcommand{\tipofuentesubtitulo}{\Large}
+\newcommand{\tipofuentesubsubtitulo}{\large}
+\newcommand{\tipofuentetituloi}{\huge}
+\newcommand{\tipofuentesubtituloi}{\Large}
+\newcommand{\tipofuentesubsubtituloi}{\large}
+\newcommand{\etipofuentetitulo}{\bfseries}
+\newcommand{\etipofuentesubtitulo}{\bfseries}
+\newcommand{\etipofuentesubsubtitulo}{\bfseries}
+\newcommand{\etipofuentetituloi}{\bfseries}
+\newcommand{\etipofuentesubtituloi}{\bfseries}
+\newcommand{\etipofuentesubsubtituloi}{\bfseries}
+\newcommand{\tiporeferencias}{apa}
+\newcommand{\nomltcontend}{Índice de Contenidos}
+\newcommand{\nomlttablas}{Lista de Tablas}
+\newcommand{\nomltfiguras}{Lista de Figuras}
+\newcommand{\nomltsrc}{Lista de Códigos Fuente}
+\newcommand{\nomltwtablas}{Tabla}
+\newcommand{\nomltwfigura}{Figura}
+\newcommand{\nomltwcodfuente}{Código Fuente}
+\newcommand{\indexdepth}{3}
+\newcommand{\tablepadding}{1.1}
+\newcommand{\defaultcaptionmargin}{2.9}
+\newcommand{\defaultpagemarginleft}{2.5}
+\newcommand{\defaultpagemarginright}{2.5}
+\newcommand{\defaultpagemargintop}{3.0}
+\newcommand{\defaultpagemarginbottom}{2.7}
+\newcommand{\defaultfirstpagemargintop}{3.8}
+\newcommand{\defaultmarginfloatimages}{-13pt}
+\newcommand{\defaultmargintopimages}{0.0cm}
+\newcommand{\defaultmarginbottomimages}{-0.2cm}
+\newcommand{\defaultcaptionlessmargin}{0.1cm}
+\newcommand{\defaultindextitlemargin}{7pt}
+\newcommand{\nombrepaginaportada}{Portada}
 
-% CONFIGURACIONES BOOLEANAS (TRUE, FALSE)
-\newcommand{\codigocursoenportada}{false}  % Muestra el código del curso
-\newcommand{\showborderonlinks}{false}     % Muestra un recuadro en cada enlace
-\newcommand{\showfooter}{true}             % Muestra el footer
-\newcommand{\showheadertitle}{true}        % Muestra título de la sección
-\newcommand{\showindex}{true}              % Muestra la página del índice
-\newcommand{\showindexofcontents}{true}    % Muestra la lista de contenidos
-\newcommand{\showindexoffigures}{true}     % Muestra la lista de figuras
-\newcommand{\showindexofsourcecode}{false} % Muestra la lista de códigos fuente
-\newcommand{\showindexoftables}{true}      % Muestra la lista de tablas
-\newcommand{\twocolumnreferences}{false}   % Referencias en dos columnas
+% CONFIGURACIONES BOOLEANAS
+\newcommand{\codigocursoenportada}{false}
+\newcommand{\showborderonlinks}{false}
+\newcommand{\showfooter}{true}
+\newcommand{\showheadertitle}{true}
+\newcommand{\showindex}{true}
+\newcommand{\showindexofcontents}{true}
+\newcommand{\showindexoffigures}{true}
+\newcommand{\showindexofsourcecode}{false}
+\newcommand{\showindexoftables}{true}
+\newcommand{\twocolumnreferences}{false}
+
 
 % DECLARACIÓN DE LIBRERÍAS
 \usepackage{amsmath}\usepackage{amssymb}\usepackage{amsthm}\usepackage{array}\usepackage{bigstrut}\usepackage{booktabs}\usepackage[makeroom]{cancel}\usepackage{caption}\usepackage{color}\usepackage{colortbl}\usepackage{datetime}\usepackage[inline]{enumitem}\usepackage[bottom, norule]{footmisc}\usepackage{fancyhdr}\usepackage{float}\usepackage{textcomp, gensymb}\usepackage{geometry}\usepackage{graphicx}\usepackage{ifthen}\usepackage{mathtools}\usepackage{multicol}\usepackage{pdfpages}\usepackage{lipsum}\usepackage{longtable}\usepackage{listings}\usepackage{rotating}\usepackage{sectsty}\usepackage{selinput}\usepackage{setspace}\usepackage{subfig}\usepackage{tikz}\usepackage{ulem}\usepackage{url}\usepackage{wasysym}\usepackage{wrapfig}\usepackage{xcolor}\usetikzlibrary{babel}\usepackage{chngcntr}\usepackage{epstopdf}\usepackage{multirow}\ifthenelse{\equal{\showborderonlinks}{false}}{\usepackage[hidelinks]{hyperref}}{\usepackage{hyperref}}
@@ -134,14 +135,17 @@
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
 \decimalpoint\counterwithin{equation}{section}\counterwithin{figure}{section}\counterwithin{table}{section}\bibliographystyle{\tiporeferencias}\setlength{\headheight}{64pt}\setcounter{tocdepth}{\indexdepth}\setcounter{MaxMatrixCols}{20}\hypersetup{pdfauthor={\autordeldocumento},pdftitle={\nombredelinforme},pdfsubject={\temaatratar},pdfkeywords={\nombreuniversidad, \nombredelcurso,\codigodelcurso, \localizacionuniversidad},pdfcreator={pdfLaTeX, ppizarror},pdfproducer={Template LaTeX informe v\templateversion}}\renewcommand{\baselinestretch}{\defaultinterlind}\setcaptionmargincm{\defaultcaptionmargin}\makeatletter\ifthenelse{\equal{\twocolumnreferences}{true}}{\renewenvironment{thebibliography}[1]{\begin{multicols}{2}[\section*{\refname}]\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}\list{\@biblabel{\@arabic\c@enumiv}}{\settowidth\labelwidth{\@biblabel{#1}}\leftmargin\labelwidth\advance\leftmargin\labelsep\@openbib@code\usecounter{enumiv}\let\p@enumiv\@empty\renewcommand\theenumiv{\@arabic\c@enumiv}}\sloppy\clubpenalty 4000\@clubpenalty \clubpenalty\widowpenalty 4000\sfcode`\.\@m}{\def\@noitemerr{\@latex@warning{Ambiente `thebibliography' no definido}}\endlist\end{multicols}}}{}\makeatother
 
-% PORTADA
+% INICIO DEL DOCUMENTO
 \begin{document}
+	
+% PORTADA
 \newpage\renewcommand{\thepage}{\nombrepaginaportada}\setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}\fancyhead[R]{\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}}\ifthenelse{\equal{\codigocursoenportada}{true}}{\vspace*{3cm}\begin{center}\huge {\nombredelcurso} \\\vspace{0.3cm}\large {Código del curso: \codigodelcurso} \\\vspace{1.5cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}{\vspace*{5cm}\begin{center}\huge {\nombredelcurso} \\\vspace{1cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}\vfill\tablaintegrantes
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \newpage \pagenumbering{Roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\def\arraystretch{\tablepadding}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfiguras}\renewcommand{\listtablename}{\nomlttablas}\renewcommand{\contentsname}{\nomltcontend}\renewcommand{\lstlistlistingname}{\nomltsrc}\renewcommand{\tablename}{\nomltwtablas}\renewcommand{\figurename}{\nomltwfigura}\renewcommand{\lstlistingname}{\nomltsrc}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \nouppercase{\thepage}}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}
 
-% ========================= RESUMEN O ABSTRACT =========================
+% =========================== RESUMEN O ABSTRACT ===========================
+
 \newtitleanumheadless{Resumen}
 
 % Ejemplo de dos párrafos en latín, esta linea puede borrarse sin problema
@@ -153,9 +157,9 @@
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\leftmark}}}{}\sectionfont{\tipofuentetitulo \etipofuentetitulo \selectfont}\subsectionfont{\tipofuentesubtitulo \etipofuentesubtitulo \selectfont}\subsubsectionfont{\tipofuentesubsubtitulo \etipofuentesubsubtitulo \selectfont}\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}\setcounter{section}{0}\setcounter{footnote}{0}
 
-% ======================== INICIO DEL DOCUMENTO ========================
+% ========================== INICIO DEL DOCUMENTO ==========================
 
-\input{example} % Se incluye el ejemplo del documento, se puede borrar
+\input{example.tex} % Ejemplo, se puede borrar el archivo y la línea
 
 
 % FIN DEL DOCUMENTO
