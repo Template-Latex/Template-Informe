@@ -17,6 +17,10 @@ body {
     color: #606c71;
 }
 
+.functtitlstyle{
+    font-size: 1.2rem;
+}
+
 .iconbutton {
     top:4px;
     position:relative;
