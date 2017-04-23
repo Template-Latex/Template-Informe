@@ -153,7 +153,10 @@ for d in data:
                                 else:
                                     srclin = srclin.replace('%' + comments[1],
                                                             '')
-                                    srclin = srclin.strip() + '\n'
+                                    if libdatapos != len(libdata) - 1:
+                                        srclin = srclin.strip() + '\n'
+                                    else:
+                                        srclin = srclin.strip()
                             elif srclin.strip() is '':
                                 srclin = ''
 
@@ -179,7 +182,8 @@ for d in data:
                     fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
                 if d == '% RESUMEN O ABSTRACT\n':
-                    d = '% =========================== RESUMEN O ABSTRACT ===========================\n\n'
+                    d = '% =========================== RESUMEN O ABSTRACT ' \
+                        '===========================\n'
                 fl.write(d)
             else:
                 fl.write(d)
