@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
 % Advertencia:  Documento generado automáticamente a partir del main.tex y
 %               los archivos .tex de la carpeta lib/
-% Versión:      3.1.7 (24/04/2017)
+% Versión:      3.1.8 (24/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,24 +18,24 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía moderna
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.1.7}               % Versión del template
-                                       
+\def\templateversion{3.1.8}               % Versión del template
+                                        
 % INFORMACIÓN DEL DOCUMENTO
-\newcommand{\nombredelinforme}{Título del informe}
-\newcommand{\temaatratar}{Tema a tratar}
-\newcommand{\fecharealizacion}{\today}
-\newcommand{\fechaentrega}{\today}
+\def\nombredelinforme {Título del informe}
+\def\temaatratar {Tema a tratar}
+\def\fecharealizacion {\today}
+\def\fechaentrega {\today}
 
-\newcommand{\autordeldocumento}{Nombre del autor o grupo}
-\newcommand{\nombredelcurso}{Curso}
-\newcommand{\codigodelcurso}{CO-1234}
+\def\autordeldocumento {Nombre del autor o grupo}
+\def\nombredelcurso {Curso}
+\def\codigodelcurso {CO-1234}
 
-\newcommand{\nombreuniversidad}{Universidad de Chile}
-\newcommand{\nombrefacultad}{Facultad de Ciencias Físicas y Matemáticas}
-\newcommand{\departamentouniversidad}{Departamento de la Universidad}
-\newcommand{\imagendeldepartamento}{images/departamentos/fcfm}
-\newcommand{\imagendeldepartamentoescl}{0.2}
-\newcommand{\localizacionuniversidad}{Santiago, Chile}
+\def\nombreuniversidad {Universidad de Chile}
+\def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}
+\def\departamentouniversidad {Departamento de la Universidad}
+\def\imagendeldepartamento {images/departamentos/fcfm}
+\def\imagendeldepartamentoescl {0.2}
+\def\localizacionuniversidad {Santiago, Chile}
 
 % INTEGRANTES, PROFESORES Y FECHAS
 \newcommand{\tablaintegrantes}{
@@ -72,56 +72,56 @@
 \end{minipage}}
 
 % CONFIGURACIONES
-\newcommand{\defaultimagefolder}{images/}
-\newcommand{\defaultnewlinesize}{11pt}
-\newcommand{\defaultinterlind}{1.0}
-\newcommand{\tipofuentetitulo}{\huge}
-\newcommand{\tipofuentesubtitulo}{\Large}
-\newcommand{\tipofuentesubsubtitulo}{\large}
-\newcommand{\tipofuentetituloi}{\huge}
-\newcommand{\tipofuentesubtituloi}{\Large}
-\newcommand{\tipofuentesubsubtituloi}{\large}
-\newcommand{\etipofuentetitulo}{\bfseries}
-\newcommand{\etipofuentesubtitulo}{\bfseries}
-\newcommand{\etipofuentesubsubtitulo}{\bfseries}
-\newcommand{\etipofuentetituloi}{\bfseries}
-\newcommand{\etipofuentesubtituloi}{\bfseries}
-\newcommand{\etipofuentesubsubtituloi}{\bfseries}
-\newcommand{\tiporeferencias}{apa}
-\newcommand{\nomltcontend}{Índice de Contenidos}
-\newcommand{\nomlttablas}{Lista de Tablas}
-\newcommand{\nomltfiguras}{Lista de Figuras}
-\newcommand{\nomltsrc}{Lista de Códigos Fuente}
-\newcommand{\nomltwtablas}{Tabla}
-\newcommand{\nomltwfigura}{Figura}
-\newcommand{\nomltwcodfuente}{Código Fuente}
-\newcommand{\indexdepth}{3}
-\newcommand{\tablepadding}{1.1}
-\newcommand{\defaultcaptionmargin}{2.9}
-\newcommand{\defaultpagemarginleft}{2.5}
-\newcommand{\defaultpagemarginright}{2.5}
-\newcommand{\defaultpagemargintop}{3.0}
-\newcommand{\defaultpagemarginbottom}{2.7}
-\newcommand{\defaultfirstpagemargintop}{3.8}
-\newcommand{\defaultmarginfloatimages}{-13pt}
-\newcommand{\defaultmargintopimages}{0.0cm}
-\newcommand{\defaultmarginbottomimages}{-0.2cm}
-\newcommand{\defaultcaptionlessmargin}{0.1cm}
-\newcommand{\defaultindextitlemargin}{7pt}
-\newcommand{\nombrepaginaportada}{Portada}
+\def\defaultimagefolder {images/}
+\def\defaultnewlinesize {11pt}
+\def\defaultinterlind {1.0}
+\def\tipofuentetitulo {\huge}
+\def\tipofuentesubtitulo {\Large}
+\def\tipofuentesubsubtitulo {\large}
+\def\tipofuentetituloi {\huge}
+\def\tipofuentesubtituloi {\Large}
+\def\tipofuentesubsubtituloi {\large}
+\def\etipofuentetitulo {\bfseries}
+\def\etipofuentesubtitulo {\bfseries}
+\def\etipofuentesubsubtitulo {\bfseries}
+\def\etipofuentetituloi {\bfseries}
+\def\etipofuentesubtituloi {\bfseries}
+\def\etipofuentesubsubtituloi {\bfseries}
+\def\tiporeferencias {apa}
+\def\nomltcontend {Índice de Contenidos}
+\def\nomlttablas {Lista de Tablas}
+\def\nomltfiguras {Lista de Figuras}
+\def\nomltsrc {Lista de Códigos Fuente}
+\def\nomltwtablas {Tabla}
+\def\nomltwfigura {Figura}
+\def\nomltwcodfuente {Código Fuente}
+\def\indexdepth {3}
+\def\tablepadding {1.1}
+\def\defaultcaptionmargin {2.9}
+\def\defaultpagemarginleft {2.5}
+\def\defaultpagemarginright {2.5}
+\def\defaultpagemargintop {3.0}
+\def\defaultpagemarginbottom {2.7}
+\def\defaultfirstpagemargintop {3.8}
+\def\defaultmarginfloatimages {-13pt}
+\def\defaultmargintopimages {0.0cm}
+\def\defaultmarginbottomimages {-0.2cm}
+\def\defaultcaptionlessmargin {0.1cm}
+\def\defaultindextitlemargin {7pt}
+\def\nombrepaginaportada {Portada}
 
 % CONFIGURACIONES BOOLEANAS
-\newcommand{\codigocursoenportada}{false}
-\newcommand{\referenceassection}{false}
-\newcommand{\showborderonlinks}{false}
-\newcommand{\showfooter}{true}
-\newcommand{\showheadertitle}{true}
-\newcommand{\showindex}{true}
-\newcommand{\showindexofcontents}{true}
-\newcommand{\showindexoffigures}{true}
-\newcommand{\showindexofsourcecode}{false}
-\newcommand{\showindexoftables}{true}
-\newcommand{\twocolumnreferences}{false}
+\def\codigocursoenportada {false}
+\def\referenceassection {false}
+\def\showborderonlinks {false}
+\def\showfooter {true}
+\def\showheadertitle {true}
+\def\showindex {true}
+\def\showindexofcontents {true}
+\def\showindexoffigures {true}
+\def\showindexofsourcecode {false}
+\def\showindexoftables {true}
+\def\twocolumnreferences {false}
 
 % DECLARACIÓN DE LIBRERÍAS
 \usepackage{amsmath}\usepackage{amssymb}\usepackage{amsthm}\usepackage{array}\usepackage{bigstrut}\usepackage{booktabs}\usepackage[makeroom]{cancel}\usepackage{caption}\usepackage{color}\usepackage{colortbl}\usepackage{datetime}\usepackage[inline]{enumitem}\usepackage{etoolbox}\usepackage[bottom, norule]{footmisc}\usepackage{fancyhdr}\usepackage{float}\usepackage{textcomp, gensymb}\usepackage{geometry}\usepackage{graphicx}\usepackage{ifthen}\usepackage{mathtools}\usepackage{multicol}\usepackage{pdfpages}\usepackage{lipsum}\usepackage{longtable}\usepackage{listings}\usepackage{rotating}\usepackage{sectsty}\usepackage{selinput}\usepackage{setspace}\usepackage{subfig}\usepackage{tikz}\usepackage{ulem}\usepackage{url}\usepackage{wasysym}\usepackage{wrapfig}\usepackage{xcolor}\usetikzlibrary{babel}\usepackage{chngcntr}\usepackage{epstopdf}\usepackage{multirow}\ifthenelse{\equal{\showborderonlinks}{false}}{\usepackage[hidelinks]{hyperref}}{\usepackage{hyperref}}
