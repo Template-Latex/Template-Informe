@@ -23,7 +23,6 @@
 \usepackage{colortbl}                 % Administración de color en tablas
 \usepackage{datetime}                 % Fechas
 \usepackage[inline]{enumitem}         % Permite enumerar ítems
-\usepackage{etoolbox}                 % Paquete para administrar referencias
 \usepackage[bottom, norule]{footmisc} % Estilo pié de página
 \usepackage{fancyhdr}                 % Encabezados y pié de páginas
 \usepackage{float}                    % Administrador de posiciones de objetos
@@ -54,6 +53,9 @@
 \usepackage{chngcntr}                 % Agrega números de secciones a las leyendas
 \usepackage{epstopdf}                 % Convierte archivos .eps a pdf
 \usepackage{multirow}                 % Agrega nuevas opciones a las tablas
+\ifthenelse{                          % Paquete para administrar referencias
+\equal{\referenceassection}{true}}{
+\usepackage{etoolbox}}{}
 \ifthenelse{                          % Permite añadir enlaces y referencias
 \equal{\showborderonlinks}{false}}{   % Links sin recuadro rojo
 \usepackage[hidelinks]{hyperref}}{
