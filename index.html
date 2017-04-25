@@ -168,9 +168,13 @@
 			<span aria-hidden="true" class="octicon octicon-link"></span>
 			</a> Configurando el documento
 		</h2>
-		<p>Para configurar el documento (título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de
-			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> al principio del archivo principal, estas variables son del estilo
-			<em>\newcommand</em>{<strong>\nombreVariable</strong>}{<strong>Valor</strong>}.</p>
+		<p>
+			Para configurar el documento (título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de
+			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> al principio del archivo principal, estas variables son del estilo:
+			<blockquote>
+				<em>\def</em><span class="pl-e">\nombreVariable</span> {<b>Valor</b>}
+			</blockquote>
+		</p>
 
 		<p>Si por ejemplo tu informe no tiene un tema, debes dejar el valor en blanco, pero <b> no eliminar la variable</b>.
 		</p>
