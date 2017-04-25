@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.1.6 (23/04/2017)
+% Versión:      3.1.7 (24/04/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -26,9 +26,14 @@
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
 	pdfcreator={pdfLaTeX, ppizarror},
-	pdfproducer={Template LaTeX informe v\templateversion}}
+	pdfproducer={Template LaTeX informe v\templateversion}
+}
 \renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
 \setcaptionmargincm{\defaultcaptionmargin}         % Margen por defecto
+\ifthenelse{\equal{\referenceassection}{true}}{
+	% Se configura las referencias como una sección
+	\patchcmd{\thebibliography}{*}{}{}{}
+}{}
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
 	% Bibliografía en 2 columnas
