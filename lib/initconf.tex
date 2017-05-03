@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.2.0 (24/04/2017)
+% Versión:      3.2.1 (03/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -19,6 +19,9 @@
 \setlength{\headheight}{64pt}        % Tamaño de la cabecera sin fancyhdr
 \setcounter{tocdepth}{\indexdepth}   % Se ajusta la profundidad del índice
 \setcounter{MaxMatrixCols}{20}       % Número máximo de columnas en matrices
+\captionsetup{                       % Configuración de márgenes en captions
+	belowskip=\captionbottommargin pt,
+	aboveskip=\captiontopmargin pt}
 \hypersetup{
 	pdfauthor={\autordeldocumento},
 	pdftitle={\nombredelinforme},
