@@ -121,7 +121,6 @@ data.insert(1, '% Advertencia:  Documento generado automáticamente a partir '
                'carpeta lib/\n')
 data[CODETABLEWIDTHPOS] = data[CODETABLEWIDTHPOS].replace(
     ITABLEORIGINAL, ITABLENEW)
-print data[CODETABLEWIDTHPOS]
 line = 0
 for d in data:
     write = True
