@@ -16,9 +16,12 @@ from ziputility import ZipUtility as Zip
 # Constantes
 CODEVERSION = '\def\\templateversion{0}{1}% Versión del template\n '
 CODEVERSIONPOS = 19
+CODETABLEWIDTHPOS = 40
 EXAMPLEFILE = 'example.tex'
 HEADERSIZE = 13
 HEADERVERSIONPOS = 2
+ITABLEORIGINAL = '0.976\\textwidth'
+ITABLENEW = '1.012\\textwidth'
 MAINFILE = 'main.tex'
 MAINFILESINGLE = 'informe.tex'
 VERSIONHEADER = '% Versión:      {0} ({1})\n'
@@ -89,7 +92,7 @@ for f in FILES.keys():
     data = FILES[f]
     # noinspection PyBroadException
     try:
-        fl = open(f, 'r')
+        fl = open(f)
         for line in fl:
             data.append(line)
         fl.close()
@@ -114,7 +117,11 @@ fl = open(MAINFILESINGLE, 'w')
 data = FILES[MAINFILE]
 data.pop(1)  # Se elimina el tipo de documento del header
 data.insert(1, '% Advertencia:  Documento generado automáticamente a partir '
-               'del main.tex y\n%               los archivos .tex de la carpeta lib/\n')
+               'del main.tex y\n%               los archivos .tex de la '
+               'carpeta lib/\n')
+data[CODETABLEWIDTHPOS] = data[CODETABLEWIDTHPOS].replace(
+    ITABLEORIGINAL, ITABLENEW)
+print data[CODETABLEWIDTHPOS]
 line = 0
 for d in data:
     write = True
@@ -131,7 +138,7 @@ for d in data:
             if d[0:6] == '\input':
                 libr = d.replace('\input{', '').replace('}', '').strip()
                 libr = libr.split(' ')[0]
-                libr = libr + '.tex'
+                libr += '.tex'
                 if libr != EXAMPLEFILE:
 
                     # Se escribe desde el largo del header en adelante
@@ -173,7 +180,7 @@ for d in data:
                 else:
                     fl.write(d)
                 write = False
-        except Exception, e:
+        except Exception as e:
             pass
         # Se agrega un espacio en blanco a la pagina despues del comentario
         if line >= CODEVERSIONPOS + 1 and write:

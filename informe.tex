@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
 % Advertencia:  Documento generado automáticamente a partir del main.tex y
 %               los archivos .tex de la carpeta lib/
-% Versión:      3.2.6 (04/05/2017)
+% Versión:      3.3.0 (04/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -16,10 +16,10 @@
 \documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, fuente 11
 \usepackage[utf8]{inputenc}               % Codificación UTF-8
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
-\usepackage{lmodern}                      % Tipografía moderna
+\usepackage{lmodern}                      % Tipografía Computer Modern
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.2.6}               % Versión del template
-                                                 
+\def\templateversion{3.3.0}               % Versión del template
+                                                         
 % INFORMACIÓN DEL DOCUMENTO
 \def\nombredelinforme {Título del informe}
 \def\temaatratar {Tema a tratar}
@@ -39,13 +39,14 @@
 
 % INTEGRANTES, PROFESORES Y FECHAS
 \newcommand{\tablaintegrantes}{
-\begin{minipage}{0.976\textwidth}
+\begin{minipage}{1.012\textwidth}
 \begin{flushright}
 \begin{tabular}{ll}
 	Integrantes:
 		& \begin{tabular}[t]{@{}l@{}}
 			Integrante 1 \\
-			Integrante 2
+			Integrante 2 \\
+			Integrante 3
 		\end{tabular} \\
 	Profesores:
 		& \begin{tabular}[t]{@{}l@{}}
@@ -62,7 +63,7 @@
 			Ayudante 1 \\
 			Ayudante 2
 		\end{tabular}\\
-	\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante} \\
+	\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante 1} \\
 	& \\
 	\multicolumn{2}{l}{Fecha de realización: \fecharealizacion} \\
 	\multicolumn{2}{l}{Fecha de entrega: \fechaentrega} \\
@@ -73,13 +74,13 @@
 
 % CONFIGURACIONES
 \def\captionbottommargin {4}
-\def\captiontopmargin {10}
+\def\captiontopmargin {9}
 \def\defaultcaptionlessmargin {0.1cm}
 \def\defaultcaptionmargin {2.7}
 \def\defaultfirstpagemargintop {3.8}
 \def\defaultimagefolder {images/}
 \def\defaultindextitlemargin {7pt}
-\def\defaultinterlind {1.0}
+\def\defaultinterline {1.0}
 \def\defaultmarginbottomimages {-0.2cm}
 \def\defaultmarginfloatimages {-13pt}
 \def\defaultmargintopimages {0.0cm}
@@ -137,7 +138,7 @@
 \definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\definecolor{mygreen}{rgb}{0,0.6,0}\definecolor{mygray}{rgb}{0.5,0.5,0.5}\definecolor{mymauve}{rgb}{0.58,0,0.82}\definecolor{codegreen}{rgb}{0,0.6,0}\definecolor{codegray}{rgb}{0.5,0.5,0.5}\definecolor{codepurple}{rgb}{0.58,0,0.82}\definecolor{backcolour}{rgb}{0.95,0.95,0.92}\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}\SelectInputMappings{aacute={á},Ntilde={Ñ},Euro={€}}\lstdefinestyle{C}{language=C,numbers=left,stepnumber=1,numbersep=5pt,backgroundcolor=\color{white},showspaces=false,showstringspaces=false,showtabs=false,tabsize=2,captionpos=b,breaklines=true,breakatwhitespace=true,title=\lstname}\lstdefinestyle{Java}{language=Java,aboveskip=3mm,belowskip=3mm,showstringspaces=false,columns=flexible,basicstyle={\small\ttfamily},numbers=left,numberstyle=\tiny\color{gray},keywordstyle=\color{blue},commentstyle=\color{dkgreen},stringstyle=\color{mauve},breaklines=true,breakatwhitespace=true,tabsize=3,backgroundcolor=\color{backcolour}}\lstdefinestyle{Matlab}{language=Matlab,breaklines=true,morekeywords={matlab2tikz},keywordstyle=\color{blue},morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},backgroundcolor=\color{backcolour},identifierstyle=\color{black},stringstyle=\color{mylilas},commentstyle=\color{mygreen},showstringspaces=false,numbers=left,showstringspaces=false,numberstyle=\tiny\color{gray},numbersep=9pt,basicstyle={\small\ttfamily},tabsize=3,breaklines=true,aboveskip=3mm,belowskip=3mm,emph=[1]{for,end,break},emphstyle=[1]\color{red}}\lstdefinestyle{Python}{language=Python,backgroundcolor=\color{backcolour},commentstyle=\color{codegreen},keywordstyle=\color{magenta},numberstyle=\tiny\color{codegray},stringstyle=\color{codepurple},basicstyle=\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,keepspaces=true,numbers=left,numbersep=5pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=3,basicstyle={\small\ttfamily}}\lstset{literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1{€}{{\EUR}}1 {£}{{\pounds}}1}
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
-\decimalpoint\counterwithin{equation}{section}\counterwithin{figure}{section}\counterwithin{table}{section}\setcounter{tocdepth}{\indexdepth}\captionsetup{belowskip=\captionbottommargin pt,aboveskip=\captiontopmargin pt}\ifthenelse{\equal{\figurecaptiontop}{true}}{\floatsetup[figure]{capposition=top}}{}\hfuzz=100pt\vfuzz=100pt\hbadness=2000\vbadness=\maxdimen\setlength{\headheight}{64pt}\setcounter{MaxMatrixCols}{20}\renewcommand{\baselinestretch}{\defaultinterlind}\setcaptionmargincm{\defaultcaptionmargin}\hypersetup{pdfauthor={\autordeldocumento},pdftitle={\nombredelinforme},pdfsubject={\temaatratar},pdfkeywords={\nombreuniversidad, \nombredelcurso,\codigodelcurso, \localizacionuniversidad},pdfcreator={ppizarror, pdfLaTeX, TeX},pdfproducer={Template LaTeX informe v\templateversion}}\bibliographystyle{\typereference}\ifthenelse{\equal{\referenceassection}{true}}{\patchcmd{\thebibliography}{*}{}{}{}}{}\makeatletter\ifthenelse{\equal{\twocolumnreferences}{true}}{\renewenvironment{thebibliography}[1]{\begin{multicols}{2}[\section*{\refname}]\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}\list{\@biblabel{\@arabic\c@enumiv}}{\settowidth\labelwidth{\@biblabel{#1}}\leftmargin\labelwidth\advance\leftmargin\labelsep\@openbib@code\usecounter{enumiv}\let\p@enumiv\@empty\renewcommand\theenumiv{\@arabic\c@enumiv}}\sloppy\clubpenalty 4000\@clubpenalty \clubpenalty\widowpenalty 4000\sfcode`\.\@m}{\def\@noitemerr{\@latex@warning{Ambiente `thebibliography' no definido}}\endlist\end{multicols}}}{}\makeatother
+\decimalpoint\counterwithin{equation}{section}\counterwithin{figure}{section}\counterwithin{table}{section}\setcounter{tocdepth}{\indexdepth}\captionsetup{belowskip=\captionbottommargin pt,aboveskip=\captiontopmargin pt}\ifthenelse{\equal{\figurecaptiontop}{true}}{\floatsetup[figure]{capposition=top}}{}\setlength{\headheight}{64pt}\setcounter{MaxMatrixCols}{20}\renewcommand{\baselinestretch}{\defaultinterline}\setcaptionmargincm{\defaultcaptionmargin}\hfuzz=100pt \vfuzz=100pt\hbadness=2000 \vbadness=\maxdimen\hypersetup{pdfauthor={\autordeldocumento},pdftitle={\nombredelinforme},pdfsubject={\temaatratar},pdfkeywords={\nombreuniversidad, \nombredelcurso,\codigodelcurso, \localizacionuniversidad},pdfcreator={ppizarror, pdfLaTeX, TeX},pdfproducer={Template LaTeX informe v\templateversion}}\bibliographystyle{\typereference}\ifthenelse{\equal{\referenceassection}{true}}{\patchcmd{\thebibliography}{*}{}{}{}}{}\makeatletter\ifthenelse{\equal{\twocolumnreferences}{true}}{\renewenvironment{thebibliography}[1]{\begin{multicols}{2}[\section*{\refname}]\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}\list{\@biblabel{\@arabic\c@enumiv}}{\settowidth\labelwidth{\@biblabel{#1}}\leftmargin\labelwidth\advance\leftmargin\labelsep\@openbib@code\usecounter{enumiv}\let\p@enumiv\@empty\renewcommand\theenumiv{\@arabic\c@enumiv}}\sloppy\clubpenalty 4000\@clubpenalty \clubpenalty\widowpenalty 4000\sfcode`\.\@m}{\def\@noitemerr{\@latex@warning{Ambiente `thebibliography' no definido}}\endlist\end{multicols}}}{}\makeatother
 
 % INICIO DE LAS PÁGINAS
 \begin{document}
@@ -146,7 +147,7 @@
 \newpage\renewcommand{\thepage}{\nameportraitpage}\setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}\fancyhead[R]{\includegraphics[scale=\imagendeldepartamentoescl]{\imagendeldepartamento}}\ifthenelse{\equal{\gradecodeonportrait}{true}}{\vspace*{3cm}\begin{center}\huge {\nombredelcurso} \\\vspace{0.3cm}\large {Código del curso: \codigodelcurso} \\\vspace{1.5cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}{\vspace*{5cm}\begin{center}\huge {\nombredelcurso} \\\vspace{1cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}\vfill\tablaintegrantes
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
-\newpage \pagenumbering{Roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\def\arraystretch{\tablepadding}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfigure}\renewcommand{\listtablename}{\nomlttable}\renewcommand{\contentsname}{\nomltcontent}\renewcommand{\lstlistlistingname}{\nomltsrc}\renewcommand{\tablename}{\nomltwtable}\renewcommand{\figurename}{\nomltwfigure}\renewcommand{\lstlistingname}{\nomltwsrc}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \nouppercase{\thepage}}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\typefonttitle \etypefonttitle \selectfont}
+\newpage \pagenumbering{Roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\def\arraystretch{\tablepadding}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfigure}\renewcommand{\listtablename}{\nomlttable}\renewcommand{\contentsname}{\nomltcontent}\renewcommand{\lstlistlistingname}{\nomltsrc}\renewcommand{\tablename}{\nomltwtable}\renewcommand{\figurename}{\nomltwfigure}\renewcommand{\lstlistingname}{\nomltwsrc}\renewcommand\refname{\namereferences}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \nouppercase{\thepage}}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\typefonttitle \etypefonttitle \selectfont}
 
 % =========================== RESUMEN O ABSTRACT ===========================
 \newtitleanumheadless{Resumen}
