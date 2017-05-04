@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.2.4 (04/05/2017)
+% Versión:      3.2.6 (04/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -26,6 +26,13 @@
 	\ifx\hfuzz#2\hfuzz
 		\throwerror{#1}{#3}
 	\fi
+}
+
+\newcommand{\referenceindexentry}{
+	% Inserta las referencias al índice
+	\addcontentsline{toc}{section}{\namereferences}
+	\ifthenelse{\equal{\showheadertitle}{true}}{
+	\fancyhead[L]{\nouppercase{\namereferences}}}{}
 }
 
 \newcommand{\quotes}[1]{

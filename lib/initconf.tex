@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.2.4 (04/05/2017)
+% Versión:      3.2.6 (04/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,17 +11,15 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
+% Configuración de secciones y numeración
 \decimalpoint                      % Se define el punto decimal
 \counterwithin{equation}{section}  % Añade número de sección a las ecuaciones
 \counterwithin{figure}{section}    % Añade número de sección a las figuras
 \counterwithin{table}{section}     % Añade número de sección a las tablas
-\bibliographystyle{\typereference} % Estilo APA para las referencias
-\setlength{\headheight}{64pt}      % Tamaño de la cabecera sin fancyhdr
 \setcounter{tocdepth}{\indexdepth} % Se ajusta la profundidad del índice
-\setcounter{MaxMatrixCols}{20}     % Número máximo de columnas en matrices
 
 % Configuración caption
-\captionsetup{                     % Configuración de márgenes en captions
+\captionsetup{
 	belowskip=\captionbottommargin pt,
 	aboveskip=\captiontopmargin pt}
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
@@ -29,23 +27,29 @@
 	\floatsetup[figure]{capposition=top}
 }{}
 
-% Definición de espaciados
+% Definición de dimensiones
 \hfuzz=100pt
 \vfuzz=100pt
 \hbadness=2000
 \vbadness=\maxdimen
+\setlength{\headheight}{64pt}  % Tamaño de la cabecera sin fancyhdr
+\setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
+\renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
+\setcaptionmargincm{\defaultcaptionmargin} % Margen por defecto
 
+% Se define metadata
 \hypersetup{
 	pdfauthor={\autordeldocumento},
 	pdftitle={\nombredelinforme},
 	pdfsubject={\temaatratar},
 	pdfkeywords={\nombreuniversidad, \nombredelcurso,
 	\codigodelcurso, \localizacionuniversidad},
-	pdfcreator={pdfLaTeX, ppizarror},
+	pdfcreator={ppizarror, pdfLaTeX, TeX},
 	pdfproducer={Template LaTeX informe v\templateversion}
 }
-\renewcommand{\baselinestretch}{\defaultinterlind} % Ajuste del entrelineado
-\setcaptionmargincm{\defaultcaptionmargin}         % Margen por defecto
+
+% Configuración de referencias
+\bibliographystyle{\typereference} % Estilo APA para las referencias
 \ifthenelse{\equal{\referenceassection}{true}}{
 	% Se configura las referencias como una sección
 	\patchcmd{\thebibliography}{*}{}{}{}
