@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.2.1 (03/05/2017)
+% Versión:      3.2.4 (04/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -691,7 +691,8 @@
 	\emptyvarerr{\insertimageleft}{#4}{Altura en lineas de la imagen no definida}
 	\begin{wrapfigure}[#4]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
-		\vspace{\defaultmarginfloatimages}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+		\vspace{\defaultmarginfloatimages}}
 		\centering
 		\includegraphics[width=\linewidth]{\defaultimagefolder#2}
 		\ifx\hfuzz#5\hfuzz
@@ -715,7 +716,7 @@
 	\emptyvarerr{\insertimageright}{#4}{Altura en lineas de la imagen no definida}
 	\begin{wrapfigure}[#4]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
-		\vspace{\defaultmarginfloatimages}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{}
 		\centering
 		\includegraphics[width=\linewidth]{\defaultimagefolder#2}
 		\ifx\hfuzz#5\hfuzz

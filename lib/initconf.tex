@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.2.1 (03/05/2017)
+% Versión:      3.2.4 (04/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,17 +11,30 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-\decimalpoint                        % Se define el punto decimal
-\counterwithin{equation}{section}    % Añade número de sección a las ecuaciones
-\counterwithin{figure}{section}      % Añade número de sección a las figuras
-\counterwithin{table}{section}       % Añade número de sección a las tablas
-\bibliographystyle{\tiporeferencias} % Estilo APA para las referencias
-\setlength{\headheight}{64pt}        % Tamaño de la cabecera sin fancyhdr
-\setcounter{tocdepth}{\indexdepth}   % Se ajusta la profundidad del índice
-\setcounter{MaxMatrixCols}{20}       % Número máximo de columnas en matrices
-\captionsetup{                       % Configuración de márgenes en captions
+\decimalpoint                      % Se define el punto decimal
+\counterwithin{equation}{section}  % Añade número de sección a las ecuaciones
+\counterwithin{figure}{section}    % Añade número de sección a las figuras
+\counterwithin{table}{section}     % Añade número de sección a las tablas
+\bibliographystyle{\typereference} % Estilo APA para las referencias
+\setlength{\headheight}{64pt}      % Tamaño de la cabecera sin fancyhdr
+\setcounter{tocdepth}{\indexdepth} % Se ajusta la profundidad del índice
+\setcounter{MaxMatrixCols}{20}     % Número máximo de columnas en matrices
+
+% Configuración caption
+\captionsetup{                     % Configuración de márgenes en captions
 	belowskip=\captionbottommargin pt,
 	aboveskip=\captiontopmargin pt}
+\ifthenelse{\equal{\figurecaptiontop}{true}}{
+	% Se dejan los caption en la parte superior para las figuras
+	\floatsetup[figure]{capposition=top}
+}{}
+
+% Definición de espaciados
+\hfuzz=100pt
+\vfuzz=100pt
+\hbadness=2000
+\vbadness=\maxdimen
+
 \hypersetup{
 	pdfauthor={\autordeldocumento},
 	pdftitle={\nombredelinforme},
