@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      3.3.2 (04/05/2017)
+% Versión:      3.3.4 (05/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,16 +18,15 @@
 \usepackage{bigstrut}             % Líneas horizontales en tablas
 \usepackage{booktabs}             % Permite manejar elem. visuales en tablas
 \usepackage[makeroom]{cancel}     % Cancelar términos en fórmulas
-\usepackage{caption}              % Leyendas
-\usepackage{color}                % Colores
-\usepackage{colortbl}             % Administración de color en tablas
-\usepackage{datetime}             % Fechas
-\usepackage[inline]{enumitem}     % Permite enumerar ítems
-\usepackage[bottom, norule, hang] % Estilo pié de página
-{footmisc}
-\usepackage{fancyhdr}             % Encabezados y pié de páginas
-\usepackage{floatrow}             % Administración de floats
-\usepackage{gensymb, textcomp}    % Simbología común
+\usepackage{caption}          % Leyendas
+\usepackage{color}            % Colores
+\usepackage{colortbl}         % Administración de color en tablas
+\usepackage{datetime}         % Fechas
+\usepackage[inline]{enumitem} % Permite enumerar ítems
+\usepackage[bottom,norule,hang]{footmisc} % Estilo pié de página
+\usepackage{fancyhdr}          % Encabezados y pié de páginas
+\usepackage{floatrow}          % Administración de floats
+\usepackage{gensymb,textcomp} % Simbología común
 \usepackage{geometry}             % Dimensiones y geometría del documento
 \usepackage{graphicx}             % Propiedades extra para los gráficos
 \usepackage{ifthen}               % Permite el manejo de condicionales
@@ -58,7 +57,7 @@
 \ifthenelse{                      % Paquete para administrar referencias
 \equal{\referenceassection}{true}
 }{\usepackage{etoolbox}}{}
-\ifthenelse{                      % Permite añadir enlaces y referencias
-\equal{\showborderonlinks}{false} % Links sin recuadro rojo
-}{\usepackage[hidelinks]{hyperref}}{
-\usepackage{hyperref}}
+\ifthenelse{            % Permite añadir enlaces y referencias
+\equal{\showborderonlinks}{false}}{
+\usepackage[pdfencoding=auto,psdextra,hidelinks]{hyperref}}{
+\usepackage[pdfencoding=auto,psdextra]{hyperref}}

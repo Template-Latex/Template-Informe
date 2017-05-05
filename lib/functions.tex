@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.3.2 (04/05/2017)
+% Versión:      3.3.4 (05/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -33,18 +33,6 @@
 	\addcontentsline{toc}{section}{\namereferences}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
 	\fancyhead[L]{\nouppercase{\namereferences}}}{}
-}
-
-\newcommand{\quotes}[1]{
-	% Insertar cita
-	% 	#1	Texto
-	''#1''
-}
-
-\newcommand{\quotesit}[1]{
-	% Insertar cita en itálico
-	% 	#1	Texto
-	\textit{\quotes{#1}}
 }
 
 \newcommand{\newemptypage}{
@@ -141,6 +129,13 @@
 	%	#2	Variable a derivar (x)
 	%	#3	Orden de la derivada (n)	
 	\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}
+}
+
+\newcommand{\quotes}[1]{''#1''}
+\newcommand{\quotesit}[1]{
+	% Insertar cita en itálico
+	% 	#1	Texto
+	\quotes{\textit{#1}}
 }
 
 \newcommand{\topequal}[2]{

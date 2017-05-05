@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.3.2 (04/05/2017)
+% Versión:      3.3.4 (05/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -25,6 +25,10 @@
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las figuras
 	\floatsetup[figure]{capposition=top}
+}{}
+\ifthenelse{\equal{\centeredcaption}{true}}{
+	% Se centran todos los captions
+	\captionsetup{justification=centering}
 }{}
 
 % Definición de dimensiones
