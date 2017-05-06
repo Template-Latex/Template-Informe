@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo principal
-% Versión:      3.3.4 (05/05/2017)
+% Versión:      3.3.5 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -17,8 +17,8 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía Computer Modern
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.3.4}               % Versión del template
-                                                              
+\def\templateversion{3.3.5}               % Versión del template
+                                                               
 % INFORMACIÓN DEL DOCUMENTO
 \def\nombredelinforme {Título del informe}
 \def\temaatratar {Tema a tratar}
@@ -96,17 +96,17 @@
 \input{lib/pageconf}
 
 % RESUMEN O ABSTRACT
-\input{abstract} % Se incluye un ejemplo de resumen, se puede borrar
+\input{abstract}  % Se incluye un ejemplo de resumen, se puede borrar
 
 % TABLA DE CONTENIDOS - ÍNDICE
-\input{lib/index}
+\input{lib/index} % Índice, se puede borrar
 
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \input{lib/finalconf}
 
 % ========================== INICIO DEL DOCUMENTO ==========================
 
-\input{example.tex} % Ejemplo, se puede borrar el archivo y la línea
+\input{example.tex} % Ejemplo, se puede borrar
 
 
 % FIN DEL DOCUMENTO
