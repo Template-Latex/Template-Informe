@@ -162,9 +162,9 @@ $(function() {
     });
 });
 
-$('body').prepend('<a href="#top" class="back-to-top">Back to Top</a>');
 var amountScrolled = 600;
 $(window).scroll(function() {
+    location.pathname.replace(/^\//, '')
 	if ( $(window).scrollTop() > amountScrolled ) {
 		$('a.back-to-top').fadeIn('slow');
 	} else {
