@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
 % Advertencia:  Documento generado automáticamente a partir del main.tex y
 %               los archivos .tex de la carpeta lib/
-% Versión:      3.3.6 (06/05/2017)
+% Versión:      3.3.7 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,8 +18,8 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía Computer Modern
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.3.6}               % Versión del template
-                                                                
+\def\templateversion{3.3.7}               % Versión del template
+                                                                 
 % INFORMACIÓN DEL DOCUMENTO
 \def\nombredelinforme {Título del informe}
 \def\temaatratar {Tema a tratar}
@@ -121,11 +121,11 @@
 \def\gradecodeonportrait {false}
 \def\showfooter {true}
 \def\showheadertitle {true}
-\def\defaultfirstpagemargintop {3.8}
-\def\defaultpagemarginbottom {2.7}
-\def\defaultpagemarginleft {2.5}
-\def\defaultpagemarginright {2.5}
-\def\defaultpagemargintop {3.0}
+\def\firstpagemargintop {3.8}
+\def\pagemarginbottom {2.7}
+\def\pagemarginleft {2.5}
+\def\pagemarginright {2.5}
+\def\pagemargintop {3.0}
 
 % DECLARACIÓN DE LIBRERÍAS
 \usepackage{array}\usepackage{bigstrut}\usepackage{booktabs}\usepackage[makeroom]{cancel}\usepackage{caption}\usepackage{color}\usepackage{colortbl}\usepackage{datetime}\usepackage[inline]{enumitem}\usepackage[bottom,norule,hang]{footmisc}\usepackage{fancyhdr}\usepackage{floatrow}\usepackage{gensymb,textcomp}\usepackage{geometry}\usepackage{graphicx}\usepackage{ifthen}\usepackage{mathtools}\usepackage{multicol}\usepackage{notoccite}\usepackage{pdfpages}\usepackage{lipsum}\usepackage{longtable}\usepackage{listings}\usepackage{rotating}\usepackage{sectsty}\usepackage{selinput}\usepackage{setspace}\usepackage{subfig}\usepackage{ulem}\usepackage{url}\usepackage{wasysym}\usepackage{wrapfig}\usepackage{xcolor}\usepackage{chngcntr}\usepackage{epstopdf}\usepackage{float}\usepackage{multirow}\ifthenelse{\equal{\referenceassection}{true}}{\usepackage{etoolbox}}{}\ifthenelse{\equal{\showborderonlinks}{false}}{\usepackage[pdfencoding=auto,psdextra,hidelinks]{hyperref}}{\usepackage[pdfencoding=auto,psdextra]{hyperref}}
@@ -143,10 +143,10 @@
 \begin{document}
 	
 % PORTADA
-\newpage\renewcommand{\thepage}{\nameportraitpage}\setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}\fancyhead[R]{\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}}\ifthenelse{\equal{\gradecodeonportrait}{true}}{\vspace*{3cm}\begin{center}\huge {\nombredelcurso} \\\vspace{0.3cm}\large {Código del curso: \codigodelcurso} \\\vspace{1.5cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}{\vspace*{5cm}\begin{center}\huge {\nombredelcurso} \\\vspace{1cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}\vfill\tablaintegrantes
+\newpage\renewcommand{\thepage}{\nameportraitpage}\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}\fancyhead[R]{\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}}\ifthenelse{\equal{\gradecodeonportrait}{true}}{\vspace*{3cm}\begin{center}\huge {\nombredelcurso} \\\vspace{0.3cm}\large {Código del curso: \codigodelcurso} \\\vspace{1.5cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}{\vspace*{5cm}\begin{center}\huge {\nombredelcurso} \\\vspace{1cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}\vfill\tablaintegrantes
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
-\newpage \pagenumbering{Roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\def\arraystretch{\tablepadding}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfigure}\renewcommand{\listtablename}{\nomlttable}\renewcommand{\contentsname}{\nomltcont}\renewcommand{\lstlistlistingname}{\nomltsrc}\renewcommand{\tablename}{\nomltwtable}\renewcommand{\figurename}{\nomltwfigure}\renewcommand{\lstlistingname}{\nomltwsrc}\renewcommand\refname{\namereferences}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \nouppercase{\thepage}}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\typefonttitle \etypefonttitle \selectfont}
+\newpage \pagenumbering{Roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}\def\arraystretch{\tablepadding}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfigure}\renewcommand{\listtablename}{\nomlttable}\renewcommand{\contentsname}{\nomltcont}\renewcommand{\lstlistlistingname}{\nomltsrc}\renewcommand{\tablename}{\nomltwtable}\renewcommand{\figurename}{\nomltwfigure}\renewcommand{\lstlistingname}{\nomltwsrc}\renewcommand\refname{\namereferences}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \nouppercase{\thepage}}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\typefonttitle \etypefonttitle \selectfont}
 
 % =========================== RESUMEN O ABSTRACT ===========================
 \newtitleanumheadless{Resumen}

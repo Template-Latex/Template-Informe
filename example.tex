@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.3.6 (06/05/2017)
+% Versión:      3.3.7 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,36 +12,34 @@
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
 % NUEVA SECCIÓN
-% Las secciones se inician con \section, si se quiere una sección sin "número" se pueden usar las funciones \newtitleanum (nuevo titulo sin numeración) o la función \newtitleanumnoi para crear el mismo título sin numerar pero sin aparecer en el índice
-
+% Las secciones se inician con \section, si se quiere una sección sin "número" se pueden usar las funciones \newtitleanum (nuevo título sin numeración) o la función \newtitleanumnoi para crear el mismo título sin numerar pero sin aparecer en el índice
 \section{Informes con \LaTeX}
 
 	% SUB-SECCIÓN
-	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin "número" se pueden usar las funciones \newsubtitleanum (nuevo subtitulo sin numeración) o la función \newsubtitleanumnoi para crear el mismo subtítulo sin numerar pero sin aparecer en el índice
+	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin "número" se pueden usar las funciones \newsubtitleanum (nuevo subtítulo sin numeración) o la función \newsubtitleanumnoi para crear el mismo subtítulo sin numerar pero sin aparecer en el índice
 	\subsection{Una breve introducción}
 	
-		% Esta función sirve para rellenar con un párrafo.
+		% Esta función sirve para rellenar con un párrafo
 		\lipsum[4]
 		
 		% Se inserta una ecuación, el primer parámetro entre corchetes es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos peso
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 		
-		% Los párrafos se pueden añadir con \newpar o simplemente se puede escribir, esta función se hizo para evitar errores y warnings por parte del compilador. Además da la opción de poder cambiar la estructura de todos los párrafos del documento directamente al cambiar las propiedades de la función (definida en la sección DECLARACIÓN DE FUNCIONES)
+		% Los párrafos se pueden añadir con \newpar, esta función se hizo para evitar errores y warnings por parte del compilador. No es necesario utilizar estas funciones después de una tabla o una imagen dado que estas ya insertan un párrafo por defecto
 		Este es un párrafo, \textbf{\textbackslash newp} puede contener múltiples ''Expresiones'' así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:formulasinsentido}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}):
 		
-		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta, luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.2) y un título de imagen (el cual va debajo de la imagen)
+		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.17) y una leyenda
+		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Where are you? de ''Internet''}
 		
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen}
-		
-		\newparnl{Este es un párrafo sin nueva linea, si no te gustan los comandos \textbf{\textbackslash newp}, \textbf{\textbackslash newpar} o \textbf{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones, así puedes tener comandos más intuitivos para ti.}
+		\newparnl{Este es un párrafo sin nueva linea, si no te gustan los comandos \textbf{\textbackslash newp}, \textbf{\textbackslash newpar} o \textbf{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones (definidas en el archivo \texttt{lib/functions.tex}), así puedes tener comandos más intuitivos para ti.}
 		
 	% SUB-SECCIÓN
 	\subsection{Tablas!}
 
-		\newparnl{También puedes usar tablas, insertarlas es muy fácil, puedes usar directamente el ''conversor de tablas'' \textsuperscript{\cite{conversortabla}}, ahí puedes convertir en un solo clic tablas Excel, o crearlas tú mismo sin tener que hacer todo el aburridísimo código.}
+		\newparnl{También puedes usar tablas, insertarlas es muy fácil, puedes usar el plugin de Excel \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} para convertir las tablas a \LaTeX o bien utilizar el ''creador de tablas online'' \textsuperscript{\cite{tablegenerator}}.}
 		
 		\begin{longtable}{ccc}
-			\caption{Esta es una tabla que se ''corta'' en varias páginas si es que le falta espacio.}\label{tabl:foo}\\
+			\caption{Esta es una tabla que se ''corta'' en varias páginas si es que le falta espacio.}\label{tabl:foo} \\
 			\hline
 			Columna 1 & Columna 2 & Columna 3\\\hline
 			\endfirsthead
@@ -69,21 +67,22 @@
 	% SUB-SECCIÓN
 	\subsection{Haciendo informes como un profesional}
 	
-		% Se inserta una imagen fija en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, un título y por último el número de líneas que 'cortará' hacia abajo. Para insertar una imagen fija en la derecha se utiliza \insertimageright usando los mismos parámetros
+		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, el número de filas que utilizará y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
 		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.27}{15}{Apolo}
 	
 		Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos.
 		
 		\newp \lipsum[115]
 		
-		% Se inserta un nuevo párrafo de modo inteligente, evita errores de hbox, crea un nuevo par e espacia de manera fija
+		% Se inserta un nuevo párrafo de modo inteligente, evita errores de hbox, crea un nuevo par y añade un espacio en blanco
 		\newp \lipsum[2]
 		
+		% Agrega una ecuación con leyendas
 		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) dx = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
 		
 		\lipsum[115]
-		\vspace{\defaultnewlinesize}
-		\lipsum[4]
+		
+		\newp \lipsum[4]
 		
 	% SUB-SECCIÓN
 	\subsection{Otros párrafos más normales}
@@ -102,9 +101,8 @@
 			% Párrafo 1
 			\lipsum[114]
 			
-			% Cuando se usan multicols los espacios en blanco verticales se multiplican por dos, por lo que se necesita utilizar \vspace para eliminar los espacios abusivos de las ecuaciones para que se vea mejor
-			\vspace{-0.1cm}
-			\insertequation[]{ f(x) = \fracdpartial{u}{t}}
+			% Ecuación
+			\insertequation[]{ f(x) = \fracdpartial{u}{t} }
 			
 			% Párrafo 2 del multicols
 			\lipsum[5]
@@ -192,7 +190,7 @@ end
 		\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX} \\
 		\url{https://www.ctan.org/tex-archive/support/excel2latex/}
 		
-	\bibitem{conversortabla}
+	\bibitem{tablegenerator}
 		Tables Generator.
 		\textit{Convierte fácilmente tus tablas, o crea unas con un intuitivo editor de tablas.} \\
 		\url{http://www.tablesgenerator.com/}
