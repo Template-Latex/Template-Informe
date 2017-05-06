@@ -48,7 +48,7 @@ FILES = {
     MAINFILE: []
 }
 FILEDELCOMMENTS = {
-    'lib/config.tex': True,
+    'lib/config.tex': False,
     'lib/finalconf.tex': True,
     'lib/functions.tex': True,
     'lib/imports.tex': True,

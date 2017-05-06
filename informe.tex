@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
 % Advertencia:  Documento generado automáticamente a partir del main.tex y
 %               los archivos .tex de la carpeta lib/
-% Versión:      3.3.8 (06/05/2017)
+% Versión:      3.3.9 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,8 +18,8 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía Computer Modern
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.3.8}               % Versión del template
-                                                                               
+\def\templateversion{3.3.9}               % Versión del template
+                                                                                       
 % INFORMACIÓN DEL DOCUMENTO
 \def\nombredelinforme {Título del informe}
 \def\temaatratar {Tema a tratar}
@@ -38,7 +38,7 @@
 \def\localizacionuniversidad {Santiago, Chile}
 
 % INTEGRANTES, PROFESORES Y FECHAS
-\newcommand{\tablaintegrantes}{
+\def\tablaintegrantes {
 \begin{minipage}{1.012\textwidth}
 \begin{flushright}
 \begin{tabular}{ll}
@@ -73,75 +73,76 @@
 \end{minipage}}
 
 % CONFIGURACIÓN DE LAS LEYENDAS
-\def\captionbottommargin {4}
-\def\captiontopmargin {9}
-\def\centeredcaption {false}
-\def\figurecaptiontop {false}
-\def\defaultcaptionlessmargin {0.1cm}
-\def\defaultcaptionmargin {2.7}
+\def\captionbottommargin {4}           % Margen inferior de las leyendas [pt]
+\def\captiontopmargin {9}              % Margen superior de las leyendas [pt]
+\def\centeredcaption {false}           % Leyenda centrada al tener varias líneas
+\def\defaultcaptionlessmargin {0.1cm}  % Margen sup/inf. de fig. si no hay leyenda
+\def\defaultcaptionmargin {2.7}        % Márgenes izq/der de las leyendas [cm]
+\def\figurecaptiontop {false}          % Leyenda arriba de las imágenes
+\def\showsectiononcaption {false}       % Muestra el número de sección en la leyenda
 
 % CONFIGURACIÓN DEL ÍNDICE
-\def\defaultindextitlemargin {7pt}
-\def\indexdepth {3}
-\def\showindex {true}
-\def\showindexofcontents {true}
-\def\showindexoffigures {true}
-\def\showindexofsourcecode {false}
-\def\showindexoftables {true}
+\def\defaultindextitlemargin {7pt}     % Margen títulos en índice
+\def\indexdepth {3}                    % Profundidad del índice
+\def\showindex {true}                  % Muestra el índice
+\def\showindexofcontents {true}        % Muestra la lista de contenidos
+\def\showindexoffigures {true}         % Muestra la lista de figuras
+\def\showindexofsourcecode {false}     % Muestra la lista de códigos fuente
+\def\showindexoftables {true}          % Muestra la lista de tablas
 
 % MÁRGENES DE FIGURAS
-\def\defaultmarginbottomimages{-0.2cm}
-\def\defaultmarginfloatimages {-13pt}
-\def\defaultmargintopimages {0.0cm}
+\def\defaultmarginbottomimages{-0.2cm} % Margen inferior figura
+\def\defaultmarginfloatimages {-13pt}  % Margen superior figura flotante
+\def\defaultmargintopimages {0.0cm}    % Margen superior figura
 
 % OTRAS CONFIGURACIONES
-\def\defaultimagefolder {images/}
-\def\defaultinterline {1.0}
-\def\defaultnewlinesize {11pt}
-\def\tablepadding {1.0}
-\def\showborderonlinks {false}
+\def\defaultimagefolder {images/}      % Carpeta de las imágenes
+\def\defaultinterline {1.0}            % Interlineado por defecto
+\def\defaultnewlinesize {11pt}         % Tamaño del salto de línea
+\def\showborderonlinks {false}         % Muestra un recuadro en cada enlace
+\def\tablepadding {1.0}                % Padding de las tablas
 
 % ESTILO DE TÍTULOS
-\def\etypefontsubsubtitle {\bfseries}
-\def\etypefontsubsubtitlei {\bfseries}
-\def\etypefontsubtitle {\bfseries}
-\def\etypefontsubtitlei {\bfseries}
-\def\etypefonttitle {\bfseries}
-\def\etypefonttitlei {\bfseries}
-\def\typefontsubsubtitle {\large}
-\def\typefontsubsubtitlei {\large}
-\def\typefontsubtitle {\Large}
-\def\typefontsubtitlei {\Large}
-\def\typefonttitle {\huge}
-\def\typefonttitlei {\huge}
+\def\etypefontsubsubtitle {\bfseries}  % Estilo sub-subtítulos
+\def\etypefontsubsubtitlei{\bfseries}  % Estilo sub-subtítulos en el índice
+\def\etypefontsubtitle {\bfseries}     % Estilo subtítulos
+\def\etypefontsubtitlei {\bfseries}    % Estilo subtítulos en el índice
+\def\etypefonttitle {\bfseries}        % Estilo títulos
+\def\etypefonttitlei {\bfseries}       % Estilo títulos en el índice
+\def\typefontsubsubtitle {\large}      % Tamaño sub-subtítulos
+\def\typefontsubsubtitlei {\large}     % Tamaño sub-subtítulos en el índice
+\def\typefontsubtitle {\Large}         % Tamaño subtítulos
+\def\typefontsubtitlei {\Large}        % Tamaño subtítulos en el índice
+\def\typefonttitle {\huge}             % Tamaño títulos
+\def\typefonttitlei {\huge}            % Tamaño títulos en el índice
 
 % NOMBRE DE OBJETOS
-\def\nameportraitpage {Portada}
-\def\namereferences {Referencias}
-\def\nomltcont {Índice de Contenidos}
-\def\nomltfigure {Lista de Figuras}
-\def\nomltsrc {Lista de Código Fuente}
-\def\nomlttable {Lista de Tablas}
-\def\nomltwsrc {Código Fuente}
-\def\nomltwfigure {Figura}
-\def\nomltwtable {Tabla}
+\def\nameportraitpage {Portada}        % Etiqueta página de la portada
+\def\namereferences {Referencias}      % Nombre de la sección de referencias
+\def\nomltcont {Índice de Contenidos}  % Nombre del índice de contenidos
+\def\nomltfigure {Lista de Figuras}    % Nombre del índice de la lista de figuras
+\def\nomltsrc{Lista de Código Fuente}  % Nombre del índice de la lista de código
+\def\nomlttable {Lista de Tablas}      % Nombre del índice de la lista de tablas
+\def\nomltwsrc {Código}                % Etiqueta leyenda del código fuente
+\def\nomltwfigure {Figura}             % Etiqueta leyenda de las figuras
+\def\nomltwtable {Tabla}               % Etiqueta leyenda de las tablas
 
 % REFERENCIAS
-\def\referenceassection {false}
-\def\twocolumnreferences {false}
-\def\typereference {apa}
+\def\referenceassection {false}        % Considera las referencias como sección
+\def\twocolumnreferences {false}       % Referencias en dos columnas
+\def\typereference {apa}               % Tipo de referencias
 
 % CONFIGURACIÓN DE CONTENIDO, PORTADA, HEADERS
-\def\gradecodeonportrait {false}
-\def\showfooter {true}
-\def\showheadertitle {true}
+\def\gradecodeonportrait {false}       % Muestra el código del curso
+\def\showfooter {true}                 % Muestra el footer
+\def\showheadertitle {true}            % Muestra título de la sección en el header
 
 % MÁRGENES DE PÁGINA
-\def\firstpagemargintop {3.8}
-\def\pagemarginbottom {2.7}
-\def\pagemarginleft {2.5}
-\def\pagemarginright {2.5}
-\def\pagemargintop {3.0}
+\def\firstpagemargintop {3.8}          % Margen superior página portada [cm]
+\def\pagemarginbottom {2.7}            % Margen inferior página [cm]
+\def\pagemarginleft {2.5}              % Margen izquierdo página [cm]
+\def\pagemarginright {2.5}             % Margen derecho página [cm]
+\def\pagemargintop {3.0}               % Margen superior página [cm]
 
 % DECLARACIÓN DE LIBRERÍAS
 \usepackage{array}\usepackage{bigstrut}\usepackage{booktabs}\usepackage[makeroom]{cancel}\usepackage{caption}\usepackage{color}\usepackage{colortbl}\usepackage{datetime}\usepackage[inline]{enumitem}\usepackage[bottom,norule,hang]{footmisc}\usepackage{fancyhdr}\usepackage{floatrow}\usepackage{gensymb,textcomp}\usepackage{geometry}\usepackage{graphicx}\usepackage{ifthen}\usepackage{mathtools}\usepackage{multicol}\usepackage{notoccite}\usepackage{pdfpages}\usepackage{lipsum}\usepackage{longtable}\usepackage{listings}\usepackage{rotating}\usepackage{sectsty}\usepackage{selinput}\usepackage{setspace}\usepackage{subfig}\usepackage{ulem}\usepackage{url}\usepackage{wasysym}\usepackage{wrapfig}\usepackage{xcolor}\usepackage{chngcntr}\usepackage{epstopdf}\usepackage{float}\usepackage{multirow}\ifthenelse{\equal{\referenceassection}{true}}{\usepackage{etoolbox}}{}\ifthenelse{\equal{\showborderonlinks}{false}}{\usepackage[pdfencoding=auto,psdextra,hidelinks]{hyperref}}{\usepackage[pdfencoding=auto,psdextra]{hyperref}}
@@ -153,7 +154,7 @@
 \definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\definecolor{mygreen}{rgb}{0,0.6,0}\definecolor{mygray}{rgb}{0.5,0.5,0.5}\definecolor{mymauve}{rgb}{0.58,0,0.82}\definecolor{codegreen}{rgb}{0,0.6,0}\definecolor{codegray}{rgb}{0.5,0.5,0.5}\definecolor{codepurple}{rgb}{0.58,0,0.82}\definecolor{backcolour}{rgb}{0.95,0.95,0.92}\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}\SelectInputMappings{aacute={á},Ntilde={Ñ},Euro={€}}\lstdefinestyle{C}{language=C,numbers=left,stepnumber=1,numbersep=5pt,backgroundcolor=\color{white},showspaces=false,showstringspaces=false,showtabs=false,tabsize=2,captionpos=b,breaklines=true,breakatwhitespace=true,title=\lstname}\lstdefinestyle{Java}{language=Java,aboveskip=3mm,belowskip=3mm,showstringspaces=false,columns=flexible,basicstyle={\small\ttfamily},numbers=left,numberstyle=\tiny\color{gray},keywordstyle=\color{blue},commentstyle=\color{dkgreen},stringstyle=\color{mauve},breaklines=true,breakatwhitespace=true,tabsize=3,backgroundcolor=\color{backcolour}}\lstdefinestyle{Matlab}{language=Matlab,breaklines=true,morekeywords={matlab2tikz},keywordstyle=\color{blue},morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},backgroundcolor=\color{backcolour},identifierstyle=\color{black},stringstyle=\color{mylilas},commentstyle=\color{mygreen},showstringspaces=false,numbers=left,showstringspaces=false,numberstyle=\tiny\color{gray},numbersep=9pt,basicstyle={\small\ttfamily},tabsize=3,breaklines=true,aboveskip=3mm,belowskip=3mm,emph=[1]{for,end,break},emphstyle=[1]\color{red}}\lstdefinestyle{Python}{language=Python,backgroundcolor=\color{backcolour},commentstyle=\color{codegreen},keywordstyle=\color{magenta},numberstyle=\tiny\color{codegray},stringstyle=\color{codepurple},basicstyle=\footnotesize,breakatwhitespace=false,breaklines=true,captionpos=b,keepspaces=true,numbers=left,numbersep=5pt,showspaces=false,showstringspaces=false,showtabs=false,tabsize=3,basicstyle={\small\ttfamily}}\lstset{literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1{€}{{\EUR}}1 {£}{{\pounds}}1}
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
-\decimalpoint\counterwithin{equation}{section}\counterwithin{figure}{section}\counterwithin{table}{section}\setcounter{tocdepth}{\indexdepth}\captionsetup{belowskip=\captionbottommargin pt,aboveskip=\captiontopmargin pt}\ifthenelse{\equal{\figurecaptiontop}{true}}{\floatsetup[figure]{capposition=top}}{}\ifthenelse{\equal{\centeredcaption}{true}}{\captionsetup{justification=centering}}{}\setlength{\headheight}{64pt}\setcounter{MaxMatrixCols}{20}\setlength{\footnotemargin}{3mm}\renewcommand{\baselinestretch}{\defaultinterline}\setcaptionmargincm{\defaultcaptionmargin}\hfuzz=100pt \vfuzz=100pt\hbadness=2000 \vbadness=\maxdimen\hypersetup{pdfauthor={\autordeldocumento},pdftitle={\nombredelinforme},pdfsubject={\temaatratar},pdfkeywords={\nombreuniversidad, \nombredelcurso,\codigodelcurso, \localizacionuniversidad},pdfcreator={ppizarror, pdfLaTeX},pdfproducer={Template LaTeX informe v\templateversion\ | (Pablo Pizarro) ppizarror.com}}\bibliographystyle{\typereference}\ifthenelse{\equal{\referenceassection}{true}}{\patchcmd{\thebibliography}{*}{}{}{}}{}\makeatletter\ifthenelse{\equal{\twocolumnreferences}{true}}{\renewenvironment{thebibliography}[1]{\begin{multicols}{2}[\section*{\refname}]\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}\list{\@biblabel{\@arabic\c@enumiv}}{\settowidth\labelwidth{\@biblabel{#1}}\leftmargin\labelwidth\advance\leftmargin\labelsep\@openbib@code\usecounter{enumiv}\let\p@enumiv\@empty\renewcommand\theenumiv{\@arabic\c@enumiv}}\sloppy\clubpenalty 4000\@clubpenalty \clubpenalty\widowpenalty 4000\sfcode`\.\@m}{\def\@noitemerr{\@latex@warning{Ambiente `thebibliography' no definido}}\endlist\end{multicols}}}{}\makeatother
+\decimalpoint\ifthenelse{\equal{\showsectiononcaption}{true}}{\counterwithin{equation}{section}\counterwithin{figure}{section}\counterwithin{table}{section}}{}\setcounter{tocdepth}{\indexdepth}\captionsetup{belowskip=\captionbottommargin pt,aboveskip=\captiontopmargin pt}\ifthenelse{\equal{\figurecaptiontop}{true}}{\floatsetup[figure]{capposition=top}}{}\ifthenelse{\equal{\centeredcaption}{true}}{\captionsetup{justification=centering}}{}\setlength{\headheight}{64pt}\setcounter{MaxMatrixCols}{20}\setlength{\footnotemargin}{3mm}\renewcommand{\baselinestretch}{\defaultinterline}\setcaptionmargincm{\defaultcaptionmargin}\hfuzz=100pt \vfuzz=100pt\hbadness=2000 \vbadness=\maxdimen\hypersetup{pdfauthor={\autordeldocumento},pdftitle={\nombredelinforme},pdfsubject={\temaatratar},pdfkeywords={\nombreuniversidad, \nombredelcurso,\codigodelcurso, \localizacionuniversidad},pdfcreator={ppizarror, pdfLaTeX},pdfproducer={Template LaTeX informe v\templateversion\ | (Pablo Pizarro) ppizarror.com}}\bibliographystyle{\typereference}\ifthenelse{\equal{\referenceassection}{true}}{\patchcmd{\thebibliography}{*}{}{}{}}{}\makeatletter\ifthenelse{\equal{\twocolumnreferences}{true}}{\renewenvironment{thebibliography}[1]{\begin{multicols}{2}[\section*{\refname}]\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}\list{\@biblabel{\@arabic\c@enumiv}}{\settowidth\labelwidth{\@biblabel{#1}}\leftmargin\labelwidth\advance\leftmargin\labelsep\@openbib@code\usecounter{enumiv}\let\p@enumiv\@empty\renewcommand\theenumiv{\@arabic\c@enumiv}}\sloppy\clubpenalty 4000\@clubpenalty \clubpenalty\widowpenalty 4000\sfcode`\.\@m}{\def\@noitemerr{\@latex@warning{Ambiente `thebibliography' no definido}}\endlist\end{multicols}}}{}\makeatother
 
 % INICIO DE LAS PÁGINAS
 \begin{document}

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.3.8 (06/05/2017)
+% Versión:      3.3.9 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -13,9 +13,11 @@
 
 % Configuración de secciones y numeración
 \decimalpoint                      % Se define el punto decimal
+\ifthenelse{\equal{\showsectiononcaption}{true}}{
 \counterwithin{equation}{section}  % Añade número de sección a las ecuaciones
 \counterwithin{figure}{section}    % Añade número de sección a las figuras
 \counterwithin{table}{section}     % Añade número de sección a las tablas
+}{}
 \setcounter{tocdepth}{\indexdepth} % Se ajusta la profundidad del índice
 
 % Configuración de las leyendas

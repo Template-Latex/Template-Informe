@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      3.3.8 (06/05/2017)
+% Versión:      3.3.9 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,72 +12,73 @@
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
 % CONFIGURACIÓN DE LAS LEYENDAS
-\def\captionbottommargin {4}           % Margen inferior de las leyendas [pt]
-\def\captiontopmargin {9}              % Margen superior de las leyendas [pt]
-\def\centeredcaption {false}           % Leyenda centrada al tener varias líneas
-\def\figurecaptiontop {false}          % Leyenda arriba de las imágenes
-\def\defaultcaptionlessmargin {0.1cm}  % Margen sup/inf. de fig. si no hay leyenda
-\def\defaultcaptionmargin {2.7}        % Márgenes izq/der de las leyendas [cm]
+\def\captionbottommargin {4}          % Margen inferior de las leyendas [pt]
+\def\captiontopmargin {9}             % Margen superior de las leyendas [pt]
+\def\centeredcaption {false}          % Leyenda centrada al tener varias líneas
+\def\captionlessmargin {0.1cm}        % Margen sup/inf. de fig. si no hay leyenda
+\def\captionmargin {2.7}              % Márgenes izq/der de las leyendas [cm]
+\def\figurecaptiontop {false}         % Leyenda arriba de las imágenes
+\def\showsectiononcaption {true}      % Muestra el número de sección en la leyenda
 
 % CONFIGURACIÓN DEL ÍNDICE
-\def\defaultindextitlemargin {7pt}     % Margen títulos en índice
-\def\indexdepth {3}                    % Profundidad del índice
-\def\showindex {true}                  % Muestra el índice
-\def\showindexofcontents {true}        % Muestra la lista de contenidos
-\def\showindexoffigures {true}         % Muestra la lista de figuras
-\def\showindexofsourcecode {false}     % Muestra la lista de códigos fuente
-\def\showindexoftables {true}          % Muestra la lista de tablas
+\def\indextitlemargin {7pt}           % Margen títulos en índice
+\def\indexdepth {3}                   % Profundidad del índice
+\def\showindex {true}                 % Muestra el índice
+\def\showindexofcontents {true}       % Muestra la lista de contenidos
+\def\showindexoffigures {true}        % Muestra la lista de figuras
+\def\showindexofsourcecode {false}    % Muestra la lista de códigos fuente
+\def\showindexoftables {true}         % Muestra la lista de tablas
 
 % MÁRGENES DE FIGURAS
-\def\defaultmarginbottomimages{-0.2cm} % Margen inferior figura
-\def\defaultmarginfloatimages {-13pt}  % Margen superior figura flotante
-\def\defaultmargintopimages {0.0cm}    % Margen superior figura
+\def\marginbottomimages {-0.2cm}      % Margen inferior figura
+\def\marginfloatimages {-13pt}        % Margen superior figura flotante
+\def\margintopimages {0.0cm}          % Margen superior figura
 
 % OTRAS CONFIGURACIONES
-\def\defaultimagefolder {images/}      % Carpeta de las imágenes
-\def\defaultinterline {1.0}            % Interlineado por defecto
-\def\defaultnewlinesize {11pt}         % Tamaño del salto de línea
-\def\tablepadding {1.0}                % Padding de las tablas
-\def\showborderonlinks {false}         % Muestra un recuadro en cada enlace
+\def\defaultimagefolder {images/}     % Carpeta de las imágenes
+\def\defaultinterline {1.0}           % Interlineado por defecto
+\def\defaultnewlinesize {11pt}        % Tamaño del salto de línea
+\def\showborderonlinks {false}        % Muestra un recuadro en cada enlace
+\def\tablepadding {1.0}               % Padding de las tablas
 
 % ESTILO DE TÍTULOS
-\def\etypefontsubsubtitle {\bfseries}  % Estilo sub-subtítulos
-\def\etypefontsubsubtitlei {\bfseries} % Estilo sub-subtítulos en el índice
-\def\etypefontsubtitle {\bfseries}     % Estilo subtítulos
-\def\etypefontsubtitlei {\bfseries}    % Estilo subtítulos en el índice
-\def\etypefonttitle {\bfseries}        % Estilo títulos
-\def\etypefonttitlei {\bfseries}       % Estilo títulos en el índice
-\def\typefontsubsubtitle {\large}      % Tamaño sub-subtítulos
-\def\typefontsubsubtitlei {\large}     % Tamaño sub-subtítulos en el índice
-\def\typefontsubtitle {\Large}         % Tamaño subtítulos
-\def\typefontsubtitlei {\Large}        % Tamaño subtítulos en el índice
-\def\typefonttitle {\huge}             % Tamaño títulos
-\def\typefonttitlei {\huge}            % Tamaño títulos en el índice
+\def\etypefontsubsubtitle {\bfseries} % Estilo sub-subtítulos
+\def\etypefontsubsubtitlei{\bfseries} % Estilo sub-subtítulos en el índice
+\def\etypefontsubtitle {\bfseries}    % Estilo subtítulos
+\def\etypefontsubtitlei {\bfseries}   % Estilo subtítulos en el índice
+\def\etypefonttitle {\bfseries}       % Estilo títulos
+\def\etypefonttitlei {\bfseries}      % Estilo títulos en el índice
+\def\typefontsubsubtitle {\large}     % Tamaño sub-subtítulos
+\def\typefontsubsubtitlei {\large}    % Tamaño sub-subtítulos en el índice
+\def\typefontsubtitle {\Large}        % Tamaño subtítulos
+\def\typefontsubtitlei {\Large}       % Tamaño subtítulos en el índice
+\def\typefonttitle {\huge}            % Tamaño títulos
+\def\typefonttitlei {\huge}           % Tamaño títulos en el índice
 
 % NOMBRE DE OBJETOS
-\def\nameportraitpage {Portada}        % Etiqueta página de la portada
-\def\namereferences {Referencias}      % Nombre de la sección de referencias
-\def\nomltcont {Índice de Contenidos}  % Nombre del índice de contenidos
-\def\nomltfigure {Lista de Figuras}    % Nombre del índice de la lista de figuras
-\def\nomltsrc {Lista de Código Fuente} % Nombre del índice de la lista de código
-\def\nomlttable {Lista de Tablas}      % Nombre del índice de la lista de tablas
-\def\nomltwsrc {Código Fuente}         % Etiqueta leyenda del código fuente
-\def\nomltwfigure {Figura}             % Etiqueta leyenda de las figuras
-\def\nomltwtable {Tabla}               % Etiqueta leyenda de las tablas
+\def\nameportraitpage {Portada}       % Etiqueta página de la portada
+\def\namereferences {Referencias}     % Nombre de la sección de referencias
+\def\nomltcont {Índice de Contenidos} % Nombre del índice de contenidos
+\def\nomltfigure {Lista de Figuras}   % Nombre del índice de la lista de figuras
+\def\nomltsrc{Lista de Código Fuente} % Nombre del índice de la lista de código
+\def\nomlttable {Lista de Tablas}     % Nombre del índice de la lista de tablas
+\def\nomltwsrc {Código}               % Etiqueta leyenda del código fuente
+\def\nomltwfigure {Figura}            % Etiqueta leyenda de las figuras
+\def\nomltwtable {Tabla}              % Etiqueta leyenda de las tablas
 
 % REFERENCIAS
-\def\referenceassection {false}        % Considera las referencias como sección
-\def\twocolumnreferences {false}       % Referencias en dos columnas
-\def\typereference {apa}               % Tipo de referencias
+\def\referenceassection {false}       % Considera las referencias como sección
+\def\twocolumnreferences {false}      % Referencias en dos columnas
+\def\typereference {apa}              % Tipo de referencias
 
 % CONFIGURACIÓN DE CONTENIDO, PORTADA, HEADERS
-\def\gradecodeonportrait {false}       % Muestra el código del curso
-\def\showfooter {true}                 % Muestra el footer
-\def\showheadertitle {true}            % Muestra título de la sección en el header
+\def\gradecodeonportrait {false}      % Muestra el código del curso
+\def\showfooter {true}                % Muestra el footer
+\def\showheadertitle {true}           % Muestra título de la sección en el header
 
 % MÁRGENES DE PÁGINA
-\def\firstpagemargintop {3.8}          % Margen superior página portada [cm]
-\def\pagemarginbottom {2.7}            % Margen inferior página [cm]
-\def\pagemarginleft {2.5}              % Margen izquierdo página [cm]
-\def\pagemarginright {2.5}             % Margen derecho página [cm]
-\def\pagemargintop {3.0}               % Margen superior página [cm]
+\def\firstpagemargintop {3.8}         % Margen superior página portada [cm]
+\def\pagemarginbottom {2.7}           % Margen inferior página [cm]
+\def\pagemarginleft {2.5}             % Margen izquierdo página [cm]
+\def\pagemarginright {2.5}            % Margen derecho página [cm]
+\def\pagemargintop {3.0}              % Margen superior página [cm]
