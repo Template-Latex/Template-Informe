@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.3.7 (06/05/2017)
+% Versión:      3.3.8 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -393,56 +393,6 @@
 			\vspace{\defaultcaptionlessmargin}
 		\else
 			\caption{#4 #1}
-		\fi
-	\end{figure}
-	\vspace{\defaultmarginbottomimages}
-}
-
-\newcommand{\insertimagefixed}[5][]{
-	% Insertar una imagen de ancho fijo a la página
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Parámetros de la imagen
-	%	#4	Tamaño de la imagen en textwidth
-	%	#5	Caption de la imagen
-	\emptyvarerr{\insertimagefixed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimagefixed}{#3}{Parametros de la imagen no definidos}
-	\emptyvarerr{\insertimagefixed}{#4}{Tamano de la imagen (textwidth) no definida}
-	\vspace{\defaultmargintopimages}
-	\begin{figure}[H]
-		\centering
-		\resizebox{#3\textwidth}{!}{
-			\includegraphics[#4]{\defaultimagefolder#2}
-		}
-		\ifx\hfuzz#5\hfuzz
-			\vspace{\defaultcaptionlessmargin}
-		\else
-			\caption{#5 #1}
-		\fi
-	\end{figure}
-	\vspace{\defaultmarginbottomimages}
-}
-
-\newcommand{\insertimageboxedfixed}[5][]{
-	% Insertar una imagen recuadrada de ancho fijo
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Parámetros de la imagen
-	%	#4	Tamaño de la imagen en textwidth
-	%	#5	Caption de la imagen
-	\emptyvarerr{\insertimageboxedfixed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageboxedfixed}{#3}{Parametros de la imagen no definidos}
-	\emptyvarerr{\insertimageboxedfixed}{#4}{Tamano de la imagen no definida}
-	\vspace{\defaultmargintopimages}
-	\begin{figure}[H]
-		\centering
-		\resizebox{#3\textwidth}{!}{
-			\fbox{\includegraphics[#4]{\defaultimagefolder#2}}
-		}
-		\ifx\hfuzz#5\hfuzz
-			\vspace{\defaultcaptionlessmargin}
-		\else
-			\caption{#5 #1}
 		\fi
 	\end{figure}
 	\vspace{\defaultmarginbottomimages}
