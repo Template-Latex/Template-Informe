@@ -37,3 +37,6 @@ main.pdf
 
 # PyCharm
 .idea/
+
+# Ejemplos
+_test

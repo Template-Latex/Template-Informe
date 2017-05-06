@@ -1,9 +1,0 @@
-\def\nameportraitpage {Portada}       % Etiqueta página de la portada
-\def\namereferences {Referencias}     % Nombre de la sección de referencias
-\def\nomltcont {Índice de Contenidos} % Nombre del índice de contenidos
-\def\nomltfigure {Lista de Figuras}   % Nombre del índice de la lista de figuras
-\def\nomltsrc{Lista de Código Fuente} % Nombre del índice de la lista de código
-\def\nomlttable {Lista de Tablas}     % Nombre del índice de la lista de tablas
-\def\nomltwfigure {Figura}            % Etiqueta leyenda de las figuras
-\def\nomltwsrc {Código Fuente}        % Etiqueta leyenda del código fuente
-\def\nomltwtable {Tabla}              % Etiqueta leyenda de las tablas
