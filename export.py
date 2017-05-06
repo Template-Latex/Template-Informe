@@ -17,6 +17,7 @@ from ziputility import ZipUtility as Zip
 CODEVERSION = '\def\\templateversion{0}{1}% Versión del template\n '
 CODEVERSIONPOS = 19
 CODETABLEWIDTHPOS = 40
+CONFIGFILE = 'lib/config.tex'
 EXAMPLEFILE = 'example.tex'
 HEADERSIZE = 13
 HEADERVERSIONPOS = 2
@@ -75,8 +76,8 @@ FILESTRIP = {
     MAINFILE: False
 }
 
-# Se pide la versión
-version = raw_input('Ingrese la nueva version: ')
+# noinspection PyCompatibility
+version = raw_input('Ingrese la nueva version: ')  # Se pide la versión
 version = version.strip()
 
 # Se obtiene el día
@@ -122,6 +123,7 @@ data.insert(1, '% Advertencia:  Documento generado automáticamente a partir '
 data[CODETABLEWIDTHPOS] = data[CODETABLEWIDTHPOS].replace(
     ITABLEORIGINAL, ITABLENEW)
 line = 0
+stconfig = False  # Indica si se han escrito comentarios en configuraciones
 for d in data:
     write = True
     if line < CODEVERSIONPOS + 1:
@@ -150,9 +152,14 @@ for d in data:
 
                         # Se borran los comentarios
                         if DELETECOMMENTS and libdelcom:
-                            if 'CONFIGURACIONES BOOLEANAS' in srclin:
-                                fl.write('\n')
-                            elif '%' in srclin:
+                            if '%' in srclin:
+                                if libr == CONFIGFILE:
+                                    if srclin.upper() == srclin:
+                                        if stconfig:
+                                            fl.write('\n')
+                                        fl.write(srclin)
+                                        stconfig = True
+                                        continue
                                 comments = srclin.strip().split('%')
                                 if comments[0] is '':
                                     srclin = ''
@@ -183,7 +190,7 @@ for d in data:
             pass
         # Se agrega un espacio en blanco a la pagina despues del comentario
         if line >= CODEVERSIONPOS + 1 and write:
-            if d[0:2] == '% ' and d[3] != ' ':
+            if d[0:2] == '% ' and d[3] != ' ' and d != '% CONFIGURACIONES\n':
                 if d != '% FIN DEL DOCUMENTO\n' and ADDWHITESPACE:
                     fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
@@ -191,6 +198,8 @@ for d in data:
                     d = '% =========================== RESUMEN O ABSTRACT ' \
                         '===========================\n'
                 fl.write(d)
+            elif d == '% CONFIGURACIONES\n':
+                pass
             else:
                 fl.write(d)
 
