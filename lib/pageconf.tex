@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      3.3.5 (06/05/2017)
+% Versión:      3.3.6 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -23,7 +23,7 @@
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header
 \renewcommand{\listfigurename}{\nomltfigure}    % Nombre del índice de figuras
 \renewcommand{\listtablename}{\nomlttable}      % Nombre del índice de tablas
-\renewcommand{\contentsname}{\nomltcontent}     % Nombre del índice
+\renewcommand{\contentsname}{\nomltcont}        % Nombre del índice
 \renewcommand{\lstlistlistingname}{\nomltsrc}   % Nombre índice código fuente
 \renewcommand{\tablename}{\nomltwtable}         % Nombre de la leyenda de las tablas
 \renewcommand{\figurename}{\nomltwfigure}       % Nombre de la leyenda de las figuras
@@ -31,7 +31,7 @@
 \renewcommand\refname{\namereferences}          % Nombre de las referencias
 
 % Se crean los estílos de página
-\pagestyle{fancy} \fancyhf{} % Se crean los headers y footers
+\pagestyle{fancy} \fancyhf{}
 \ifthenelse{\equal{\showheadertitle}{true}}{ % Header izq, nombre sección
 	\fancyhead[L]{\nouppercase{\rightmark}}
 }{}
@@ -43,9 +43,11 @@
 	\fancyfoot[R]{
 		\small \rm \textit{\codigodelcurso \ \nombredelcurso} % Footer der, curso
 	}
-	\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
+	\renewcommand{\footrulewidth}{0.5pt}
 }{}
-\renewcommand{\headrulewidth}{0.5pt} % Ancho de la barra del header
+\renewcommand{\headrulewidth}{0.5pt}
+
+% Tipo de título para abstract
 \sectionfont{
-	\typefonttitle \etypefonttitle \selectfont % Tipo de título para abstract
+	\typefonttitle \etypefonttitle \selectfont
 }

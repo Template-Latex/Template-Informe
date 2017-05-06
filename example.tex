@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.3.5 (06/05/2017)
+% Versión:      3.3.6 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -24,14 +24,14 @@
 		\lipsum[4]
 		
 		% Se inserta una ecuación, el primer parámetro entre corchetes es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos peso
-		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k}, \forall k>2}
+		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 		
 		% Los párrafos se pueden añadir con \newpar o simplemente se puede escribir, esta función se hizo para evitar errores y warnings por parte del compilador. Además da la opción de poder cambiar la estructura de todos los párrafos del documento directamente al cambiar las propiedades de la función (definida en la sección DECLARACIÓN DE FUNCIONES)
 		Este es un párrafo, \textbf{\textbackslash newp} puede contener múltiples ''Expresiones'' así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:formulasinsentido}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}):
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta, luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.2) y un título de imagen (el cual va debajo de la imagen)
 		
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Where are you? de \texttt{Internet}}
+		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen}
 		
 		\newparnl{Este es un párrafo sin nueva linea, si no te gustan los comandos \textbf{\textbackslash newp}, \textbf{\textbackslash newpar} o \textbf{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes cambiarle el nombre a las funciones, así puedes tener comandos más intuitivos para ti.}
 		
@@ -179,22 +179,22 @@ end
 
 % REFERENCIAS
 \newpage
-\begin{thebibliography}{}
+\begin{thebibliography}
 	\referenceindexentry % Agrega las referencias al índice
 	
 	\bibitem{pagwebproyecto}
 		Template Informe en \LaTeX.
-		\textit{Revisa el manual online de este template!}
-		\\\url{http://ppizarror.com/Template-Informe/}
+		\textit{Revisa el manual online de este template!} \\
+		\url{http://ppizarror.com/Template-Informe/}
 		
 	\bibitem{pluginexcel}
 		\texttt{Excel2Latex}
-		\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX}
-		\\\url{https://www.ctan.org/tex-archive/support/excel2latex/}
+		\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX} \\
+		\url{https://www.ctan.org/tex-archive/support/excel2latex/}
 		
 	\bibitem{conversortabla}
 		Tables Generator.
-		\textit{Convierte fácilmente tus tablas, o crea unas con un intuitivo editor de tablas.}
-		\\\url{http://www.tablesgenerator.com/}
+		\textit{Convierte fácilmente tus tablas, o crea unas con un intuitivo editor de tablas.} \\
+		\url{http://www.tablesgenerator.com/}
 	
 \end{thebibliography}

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      3.3.5 (06/05/2017)
+% Versión:      3.3.6 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,9 +11,6 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-\usepackage{amsmath}          % Fórmulas matemáticas
-\usepackage{amssymb}          % Símbolos matemáticos
-\usepackage{amsthm}           % Teoremas matemáticos
 \usepackage{array}            % Nuevas características a las tablas
 \usepackage{bigstrut}         % Líneas horizontales en tablas
 \usepackage{booktabs}         % Permite manejar elem. visuales en tablas
@@ -32,6 +29,7 @@
 \usepackage{ifthen}           % Permite el manejo de condicionales
 \usepackage{mathtools}        % Permite utilizar notaciones matemáticas
 \usepackage{multicol}         % Múltiples columnas
+\usepackage{notoccite}        % Desactiva las citas en el índice
 \usepackage{pdfpages}         % Permite administrar páginas en pdf
 \usepackage{lipsum}           % Permite crear textos dummy
 \usepackage{longtable}        % Permite utilizar tablas en varias hojas
@@ -41,7 +39,6 @@
 \usepackage{selinput}         % Compatibilidad con acentos
 \usepackage{setspace}         % Cambia el espacio entre líneas
 \usepackage{subfig}           % Permite agrupar imágenes
-\usepackage{tikz}             % Permite dibujar
 \usepackage{ulem}             % Permite tachar, subrayar, etc
 \usepackage{url}              % Permite añadir enlaces
 \usepackage{wasysym}          % Contiene caracteres misceláneos
@@ -49,7 +46,6 @@
 \usepackage{xcolor}           % Paquete de colores avanzado
 
 % LIBRERÍAS DEPENDIENTES
-\usetikzlibrary{babel}        % Asociado a tikz
 \usepackage{chngcntr}         % Números de secciones a las leyendas
 \usepackage{epstopdf}         % Convierte archivos .eps a pdf
 \usepackage{float}            % Administrador de posiciones de objetos

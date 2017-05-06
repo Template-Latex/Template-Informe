@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.3.5 (06/05/2017)
+% Versión:      3.3.6 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,7 +18,7 @@
 \counterwithin{table}{section}     % Añade número de sección a las tablas
 \setcounter{tocdepth}{\indexdepth} % Se ajusta la profundidad del índice
 
-% Configuración caption
+% Configuración de las leyendas
 \captionsetup{
 	belowskip=\captionbottommargin pt,
 	aboveskip=\captiontopmargin pt}
@@ -52,14 +52,14 @@
 }
 
 % Configuración de referencias
-\bibliographystyle{\typereference} % Estilo APA para las referencias
+\bibliographystyle{\typereference} % Estilo de las referencias
 \ifthenelse{\equal{\referenceassection}{true}}{
 	% Se configura las referencias como una sección
 	\patchcmd{\thebibliography}{*}{}{}{}
 }{}
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
-	% Bibliografía en 2 columnas
+	% Referencias en 2 columnas
 	\renewenvironment{thebibliography}[1]
 	{\begin{multicols}{2}[\section*{\refname}]
 		\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}

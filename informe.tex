@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
 % Advertencia:  Documento generado automáticamente a partir del main.tex y
 %               los archivos .tex de la carpeta lib/
-% Versión:      3.3.5 (06/05/2017)
+% Versión:      3.3.6 (06/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -13,13 +13,13 @@
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
 % CREACIÓN DEL DOCUMENTO, FUENTE E IDIOMA
-\documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, fuente 11
+\documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, 11pt
 \usepackage[utf8]{inputenc}               % Codificación UTF-8
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía Computer Modern
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.3.5}               % Versión del template
-                                                               
+\def\templateversion{3.3.6}               % Versión del template
+                                                                
 % INFORMACIÓN DEL DOCUMENTO
 \def\nombredelinforme {Título del informe}
 \def\temaatratar {Tema a tratar}
@@ -75,62 +75,60 @@
 % CONFIGURACIONES
 \def\captionbottommargin {4}
 \def\captiontopmargin {9}
+\def\centeredcaption {false}
+\def\figurecaptiontop {false}
 \def\defaultcaptionlessmargin {0.1cm}
 \def\defaultcaptionmargin {2.7}
-\def\defaultfirstpagemargintop {3.8}
-\def\defaultimagefolder {images/}
 \def\defaultindextitlemargin {7pt}
-\def\defaultinterline {1.0}
-\def\defaultmarginbottomimages {-0.2cm}
+\def\indexdepth {3}
+\def\showindex {true}
+\def\showindexofcontents {true}
+\def\showindexoffigures {true}
+\def\showindexofsourcecode {false}
+\def\showindexoftables {true}
+\def\defaultmarginbottomimages{-0.2cm}
 \def\defaultmarginfloatimages {-13pt}
 \def\defaultmargintopimages {0.0cm}
+\def\defaultimagefolder {images/}
+\def\defaultinterline {1.0}
 \def\defaultnewlinesize {11pt}
-\def\defaultpagemarginbottom {2.7}
-\def\defaultpagemarginleft {2.5}
-\def\defaultpagemarginright {2.5}
-\def\defaultpagemargintop {3.0}
+\def\tablepadding {1.0}
+\def\showborderonlinks {false}
 \def\etypefontsubsubtitle {\bfseries}
 \def\etypefontsubsubtitlei {\bfseries}
 \def\etypefontsubtitle {\bfseries}
 \def\etypefontsubtitlei {\bfseries}
 \def\etypefonttitle {\bfseries}
 \def\etypefonttitlei {\bfseries}
-\def\indexdepth {3}
-\def\nameportraitpage {Portada}
-\def\namereferences {Referencias}
-\def\nomltcontent {Índice de Contenidos}
-\def\nomltfigure {Lista de Figuras}
-\def\nomltsrc {Lista de Código Fuente}
-\def\nomlttable {Lista de Tablas}
-\def\nomltwsrc {Código Fuente}
-\def\nomltwfigure {Figura}
-\def\nomltwtable {Tabla}
-\def\tablepadding {1.0}
 \def\typefontsubsubtitle {\large}
 \def\typefontsubsubtitlei {\large}
 \def\typefontsubtitle {\Large}
 \def\typefontsubtitlei {\Large}
 \def\typefonttitle {\huge}
 \def\typefonttitlei {\huge}
-\def\typereference {apa}
-
-% CONFIGURACIONES BOOLEANAS
-\def\centeredcaption {false}
-\def\figurecaptiontop {false}
-\def\gradecodeonportrait {false}
+\def\nameportraitpage {Portada}
+\def\namereferences {Referencias}
+\def\nomltcont {Índice de Contenidos}
+\def\nomltfigure {Lista de Figuras}
+\def\nomltsrc {Lista de Código Fuente}
+\def\nomlttable {Lista de Tablas}
+\def\nomltwsrc {Código Fuente}
+\def\nomltwfigure {Figura}
+\def\nomltwtable {Tabla}
 \def\referenceassection {false}
-\def\showborderonlinks {false}
+\def\twocolumnreferences {false}
+\def\typereference {apa}
+\def\gradecodeonportrait {false}
 \def\showfooter {true}
 \def\showheadertitle {true}
-\def\showindex {true}
-\def\showindexofcontents {true}
-\def\showindexoffigures {true}
-\def\showindexofsourcecode {false}
-\def\showindexoftables {true}
-\def\twocolumnreferences {false}
+\def\defaultfirstpagemargintop {3.8}
+\def\defaultpagemarginbottom {2.7}
+\def\defaultpagemarginleft {2.5}
+\def\defaultpagemarginright {2.5}
+\def\defaultpagemargintop {3.0}
 
 % DECLARACIÓN DE LIBRERÍAS
-\usepackage{amsmath}\usepackage{amssymb}\usepackage{amsthm}\usepackage{array}\usepackage{bigstrut}\usepackage{booktabs}\usepackage[makeroom]{cancel}\usepackage{caption}\usepackage{color}\usepackage{colortbl}\usepackage{datetime}\usepackage[inline]{enumitem}\usepackage[bottom,norule,hang]{footmisc}\usepackage{fancyhdr}\usepackage{floatrow}\usepackage{gensymb,textcomp}\usepackage{geometry}\usepackage{graphicx}\usepackage{ifthen}\usepackage{mathtools}\usepackage{multicol}\usepackage{pdfpages}\usepackage{lipsum}\usepackage{longtable}\usepackage{listings}\usepackage{rotating}\usepackage{sectsty}\usepackage{selinput}\usepackage{setspace}\usepackage{subfig}\usepackage{tikz}\usepackage{ulem}\usepackage{url}\usepackage{wasysym}\usepackage{wrapfig}\usepackage{xcolor}\usetikzlibrary{babel}\usepackage{chngcntr}\usepackage{epstopdf}\usepackage{float}\usepackage{multirow}\ifthenelse{\equal{\referenceassection}{true}}{\usepackage{etoolbox}}{}\ifthenelse{\equal{\showborderonlinks}{false}}{\usepackage[pdfencoding=auto,psdextra,hidelinks]{hyperref}}{\usepackage[pdfencoding=auto,psdextra]{hyperref}}
+\usepackage{array}\usepackage{bigstrut}\usepackage{booktabs}\usepackage[makeroom]{cancel}\usepackage{caption}\usepackage{color}\usepackage{colortbl}\usepackage{datetime}\usepackage[inline]{enumitem}\usepackage[bottom,norule,hang]{footmisc}\usepackage{fancyhdr}\usepackage{floatrow}\usepackage{gensymb,textcomp}\usepackage{geometry}\usepackage{graphicx}\usepackage{ifthen}\usepackage{mathtools}\usepackage{multicol}\usepackage{notoccite}\usepackage{pdfpages}\usepackage{lipsum}\usepackage{longtable}\usepackage{listings}\usepackage{rotating}\usepackage{sectsty}\usepackage{selinput}\usepackage{setspace}\usepackage{subfig}\usepackage{ulem}\usepackage{url}\usepackage{wasysym}\usepackage{wrapfig}\usepackage{xcolor}\usepackage{chngcntr}\usepackage{epstopdf}\usepackage{float}\usepackage{multirow}\ifthenelse{\equal{\referenceassection}{true}}{\usepackage{etoolbox}}{}\ifthenelse{\equal{\showborderonlinks}{false}}{\usepackage[pdfencoding=auto,psdextra,hidelinks]{hyperref}}{\usepackage[pdfencoding=auto,psdextra]{hyperref}}
 
 % DECLARACIÓN DE FUNCIONES
 \newcommand{\throwerror}[2]{\errmessage{Error: \noexpand#1 #2 (linea \the\inputlineno)}}\newcommand{\emptyvarerr}[3]{\ifx\hfuzz#2\hfuzz\throwerror{#1}{#3}\fi}\newcommand{\referenceindexentry}{\addcontentsline{toc}{section}{\namereferences}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\namereferences}}}{}}\newcommand{\newemptypage}{\newpage\null\thispagestyle{empty}\newpage\addtocounter{page}{-1}}\newcommand{\setcaptionmargincm}[1]{\captionsetup{margin=#1cm}}\newcommand{\setpagemargincm}[4]{\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}}\newcommand{\newp}{\hbadness=10000 \vspace{\defaultnewlinesize} \par}\newcommand{\newpar}[1]{\hbadness=10000 #1 \newp}\newcommand{\newparnl}[1]{#1 \par}\newcommand{\lpow}[2]{{#1}_{#2}}\newcommand{\pow}[2]{{#1}^{#2}}\newcommand{\fracpartial}[2]{\frac{\partial #1}{\partial #2}}\newcommand{\fracdpartial}[2]{\frac{{\partial}^{2} #1}{\partial {#2}^{2}}}\newcommand{\fracnpartial}[3]{\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}}\newcommand{\fracderivat}[2]{\frac{\text{d} #1}{\text{d} #2}}\newcommand{\fracdderivat}[2]{\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}}\newcommand{\fracnderivat}[3]{\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}}\newcommand{\topequal}[2]{\overbrace{#1}^{\mathclap{#2}}}\newcommand{\underequal}[2]{\underbrace{#1}_{\mathclap{#2}}}\newcommand{\topsequal}[2]{\overbracket{#1}^{\mathclap{#2}}}\newcommand{\undersequal}[2]{\underbracket{#1}_{\mathclap{#2}}}\newcommand{\resizeitem}[2]{\emptyvarerr{\resizeitem}{#1}{Tamano del nuevo objeto no definido}\emptyvarerr{\resizeitem}{#2}{Objeto a redimensionar no definido}\resizebox{#1\textwidth}{!}{#2}}\newcommand{\newtitleanum}[1]{\emptyvarerr{\newtitleanum}{#1}{Titulo no definido}\addcontentsline{toc}{section}{#1}\section*{#1}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{#1}}}{}\stepcounter{section}}\newcommand{\newtitleanumheadless}[1]{\emptyvarerr{\newtitleanumheadless}{#1}{Titulo no definido}\addcontentsline{toc}{section}{#1}\section*{#1}\stepcounter{section}}\newcommand{\newsubtitleanum}[1]{\emptyvarerr{\newsubtitleanum}{#1}{Subtitulo no definido}\addcontentsline{toc}{subsection}{#1}\subsection*{#1}\stepcounter{subsection}}\newcommand{\newsubsubtitleanum}[1]{\emptyvarerr{\newsubsubtitleanum}{#1}{Sub-subtitulo no definido}\addcontentsline{toc}{subsubsection}{#1}\subsubsection*{#1}\stepcounter{subsubsection}}\newcommand{\newtitleanumnoi}[1]{\emptyvarerr{\newtitleanumnoi}{#1}{Titulo no definido}\section*{#1}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{#1}}}{}\stepcounter{section}}\newcommand{\newtitleanumnoiheadless}[1]{\emptyvarerr{\newtitleanumnoiheadless}{#1}{Titulo no definido}\section*{#1}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{#1}}}{}\stepcounter{section}}\newcommand{\newsubtitleanumnoi}[1]{\emptyvarerr{\newsubtitleanumnoi}{#1}{Subtitulo no definido}\subsection*{#1}\stepcounter{subsection}}\newcommand{\newsubsubtitleanumnoi}[1]{\emptyvarerr{\newsubsubtitleanumnoi}{#1}{Sub-subtitulo no definido}\addcontentsline{toc}{subsubsection}{#1}\subsubsection*{#1}\stepcounter{subsubsection}}\newcommand{\insertindextitle}[2]{\emptyvarerr{\insertindextitle}{#1}{Titulo no definido}\ifx\hfuzz#2\hfuzz\addtocontents{toc}{\protect\addvspace{\defaultindextitlemargin}}\else\addtocontents{toc}{\protect\addvspace{#2 pt}}\fi\addtocontents{toc}{\noindent\hyperref[swpn]{\textbf{#1}}}}\newcommand{\insertequation}[2][]{\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}\vspace{-0.1cm}\begin{equation}\text{#1} #2\end{equation}\vspace{-0.26cm}\par}\newcommand{\insertequationcaptioned}[3][]{\emptyvarerr{\insertequationcaptioned}{#2}{Ecuacion no definida}\ifx\hfuzz#3\hfuzz\insertequation[#1]{#2}\else\vspace{0cm}\begin{equation}\text{#1} #2\end{equation}\begin{center}\vspace{-0.15cm}\textit{#3} \par\vspace{0.05cm}\end{center}\fi}\newcommand{\insertequationgathered}[2][]{\emptyvarerr{\insertequationgathered}{#2}{Ecuacion no definida}\vspace{-0.4cm}\begin{gather}\text{#1} #2\end{gather}\par\vspace{-0.10cm}}\newcommand{\insertequationgatheredcaptioned}[3][]{\emptyvarerr{\insertequationgatheredcaptioned}{#2}{Ecuacion no definida}\ifx\hfuzz#3\hfuzz\insertequationgathered[#1]{#2}\else\vspace{0cm}\begin{gather}\text{#1} #2\end{gather}\begin{center}\vspace{-0.15cm}\textit{#3} \par\end{center}\fi}\newcommand{\insertequationalign}[2][]{\emptyvarerr{\insertequationalign}{#2}{Ecuacion no definida}\vspace{-0.4cm}\begin{align}\text{#1} #2\end{align}\par\vspace{-0.10cm}}\newcommand{\insertequationaligncaptioned}[3][]{\emptyvarerr{\insertequationaligncaptioned}{#2}{Ecuacion no definida}\ifx\hfuzz#3\hfuzz\insertequationalign[#1]{#2}\else\vspace{0cm}\begin{align}\text{#1} #2\end{align}\begin{center}\vspace{-0.15cm}\textit{#3} \par\end{center}\fi}\newcommand{\insertimage}[4][]{\emptyvarerr{\insertimage}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimage}{#3}{Parametros de la imagen no definidos}\vspace{\defaultmargintopimages}\begin{figure}[H]\centering\includegraphics[#3]{\defaultimagefolder#2}\ifx\hfuzz#4\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#4 #1}\fi\end{figure}\vspace{\defaultmarginbottomimages}}\newcommand{\insertimageboxed}[4][]{\emptyvarerr{\insertimageboxed}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}\vspace{\defaultmargintopimages}\begin{figure}[H]\centering\fbox{\includegraphics[#3]{\defaultimagefolder#2}}\ifx\hfuzz#4\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#4 #1}\fi\end{figure}\vspace{\defaultmarginbottomimages}}\newcommand{\insertimagefixed}[5][]{\emptyvarerr{\insertimagefixed}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimagefixed}{#3}{Parametros de la imagen no definidos}\emptyvarerr{\insertimagefixed}{#4}{Tamano de la imagen (textwidth) no definida}\vspace{\defaultmargintopimages}\begin{figure}[H]\centering\resizebox{#3\textwidth}{!}{\includegraphics[#4]{\defaultimagefolder#2}}\ifx\hfuzz#5\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#5 #1}\fi\end{figure}\vspace{\defaultmarginbottomimages}}\newcommand{\insertimageboxedfixed}[5][]{\emptyvarerr{\insertimageboxedfixed}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimageboxedfixed}{#3}{Parametros de la imagen no definidos}\emptyvarerr{\insertimageboxedfixed}{#4}{Tamano de la imagen no definida}\vspace{\defaultmargintopimages}\begin{figure}[H]\centering\resizebox{#3\textwidth}{!}{\fbox{\includegraphics[#4]{\defaultimagefolder#2}}}\ifx\hfuzz#5\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#5 #1}\fi\end{figure}\vspace{\defaultmarginbottomimages}}\newcommand{\insertdoubleimage}[8][]{\emptyvarerr{\insertdoubleimage}{#2}{Direccion de la imagen 1 no definida}\emptyvarerr{\insertdoubleimage}{#3}{Parametros de la imagen 1 no definidos}\emptyvarerr{\insertdoubleimage}{#5}{Direccion de la imagen 2 no definida}\emptyvarerr{\insertdoubleimage}{#6}{Parametros de la imagen 2 no definidos}\vspace{\defaultmargintopimages}\captionsetup{margin=0.45cm}\begin{figure}[H] \centering\subfloat[#4]{\includegraphics[#3]{\defaultimagefolder#2}}\hspace{0.2cm}\subfloat[#7]{\includegraphics[#6]{\defaultimagefolder#5}}\setcaptionmargincm{\defaultcaptionmargin}\ifx\hfuzz#8\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#8 #1}\fi\end{figure}\setcaptionmargincm{\defaultcaptionmargin}\vspace{\defaultmarginbottomimages}}\newcommand{\insertdoubleeqimage}[7][]{\insertdoubleimage[#1]{#2}{#6}{#3}{#4}{#6}{#5}{#7}}\newcommand{\inserttripleimage}[8][]{\emptyvarerr{\inserttripleimage}{#2}{Direccion de la imagen 1 no definida}\emptyvarerr{\inserttripleimage}{#3}{Parametros de la imagen 1 no definidos}\emptyvarerr{\inserttripleimage}{#4}{Direccion de la imagen 2 no definida}\emptyvarerr{\inserttripleimage}{#5}{Parametros de la imagen 2 no definidos}\emptyvarerr{\inserttripleimage}{#6}{Direccion de la imagen 3 no definida}\emptyvarerr{\inserttripleimage}{#7}{Parametros de la imagen 3 no definidos}\vspace{\defaultmargintopimages}\captionsetup{margin=0.45cm}\begin{figure}[H] \centering\subfloat[]{\includegraphics[#3]{\defaultimagefolder#2}}\hspace{0.1cm}\subfloat[]{\includegraphics[#5]{\defaultimagefolder#4}}\hspace{0.1cm}\subfloat[]{\includegraphics[#7]{\defaultimagefolder#6}}\setcaptionmargincm{\defaultcaptionmargin}\ifx\hfuzz#8\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#8 #1}\fi\end{figure}\setcaptionmargincm{\defaultcaptionmargin}\vspace{\defaultmarginbottomimages}}\newcommand{\inserttripleeqimage}[6][]{\inserttripleimage[#1]{#2}{#5}{#3}{#5}{#4}{#5}{#6}}\newcommand{\insertquadimage}[7][]{\emptyvarerr{\insertquadimage}{#2}{Direccion de la imagen 1 no definida}\emptyvarerr{\insertquadimage}{#3}{Direccion de la imagen 2 no definida}\emptyvarerr{\insertquadimage}{#4}{Direccion de la imagen 3 no definida}\emptyvarerr{\insertquadimage}{#5}{Direccion de la imagen 4 no definida}\emptyvarerr{\insertquadimage}{#6}{Propiedades de las imagenes no definidos}\vspace{\defaultmargintopimages}\captionsetup{margin=0.45cm}\begin{figure}[H] \centering\subfloat[]{\includegraphics[#6]{\defaultimagefolder#2}}\hspace{0.1cm}\subfloat[]{\includegraphics[#6]{\defaultimagefolder#3}}\hspace{0.1cm}\subfloat[]{\includegraphics[#6]{\defaultimagefolder#4}}\hspace{0.1cm}\subfloat[]{\includegraphics[#6]{\defaultimagefolder#5}}\setcaptionmargincm{\defaultcaptionmargin}\ifx\hfuzz#7\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#7 #1}\fi\end{figure}\setcaptionmargincm{\defaultcaptionmargin}\vspace{\defaultmarginbottomimages}}\newcommand{\insertpentaimage}[8][]{\emptyvarerr{\insertpentaimage}{#2}{Direccion de la imagen 1 no definida}\emptyvarerr{\insertpentaimage}{#3}{Direccion de la imagen 2 no definida}\emptyvarerr{\insertpentaimage}{#4}{Direccion de la imagen 3 no definida}\emptyvarerr{\insertpentaimage}{#5}{Direccion de la imagen 4 no definida}\emptyvarerr{\insertpentaimage}{#6}{Direccion de la imagen 5 no definida}\emptyvarerr{\insertpentaimage}{#7}{Propiedades de las imagenes no definidas}\vspace{\defaultmargintopimages}\captionsetup{margin=0.45cm}\begin{figure}[H] \centering\subfloat[]{\includegraphics[#7]{\defaultimagefolder#2}}\hspace{0.1cm}\subfloat[]{\includegraphics[#7]{\defaultimagefolder#3}}\hspace{0.1cm}\subfloat[]{\includegraphics[#7]{\defaultimagefolder#4}}\hspace{0.1cm}\subfloat[]{\includegraphics[#7]{\defaultimagefolder#5}}\hspace{0.1cm}\subfloat[]{\includegraphics[#7]{\defaultimagefolder#6}}\setcaptionmargincm{\defaultcaptionmargin}\ifx\hfuzz#8\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#8 #1}\fi\end{figure}\setcaptionmargincm{\defaultcaptionmargin}\vspace{\defaultmarginbottomimages}}\newcommand{\inserthexaimage}[9][]{\emptyvarerr{\inserthexaimage}{#2}{Direccion de la imagen 1 no definida}\emptyvarerr{\inserthexaimage}{#3}{Direccion de la imagen 2 no definida}\emptyvarerr{\inserthexaimage}{#4}{Direccion de la imagen 3 no definida}\emptyvarerr{\inserthexaimage}{#5}{Direccion de la imagen 4 no definida}\emptyvarerr{\inserthexaimage}{#6}{Direccion de la imagen 5 no definida}\emptyvarerr{\inserthexaimage}{#7}{Direccion de la imagen 6 no definida}\emptyvarerr{\inserthexaimage}{#8}{Propiedades de las imagenes no definidas}\vspace{\defaultmargintopimages}\captionsetup{margin=0.45cm}\begin{figure}[H] \centering\subfloat[]{\includegraphics[#8]{\defaultimagefolder#2}}\hspace{0.1cm}\subfloat[]{\includegraphics[#8]{\defaultimagefolder#3}}\hspace{0.1cm}\subfloat[]{\includegraphics[#8]{\defaultimagefolder#4}}\hspace{0.1cm}\subfloat[]{\includegraphics[#8]{\defaultimagefolder#5}}\hspace{0.1cm}\subfloat[]{\includegraphics[#8]{\defaultimagefolder#6}}\hspace{0.1cm}\subfloat[]{\includegraphics[#8]{\defaultimagefolder#7}}\setcaptionmargincm{\defaultcaptionmargin}\ifx\hfuzz#9\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#9 #1}\fi\end{figure}\setcaptionmargincm{\defaultcaptionmargin}\vspace{\defaultmarginbottomimages}}\newcommand{\insertimageleft}[5][]{\emptyvarerr{\insertimageleft}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimageleft}{#3}{Ancho de la imagen no defindo}\emptyvarerr{\insertimageleft}{#4}{Altura en lineas de la imagen no definida}\begin{wrapfigure}[#4]{l}{#3\textwidth}\setcaptionmargincm{0}\ifthenelse{\equal{\figurecaptiontop}{true}}{}{\vspace{\defaultmarginfloatimages}}\centering\includegraphics[width=\linewidth]{\defaultimagefolder#2}\ifx\hfuzz#5\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#5 #1}\fi\setcaptionmargincm{\defaultcaptionmargin}\end{wrapfigure}}\newcommand{\insertimageright}[5][]{\emptyvarerr{\insertimageright}{#2}{Direccion de la imagen no definida}\emptyvarerr{\insertimageright}{#3}{Ancho de la imagen no defindo}\emptyvarerr{\insertimageright}{#4}{Altura en lineas de la imagen no definida}\begin{wrapfigure}[#4]{r}{#3\textwidth}\setcaptionmargincm{0}\ifthenelse{\equal{\figurecaptiontop}{true}}{}{}\centering\includegraphics[width=\linewidth]{\defaultimagefolder#2}\ifx\hfuzz#5\hfuzz\vspace{\defaultcaptionlessmargin}\else\caption{#5 #1}\fi\setcaptionmargincm{\defaultcaptionmargin}\end{wrapfigure}}
@@ -148,7 +146,7 @@
 \newpage\renewcommand{\thepage}{\nameportraitpage}\setpagemargincm{\defaultpagemarginleft}{\defaultfirstpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}\fancyhead[R]{\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}}\ifthenelse{\equal{\gradecodeonportrait}{true}}{\vspace*{3cm}\begin{center}\huge {\nombredelcurso} \\\vspace{0.3cm}\large {Código del curso: \codigodelcurso} \\\vspace{1.5cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}{\vspace*{5cm}\begin{center}\huge {\nombredelcurso} \\\vspace{1cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}\vfill\tablaintegrantes
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
-\newpage \pagenumbering{Roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\def\arraystretch{\tablepadding}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfigure}\renewcommand{\listtablename}{\nomlttable}\renewcommand{\contentsname}{\nomltcontent}\renewcommand{\lstlistlistingname}{\nomltsrc}\renewcommand{\tablename}{\nomltwtable}\renewcommand{\figurename}{\nomltwfigure}\renewcommand{\lstlistingname}{\nomltwsrc}\renewcommand\refname{\namereferences}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \nouppercase{\thepage}}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\typefonttitle \etypefonttitle \selectfont}
+\newpage \pagenumbering{Roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\defaultpagemarginleft}{\defaultpagemargintop}{\defaultpagemarginright}{\defaultpagemarginbottom}\def\arraystretch{\tablepadding}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfigure}\renewcommand{\listtablename}{\nomlttable}\renewcommand{\contentsname}{\nomltcont}\renewcommand{\lstlistlistingname}{\nomltsrc}\renewcommand{\tablename}{\nomltwtable}\renewcommand{\figurename}{\nomltwfigure}\renewcommand{\lstlistingname}{\nomltwsrc}\renewcommand\refname{\namereferences}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \nouppercase{\thepage}}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\typefonttitle \etypefonttitle \selectfont}
 
 % =========================== RESUMEN O ABSTRACT ===========================
 \newtitleanumheadless{Resumen}
@@ -162,7 +160,7 @@
 % CONFIGURACIONES FINALES - INICIO DE LAS SECCIONES
 \newpage\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\leftmark}}}{}\sectionfont{\typefonttitle \etypefonttitle \selectfont}\subsectionfont{\typefontsubtitle \etypefontsubtitle \selectfont}\subsubsectionfont{\typefontsubsubtitle \etypefontsubsubtitle\selectfont}\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}\setcounter{section}{0}\setcounter{footnote}{0}
 
-% ========================== INICIO DEL DOCUMENTO ==========================
+% ========================= INICIO DEL DOCUMENTO =========================
 
 \input{example.tex} % Ejemplo, se puede borrar
 
