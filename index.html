@@ -39,6 +39,7 @@
 </head>
 
 <body>
+	<a href="#top" class="back-to-top">Back to Top</a>
 	<section class="page-header scrollable scroll" id="scrolld">
 		<h1 class="project-name">Template para Informes</h1>
 		<h2 class="project-tagline">
@@ -128,7 +129,15 @@
 			<li>
 				<a href="#configurar-el-template" class="menu-big-entry">Configurar el template</a>
 				<ul>
-					<li><a href="#config-bool" class="menu-little-entry">Configuraciones booleanas</a></li>
+					<li><a href="#config-caption" class="menu-little-entry">Configuración de las leyendas</a></li>
+					<li><a href="#config-index" class="menu-little-entry">Configuración del índice</a></li>
+					<li><a href="#config-figure" class="menu-little-entry">Configuración de las figuras</a></li>
+					<li><a href="#config-other" class="menu-little-entry">Otras configuraciones</a></li>
+					<li><a href="#config-tstyles" class="menu-little-entry">Estilo de los títulos</a></li>
+					<li><a href="#config-objname" class="menu-little-entry">Nombres de objetos</a></li>
+					<li><a href="#config-ref" class="menu-little-entry">Configuración de referencias</a></li>
+					<li><a href="#config-elem" class="menu-little-entry">Configuración de elementos</a></li>
+					<li><a href="#config-pagemargin" class="menu-little-entry">Márgenes de la página</a></li>
 				</ul>
 			</li>
 			<li><a href="#links" class="menu-big-entry">Links de interés</a></li>
@@ -148,8 +157,8 @@
 			<em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <i id="linea-integrantes"></i>
 			<font title='Línea 40 en versión compacta' style='cursor: hand;'>(línea 39)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del
 			<em class="section-template">RESUMEN O ABSTRACT</em>
-			<font title='Línea 149 en versión compacta' style='cursor: hand;'>(línea 97)</font> o en la <b>sección principal</b> del documento
-			<em class="section-template">INICIO DEL DOCUMENTO</em> <font title='Línea 161 en versión compacta' style='cursor: hand;'>(línea 106)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/ppizarror/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
+			<font title='Línea 167 en versión compacta' style='cursor: hand;'>(línea 98)</font> o en la <b>sección principal</b> del documento
+			<em class="section-template">INICIO DEL DOCUMENTO</em> <font title='Línea 179 en versión compacta' style='cursor: hand;'>(línea 107)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/ppizarror/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
 		</p>
 		<p align="center">
 			<img src="images/informe_data.png" alt="Informe" width="90%px" height="90%px">
@@ -211,7 +220,7 @@
 			</li>
 			<li>
 				<strong>\imagendeldepartamento</strong>: Imagen del departamento o universidad a usar en la portada, estos se pueden encontrar en la carpeta
-				<em><a href="https://github.com/ppizarror/Template-Informe/tree/master/images/departamentos">/images/departamentos/</a></em>. Actualmente existen las siguientes imágenes:
+				<em><a href="https://github.com/ppizarror/Template-Informe/tree/master/images/departamentos">/images/departamentos/</a></em>. Imágenes disponibles:
 				<ul>
 					<li>
 						<strong>adh</strong>: Área de Humanidades.
@@ -264,7 +273,7 @@
 				</ul>
 			</li>
 			<li>
-				<strong>\imagendeldepartamentoescl</strong>: Escala de la imagen a usar.
+				<strong>\imagendepartamentoescala</strong>: Escala de la imagen a usar.
 			</li>
 			<li>
 				<strong>\localizacionuniversidad</strong>: Ciudad o región en donde se ubica la universidad o instituto.
@@ -287,10 +296,10 @@
 			<span aria-hidden="true" class="octicon octicon-link"></span>
 			</a> Añadiendo contenido al informe
 		</h2>
-		<p>También es posible añadir fórmulas, citas, figuras y otros elementos de forma sencilla, utilizando funciones especiales definidas en el archivo lib/<a href="https://github.com/ppizarror/Template-Informe/blob/master/lib/functions.tex">functions.tex</a>.</p>
+		<p>También es posible añadir fórmulas, párrafos, figuras y otros elementos de forma sencilla, utilizando funciones especiales definidas en el archivo lib/<a href="https://github.com/ppizarror/Template-Informe/blob/master/lib/functions.tex">functions.tex</a>.</p>
 		<ul>
 			<li class="li-code-parent">
-				<strong class="functtitlstyle">Insertar párrafos y citas <a id="hlp-parrafo"></a></strong>
+				<strong class="functtitlstyle">Insertar párrafos<a id="hlp-parrafo"></a></strong>
 				<p>
 					 Para esto existen las siguientes funciones:
 				</p>
@@ -299,7 +308,7 @@
 						<strong>\newp</strong>: Sencilla forma de añadir un nuevo párrafo.
 						<blockquote>
 							<div class="highlight highlight-text-tex">
-								<pre>Este es un parrafo. <span class="pl-e">\newp</span> Este es otro.</pre>
+								<pre>Este es un parrafo. <br><span class="pl-e">\newp</span> Este es otro.</pre>
 							</div>
 						</blockquote>
 					</li>
@@ -307,7 +316,7 @@
 						<strong>\newpar</strong><b><b>{</b></b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo con un salto de linea al terminar.
 						<blockquote>
 							<div class="highlight highlight-text-tex">
-								<pre><span class="pl-e">\newpar</span><b>{</b>Este es un parrafo.<b>}</b> <span class="pl-e">\newpar</span><b>{</b>Este es otro.<b>}</b></pre>
+								<pre><span class="pl-e">\newpar</span><b>{</b>Este es un parrafo.<b>}</b><br> <span class="pl-e">\newpar</span><b>{</b>Este es otro.<b>}</b></pre>
 							</div>
 						</blockquote>
 					</li>
@@ -319,6 +328,7 @@
 							</div>
 						</blockquote>
 					</li>
+					<!--
 					<li>
 						<strong>\quotes</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar "citas".
 						<blockquote>
@@ -327,23 +337,24 @@
 							</div>
 						</blockquote>
 						<li>
-							<strong>\quotesit</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar <em>"citas en itálico"</em>.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre>Así se insertan las <span class="pl-e">\quotesit</span><b>{</b>cítas en itálico<b>}</b> de manera sencilla.</pre>
-								</div>
-							</blockquote>
-						</li>
+						<strong>\quotesit</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar <em>"citas en itálico"</em>.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre>Así se insertan las <span class="pl-e">\quotesit</span><b>{</b>cítas en itálico<b>}</b> de manera sencilla.</pre>
+							</div>
+						</blockquote>
+					</li>
+					-->
 				</ul>
 				</li>
 				<li class="li-code-parent">
 					<strong class="functtitlstyle">Añadir una imagen <a id="hlp-imagen"></a></strong>
 					<p>
-						Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la variable <strong>\defaultimagefolder</strong>, por defecto la carpeta <a href="https://github.com/ppizarror/Template-Informe/tree/master/images">images/</a>), sus parámetros
-						y su correspondiente título (caption, o leyenda).
+						Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la configuración <a href="#config-otros">\defaultimagefolder</a>, por defecto la carpeta <strong>images/</strong>), sus parámetros
+						y la leyenda (la cual es opcional).
 					</p>
 					<p>
-						Los parámetros pueden ser <strong>scale=0.5</strong>, <strong>width=5cm</strong>, <strong>width=50%</strong>, etc.
+						Los parámetros pueden ser <strong>scale=0.5</strong>, <strong>width=5cm</strong>, <strong>width=50%</strong>, <strong>angle=45</strong>, etc.
 					</p>
 					<ul>
 						<li>
@@ -358,7 +369,7 @@
 							<strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.
 							<blockquote>
 								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimageboxed</span><b>[]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.5<b>}</b><b>{</b>Descripción de la imagen<b>}</b></pre>
+									<pre><span class="pl-e">\insertimageboxed</span><b>[]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.5<b>}</b><b>{</b><b>}</b></pre>
 								</div>
 							</blockquote>
 						</li>
@@ -655,11 +666,12 @@
 						<li>
 							<strong>\newemptypage</strong>: Inserta una página vacía (sin headers ni contenido).
 						</li>
-						<!--
-					<li>
-						<strong>\setcaptionmargincm</strong><b>{</b><em>Margen</em><b>}</b>: Modifica el ancho de los <i>caption</i> medido en centímetros.
-					</li>
-					-->
+						<li>
+							<strong>\referenceindexentry</strong>: Agrega las referencias al índice y al header (usar dentro de la bibliografía).
+						</li>
+						<li>
+							<strong>\setcaptionmargincm</strong><b>{</b><em>Margen</em><b>}</b>: Modifica el margen izquierdo/derecho de los <i>caption</i> medido en centímetros.
+						</li>
 					</ul>
 				</li>
 		</ul>
@@ -678,162 +690,220 @@
 			Las configuraciones disponibles son las siguientes:
 		</p>
 		<ul>
-			<li>
-				<strong>\captionbottommargin</strong>: Margen inferior de los caption, en pt.
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Configuración de las leyendas<a id="config-caption"></a></strong>
+				<ul>
+					<li>
+						<strong>\captionbottommargin</strong>: Margen inferior de las leyendas, en pt.
+					</li>
+					<li>
+						<strong>\captiontopmargin</strong>: Margen superior de los caption, en pt.
+					</li>
+					<li>
+						<strong>\centeredcaption</strong>: Leyenda centrada al tener varias líneas.
+					</li>
+					<li>
+						<strong>\figurecaptiontop</strong>: Establece la leyenda encima de las imágenes.
+					</li>
+					<li>
+						<strong>\defaultcaptionlessmargin</strong>: Margen inferior si no hay caption en figuras, en centímetros.
+					</li>
+					<li>
+						<strong>\defaultcaptionmargin</strong>: Márgenes de las leyendas por defecto.
+					</li>
+				</ul>
 			</li>
-			<li>
-				<strong>\captiontopmargin</strong>: Margen superior de los caption, en pt.
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Configuración del índice<a id="config-index"></a></strong>
+				<ul>
+					<li>
+						<strong>\defaultindextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <b>\insertindextitle</b>).
+					</li>
+					<li>
+						<strong>\indexdepth</strong>: Profundidad del índice.
+					</li>
+					<li>
+						<strong>\showindex</strong>: Muestra la página de índice.
+					</li>
+					<li>
+						<strong>\showindexofcontents</strong>: Muestra la lista de contenidos.
+					</li>
+					<li>
+						<strong>\showindexoffigures</strong>: Muestra la lista de figuras en el índice.
+					</li>
+					<li>
+						<strong>\showindexofsourcecode</strong>: Muestra la lista de códigos fuente en el índice.
+					</li>
+					<li>
+						<strong>\showindexoftables</strong>: Muestra la lista de tablas en el índice.
+					</li>
+				</ul>
 			</li>
-			<li>
-				<strong>\defaultcaptionlessmargin</strong>: Margen inferior si no hay caption en figuras, en centímetros.
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Configuración de las figuras<a id="config-figure"></a></strong>
+				<ul>
+					<li>
+						<strong>\defaultmarginbottomimages</strong>: Margen inferior de las figuras en centímetros.
+					</li>
+					<li>
+						<strong>\defaultmarginfloatimages</strong>: Margen superior de las figuras flotantes en pt.
+					</li>
+					<li>
+						<strong>\defaultmargintopimages</strong>: Margen superior de las figuras en centímetros.
+					</li>
+				</ul>
 			</li>
-			<li>
-				<strong>\defaultcaptionmargin</strong>: Márgenes de las leyendas por defecto.
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Otras configuraciones<a id="config-other"></a></strong>
+				<ul>
+					<li>
+						<strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
+					</li>
+					<li>
+						<strong>\defaultinterline</strong>: Tamaño del interlineado.
+					</li>
+					<li>
+						<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea en pt.
+					</li>
+					<li>
+						<strong>\tablepadding</strong>: Padding de las tablas.
+					</li>
+					<li>
+						<strong>\showborderonlinks</strong>: Muestra un recuadro en cada enlace del documento.
+					</li>
+				</ul>
 			</li>
-			<li>
-				<strong>\defaultfirstpagemargintop</strong>: Margen superior de la portada en centímetros.
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Estilo de los títulos<a id="config-tstyles"></a></strong>
+				<ul>
+					<li>
+						<strong>\etypefontsubsubtitle</strong>: Estilo sub-subtítulos.
+					</li>
+					<li>
+						<strong>\etypefontsubsubtitlei</strong>: Estilo sub-subtítulos en el índice.
+					</li>
+					<li>
+						<strong>\etypefontsubtitle</strong>: Estilo subtítulos.
+					</li>
+					<li>
+						<strong>\etypefontsubtitlei</strong>: Estilo subtítulos en el índice.
+					</li>
+					<li>
+						<strong>\etypefonttitle</strong>: Estilo títulos.
+					</li>
+					<li>
+						<strong>\etypefonttitlei</strong>: Estilo títulos en el índice.
+					</li>
+					<li>
+						<strong>\typefontsubsubtitle</strong>: Tamaño sub-subtítulos.
+					</li>
+					<li>
+						<strong>\typefontsubsubtitlei</strong>: Tamaño sub-subtítulos en el índice.
+					</li>
+					<li>
+						<strong>\typefontsubtitle</strong>: Tamaño subtítulos.
+					</li>
+					<li>
+						<strong>\typefontsubtitlei</strong>: Tamaño subtítulos en el índice.
+					</li>
+					<li>
+						<strong>\typefonttitle</strong>: Tamaño títulos.
+					</li>
+					<li>
+						<strong>\typefonttitlei</strong>: Tamaño títulos en el índice.
+					</li>
+				</ul>
 			</li>
-			<li>
-				<strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Nombres de objetos<a id="config-objname"></a></strong>
+				<ul>
+					<li>
+						<strong>\nameportraitpage</strong>: Nombre de la primera página (portada).
+					</li>
+					<li>
+						<strong>\namereferences</strong>: Nombre de la sección de referencias.
+					</li>
+					<li>
+						<strong>\nomltcont</strong>: Nombre del índice de contenidos.
+					</li>
+					<li>
+						<strong>\nomltfigure</strong>: Nombre de la lista de figuras.
+					</li>
+					<li>
+						<strong>\nomltsrc</strong>: Nombre de la lista de código fuente.
+					</li>
+					<li>
+						<strong>\nomlttable</strong>: Nombre de la lista de tablas.
+					</li>
+					<li>
+						<strong>\nomltwsrc</strong>: Nombre del código fuente.
+					</li>
+					<li>
+						<strong>\nomltwfigure</strong>: Nombre de las figuras.
+					</li>
+					<li>
+						<strong>\nomltwtable</strong>: Nombre de las tablas.
+					</li>
+				</ul>
 			</li>
-			<li>
-				<strong>\defaultindextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <b>\insertindextitle</b>).
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Configuración de referencias<a id="config-ref"></a></strong>
+				<ul>
+					<li>
+						<strong>\referenceassection</strong>: Considera las referencias como sección.
+					</li>
+					<li>
+						<strong>\twocolumnreferences</strong>: Referencias en dos columnas.
+					</li>
+					<li>
+						<strong>\typereference</strong>: Tipo de referencias, por defecto se usa la norma APA.
+					</li>
+				</ul>
 			</li>
-			<li>
-				<strong>\defaultinterlind</strong>: Tamaño del interlineado.
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Configuración de elementos<a id="config-elem"></a></strong>
+				<ul>
+					<li>
+						<strong>\gradecodeonportrait</strong>: Muestra el código del curso en la portada.
+					</li>
+					<li>
+						<strong>\showfooter</strong>: Muestra el footer (nombre informe y curso).
+					</li>
+					<li>
+						<strong>\showheadertitle</strong>: Muestra el título de la sección en el header.
+					</li>
+				</ul>
 			</li>
-			<li>
-				<strong>\defaultmarginbottomimages</strong>: Margen inferior de las figuras en centímetros.
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Márgenes de la página<a id="config-pagemargin"></a></strong>
+				<ul>
+					<li>
+						<strong>\firstpagemargintop</strong>: Margen superior de la portada en centímetros.
+					</li>
+					<li>
+						<strong>\pagemarginbottom</strong>: Margen inferior de las páginas en centímetros.
+					</li>
+					<li>
+						<strong>\pagemarginleft</strong>: Margen izquierdo de las páginas en centímetros.
+					</li>
+					<li>
+						<strong>\pagemarginright</strong>: Margen derecho de las páginas en centímetros.
+					</li>
+					<li>
+						<strong>\pagemargintop</strong>: Margen superior de las páginas en centímetros.
+					</li>
+				</ul>
 			</li>
-			<li>
-				<strong>\defaultmarginfloatimages</strong>: Margen superior de las figuras flotantes en pt.
-			</li>
-			<li>
-				<strong>\defaultmargintopimages</strong>: Margen superior de las figuras en centímetros.
-			</li>
-			<li>
-				<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea en pt.
-			</li>
-			<li>
-				<strong>\defaultpagemarginbottom</strong>: Margen inferior de las páginas en centímetros.
-			</li>
-			<li>
-				<strong>\defaultpagemarginleft</strong>: Margen izquierdo de las páginas en centímetros.
-			</li>
-			<li>
-				<strong>\defaultpagemarginright</strong>: Margen derecho de las páginas en centímetros.
-			</li>
-			<li>
-				<strong>\defaultpagemargintop</strong>: Margen superior de las páginas en centímetros.
-			</li>
-			<li>
-				<strong>\etipofuentesubsubtitulo</strong>: Estilo por defecto de los sub-subtítulos.
-			</li>
-			<li>
-				<strong>\etipofuentesubsubtituloi</strong>: Estilo por defecto de los sub-subtítulos en el índice.
-			</li>
-			<li>
-				<strong>\etipofuentesubtitulo</strong>: Estilo por defecto de los subtítulos.
-			</li>
-			<li>
-				<strong>\etipofuentesubtituloi</strong>: Estilo por defecto de los subtítulos en el índice.
-			</li>
-			<li>
-				<strong>\etipofuentetitulo</strong>: Estilo por defecto de los títulos.
-			</li>
-			<li>
-				<strong>\etipofuentetituloi</strong>: Estilo por defecto de los títulos en el índice.
-			</li>
-			<li>
-				<strong>\indexdepth</strong>: Profundidad del índice.
-			</li>
-			<li>
-				<strong>\nombrepaginaportada</strong>: Nombre de la primera página (portada).
-			</li>
-			<li>
-				<strong>\nomltcontend</strong>: Nombre del índice de contenidos.
-			</li>
-			<li>
-				<strong>\nomltfiguras</strong>: Nombre de la lista de figuras.
-			</li>
-			<li>
-				<strong>\nomltsrc</strong>: Nombre de la lista de código fuente.
-			</li>
-			<li>
-				<strong>\nomlttablas</strong>: Nombre de la lista de tablas.
-			</li>
-			<li>
-				<strong>\nomltwcodfuente</strong>: Nombre del código fuente.
-			</li>
-			<li>
-				<strong>\nomltwfigura</strong>: Nombre de las figuras.
-			</li>
-			<li>
-				<strong>\nomltwtablas</strong>: Nombre de las tablas.
-			</li>
-			<li>
-				<strong>\tablepadding</strong>: Padding de las tablas.
-			</li>
-			<li>
-				<strong>\tipofuentesubsubtitulo</strong>: Tamaño por defecto de los sub-subtítulos.
-			</li>
-			<li>
-				<strong>\tipofuentesubsubtituloi</strong>: Tamaño por defecto de los sub-subtítulos en el índice.
-			</li>
-			<li>
-				<strong>\tipofuentesubtitulo</strong>: Tamaño por defecto de los subtítulos.
-			</li>
-			<li>
-				<strong>\tipofuentesubtituloi</strong>: Tamaño por defecto de los subtítulos en el índice.
-			</li>
-			<li>
-				<strong>\tipofuentetitulo</strong>: Tamaño por defecto de los títulos.
-			</li>
-			<li>
-				<strong>\tipofuentetituloi</strong>: Tamaño por defecto de los títulos en el índice.
-			</li>
-			<li>
-				<strong>\tipofuentetitulo</strong>: Tamaño por defecto de los títulos.
-			</li>
-			<li>
-				<strong>\tiporeferencias</strong>: Tipo de referencias, por defecto se usa la norma APA.
-			</li>
-		</ul>
-		<a id="config-bool"></a>Configuraciones booleanas:
-		<ul>
-			<li>
-				<strong>\codigocursoenportada</strong>: Muestra el código del curso en la portada.
-			</li>
-			<li>
-				<strong>\referenceassection</strong>: Considera las referencias como una sección (con número).
-			</li>
-			<li>
-				<strong>\showborderonlinks</strong>: Muestra un recuadro en cada enlace del documento.
-			</li>
-			<li>
-				<strong>\showfooter</strong>: Muestra el footer (nombre informe y curso).
-			</li>
-			<li>
-				<strong>\showheadertitle</strong>: Muestra el título de la sección en el header.
-			</li>
-			<li>
-				<strong>\showindex</strong>: Muestra la página de índice.
-			</li>
-			<li>
-				<strong>\showindexofcontents</strong>: Muestra la lista de contenidos.
-			</li>
-			<li>
-				<strong>\showindexoffigures</strong>: Muestra la lista de figuras en el índice.
-			</li>
-			<li>
-				<strong>\showindexofsourcecode</strong>: Muestra la lista de códigos fuente en el índice.
-			</li>
-			<li>
-				<strong>\showindexoftables</strong>: Muestra la lista de tablas en el índice.
-			</li>
-			<li>
-				<strong>\twocolumnreferences</strong>: Referencias en dos columnas.
-			</li>
+
 		</ul>
 
 		<!-- Links de interés -->
@@ -847,7 +917,10 @@
 					Template Auxiliares en <img src="resources/latex.png" alt="LaTeX" width="48px" height="20px" style="top: 6px;position:relative;">: <a href="http://ppizarror.com/Template-Auxiliares/">http://ppizarror.com/Template-Auxiliares/</a>
 				</li>
 				<li>
-					Plugin para expotar tablas desde Excel: <a href="https://www.ctan.org/tex-archive/support/excel2latex/">https://www.ctan.org/tex-archive/support/excel2latex/</a>
+					Plugin para expotar tablas desde Excel: <a href="https://www.ctan.org/pkg/excel2latex">https://www.ctan.org/pkg/excel2latex</a>
+					<ul>
+						<li><a href="http://www.contextures.com/exceladdins.html#install">Cómo instalar plugins en Excel</a></li>
+					</ul>
 				</li>
 				<li>
 					Manual para usar Latex: <a href="https://es.sharelatex.com/learn">https://es.sharelatex.com/learn</a>
@@ -873,13 +946,7 @@
 		</p>
 		<ul>
 			<li>
-				<strong><a href="https://www.ctan.org/pkg/amsmath">amsmath</a></strong>: Fórmulas matemáticas.
-			</li>
-			<li>
-				<strong><a href="https://www.ctan.org/pkg/amssymb">amssymb</a></strong>: Símbolos matemáticos.
-			</li>
-			<li>
-				<strong><a href="https://www.ctan.org/pkg/amsthm">amsthm</a></strong>: Teoremas matemáticos.
+				<strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características a las tablas.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/babel">babel</a></strong>: Soporte para idiomas.
@@ -903,7 +970,7 @@
 				<strong><a href="https://www.ctan.org/pkg/color">color</a></strong>: Colores.
 			</li>
 			<li>
-				<strong><a href="https://www.ctan.org/pkg/colortbn">colortbn</a></strong>: Colores en las tablas.
+				<strong><a href="https://www.ctan.org/pkg/colortbl">colortbl</a></strong>: Colores en las tablas.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/datetime">datetime</a></strong>: Fechas.

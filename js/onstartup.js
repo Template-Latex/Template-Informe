@@ -71,13 +71,15 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     // Se añaden las 129 descargas de https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases
     // Se añaden 60 descargas entre 1.8.5 y 1.9.6
     // Se añaden 138 descargas entre 1.9.6 y 2.0.6
-    // Se añaden 3 descargas de version 2.0.7
-    // Se añaden 3 descargas de version 2.0.8
+    // Se añaden 3 descargas de versión 2.0.7
+    // Se añaden 3 descargas de versión 2.0.8
+    // Se agrega 1 descarga de versión 2.0.9
+    // Se agrega 4 descara de versión 2.1.1
     if (total_downloads == 0){
         total_downloads = 'NaN';
     }
     else{
-        total_downloads += 129 + 60 + 138 + 3 + 3 + 1;
+        total_downloads += 129 + 60 + 138 + 3 + 3 + 1 + 4;
     }
 
     // Se establece la versión en el contador de descargas totales
@@ -157,4 +159,14 @@ $(function() {
         document.getElementById('total-download-counter-1').innerHTML = total_downloads;
         document.getElementById('total-download-counter-2').innerHTML = total_downloads;
     });
+});
+
+$('body').prepend('<a href="#top" class="back-to-top">Back to Top</a>');
+var amountScrolled = 600;
+$(window).scroll(function() {
+	if ( $(window).scrollTop() > amountScrolled ) {
+		$('a.back-to-top').fadeIn('slow');
+	} else {
+		$('a.back-to-top').fadeOut('slow');
+	}
 });

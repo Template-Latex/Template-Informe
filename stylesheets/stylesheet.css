@@ -17,6 +17,21 @@ body {
     color: #606c71;
 }
 
+a.back-to-top {
+	display: none;
+	width: 60px;
+	height: 60px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 20px;
+	bottom: 20px;
+	background: #27AE61 url("../resources/up-arrow.png") no-repeat center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
 .functtitlstyle{
     font-size: 1.2rem;
 }
@@ -290,6 +305,10 @@ a:hover {
 
 .li-code-parent {
     margin-bottom: 30px
+}
+
+.config-parent {
+    margin-bottom: 15px
 }
 
 .main-content ul, .main-content ol {
