@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo principal
-% Versión:      3.4.0 (06/05/2017)
+% Versión:      3.4.1 (11/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -17,8 +17,8 @@
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía Computer Modern
 \usepackage[spanish]{babel}               % Idioma del documento en español
-\def\templateversion{3.4.0}               % Versión del template
-                                                                                         
+\def\templateversion{3.4.1}               % Versión del template
+                                                                                          
 % INFORMACIÓN DEL DOCUMENTO
 \def\nombredelinforme {Título del informe}
 \def\temaatratar {Tema a tratar}
@@ -108,6 +108,26 @@
 
 \input{example.tex} % Ejemplo, se puede borrar
 
+% REFERENCIAS
+\begin{thebibliography}{99}
+	\referenceindexentry % Agrega las referencias al índice
+	
+	\bibitem{ref1}
+	Template Informe en \LaTeX.
+	\textit{Revisa el manual online de este template!} \\
+	\url{http://ppizarror.com/Template-Informe/}
+	
+	\bibitem{ref2}
+	\texttt{Excel2Latex}
+	\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
+	\url{https://www.ctan.org/tex-archive/support/excel2latex/}
+	
+	\bibitem{ref3}
+	Tables Generator.
+	\textit{Convierte fácilmente tus tablas, o crea unas con un intuitivo editor de tablas.} \\
+	\url{http://www.tablesgenerator.com/}
+	
+\end{thebibliography}
 
 % FIN DEL DOCUMENTO
 \end{document}
