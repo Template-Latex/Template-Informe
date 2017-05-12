@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Portada
-% Versión:      3.4.5 (11/05/2017)
+% Versión:      3.4.5 (12/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,18 +11,18 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
+% Se escribe el header de la portada
 \newpage
 \renewcommand{\thepage}{\nameportraitpage}
 \setpagemargincm{\pagemarginleft}{\firstpagemargintop}
 {\pagemarginright}{\pagemarginbottom}
-\pagestyle{fancy}
-\fancyhf{}
+\pagestyle{fancy} \fancyhf{}
 \fancyhead[L]{
 \nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
 \fancyhead[R]{
 \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}}
 
-% Estilo que muestra el código en la portada
+% Estilo con código de curso
 \ifthenelse{\equal{\gradecodeonportrait}{true}}{
 	\vspace*{3cm}
 	\begin{center}
@@ -35,7 +35,7 @@
 		\large {\temaatratar}
 	\end{center}
 
-% Estilo normal
+% Estilo sin código
 }{
 	\vspace*{5cm}
 	\begin{center}
