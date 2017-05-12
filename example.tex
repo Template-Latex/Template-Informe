@@ -94,11 +94,11 @@
 \begin{lstlisting}[caption=Ejemplo en Python]
 import numpy as np
 
-def incmatrix(genl1,genl2):
-m = len(genl1)
-n = len(genl2)
-M = None # to become the incidence matrix
-VT = np.zeros((n*m,1), int) # dummy variable
+def incmatrix(genl1, genl2):
+	m = len(genl1)
+	n = len(genl2)
+	M = None # to become the incidence matrix
+	VT = np.zeros((n*m, 1), int) # dummy variable
 \end{lstlisting}
 
 \lstset{style=Java}
@@ -107,36 +107,33 @@ import java.io.IOException;
 import javax.servlet.*;
 
 // Hola mundo
-public class Hola extends GenericServlet 
-{
-public void service(ServletRequest request, ServletResponse response)
-throws ServletException, IOException
-{
-response.setContentType("text/html");
-PrintWriter pw = response.getWriter();
-pw.println("Hola, mundo!");
-pw.close();
-}
+public class Hola extends GenericServlet {
+	public void service(ServletRequest request, ServletResponse response)
+	throws ServletException, IOException{
+		response.setContentType("text/html");
+		PrintWriter pw = response.getWriter();
+		pw.println("Hola, mundo!");
+		pw.close();
+	}
 }
 \end{lstlisting}
 
 \lstset{style=Matlab}
 \begin{lstlisting}[caption=Ejemplo en Matlab]
-function list = find_coordinates( matrix, value )
+function list = find_coordinates(matrix, value)
 l = size(matrix);
-coordenates_list = cell(l(1)*l(2),1);
+coordenates_list = cell(l(1)*l(2), 1);
 total = 1;
 
 % Evaluación de la matriz
 for i=1:l(1)
-for j=1:l(2)
-if matrix(i,j)==value
-coordenates_list{total} = [i j];
-total = total + 1;
+	for j=1:l(2)
+		if matrix(i, j) == value
+			coordenates_list{total} = [i j];
+			total = total + 1;
+		end
+	end
 end
-end
-end
-
 end
 \end{lstlisting}
 
