@@ -633,8 +633,7 @@
 				<li class="li-code-parent">
 					<strong class="functtitlstyle">Insertar secciones sin número y sin aparecer en el índice<a id="hlp-title"></a></strong>
 					<p>
-						También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el ínice. Para ello existen las
-						siguientes funciones:
+						También pueden añadirse secciones no numeradas <i>(anum)</i> que aparezcan en el índice o no <i>(noi)</i>. Para ello existen las siguientes funciones:
 					</p>
 					<ul>
 						<li>
@@ -655,14 +654,14 @@
 						<li>
 							<strong>\subsubsectionanumnoi</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número y sin que aparezca en el índice.
 						</li>
-						<li>
-							<strong>\insertindextitle</strong><b>{</b><em>Título</em><b>}</b><b>{</b><em>Margen vertical <i>(opcional)</i></em><b>}</b>: Inserta un título en el índice. <b>Nota:</b> para utilizar esta función se debe haber creado una sección antes.
-						</li>
 					</ul>
 				</li>
 				<li>
 					<strong class="functtitlstyle">Otras funciones<a id="hlp-other"></a></strong>
 					<ul>
+						<li>
+							<strong>\insertindextitle</strong><b>{</b><em>Título</em><b>}</b><b>{</b><em>Margen vertical <i>(opcional)</i> [px]</em><b>}</b>: Inserta un título sólo en el índice. <b>Nota:</b> para utilizar esta función se debe haber creado una sección antes.
+						</li>
 						<li>
 							<strong>\newemptypage</strong>: Inserta una página vacía (sin headers ni contenido).
 						</li>
