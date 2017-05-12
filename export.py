@@ -211,6 +211,7 @@ fl.close()
 # Compila el archivo
 if AUTOCOMPILE:
     call(['pdflatex', MAINFILESINGLE])
+    call(['pdflatex', MAINFILESINGLE])
 
 # Se exporta el proyecto normal
 export_normal = Zip('export/Template-Informe.zip')

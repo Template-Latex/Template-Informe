@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.4.3 (11/05/2017)
+% Versión:      3.4.4 (11/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -173,8 +173,8 @@
 	% Insertar un título sin número
 	% 	#1	Título
 	\emptyvarerr{\sectionanum}{#1}{Titulo no definido}
-	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
+	\addcontentsline{toc}{section}{#1}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
 		\fancyhead[L]{\nouppercase{#1}}}{}
 	\stepcounter{section}
@@ -184,8 +184,8 @@
 	% Insertar un título sin número sin alterar el header
 	% 	#1	Título
 	\emptyvarerr{\sectionanumnoheadless}{#1}{Titulo no definido}
-	\addcontentsline{toc}{section}{#1}
 	\section*{#1}
+	\addcontentsline{toc}{section}{#1}
 	\stepcounter{section}
 }
 
@@ -193,8 +193,8 @@
 	% Insertar un subtítulo sin número
 	% 	#1	Subtítulo
 	\emptyvarerr{\subsectionanum}{#1}{Subtitulo no definido}
-	\addcontentsline{toc}{subsection}{#1}
 	\subsection*{#1}
+	\addcontentsline{toc}{subsection}{#1}
 	\stepcounter{subsection}
 }
 
@@ -202,8 +202,8 @@
 	% Insertar un sub-subtítulo sin número
 	% 	#1	Sub-subtítulo
 	\emptyvarerr{\subsubsectionanum}{#1}{Sub-subtitulo no definido}
-	\addcontentsline{toc}{subsubsection}{#1}
 	\subsubsection*{#1}
+	\addcontentsline{toc}{subsubsection}{#1}
 	\stepcounter{subsubsection}
 }
 

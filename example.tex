@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.4.3 (11/05/2017)
+% Versión:      3.4.4 (11/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -173,9 +173,9 @@ end
 \sectionanum{Más ejemplos}
 
 	% Inserta un subtítulo sin número
-	\subsectionanum{Listas, Enumeraciones, etc}
+	\subsectionanum{Listas y Enumeraciones}
 	
-		Hacer listas con \LaTeX es muy fácil, para eso debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
+		Hacer listas enumeradas con \LaTeX\ es muy fácil \footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}}, para eso debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
 		
 		\begin{enumerate}
 			\item Ítem 1
@@ -183,14 +183,48 @@ end
 			\item Manzanas
 		\end{enumerate}
 	
-		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph}:
+		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph} y números romanos con \texttt{\textbackslash roman}:
 		
-		\begin{enumerate}[label=\alph*) ]
-			\item Peras
-			\item Manzanas
-			\item Naranjas
-		\end{enumerate}
+		\begin{multicols}{2}
+			\begin{enumerate}[label=\alph*) , font=\bfseries] % Fuente en negrita
+				\item Peras
+				\item Manzanas
+				\item Naranjas
+			\end{enumerate}
+		
+			\begin{enumerate}[label=\roman*) ]
+				\item Rojo
+				\item Café
+				\item Morado
+			\end{enumerate}
+		\end{multicols}
 	
-		Además de enumeraciones con números romanos y letras griegas
+		Para hacer listas sin numerar con \LaTeX\ hay que usar el comando \texttt{\textbackslash begin\{itemize\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
+		
+		\begin{multicols}{3}
+			\begin{itemize}[label={--}]
+				\item Peras
+				\item Manzanas
+				\item Naranjas
+			\end{itemize}
+			
+			\begin{enumerate}[label={*}]
+				\item Rojo
+				\item Café
+				\item Morado
+			\end{enumerate}
+		
+			\begin{itemize}
+				\item Árboles
+				\item Pasto
+				\item Flores
+			\end{itemize}
+		\end{multicols}
 	
+	% Inserta un subtítulo sin número
+	\subsectionanum{Otros}
+	
+		Recuerda revisar el manual de todas las funciones de este template visitando el siguiente link: \url{http://ppizarror.com/Template-Informe/}. Además si necesitas una ayuda muy específica sobre el template me puedes enviar un correo a \href{mailto:pablo.pizarro@ing.uchile.cl}{\texttt{pablo.pizarro@ing.uchile.cl}}.
+		
+		\newp \textcolor{purple}{Saludos a todos!} \smiley
 		
