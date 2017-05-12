@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.4.4 (11/05/2017)
+% Versión:      3.4.5 (11/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -29,14 +29,14 @@
 		Este es un párrafo, \textbf{\textbackslash newp} puede contener múltiples ''Expresiones'' así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:formulasinsentido}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}):
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.17) y una leyenda
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Where are you? de ''Internet''}
+		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Where are you? de ``Internet``}
 		
 		\newparnl{Este es un párrafo sin nueva línea, si no te gustan los comandos \textbf{\textbackslash newp}, \textbf{\textbackslash newpar} o \textbf{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes editar las funciones, definidas en el archivo \texttt{lib/functions.tex}.}
 		
 	% SUB-SECCIÓN
 	\subsection{Tablas!}
 
-		\newp También puedes usar tablas, insertarlas es muy fácil, puedes usar el plugin de Excel \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} para convertir las tablas a \LaTeX o bien utilizar el ''creador de tablas online'' \textsuperscript{\cite{ref3}}.
+		\newp También puedes usar tablas, insertarlas es muy fácil, puedes usar el plugin de Excel \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} para convertir las tablas a \LaTeX o bien utilizar el ``creador de tablas online`` \textsuperscript{\cite{ref3}}.
 		
 		\begin{longtable}{ccc}
 			\caption{Esta es una tabla que se ''corta'' en varias páginas si es que le falta espacio.}\label{tabl:foo} \\
