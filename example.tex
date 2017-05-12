@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.4.2 (11/05/2017)
+% Versión:      3.4.3 (11/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -85,8 +85,64 @@
 		\newp \lipsum[4]
 		
 	% SUB-SECCIÓN
-	\subsection{Otros párrafos más normales}
+	\subsection{Ejemplos de inserción de código fuente}
 	
+		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje del mundo}, Java y Matlab:
+		
+% Se define el lenguaje del código, cuidado: Los códigos en latex son sensibles a las tabulaciones y espacios en blanco
+\lstset{style=Python}
+\begin{lstlisting}[caption=Ejemplo en Python]
+import numpy as np
+
+def incmatrix(genl1,genl2):
+m = len(genl1)
+n = len(genl2)
+M = None # to become the incidence matrix
+VT = np.zeros((n*m,1), int) # dummy variable
+\end{lstlisting}
+
+\lstset{style=Java}
+\begin{lstlisting}[caption=Ejemplo en Java]
+import java.io.IOException; 
+import javax.servlet.*;
+
+// Hola mundo
+public class Hola extends GenericServlet 
+{
+public void service(ServletRequest request, ServletResponse response)
+throws ServletException, IOException
+{
+response.setContentType("text/html");
+PrintWriter pw = response.getWriter();
+pw.println("Hola, mundo!");
+pw.close();
+}
+}
+\end{lstlisting}
+
+\lstset{style=Matlab}
+\begin{lstlisting}[caption=Ejemplo en Matlab]
+function list = find_coordinates( matrix, value )
+l = size(matrix);
+coordenates_list = cell(l(1)*l(2),1);
+total = 1;
+
+% Evaluación de la matriz
+for i=1:l(1)
+for j=1:l(2)
+if matrix(i,j)==value
+coordenates_list{total} = [i j];
+total = total + 1;
+end
+end
+end
+
+end
+\end{lstlisting}
+
+	% Inserta un subtítulo sin número
+	\subsection{Otros párrafos más normales}
+
 		% Párrafos con lipsum
 		\lipsum[7]
 		
@@ -97,7 +153,7 @@
 		
 		% Se inserta un multicols, con esto se pueden escribir en varias columnas
 		\begin{multicols}{2}
-		
+			
 			% Párrafo 1
 			\lipsum[114]
 			
@@ -112,65 +168,29 @@
 		% Último párrafo de la subsección
 		\lipsum[1]
 		
-		
-% NUEVA SECCIÓN
-\newpage
 
-% Inserta un título (similar a una sección) sin número
+% Nueva sección
 \sectionanum{Más ejemplos}
 
-% Inserta un subtítulo sin número
-\subsectionanum{Ejemplos de inserción de código fuente}
-
-A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje del mundo}, Java y Matlab:
-
-% Se define el lenguaje del código, cuidado: Los códigos en latex son sensibles a las tabulaciones y espacios en blanco
-\lstset{style=Python}
-\begin{lstlisting}[caption=Ejemplo en Python]
-import numpy as np
- 
-def incmatrix(genl1,genl2):
-    m = len(genl1)
-    n = len(genl2)
-    M = None # to become the incidence matrix
-    VT = np.zeros((n*m,1), int) # dummy variable
-\end{lstlisting}
-
-\lstset{style=Java}
-\begin{lstlisting}[caption=Ejemplo en Java]
-import java.io.IOException; 
-import javax.servlet.*;
-
-// Hola mundo
-public class Hola extends GenericServlet 
-{
-    public void service(ServletRequest request, ServletResponse response)
-        throws ServletException, IOException
-    {
-        response.setContentType("text/html");
-        PrintWriter pw = response.getWriter();
-        pw.println("Hola, mundo!");
-        pw.close();
-    }
-}
-\end{lstlisting}
-
-\lstset{style=Matlab}
-\begin{lstlisting}[caption=Ejemplo en Matlab]
-function list = find_coordinates( matrix, value )
-l = size(matrix);
-coordenates_list = cell(l(1)*l(2),1);
-total = 1;
-
-% Evaluación de la matriz
-for i=1:l(1)
-    for j=1:l(2)
-        if matrix(i,j)==value
-            coordenates_list{total} = [i j];
-            total = total + 1;
-        end
-    end
-end
-
-end
-\end{lstlisting}
+	% Inserta un subtítulo sin número
+	\subsectionanum{Listas, Enumeraciones, etc}
+	
+		Hacer listas con \LaTeX es muy fácil, para eso debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
+		
+		\begin{enumerate}
+			\item Ítem 1
+			\item Abracadabra
+			\item Manzanas
+		\end{enumerate}
+	
+		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph}:
+		
+		\begin{enumerate}[label=\alph*) ]
+			\item Peras
+			\item Manzanas
+			\item Naranjas
+		\end{enumerate}
+	
+		Además de enumeraciones con números romanos y letras griegas
+	
+		

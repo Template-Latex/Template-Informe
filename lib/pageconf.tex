@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      3.4.2 (11/05/2017)
+% Versión:      3.4.3 (11/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,13 +11,23 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-% Se crea la numeración y los márgenes
+% Numeración de páginas y los márgenes
 \newpage \pagenumbering{Roman}
 \setcounter{page}{1}
 \setcounter{footnote}{1}
 \setpagemargincm{\pagemarginleft}{\pagemargintop}
 {\pagemarginright}{\pagemarginbottom}
 \def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
+
+% Numeración de secciones
+\decimalpoint                       % Se define el punto decimal
+\ifthenelse{\equal{\showsectiononcaption}{true}}{
+\counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
+\counterwithin{figure}{section}     % Añade número de sección a las figuras
+\counterwithin{lstlisting}{section} % Añade número de sección a los códigos
+\counterwithin{table}{section}      % Añade número de sección a las tablas
+}{}
+\setcounter{tocdepth}{\indexdepth}  % Se ajusta la profundidad del índice
 
 % Definición de nombres a objetos
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header

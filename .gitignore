@@ -4,7 +4,7 @@
 *.lomycapequ
 *.lot
 *.out
-*.synctex.gz
+*.synctex.*
 *.toc
 *.log
 *.lol

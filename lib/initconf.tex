@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.4.2 (11/05/2017)
+% Versión:      3.4.3 (11/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,14 +11,14 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-% Configuración de secciones y numeración
-\decimalpoint                      % Se define el punto decimal
-\ifthenelse{\equal{\showsectiononcaption}{true}}{
-\counterwithin{equation}{section}  % Añade número de sección a las ecuaciones
-\counterwithin{figure}{section}    % Añade número de sección a las figuras
-\counterwithin{table}{section}     % Añade número de sección a las tablas
-}{}
-\setcounter{tocdepth}{\indexdepth} % Se ajusta la profundidad del índice
+% Definición de dimensiones
+\setlength{\headheight}{64pt}  % Tamaño de la cabecera sin fancyhdr
+\setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
+\setlength{\footnotemargin}{3mm} % Margen del footnote
+\renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
+\setcaptionmargincm{\captionlrmargin} % Margen por defecto
+\hfuzz=100pt \vfuzz=100pt
+\hbadness=2000 \vbadness=\maxdimen
 
 % Configuración de las leyendas
 \captionsetup{
@@ -32,26 +32,6 @@
 	% Se centran todos los captions
 	\captionsetup{justification=centering}
 }{}
-
-% Definición de dimensiones
-\setlength{\headheight}{64pt}  % Tamaño de la cabecera sin fancyhdr
-\setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
-\setlength{\footnotemargin}{3mm} % Margen del footnote
-\renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
-\setcaptionmargincm{\captionlrmargin} % Margen por defecto
-\hfuzz=100pt \vfuzz=100pt
-\hbadness=2000 \vbadness=\maxdimen
-
-% Se define metadata
-\hypersetup{
-	pdfauthor={\autordeldocumento},
-	pdftitle={\nombredelinforme},
-	pdfsubject={\temaatratar},
-	pdfkeywords={\nombreuniversidad, \nombredelcurso,
-	\codigodelcurso, \localizacionuniversidad},
-	pdfcreator={ppizarror, pdfLaTeX},
-	pdfproducer={Template LaTeX informe v\templateversion\ | (Pablo Pizarro) ppizarror.com}
-}
 
 % Configuración de referencias
 \bibliographystyle{\typereference} % Estilo de las referencias
@@ -82,3 +62,14 @@
 		{\@latex@warning{Ambiente `thebibliography' no definido}}
 		\endlist\end{multicols}}}{}
 \makeatother
+
+% Se define metadata
+\hypersetup{
+	pdfauthor={\autordeldocumento},
+	pdftitle={\nombredelinforme},
+	pdfsubject={\temaatratar},
+	pdfkeywords={\nombreuniversidad, \nombredelcurso,
+		\codigodelcurso, \localizacionuniversidad},
+	pdfcreator={ppizarror, pdfLaTeX},
+	pdfproducer={Template LaTeX informe v\templateversion\ | (Pablo Pizarro) ppizarror.com}
+}
