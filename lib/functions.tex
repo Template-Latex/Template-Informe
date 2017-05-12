@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.4.1 (11/05/2017)
+% Versión:      3.4.2 (11/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -32,7 +32,8 @@
 	% Inserta las referencias al índice
 	\addcontentsline{toc}{section}{\namereferences}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
-	\fancyhead[L]{\nouppercase{\namereferences}}}{}
+		\fancyhead[L]{\nouppercase{\namereferences}}
+	}{}
 }
 
 \newcommand{\newemptypage}{
