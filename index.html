@@ -122,7 +122,7 @@
 					<li><a href="#hlp-imagen" class="menu-little-entry">Añadir una imagen</a></li>
 					<li><a href="#hlp-formulae" class="menu-little-entry">Insertar una fórmula en el documento</a></li>
 					<li><a href="#hlp-math" class="menu-little-entry">Expresiones matemáticas</a></li>
-					<li><a href="#hlp-title" class="menu-little-entry">Insertar títulos sin número y títulos sin aparecer en el índice</a></li>
+					<li><a href="#hlp-title" class="menu-little-entry">Insertar secciones sin número y sin aparecer en el índice</a></li>
 					<li><a href="#hlp-other" class="menu-little-entry">Otras funciones</a></li>
 				</ul>
 			</li>
@@ -157,8 +157,8 @@
 			<em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <i id="linea-integrantes"></i>
 			<font title='Línea 40 en versión compacta' style='cursor: hand;'>(línea 39)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del
 			<em class="section-template">RESUMEN O ABSTRACT</em>
-			<font title='Línea 167 en versión compacta' style='cursor: hand;'>(línea 98)</font> o en la <b>sección principal</b> del documento
-			<em class="section-template">INICIO DEL DOCUMENTO</em> <font title='Línea 179 en versión compacta' style='cursor: hand;'>(línea 107)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/ppizarror/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
+			<font title='Línea 168 en versión compacta' style='cursor: hand;'>(línea 98)</font> o en la <b>sección principal</b> del documento
+			<em class="section-template">INICIO DEL DOCUMENTO</em> <font title='Línea 181 en versión compacta' style='cursor: hand;'>(línea 107)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/ppizarror/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
 		</p>
 		<p align="center">
 			<img src="images/informe_data.png" alt="Informe" width="90%px" height="90%px">
@@ -631,29 +631,29 @@
 					</ul>
 				</li>
 				<li class="li-code-parent">
-					<strong class="functtitlstyle">Insertar títulos sin número y títulos sin aparecer en el índice<a id="hlp-title"></a></strong>
+					<strong class="functtitlstyle">Insertar secciones sin número y sin aparecer en el índice<a id="hlp-title"></a></strong>
 					<p>
 						También pueden añadirse títulos sin que estos se numeren automáticamente, o títulos sin que estos aparezcan en el ínice. Para ello existen las
 						siguientes funciones:
 					</p>
 					<ul>
 						<li>
-							<strong>\newtitleanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número.
+							<strong>\sectionanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número.
 						</li>
 						<li>
-							<strong>\newsubtitleanum</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta un subtítulo sin número.
+							<strong>\subsectionanum</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta una subsección sin número.
 						</li>
 						<li>
-							<strong>\newsubsubtitleanum</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta un sub-subtítulo sin número.
+							<strong>\subsubsectionanum</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número.
 						</li>
 						<li>
-							<strong>\newtitleanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta un título sin número y sin que aparezca en el índice.
+							<strong>\sectionanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número y sin que aparezca en el índice.
 						</li>
 						<li>
-							<strong>\newsubtitleanumnoi</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta un subtítulo sin número y sin que aparezca en el índice.
+							<strong>\subsectionanumnoi</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta una subsección sin número y sin que aparezca en el índice.
 						</li>
 						<li>
-							<strong>\newsubsubtitleanumnoi</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta un sub-subtítulo sin número y sin que aparezca en el índice.
+							<strong>\subsubsectionanumnoi</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número y sin que aparezca en el índice.
 						</li>
 						<li>
 							<strong>\insertindextitle</strong><b>{</b><em>Título</em><b>}</b><b>{</b><em>Margen vertical <i>(opcional)</i></em><b>}</b>: Inserta un título en el índice. <b>Nota:</b> para utilizar esta función se debe haber creado una sección antes.
@@ -668,6 +668,12 @@
 						</li>
 						<li>
 							<strong>\referenceindexentry</strong>: Agrega las referencias al índice y al header (usar dentro de la bibliografía).
+						</li>
+						<li>
+							<strong>\sectionanumheadless</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número y sin aparecer en el header del informe.
+						</li>
+						<li>
+							<strong>\sectionanumheadlessnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número, sin aparecer en el header del informe y sin aparecer en el índice.
 						</li>
 						<li>
 							<strong>\setcaptionmargincm</strong><b>{</b><em>Margen</em><b>}</b>: Modifica el margen izquierdo/derecho de los <i>caption</i> medido en centímetros.

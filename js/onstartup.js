@@ -39,7 +39,7 @@ var total_downloads = 0;
 $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
     for (i = 0; i < json.length; i++) {
         try {
-            for (j=0; j<json[i].assets.length; j++){
+            for (j = 0; j < json[i].assets.length; j++) {
                 total_downloads += parseInt(json[i].assets[j].download_count);
             }
         } catch (err) {
@@ -52,10 +52,10 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
         last_version = json[0].tag_name;
         last_version_link = json[0].assets[0].browser_download_url;
         last_version_link_1 = json[0].assets[1].browser_download_url;
-        if (last_version_link.includes('-Single')){
+        if (last_version_link.includes('-Single')) {
             normal_link = last_version_link_1;
             compact_link = last_version_link;
-        }else{
+        } else {
             normal_link = last_version_link;
             compact_link = last_version_link_1;
         }
@@ -77,11 +77,11 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     // Se agrega 4 descara de versión 2.1.1
     // Se agregan 55 descargas de version 2.1.2-2.1.5
     // Se agregan 115 descargas entre version 2.1.5 y 2.2.1
-    if (total_downloads == 0){
+    // Se agregan 74 descargas de version 2.2.2
+    if (total_downloads == 0) {
         total_downloads = 'NaN';
-    }
-    else{
-        total_downloads += 129 + 60 + 138 + 3 + 3 + 1 + 4 + 55 + 115;
+    } else {
+        total_downloads += 129 + 60 + 138 + 3 + 3 + 1 + 4 + 55 + 115 + 74;
     }
 
     // Se establece la versión en el contador de descargas totales
@@ -99,7 +99,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     // Se establece la última versión del pdf
     console.log(String.format('Archivo pdf a mostrar: versions/Template v{0}.pdf', last_version))
     document.getElementById("template-preview-pdf").href = String.format('versions/Template v{0}.pdf', last_version);
-    $( ".badgeejemplopdf" ).prop("href", String.format('versions/Template v{0}.pdf', last_version));
+    $(".badgeejemplopdf").prop("href", String.format('versions/Template v{0}.pdf', last_version));
 
     // Se obtiene el what's new
     var whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
@@ -166,9 +166,9 @@ $(function() {
 var amountScrolled = 600;
 $(window).scroll(function() {
     location.pathname.replace(/^\//, '')
-	if ( $(window).scrollTop() > amountScrolled ) {
-		$('a.back-to-top').fadeIn('slow');
-	} else {
-		$('a.back-to-top').fadeOut('slow');
-	}
+    if ($(window).scrollTop() > amountScrolled) {
+        $('a.back-to-top').fadeIn('slow');
+    } else {
+        $('a.back-to-top').fadeOut('slow');
+    }
 });
