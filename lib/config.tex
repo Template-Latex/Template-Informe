@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      3.5.0 (13/05/2017)
+% Versión:      3.5.2 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -19,7 +19,11 @@
 \def\showdotontitles {true}        % Punto al final de cada título/subtítulo/etc
 \def\tablepadding {1.0}            % Padding de las tablas
 
-% COLORES
+% COLORES DEL DOCUMENTO
+\def\citecolor {black}             % Color del número de las referencias o citas
+\def\maintextcolor {black}         % Color principal del texto
+\def\linkcolor {black}             % Color de los enlaces del documento
+\def\urlcolor {black}              % Color de los url (insertados con \url o \href)
 
 % CONFIGURACIÓN DE LAS LEYENDAS
 \def\captionbottommargin {4}       % Margen inferior de las leyendas [pt]
@@ -28,7 +32,7 @@
 \def\captionlessmargin {0.1cm}     % Margen sup/inf. de fig. si no hay leyenda
 \def\captionlrmargin {2.7}         % Márgenes izq/der de las leyendas [cm]
 \def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
-\def\showsectiononcaption {true}  % Muestra el número de sección en las leyendas
+\def\showsectiononcaption {false}  % Muestra el número de sección en las leyendas
 
 % CONFIGURACIÓN DEL ÍNDICE
 \def\indextitlemargin {7pt}        % Margen títulos en índice
