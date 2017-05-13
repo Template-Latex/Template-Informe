@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.5.5 (13/05/2017)
+% Versión:      3.5.6 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -74,17 +74,6 @@
 		\endlist\end{multicols}}}{}
 \makeatother
 
-% Se define metadata
-\hypersetup{
-	pdfauthor={\autordeldocumento},
-	pdftitle={\nombredelinforme},
-	pdfsubject={\temaatratar},
-	pdfkeywords={\nombreuniversidad, \nombredelcurso,
-		\codigodelcurso, \localizacionuniversidad},
-	pdfcreator={ppizarror, pdfLaTeX},
-	pdfproducer={Template LaTeX informe v\templateversion\ | (Pablo Pizarro) ppizarror.com}
-}
-
 % Configuración de acentos y carácteres especiales
 \SelectInputMappings{
 	aacute={á},
@@ -109,3 +98,26 @@
 % Configuración de hbox y vbox
 \hfuzz=100pt \vfuzz=100pt
 \hbadness=2000 \vbadness=\maxdimen
+
+% Se define metadata
+\hypersetup{
+	pdfpagemode={UseOutlines},
+	pdftitle={\nombredelinforme},
+	pdfauthor={\autordeldocumento},
+	pdfsubject={\temaatratar},
+	pdfcreator={LaTeX, pdfLaTeX, ppizarror},
+	pdfproducer={Template-Informe v\templateversion\ | (Pablo Pizarro) ppizarror.com},
+	pdfkeywords={\nombreuniversidad\ ,\codigodelcurso\ \nombredelcurso, \localizacionuniversidad},
+	pdfinfo={
+		Title={\nombredelinforme},
+		Subject={\temaatratar},
+		Template={Template-Informe},
+		Template.Author={Pablo Pizarro, ppizarror.com},
+		Template.Version={v\templateversion},
+		Template.Website={http://ppizarror.com/Template-Informe/}
+	},
+	pdfview={FitH},
+	pdfstartview={FitH},
+	pdfstartpage={1},
+	pdfdisplaydoctitle={true},
+}
