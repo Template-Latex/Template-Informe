@@ -103,12 +103,12 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
 
     // Se obtiene el what's new
     var whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
-    var whats_new_versions = 10;
+    var whats_new_versions = 12;
     try {
         var new_version_entry = "";
         for (i = 0; i < whats_new_versions; i++) {
             version_created_at = json[i].created_at.substring(0, 10);
-            title_new_version = String.format('<b>Versión {0}</b>: <i class="fecha-estilo">{1}</i>', json[i].tag_name, version_created_at);
+            title_new_version = String.format('<b>Versión <a href="{2}"">{0}</b></a>: <i class="fecha-estilo">{1}</i>', json[i].tag_name, version_created_at, json[i].html_url);
             content_version = md_converter.makeHtml(json[i].body);
             new_version_entry += String.format(whats_new_html, title_new_version, content_version);
         }
