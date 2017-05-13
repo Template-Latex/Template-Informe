@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      3.4.8 (13/05/2017)
+% Versión:      3.4.9 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,14 +11,9 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-% LIBRERÍAS DE NÚCLEO
+% LIBRERÍAS DEL NÚCLEO
+\usepackage[spanish,es-nosectiondot]{babel} % Idioma del documento en español
 \usepackage{ifthen}           % Permite el manejo de condicionales
-\ifthenelse{\equal{           % Idioma del documento en español
-	\showdotontitle}{true}}{
-	\usepackage[spanish]{babel}
-}{
-	\usepackage[spanish,es-nosectiondot]{babel}
-}
 
 % LIBRERÍAS INDEPENDIENTES
 \usepackage{array}            % Nuevas características a las tablas
@@ -59,8 +54,10 @@
 \usepackage{epstopdf}         % Convierte archivos .eps a pdf
 \usepackage{float}            % Administrador de posiciones de objetos
 \usepackage{multirow}         % Agrega nuevas opciones a las tablas
-\ifthenelse{\equal{           % Paquete para configurar el núcleo
-	\referenceassection}{true}}{
+
+% LIBRERÍAS CONDICIONALES
+\ifthenelse{                  % Paquete para configurar el núcleo
+	\equal{\referenceassection}{true}}{
 	\usepackage{etoolbox}}{
 }
 \ifthenelse{                  % Permite añadir enlaces y referencias
@@ -68,4 +65,13 @@
 	\usepackage[pdfencoding=auto,psdextra,hidelinks]{hyperref}
 }{
 	\usepackage[pdfencoding=auto,psdextra]{hyperref}
+}
+\ifthenelse{                  % Paquete para configurar el núcleo
+	\equal{\showdotontitle}{true}}{
+	\usepackage{etoolbox}}{
+}
+\ifthenelse{                  % Idioma del documento en español
+	\equal{\showdotontitle}{true}}{
+	\usepackage{titlesec}
+	\titlelabel{\thetitle.\quad}}{	
 }
