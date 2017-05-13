@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      3.5.2 (13/05/2017)
+% Versión:      3.5.3 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -45,7 +45,7 @@
 \ifthenelse{\equal{\showheadertitle}{true}}{ % Header izq, nombre sección
 	\fancyhead[L]{\nouppercase{\rightmark}}
 }{}
-\fancyhead[R]{\small \rm \nouppercase{\thepage}} % Header der, número página
+\fancyhead[R]{\small \rm \thepage} % Header der, número página
 \ifthenelse{\equal{\showfooter}{true}}{
 	\fancyfoot[L]{
 		\small \rm \textit{\nombredelinforme} % Footer izq, título del informe
