@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.4.9 (13/05/2017)
+% Versión:      3.5.0 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -17,22 +17,31 @@
 \setlength{\footnotemargin}{3mm} % Margen del footnote
 \renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
 \setcaptionmargincm{\captionlrmargin} % Margen por defecto
-\hfuzz=100pt \vfuzz=100pt
-\hbadness=2000 \vbadness=\maxdimen
+
+% Configuración colores
+\color{black}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
 
 % Configuración de las leyendas
 \captionsetup{
 	% Se actualizan los márgenes de los caption
 	belowskip=\captionbottommargin pt,
-	aboveskip=\captiontopmargin pt}
+	aboveskip=\captiontopmargin pt
+}
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las figuras
-	\floatsetup[figure]{capposition=top}
-}{}
+	\floatsetup[figure]{capposition=top}}{
+}
 \ifthenelse{\equal{\centeredcaption}{true}}{
 	% Se centran todos los captions
-	\captionsetup{justification=centering}
-}{}
+	\captionsetup{justification=centering}}{
+}
 
 % Configuración de referencias
 \bibliographystyle{\typereference} % Estilo de las referencias
@@ -74,3 +83,28 @@
 	pdfcreator={ppizarror, pdfLaTeX},
 	pdfproducer={Template LaTeX informe v\templateversion\ | (Pablo Pizarro) ppizarror.com}
 }
+
+% Configuración de acentos y carácteres especiales
+\SelectInputMappings{
+	aacute={á},
+	Euro={€},
+	Ntilde={Ñ}
+}
+\lstset{literate=
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+	{€}{{\EUR}}1 {£}{{\pounds}}1
+}
+
+% Configuración de hbox y vbox
+\hfuzz=100pt \vfuzz=100pt
+\hbadness=2000 \vbadness=\maxdimen

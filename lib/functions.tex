@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.4.9 (13/05/2017)
+% Versión:      3.5.0 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -43,7 +43,7 @@
 }
 
 \newcommand{\setcaptionmargincm}[1]{
-	% Cambiar el margen
+	% Cambiar el margen de los caption
 	% 	#1	Margen en centímetros
 	\captionsetup{margin=#1cm}
 }
@@ -58,7 +58,7 @@
 }
 
 \newcommand{\newp}{
-	% Inserta nueva línea	
+	% Inserta nueva línea
 	\hbadness=10000 \vspace{\defaultnewlinesize} \par
 }
 
@@ -128,7 +128,7 @@
 	% Fracción de derivadas en n d^nf/dx^n
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	%	#3	Orden de la derivada (n)	
+	%	#3	Orden de la derivada (n)
 	\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}
 }
 
@@ -239,8 +239,8 @@
 	% Insertar un sub-subtítulo sin número sin indexar
 	% 	#1	Sub-subtítulo
 	\emptyvarerr{\subsubsectionanumnoi}{#1}{Sub-subtitulo no definido}
-	\addcontentsline{toc}{subsubsection}{#1}
 	\subsubsection*{#1}
+	\addcontentsline{toc}{subsubsection}{#1}
 	\stepcounter{subsubsection}
 }
 
@@ -287,7 +287,7 @@
 			\vspace{-0.15cm}
 			\textit{#3} \par
 			\vspace{0.05cm}
-		\end{center}	
+		\end{center}
 	\fi
 }
 

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      3.4.9 (13/05/2017)
+% Versión:      3.5.0 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,16 +11,16 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-% Numeración de páginas y los márgenes
+% Numeración de páginas y márgenes
 \newpage \pagenumbering{Roman}
 \setcounter{page}{1}
 \setcounter{footnote}{1}
 \setpagemargincm{\pagemarginleft}{\pagemargintop}
 {\pagemarginright}{\pagemarginbottom}
+\decimalpoint % Se define el punto decimal
 \def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
 
-% Numeración de secciones
-\decimalpoint                       % Se define el punto decimal
+% Numeración de secciones e índice
 \ifthenelse{\equal{\showsectiononcaption}{true}}{
 \counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
 \counterwithin{figure}{section}     % Añade número de sección a las figuras
@@ -40,7 +40,7 @@
 \renewcommand{\lstlistingname}{\nomltwsrc}      % Nombre leyenda del código fuente
 \renewcommand\refname{\namereferences}          % Nombre de las referencias
 
-% Se crean los estílos de página
+% Se crean los estílos de página, header-footer
 \pagestyle{fancy} \fancyhf{}
 \ifthenelse{\equal{\showheadertitle}{true}}{ % Header izq, nombre sección
 	\fancyhead[L]{\nouppercase{\rightmark}}
@@ -61,3 +61,6 @@
 \sectionfont{
 	\typefonttitle \etypefonttitle \selectfont
 }
+
+% Se activa el word-wrap para textos con \texttt{}
+{{\ttfamily \hyphenchar\the\font=`\-}

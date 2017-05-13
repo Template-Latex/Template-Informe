@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      3.4.9 (13/05/2017)
+% Versión:      3.5.0 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -60,14 +60,14 @@
 	\equal{\referenceassection}{true}}{
 	\usepackage{etoolbox}}{
 }
+\ifthenelse{                  % Agrega puntos a los títulos/subtítulos
+	\equal{\showdotontitles}{true}}{
+	\usepackage{secdot}
+	\sectiondot{subsection}
+}{}
 \ifthenelse{                  % Permite añadir enlaces y referencias
 	\equal{\showborderonlinks}{false}}{
-	\usepackage[pdfencoding=auto,psdextra,hidelinks]{hyperref}
+	\usepackage[pdfencoding=auto, psdextra, hidelinks]{hyperref}
 }{
-	\usepackage[pdfencoding=auto,psdextra]{hyperref}
-}
-\ifthenelse{                  % Idioma del documento en español
-	\equal{\showdotontitle}{true}}{
-	\usepackage{titlesec}
-	\titlelabel{\thetitle.\quad}}{	
+	\usepackage[pdfencoding=auto, psdextra]{hyperref}
 }
