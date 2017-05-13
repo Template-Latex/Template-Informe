@@ -1,7 +1,7 @@
 % Template:     Informe/Reporte LaTeX
 % Advertencia:  Documento generado automáticamente a partir del main.tex y
 %               los archivos .tex de la carpeta lib/
-% Versión:      3.5.4 (13/05/2017)
+% Versión:      3.5.5 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -17,8 +17,8 @@
 \usepackage[utf8]{inputenc}               % Codificación UTF-8
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía Computer Modern
-\def\templateversion{3.5.4}               % Versión del template
-       
+\def\templateversion{3.5.5}               % Versión del template
+        
 % INFORMACIÓN DEL DOCUMENTO
 \def\nombredelinforme {Título del informe}
 \def\temaatratar {Tema a tratar}
@@ -168,14 +168,16 @@
 \newpage\renewcommand{\thepage}{\nameportraitpage}\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}\pagestyle{fancy} \fancyhf{}\fancyhead[L]{\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}\fancyhead[R]{\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}}\ifthenelse{\equal{\gradecodeonportrait}{true}}{\vspace*{3cm}\begin{center}\huge {\nombredelcurso} \\\vspace{0.3cm}\large {Código del curso: \codigodelcurso} \\\vspace{1.5cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}{\vspace*{5cm}\begin{center}\huge {\nombredelcurso} \\\vspace{1cm}\Huge {\nombredelinforme} \\\vspace{0.3cm}\large {\temaatratar}\end{center}}\vfill\tablaintegrantes
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
-\newpage \pagenumbering{Roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}\decimalpoint\def\arraystretch{\tablepadding}\ifthenelse{\equal{\showsectiononcaption}{true}}{\counterwithin{equation}{section}\counterwithin{figure}{section}\counterwithin{lstlisting}{section}\counterwithin{table}{section}}{}\setcounter{tocdepth}{\indexdepth}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfigure}\renewcommand{\listtablename}{\nomlttable}\renewcommand{\contentsname}{\nomltcont}\renewcommand{\lstlistlistingname}{\nomltsrc}\renewcommand{\tablename}{\nomltwtable}\renewcommand{\figurename}{\nomltwfigure}\renewcommand{\lstlistingname}{\nomltwsrc}\renewcommand\refname{\namereferences}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \thepage}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\typefonttitle \etypefonttitle \selectfont}{{\ttfamily \hyphenchar\the\font=`\-}
+\newpage \pagenumbering{roman}\setcounter{page}{1}\setcounter{footnote}{1}\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}\decimalpoint\def\arraystretch{\tablepadding}\ifthenelse{\equal{\showsectiononcaption}{true}}{\counterwithin{equation}{section}\counterwithin{figure}{section}\counterwithin{lstlisting}{section}\counterwithin{table}{section}}{}\setcounter{tocdepth}{\indexdepth}\renewcommand{\sectionmark}[1]{\markboth{#1}{}}\renewcommand{\listfigurename}{\nomltfigure}\renewcommand{\listtablename}{\nomlttable}\renewcommand{\contentsname}{\nomltcont}\renewcommand{\lstlistlistingname}{\nomltsrc}\renewcommand{\tablename}{\nomltwtable}\renewcommand{\figurename}{\nomltwfigure}\renewcommand{\lstlistingname}{\nomltwsrc}\renewcommand\refname{\namereferences}\pagestyle{fancy} \fancyhf{}\ifthenelse{\equal{\showheadertitle}{true}}{\fancyhead[L]{\nouppercase{\rightmark}}}{}\fancyhead[R]{\small \rm \thepage}\ifthenelse{\equal{\showfooter}{true}}{\fancyfoot[L]{\small \rm \textit{\nombredelinforme}}\fancyfoot[R]{\small \rm \textit{\codigodelcurso \ \nombredelcurso}}\renewcommand{\footrulewidth}{0.5pt}}{}\renewcommand{\headrulewidth}{0.5pt}\sectionfont{\typefonttitle \etypefonttitle \selectfont}{{\ttfamily \hyphenchar\the\font=`\-}
 
 % =========================== RESUMEN O ABSTRACT ===========================
-% Inserta un título sin número y sin cabecera (el header)
-\sectionanumheadless{Resumen}
+% Inserta un título sin número, sin cabecera y sin aparecer en el índice,
+% para que aparezca en el índice utilizar la función \sectionanumheadless
+\sectionanumnoiheadless{Resumen}
 
-% Ejemplo de dos párrafos en latín, esta linea puede borrarse sin problema
-\lipsum[1] \newp \lipsum[3]
+% Ejemplo de dos párrafos en latín, esta línea puede borrarse sin problema
+\lipsum[1]
+\newp \lipsum[3]
 
 % TABLA DE CONTENIDOS - ÍNDICE
 \ifthenelse{\equal{\showindex}{true}}{\newpage\sectionfont{\typefonttitle \etypefonttitlei \selectfont}\subsectionfont{\typefontsubtitle \etypefontsubtitlei \selectfont}\subsubsectionfont{\typefontsubsubtitlei \etypefontsubsubtitlei \selectfont}\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}\ifthenelse{\equal{\showindexofsourcecode}{true}}{\lstlistoflistings}{}}{}
@@ -185,7 +187,7 @@
 
 % ========================= INICIO DEL DOCUMENTO =========================
 
-\input{example-chapternumber.tex} % Ejemplo, se puede borrar
+\input{example.tex} % Ejemplo, se puede borrar
 
 % REFERENCIAS
 \newpage % Inserta una nueva página
@@ -203,7 +205,7 @@
 	
 	\bibitem{ref3}
 	ShareLatex.
-	\textit{Uno de los mejores editores para \LaTeX\ online} \\
+	\textit{Uno de los mejores editores para \LaTeX\ online.} \\
 	\href{https://www.sharelatex.com/?r=298b935f&rm=d&rs=b}{\texttt{http://www.tablesgenerator.com/}}
 \end{thebibliography}
 

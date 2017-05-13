@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.5.4 (13/05/2017)
+% Versión:      3.5.5 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -26,12 +26,12 @@
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 		
 		% Los párrafos se pueden añadir con \newpar, esta función se hizo para evitar errores y warnings por parte del compilador. No es necesario utilizar estas funciones después de una tabla o una imagen dado que estas ya insertan un párrafo por defecto
-		Este es un párrafo, \textbf{\textbackslash newp} puede contener múltiples ''Expresiones'' así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:formulasinsentido}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}):
+		Este es un párrafo, \texttt{\textbackslash newp} puede contener múltiples ''Expresiones'' así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:formulasinsentido}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}):
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.17) y una leyenda
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Where are you? de ``Internet``}
 		
-		\newparnl{Este es un párrafo sin nueva línea, si no te gustan los comandos \textbf{\textbackslash newp}, \textbf{\textbackslash newpar} o \textbf{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes editar las funciones, definidas en el archivo \texttt{lib/functions.tex}.}
+		\newparnl{Este es un párrafo sin nueva línea, si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes editar las funciones, definidas en el archivo \texttt{lib/functions.tex}.}
 		
 	% SUB-SECCIÓN
 	\subsection{Tablas!}
@@ -191,16 +191,16 @@ end
 				\item Naranjas
 			\end{enumerate}
 			
-			\begin{enumerate}[label=\roman*) ]
-				\item Rojo
-				\item Café
-				\item Morado
-			\end{enumerate}
-			
 			\begin{enumerate}[label=\greek*) ]
 				\item Matemáticas
 				\item Lenguaje
 				\item Filosofía
+			\end{enumerate}
+		
+			\begin{enumerate}[label=\roman*) ]
+				\item Rojo
+				\item Café
+				\item Morado
 			\end{enumerate}
 		\end{multicols}
 		

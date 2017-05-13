@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Abstract o Resumen
-% Versión:      3.5.4 (13/05/2017)
+% Versión:      3.5.5 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,8 +11,10 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
-% Inserta un título sin número y sin cabecera (el header)
-\sectionanumheadless{Resumen}
+% Inserta un título sin número, sin cabecera y sin aparecer en el índice,
+% para que aparezca en el índice utilizar la función \sectionanumheadless
+\sectionanumnoiheadless{Resumen}
 
-% Ejemplo de dos párrafos en latín, esta linea puede borrarse sin problema
-\lipsum[1] \newp \lipsum[3]
+% Ejemplo de dos párrafos en latín, esta línea puede borrarse sin problema
+\lipsum[1]
+\newp \lipsum[3]
