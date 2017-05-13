@@ -37,6 +37,7 @@ FILES = {
     'lib/config.tex': [],
     'lib/finalconf.tex': [],
     'lib/functions.tex': [],
+    'lib/greekenum.sty': [],
     'lib/imports.tex': [],
     'lib/index.tex': [],
     'lib/initconf.tex': [],
@@ -186,7 +187,7 @@ for d in data:
                 else:
                     fl.write(d)
                 write = False
-                
+
         except Exception as e:
             pass
         # Se agrega un espacio en blanco a la pagina despues del comentario
@@ -216,6 +217,7 @@ if AUTOCOMPILE:
 
 # Se exporta el proyecto normal
 export_normal = Zip('export/Template-Informe.zip')
+export_normal.add_excepted_file('greekenum.sty')
 export_normal.add_file('main.tex')
 export_normal.add_folder('images')
 export_normal.add_folder('lib')
