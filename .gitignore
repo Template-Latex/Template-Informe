@@ -38,3 +38,6 @@ _*
 
 # Ignora el main.pdf
 main.pdf
+
+# Ignora versiones
+versions/
