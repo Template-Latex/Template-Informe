@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.5.3 (13/05/2017)
+% Versión:      3.5.4 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -173,11 +173,29 @@
 	% Insertar un título sin número
 	% 	#1	Título
 	\emptyvarerr{\sectionanum}{#1}{Titulo no definido}
+	\phantomsection
+	\needspace{5\baselineskip}
 	\section*{#1}
 	\addcontentsline{toc}{section}{#1}
-	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\fancyhead[L]{\nouppercase{#1}}}{}
 	\stepcounter{section}
+	\ifthenelse{\equal{\showheadertitle}{true}}{
+		\renewcommand{\leftmark}{#1}
+		\fancyhead[L]{\nouppercase{#1}}
+	}{}
+}
+
+\newcommand{\sectionanumnoi}[1]{
+	% Insertar un título sin número sin indexar
+	% 	#1	Título
+	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
+	\phantomsection
+	\needspace{5\baselineskip}
+	\section*{#1}
+	\stepcounter{section}
+	\ifthenelse{\equal{\showheadertitle}{true}}{
+		\renewcommand{\leftmark}{#1}
+		\fancyhead[L]{\nouppercase{#1}}
+	}{}
 }
 
 \newcommand{\sectionanumheadless}[1]{
@@ -186,6 +204,14 @@
 	\emptyvarerr{\sectionanumnoheadless}{#1}{Titulo no definido}
 	\section*{#1}
 	\addcontentsline{toc}{section}{#1}
+	\stepcounter{section}
+}
+
+\newcommand{\sectionanumnoiheadless}[1]{
+	% Insertar un título sin número sin indexar sin cambiar el header
+	% 	#1	Título
+	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
+	\section*{#1}
 	\stepcounter{section}
 }
 
@@ -198,6 +224,14 @@
 	\stepcounter{subsection}
 }
 
+\newcommand{\subsectionanumnoi}[1]{
+	% Insertar un subtítulo sin número sin indexar
+	% 	#1	Subtítulo
+	\emptyvarerr{\subsectionanumnoi}{#1}{Subtitulo no definido}
+	\subsection*{#1}
+	\stepcounter{subsection}
+}
+
 \newcommand{\subsubsectionanum}[1]{
 	% Insertar un sub-subtítulo sin número
 	% 	#1	Sub-subtítulo
@@ -207,40 +241,11 @@
 	\stepcounter{subsubsection}
 }
 
-\newcommand{\sectionanumnoi}[1]{
-	% Insertar un título sin número sin indexar
-	% 	#1	Título
-	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
-	\section*{#1}
-	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\fancyhead[L]{\nouppercase{#1}}}{}
-	\stepcounter{section}
-}
-
-\newcommand{\sectionanumnoiheadless}[1]{
-	% Insertar un título sin número sin indexar sin cambiar el header
-	% 	#1	Título
-	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
-	\section*{#1}
-	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\fancyhead[L]{\nouppercase{#1}}}{}
-	\stepcounter{section}
-}
-
-\newcommand{\subsectionanumnoi}[1]{
-	% Insertar un subtítulo sin número sin indexar
-	% 	#1	Subtítulo
-	\emptyvarerr{\subsectionanumnoi}{#1}{Subtitulo no definido}
-	\subsection*{#1}
-	\stepcounter{subsection}
-}
-
 \newcommand{\subsubsectionanumnoi}[1]{
 	% Insertar un sub-subtítulo sin número sin indexar
 	% 	#1	Sub-subtítulo
 	\emptyvarerr{\subsubsectionanumnoi}{#1}{Sub-subtitulo no definido}
 	\subsubsection*{#1}
-	\addcontentsline{toc}{subsubsection}{#1}
 	\stepcounter{subsubsection}
 }
 
