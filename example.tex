@@ -1,11 +1,11 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.4.5 (12/05/2017)
+% Versión:      3.4.6 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
-%        Facultad de Ciencias Físicas y Matemáticas.
-%        Universidad de Chile.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
 % Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
@@ -14,11 +14,11 @@
 % NUEVA SECCIÓN
 % Las secciones se inician con \section, si se quiere una sección sin "número" se pueden usar las funciones \sectionanum (sección sin número) o la función \sectionanumnoi para crear el mismo título sin numerar y sin aparecer en el índice
 \section{Informes con \LaTeX}
-
+	
 	% SUB-SECCIÓN
 	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin "número" se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
 	\subsection{Una breve introducción}
-	
+		
 		% Esta función sirve para rellenar con un párrafo
 		\lipsum[4]
 		
@@ -35,11 +35,11 @@
 		
 	% SUB-SECCIÓN
 	\subsection{Tablas!}
-
+		
 		\newp También puedes usar tablas, insertarlas es muy fácil, puedes usar el plugin de Excel \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} para convertir las tablas a \LaTeX o bien utilizar el ``creador de tablas online`` \textsuperscript{\cite{ref3}}.
 		
 		\begin{longtable}{ccc}
-			\caption{Esta es una tabla que se ''corta'' en varias páginas si es que le falta espacio.}\label{tabl:foo}\\
+			\caption{Esta es una tabla que se ``corta`` en varias páginas si es que le falta espacio.}\label{tabl:foo}\\
 			\hline
 			Columna 1 & Columna 2 & Columna 3\\\hline
 			\endfirsthead
@@ -51,25 +51,25 @@
 			\endfoot
 			\hline
 			\endlastfoot
-			$\omega$ & $\nu$ & $\delta$\\     
+			$\omega$ & $\nu$ & $\delta$\\
 			$\partial$ & $\nabla$ & $\mho$\\
-			$\beta$ & $\gamma$ & $\epsilon$\\   
+			$\beta$ & $\gamma$ & $\epsilon$\\
 			$\varepsilon$ & $\upsilon$ & $\varphi$\\
 			$\Phi$ & $\Theta$ & $\varSigma$\\
-			$\omega$ & $\nu$ & $\delta$\\     
-			$\partial$ & $\nabla$ & $\mho$\\ 
+			$\omega$ & $\nu$ & $\delta$\\
+			$\partial$ & $\nabla$ & $\mho$\\
 		\end{longtable}
-		
-		
+
+
 % NUEVA SECCIÓN
 \section{Aquí un nuevo tema}
-		
+	
 	% SUB-SECCIÓN
 	\subsection{Haciendo informes como un profesional}
-	
+		
 		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, el número de filas que utilizará y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
 		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.27}{15}{Apolo}
-	
+		
 		Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos.
 		
 		\newp \lipsum[115]
@@ -81,15 +81,15 @@
 		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) dx = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
 		
 		\lipsum[115]
-		
+
 		\newp \lipsum[4]
 		
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
-	
+		
 		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje del mundo}, Java y Matlab:
 		
-% Se define el lenguaje del código, cuidado: Los códigos en latex son sensibles a las tabulaciones y espacios en blanco
+% Se define el lenguaje del código, cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
 \lstset{style=Python}
 \begin{lstlisting}[caption=Ejemplo en Python]
 import numpy as np
@@ -121,25 +121,26 @@ public class Hola extends GenericServlet {
 \lstset{style=Matlab}
 \begin{lstlisting}[caption=Ejemplo en Matlab]
 function list = find_coordinates(matrix, value)
-l = size(matrix);
-coordenates_list = cell(l(1)*l(2), 1);
-total = 1;
+	l = size(matrix);
+	coordenates_list = cell(l(1)*l(2), 1);
+	total = 1;
 
-% Evaluación de la matriz
-for i=1:l(1)
-	for j=1:l(2)
-		if matrix(i, j) == value
-			coordenates_list{total} = [i j];
-			total = total + 1;
+	% Evaluación de la matriz
+	for i=1:l(1)
+		for j=1:l(2)
+			if matrix(i, j) == value
+				coordenates_list{total} = [i j];
+				total = total + 1;
+			end
 		end
 	end
-end
+
 end
 \end{lstlisting}
-
+	
 	% Inserta un subtítulo sin número
 	\subsection{Otros párrafos más normales}
-
+		
 		% Párrafos con lipsum
 		\lipsum[7]
 		
@@ -164,14 +165,15 @@ end
 		
 		% Último párrafo de la subsección
 		\lipsum[1]
-		
 
-% Nueva sección
+
+% NUEVA SECCIÓN
+% Inserta una sección sin número
 \sectionanum{Más ejemplos}
-
+	
 	% Inserta un subtítulo sin número
 	\subsectionanum{Listas y Enumeraciones}
-	
+		
 		Hacer listas enumeradas con \LaTeX\ es muy fácil \footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}}, para eso debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
 		
 		\begin{enumerate}
@@ -179,23 +181,29 @@ end
 			\item Abracadabra
 			\item Manzanas
 		\end{enumerate}
-	
-		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph} y números romanos con \texttt{\textbackslash roman}:
 		
-		\begin{multicols}{2}
-			\begin{enumerate}[label=\alph*) , font=\bfseries] % Fuente en negrita
+		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph}, números romanos con \texttt{\textbackslash roman} o números griegos con \texttt{\textbackslash greek} \footnote{Una característica propia del template}:
+		
+		\begin{multicols}{3}
+			\begin{enumerate}[label=\alph*) ,font=\bfseries] % Fuente en negrita
 				\item Peras
 				\item Manzanas
 				\item Naranjas
 			\end{enumerate}
-		
+			
 			\begin{enumerate}[label=\roman*) ]
 				\item Rojo
 				\item Café
 				\item Morado
 			\end{enumerate}
+			
+			\begin{enumerate}[label=\greek*) ]
+				\item Matemáticas
+				\item Lenguaje
+				\item Filosofía
+			\end{enumerate}
 		\end{multicols}
-	
+		
 		Para hacer listas sin numerar con \LaTeX\ hay que usar el comando \texttt{\textbackslash begin\{itemize\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
 		
 		\begin{multicols}{3}
@@ -210,18 +218,17 @@ end
 				\item Café
 				\item Morado
 			\end{enumerate}
-		
+			
 			\begin{itemize}
 				\item Árboles
 				\item Pasto
 				\item Flores
 			\end{itemize}
 		\end{multicols}
-	
+		
 	% Inserta un subtítulo sin número
 	\subsectionanum{Otros}
-	
+		
 		Recuerda revisar el manual de todas las funciones de este template visitando el siguiente link: \url{http://ppizarror.com/Template-Informe/}. Además si necesitas una ayuda muy específica sobre el template me puedes enviar un correo a \href{mailto:pablo.pizarro@ing.uchile.cl}{\texttt{pablo.pizarro@ing.uchile.cl}}.
 		
 		\newp \textcolor{purple}{Saludos a todos!} \smiley
-		

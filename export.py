@@ -186,6 +186,7 @@ for d in data:
                 else:
                     fl.write(d)
                 write = False
+                
         except Exception as e:
             pass
         # Se agrega un espacio en blanco a la pagina despues del comentario
