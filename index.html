@@ -129,15 +129,16 @@
 			<li>
 				<a href="#configurar-el-template" class="menu-big-entry">Configurar el template</a>
 				<ul>
+					<li><a href="#config-other" class="menu-little-entry">Configuraciones generales</a></li>
 					<li><a href="#config-caption" class="menu-little-entry">Configuración de las leyendas</a></li>
 					<li><a href="#config-index" class="menu-little-entry">Configuración del índice</a></li>
+					<li><a href="#config-colors" class="menu-little-entry">Colores del documento</a></li>
 					<li><a href="#config-figure" class="menu-little-entry">Configuración de las figuras</a></li>
-					<li><a href="#config-other" class="menu-little-entry">Otras configuraciones</a></li>
-					<li><a href="#config-tstyles" class="menu-little-entry">Estilo de los títulos</a></li>
-					<li><a href="#config-objname" class="menu-little-entry">Nombres de objetos</a></li>
 					<li><a href="#config-ref" class="menu-little-entry">Configuración de referencias</a></li>
 					<li><a href="#config-elem" class="menu-little-entry">Configuración de elementos</a></li>
 					<li><a href="#config-pagemargin" class="menu-little-entry">Márgenes de la página</a></li>
+					<li><a href="#config-tstyles" class="menu-little-entry">Estilo de los títulos</a></li>
+					<li><a href="#config-objname" class="menu-little-entry">Nombres de objetos</a></li>
 				</ul>
 			</li>
 			<li><a href="#links" class="menu-big-entry">Links de interés</a></li>
@@ -697,6 +698,30 @@
 		<ul>
 
 			<li class="config-parent">
+				<strong class="functtitlstyle">Configuraciones generales<a id="config-other"></a></strong>
+				<ul>
+					<li>
+						<strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
+					</li>
+					<li>
+						<strong>\defaultinterline</strong>: Tamaño del interlineado.
+					</li>
+					<li>
+						<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea en pt.
+					</li>
+					<li>
+						<strong>\showborderonlinks</strong>: Muestra un recuadro en cada enlace del documento.
+					</li>
+					<li>
+						<strong>\showdotontitles</strong>: Muestra un punto en cada número de sección, subsección y sub-subsección.
+					</li>
+					<li>
+						<strong>\tablepadding</strong>: Padding de las tablas.
+					</li>
+				</ul>
+			</li>
+
+			<li class="config-parent">
 				<strong class="functtitlstyle">Configuración de las leyendas<a id="config-caption"></a></strong>
 				<ul>
 					<li>
@@ -751,6 +776,24 @@
 			</li>
 
 			<li class="config-parent">
+				<strong class="functtitlstyle">Colores del documento<a id="config-colors"></a></strong>
+				<ul>
+					<li>
+						<strong>\citecolor</strong>: Color del número de la referencia o cita.
+					</li>
+					<li>
+						<strong>\maintextcolor</strong>: Color del texto del documento, afecta al color de los títulos, párrafos, líneas, tablas, etc.
+					</li>
+					<li>
+						<strong>\linkcolor</strong>: Color de los enlaces del documento, entiendase por números de figuras, entradas del índice, etc.
+					</li>
+					<li>
+						<strong>\urlcolor</strong>: Color de los enlaces http:// del documento insertados con <i>\url</i> y <i>\href</i>.
+					</li>
+				</ul>
+			</li>
+
+			<li class="config-parent">
 				<strong class="functtitlstyle">Configuración de las figuras<a id="config-figure"></a></strong>
 				<ul>
 					<li>
@@ -766,22 +809,52 @@
 			</li>
 
 			<li class="config-parent">
-				<strong class="functtitlstyle">Otras configuraciones<a id="config-other"></a></strong>
+				<strong class="functtitlstyle">Configuración de referencias<a id="config-ref"></a></strong>
 				<ul>
 					<li>
-						<strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
+						<strong>\referenceassection</strong>: Considera las referencias como sección.
 					</li>
 					<li>
-						<strong>\defaultinterline</strong>: Tamaño del interlineado.
+						<strong>\twocolumnreferences</strong>: Referencias en dos columnas.
 					</li>
 					<li>
-						<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea en pt.
+						<strong>\typereference</strong>: Tipo de referencias, por defecto se usa la norma APA.
+					</li>
+				</ul>
+			</li>
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Configuración de elementos<a id="config-elem"></a></strong>
+				<ul>
+					<li>
+						<strong>\gradecodeonportrait</strong>: Muestra el código del curso en la portada.
 					</li>
 					<li>
-						<strong>\showborderonlinks</strong>: Muestra un recuadro en cada enlace del documento.
+						<strong>\showfooter</strong>: Muestra el footer (nombre informe y curso).
 					</li>
 					<li>
-						<strong>\tablepadding</strong>: Padding de las tablas.
+						<strong>\showheadertitle</strong>: Muestra el título de la sección en el header.
+					</li>
+				</ul>
+			</li>
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Márgenes de la página<a id="config-pagemargin"></a></strong>
+				<ul>
+					<li>
+						<strong>\firstpagemargintop</strong>: Margen superior de la portada en centímetros.
+					</li>
+					<li>
+						<strong>\pagemarginbottom</strong>: Margen inferior de las páginas en centímetros.
+					</li>
+					<li>
+						<strong>\pagemarginleft</strong>: Margen izquierdo de las páginas en centímetros.
+					</li>
+					<li>
+						<strong>\pagemarginright</strong>: Margen derecho de las páginas en centímetros.
+					</li>
+					<li>
+						<strong>\pagemargintop</strong>: Margen superior de las páginas en centímetros.
 					</li>
 				</ul>
 			</li>
@@ -857,57 +930,6 @@
 					</li>
 					<li>
 						<strong>\nomltwtable</strong>: Nombre de las tablas.
-					</li>
-				</ul>
-			</li>
-
-			<li class="config-parent">
-				<strong class="functtitlstyle">Configuración de referencias<a id="config-ref"></a></strong>
-				<ul>
-					<li>
-						<strong>\referenceassection</strong>: Considera las referencias como sección.
-					</li>
-					<li>
-						<strong>\twocolumnreferences</strong>: Referencias en dos columnas.
-					</li>
-					<li>
-						<strong>\typereference</strong>: Tipo de referencias, por defecto se usa la norma APA.
-					</li>
-				</ul>
-			</li>
-
-			<li class="config-parent">
-				<strong class="functtitlstyle">Configuración de elementos<a id="config-elem"></a></strong>
-				<ul>
-					<li>
-						<strong>\gradecodeonportrait</strong>: Muestra el código del curso en la portada.
-					</li>
-					<li>
-						<strong>\showfooter</strong>: Muestra el footer (nombre informe y curso).
-					</li>
-					<li>
-						<strong>\showheadertitle</strong>: Muestra el título de la sección en el header.
-					</li>
-				</ul>
-			</li>
-
-			<li class="config-parent">
-				<strong class="functtitlstyle">Márgenes de la página<a id="config-pagemargin"></a></strong>
-				<ul>
-					<li>
-						<strong>\firstpagemargintop</strong>: Margen superior de la portada en centímetros.
-					</li>
-					<li>
-						<strong>\pagemarginbottom</strong>: Margen inferior de las páginas en centímetros.
-					</li>
-					<li>
-						<strong>\pagemarginleft</strong>: Margen izquierdo de las páginas en centímetros.
-					</li>
-					<li>
-						<strong>\pagemarginright</strong>: Margen derecho de las páginas en centímetros.
-					</li>
-					<li>
-						<strong>\pagemargintop</strong>: Margen superior de las páginas en centímetros.
 					</li>
 				</ul>
 			</li>
