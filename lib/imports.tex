@@ -12,16 +12,16 @@
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
 % LIBRERÍAS DEL NÚCLEO
-\usepackage[spanish,es-nosectiondot]{babel} % Idioma del documento en español
-\usepackage{ifthen}           % Permite el manejo de condicionales
+\usepackage[spanish,es-nosectiondot]{babel}	% Idioma del documento en español
+\usepackage{ifthen}							% Permite el manejo de condicionales
 
 % LIBRERÍAS INDEPENDIENTES
-\usepackage{array}            % Nuevas características a las tablas
-\usepackage{bigstrut}         % Líneas horizontales en tablas
-\usepackage{booktabs}         % Permite manejar elem. visuales en tablas
-\usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
-\usepackage{caption}          % Leyendas
-\usepackage{chngcntr}         % Añade números a las leyendas
+\usepackage{array}				% Nuevas características a las tablas
+\usepackage{bigstrut}			% Líneas horizontales en tablas
+\usepackage{booktabs}			% Permite manejar elem. visuales en tablas
+\usepackage[makeroom]{cancel}	% Cancelar términos en fórmulas
+\usepackage{caption}			% Leyendas
+\usepackage{chngcntr}			% Añade números a las leyendas
 \usepackage{color}            % Colores
 \usepackage{colortbl}         % Administración de color en tablas
 \usepackage{datetime}         % Fechas
@@ -51,7 +51,7 @@
 \usepackage{xcolor}           % Paquete de colores avanzado
 
 % LIBRERÍAS DEPENDIENTES
-\usepackage{epstopdf}         % Convierte archivos .eps a pdf
+\usepackage{epstopdf}         % Convierte archivos .eps a .pdf
 \usepackage{float}            % Administrador de posiciones de objetos
 \usepackage{multirow}         % Agrega nuevas opciones a las tablas
 
@@ -65,10 +65,6 @@
 	\usepackage[pdfencoding=auto,psdextra,hidelinks]{hyperref}
 }{
 	\usepackage[pdfencoding=auto,psdextra]{hyperref}
-}
-\ifthenelse{                  % Paquete para configurar el núcleo
-	\equal{\showdotontitle}{true}}{
-	\usepackage{etoolbox}}{
 }
 \ifthenelse{                  % Idioma del documento en español
 	\equal{\showdotontitle}{true}}{
