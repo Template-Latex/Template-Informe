@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.5.7 (13/05/2017)
+% Versión:      3.5.8 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,8 +18,9 @@
 \renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
 \setcaptionmargincm{\captionlrmargin} % Margen por defecto
 
-% Configuración colores
+% Configuración de los colores
 \color{\maintextcolor} % Color principal
+\arrayrulecolor{red} % color de las lineas
 \hypersetup{
 	% Color de links
 	colorlinks,
@@ -33,7 +34,9 @@
 \captionsetup{
 	% Se actualizan los márgenes de los caption
 	belowskip=\captionbottommargin pt,
-	aboveskip=\captiontopmargin pt
+	aboveskip=\captiontopmargin pt,
+	labelfont={color=red,bf},
+	textfont={color=green}
 }
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las figuras

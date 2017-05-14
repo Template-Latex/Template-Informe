@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      3.5.7 (13/05/2017)
+% Versión:      3.5.8 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -13,60 +13,64 @@
 
 % LIBRERÍAS DEL NÚCLEO
 \usepackage[spanish, es-nosectiondot, es-lcroman]{babel} % Idioma
-\usepackage{ifthen}           % Permite el manejo de condicionales
+\usepackage{ifthen}       % Permite el manejo de condicionales
 
 % LIBRERÍAS INDEPENDIENTES
-\usepackage{array}            % Nuevas características a las tablas
-\usepackage{bigstrut}         % Líneas horizontales en tablas
-\usepackage{booktabs}         % Permite manejar elem. visuales en tablas
+\usepackage{array}        % Nuevas características a las tablas
+\usepackage{bigstrut}     % Líneas horizontales en tablas
+\usepackage{booktabs}     % Permite manejar elem. visuales en tablas
+\usepackage{caption}      % Leyendas
+\usepackage{chngcntr}     % Añade números a las leyendas
+\usepackage{colortbl}     % Administración de color en tablas
+\usepackage{color}        % Colores
+\usepackage{datetime}     % Fechas
+\usepackage{fancyhdr}     % Encabezados y pié de páginas
+\usepackage{floatrow}     % Administración de floats
+\usepackage{gensymb}      % Simbología común
+\usepackage{geometry}     % Dimensiones y geometría del documento
+\usepackage{graphicx}     % Propiedades extra para los gráficos
+\usepackage{lipsum}       % Permite crear textos dummy
+\usepackage{listings}     % Permite añadir código fuente
+\usepackage{longtable}    % Permite utilizar tablas en varias hojas
+\usepackage{mathtools}    % Permite utilizar notaciones matemáticas
+\usepackage{multicol}     % Múltiples columnas
+\usepackage{needspace}    % Maneja los espacios de página
+\usepackage{notoccite}    % Desactiva las citas en el índice
+\usepackage{pdfpages}     % Permite administrar páginas en pdf
+\usepackage{rotating}     % Permite rotación de objetos
+\usepackage{sectsty}      % Cambia el estilo de los títulos
+\usepackage{selinput}     % Compatibilidad con acentos
+\usepackage{setspace}     % Cambia el espacio entre líneas
+\usepackage{soul}         % Permite subrayar texto
+\usepackage{subfig}       % Permite agrupar imágenes
+\usepackage{textcomp}     % Simbología común
+\usepackage{ulem}         % Permite tachar, subrayar, etc
+\usepackage{url}          % Permite añadir enlaces
+\usepackage{wasysym}      % Contiene caracteres misceláneos
+\usepackage{wrapfig}      % Permite comprimir imágenes
+
+% LIBRERÍAS CON PARÁMETROS
 \usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
-\usepackage{caption}          % Leyendas
-\usepackage{chngcntr}         % Añade números a las leyendas
-\usepackage{color}            % Colores
-\usepackage{colortbl}         % Administración de color en tablas
-\usepackage{datetime}         % Fechas
 \usepackage[inline]{enumitem} % Permite enumerar ítems
 \usepackage[bottom, norule, hang]{footmisc} % Estilo pié de página
-\usepackage{fancyhdr}         % Encabezados y pié de páginas
-\usepackage{floatrow}         % Administración de floats
-\usepackage{gensymb,textcomp} % Simbología común
-\usepackage{geometry}         % Dimensiones y geometría del documento
-\usepackage{graphicx}         % Propiedades extra para los gráficos
-\usepackage{mathtools}        % Permite utilizar notaciones matemáticas
-\usepackage{multicol}         % Múltiples columnas
-\usepackage{needspace}        % Maneja los espacios de página
-\usepackage{notoccite}        % Desactiva las citas en el índice
-\usepackage{pdfpages}         % Permite administrar páginas en pdf
-\usepackage{lipsum}           % Permite crear textos dummy
-\usepackage{longtable}        % Permite utilizar tablas en varias hojas
-\usepackage{listings}         % Permite añadir código fuente
-\usepackage{rotating}         % Permite rotación de objetos
-\usepackage{sectsty}          % Cambia el estilo de los títulos
-\usepackage{selinput}         % Compatibilidad con acentos
-\usepackage{setspace}         % Cambia el espacio entre líneas
-\usepackage{subfig}           % Permite agrupar imágenes
-\usepackage{ulem}             % Permite tachar, subrayar, etc
-\usepackage{url}              % Permite añadir enlaces
-\usepackage{wasysym}          % Contiene caracteres misceláneos
-\usepackage{wrapfig}          % Permite comprimir imágenes
-\usepackage{xcolor}           % Paquete de colores avanzado
+\usepackage[usenames, dvipsnames]{xcolor} % Paquete de colores avanzado
 
 % LIBRERÍAS DEPENDIENTES
-\usepackage{epstopdf}         % Convierte archivos .eps a .pdf
-\usepackage{float}            % Administrador de posiciones de objetos
-\usepackage{multirow}         % Agrega nuevas opciones a las tablas
+\usepackage{epstopdf}     % Convierte archivos .eps a .pdf
+\usepackage{float}        % Administrador de posiciones de objetos
+\usepackage{multirow}     % Agrega nuevas opciones a las tablas
 
 % LIBRERÍAS CONDICIONALES
-\ifthenelse{                  % Paquete para configurar el núcleo
+\ifthenelse{              % Paquete para configurar el núcleo
 	\equal{\referenceassection}{true}}{
 	\usepackage{etoolbox}}{
 }
-\ifthenelse{                  % Agrega puntos a los títulos/subtítulos
+\ifthenelse{              % Agrega puntos a los títulos/subtítulos
 	\equal{\showdotontitles}{true}}{
 	\usepackage{secdot}
 	\sectiondot{subsection}
 }{}
-\ifthenelse{                  % Permite añadir enlaces y referencias
+\ifthenelse{              % Permite añadir enlaces y referencias
 	\equal{\showborderonlinks}{false}}{
 	\usepackage[pdfencoding=auto, psdextra, hidelinks]{hyperref}
 }{

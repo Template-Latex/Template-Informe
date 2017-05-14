@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      3.5.7 (13/05/2017)
+% Versión:      3.5.8 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -57,10 +57,10 @@
 }{}
 \renewcommand{\headrulewidth}{0.5pt}
 
-% Tipo de título para abstract
-\sectionfont{
-	\typefonttitle \etypefonttitle \selectfont
-}
-
 % Se activa el word-wrap para textos con \texttt{}
 {{\ttfamily \hyphenchar\the\font=`\-}
+
+% Tipo de título para abstract
+\sectionfont{
+	\fontsizetitle \styletitle \selectfont
+}

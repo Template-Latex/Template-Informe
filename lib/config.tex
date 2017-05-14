@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      3.5.7 (13/05/2017)
+% Versión:      3.5.8 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,72 +12,74 @@
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
 % CONFIGURACIONES GENERALES
-\def\defaultimagefolder {images/}  % Carpeta de las imágenes
-\def\defaultinterline {1.0}        % Interlineado por defecto
-\def\defaultnewlinesize {11pt}     % Tamaño del salto de línea
-\def\showborderonlinks {false}     % Muestra un recuadro en cada enlace
-\def\showdotontitles {true}        % Punto al final de cada título/subtítulo/etc
-\def\tablepadding {1.0}            % Padding de las tablas
+\def\defaultimagefolder{images/}  % Carpeta de las imágenes
+\def\defaultinterline {1.0}       % Interlineado por defecto
+\def\defaultnewlinesize {11pt}    % Tamaño del salto de línea
+\def\showborderonlinks {false}    % Muestra un recuadro en cada enlace
+\def\showdotontitles {true}       % Punto al final de cada título/subtítulo/etc
+\def\tablepadding {1.0}           % Padding de las tablas
 
 % CONFIGURACIÓN DE LAS LEYENDAS
-\def\captionbottommargin {4}       % Margen inferior de las leyendas [pt]
-\def\captiontopmargin {9}          % Margen superior de las leyendas [pt]
-\def\centeredcaption {false}       % Leyenda centrada al tener varias líneas
-\def\captionlessmargin {0.1cm}     % Margen sup/inf. de fig. si no hay leyenda
-\def\captionlrmargin {2.7}         % Márgenes izq/der de las leyendas [cm]
-\def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
-\def\showsectiononcaption {false}  % Muestra el número de sección en las leyendas
+\def\captionbottommargin {4}      % Margen inferior de las leyendas [pt]
+\def\captiontopmargin {9}         % Margen superior de las leyendas [pt]
+\def\centeredcaption {false}      % Leyenda centrada al tener varias líneas
+\def\captionlessmargin {0.1cm}    % Margen sup/inf. de fig. si no hay leyenda
+\def\captionlrmargin {2.7}        % Márgenes izq/der de las leyendas [cm]
+\def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
+\def\showsectiononcaption{false}  % Muestra el número de sección en las leyendas
 
 % CONFIGURACIÓN DEL ÍNDICE
-\def\indextitlemargin {7pt}        % Margen títulos en índice
-\def\indexdepth {3}                % Profundidad del índice
-\def\showindex {true}              % Muestra el índice
-\def\showindexofcontents {true}    % Muestra la lista de contenidos
-\def\showindexoffigures {true}     % Muestra la lista de figuras
-\def\showindexofsourcecode {false} % Muestra la lista de códigos fuente
-\def\showindexoftables {true}      % Muestra la lista de tablas
+\def\indextitlemargin {7pt}       % Margen títulos en índice
+\def\indexdepth {3}               % Profundidad del índice
+\def\showindex {true}             % Muestra el índice
+\def\showindexofcontents {true}   % Muestra la lista de contenidos
+\def\showindexoffigures {true}    % Muestra la lista de figuras
+\def\showindexofcode {false}      % Muestra la lista de códigos fuente
+\def\showindexoftables {true}     % Muestra la lista de tablas
 
-% COLORES DEL DOCUMENTO
-\def\citecolor {black}             % Color del número de las referencias o citas
-\def\maintextcolor {black}         % Color principal del texto
-\def\linkcolor {black}             % Color de los enlaces del documento
-\def\urlcolor {black}              % Color de los url (insertados con \url o \href)
+% COLORES DEL DOCUMENTO [http://latexcolor.com/]
+\def\citecolor {black}            % Color del número de las referencias o citas
+\def\maintextcolor {blue}         % Color principal del texto
+\def\linkcolor {black}            % Color de los enlaces del documento
+\def\urlcolor {black}             % Color de los url (insertados con \url o \href)
 
 % MÁRGENES DE FIGURAS
-\def\marginbottomimages {-0.2cm}   % Margen inferior figura
-\def\marginfloatimages {-13pt}     % Margen superior figura flotante
-\def\margintopimages {0.0cm}       % Margen superior figura
+\def\marginbottomimages {-0.2cm}  % Margen inferior figura
+\def\marginfloatimages {-13pt}    % Margen superior figura flotante
+\def\margintopimages {0.0cm}      % Margen superior figura
 
 % REFERENCIAS
-\def\referenceassection {false}    % Considera las referencias como una sección
-\def\twocolumnreferences {false}   % Referencias en dos columnas
-\def\typereference {apa}           % Tipo de referencias
+\def\referenceassection {false}   % Considera las referencias como una sección
+\def\twocolumnreferences {false}  % Referencias en dos columnas
+\def\typereference {apa}          % Tipo de referencias
 
 % CONFIGURACIÓN PORTADA Y HEADERS
-\def\gradecodeonportrait {false}   % Muestra el código del curso
-\def\showfooter {true}             % Muestra el footer
-\def\showheadertitle {true}        % Muestra título de la sección en el header
+\def\gradecodeonportrait {false}  % Muestra el código del curso
+\def\showfooter {true}            % Muestra el footer
+\def\showheadertitle {true}       % Muestra título de la sección en el header
 
 % MÁRGENES DE PÁGINA
-\def\firstpagemargintop {3.8}      % Margen superior página portada [cm]
-\def\pagemarginbottom {2.7}        % Margen inferior página [cm]
-\def\pagemarginleft {2.54}         % Margen izquierdo página [cm]
-\def\pagemarginright {2.54}        % Margen derecho página [cm]
-\def\pagemargintop {3.0}           % Margen superior página [cm]
+\def\firstpagemargintop {3.8}     % Margen superior página portada [cm]
+\def\pagemarginbottom {2.7}       % Margen inferior página [cm]
+\def\pagemarginleft {2.54}        % Margen izquierdo página [cm]
+\def\pagemarginright {2.54}       % Margen derecho página [cm]
+\def\pagemargintop {3.0}          % Margen superior página [cm]
 
-% ESTILO DE TÍTULOS
-\def\etypefontsubsubtitle {\bfseries} % Estilo sub-subtítulos
-\def\etypefontsubsubtitlei{\bfseries} % Estilo sub-subtítulos en el índice
-\def\etypefontsubtitle {\bfseries}    % Estilo subtítulos
-\def\etypefontsubtitlei {\bfseries}   % Estilo subtítulos en el índice
-\def\etypefonttitle {\bfseries}       % Estilo títulos
-\def\etypefonttitlei {\bfseries}      % Estilo títulos en el índice
-\def\typefontsubsubtitle {\large}     % Tamaño sub-subtítulos
-\def\typefontsubsubtitlei {\large}    % Tamaño sub-subtítulos en el índice
-\def\typefontsubtitle {\Large}        % Tamaño subtítulos
-\def\typefontsubtitlei {\Large}       % Tamaño subtítulos en el índice
-\def\typefonttitle {\huge}            % Tamaño títulos
-\def\typefonttitlei {\huge}           % Tamaño títulos en el índice
+% ESTILO Y TAMAÑO DE TÍTULOS
+\def\fontsizesubsubtitle{\large}  % Tamaño sub-subtítulos
+\def\fontsizesubtitle {\Large}    % Tamaño subtítulos
+\def\fontsizetitle {\huge}        % Tamaño títulos
+\def\stylesubsubtitle{\bfseries}  % Estilo sub-subtítulos
+\def\stylesubtitle {\bfseries}    % Estilo subtítulos
+\def\styletitle {\bfseries}       % Estilo títulos
+
+% ESTILO Y TAMAÑO DE TÍTULOS EN EL ÍNDICE
+\def\fontsizesubsubtitlei{\large} % Tamaño sub-subtítulos en el índice
+\def\fontsizesubtitlei {\Large}   % Tamaño subtítulos en el índice
+\def\fontsizetitlei {\huge}       % Tamaño títulos en el índice
+\def\stylesubsubtitlei{\bfseries} % Estilo sub-subtítulos en el índice
+\def\stylesubtitlei {\bfseries}   % Estilo subtítulos en el índice
+\def\styletitlei {\bfseries}      % Estilo títulos en el índice
 
 % NOMBRE DE OBJETOS
 \def\nameportraitpage {Portada}       % Etiqueta página de la portada
