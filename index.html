@@ -132,10 +132,10 @@
 					<li><a href="#config-other" class="menu-little-entry">Configuraciones generales</a></li>
 					<li><a href="#config-caption" class="menu-little-entry">Configuración de las leyendas</a></li>
 					<li><a href="#config-index" class="menu-little-entry">Configuración del índice</a></li>
-					<li><a href="#config-colors" class="menu-little-entry">Colores del documento</a></li>
-					<li><a href="#config-figure" class="menu-little-entry">Configuración de las figuras</a></li>
+					<li><a href="#config-colors" class="menu-little-entry">Configuración de los colores</a></li>
+					<li><a href="#config-figure" class="menu-little-entry">Márgenes de las figuras</a></li>
 					<li><a href="#config-ref" class="menu-little-entry">Configuración de referencias</a></li>
-					<li><a href="#config-elem" class="menu-little-entry">Configuración de elementos</a></li>
+					<li><a href="#config-elem" class="menu-little-entry">Configuración de portada, header y footer</a></li>
 					<li><a href="#config-pagemargin" class="menu-little-entry">Márgenes de la página</a></li>
 					<li><a href="#config-tstyles" class="menu-little-entry">Estilo de los títulos</a></li>
 					<li><a href="#config-objname" class="menu-little-entry">Nombres de objetos</a></li>
@@ -728,16 +728,19 @@
 						<strong>\captionbottommargin</strong>: Margen inferior de las leyendas, en pt.
 					</li>
 					<li>
-						<strong>\captiontopmargin</strong>: Margen superior de los caption, en pt.
-					</li>
-					<li>
-						<strong>\centeredcaption</strong>: Leyenda centrada al tener varias líneas.
-					</li>
-					<li>
 						<strong>\captionlessmargin</strong>: Margen inferior si no hay caption en figuras, en centímetros.
 					</li>
 					<li>
 						<strong>\captionlrmargin</strong>: Márgen izquierdo (<i>left</i>) y derecho (<i>right</i>) de las leyendas.
+					</li>
+					<li>
+						<strong>\captiontextbold</strong>: Etiquetas de la leyenda en negrita.
+					</li>
+					<li>
+						<strong>\captiontopmargin</strong>: Margen superior de los caption, en pt.
+					</li>
+					<li>
+						<strong>\centeredcaption</strong>: Leyenda centrada al tener varias líneas.
 					</li>
 					<li>
 						<strong>\figurecaptiontop</strong>: Establece la leyenda encima de las imágenes.
@@ -767,7 +770,7 @@
 						<strong>\showindexoffigures</strong>: Muestra la lista de figuras en el índice.
 					</li>
 					<li>
-						<strong>\showindexofsourcecode</strong>: Muestra la lista de códigos fuente en el índice.
+						<strong>\showindexofcode</strong>: Muestra la lista de códigos fuente en el índice.
 					</li>
 					<li>
 						<strong>\showindexoftables</strong>: Muestra la lista de tablas en el índice.
@@ -779,13 +782,40 @@
 				<strong class="functtitlstyle">Colores del documento<a id="config-colors"></a></strong>
 				<ul>
 					<li>
+						<strong>\captioncolor</strong>: Color de la etiqueta (Figura, Tabla, Código) en la leyenda de los objetos.
+					</li>
+					<li>
+						<strong>\captiontextcolor</strong>: Color de la leyenda de los objetos.
+					</li>
+					<li>
 						<strong>\citecolor</strong>: Color del número de la referencia o cita.
+					</li>
+					<li>
+						<strong>\highlightcolor</strong>: Color del subrayado con <b>\hl{></b><i>text</i><b>}</b>.
+					</li>
+					<li>
+						<strong>\indextitlecolor</strong>: Color de los títulos del índice.
+					</li>
+					<li>
+						<strong>\linkcolor</strong>: Color de los enlaces del documento, entiendase por números de figuras, entradas del índice, etc.
 					</li>
 					<li>
 						<strong>\maintextcolor</strong>: Color del texto del documento, afecta al color de los títulos, párrafos, líneas, tablas, etc.
 					</li>
 					<li>
-						<strong>\linkcolor</strong>: Color de los enlaces del documento, entiendase por números de figuras, entradas del índice, etc.
+						<strong>\portraittitlecolor</strong>: Color de los títulos de la portada.
+					</li>
+					<li>
+						<strong>\subsubtitlecolor</strong>: Color de los sub-subtítulos.
+					</li>
+					<li>
+						<strong>\subtitlecolor</strong>: Color de los subtítulos.
+					</li>
+					<li>
+						<strong>\tablelinecolor</strong>: Color de las líneas de las tablas.
+					</li>
+					<li>
+						<strong>\titlecolor</strong>: Color de los títulos.
 					</li>
 					<li>
 						<strong>\urlcolor</strong>: Color de los enlaces http:// del documento insertados con <i>\url</i> y <i>\href</i>.
@@ -824,7 +854,7 @@
 			</li>
 
 			<li class="config-parent">
-				<strong class="functtitlstyle">Configuración de elementos<a id="config-elem"></a></strong>
+				<strong class="functtitlstyle">Configuración de portada, header y footer<a id="config-elem"></a></strong>
 				<ul>
 					<li>
 						<strong>\gradecodeonportrait</strong>: Muestra el código del curso en la portada.
@@ -863,40 +893,40 @@
 				<strong class="functtitlstyle">Estilo de los títulos<a id="config-tstyles"></a></strong>
 				<ul>
 					<li>
-						<strong>\etypefontsubsubtitle</strong>: Estilo sub-subtítulos.
+						<strong>\fontsizesubsubtitle</strong>: Tamaño sub-subtítulos.
 					</li>
 					<li>
-						<strong>\etypefontsubsubtitlei</strong>: Estilo sub-subtítulos en el índice.
+						<strong>>\fontsizesubsubtitlei</strong>: Tamaño sub-subtítulos en el índice.
 					</li>
 					<li>
-						<strong>\etypefontsubtitle</strong>: Estilo subtítulos.
+						<strong>>\fontsizesubtitle</strong>: Tamaño subtítulos.
 					</li>
 					<li>
-						<strong>\etypefontsubtitlei</strong>: Estilo subtítulos en el índice.
+						<strong>>\fontsizesubtitlei</strong>: Tamaño subtítulos en el índice.
 					</li>
 					<li>
-						<strong>\etypefonttitle</strong>: Estilo títulos.
+						<strong>>\fontsizetitle</strong>: Tamaño títulos.
 					</li>
 					<li>
-						<strong>\etypefonttitlei</strong>: Estilo títulos en el índice.
+						<strong>>\fontsizetitlei</strong>: Tamaño títulos en el índice.
 					</li>
 					<li>
-						<strong>\typefontsubsubtitle</strong>: Tamaño sub-subtítulos.
+						<strong>\stylesubsubtitle</strong>: Estilo sub-subtítulos.
 					</li>
 					<li>
-						<strong>\typefontsubsubtitlei</strong>: Tamaño sub-subtítulos en el índice.
+						<strong>\stylesubsubtitlei</strong>: Estilo sub-subtítulos en el índice.
 					</li>
 					<li>
-						<strong>\typefontsubtitle</strong>: Tamaño subtítulos.
+						<strong>\stylesubtitle</strong>: Estilo subtítulos.
 					</li>
 					<li>
-						<strong>\typefontsubtitlei</strong>: Tamaño subtítulos en el índice.
+						<strong>\stylesubtitlei</strong>: Estilo subtítulos en el índice.
 					</li>
 					<li>
-						<strong>\typefonttitle</strong>: Tamaño títulos.
+						<strong>\styletitle</strong>: Estilo títulos.
 					</li>
 					<li>
-						<strong>\typefonttitlei</strong>: Tamaño títulos en el índice.
+						<strong>\styletitlei</strong>: Estilo títulos en el índice.
 					</li>
 				</ul>
 			</li>
