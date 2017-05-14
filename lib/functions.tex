@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.5.8 (13/05/2017)
+% Versión:      3.6.0 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -57,6 +57,15 @@
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}
 }
 
+\newcommand{\changemargin}[2]{
+	% Cambia los márgenes del documento
+	%	#1 Margen izquierdo
+	%	#2 Margen derecho
+	\emptyvarerr{\changemargin}{#1}{Margen izquierdo no definido}
+	\emptyvarerr{\changemargin}{#2}{Margen derecho no definido}
+	\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
 \newcommand{\newp}{
 	% Inserta nueva línea
 	\hbadness=10000 \vspace{\defaultnewlinesize} \par
@@ -72,6 +81,12 @@
 	% Insertar párrafo sin nueva línea al final
 	% 	#1	Párrafo
 	#1 \par
+}
+
+\newcommand{\quotes}[1]{
+	% Inserta un texto entre comillas
+	% 	#1	Texto
+	``#1''
 }
 
 \newcommand{\lpow}[2]{
@@ -288,11 +303,11 @@
 		\begin{equation}
 		\text{#1} #2
 		\end{equation}
-		\begin{center}
-			\vspace{-0.15cm}
-			\textit{#3} \par
+		\vspace{-0.65cm}
+		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+			\centering \textcolor{\captiontextcolor}{#3} \par
 			\vspace{0.05cm}
-		\end{center}
+		\end{changemargin}
 	\fi
 }
 
@@ -322,10 +337,10 @@
 		\begin{gather}
 			\text{#1} #2
 		\end{gather}
-		\begin{center}
-			\vspace{-0.15cm}
-			\textit{#3} \par
-		\end{center}
+		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+			\centering \textcolor{\captiontextcolor}{#3} \par
+			\vspace{0.05cm}
+		\end{changemargin}
 	\fi
 }
 
@@ -355,10 +370,10 @@
 		\begin{align}
 			\text{#1} #2
 		\end{align}
-		\begin{center}
-			\vspace{-0.15cm}
-			\textit{#3} \par
-		\end{center}
+		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+			\centering \textcolor{\captiontextcolor}{#3} \par
+			\vspace{0.05cm}
+		\end{changemargin}
 	\fi
 }
 

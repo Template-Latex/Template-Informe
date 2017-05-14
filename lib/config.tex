@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      3.5.8 (13/05/2017)
+% Versión:      3.6.0 (13/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -29,6 +29,15 @@
 \def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
 \def\showsectiononcaption {false} % Muestra el número de sección en las leyendas
 
+% CONFIGURACIÓN DEL ÍNDICE
+\def\indextitlemargin {7pt}       % Margen títulos en índice
+\def\indexdepth {3}               % Profundidad del índice
+\def\showindex {true}             % Muestra el índice
+\def\showindexofcontents {true}   % Muestra la lista de contenidos
+\def\showindexoffigures {true}    % Muestra la lista de figuras
+\def\showindexofcode {false}      % Muestra la lista de códigos fuente
+\def\showindexoftables {true}     % Muestra la lista de tablas
+
 % CONFIGURACIÓN DE LOS COLORES [http://latexcolor.com/]
 \def\captioncolor {black}         % Color de la etiqueta (Figura, Tabla, Código)
 \def\captiontextcolor {black}     % Color de la leyenda
@@ -42,16 +51,7 @@
 \def\subtitlecolor {black}        % Color de los subtítulos
 \def\tablelinecolor {black}       % Color de las líneas de las tablas
 \def\titlecolor {black}           % Color de los títulos
-\def\urlcolor {black}             % Color de los url (insertados con \url o \href)
-
-% CONFIGURACIÓN DEL ÍNDICE
-\def\indextitlemargin {7pt}       % Margen títulos en índice
-\def\indexdepth {3}               % Profundidad del índice
-\def\showindex {true}             % Muestra el índice
-\def\showindexofcontents {true}   % Muestra la lista de contenidos
-\def\showindexoffigures {true}    % Muestra la lista de figuras
-\def\showindexofcode {false}      % Muestra la lista de códigos fuente
-\def\showindexoftables {true}     % Muestra la lista de tablas
+\def\urlcolor {black}             % Color de los url (insertados con \url,\href)
 
 % MÁRGENES DE FIGURAS
 \def\marginbottomimages {-0.2cm}  % Margen inferior figura
