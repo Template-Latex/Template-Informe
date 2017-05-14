@@ -12,7 +12,7 @@
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
 % CONFIGURACIONES GENERALES
-\def\defaultimagefolder{images/}  % Carpeta de las imágenes
+\def\defaultimagefolder {images/} % Carpeta de las imágenes
 \def\defaultinterline {1.0}       % Interlineado por defecto
 \def\defaultnewlinesize {11pt}    % Tamaño del salto de línea
 \def\showborderonlinks {false}    % Muestra un recuadro en cada enlace
@@ -21,12 +21,28 @@
 
 % CONFIGURACIÓN DE LAS LEYENDAS
 \def\captionbottommargin {4}      % Margen inferior de las leyendas [pt]
-\def\captiontopmargin {9}         % Margen superior de las leyendas [pt]
-\def\centeredcaption {false}      % Leyenda centrada al tener varias líneas
 \def\captionlessmargin {0.1cm}    % Margen sup/inf. de fig. si no hay leyenda
 \def\captionlrmargin {2.7}        % Márgenes izq/der de las leyendas [cm]
+\def\captiontextbold {false}      % Etiquetas de la leyenda en negrita
+\def\captiontopmargin {9}         % Margen superior de las leyendas [pt]
+\def\centeredcaption {false}      % Leyenda centrada al tener varias líneas
 \def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
-\def\showsectiononcaption{false}  % Muestra el número de sección en las leyendas
+\def\showsectiononcaption {false} % Muestra el número de sección en las leyendas
+
+% CONFIGURACIÓN DE LOS COLORES [http://latexcolor.com/]
+\def\captioncolor {black}         % Color de la etiqueta (Figura, Tabla, Código)
+\def\captiontextcolor {black}     % Color de la leyenda
+\def\citecolor {black}            % Color del número de las referencias o citas
+\def\highlightcolor {yellow}      % Color del subrayado con \hl
+\def\indextitlecolor {black}      % Color de los títulos del índice
+\def\linkcolor {black}            % Color de los enlaces del documento
+\def\maintextcolor {black}        % Color principal del texto
+\def\portraittitlecolor {black}   % Color de los títulos de la portada
+\def\subsubtitlecolor {black}     % Color de los sub-subtítulos
+\def\subtitlecolor {black}        % Color de los subtítulos
+\def\tablelinecolor {black}       % Color de las líneas de las tablas
+\def\titlecolor {black}           % Color de los títulos
+\def\urlcolor {black}             % Color de los url (insertados con \url o \href)
 
 % CONFIGURACIÓN DEL ÍNDICE
 \def\indextitlemargin {7pt}       % Margen títulos en índice
@@ -36,12 +52,6 @@
 \def\showindexoffigures {true}    % Muestra la lista de figuras
 \def\showindexofcode {false}      % Muestra la lista de códigos fuente
 \def\showindexoftables {true}     % Muestra la lista de tablas
-
-% COLORES DEL DOCUMENTO [http://latexcolor.com/]
-\def\citecolor {black}            % Color del número de las referencias o citas
-\def\maintextcolor {blue}         % Color principal del texto
-\def\linkcolor {black}            % Color de los enlaces del documento
-\def\urlcolor {black}             % Color de los url (insertados con \url o \href)
 
 % MÁRGENES DE FIGURAS
 \def\marginbottomimages {-0.2cm}  % Margen inferior figura
@@ -66,10 +76,10 @@
 \def\pagemargintop {3.0}          % Margen superior página [cm]
 
 % ESTILO Y TAMAÑO DE TÍTULOS
-\def\fontsizesubsubtitle{\large}  % Tamaño sub-subtítulos
+\def\fontsizesubsubtitle {\large} % Tamaño sub-subtítulos
 \def\fontsizesubtitle {\Large}    % Tamaño subtítulos
 \def\fontsizetitle {\huge}        % Tamaño títulos
-\def\stylesubsubtitle{\bfseries}  % Estilo sub-subtítulos
+\def\stylesubsubtitle {\bfseries} % Estilo sub-subtítulos
 \def\stylesubtitle {\bfseries}    % Estilo subtítulos
 \def\styletitle {\bfseries}       % Estilo títulos
 

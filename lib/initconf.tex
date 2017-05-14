@@ -20,7 +20,8 @@
 
 % Configuración de los colores
 \color{\maintextcolor} % Color principal
-\arrayrulecolor{red} % color de las lineas
+\arrayrulecolor{\tablelinecolor} % Color de las lineas de las tablas
+\sethlcolor{\highlightcolor} % Color del subrayado por defecto
 \hypersetup{
 	% Color de links
 	colorlinks,
@@ -31,12 +32,16 @@
 }
 
 % Configuración de las leyendas
+\ifthenelse{\equal{\captiontextbold}{true}}{
+	\renewcommand{\captiontextbold}{bf}}{
+	\renewcommand{\captiontextbold}{}
+}
 \captionsetup{
 	% Se actualizan los márgenes de los caption
 	belowskip=\captionbottommargin pt,
 	aboveskip=\captiontopmargin pt,
-	labelfont={color=red,bf},
-	textfont={color=green}
+	labelfont={color=\captioncolor, \captiontextbold},
+	textfont={color=\captiontextcolor}
 }
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las figuras

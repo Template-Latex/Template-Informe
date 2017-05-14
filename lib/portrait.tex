@@ -26,24 +26,28 @@
 \ifthenelse{\equal{\gradecodeonportrait}{true}}{
 	\vspace*{3cm}
 	\begin{center}
-		\huge {\nombredelcurso} \\
-		\vspace{0.3cm}
-		\large {Código del curso: \codigodelcurso} \\
-		\vspace{1.5cm}
-		\Huge {\nombredelinforme} \\
-		\vspace{0.3cm}
-		\large {\temaatratar}
+		\textcolor{\portraittitlecolor}{
+			\huge {\nombredelcurso} \\
+			\vspace{0.3cm}
+			\large {Código del curso: \codigodelcurso} \\
+			\vspace{1.5cm}
+			\Huge {\nombredelinforme} \\
+			\vspace{0.3cm}
+			\large {\temaatratar}
+		}
 	\end{center}
 
 % Estilo sin código
 }{
 	\vspace*{5cm}
 	\begin{center}
-		\huge {\nombredelcurso} \\
-		\vspace{1cm}
-		\Huge {\nombredelinforme} \\
-		\vspace{0.3cm}
-		\large {\temaatratar}
+		\textcolor{\portraittitlecolor}{
+			\huge {\nombredelcurso} \\
+			\vspace{1cm}
+			\Huge {\nombredelinforme} \\
+			\vspace{0.3cm}
+			\large {\temaatratar}
+		}
 	\end{center}
 }
 
