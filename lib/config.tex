@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      3.6.0 (13/05/2017)
+% Versión:      3.6.1 (15/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -19,13 +19,13 @@
 \def\showdotontitles {true}       % Punto al final de cada título/subtítulo/etc
 \def\tablepadding {1.0}           % Padding de las tablas
 
-% CONFIGURACIÓN DE LAS LEYENDAS
+% CONFIGURACIÓN DE LOS CAPTION
 \def\captionbottommargin {4}      % Margen inferior de las leyendas [pt]
-\def\captionlessmargin {0.1cm}    % Margen sup/inf. de fig. si no hay leyenda
-\def\captionlrmargin {2.7}        % Márgenes izq/der de las leyendas [cm]
-\def\captiontextbold {false}      % Etiquetas de la leyenda en negrita
-\def\captiontopmargin {9}         % Margen superior de las leyendas [pt]
-\def\centeredcaption {false}      % Leyenda centrada al tener varias líneas
+\def\captionlessmargin {0.1cm}    % Margen sup/inf de figuras si no hay leyenda
+\def\captionlrmargin {2.7}        % Márgenes izq/der de la leyenda [cm]
+\def\captiontextbold {false}      % Etiquetas (Figura,Tabla,etc.) en negrita
+\def\captiontopmargin {9}         % Margen superior de la leyenda [pt]
+\def\centeredcaption {false}      % Caption centrado al tener varias líneas
 \def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
 \def\showsectiononcaption {false} % Muestra el número de sección en las leyendas
 
@@ -55,7 +55,7 @@
 
 % MÁRGENES DE FIGURAS
 \def\marginbottomimages {-0.2cm}  % Margen inferior figura
-\def\marginfloatimages {-13pt}    % Margen superior figura flotante
+\def\marginfloatimages {-13pt}    % Margen sup. fig. flotante (\insertimageleft/right)
 \def\margintopimages {0.0cm}      % Margen superior figura
 
 % REFERENCIAS
@@ -94,7 +94,7 @@
 % NOMBRE DE OBJETOS
 \def\nameportraitpage {Portada}       % Etiqueta página de la portada
 \def\namereferences {Referencias}     % Nombre de la sección de referencias
-\def\nomltcont{Índice de Contenidos}  % Nombre del índice de contenidos
+\def\nomltcont {Índice de Contenidos} % Nombre del índice de contenidos
 \def\nomltfigure {Lista de Figuras}   % Nombre del índice de la lista de figuras
 \def\nomltsrc{Lista de Código Fuente} % Nombre del índice de la lista de código
 \def\nomlttable {Lista de Tablas}     % Nombre del índice de la lista de tablas

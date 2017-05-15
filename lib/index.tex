@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Índice
-% Versión:      3.6.0 (13/05/2017)
+% Versión:      3.6.1 (15/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -24,12 +24,17 @@
 	\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}
 	
 	% Lista de Figuras
-	\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}
+	\iftotalfigures
+		\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}
+	\fi
 	
 	% Lista de Tablas
-	\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}
+	\iftotaltables
+		\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}
+	\fi
 	
 	% Lista del Código Fuente
-	\ifthenelse{\equal{\showindexofcode}{true}}{\lstlistoflistings}{}
-	
+	\iftotallstlistings
+		\ifthenelse{\equal{\showindexofcode}{true}}{\lstlistoflistings}{}
+	\fi
 }{}
