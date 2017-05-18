@@ -41,3 +41,6 @@ main.pdf
 
 # Ignora versiones
 versions/
+
+# Ignora accesos directos
+*.url
