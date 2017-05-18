@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo principal
-% Versión:      3.6.1 (15/05/2017)
+% Versión:      3.6.3 (18/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,10 +12,10 @@
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
 % Se reestablecen headers y footers
+\markboth{}{}
 \newpage
 \ifthenelse{\equal{\showheadertitle}{true}}{
-	\fancyhead[L]{\nouppercase{\rightmark}}
-	\markright{}
+	\fancyhead[L]{\nouppercase{\leftmark}}
 }{}
 
 % Se reestablece estilo de títulos

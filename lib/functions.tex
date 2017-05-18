@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.6.1 (15/05/2017)
+% Versión:      3.6.3 (18/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -32,7 +32,7 @@
 	% Inserta las referencias al índice
 	\addcontentsline{toc}{section}{\namereferences}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\markright{\namereferences}
+		\markboth{\namereferences}{}
 	}{}
 }
 
@@ -194,7 +194,7 @@
 	\addcontentsline{toc}{section}{#1}
 	\stepcounter{section}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\markright{#1}
+		\markboth{#1}{}
 	}{}
 }
 
@@ -207,12 +207,12 @@
 	\section*{#1}
 	\stepcounter{section}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\markright{#1}
+		\markboth{#1}{}
 	}{}
 }
 
 \newcommand{\sectionanumheadless}[1]{
-	% Insertar un título sin número sin alterar el header
+	% Insertar un título sin número sin cambiar el título del header
 	% 	#1	Título
 	\emptyvarerr{\sectionanumnoheadless}{#1}{Titulo no definido}
 	\section*{#1}
@@ -221,7 +221,7 @@
 }
 
 \newcommand{\sectionanumnoiheadless}[1]{
-	% Insertar un título sin número sin indexar sin cambiar el header
+	% Insertar un título sin número sin indexar sin cambiar el título del header
 	% 	#1	Título
 	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
 	\section*{#1}
