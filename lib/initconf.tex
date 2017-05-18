@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.6.3 (18/05/2017)
+% Versión:      3.6.4 (18/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -8,8 +8,8 @@
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Sitio web del proyecto: [http://ppizarror.com/Template-Informe/]
-% Licencia: MIT           [https://opensource.org/licenses/MIT]
+% Manual template: [http://ppizarror.com/Template-Informe/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % Definición de dimensiones
 \setlength{\headheight}{64pt}  % Tamaño de la cabecera sin fancyhdr
@@ -32,6 +32,7 @@
 }
 
 % Configuración de las leyendas
+\newcounter{floatmarginlines} % Lineas para figuras flotantes
 \setcaptionmargincm{\captionlrmargin} % Márgenes de las leyendas por defecto
 \ifthenelse{\equal{\captiontextbold}{true}}{
 	\renewcommand{\captiontextbold}{bf}}{
@@ -41,12 +42,15 @@
 	% Se actualizan los márgenes de los caption
 	belowskip=\captionbottommargin pt,
 	aboveskip=\captiontopmargin pt,
-	labelfont={color=\captioncolor, \captiontextbold},
-	textfont={color=\captiontextcolor}
+	labelfont={color=\captioncolor,\captiontextbold},
+	textfont={color=\captiontextcolor},
+	singlelinecheck=on
 }
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las figuras
-	\floatsetup[figure]{capposition=top}}{
+	\floatsetup[figure]{
+		capposition=top}
+	}{
 }
 \ifthenelse{\equal{\centeredcaption}{true}}{
 	% Se centran todos los captions
@@ -114,15 +118,15 @@
 	pdftitle={\nombredelinforme},
 	pdfauthor={\autordeldocumento},
 	pdfsubject={\temaatratar},
-	pdfcreator={LaTeX, pdfLaTeX, ppizarror},
-	pdfproducer={Template-Informe v\templateversion\ | (Pablo Pizarro) ppizarror.com},
+	pdfcreator={LaTeX, pdfLaTeX},
+	pdfproducer={Template-Informe v\templateversion\ | (Pablo Pizarro R.) ppizarror.com},
 	pdfkeywords={\nombreuniversidad\ ,\codigodelcurso\ \nombredelcurso, \localizacionuniversidad},
 	pdfinfo={
 		Author={\autordeldocumento},
 		Title={\nombredelinforme},
 		Subject={\temaatratar},
 		Template={Template-Informe},
-		Template.Author={Pablo Pizarro, ppizarror.com},
+		Template.Author={Pablo Pizarro R., ppizarror.com},
 		Template.Version={\templateversion},
 		Template.Website={http://ppizarror.com/Template-Informe/},
 	},
