@@ -40,3 +40,6 @@ main.pdf
 
 # Ejemplos
 _test
+
+# Accesos directos
+*.url
