@@ -32,7 +32,7 @@
 	% Inserta las referencias al índice
 	\addcontentsline{toc}{section}{\namereferences}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\fancyhead[L]{\nouppercase{\namereferences}}
+		\markright{\namereferences}
 	}{}
 }
 
@@ -194,8 +194,7 @@
 	\addcontentsline{toc}{section}{#1}
 	\stepcounter{section}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\renewcommand{\leftmark}{#1}
-		\fancyhead[L]{\nouppercase{#1}}
+		\markright{#1}
 	}{}
 }
 
@@ -208,8 +207,7 @@
 	\section*{#1}
 	\stepcounter{section}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\renewcommand{\leftmark}{#1}
-		\fancyhead[L]{\nouppercase{#1}}
+		\markright{#1}
 	}{}
 }
 

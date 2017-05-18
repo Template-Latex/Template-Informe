@@ -14,7 +14,8 @@
 % Se reestablecen headers y footers
 \newpage
 \ifthenelse{\equal{\showheadertitle}{true}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+	\markright{}
 }{}
 
 % Se reestablece estilo de títulos
