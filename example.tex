@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.6.4 (18/05/2017)
+% Versión:      3.6.5 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -29,7 +29,7 @@
 		Este es un párrafo, \texttt{\textbackslash newp} puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:formulasinsentido}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}):
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.17) y una leyenda
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Where are you? de Internet}
+		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Where are you? de \quotes{Internet}}
 		
 		\newparnl{Este es un párrafo sin nueva línea, si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes editar las funciones, definidas en el archivo \texttt{lib/functions.tex}.}
 		
@@ -229,6 +229,6 @@ end
 	% Inserta un subtítulo sin número
 	\subsectionanum{Otros}
 		
-		Recuerda revisar el manual de todas las funciones de este template visitando el siguiente link: \url{http://ppizarror.com/Template-Informe/}. Además si necesitas una ayuda muy específica sobre el template me puedes enviar un correo a \href{mailto:pablo.pizarro@ing.uchile.cl}{\texttt{pablo.pizarro@ing.uchile.cl}}.
+		Recuerda revisar el manual de todas las funciones de este template visitando el siguiente link: \url{http://ppizarror.com/Template-Informe/}. Además si necesitas una ayuda muy específica sobre el template me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
 		
-		\newp \textcolor{awesome}{Saludos a todos!} \smiley
+		\newp \textcolor{magenta}{Saludos a todos!} \smiley

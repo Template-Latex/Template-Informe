@@ -46,7 +46,8 @@ FILES = {
     'lib/styles.tex': [],
     'abstract.tex': [],
     EXAMPLEFILE: [],
-    MAINFILE: []
+    MAINFILE: [],
+    'example-chapternumber.tex': []
 }
 FILEDELCOMMENTS = {
     'lib/config.tex': False,
@@ -106,7 +107,7 @@ for f in FILES.keys():
 
     # Sólo para el archivo principal se cambia la version
     if f == MAINFILE:
-        data[CODEVERSIONPOS] = versioncode
+        data[CODEVERSIONPOS] = versioncode.replace('\n ','\n')
 
     # Se reescribe el archivo
     newfl = open(f, 'w')

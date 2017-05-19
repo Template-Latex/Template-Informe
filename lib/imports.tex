@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      3.6.4 (18/05/2017)
+% Versión:      3.6.5 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -48,6 +48,7 @@
 \usepackage{url}       % Permite añadir enlaces
 \usepackage{wasysym}   % Contiene caracteres misceláneos
 \usepackage{wrapfig}   % Permite comprimir imágenes
+\usepackage{xspace}    % Adminsitra espacios en párrafos y líneas
 
 % LIBRERÍAS CON PARÁMETROS
 \usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
@@ -68,7 +69,8 @@
 \ifthenelse{           % Agrega puntos a los títulos/subtítulos
 	\equal{\showdotontitles}{true}}{
 	\usepackage{secdot}
-	\sectiondot{subsection}}{}
+	\sectiondot{subsection}
+	\sectiondot{subsubsection}}{}
 \ifthenelse{           % Permite añadir enlaces y referencias
 	\equal{\showborderonlinks}{false}}{
 	\usepackage[pdfencoding=auto,psdextra,hidelinks]{hyperref}}{

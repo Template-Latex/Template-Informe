@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.6.4 (18/05/2017)
+% Versión:      3.6.5 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,8 +11,21 @@
 % Manual template: [http://ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Se actualizan las variables con xspace
+\makeatletter
+\g@addto@macro\nombredelinforme\xspace
+\g@addto@macro\temaatratar\xspace
+\g@addto@macro\autordeldocumento\xspace
+\g@addto@macro\nombredelcurso\xspace
+\g@addto@macro\codigodelcurso\xspace
+\g@addto@macro\nombreuniversidad\xspace
+\g@addto@macro\nombrefacultad\xspace
+\g@addto@macro\departamentouniversidad\xspace
+\g@addto@macro\localizacionuniversidad\xspace
+\makeatother
+
 % Definición de dimensiones
-\setlength{\headheight}{64pt}  % Tamaño de la cabecera sin fancyhdr
+\setlength{\headheight}{64pt} % Tamaño de la cabecera sin fancyhdr
 \setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
 \setlength{\footnotemargin}{3mm} % Margen del footnote
 \renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
@@ -32,7 +45,6 @@
 }
 
 % Configuración de las leyendas
-\newcounter{floatmarginlines} % Lineas para figuras flotantes
 \setcaptionmargincm{\captionlrmargin} % Márgenes de las leyendas por defecto
 \ifthenelse{\equal{\captiontextbold}{true}}{
 	\renewcommand{\captiontextbold}{bf}}{
@@ -49,8 +61,7 @@
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las figuras
 	\floatsetup[figure]{
-		capposition=top}
-	}{
+		capposition=top}}{
 }
 \ifthenelse{\equal{\centeredcaption}{true}}{
 	% Se centran todos los captions
@@ -88,11 +99,6 @@
 \makeatother
 
 % Configuración de acentos y carácteres especiales
-\SelectInputMappings{
-	aacute={á},
-	Euro={€},
-	Ntilde={Ñ}
-}
 \lstset{literate=
 	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
 	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
@@ -120,18 +126,18 @@
 	pdfsubject={\temaatratar},
 	pdfcreator={LaTeX, pdfLaTeX},
 	pdfproducer={Template-Informe v\templateversion\ | (Pablo Pizarro R.) ppizarror.com},
-	pdfkeywords={\nombreuniversidad\ ,\codigodelcurso\ \nombredelcurso, \localizacionuniversidad},
+	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
 	pdfinfo={
 		Author={\autordeldocumento},
 		Title={\nombredelinforme},
 		Subject={\temaatratar},
 		Template={Template-Informe},
-		Template.Author={Pablo Pizarro R., ppizarror.com},
+		Template.Author={(Pablo Pizarro R.) ppizarror.com},
 		Template.Version={\templateversion},
-		Template.Website={http://ppizarror.com/Template-Informe/},
+		Template.Website={http://ppizarror.com/Template-Informe/}
 	},
 	pdfview={FitH},
 	pdfstartview={FitH},
 	pdfstartpage={1},
-	pdfdisplaydoctitle={true},
+	pdfdisplaydoctitle={true}
 }

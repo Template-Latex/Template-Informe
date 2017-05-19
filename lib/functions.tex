@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.6.4 (18/05/2017)
+% Versión:      3.6.5 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -28,18 +28,16 @@
 	\fi
 }
 
-\newcommand{\referenceindexentry}{
-	% Inserta las referencias al índice
+\newenvironment{references}{
+	% Crea una sección de referencias
 	\addcontentsline{toc}{section}{\namereferences}
 	\ifthenelse{\equal{\showheadertitle}{true}}{
 		\markboth{\namereferences}{}
 	}{}
-}
-
-\newcommand{\newemptypage}{
-	% Crea una página vacía
-	\newpage\null\thispagestyle{empty}\newpage
-	\addtocounter{page}{-1}
+	\begin{thebibliography}{99}
+	}
+	{ 
+	\end{thebibliography}
 }
 
 \newcommand{\setcaptionmargincm}[1]{
@@ -81,12 +79,6 @@
 	% Insertar párrafo sin nueva línea al final
 	% 	#1	Párrafo
 	#1 \par
-}
-
-\newcommand{\quotes}[1]{
-	% Inserta un texto entre comillas
-	% 	#1	Texto
-	``#1''
 }
 
 \newcommand{\lpow}[2]{
@@ -262,6 +254,12 @@
 	\stepcounter{subsubsection}
 }
 
+\newcommand{\insertemptypage}{
+	% Crea una página vacía
+	\newpage\null\thispagestyle{empty}\newpage
+	\addtocounter{page}{-1}
+}
+
 \newcommand{\insertindextitle}[2]{
 	% Insertar un título en un índice
 	%	#1	Título
@@ -281,9 +279,13 @@
 	%	#2	Ecuación
 	\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}
 	\vspace{-0.1cm}
-	\begin{equation}
+	\ifthenelse{\equal{\numberedequation}{true}}{
+		\begin{equation}
 		\text{#1} #2
-	\end{equation}
+		\end{equation}
+	}{
+		\[ #2 \]
+	}
 	\vspace{-0.26cm}
 	\par
 }
@@ -298,9 +300,13 @@
 		\insertequation[#1]{#2}
 	\else
 		\vspace{0cm}
-		\begin{equation}
-		\text{#1} #2
-		\end{equation}
+		\ifthenelse{\equal{\numberedequation}{true}}{
+			\begin{equation}
+			\text{#1} #2
+			\end{equation}
+		}{
+			\[ #2 \]
+		}
 		\vspace{-0.65cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#3} \par
@@ -691,3 +697,9 @@
 		\setcaptionmargincm{\captionlrmargin}
 	\end{wrapfigure}
 }
+
+% Inserta un texto entre comillas
+\newcommand{\quotes}[1]{``#1''}
+
+% Inserta un email con link funcional
+\newcommand{\insertemail}[1]{\href{mailto:#1}{\texttt{#1}}}

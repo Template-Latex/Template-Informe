@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Portada
-% Versión:      3.6.4 (18/05/2017)
+% Versión:      3.6.5 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,21 +18,21 @@
 {\pagemarginright}{\pagemarginbottom}
 \pagestyle{fancy} \fancyhf{}
 \fancyhead[L]{
-\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad}
+	\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad \\ \vspace{-0.43cm}}
 \fancyhead[R]{
-\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}}
+	\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}}
 
 % Estilo con código de curso
 \ifthenelse{\equal{\gradecodeonportrait}{true}}{
 	\vspace*{3cm}
 	\begin{center}
-		\textcolor{\portraittitlecolor}{
+		\textcolor {\portraittitlecolor}{
 			\huge {\nombredelcurso} \\
-			\vspace{0.3cm}
+			\vspace {0.3cm}
 			\large {Código del curso: \codigodelcurso} \\
-			\vspace{1.5cm}
+			\vspace {1.5cm}
 			\Huge {\nombredelinforme} \\
-			\vspace{0.3cm}
+			\vspace {0.3cm}
 			\large {\temaatratar}
 		}
 	\end{center}
@@ -41,11 +41,11 @@
 }{
 	\vspace*{5cm}
 	\begin{center}
-		\textcolor{\portraittitlecolor}{
+		\textcolor {\portraittitlecolor}{
 			\huge {\nombredelcurso} \\
-			\vspace{1cm}
+			\vspace {1cm}
 			\Huge {\nombredelinforme} \\
-			\vspace{0.3cm}
+			\vspace {0.3cm}
 			\large {\temaatratar}
 		}
 	\end{center}

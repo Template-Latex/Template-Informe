@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      3.6.4 (18/05/2017)
+% Versión:      3.6.5 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,7 +12,12 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % Numeración de páginas y márgenes
-\newpage \pagenumbering{roman}
+\newpage
+\ifthenelse{\equal{\romanuppercase}{true}}{
+	\pagenumbering{Roman}
+}{
+	\pagenumbering{roman}
+}
 \setcounter{page}{1}
 \setcounter{footnote}{1}
 \setpagemargincm{\pagemarginleft}{\pagemargintop}
@@ -51,7 +56,7 @@
 		\small \rm \textit{\nombredelinforme} % Footer izq, título del informe
 	}
 	\fancyfoot[R]{
-		\small \rm \textit{\codigodelcurso \ \nombredelcurso} % Footer der, curso
+		\small \rm \textit{\codigodelcurso \nombredelcurso} % Footer der, curso
 	}
 	\renewcommand{\footrulewidth}{0.5pt}
 }{}
@@ -63,3 +68,6 @@
 
 % Tipo de título para abstract
 \sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
+
+% Se define el tipo de texto de los url
+\urlstyle{tt}

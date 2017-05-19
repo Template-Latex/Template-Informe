@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      3.6.4 (18/05/2017)
+% Versión:      3.6.5 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -15,8 +15,10 @@
 \def\defaultimagefolder {images/} % Carpeta de las imágenes
 \def\defaultinterline {1.0}       % Interlineado por defecto
 \def\defaultnewlinesize {11pt}    % Tamaño del salto de línea
+\def\numberedequation {true}      % Ecuaciones con \insertequation numeradas
 \def\showborderonlinks {false}    % Muestra un recuadro en cada enlace
 \def\showdotontitles {true}       % Punto al final de cada título/subtítulo/etc
+\def\romanuppercase {false}       % Páginas en número romano en mayúsculas
 \def\tablepadding {1.0}           % Padding de las tablas
 
 % CONFIGURACIÓN DE LOS CAPTION
@@ -51,7 +53,7 @@
 \def\subtitlecolor {black}        % Color de los subtítulos
 \def\tablelinecolor {black}       % Color de las líneas de las tablas
 \def\titlecolor {black}           % Color de los títulos
-\def\urlcolor {black}             % Color de los url (insertados con \url,\href)
+\def\urlcolor {black}             % Color de los url (insertados con \url, \href)
 
 % MÁRGENES DE FIGURAS
 \def\marginbottomimages {-0.2cm}  % Margen inferior figura
@@ -79,25 +81,19 @@
 \def\fontsizesubsubtitle {\large} % Tamaño sub-subtítulos
 \def\fontsizesubtitle {\Large}    % Tamaño subtítulos
 \def\fontsizetitle {\huge}        % Tamaño títulos
+\def\fontsizetitlei {\huge}       % Tamaño títulos en el índice
 \def\stylesubsubtitle {\bfseries} % Estilo sub-subtítulos
 \def\stylesubtitle {\bfseries}    % Estilo subtítulos
 \def\styletitle {\bfseries}       % Estilo títulos
-
-% ESTILO Y TAMAÑO DE TÍTULOS EN EL ÍNDICE
-\def\fontsizesubsubtitlei{\large} % Tamaño sub-subtítulos en el índice
-\def\fontsizesubtitlei {\Large}   % Tamaño subtítulos en el índice
-\def\fontsizetitlei {\huge}       % Tamaño títulos en el índice
-\def\stylesubsubtitlei{\bfseries} % Estilo sub-subtítulos en el índice
-\def\stylesubtitlei {\bfseries}   % Estilo subtítulos en el índice
 \def\styletitlei {\bfseries}      % Estilo títulos en el índice
 
 % NOMBRE DE OBJETOS
-\def\nameportraitpage {Portada}       % Etiqueta página de la portada
-\def\namereferences {Referencias}     % Nombre de la sección de referencias
-\def\nomltcont {Índice de Contenidos} % Nombre del índice de contenidos
-\def\nomltfigure {Lista de Figuras}   % Nombre del índice de la lista de figuras
-\def\nomltsrc{Lista de Código Fuente} % Nombre del índice de la lista de código
-\def\nomlttable {Lista de Tablas}     % Nombre del índice de la lista de tablas
-\def\nomltwsrc {Código}               % Etiqueta leyenda del código fuente
-\def\nomltwfigure {Figura}            % Etiqueta leyenda de las figuras
-\def\nomltwtable {Tabla}              % Etiqueta leyenda de las tablas
+\def\nameportraitpage {Portada}        % Etiqueta página de la portada
+\def\namereferences {Referencias}      % Nombre de la sección de referencias
+\def\nomltcont {Índice de Contenidos}  % Nombre del índice de contenidos
+\def\nomltfigure {Lista de Figuras}    % Nombre del índice de la lista de figuras
+\def\nomltsrc {Lista de Código Fuente} % Nombre del índice de la lista de código
+\def\nomlttable {Lista de Tablas}      % Nombre del índice de la lista de tablas
+\def\nomltwsrc {Código}                % Etiqueta leyenda del código fuente
+\def\nomltwfigure {Figura}             % Etiqueta leyenda de las figuras
+\def\nomltwtable {Tabla}               % Etiqueta leyenda de las tablas
