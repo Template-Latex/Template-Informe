@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      3.6.5 (19/05/2017)
+% Versión:      3.6.6 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -63,9 +63,6 @@
 \usepackage{multirow}  % Agrega nuevas opciones a las tablas
 
 % LIBRERÍAS CONDICIONALES
-\ifthenelse{           % Paquete para configurar el núcleo
-	\equal{\referenceassection}{true}}{
-	\usepackage{etoolbox}}{}
 \ifthenelse{           % Agrega puntos a los títulos/subtítulos
 	\equal{\showdotontitles}{true}}{
 	\usepackage{secdot}

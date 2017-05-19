@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.6.5 (19/05/2017)
+% Versión:      3.6.6 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -37,10 +37,11 @@
 \sethlcolor{\highlightcolor} % Color del subrayado por defecto
 \hypersetup{
 	% Color de links
-	colorlinks,
+	citebordercolor=\citecolor,
 	citecolor=\citecolor,
-	filecolor=black,
+	linkbordercolor=\linkcolor,
 	linkcolor=\linkcolor,
+	urlbordercolor=\urlcolor,
 	urlcolor=\urlcolor
 }
 
@@ -70,10 +71,6 @@
 
 % Configuración de referencias
 \bibliographystyle{\typereference} % Estilo de las referencias
-\ifthenelse{\equal{\referenceassection}{true}}{
-	% Se configura las referencias como una sección
-	\patchcmd{\thebibliography}{*}{}{}{}
-}{}
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
 	% Referencias en 2 columnas
