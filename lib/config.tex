@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      3.6.6 (19/05/2017)
+% Versión:      3.6.7 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -15,15 +15,15 @@
 \def\defaultimagefolder {images/} % Carpeta de las imágenes
 \def\defaultinterline {1.0}       % Interlineado por defecto
 \def\defaultnewlinesize {11pt}    % Tamaño del salto de línea
-\def\numberedequation {true}      % Ecuaciones con \insertequation numeradas
-\def\showborderonlinks {false}    % Muestra un recuadro en cada enlace
+\def\numberedequation {true}      % Ecuaciones con \insertequation... numeradas
+\def\showborderonlinks {false}    % Reemplaza el color de un link por un recuadro de color
 \def\showdotontitles {true}       % Punto al final de cada título/subtítulo/etc
 \def\romanpageuppercase {false}   % Páginas en número romano en mayúsculas
 \def\tablepadding {1.0}           % Padding de las tablas
 
 % CONFIGURACIÓN DE LOS CAPTION
 \def\captionbottommargin {4}      % Margen inferior de las leyendas [pt]
-\def\captionlessmargin {0.1cm}    % Margen sup/inf de figuras si no hay leyenda
+\def\captionlessmarginimage {0.1} % Margen sup/inf de imágenes si no hay leyenda [cm]
 \def\captionlrmargin {2.7}        % Márgenes izq/der de la leyenda [cm]
 \def\captiontextbold {false}      % Etiquetas (Figura,Tabla,etc.) en negrita
 \def\captiontopmargin {9}         % Margen superior de la leyenda [pt]
@@ -33,7 +33,7 @@
 
 % CONFIGURACIÓN DEL ÍNDICE
 \def\indextitlemargin {7pt}       % Margen títulos en índice
-\def\indexdepth {3}               % Profundidad del índice
+\def\indexdepth {3}               % Profundidad máxima del índice
 \def\showindex {true}             % Muestra el índice
 \def\showindexofcontents {true}   % Muestra la lista de contenidos
 \def\showindexoffigures {true}    % Muestra la lista de figuras
@@ -56,9 +56,9 @@
 \def\urlcolor {magenta}           % Color de los enlaces web (insertados con \url, \href)
 
 % MÁRGENES DE FIGURAS
-\def\marginbottomimages {-0.2cm}  % Margen inferior figura
-\def\marginfloatimages {-13pt}    % Margen sup. fig. flotante (\insertimageleft/right)
-\def\margintopimages {0.0cm}      % Margen superior figura
+\def\marginbottomimages {-0.2}    % Margen inferior figura [cm]
+\def\marginfloatimages {-13}      % Margen sup. fig. flotante (\insertimageleft/right) [pt]
+\def\margintopimages {0.0}        % Margen superior figura [cm]
 
 % REFERENCIAS
 \def\referencenumsection {false}  % Referencias como sección con número

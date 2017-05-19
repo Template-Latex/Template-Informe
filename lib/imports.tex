@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      3.6.6 (19/05/2017)
+% Versión:      3.6.7 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -54,6 +54,7 @@
 \usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
 \usepackage[inline]{enumitem} % Permite enumerar ítems
 \usepackage[bottom,norule,hang]{footmisc} % Estilo pié de página
+\usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
 \usepackage[figure,table,lstlisting]{totalcount} % Contador de objetos
 \usepackage[usenames,dvipsnames]{xcolor} % Paquete de colores avanzado
 
@@ -67,8 +68,5 @@
 	\equal{\showdotontitles}{true}}{
 	\usepackage{secdot}
 	\sectiondot{subsection}
-	\sectiondot{subsubsection}}{}
-\ifthenelse{           % Permite añadir enlaces y referencias
-	\equal{\showborderonlinks}{false}}{
-	\usepackage[pdfencoding=auto,psdextra,hidelinks]{hyperref}}{
-	\usepackage[pdfencoding=auto,psdextra]{hyperref}}
+	\sectiondot{subsubsection}}{
+}

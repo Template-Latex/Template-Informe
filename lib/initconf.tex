@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.6.6 (19/05/2017)
+% Versión:      3.6.7 (19/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -35,14 +35,22 @@
 \color{\maintextcolor} % Color principal
 \arrayrulecolor{\tablelinecolor} % Color de las lineas de las tablas
 \sethlcolor{\highlightcolor} % Color del subrayado por defecto
-\hypersetup{
-	% Color de links
-	citebordercolor=\citecolor,
-	citecolor=\citecolor,
-	linkbordercolor=\linkcolor,
-	linkcolor=\linkcolor,
-	urlbordercolor=\urlcolor,
-	urlcolor=\urlcolor
+\ifthenelse{\equal{\showborderonlinks}{true}}{
+	\hypersetup{
+		% Color de links con borde
+		citebordercolor=\citecolor,
+		linkbordercolor=\linkcolor,
+		urlbordercolor=\urlcolor
+	}
+}{
+	\hypersetup{
+		% Color de links sin borde
+		hidelinks,
+		colorlinks=true,
+		citecolor=\citecolor,
+		linkcolor=\linkcolor,
+		urlcolor=\urlcolor
+	}
 }
 
 % Configuración de las leyendas
