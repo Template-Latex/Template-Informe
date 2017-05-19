@@ -6,6 +6,7 @@
 	<title>Template Informe</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="stylesheets/font-awesome.min.css" media="screen">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
@@ -980,9 +981,18 @@
 				</li>
 				<li>
 					Plugin para expotar tablas desde Excel: <a href="https://www.ctan.org/pkg/excel2latex">https://www.ctan.org/pkg/excel2latex</a>
-					<ul>
-						<li class="help-links"><a href="http://www.contextures.com/exceladdins.html#install">Cómo instalar plugins en Excel</a></li>
-					</ul>
+					<ol>
+						<li class="help-links">Descargar el <a href="http://mirrors.ctan.org/support/excel2latex.zip">plugin</a> y extraer el zip</li>
+						<li class="help-links">
+							Pegar los contenidos del zip en <i>C:\Users\UserName\AppData\Roaming\Microsoft\AddIns</i>
+							<ul>
+								<li>Si no encuentras la carpeta Appdata: Pulsa <i class="fa fa-windows" aria-hidden="true"></i>+<b>R</b> &rarr; Escribe <i>appdata</i> &rarr; Aceptar</li> (<a href="./images/ejemplo-appdata.png">ejemplo</a>)
+							</ul>
+						</li>
+						<li class="help-links">Abrir el archivo <i>Excel2LaTeX.xla</i> con Excel</li>
+						<li class="help-links">Abrir el plugin ubicado en <i>Complementos</i> &rarr; <i>Convert Table to Latex</i></li>
+						<li class="help-links">Configurar el plugin a gusto (<a href="./images/ejemplo-config.png">ejemplo</a>)</li>
+					</ol>
 				</li>
 				<li>
 					Latex online: <a href="https://www.sharelatex.com?r=298b935f&rm=d&rs=b">https://www.sharelatex.com/</a>
