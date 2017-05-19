@@ -17,6 +17,10 @@ body {
     color: #606c71;
 }
 
+.help-links {
+    font-size: 0.9rem;
+}
+
 a.back-to-top {
 	display: none;
 	width: 60px;
