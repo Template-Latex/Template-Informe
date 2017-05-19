@@ -132,12 +132,12 @@
 					<li><a href="#config-other" class="menu-little-entry">Configuraciones generales</a></li>
 					<li><a href="#config-caption" class="menu-little-entry">Configuración de las leyendas</a></li>
 					<li><a href="#config-index" class="menu-little-entry">Configuración del índice</a></li>
-					<li><a href="#config-colors" class="menu-little-entry">Configuración de los colores</a></li>
+					<li><a href="#config-colors" class="menu-little-entry">Configurar los colores del documento</a></li>
 					<li><a href="#config-figure" class="menu-little-entry">Márgenes de las figuras</a></li>
 					<li><a href="#config-ref" class="menu-little-entry">Configuración de referencias</a></li>
 					<li><a href="#config-elem" class="menu-little-entry">Configuración de portada, header y footer</a></li>
 					<li><a href="#config-pagemargin" class="menu-little-entry">Márgenes de la página</a></li>
-					<li><a href="#config-tstyles" class="menu-little-entry">Estilo de los títulos</a></li>
+					<li><a href="#config-tstyles" class="menu-little-entry">Estilo y tamaño de los títulos</a></li>
 					<li><a href="#config-objname" class="menu-little-entry">Nombres de objetos</a></li>
 				</ul>
 			</li>
@@ -661,16 +661,16 @@
 					<strong class="functtitlstyle">Otras funciones<a id="hlp-other"></a></strong>
 					<ul>
 						<li>
+							<strong>\insertemail</strong><b>{</b><em>Correo</em><b>}</b>: Inserta un link de un correo con formato y dirección web válida.
+						</li>
+						<li>
+							<strong>\insertemptypage</strong>: Inserta una página vacía (sin headers ni contenido).
+						</li>
+						<li>
 							<strong>\insertindextitle</strong><b>{</b><em>Título</em><b>}</b><b>{</b><em>Margen vertical <i>(opcional)</i> [px]</em><b>}</b>: Inserta un título sólo en el índice. <b>Nota:</b> para utilizar esta función se debe haber creado una sección antes.
 						</li>
 						<li>
-							<strong>\newemptypage</strong>: Inserta una página vacía (sin headers ni contenido).
-						</li>
-						<li>
 							<strong>\quotes</strong><b>{</b><em>Texto</em><b>}</b>: Inserta un texto entre comillas.
-						</li>
-						<li>
-							<strong>\referenceindexentry</strong>: Agrega las referencias al índice y al header (usar dentro de la bibliografía).
 						</li>
 						<li>
 							<strong>\sectionanumheadless</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número y sin aparecer en el header del informe.
@@ -713,10 +713,16 @@
 						<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea en pt.
 					</li>
 					<li>
+						<strong>\numberedequation</strong>: Muestra el número en las ecuaciones insertadas con <i>\insertequation</i>.
+					</li>
+					<li>
 						<strong>\showborderonlinks</strong>: Muestra un recuadro en cada enlace del documento.
 					</li>
 					<li>
 						<strong>\showdotontitles</strong>: Muestra un punto en cada número de sección, subsección y sub-subsección.
+					</li>
+					<li>
+						<strong>\romanpageuppercase</strong>: Páginas en número romano (abstract-índice) en mayúsculas.
 					</li>
 					<li>
 						<strong>\tablepadding</strong>: Padding de las tablas.
@@ -782,7 +788,7 @@
 			</li>
 
 			<li class="config-parent">
-				<strong class="functtitlstyle">Configuración de los colores<a id="config-colors"></a></strong>
+				<strong class="functtitlstyle">Configurar los colores del documento<a id="config-colors"></a></strong>
 				<ul>
 					<li>
 						<strong>\captioncolor</strong>: Color de la etiqueta (Figura, Tabla, Código) en la leyenda de los objetos.
@@ -893,37 +899,25 @@
 			</li>
 
 			<li class="config-parent">
-				<strong class="functtitlstyle">Estilo de los títulos<a id="config-tstyles"></a></strong>
+				<strong class="functtitlstyle">Estilo y tamaño de los títulos<a id="config-tstyles"></a></strong>
 				<ul>
 					<li>
 						<strong>\fontsizesubsubtitle</strong>: Tamaño sub-subtítulos.
 					</li>
 					<li>
-						<strong>>\fontsizesubsubtitlei</strong>: Tamaño sub-subtítulos en el índice.
+						<strong>\fontsizesubtitle</strong>: Tamaño subtítulos.
 					</li>
 					<li>
-						<strong>>\fontsizesubtitle</strong>: Tamaño subtítulos.
+						<strong>\fontsizetitle</strong>: Tamaño títulos.
 					</li>
 					<li>
-						<strong>>\fontsizesubtitlei</strong>: Tamaño subtítulos en el índice.
-					</li>
-					<li>
-						<strong>>\fontsizetitle</strong>: Tamaño títulos.
-					</li>
-					<li>
-						<strong>>\fontsizetitlei</strong>: Tamaño títulos en el índice.
+						<strong>\fontsizetitlei</strong>: Tamaño títulos en el índice.
 					</li>
 					<li>
 						<strong>\stylesubsubtitle</strong>: Estilo sub-subtítulos.
 					</li>
 					<li>
-						<strong>\stylesubsubtitlei</strong>: Estilo sub-subtítulos en el índice.
-					</li>
-					<li>
 						<strong>\stylesubtitle</strong>: Estilo subtítulos.
-					</li>
-					<li>
-						<strong>\stylesubtitlei</strong>: Estilo subtítulos en el índice.
 					</li>
 					<li>
 						<strong>\styletitle</strong>: Estilo títulos.
@@ -938,7 +932,7 @@
 				<strong class="functtitlstyle">Nombres de objetos<a id="config-objname"></a></strong>
 				<ul>
 					<li>
-						<strong>\nameportraitpage</strong>: Nombre de la primera página (portada).
+						<strong>\nameportraitpage</strong>: Nombre de la primera página (portada) en el pdf.
 					</li>
 					<li>
 						<strong>\namereferences</strong>: Nombre de la sección de referencias.
@@ -956,13 +950,13 @@
 						<strong>\nomlttable</strong>: Nombre de la lista de tablas.
 					</li>
 					<li>
-						<strong>\nomltwsrc</strong>: Nombre del código fuente.
+						<strong>\nomltwsrc</strong>: Etiqueta leyenda del código fuente.
 					</li>
 					<li>
-						<strong>\nomltwfigure</strong>: Nombre de las figuras.
+						<strong>\nomltwfigure</strong>: Etiqueta leyenda de las figuras.
 					</li>
 					<li>
-						<strong>\nomltwtable</strong>: Nombre de las tablas.
+						<strong>\nomltwtable</strong>: Etiqueta leyenda de las tablas.
 					</li>
 				</ul>
 			</li>
@@ -986,10 +980,10 @@
 					</ul>
 				</li>
 				<li>
-					Manual para usar Latex: <a href="https://es.sharelatex.com/learn">https://es.sharelatex.com/learn</a>
+					Latex online: <a href="https://www.sharelatex.com?r=298b935f&rm=d&rs=b">https://www.sharelatex.com/</a>
 				</li>
 				<li>
-					Latex online: <a href="https://www.sharelatex.com?r=298b935f&rm=d&rs=b">https://www.sharelatex.com/</a>
+					Manual para usar Latex: <a href="https://es.sharelatex.com/learn">https://es.sharelatex.com/learn</a>
 				</li>
 			</ul>
 		</p>
@@ -1140,6 +1134,9 @@
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/xcolor">xcolor</a></strong>: Paquete de colores avanzado.
 			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/xcolor">xspace</a></strong>: Adminsitra espacios en párrafos y líneas.
+			</li>
 		</ul>
 
 		<!-- Qué hay de nuevo, CHANGELOG -->
@@ -1155,7 +1152,7 @@
 		<h2>
 			<a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor
 		</h2>
-		<p><a href="http://ppizarror.com/">Pablo Pizarro</a>, 2016-2017.</p>
+		<p><a href="http://ppizarror.com/">Pablo Pizarro R.</a> 2016-2017.</p>
 		<p>Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.</p>
 		<br><br><br><br>
 		<!--
