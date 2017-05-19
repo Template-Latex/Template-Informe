@@ -84,6 +84,34 @@
 
 		\newp \lipsum[4]
 		
+	% Inserta un subtítulo sin número
+	\subsection{Otros párrafos más normales}
+	
+		% Párrafos con lipsum
+		\lipsum[7]
+		
+		\newp \lipsum[2]
+		
+		% Se inserta una ecuación larga
+		\insertequationalign[\label{eqn:eqn-larga}]{\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}+ \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}
+		
+		% Se inserta un multicols, con esto se pueden escribir en varias columnas
+		\begin{multicols}{2}
+			
+			% Párrafo 1
+			\lipsum[4]
+			
+			% Ecuación
+			\insertequation[]{ f(x) = \fracdpartial{u}{t} }
+			
+			% Párrafo 2 del multicols
+			\lipsum[5]
+			
+		\end{multicols}
+		
+		% Último párrafo de la subsección
+		\lipsum[1]
+		
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
 		
@@ -137,34 +165,6 @@ function list = find_coordinates(matrix, value)
 
 end
 \end{lstlisting}
-	
-	% Inserta un subtítulo sin número
-	\subsection{Otros párrafos más normales}
-		
-		% Párrafos con lipsum
-		\lipsum[7]
-		
-		\newp \lipsum[2]
-		
-		% Se inserta una ecuación larga
-		\insertequationalign[\label{eqn:eqn-larga}]{\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}+ \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}
-		
-		% Se inserta un multicols, con esto se pueden escribir en varias columnas
-		\begin{multicols}{2}
-			
-			% Párrafo 1
-			\lipsum[4]
-			
-			% Ecuación
-			\insertequation[]{ f(x) = \fracdpartial{u}{t} }
-			
-			% Párrafo 2 del multicols
-			\lipsum[5]
-			
-		\end{multicols}
-		
-		% Último párrafo de la subsección
-		\lipsum[1]
 
 
 % NUEVA SECCIÓN
