@@ -87,7 +87,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     if (total_downloads == 0) {
         total_downloads = 'NaN';
     } else {
-        total_downloads += 129+60+138+3+3+1+4+55+115+74+17+3+18+7+68;
+        total_downloads += 129+60+138+3+3+1+4+55+115+74+17+3+18+7+68+71;
     }
 
     // Se establece la versión en el contador de descargas totales
