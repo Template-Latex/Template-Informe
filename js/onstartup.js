@@ -121,6 +121,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
             title_new_version = String.format('<b>Versión <a href="{2}"">{0}</b></a>: <i class="fecha-estilo">{1}</i>', json[i].tag_name, version_created_at, json[i].html_url);
             content_version = md_converter.makeHtml(json[i].body);
             new_version_entry += String.format(whats_new_html, title_new_version, content_version);
+            new_version_entry += '<hr class="style1">';
         }
         new_version_entry += "Puedes ver la lista de cambios completa <a href='https://github.com/ppizarror/Template-Informe/releases'>en Github</a>.";
         document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
