@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.6.9 (20/05/2017)
+% Versión:      3.7.0 (20/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -19,27 +19,28 @@
 	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin "número" se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
 	\subsection{Una breve introducción}
 		
-		% Esta función sirve para rellenar con un párrafo
-		\lipsum[4]
-		
-		% Se inserta una ecuación, el primer parámetro entre corchetes es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos peso
-		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
-		
-		% Los párrafos se pueden añadir con \newpar, esta función se hizo para evitar errores y warnings por parte del compilador. No es necesario utilizar estas funciones después de una tabla o una imagen dado que estas ya insertan un párrafo por defecto
-		Este es un párrafo, \texttt{\textbackslash newp} puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:formulasinsentido}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}):
+		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}):
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.17) y una leyenda
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Where are you? de \quotes{Internet}}
 		
-		\newparnl{Este es un párrafo sin nueva línea, si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales. Además puedes editar las funciones, definidas en el archivo \texttt{lib/functions.tex}.}
+		A continuación \footnote{Como puedes observar las funciones \texttt{\textbackslash insert...} agregan un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con la función \texttt{\textbackslash insertequation}:
+		
+		% Se inserta una ecuación, el primer parámetro entre corchetes es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos peso
+		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
+		
+		% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar errores y warnings por parte del compilador. No es necesario utilizar estas funciones después de una tabla o una imagen dado que estas ya insertan un párrafo por defecto
+		\lipsum[66]
+		
+		\newp Este es un nuevo párrafo insertado con el comando \texttt{\textbackslash newp}. Si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales acompañado de \texttt{\textbackslash par}. Además puedes editar las funciones, definidas en el archivo \texttt{lib/functions.tex}.
 		
 	% SUB-SECCIÓN
-	\subsection{Tablas!}
+	\subsection{Añadiendo tablas}
 		
-		\newp También puedes usar tablas, insertarlas es muy fácil, puedes usar el plugin de Excel \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} para convertir las tablas a \LaTeX o bien utilizar el \quotes{creador de tablas online} \textsuperscript{\cite{ref3}}.
+		\newp También puedes usar tablas, insertarlas es muy fácil, puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} de Excel para convertir las tablas a \LaTeX o bien utilizar el \quotes{creador de tablas online} \textsuperscript{\cite{ref3}}.
 		
 		\begin{longtable}{ccc}
-			\caption{Esta es una tabla que se \quotes{corta} en varias páginas si es que le falta espacio.}\label{tabl:foo}\\
+			\caption{Esta es una tabla que se \quotes{corta} en varias páginas} \label{tabl:foo}\\
 			\hline
 			Columna 1 & Columna 2 & Columna 3\\\hline
 			\endfirsthead
@@ -70,18 +71,19 @@
 		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, el número de filas que utilizará y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
 		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.27}{15}{Apolo}
 		
-		Test es una palabra inglesa aceptada por la Real Academia Española (RAE). Este concepto hace referencia a las pruebas destinadas a evaluar conocimientos, aptitudes o funciones. La palabra test puede utilizarse como sinónimo de examen. Los exámenes son muy frecuentes en el ámbito educativo ya que permiten evaluar los conocimientos adquiridos por los estudiantes. Los exámenes pueden ser orales o escritos.
+		\lipsum[75]
 		
+		% Párrafos con \newp, lipsum por defecto no añade un párrafo nuevo
 		\newp \lipsum[115]
-		
-		% Se inserta un nuevo párrafo de modo inteligente, evita errores de hbox, crea un nuevo par y añade un espacio en blanco
 		\newp \lipsum[2]
 		
 		% Agrega una ecuación con leyendas
 		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) dx = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
 		
+		% Aquí no es necesario usar \newp dado que todas las funciones \insert... añaden un párrafo nuevo por defecto
 		\lipsum[115]
-
+		
+		% Párrafos con \newp, lipsum por defecto no añade un párrafo nuevo
 		\newp \lipsum[4]
 		
 	% Inserta un subtítulo sin número
@@ -92,8 +94,8 @@
 		
 		\newp \lipsum[2]
 		
-		% Se inserta una ecuación larga
-		\insertalign[\label{eqn:eqn-larga}]{\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}+ \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}
+		% Se inserta una ecuación larga con el entorno align
+		\insertalign[\label{eqn:eqn-larga}]{\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}
 		
 		% Se inserta un multicols, con esto se pueden escribir en varias columnas
 		\begin{multicols}{2}
