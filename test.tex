@@ -1,4 +1,15 @@
-% \insertimage[]{}{}{}
+% Template:     Informe/Reporte LaTeX
+% Documento:    Archivo de testeo
+% Versión:      3.7.3 (21/05/2017)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Manual template: [http://ppizarror.com/Template-Informe/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 \lipsum[6]
 \insertequation[]{a+b}
@@ -61,6 +72,42 @@ Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
 \insertaligncaptionedanum{arg1}{}
+
+Linea 1, pruebas con lorem ipsum arbol tierra piedra.
+
+\newpage
+\section{Aligned}
+Linea 1, pruebas con lorem ipsum arbol tierra piedra.
+
+\insertequationanum{arg1}
+
+Linea 1, pruebas con lorem ipsum arbol tierra piedra.
+
+\insertequation[]{arg2}
+
+Linea 1, pruebas con lorem ipsum arbol tierra piedra.
+
+\insertaligned[\label{aligned1}]{arg2}
+
+Linea 1, pruebas con lorem ipsum arbol tierra piedra.
+
+\insertalignedanum{arg1}
+
+Linea 1, pruebas con lorem ipsum arbol tierra piedra.
+
+\insertalignedcaptioned[\label{aligned2}]{arg2}{arg3}
+
+Linea 1, pruebas con lorem ipsum arbol tierra piedra.
+
+\insertalignedcaptionedanum{arg1}{arg2}
+
+Linea 1, pruebas con lorem ipsum arbol tierra piedra.
+
+\insertalignedcaptioned[\label{aligned3}]{arg2}{}
+
+Linea 1, pruebas con lorem ipsum arbol tierra piedra.
+
+\insertalignedcaptionedanum{arg1}{}
 
 Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
@@ -142,7 +189,7 @@ Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
 Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
-\insertgathered[\label{gather1}]{arg2}
+\insertgathered[\label{gathered1}]{arg2}
 
 Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
@@ -150,7 +197,7 @@ Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
 Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
-\insertgatheredcaptioned[\label{gather2}]{arg2}{arg3}
+\insertgatheredcaptioned[\label{gathered2}]{arg2}{arg3}
 
 Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
@@ -158,13 +205,24 @@ Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
 Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
-\insertgatheredcaptioned[\label{gathe3}]{arg2}{}
+\insertgatheredcaptioned[\label{gathered3}]{arg2}{}
 
 Linea 1, pruebas con lorem ipsum arbol tierra piedra.
 
 \insertgatheredcaptionedanum{arg1}{}
 
 Linea 1, pruebas con lorem ipsum arbol tierra piedra.
+
+\newpage
+\fracdderivat{a}{b}
+$\fracderivat{a}{b}$
+
+\newpage
+
+\insertdoubleeqimage[\label{img-equal}]{ejemplos/test-image}{Descripción A}
+{ejemplos/test-image-wrap}{Descripción B}{height=5cm}{Descripción general de las imágenes}
+
+\inserttripleimage[\label{img-triple-1}]{ejemplos/test-image}{scale=0.4}{ejemplos/test-image}{height=6cm}{ejemplos/test-image}{width=3cm}{Descripción general}
 
 
 % Nueva pagina

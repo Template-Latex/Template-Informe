@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.7.1 (21/05/2017)
+% Versión:      3.7.3 (21/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -79,44 +79,28 @@
 	% Insertar sub-índice, a_b
 	% 	#1	Elemento inferior (a)
 	%	#2	Elemento superior (b)
-	\ifmmode
-		{#1}_{#2}
-	\else
-		${#1}_{#2}$
-	\fi
+	\ensuremath{{#1}_{#2}}
 }
 
 \newcommand{\pow}[2]{
 	% Insertar elevado, a^b
 	% 	#1	Elemento inferior (a)
 	%	#2	Elemento superior (b)
-	\ifmmode
-		{#1}^{#2}
-	\else
-		${#1}^{#2}$
-	\fi
+	\ensuremath{{#1}^{#2}}
 }
 
 \newcommand{\fracpartial}[2]{
 	% Fracción de derivadas parciales af/ax
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\ifmmode
-		\frac{\partial #1}{\partial #2}
-	\else
-		$\frac{\partial #1}{\partial #2}$
-	\fi
+	\ensuremath{\frac{\partial #1}{\partial #2}}
 }
 
 \newcommand{\fracdpartial}[2]{
 	% Fracción de derivadas parciales dobles a^2f/ax^2
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\ifmmode
-		\frac{{\partial}^{2} #1}{\partial {#2}^{2}}
-	\else
-		$\frac{{\partial}^{2} #1}{\partial {#2}^{2}}$
-	\fi
+	\ensuremath{\frac{{\partial}^{2} #1}{\partial {#2}^{2}}}
 }
 
 \newcommand{\fracnpartial}[3]{
@@ -124,33 +108,21 @@
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
 	%	#3	Orden (n)
-	\ifmmode
-		\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}
-	\else
-		$\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}$
-	\fi
+	\ensuremath{\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}}
 }
 
 \newcommand{\fracderivat}[2]{
 	% Fracción de derivadas df/dx
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\ifmmode
-		\frac{\text{d} #1}{\text{d} #2}
-	\else
-		$\fracderivat{#1}{#2}$
-	\fi
+	\ensuremath{\frac{\text{d} #1}{\text{d} #2}}
 }
 
 \newcommand{\fracdderivat}[2]{
 	% Fracción de derivadas dobles d^2/dx^2
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\ifmmode
-		\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}
-	\else
-		$\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}$
-	\fi
+	\ensuremath{\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}}
 }
 
 \newcommand{\fracnderivat}[3]{
@@ -158,127 +130,75 @@
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
 	%	#3	Orden de la derivada (n)
-	\ifmmode
-		\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}
-	\else
-		$\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}$
-	\fi
+	\ensuremath{\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}}
 }
 
 \newcommand{\topequal}[2]{
 	% Llave superior de equivalencia
 	% 	#1	Elemento a igualar
 	%	#2	Igualdad
-	\ifmmode
-		\overbrace{#1}^{\mathclap{#2}}
-	\else
-		$\overbrace{#1}^{\mathclap{#2}}$
-	\fi
+	\ensuremath{\overbrace{#1}^{\mathclap{#2}}}
 }
 
 \newcommand{\underequal}[2]{
 	% Llave inferior de equivalencia
 	% 	#1	Elemento a igualar
 	%	#2	Igualdad
-	\ifmmode
-		\underbrace{#1}_{\mathclap{#2}}
-	\else
-		$\underbrace{#1}_{\mathclap{#2}}$
-	\fi
+	\ensuremath{\underbrace{#1}_{\mathclap{#2}}}
 }
 
 \newcommand{\topsequal}[2]{
 	% Rectángulo superior de equivalencia
 	% 	#1	Elemento a igualar
 	%	#2	Igualdad
-	\ifmmode
-		\overbracket{#1}^{\mathclap{#2}}
-	\else
-		$\overbracket{#1}^{\mathclap{#2}}$
-	\fi
+	\ensuremath{\overbracket{#1}^{\mathclap{#2}}}
 }
 
 \newcommand{\undersequal}[2]{
 	% Rectángulo inferior de equivalencia
 	% 	#1	Elemento a igualar
 	%	#2	Igualdad
-	\ifmmode
-		\underbracket{#1}_{\mathclap{#2}}
-	\else
-		$\underbracket{#1}_{\mathclap{#2}}$
-	\fi
+	\ensuremath{\underbracket{#1}_{\mathclap{#2}}}
 }
 
 \newcommand{\atan}{
 	% tan^-1
-	\ifmmode
-		{\tan}^{-1}
-	\else
-		${\tan}^{-1}$
-	\fi
+	\ensuremath{{\tan}^{-1}}
 }
 
 \newcommand{\asin}{
 	% sin^-1
-	\ifmmode
-		{\sin}^{-1}
-	\else
-		${\sin}^{-1}$
-	\fi
+	\ensuremath{{\sin}^{-1}}
 }
 
 \newcommand{\acos}{
 	% cos^-1
-	\ifmmode
-		{\cos}^{-1}
-	\else
-		${\cos}^{-1}$
-	\fi
+	\ensuremath{{\cos}^{-1}}
 }
 
 \newcommand{\acsc}{
 	% csc^-1
-	\ifmmode
-		{\csc}^{-1}
-	\else
-		${\csc}^{-1}$
-	\fi
+	\ensuremath{{\csc}^{-1}}
 }
 
 \newcommand{\asec}{
 	% sec^-1
-	\ifmmode
-		{\sec}^{-1}
-	\else
-		${\sec}^{-1}$
-	\fi
+	\ensuremath{{\sec}^{-1}}
 }
 
 \newcommand{\acot}{
 	% cot^-1
-	\ifmmode
-		{\cot}^{-1}
-	\else
-		${\cot}^{-1}$
-	\fi
+	\ensuremath{{\cot}^{-1}}
 }
 
 \newcommand{\abs}[1]{
 	% Valor absoluto
-	\ifmmode
-		\lvert #1 \rvert
-	\else
-		$\lvert #1 \rvert$
-	\fi
+	\ensuremath{\lvert #1 \rvert}
 }
 
 \newcommand{\norm}[1]{
 	% Norma
-	\ifmmode
-		\lVert #1 \rVert
-	\else
-		$\lVert #1 \rVert$
-	\fi
+	\ensuremath{\lVert #1 \rVert}
 }
 
 \newcommand{\resizeitem}[2]{
@@ -414,8 +334,8 @@
 	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}
 	\vspace{-0.1cm}
 	\[ #1 \]
-	\vspace{-0.26cm}
 	\par
+	\vspace{-0.26cm}
 }
 
 \newcommand{\insertequationcaptioned}[3][]{
@@ -434,7 +354,7 @@
 			\end{equation}
 			\vspace{-0.65cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-				\centering \textcolor{\captiontextcolor}{#3} \par
+				\centering \textcolor{\captiontextcolor}{#3}
 				\vspace{0.05cm}
 			\end{changemargin}
 			\vspace{0cm}
@@ -461,7 +381,7 @@
 		\[ #1 \]
 		\vspace{-0.65cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-			\centering \textcolor{\captiontextcolor}{#2} \par
+			\centering \textcolor{\captiontextcolor}{#2}
 			\vspace{0.05cm}
 		\end{changemargin}
 		\vspace{0cm}
@@ -518,7 +438,7 @@
 			\end{gather}
 			\vspace{-0.7cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-				\centering \textcolor{\captiontextcolor}{#3} \par
+				\centering \textcolor{\captiontextcolor}{#3}
 				\vspace{0.05cm}
 			\end{changemargin}
 			\vspace{0cm}
@@ -547,7 +467,7 @@
 		\end{gather*}
 		\vspace{-0.7cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-			\centering \textcolor{\captiontextcolor}{#2} \par
+			\centering \textcolor{\captiontextcolor}{#2}
 			\vspace{0.05cm}
 		\end{changemargin}
 		\vspace{0cm}
@@ -608,7 +528,7 @@
 			\end{equation}
 			\vspace{-0.65cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-				\centering \textcolor{\captiontextcolor}{#3} \par
+				\centering \textcolor{\captiontextcolor}{#3}
 				\vspace{0.05cm}
 			\end{changemargin}
 			\vspace{0cm}
@@ -637,7 +557,7 @@
 		\end{gather*}
 		\vspace{-0.7cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-			\centering \textcolor{\captiontextcolor}{#2} \par
+			\centering \textcolor{\captiontextcolor}{#2}
 			\vspace{0.05cm}
 		\end{changemargin}
 		\vspace{0cm}
@@ -694,7 +614,7 @@
 			\end{align}
 			\vspace{-0.7cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-				\centering \textcolor{\captiontextcolor}{#3} \par
+				\centering \textcolor{\captiontextcolor}{#3}
 				\vspace{0.05cm}
 			\end{changemargin}
 			\vspace{0cm}
@@ -723,7 +643,98 @@
 		\end{align*}
 		\vspace{-0.7cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-			\centering \textcolor{\captiontextcolor}{#2} \par
+			\centering \textcolor{\captiontextcolor}{#2}
+			\vspace{0.05cm}
+		\end{changemargin}
+		\vspace{0cm}
+		\par
+	\fi
+}
+
+\newcommand{\insertaligned}[2][]{
+	% Insertar una ecuación con el ambiente aligned
+	% 	#1	Label (opcional)
+	%	#2	Ecuación
+	\emptyvarerr{\insertaligned}{#2}{Ecuacion no definida}
+	\ifthenelse{\equal{\numberedequation}{true}}{
+		\vspace{-0.1cm}
+		\begin{equation}
+			\begin{aligned}
+				\text{#1} #2
+			\end{aligned}
+		\end{equation}
+		\vspace{-0.26cm}
+	}{
+		\ifx\hfuzz#1\hfuzz
+		\else
+			\throwwarning{Label invalido en ecuacion (aligned) sin numero}
+		\fi
+		\insertalignedanum{#2}
+	}
+}
+
+\newcommand{\insertalignedanum}[1]{
+	% Insertar una ecuación con el ambiente aligned sin número
+	%	#1	Ecuación
+	\emptyvarerr{\insertalignedanum}{#1}{Ecuacion no definida}
+	\vspace{-0.45cm}
+	\begin{align*}
+		#1
+	\end{align*}
+	\vspace{-0.4cm}
+	\par
+}
+
+\newcommand{\insertalignedcaptioned}[3][]{
+	% Insertar una ecuación (aligned) con leyenda
+	% 	#1	Label (opcional)
+	%	#2	Ecuación
+	%	#3	Leyenda
+	\emptyvarerr{\insertalignedcaptioned}{#2}{Ecuacion no definida}
+	\ifx\hfuzz#3\hfuzz
+		\insertaligned[#1]{#2}
+	\else
+	\ifthenelse{\equal{\numberedequation}{true}}{
+		\vspace{0cm}
+		\begin{equation}
+			\begin{aligned}
+				\text{#1} #2
+			\end{aligned}
+		\end{equation}
+		\vspace{-0.65cm}
+		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+			\centering \textcolor{\captiontextcolor}{#3}
+			\vspace{0.05cm}
+		\end{changemargin}
+		\vspace{0cm}
+		\par
+	}{
+		\ifx\hfuzz#1\hfuzz
+		\else
+			\throwwarning{Label invalido en ecuacion (aligned) sin numero}
+		\fi
+		\insertalignedcaptionedanum{#2}{#3}
+	}
+	\fi
+}
+
+\newcommand{\insertalignedcaptionedanum}[2]{
+	% Insertar una ecuación (aligned) con leyenda sin número
+	%	#1	Ecuación
+	%	#2	Leyenda
+	\emptyvarerr{\insertalignedcaptioned}{#1}{Ecuacion no definida}
+	\ifx\hfuzz#2\hfuzz
+		\insertalignedanum{#1}
+	\else
+		\vspace{0cm}
+		\begin{equation}
+			\begin{aligned}
+				#1
+			\end{aligned}
+		\end{equation}
+		\vspace{-0.65cm}
+		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+			\centering \textcolor{\captiontextcolor}{#2}
 			\vspace{0.05cm}
 		\end{changemargin}
 		\vspace{0cm}
@@ -746,7 +757,7 @@
 		\ifx\hfuzz#4\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
-			\caption{#4 #1}
+			\hspace{0.04cm} \caption{#4 #1}
 		\fi
 	\end{figure}
 	\vspace{\marginbottomimages cm}
@@ -767,7 +778,7 @@
 		\ifx\hfuzz#4\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
-			\caption{#4 #1}
+			\hspace{0.05cm} \caption{#4 #1}
 		\fi
 	\end{figure}
 	\vspace{\marginbottomimages cm}

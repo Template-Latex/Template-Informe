@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      3.7.1 (21/05/2017)
+% Versión:      3.7.3 (21/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -25,15 +25,6 @@
 \decimalpoint % Se define el punto decimal
 \def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
 
-% Numeración de secciones e índice
-\ifthenelse{\equal{\showsectiononcaption}{true}}{
-\counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
-\counterwithin{figure}{section}     % Añade número de sección a las figuras
-\counterwithin{lstlisting}{section} % Añade número de sección a los códigos
-\counterwithin{table}{section}      % Añade número de sección a las tablas
-}{}
-\setcounter{tocdepth}{\indexdepth}  % Se ajusta la profundidad del índice
-
 % Definición de nombres a objetos
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header
 \renewcommand{\listfigurename}{\nomltfigure}    % Nombre del índice de figuras
@@ -44,6 +35,15 @@
 \renewcommand{\figurename}{\nomltwfigure}       % Nombre de la leyenda de las fig.
 \renewcommand{\lstlistingname}{\nomltwsrc}      % Nombre leyenda del código fuente
 \renewcommand\refname{\namereferences}          % Nombre de las referencias
+
+% Numeración de secciones e índice
+\ifthenelse{\equal{\showsectiononcaption}{true}}{
+\counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
+\counterwithin{figure}{section}     % Añade número de sección a las figuras
+\counterwithin{lstlisting}{section} % Añade número de sección a los códigos
+\counterwithin{table}{section}      % Añade número de sección a las tablas
+}{}
+\setcounter{tocdepth}{\indexdepth}  % Se ajusta la profundidad del índice
 
 % Se crean los estílos de página, header-footer
 \pagestyle{fancy} \fancyhf{}
@@ -62,9 +62,3 @@
 }{}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-
-% Se activa el word-wrap para textos con \texttt{}
-{{\ttfamily \hyphenchar\the\font=`\-}
-
-% Se define el tipo de texto de los url
-\urlstyle{tt}

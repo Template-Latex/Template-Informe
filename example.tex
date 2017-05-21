@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.7.1 (21/05/2017)
+% Versión:      3.7.3 (21/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -19,12 +19,12 @@
 	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin "número" se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
 	\subsection{Una breve introducción}
 		
-		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}):
+		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
 		
-		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.17) y una leyenda
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Where are you? de \quotes{Internet}}
+		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda
+		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}}
 		
-		A continuación \footnote{Como puedes observar las funciones \texttt{\textbackslash insert...} agregan un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con la función \texttt{\textbackslash insertequation}:
+		A continuación \footnote{Como puedes observar las funciones \texttt{\textbackslash insert...} agregan un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
 		
 		% Se inserta una ecuación, el primer parámetro entre corchetes es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos peso
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
@@ -37,7 +37,7 @@
 	% SUB-SECCIÓN
 	\subsection{Añadiendo tablas}
 		
-		\newp También puedes usar tablas, insertarlas es muy fácil, puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} de Excel para convertir las tablas a \LaTeX o bien utilizar el \quotes{creador de tablas online} \textsuperscript{\cite{ref3}}.
+		\newp También puedes usar tablas, insertarlas es muy fácil, puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \textsuperscript{\cite{ref3}}.
 		
 		\begin{longtable}{ccc}
 			\caption{Esta es una tabla que se \quotes{corta} en varias páginas} \label{tabl:foo}\\
@@ -117,11 +117,10 @@
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
 		
-		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje del mundo}, Java y Matlab:
+		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje del mundo}, Java y Matlab utilizando el entorno \texttt{lstlisting}:
 		
 % Se define el lenguaje del código, cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
-\lstset{style=Python}
-\begin{lstlisting}[caption=Ejemplo en Python]
+\begin{lstlisting}[style=Python, caption=Ejemplo en Python]
 import numpy as np
 
 def incmatrix(genl1, genl2):
@@ -131,8 +130,7 @@ def incmatrix(genl1, genl2):
 	VT = np.zeros((n*m, 1), int) # dummy variable
 \end{lstlisting}
 
-\lstset{style=Java}
-\begin{lstlisting}[caption=Ejemplo en Java]
+\begin{lstlisting}[style=Java, caption=Ejemplo en Java]
 import java.io.IOException; 
 import javax.servlet.*;
 
@@ -148,8 +146,7 @@ public class Hola extends GenericServlet {
 }
 \end{lstlisting}
 
-\lstset{style=Matlab}
-\begin{lstlisting}[caption=Ejemplo en Matlab]
+\begin{lstlisting}[style=Matlab, caption=Ejemplo en Matlab]
 function list = find_coordinates(matrix, value)
 	l = size(matrix);
 	coordenates_list = cell(l(1)*l(2), 1);
@@ -164,7 +161,6 @@ function list = find_coordinates(matrix, value)
 			end
 		end
 	end
-
 end
 \end{lstlisting}
 

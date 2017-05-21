@@ -47,7 +47,9 @@ FILES = {
     'lib/environments.tex': [],
     EXAMPLEFILE: [],
     MAINFILE: [],
-    'example-chapternumber.tex': []
+    'example-chapternumber.tex': [],
+    'test.tex': [],
+    'test-functions.tex': []
 }
 FILEDELCOMMENTS = {
     'lib/config.tex': False,
