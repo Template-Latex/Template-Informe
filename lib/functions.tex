@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.7.0 (20/05/2017)
+% Versión:      3.7.1 (21/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -79,28 +79,44 @@
 	% Insertar sub-índice, a_b
 	% 	#1	Elemento inferior (a)
 	%	#2	Elemento superior (b)
-	{#1}_{#2}
+	\ifmmode
+		{#1}_{#2}
+	\else
+		${#1}_{#2}$
+	\fi
 }
 
 \newcommand{\pow}[2]{
 	% Insertar elevado, a^b
 	% 	#1	Elemento inferior (a)
 	%	#2	Elemento superior (b)
-	{#1}^{#2}
+	\ifmmode
+		{#1}^{#2}
+	\else
+		${#1}^{#2}$
+	\fi
 }
 
 \newcommand{\fracpartial}[2]{
 	% Fracción de derivadas parciales af/ax
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\frac{\partial #1}{\partial #2}
+	\ifmmode
+		\frac{\partial #1}{\partial #2}
+	\else
+		$\frac{\partial #1}{\partial #2}$
+	\fi
 }
 
 \newcommand{\fracdpartial}[2]{
 	% Fracción de derivadas parciales dobles a^2f/ax^2
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\frac{{\partial}^{2} #1}{\partial {#2}^{2}}
+	\ifmmode
+		\frac{{\partial}^{2} #1}{\partial {#2}^{2}}
+	\else
+		$\frac{{\partial}^{2} #1}{\partial {#2}^{2}}$
+	\fi
 }
 
 \newcommand{\fracnpartial}[3]{
@@ -108,21 +124,33 @@
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
 	%	#3	Orden (n)
-	\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}
+	\ifmmode
+		\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}
+	\else
+		$\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}$
+	\fi
 }
 
 \newcommand{\fracderivat}[2]{
 	% Fracción de derivadas df/dx
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\frac{\text{d} #1}{\text{d} #2}
+	\ifmmode
+		\frac{\text{d} #1}{\text{d} #2}
+	\else
+		$\fracderivat{#1}{#2}$
+	\fi
 }
 
 \newcommand{\fracdderivat}[2]{
 	% Fracción de derivadas dobles d^2/dx^2
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}
+	\ifmmode
+		\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}
+	\else
+		$\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}$
+	\fi
 }
 
 \newcommand{\fracnderivat}[3]{
@@ -130,35 +158,127 @@
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
 	%	#3	Orden de la derivada (n)
-	\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}
+	\ifmmode
+		\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}
+	\else
+		$\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}$
+	\fi
 }
 
 \newcommand{\topequal}[2]{
 	% Llave superior de equivalencia
 	% 	#1	Elemento a igualar
 	%	#2	Igualdad
-	\overbrace{#1}^{\mathclap{#2}}
+	\ifmmode
+		\overbrace{#1}^{\mathclap{#2}}
+	\else
+		$\overbrace{#1}^{\mathclap{#2}}$
+	\fi
 }
 
 \newcommand{\underequal}[2]{
 	% Llave inferior de equivalencia
 	% 	#1	Elemento a igualar
 	%	#2	Igualdad
-	\underbrace{#1}_{\mathclap{#2}}
+	\ifmmode
+		\underbrace{#1}_{\mathclap{#2}}
+	\else
+		$\underbrace{#1}_{\mathclap{#2}}$
+	\fi
 }
 
 \newcommand{\topsequal}[2]{
 	% Rectángulo superior de equivalencia
 	% 	#1	Elemento a igualar
 	%	#2	Igualdad
-	\overbracket{#1}^{\mathclap{#2}}
+	\ifmmode
+		\overbracket{#1}^{\mathclap{#2}}
+	\else
+		$\overbracket{#1}^{\mathclap{#2}}$
+	\fi
 }
 
 \newcommand{\undersequal}[2]{
 	% Rectángulo inferior de equivalencia
 	% 	#1	Elemento a igualar
 	%	#2	Igualdad
-	\underbracket{#1}_{\mathclap{#2}}
+	\ifmmode
+		\underbracket{#1}_{\mathclap{#2}}
+	\else
+		$\underbracket{#1}_{\mathclap{#2}}$
+	\fi
+}
+
+\newcommand{\atan}{
+	% tan^-1
+	\ifmmode
+		{\tan}^{-1}
+	\else
+		${\tan}^{-1}$
+	\fi
+}
+
+\newcommand{\asin}{
+	% sin^-1
+	\ifmmode
+		{\sin}^{-1}
+	\else
+		${\sin}^{-1}$
+	\fi
+}
+
+\newcommand{\acos}{
+	% cos^-1
+	\ifmmode
+		{\cos}^{-1}
+	\else
+		${\cos}^{-1}$
+	\fi
+}
+
+\newcommand{\acsc}{
+	% csc^-1
+	\ifmmode
+		{\csc}^{-1}
+	\else
+		${\csc}^{-1}$
+	\fi
+}
+
+\newcommand{\asec}{
+	% sec^-1
+	\ifmmode
+		{\sec}^{-1}
+	\else
+		${\sec}^{-1}$
+	\fi
+}
+
+\newcommand{\acot}{
+	% cot^-1
+	\ifmmode
+		{\cot}^{-1}
+	\else
+		${\cot}^{-1}$
+	\fi
+}
+
+\newcommand{\abs}[1]{
+	% Valor absoluto
+	\ifmmode
+		\lvert #1 \rvert
+	\else
+		$\lvert #1 \rvert$
+	\fi
+}
+
+\newcommand{\norm}[1]{
+	% Norma
+	\ifmmode
+		\lVert #1 \rVert
+	\else
+		$\lVert #1 \rVert$
+	\fi
 }
 
 \newcommand{\resizeitem}[2]{
@@ -359,7 +479,7 @@
 		\begin{gather}
 			\text{#1} #2
 		\end{gather}
-		\vspace{-0.10cm}
+		\vspace{-0.4cm}
 		\par
 	}{
 		\ifx\hfuzz#1\hfuzz
@@ -420,6 +540,96 @@
 	\emptyvarerr{\insertgathercaptionedanum}{#1}{Ecuacion no definida}
 	\ifx\hfuzz#2\hfuzz
 		\insertgatheranum{#1}
+	\else
+		\vspace{-0.45cm}
+		\begin{gather*}
+			#1
+		\end{gather*}
+		\vspace{-0.7cm}
+		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+			\centering \textcolor{\captiontextcolor}{#2} \par
+			\vspace{0.05cm}
+		\end{changemargin}
+		\vspace{0cm}
+		\par
+	\fi
+}
+
+\newcommand{\insertgathered}[2][]{
+	% Insertar una ecuación con el ambiente gathered
+	% 	#1	Label (opcional)
+	%	#2	Ecuación
+	\emptyvarerr{\insertgathered}{#2}{Ecuacion no definida}
+	\ifthenelse{\equal{\numberedequation}{true}}{
+		\vspace{-0.1cm}
+		\begin{equation}
+			\begin{gathered}
+				\text{#1} #2
+			\end{gathered}
+		\end{equation}
+		\vspace{-0.26cm}
+		\par
+	}{
+		\ifx\hfuzz#1\hfuzz
+		\else
+			\throwwarning{Label invalido en ecuacion (gathered) sin numero}
+		\fi
+		\insertgatheredanum{#2}
+	}
+}
+
+\newcommand{\insertgatheredanum}[1]{
+	% Insertar una ecuación con el ambiente gathered sin número
+	%	#1	Ecuación
+	\emptyvarerr{\insertgatheredanum}{#1}{Ecuacion no definida}
+	\vspace{-0.4cm}
+	\begin{gather*}
+		#1
+	\end{gather*}
+	\vspace{-0.4cm}
+	\par
+}
+
+\newcommand{\insertgatheredcaptioned}[3][]{
+	% Insertar una ecuación (gathered) con leyenda
+	% 	#1	Label (opcional)
+	%	#2	Ecuación
+	%	#3	Leyenda
+	\emptyvarerr{\insertgatheredcaptioned}{#2}{Ecuacion no definida}
+	\ifx\hfuzz#3\hfuzz
+		\insertgathered[#1]{#2}
+	\else
+		\ifthenelse{\equal{\numberedequation}{true}}{
+			\vspace{0cm}
+			\begin{equation}
+				\begin{gathered}
+					\text{#1} #2
+				\end{gathered}
+			\end{equation}
+			\vspace{-0.65cm}
+			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+				\centering \textcolor{\captiontextcolor}{#3} \par
+				\vspace{0.05cm}
+			\end{changemargin}
+			\vspace{0cm}
+			\par
+		}{
+			\ifx\hfuzz#1\hfuzz
+			\else
+				\throwwarning{Label invalido en ecuacion (gathered) sin numero}
+			\fi
+			\insertgatheredcaptionedanum{#2}{#3}
+		}
+	\fi
+}
+
+\newcommand{\insertgatheredcaptionedanum}[2]{
+	% Insertar una ecuación (gathered) con leyenda sin número
+	%	#1	Ecuación
+	%	#2	Leyenda
+	\emptyvarerr{\insertgatheredcaptionedanum}{#1}{Ecuacion no definida}
+	\ifx\hfuzz#2\hfuzz
+		\insertgatheredanum{#1}
 	\else
 		\vspace{-0.45cm}
 		\begin{gather*}
