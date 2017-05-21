@@ -114,8 +114,9 @@
 
 		<!-- Menú -->
 		<ul style="list-style-type: upper-roman;">
-			<li><a href="#configurando-el-documento" class="menu-big-entry">Configurando el documento</a> </li>
-			<li><a href="#tabla-integrantes" class="menu-big-entry">Añadiendo integrantes, profesores, auxiliares y fechas</a> </li>
+			<li><a href="#empezando-con-el-template" class="menu-big-entry">Empezando con el template</a></li>
+			<li><a href="#configurando-el-documento" class="menu-big-entry">Configurando el documento</a></li>
+			<li><a href="#tabla-integrantes" class="menu-big-entry">Añadiendo integrantes, profesores, auxiliares y fechas</a></li>
 			<li>
 				<a href="#agregar-fig-form-cita" class="menu-big-entry">Añadiendo contenido al informe</a>
 				<ul>
@@ -148,6 +149,7 @@
 			<li><a href="#autor" class="menu-big-entry">Autor</a> </li>
 		</ul>
 		<p>
+			<a id="empezando-con-el-template"></a>
 			Este proyecto corresponde a un template para confeccionar geniales informes en
 			<img src="resources/latex.png" alt="LaTeX" width="60px" height="25px" style="top: 8px;position:relative;">, contiene múltiples funciones para insertar imágenes, fórmulas, párrafos y títulos de forma sencilla, sin tener que recurrir a las largas instrucciones
 			que ofrece Latex por defecto.
@@ -159,9 +161,9 @@
 			<em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <i id="linea-integrantes"></i>
 			<font title='Línea 39 en versión compacta' style='cursor: hand;'>(línea 38)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del
 			<em class="section-template">RESUMEN O ABSTRACT</em>
-			<font title='Línea 173 en versión compacta' style='cursor: hand;'>(línea 96)</font> o en la <b>sección principal</b> del documento
+			<font title='Línea 184 en versión compacta' style='cursor: hand;'>(línea 97)</font> o en la <b>sección principal</b> del documento
 			<em class="section-template">INICIO DEL DOCUMENTO</em>
-			<font title='Línea 188 en versión compacta' style='cursor: hand;'>(línea 105)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/ppizarror/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
+			<font title='Línea 194 en versión compacta' style='cursor: hand;'>(línea 108)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/ppizarror/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
 		</p>
 		<p align="center">
 			<img src="images/informe_data.png" alt="Informe" width="90%px" height="90%px">
@@ -198,13 +200,7 @@
 				<strong>\temaatratar</strong>: Tema a tratar.
 			</li>
 			<li>
-				<strong>\fecharealizacion</strong>: Fecha en que se realizó el experimento o informe.
-			</li>
-			<li>
-				<strong>\fechaentrega</strong>: Fecha en que se entregó el informe.
-			</li>
-			<li>
-				<strong>\autordeldocumento</strong>: Nombre del autor o grupo, <b>no</b> es usado en la portada.
+				<strong>\autordeldocumento</strong>: Nombre del autor o grupo. <b>No</b> es usado en la portada.
 			</li>
 			<li>
 				<strong>\nombredelcurso</strong>: Curso - Ramo referido al informe.
@@ -463,6 +459,7 @@
 				<strong class="functtitlstyle">Insertar una fórmula en el documento <a id="hlp-formulae"></a></strong>
 				<p>
 					Las funciones existentes consideran tanto la fórmula en sí (escrita en bruto, sin los <b>$</b>) como la leyenda para las funciones tipo <i>captioned</i>.
+					Todas las siguientes funciones tienen su versión <b>anum</b> la cual no enumera la ecuación, por ejemplo: <i>\insertequation<b>anum</b>{Fórmula}</i> o <i>\insertalign<b>anum</b>{Fórmula}</i>.
 				</p>
 				<ul>
 					<li>
@@ -475,26 +472,6 @@
 						</blockquote>
 					</li>
 					<li>
-						<strong>\insertequationgathered</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el ambiente <b>gather</b> el cual permite insertar nuevas lineas, y ajusta un alineado especial con respecto
-						al ambiente <b>equation</b>.
-						<blockquote>
-							<div class="highlight highlight-text-tex">
-								<pre><span class="pl-e">\insertequationgathered</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b><span class="pl-c1">\Delta</span> = <span class="pl-c1">\begin</span>{bmatrix}y&x\\z&w<span class="pl-c1">\end</span>{bmatrix}<span class="pl-c1">\cdot</span> f(x)<b>}</b></pre>
-							</div>
-							<p><img src="examples/insertequationgathered.png" align="center"></p>
-						</blockquote>
-					</li>
-					<li>
-						<strong>\insertequationalign</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el ambiente <b>align</b> el cual permite insertar nuevas lineas, y ajusta un alineado especial con respecto al
-						ambiente <b>equation</b> mediante los <b>=</b> de cada fórmula.
-						<blockquote>
-							<div class="highlight highlight-text-tex">
-								<pre><span class="pl-e">\insertequationalign</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b>F(<span class="pl-c1">\vec</span>{f},y, y') = <span class="pl-c1">\widehat</span>{<<span class="pl-c1">\vec</span>{f},y>} <span class="pl-c1">\times</span> y'<b>}</b></pre>
-							</div>
-							<p><img src="examples/insertequationalign.png" align="center"></p>
-						</blockquote>
-					</li>
-					<li>
 						<strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.
 						<blockquote>
 							<div class="highlight highlight-text-tex">
@@ -503,11 +480,31 @@
 							<p><img src="examples/titleformula.png" align="center"></p>
 						</blockquote>
 					</li>
-					<li style="margin-bottom: 10px">
-						<strong>\insertequationgatheredcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el ambiente <b>gather</b>.
+					<li>
+						<strong>\insertgather</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el ambiente <b>gather</b> el cual permite insertar nuevas lineas, y ajusta un alineado especial con respecto
+						al ambiente <b>equation</b>.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\insertgather</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b><span class="pl-c1">\Delta</span> = <span class="pl-c1">\begin</span>{bmatrix}y&x\\z&w<span class="pl-c1">\end</span>{bmatrix}<span class="pl-c1">\cdot</span> f(x)<b>}</b></pre>
+							</div>
+							<p><img src="examples/insertequationgathered.png" align="center"></p>
+						</blockquote>
 					</li>
 					<li>
-						<strong>\insertequationaligncaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el ambiente <b>align</b>.
+						<strong>\insertalign</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el ambiente <b>align</b> el cual permite insertar nuevas lineas, y ajusta un alineado especial con respecto al
+						ambiente <b>equation</b> mediante los <b>=</b> de cada fórmula.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\insertalign</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b>F(<span class="pl-c1">\vec</span>{f},y, y') = <span class="pl-c1">\widehat</span>{<<span class="pl-c1">\vec</span>{f},y>} <span class="pl-c1">\times</span> y'<b>}</b></pre>
+							</div>
+							<p><img src="examples/insertequationalign.png" align="center"></p>
+						</blockquote>
+					</li>
+					<li style="margin-bottom: 10px">
+						<strong>\insertgathercaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el ambiente <b>gather</b>.
+					</li>
+					<li>
+						<strong>\insertaligncaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el ambiente <b>align</b>.
 					</li>
 				</ul>
 			</li>
@@ -716,7 +713,7 @@
 						<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea en pt.
 					</li>
 					<li>
-						<strong>\numberedequation</strong>: Muestra el número en las ecuaciones insertadas con <i>\insertequation...</i>.
+						<strong>\numberedequation</strong>: Muestra el número en las ecuaciones insertadas con <i>\insert...</i>.
 					</li>
 					<li>
 						<strong>\showborderonlinks</strong>: Reemplaza el color de un link por un recuadro de color.
@@ -934,6 +931,9 @@
 			<li class="config-parent">
 				<strong class="functtitlstyle">Nombres de objetos<a id="config-objname"></a></strong>
 				<ul>
+					<li>
+						<strong>\nameabstract</strong>: Nombre del resumen-abstract.
+					</li>
 					<li>
 						<strong>\nameportraitpage</strong>: Nombre de la primera página (portada) en el pdf.
 					</li>

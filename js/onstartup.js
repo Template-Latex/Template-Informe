@@ -84,10 +84,11 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     // Se agregan 7 descargas de version 2.2.6
     // Se agregan 68 descargas entre version 2.2.6 y 2.3.0
     // Se agregan 71 descargas de version 2.3.1
+    // Se agregan 12 descargas de version 2.3.2
     if (total_downloads == 0) {
         total_downloads = 'NaN';
     } else {
-        total_downloads += 129+60+138+3+3+1+4+55+115+74+17+3+18+7+68+71;
+        total_downloads += 129+60+138+3+3+1+4+55+115+74+17+3+18+7+68+71+12;
     }
 
     // Se establece la versión en el contador de descargas totales
