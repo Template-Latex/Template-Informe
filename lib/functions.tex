@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.6.7 (19/05/2017)
+% Versión:      3.6.8 (20/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,6 +18,12 @@
 	\errmessage{Error: \noexpand#1 #2 (linea \the\inputlineno)}
 }
 
+\newcommand{\throwwarning}[1]{
+	% Lanza un mensaje de advertencia
+	%	#1	Mensaje
+	\errmessage{Advertencia: #1 (linea \the\inputlineno)}
+}
+
 \newcommand{\emptyvarerr}[3]{
 	% Lanza un mensaje de error si una variable no ha sido definida
 	% 	#1	Función del error
@@ -26,6 +32,13 @@
 	\ifx\hfuzz#2\hfuzz
 		\throwerror{#1}{#3}
 	\fi
+}
+
+\newenvironment{abstract}{
+	% Inserta un título sin número, sin cabecera y sin aparecer en el índice,
+	% para que aparezca en el índice utilizar la función \sectionanumheadless
+	\sectionanumnoiheadless{\nameabstract}
+}{
 }
 
 \newenvironment{references}{
@@ -283,14 +296,28 @@
 	% 	#1	Label (opcional)
 	%	#2	Ecuación
 	\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}
-	\vspace{-0.1cm}
 	\ifthenelse{\equal{\numberedequation}{true}}{
+		\vspace{-0.1cm}
 		\begin{equation}
-		\text{#1} #2
+			\text{#1} #2
 		\end{equation}
+		\vspace{-0.26cm}
+		\par
 	}{
-		\[ #2 \]
+		\ifx\hfuzz#1\hfuzz
+		\else
+			\throwwarning{Label invalido en ecuacion sin numero}
+		\fi
+		\insertequationanum{#2}
 	}
+}
+
+\newcommand{\insertequationanum}[1]{
+	% Insertar una ecuación sin número
+	%	#1	Ecuación
+	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}
+	\vspace{-0.1cm}
+	\[ #1 \]
 	\vspace{-0.26cm}
 	\par
 }
@@ -299,114 +326,222 @@
 	% Insertar una ecuación con leyenda
 	% 	#1	Label (opcional)
 	%	#2	Ecuación
-	%	#3	Caption
+	%	#3	Leyenda
 	\emptyvarerr{\insertequationcaptioned}{#2}{Ecuacion no definida}
 	\ifx\hfuzz#3\hfuzz
 		\insertequation[#1]{#2}
 	\else
-		\vspace{0cm}
 		\ifthenelse{\equal{\numberedequation}{true}}{
+			\vspace{0cm}
 			\begin{equation}
-			\text{#1} #2
+				\text{#1} #2
 			\end{equation}
+			\vspace{-0.65cm}
+			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+				\centering \textcolor{\captiontextcolor}{#3} \par
+				\vspace{0.05cm}
+			\end{changemargin}
+			\vspace{0cm}
+			\par
 		}{
-			\[ #2 \]
+			\ifx\hfuzz#1\hfuzz
+			\else
+				\throwwarning{Label invalido en ecuacion sin numero}
+			\fi
+			\insertequationcaptionedanum{#2}{#3}
 		}
-		\vspace{-0.65cm}
-		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-			\centering \textcolor{\captiontextcolor}{#3} \par
-			\vspace{0.05cm}
-		\end{changemargin}
 	\fi
 }
 
-\newcommand{\insertequationgathered}[2][]{
+\newcommand{\insertequationcaptionedanum}[2]{
+	% Insertar una ecuación con leyenda sin número
+	%	#1	Ecuación
+	%	#2	Leyenda
+	\emptyvarerr{\insertequationcaptionedanum}{#1}{Ecuacion no definida}
+	\ifx\hfuzz#2\hfuzz
+		\insertequationanum{#1}
+	\else
+		\vspace{0cm}
+		\[ #1 \]
+		\vspace{-0.65cm}
+		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+			\centering \textcolor{\captiontextcolor}{#2} \par
+			\vspace{0.05cm}
+		\end{changemargin}
+		\vspace{0cm}
+		\par
+	\fi
+}
+
+\newcommand{\insertgather}[2][]{
 	% Insertar una ecuación con el ambiente gather
 	% 	#1	Label (opcional)
 	%	#2	Ecuación
-	\emptyvarerr{\insertequationgathered}{#2}{Ecuacion no definida}
-	\vspace{-0.4cm}
+	\emptyvarerr{\insertgather}{#2}{Ecuacion no definida}
 	\ifthenelse{\equal{\numberedequation}{true}}{
+		\vspace{-0.4cm}
 		\begin{gather}
-		\text{#1} #2
+			\text{#1} #2
 		\end{gather}
+		\vspace{-0.10cm}
+		\par
 	}{
-		\begin{gather*}
-		\text{#1} #2
-		\end{gather*}
+		\ifx\hfuzz#1\hfuzz
+		\else
+			\throwwarning{Label invalido en ecuacion (gather) sin numero}
+		\fi
+		\insertgatheranum{#2}
 	}
-	\par
-	\vspace{-0.10cm}
 }
 
-\newcommand{\insertequationgatheredcaptioned}[3][]{
+\newcommand{\insertgatheranum}[1]{
+	% Insertar una ecuación con el ambiente gather sin número
+	%	#1	Ecuación
+	\emptyvarerr{\insertgatheranum}{#1}{Ecuacion no definida}
+	\vspace{-0.4cm}
+	\begin{gather*}
+		#1
+	\end{gather*}
+	\vspace{-0.4cm}
+	\par
+}
+
+\newcommand{\insertgathercaptioned}[3][]{
 	% Insertar una ecuación (gather) con leyenda
 	% 	#1	Label (opcional)
 	%	#2	Ecuación
-	%	#3	Caption
-	\emptyvarerr{\insertequationgatheredcaptioned}{#2}{Ecuacion no definida}
+	%	#3	Leyenda
+	\emptyvarerr{\insertgathercaptioned}{#2}{Ecuacion no definida}
 	\ifx\hfuzz#3\hfuzz
-		\insertequationgathered[#1]{#2}
+		\insertgather[#1]{#2}
 	\else
-		\vspace{0cm}
 		\ifthenelse{\equal{\numberedequation}{true}}{
+			\vspace{-0.45cm}
 			\begin{gather}
-			\text{#1} #2
+				\text{#1} #2
 			\end{gather}
+			\vspace{-0.7cm}
+			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+				\centering \textcolor{\captiontextcolor}{#3} \par
+				\vspace{0.05cm}
+			\end{changemargin}
+			\vspace{0cm}
+			\par
 		}{
-			\begin{gather*}
-			\text{#1} #2
-			\end{gather*}
+			\ifx\hfuzz#1\hfuzz
+			\else
+				\throwwarning{Label invalido en ecuacion (gather) sin numero}
+			\fi
+			\insertgathercaptionedanum{#2}{#3}
 		}
-		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-			\centering \textcolor{\captiontextcolor}{#3} \par
-			\vspace{0.05cm}
-		\end{changemargin}
 	\fi
 }
 
-\newcommand{\insertequationalign}[2][]{
+\newcommand{\insertgathercaptionedanum}[2]{
+	% Insertar una ecuación (gather) con leyenda sin número
+	%	#1	Ecuación
+	%	#2	Leyenda
+	\emptyvarerr{\insertgathercaptionedanum}{#1}{Ecuacion no definida}
+	\ifx\hfuzz#2\hfuzz
+		\insertgatheranum{#1}
+	\else
+		\vspace{-0.45cm}
+		\begin{gather*}
+			#1
+		\end{gather*}
+		\vspace{-0.7cm}
+		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+			\centering \textcolor{\captiontextcolor}{#2} \par
+			\vspace{0.05cm}
+		\end{changemargin}
+		\vspace{0cm}
+		\par
+	\fi
+}
+
+\newcommand{\insertalign}[2][]{
 	% Insertar una ecuación con el ambiente align
 	% 	#1	Label (opcional)
 	%	#2	Ecuación
-	\emptyvarerr{\insertequationalign}{#2}{Ecuacion no definida}
-	\vspace{-0.4cm}
+	\emptyvarerr{\insertalign}{#2}{Ecuacion no definida}
 	\ifthenelse{\equal{\numberedequation}{true}}{
+		\vspace{-0.45cm}
 		\begin{align}
-		\text{#1} #2
+			\text{#1} #2
 		\end{align}
+		\par
+		\vspace{0cm}
 	}{
-		\begin{align*}
-		\text{#1} #2
-		\end{align*}
+		\ifx\hfuzz#1\hfuzz
+		\else
+			\throwwarning{Label invalido en ecuacion (align) sin numero}
+		\fi
+		\insertalignanum{#2}
 	}
-	\par
-	\vspace{-0.10cm}
 }
 
-\newcommand{\insertequationaligncaptioned}[3][]{
+\newcommand{\insertalignanum}[1]{
+	% Insertar una ecuación con el ambiente align sin número
+	%	#1	Ecuación
+	\emptyvarerr{\insertalignanum}{#1}{Ecuacion no definida}
+	\vspace{-0.45cm}
+	\begin{align*}
+		#1
+	\end{align*}
+	\vspace{-0.4cm}
+	\par
+}
+
+\newcommand{\insertaligncaptioned}[3][]{
 	% Insertar una ecuación (align) con leyenda
 	% 	#1	Label (opcional)
 	%	#2	Ecuación
-	%	#3	Caption
-	\emptyvarerr{\insertequationaligncaptioned}{#2}{Ecuacion no definida}
+	%	#3	Leyenda
+	\emptyvarerr{\insertaligncaptioned}{#2}{Ecuacion no definida}
 	\ifx\hfuzz#3\hfuzz
-		\insertequationalign[#1]{#2}
+		\insertalign[#1]{#2}
 	\else
-		\vspace{0cm}
 		\ifthenelse{\equal{\numberedequation}{true}}{
+			\vspace{-0.45cm}
 			\begin{align}
-			\text{#1} #2
+				\text{#1} #2
 			\end{align}
+			\vspace{-0.7cm}
+			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+				\centering \textcolor{\captiontextcolor}{#3} \par
+				\vspace{0.05cm}
+			\end{changemargin}
+			\vspace{0cm}
+			\par
 		}{
-			\begin{align*}
-			\text{#1} #2
-			\end{align*}
+			\ifx\hfuzz#1\hfuzz
+			\else
+				\throwwarning{Label invalido en ecuacion (align) sin numero}
+			\fi
+			\insertaligncaptionedanum{#2}{#3}
 		}
+	\fi
+}
+
+\newcommand{\insertaligncaptionedanum}[2]{
+	% Insertar una ecuación (align) con leyenda sin número
+	%	#1	Ecuación
+	%	#2	Leyenda
+	\emptyvarerr{\insertaligncaptioned}{#1}{Ecuacion no definida}
+	\ifx\hfuzz#2\hfuzz
+		\insertalignanum{#1}
+	\else
+		\vspace{-0.45cm}
+		\begin{align*}
+			#1
+		\end{align*}
+		\vspace{-0.7cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-			\centering \textcolor{\captiontextcolor}{#3} \par
+			\centering \textcolor{\captiontextcolor}{#2} \par
 			\vspace{0.05cm}
 		\end{changemargin}
+		\vspace{0cm}
+		\par
 	\fi
 }
 
