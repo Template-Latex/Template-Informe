@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.7.4 (21/05/2017)
+% Versión:      3.7.5 (21/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -94,8 +94,14 @@
 		
 		\newp \lipsum[2]
 		
-		% Se inserta una ecuación larga con el entorno align
-		\insertalign[\label{eqn:eqn-larga}]{\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}
+		% Se inserta una ecuación larga con el entorno gathered (1 solo número de ecuación)
+		\insertgathered[\label{eqn:eqn-larga}]{
+			\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}\\
+			Q_e = Q \cdot \int_{0}^{e} V(x) \text{dx}
+		}
+	
+		% Nuevo párrafo
+		\lipsum[4]
 		
 		% Se inserta un multicols, con esto se pueden escribir en varias columnas
 		\begin{multicols}{2}
@@ -107,12 +113,9 @@
 			\insertequation[]{ f(x) = \fracdpartial{u}{t} }
 			
 			% Párrafo 2 del multicols
-			\lipsum[5]
+			\lipsum[1]
 			
 		\end{multicols}
-		
-		% Último párrafo de la subsección
-		\lipsum[1]
 		
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}

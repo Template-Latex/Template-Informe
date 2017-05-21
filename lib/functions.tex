@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.7.4 (21/05/2017)
+% Versión:      3.7.5 (21/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -389,24 +389,19 @@
 	\fi
 }
 
-\newcommand{\insertgather}[2][]{
+\newcommand{\insertgather}[1]{
 	% Insertar una ecuación con el ambiente gather
-	% 	#1	Label (opcional)
-	%	#2	Ecuación
-	\emptyvarerr{\insertgather}{#2}{Ecuacion no definida}
+	%	#1	Ecuación
+	\emptyvarerr{\insertgather}{#1}{Ecuacion no definida}
 	\ifthenelse{\equal{\numberedequation}{true}}{
 		\vspace{-0.4cm}
 		\begin{gather}
-			\text{#1} #2
+			\ensuremath{#1}
 		\end{gather}
 		\vspace{-0.4cm}
 		\par
 	}{
-		\ifx\hfuzz#1\hfuzz
-		\else
-			\throwwarning{Label invalido en ecuacion (gather) sin numero}
-		\fi
-		\insertgatheranum{#2}
+		\insertgatheranum{#1}
 	}
 }
 
@@ -416,39 +411,34 @@
 	\emptyvarerr{\insertgatheranum}{#1}{Ecuacion no definida}
 	\vspace{-0.4cm}
 	\begin{gather*}
-		#1
+		\ensuremath{#1}
 	\end{gather*}
 	\vspace{-0.4cm}
 	\par
 }
 
-\newcommand{\insertgathercaptioned}[3][]{
+\newcommand{\insertgathercaptioned}[2]{
 	% Insertar una ecuación (gather) con leyenda
-	% 	#1	Label (opcional)
-	%	#2	Ecuación
-	%	#3	Leyenda
-	\emptyvarerr{\insertgathercaptioned}{#2}{Ecuacion no definida}
-	\ifx\hfuzz#3\hfuzz
-		\insertgather[#1]{#2}
+	%	#1	Ecuación
+	%	#2	Leyenda
+	\emptyvarerr{\insertgathercaptioned}{#1}{Ecuacion no definida}
+	\ifx\hfuzz#2\hfuzz
+		\insertgather{#1}
 	\else
 		\ifthenelse{\equal{\numberedequation}{true}}{
 			\vspace{-0.45cm}
 			\begin{gather}
-				\text{#1} #2
+				\ensuremath{#1}
 			\end{gather}
 			\vspace{-0.7cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-				\centering \textcolor{\captiontextcolor}{#3}
+				\centering \textcolor{\captiontextcolor}{#2}
 				\vspace{0.05cm}
 			\end{changemargin}
 			\vspace{0cm}
 			\par
 		}{
-			\ifx\hfuzz#1\hfuzz
-			\else
-				\throwwarning{Label invalido en ecuacion (gather) sin numero}
-			\fi
-			\insertgathercaptionedanum{#2}{#3}
+			\insertgathercaptionedanum{#1}{#2}
 		}
 	\fi
 }
@@ -463,7 +453,7 @@
 	\else
 		\vspace{-0.45cm}
 		\begin{gather*}
-			#1
+			\ensuremath{#1}
 		\end{gather*}
 		\vspace{-0.7cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
@@ -484,10 +474,10 @@
 		\vspace{-0.1cm}
 		\begin{equation}
 			\begin{gathered}
-				\text{#1} #2
+				\text{#1} \ensuremath{#2}
 			\end{gathered}
 		\end{equation}
-		\vspace{-0.26cm}
+		\vspace{-0.05cm}
 		\par
 	}{
 		\ifx\hfuzz#1\hfuzz
@@ -504,7 +494,7 @@
 	\emptyvarerr{\insertgatheredanum}{#1}{Ecuacion no definida}
 	\vspace{-0.4cm}
 	\begin{gather*}
-		#1
+		\ensuremath{#1}
 	\end{gather*}
 	\vspace{-0.4cm}
 	\par
@@ -523,7 +513,7 @@
 			\vspace{0cm}
 			\begin{equation}
 				\begin{gathered}
-					\text{#1} #2
+					\text{#1} \ensuremath{#2}
 				\end{gathered}
 			\end{equation}
 			\vspace{-0.65cm}
@@ -553,7 +543,7 @@
 	\else
 		\vspace{-0.45cm}
 		\begin{gather*}
-			#1
+			\ensuremath{#1}
 		\end{gather*}
 		\vspace{-0.7cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
@@ -565,24 +555,19 @@
 	\fi
 }
 
-\newcommand{\insertalign}[2][]{
+\newcommand{\insertalign}[1]{
 	% Insertar una ecuación con el ambiente align
-	% 	#1	Label (opcional)
-	%	#2	Ecuación
-	\emptyvarerr{\insertalign}{#2}{Ecuacion no definida}
+	%	#1	Ecuación
+	\emptyvarerr{\insertalign}{#1}{Ecuacion no definida}
 	\ifthenelse{\equal{\numberedequation}{true}}{
 		\vspace{-0.45cm}
 		\begin{align}
-			\text{#1} #2
+			\ensuremath{#1}
 		\end{align}
 		\vspace{-0.4cm}
 		\par
 	}{
-		\ifx\hfuzz#1\hfuzz
-		\else
-			\throwwarning{Label invalido en ecuacion (align) sin numero}
-		\fi
-		\insertalignanum{#2}
+		\insertalignanum{#1}
 	}
 }
 
@@ -592,39 +577,34 @@
 	\emptyvarerr{\insertalignanum}{#1}{Ecuacion no definida}
 	\vspace{-0.45cm}
 	\begin{align*}
-		#1
+		\ensuremath{#1}
 	\end{align*}
 	\vspace{-0.4cm}
 	\par
 }
 
-\newcommand{\insertaligncaptioned}[3][]{
+\newcommand{\insertaligncaptioned}[2]{
 	% Insertar una ecuación (align) con leyenda
-	% 	#1	Label (opcional)
-	%	#2	Ecuación
-	%	#3	Leyenda
-	\emptyvarerr{\insertaligncaptioned}{#2}{Ecuacion no definida}
-	\ifx\hfuzz#3\hfuzz
-		\insertalign[#1]{#2}
+	%	#1	Ecuación
+	%	#2	Leyenda
+	\emptyvarerr{\insertaligncaptioned}{#1}{Ecuacion no definida}
+	\ifx\hfuzz#2\hfuzz
+		\insertalign{#1}
 	\else
 		\ifthenelse{\equal{\numberedequation}{true}}{
 			\vspace{-0.45cm}
 			\begin{align}
-				\text{#1} #2
+				\ensuremath{#1}
 			\end{align}
 			\vspace{-0.7cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-				\centering \textcolor{\captiontextcolor}{#3}
+				\centering \textcolor{\captiontextcolor}{#2}
 				\vspace{0.05cm}
 			\end{changemargin}
 			\vspace{0cm}
 			\par
 		}{
-			\ifx\hfuzz#1\hfuzz
-			\else
-				\throwwarning{Label invalido en ecuacion (align) sin numero}
-			\fi
-			\insertaligncaptionedanum{#2}{#3}
+			\insertaligncaptionedanum{#1}{#2}
 		}
 	\fi
 }
@@ -639,7 +619,7 @@
 	\else
 		\vspace{-0.45cm}
 		\begin{align*}
-			#1
+			\ensuremath{#1}
 		\end{align*}
 		\vspace{-0.7cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
@@ -660,10 +640,10 @@
 		\vspace{-0.1cm}
 		\begin{equation}
 			\begin{aligned}
-				\text{#1} #2
+				\text{#1} \ensuremath{#2}
 			\end{aligned}
 		\end{equation}
-		\vspace{-0.26cm}
+		\vspace{-0.05cm}
 		\par
 	}{
 		\ifx\hfuzz#1\hfuzz
@@ -680,7 +660,7 @@
 	\emptyvarerr{\insertalignedanum}{#1}{Ecuacion no definida}
 	\vspace{-0.45cm}
 	\begin{align*}
-		#1
+		\ensuremath{#1}
 	\end{align*}
 	\vspace{-0.4cm}
 	\par
@@ -699,7 +679,7 @@
 		\vspace{0cm}
 		\begin{equation}
 			\begin{aligned}
-				\text{#1} #2
+				\text{#1} \ensuremath{#2}
 			\end{aligned}
 		\end{equation}
 		\vspace{-0.65cm}
@@ -730,7 +710,7 @@
 		\vspace{0cm}
 		\begin{equation}
 			\begin{aligned}
-				#1
+				\ensuremath{#1}
 			\end{aligned}
 		\end{equation}
 		\vspace{-0.65cm}
