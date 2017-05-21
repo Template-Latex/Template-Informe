@@ -222,7 +222,6 @@ export_normal.add_excepted_file('greekenum.sty')
 export_normal.add_file('main.tex')
 export_normal.add_folder('images')
 export_normal.add_folder('lib')
-export_normal.add_file('abstract.tex')
 export_normal.add_file(EXAMPLEFILE)
 export_normal.save()
 
