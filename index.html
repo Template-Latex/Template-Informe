@@ -471,7 +471,7 @@
 							<p><img src="examples/formula.png" align="center"></p>
 						</blockquote>
 					</li>
-					<li>
+					<li style="margin-bottom: 20px">
 						<strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.
 						<blockquote>
 							<div class="highlight highlight-text-tex">
@@ -480,40 +480,96 @@
 							<p><img src="examples/titleformula.png" align="center"></p>
 						</blockquote>
 					</li>
+
+					<hr class="style10">
+
 					<li>
-						<strong>\insertgather</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el ambiente <b>gather</b> el cual permite insertar nuevas lineas, y ajusta un alineado especial con respecto
-						al ambiente <b>equation</b>.
+						<strong>\insertgather</strong><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>gather</b>, permite insertar nuevas lineas con <b>\\</b> y centra todas las fórmulas. Cada nueva línea tiene un propio número de ecuación. No se pueden usar <i>\label</i>.
 						<blockquote>
 							<div class="highlight highlight-text-tex">
-								<pre><span class="pl-e">\insertgather</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b><span class="pl-c1">\Delta</span> = <span class="pl-c1">\begin</span>{bmatrix}y&x\\z&w<span class="pl-c1">\end</span>{bmatrix}<span class="pl-c1">\cdot</span> f(x)<b>}</b></pre>
+								<pre><span class="pl-e">\insertgather</span><b>{</b><span class="pl-c1">\Delta</span> = <span class="pl-c1">\begin</span>{bmatrix}y&x\\z&w<span class="pl-c1">\end</span>{bmatrix}<span class="pl-c1">\cdot</span> f(x)<b>}</b></pre>
 							</div>
 							<p><img src="examples/insertequationgathered.png" align="center"></p>
 						</blockquote>
 					</li>
+					<li style="margin-bottom: 20px">
+						<strong>\insertgathercaptioned</strong><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gather</b>.
+					</li>
+
+					<hr class="style10">
+
 					<li>
-						<strong>\insertalign</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el ambiente <b>align</b> el cual permite insertar nuevas lineas, y ajusta un alineado especial con respecto al
-						ambiente <b>equation</b> mediante los <b>=</b> de cada fórmula.
+						<strong>\insertgathered</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gathered</b>, permite insertar nuevas líneas con <b>\\</b> y centra todas las fórmulas. Todas las líneas tienen sólo 1 número de ecuación por lo que esta puede tener etiqueta o un <i>\label</i>.
 						<blockquote>
 							<div class="highlight highlight-text-tex">
-								<pre><span class="pl-e">\insertalign</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b>F(<span class="pl-c1">\vec</span>{f},y, y') = <span class="pl-c1">\widehat</span>{<<span class="pl-c1">\vec</span>{f},y>} <span class="pl-c1">\times</span> y'<b>}</b></pre>
+								<pre><span class="pl-e">\insertgathered</span><b>[</b><span class="pl-c1">\label</span>{formula-4}<b>]</b><b>{</b><span class="pl-c1">\iint_</span>{a}^{b} f(y) \dy<b>}</b></pre>
+							</div>
+							<p><img src="examples/insertequationgathered2.png" align="center"></p>
+						</blockquote>
+					</li>
+					<li style="margin-bottom: 20px">
+						<strong>\insertgatheredcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gathered</b>.
+					</li>
+
+					<hr class="style10">
+
+					<li>
+						<strong>\insertalign</strong><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>align</b> el cual permite insertar nuevas lineas con <b>\\</b> y ajusta un alineado especial con respecto a
+						los <b>=</b> de cada fórmula. Cada nueva línea tiene un propio número de ecuación. No se pueden usar <i>\label</i>.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\insertalign</span><b>{</b>F(<span class="pl-c1">\vec</span>{f},y, y') = <span class="pl-c1">\widehat</span>{<<span class="pl-c1">\vec</span>{f},y>} <span class="pl-c1">\times</span> y'<b>}</b></pre>
 							</div>
 							<p><img src="examples/insertequationalign.png" align="center"></p>
 						</blockquote>
 					</li>
-					<li style="margin-bottom: 10px">
-						<strong>\insertgathercaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el ambiente <b>gather</b>.
+					<li style="margin-bottom: 20px">
+						<strong>\insertaligncaptioned</strong><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>align</b>.
+					</li>
+
+					<hr class="style10">
+
+					<li>
+						<strong>\insertaligned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>aligned</b> el cual permite insertar nuevas lineas, y ajusta un alineado especial con respecto a
+						los <b>=</b> de cada fórmula. Todas las líneas tienen sólo 1 número de ecuación por lo que esta puede tener etiqueta o un <i>\label</i>.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\insertaligned</span><b>[</b><span class="pl-c1">\label</span>{formula-5}<b>]</b><b>{</b><span class="pl-c1">\sqrt</span>[a]{b} + c<b>}</b></pre>
+							</div>
+							<p><img src="examples/insertequationaligned.png" align="center"></p>
+						</blockquote>
 					</li>
 					<li>
-						<strong>\insertaligncaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el ambiente <b>align</b>.
+						<strong>\insertalignedcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>aligned</b>.
 					</li>
+
+
 				</ul>
 			</li>
 			<li class="li-code-parent">
 				<strong class="functtitlstyle">Expresiones matemáticas <a id="hlp-math"></a></strong>
 				<p>
-					Existen varias funciones para añadir expresiones matemáticas de forma sencilla:
+					Existen varias funciones para añadir expresiones matemáticas de forma sencilla, estas se pueden usar tanto dentro como fuera de una fórmula (por ejemplo se pueden usar dentro de un párrafo sin la necesidad de hacer <i>$\...$</i>).
 				</p>
 				<ul>
+					<li>
+						<strong>\abs</strong><b>{</b><em>a</em><b>}</b>: Valor absoluto de a.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\abs</span><b>{</b> x + y <b>}</b></pre>
+							</div>
+							<p><img src="examples/abs.png" align="center"></p>
+						</blockquote>
+					</li>
+					<li>
+						<strong>\norm</strong><b>{</b><em>a</em><b>}</b>: Norma de a.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre>La norma de z es <span class="pl-e">\norm</span><b>{</b> z <b>}</b></pre>
+							</div>
+							<p><img src="examples/norm2.png" align="center"></p>
+						</blockquote>
+					</li>
 					<li>
 						<strong>\pow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.
 						<blockquote>
@@ -1021,6 +1077,15 @@
 				<strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características a las tablas.
 			</li>
 			<li>
+				<strong><a href="https://www.ctan.org/pkg/amsmath">amsmath</a></strong>: Librería matemática.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/amssymb">amssymb</a></strong>: Librería matemática.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características a las tablas.
+			</li>
+			<li>
 				<strong><a href="https://www.ctan.org/pkg/babel">babel</a></strong>: Soporte para idiomas.
 			</li>
 			<li>
@@ -1121,6 +1186,9 @@
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/setspace">setspace</a></strong>: Cambia el espacio entre líneas.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/siunitx">siunitx</a></strong>: Permite añadir unidades del sistema internacional.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/subfig">subfig</a></strong>: Permite agrupar imágenes.
