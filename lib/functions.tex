@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.7.3 (21/05/2017)
+% Versión:      3.7.4 (21/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -334,8 +334,8 @@
 	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}
 	\vspace{-0.1cm}
 	\[ #1 \]
-	\par
 	\vspace{-0.26cm}
+	\par
 }
 
 \newcommand{\insertequationcaptioned}[3][]{
@@ -575,8 +575,8 @@
 		\begin{align}
 			\text{#1} #2
 		\end{align}
+		\vspace{-0.4cm}
 		\par
-		\vspace{0cm}
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else
@@ -664,6 +664,7 @@
 			\end{aligned}
 		\end{equation}
 		\vspace{-0.26cm}
+		\par
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else
