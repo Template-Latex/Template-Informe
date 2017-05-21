@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo principal
-% Versión:      3.6.8 (20/05/2017)
+% Versión:      3.6.9 (20/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -16,13 +16,11 @@
 \usepackage[utf8]{inputenc}               % Codificación UTF-8
 \usepackage[T1]{fontenc}                  % Soporta caracteres acentuados
 \usepackage{lmodern}                      % Tipografía Computer Modern
-\def\templateversion{3.6.8}               % Versión del template
+\def\templateversion{3.6.9}               % Versión del template
 
 % INFORMACIÓN DEL DOCUMENTO
 \def\nombredelinforme {Título del informe}
 \def\temaatratar {Tema a tratar}
-\def\fecharealizacion {\today}
-\def\fechaentrega {\today}
 
 \def\autordeldocumento {Nombre del autor o grupo}
 \def\nombredelcurso {Curso}
@@ -62,8 +60,8 @@
 		\end{tabular} \\
 	\multicolumn{2}{l}{Ayudante del laboratorio: Ayudante 1} \\
 	& \\
-	\multicolumn{2}{l}{Fecha de realización: \fecharealizacion} \\
-	\multicolumn{2}{l}{Fecha de entrega: \fechaentrega} \\
+	\multicolumn{2}{l}{Fecha de realización: \today} \\
+	\multicolumn{2}{l}{Fecha de entrega: \today} \\
 	\multicolumn{2}{l}{\localizacionuniversidad}
 \end{tabular}
 \end{flushright}
@@ -77,6 +75,9 @@
 
 % IMPORTACIÓN DE FUNCIONES
 \input{lib/functions}
+
+% IMPORTACIÓN DE ENTORNOS
+\input{lib/environments}
 
 % IMPORTACIÓN DE AMBIENTES Y ESTILOS
 \input{lib/styles}
@@ -94,7 +95,9 @@
 \input{lib/pageconf}
 
 % RESUMEN O ABSTRACT
-\input{abstract.tex} % Se incluye un ejemplo de resumen, se puede borrar
+\begin{resumen}
+	\lipsum[14] % Se incluye un párrafo de resumen, se puede borrar
+\end{resumen}
 
 % TABLA DE CONTENIDOS - ÍNDICE
 \input{lib/index} % Índice, se puede borrar

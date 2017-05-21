@@ -16,7 +16,7 @@ from ziputility import ZipUtility as Zip
 # Constantes
 CODEVERSION = '\def\\templateversion{0}{1}% Versión del template\n '
 CODEVERSIONPOS = 18
-CODETABLEWIDTHPOS = 39
+CODETABLEWIDTHPOS = 37
 CONFIGFILE = 'lib/config.tex'
 EXAMPLEFILE = 'example.tex'
 HEADERSIZE = 13
@@ -44,7 +44,7 @@ FILES = {
     'lib/pageconf.tex': [],
     'lib/portrait.tex': [],
     'lib/styles.tex': [],
-    'abstract.tex': [],
+    'lib/environments.tex': [],
     EXAMPLEFILE: [],
     MAINFILE: [],
     'example-chapternumber.tex': []
@@ -59,7 +59,7 @@ FILEDELCOMMENTS = {
     'lib/pageconf.tex': True,
     'lib/portrait.tex': True,
     'lib/styles.tex': True,
-    'abstract.tex': False,
+    'lib/environments.tex': True,
     EXAMPLEFILE: False,
     MAINFILE: False
 }
@@ -73,7 +73,7 @@ FILESTRIP = {
     'lib/pageconf.tex': True,
     'lib/portrait.tex': True,
     'lib/styles.tex': True,
-    'abstract.tex': False,
+    'lib/environments.tex': True,
     EXAMPLEFILE: False,
     MAINFILE: False
 }

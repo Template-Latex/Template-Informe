@@ -1,0 +1,44 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Definición de entornos
+% Versión:      3.6.9 (20/05/2017)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Manual template: [http://ppizarror.com/Template-Informe/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
+
+\newenvironment{references}{
+	% Crea una sección de referencias
+	
+	\begingroup
+	
+	% Se configura las referencias como una sección
+	\ifthenelse{\equal{\referencenumsection}{true}}{
+		\section{\namereferences}
+	}{
+		\sectionanum{\namereferences}
+	}
+	\renewcommand{\section}[2]{}
+	\begin{thebibliography}{99}
+	}
+	{ 
+	\end{thebibliography}
+	\endgroup
+}
+
+\newenvironment{resumen}{
+	% Crea una sección de resumen
+	
+	% Tipo de título para abstract
+	\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
+	
+	% Inserta un título sin número, sin cabecera y sin aparecer en el índice,
+	% para que aparezca en el índice utilizar la función \sectionanumheadless
+	\sectionanumnoiheadless{\nameabstract}
+	}
+	{
+}
