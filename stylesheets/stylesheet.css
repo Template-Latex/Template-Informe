@@ -176,6 +176,7 @@ body {
     line-height: 1.5;
     font-weight: normal;
     color: #606c71;
+    background-attachment: fixed;
 }
 
 .help-links {
