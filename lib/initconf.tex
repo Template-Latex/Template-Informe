@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.7.5 (21/05/2017)
+% Versión:      3.7.6 (21/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -103,8 +103,12 @@
 		\endlist\end{multicols}}}{}
 \makeatother
 
-% Configuración de acentos y carácteres especiales
-\lstset{literate=
+% Configuración los códigos fuente
+\lstset{
+	extendedchars=true,
+	keepspaces=true,
+	columns=flexible,
+	literate=
 	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
 	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
 	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
@@ -123,7 +127,18 @@
 \hfuzz=100pt \vfuzz=100pt
 \hbadness=2000 \vbadness=\maxdimen
 
-% Se define metadata
+% Se activa el word-wrap para textos con \texttt{}
+{{\ttfamily \hyphenchar\the\font=`\-}
+	
+% Se define el tipo de texto de los url
+\urlstyle{tt}
+
+% Se declara el estilo de grados para la librería siunitx
+\DeclareSIUnit[number-unit-product = {}]
+	\degree
+{\SIUnitSymbolDegree}
+
+% Se define metadata del pdf compilado
 \hypersetup{
 	bookmarksopen=true,
 	bookmarksopenlevel=1,
@@ -148,13 +163,3 @@
 	pdfstartpage={1},
 	pdfdisplaydoctitle={true}
 }
-
-% Se activa el word-wrap para textos con \texttt{}
-{{\ttfamily \hyphenchar\the\font=`\-}
-	
-% Se define el tipo de texto de los url
-\urlstyle{tt}
-
-% Se declara el estilo de grados para el paquete siunitx
-\DeclareSIUnit[number-unit-product = {}]
-\degree{\SIUnitSymbolDegree}

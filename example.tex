@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.7.5 (21/05/2017)
+% Versión:      3.7.6 (21/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -120,10 +120,10 @@
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
 		
-		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje del mundo}, Java y Matlab utilizando el entorno \texttt{lstlisting}:
+		A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}) \footnote{El mejor lenguaje del mundo}, Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{lstlisting}:
 		
 % Se define el lenguaje del código, cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
-\begin{lstlisting}[style=Python, caption=Ejemplo en Python]
+\begin{lstlisting}[style=Python, caption={Ejemplo en Python\label{codigo-python}}]
 import numpy as np
 
 def incmatrix(genl1, genl2):
@@ -133,7 +133,7 @@ def incmatrix(genl1, genl2):
 	VT = np.zeros((n*m, 1), int) # dummy variable
 \end{lstlisting}
 
-\begin{lstlisting}[style=Java, caption=Ejemplo en Java]
+\begin{lstlisting}[style=Java, caption={Ejemplo en Java\label{codigo-java}}]
 import java.io.IOException; 
 import javax.servlet.*;
 
@@ -149,21 +149,25 @@ public class Hola extends GenericServlet {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[style=Matlab, caption=Ejemplo en Matlab]
-function list = find_coordinates(matrix, value)
-	l = size(matrix);
-	coordenates_list = cell(l(1)*l(2), 1);
-	total = 1;
+\begin{lstlisting}[style=Matlab, caption={Ejemplo en Matlab\label{codigo-matlab}}]
+% Se crea gráfico
+f = figure(1); hold on; movegui(f, 'center');
+xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
+title('Espectro de pulso de desplazamiento');
 
-	% Evaluación de la matriz
-	for i=1:l(1)
-		for j=1:l(2)
-			if matrix(i, j) == value
-				coordenates_list{total} = [i j];
-				total = total + 1;
-			end
-		end
+for j = 1:length(BETA)
+	fad = ones(1, NDATOS); % Arreglo para el FAD, uno para cada r (o td/Tn)
+	
+	% Se crea el espectro de respuesta máximo para cada par de beta/r
+	for i = 1:NDATOS
+		[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
+		fad(i) = max(abs(u_t)) / uf0;
 	end
+	mx = find(fad == max(fad(:)));
+	fprintf('BETA=%.2f, MAX: FAD=%.3f, TD/TN=%.3f\n', BETA(j), fad(mx), tdtn(mx));
+	
+	% Se grafica fad vs td/Tn
+	plot(tdtn, fad, 'DisplayName', strcat('\beta=', sprintf('%.2f', BETA(j))));
 end
 \end{lstlisting}
 
