@@ -13,6 +13,49 @@ if (!String.format) {
     };
 }
 
+// Se selecciona una imagen al azar
+
+jQuery(document).ready(function($) {
+var images_background = [
+    'url(images/09305524.jpg) bottom',
+    'url(images/67535412.jpg) bottom',
+    'url(images/93314696.jpg) center',
+    'url(images/background.jpg) top',
+    'url(images/background4.jpg) bottom',
+    'url(images/background6.jpg) bottom',
+    'url(images/46140562.jpg) bottom',
+    'url(images/37320735.jpg) bottom',
+    'url(images/71453949.jpg) bottom',
+    'url(images/39581671.jpg) bottom',
+    'url(images/99206040.jpg) bottom',
+    'url(images/92910382.jpg) bottom',
+    'url(images/04274037.jpg) top',
+    'url(images/72131838.jpg) center',
+    'url(images/80718230.jpg) bottom',
+    'url(images/08038477.jpg) bottom',
+    'url(images/22532189.jpg) bottom',
+    'url(images/07086832.jpg) top',
+    'url(images/11917378.jpg) bottom',
+    'url(images/11944943.jpg) bottom',
+    'url(images/15032996.jpg) bottom',
+    'url(images/37994916.jpg) bottom',
+    'url(images/63330443.jpg) bottom',
+
+    'url(images/46199258.jpg) bottom',
+    'url(images/39593777.jpg) bottom',
+    'url(images/47702546.jpg) bottom',
+    'url(images/51280378.jpg) bottom'
+];
+var images_indx_random = Math.floor(Math.random() * images_background.length);
+// images_indx_random = 26; // testeo
+var image_url = images_background[images_indx_random];
+console.log('Estableciendo el fondo de pantalla ' + image_url);
+console.log($('#scrolld'))
+$('.page-header').css('background', '#161415 ' + image_url + ' no-repeat');
+$('.page-header').css('background-attachment', 'fixed');
+$('.page-header').css('-webkit-background-size', 'cover');
+});
+
 // Se definen las líneas de cada sección en la página web
 var linea_info_documento = 21;
 var linea_tabla = 39;
@@ -101,7 +144,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
 
     // Se establece la versión en el botón de descargas
     msg_download_normal = '{1} <font style="color: #333333;">({0})</font> <img src="resources/zip.png" width="16px" height="16px" class="iconbutton" />'
-    msg_download_compact = '{1} <font style="color: #999999;">({0})</font>  <img src="resources/zip.png" width="16px" height="16px" class="iconbutton" />'
+    msg_download_compact = '{1} <font style="color: #ffffff;">({0})</font>  <img src="resources/zip.png" width="16px" height="16px" class="iconbutton" />'
     document.getElementById("download-button").href = normal_link;
     document.getElementById("download-button").innerHTML = String.format(msg_download_normal, last_version, document.getElementById("download-button").innerHTML);
     document.getElementById("download-button-1file").innerHTML = String.format(msg_download_compact, last_version, document.getElementById("download-button-1file").innerHTML);

@@ -7,6 +7,12 @@
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
 
+.page-header {
+    color: #fff;
+    text-align: center;
+    background: #161415;
+}
+
 hr.style1{
 	border-top: 1px solid #8c8b8b;
 }
@@ -297,15 +303,6 @@ a:hover {
         margin-top: 1rem;
         margin-left: 0;
     }
-}
-
-.page-header {
-    color: #fff;
-    text-align: center;
-    background: #161415 url(../images/background6.jpg) no-repeat top;
-    background-attachment: fixed;
-    /* transform: translateZ(1px) scale(1.0); */
-    -webkit-background-size: cover !important;
 }
 
 @media screen and (min-width: 64em) {
