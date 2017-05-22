@@ -51,12 +51,12 @@ var images_indx_random = Math.floor(Math.random() * images_background.length);
 var image_url = images_background[images_indx_random];
 console.log('Estableciendo el fondo de pantalla ' + image_url);
 console.log($('#scrolld'))
-$('.page-header').css('background', '#161415 ' + image_url + ' no-repeat');
+$('.page-header').css('background', '#161415 ' + image_url + ' no-repeat fixed');
 $('.page-header').css('background-attachment', 'fixed');
 $('.page-header').css('-webkit-background-size', 'cover');
 $('.page-header').css('-moz-background-size', 'cover');
 $('.page-header').css('-o-background-size', 'cover');
-$('.page-header').css('background-size', 'cover');
+$('.page-header').css('background-size', 'cover !important');
 });
 
 // Se definen las líneas de cada sección en la página web
