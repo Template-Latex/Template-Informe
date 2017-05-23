@@ -182,6 +182,10 @@ body:before {
   -o-background-size: cover;
   background-size: cover;
 }
+html {
+max-width: 100%;
+overflow-x: hidden;
+}
 
 body {
     padding: 0;
@@ -192,6 +196,8 @@ body {
     font-weight: normal;
     color: #606c71;
     background-attachment: fixed;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .help-links {
