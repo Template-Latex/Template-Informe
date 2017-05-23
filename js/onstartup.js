@@ -101,7 +101,7 @@ jQuery(document).ready(function($) {
     $('.page-header').css('background-size', 'cover');
     $('.page-header').css('max-width', '100%');
     $('.page-header').css('max-height', '100%');
-    $('.page-header').css('width', 'auto');
+    $('.page-header').css('width', $(window).width());
 
     var ua = navigator.userAgent.toLowerCase();
     var isAndroid = ua.indexOf("android") > -1;
