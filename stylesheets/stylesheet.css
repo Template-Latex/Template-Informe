@@ -398,7 +398,7 @@ a:hover {
     margin-top: 2.5rem;
     margin-bottom: 1rem;
     font-weight: normal;
-    color: #159957;
+    /* color: #159957;*/
 }
 
 .main-content p {
