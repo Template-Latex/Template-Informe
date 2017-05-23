@@ -57,6 +57,9 @@ $('.page-header').css('-webkit-background-size', 'cover');
 $('.page-header').css('-moz-background-size', 'cover');
 $('.page-header').css('-o-background-size', 'cover');
 $('.page-header').css('background-size', 'cover !important');
+$('.page-header').css('background-size', 'max-width:100%');
+$('.page-header').css('background-size', 'max-height:100%');
+$('.page-header').css('background-size', 'width:auto');
 
 var ua = navigator.userAgent.toLowerCase();
 var isAndroid = ua.indexOf("android") > -1;
