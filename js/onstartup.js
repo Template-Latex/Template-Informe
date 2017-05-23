@@ -56,7 +56,7 @@ $('.page-header').css('background-attachment', 'fixed');
 $('.page-header').css('-webkit-background-size', 'cover');
 $('.page-header').css('-moz-background-size', 'cover');
 $('.page-header').css('-o-background-size', 'cover');
-$('.page-header').css('background-size', 'cover !important');
+$('.page-header').css('background-size', 'cover');
 $('.page-header').css('max-width', '100%');
 $('.page-header').css('max-height', '100%');
 $('.page-header').css('width', 'auto');
