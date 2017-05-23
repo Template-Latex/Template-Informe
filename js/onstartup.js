@@ -53,10 +53,17 @@ console.log('Estableciendo el fondo de pantalla ' + image_url);
 console.log($('#scrolld'))
 $('.page-header').css('background', '#161415 ' + image_url + ' no-repeat fixed');
 $('.page-header').css('background-attachment', 'fixed');
-$('.page-header').css('-webkit-background-size', 'cover');
-$('.page-header').css('-moz-background-size', 'cover');
-$('.page-header').css('-o-background-size', 'cover');
+$('.page-header').css('-webkit-background-size', 'cover !important');
+$('.page-header').css('-moz-background-size', 'cover !important');
+$('.page-header').css('-o-background-size', 'cover !important');
 $('.page-header').css('background-size', 'cover !important');
+
+var ua = navigator.userAgent.toLowerCase();
+var isAndroid = ua.indexOf("android") > -1;
+if(isAndroid) {
+  $('.page-header').css('background-attachment', 'fixed !important');
+}
+
 });
 
 // Se definen las líneas de cada sección en la página web
