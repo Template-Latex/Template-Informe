@@ -13,8 +13,11 @@ if (!String.format) {
     };
 }
 
-// Se selecciona una imagen al azar
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
+// Se selecciona una imagen al azar
 jQuery(document).ready(function($) {
 var images_background = [
     'url(images/09305524.jpg) bottom',
@@ -40,17 +43,15 @@ var images_background = [
     'url(images/15032996.jpg) bottom',
     'url(images/37994916.jpg) bottom',
     'url(images/63330443.jpg) bottom',
-
     'url(images/46199258.jpg) bottom',
     'url(images/39593777.jpg) bottom',
     'url(images/47702546.jpg) bottom',
     'url(images/51280378.jpg) bottom'
 ];
-var images_indx_random = Math.floor(Math.random() * images_background.length);
+var images_indx_random = getRandomInt(0, images_background.length);
 // images_indx_random = 26; // testeo
 var image_url = images_background[images_indx_random];
 console.log('Estableciendo el fondo de pantalla ' + image_url);
-console.log($('#scrolld'))
 $('.page-header').css('background', '#161415 ' + image_url + ' no-repeat fixed');
 $('.page-header').css('background-attachment', 'fixed');
 $('.page-header').css('-webkit-background-size', 'cover');
@@ -192,9 +193,9 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
 });
 
 // // Paralaje en el fondo
-// $('#scrolld').parallax({
-//     imageSrc: 'images/background4.jpg',
-//     speed: 0.15
+// $('#scrolls').parallax({
+//      imageSrc: 'images/background4.jpg',
+//      speed: 0.15
 // });
 
 $('total-download-counter').each(function() {
