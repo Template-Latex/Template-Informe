@@ -70,33 +70,29 @@ jQuery(document).ready(function($) {
     var image_pos = images_background[images_indx_random][1];
     console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
 
-    $('.page-header').parallax({
-        imageSrc: image_url,
-        speed: 0.15
-    });
-    // if (!is_movile_browser) {
-    //     $('.page-header').parallax({
-    //         imageSrc: image_url,
-    //         speed: 0.15
-    //     });
-    // } else {
-    //     $('.page-header').css('background', '#161415 url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
-    //     $('.page-header').css('background-attachment', 'fixed');
-    //     $('.page-header').css('-webkit-background-size', 'cover');
-    //     $('.page-header').css('-moz-background-size', 'cover');
-    //     $('.page-header').css('-o-background-size', 'cover');
-    //     $('.page-header').css('background-size', 'cover');
-    //     $('.page-header').css('max-width', '100%');
-    //     $('.page-header').css('max-height', '100%');
-    //     $('.page-header').css('width', $(window).width());
-    //     // $(function() {
-    //     //     $.stellar({
-    //     //         horizontalScrolling: false,
-    //     //         verticalOffset: 0
-    //     //     });
-    //     // });
-    //     // $('.scrollable-home').stellar();
-    // }
+    if (!is_movile_browser) {
+        $('.page-header').parallax({
+            imageSrc: image_url,
+            speed: 0.15
+        });
+    } else {
+        $('.page-header').css('background', '#161415 url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
+        $('.page-header').css('background-attachment', 'fixed');
+        $('.page-header').css('-webkit-background-size', 'cover');
+        $('.page-header').css('-moz-background-size', 'cover');
+        $('.page-header').css('-o-background-size', 'cover');
+        $('.page-header').css('background-size', 'cover');
+        $('.page-header').css('max-width', '100%');
+        $('.page-header').css('max-height', '100%');
+        $('.page-header').css('width', $(window).width());
+        // $(function() {
+        //     $.stellar({
+        //         horizontalScrolling: false,
+        //         verticalOffset: 0
+        //     });
+        // });
+        // $('.scrollable-home').stellar();
+    }
 
     // var ua = navigator.userAgent.toLowerCase();
     // var isAndroid = ua.indexOf("android") > -1;
