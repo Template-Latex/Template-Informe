@@ -70,6 +70,10 @@ jQuery(document).ready(function($) {
     var image_pos = images_background[images_indx_random][1];
     console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
 
+    $('.page-header').parallax({
+        imageSrc: image_url,
+        speed: 0.15
+    });
     if (!is_movile_browser) {
         $('.page-header').parallax({
             imageSrc: image_url,
