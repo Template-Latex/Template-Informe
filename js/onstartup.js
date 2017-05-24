@@ -19,100 +19,91 @@ function getRandomInt(min, max) {
 
 // Se selecciona una imagen al azar
 jQuery(document).ready(function($) {
-    var images_background = [
-        'url(images/09305524.jpg) bottom',
-        'url(images/67535412.jpg) bottom',
-        'url(images/93314696.jpg) center',
-        'url(images/background.jpg) top',
-        'url(images/background4.jpg) bottom',
-        'url(images/background6.jpg) bottom',
-        'url(images/46140562.jpg) bottom',
-        'url(images/37320735.jpg) bottom',
-        'url(images/71453949.jpg) bottom',
-        'url(images/39581671.jpg) bottom',
-        'url(images/99206040.jpg) bottom',
-        'url(images/92910382.jpg) bottom',
-        'url(images/04274037.jpg) top',
-        'url(images/72131838.jpg) center',
-        'url(images/80718230.jpg) bottom',
-        'url(images/08038477.jpg) bottom',
-        'url(images/22532189.jpg) bottom',
-        'url(images/07086832.jpg) top',
-        'url(images/11917378.jpg) bottom',
-        'url(images/11944943.jpg) bottom',
-        'url(images/15032996.jpg) bottom',
-        'url(images/37994916.jpg) bottom',
-        'url(images/63330443.jpg) bottom',
-        'url(images/46199258.jpg) bottom',
-        'url(images/39593777.jpg) bottom',
-        'url(images/47702546.jpg) bottom',
-        'url(images/51280378.jpg) bottom',
-        'url(images/80794446.jpg) bottom',
-        'url(images/36752157.jpg) bottom',
-        'url(images/42450256.jpg) bottom',
-        'url(images/89228305.jpg) bottom',
-        'url(images/95243003.jpg) bottom',
-        'url(images/16978868.jpg) bottom'
-    ];
-    var title_colors = [
-        '#343434', // 0
-        '#C96265', // 1
-        '#6A6061', // 2
-        '#5E4E2A', // 3
-        '#614654', // 4
-        '#4E3E25', // 5
-        '#EF3D4D', // 6
-        '#333132', // 7
-        '#4F4F51', // 8
-        '#262C3C', // 9
-        '#5284A9', // 10
-        '#444444', // 11
-        '#602A13', // 12
-        '#896956', // 13
-        '#4C44AB', // 14
-        '#616D61', // 15
-        '#47474C', // 16
-        '#4F6068', // 17
-        '#393939', // 18
-        '#0A344F', // 19
-        '#304651', // 20
-        '#30307A', // 21
-        '#0C3C9A', // 22
-        '#5B4A48', // 23
-        '#014BBA', // 24
-        '#702269', // 25
-        '#174C82', // 26
-        '#6D5630', // 27
-        '#FE3060', // 28
-        '#50405B', // 29
-        '#C51A20', // 30
-        '#173966', // 31
-        '#7E5A40' // 32
-    ];
-    var images_indx_random = getRandomInt(0, images_background.length - 1);
-    // images_indx_random = 32; // testeo
-    var image_url = images_background[images_indx_random];
-    console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
-    $('.page-header').css('background', '#161415 ' + image_url + ' no-repeat fixed');
-    $('.page-header').css('background-attachment', 'fixed');
-    $('.page-header').css('-webkit-background-size', 'cover');
-    $('.page-header').css('-moz-background-size', 'cover');
-    $('.page-header').css('-o-background-size', 'cover');
-    $('.page-header').css('background-size', 'cover');
-    $('.page-header').css('max-width', '100%');
-    $('.page-header').css('max-height', '100%');
-    $('.page-header').css('width', $(window).width());
 
-    var ua = navigator.userAgent.toLowerCase();
-    var isAndroid = ua.indexOf("android") > -1;
-    if (isAndroid) {
-        $('.page-header').css('background', '#161415 ' + image_url);
-        $('.page-header').css('background-attachment', 'fixed !important');
-        $('.page-header').css('background-repeat', 'no-repeat !important');
+    // Se comprueba si es navegador móvil
+    var is_movile_browser = false;
+    if (/Mobi/.test(navigator.userAgent)) {
+        is_movile_browser = true;
+        console.log('Utilizando versión móvil.')
+    } else {
+        console.log('Utilizando versión web.')
     }
 
+    var images_background = [
+        ['09305524.jpg', 'bottom', '#343434'], // 0
+        ['67535412.jpg', 'bottom', '#C96265'], // 1
+        ['93314696.jpg', 'center', '#6A6061'], // 2
+        ['background.jpg', 'top', '#5E4E2A'], // 3
+        ['background4.jpg', 'bottom', '#614654'], // 4
+        ['background6.jpg', 'bottom', '#4E3E25'], // 5
+        ['46140562.jpg', 'bottom', '#EF3D4D'], // 6
+        ['37320735.jpg', 'bottom', '#333132'], // 7
+        ['71453949.jpg', 'bottom', '#4F4F51'], // 8
+        ['39581671.jpg', 'bottom', '#262C3C'], // 9
+        ['99206040.jpg', 'bottom', '#5284A9'], // 10
+        ['92910382.jpg', 'bottom', '#444444'], // 11
+        ['04274037.jpg', 'top', '#602A13'], // 12
+        ['72131838.jpg', 'center', '#896956'] // 13
+        ['80718230.jpg', 'bottom', '#4C44AB'], // 14
+        ['08038477.jpg', 'bottom', '#616D61'], // 15
+        ['22532189.jpg', 'bottom', '#47474C'], // 16
+        ['07086832.jpg', 'top', '#4F6068'], // 17
+        ['11917378.jpg', 'bottom', '#393939'], // 18
+        ['11944943.jpg', 'bottom', '#0A344F'], // 19
+        ['15032996.jpg', 'bottom', '#304651'], // 20
+        ['37994916.jpg', 'bottom', '#30307A'], // 21
+        ['63330443.jpg', 'bottom', '#0C3C9A'], // 22
+        ['46199258.jpg', 'bottom', '#5B4A48'], // 23
+        ['39593777.jpg', 'bottom', '#014BBA'], // 24
+        ['47702546.jpg', 'bottom', '#702269'], // 25
+        ['51280378.jpg', 'bottom', '#174C82'], // 26
+        ['80794446.jpg', 'bottom', '#6D5630'], // 27
+        ['36752157.jpg', 'bottom', '#FE3060'], // 28
+        ['42450256.jpg', 'bottom', '#50405B'], // 29
+        ['89228305.jpg', 'bottom', '#C51A20'], // 30
+        ['95243003.jpg', 'bottom', '#173966'], // 31
+        ['16978868.jpg', 'bottom', '#7E5A40'] // 32
+    ];
+    var images_indx_random = getRandomInt(0, images_background.length - 1);
+    // images_indx_random = 0; // testeo
+    var image_url = 'images/' + images_background[images_indx_random][0];
+    var image_pos = images_background[images_indx_random][1];
+    console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
+
+    if (!is_movile_browser) {
+        $('.page-header').parallax({
+            imageSrc: image_url,
+            speed: 0.15
+        });
+    } else {
+        $('.page-header').css('background', '#161415 url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
+        $('.page-header').css('background-attachment', 'fixed');
+        $('.page-header').css('-webkit-background-size', 'cover');
+        $('.page-header').css('-moz-background-size', 'cover');
+        $('.page-header').css('-o-background-size', 'cover');
+        $('.page-header').css('background-size', 'cover');
+        $('.page-header').css('max-width', '100%');
+        $('.page-header').css('max-height', '100%');
+        $('.page-header').css('width', $(window).width());
+        // $(function() {
+        //     $.stellar({
+        //         horizontalScrolling: false,
+        //         verticalOffset: 0
+        //     });
+        // });
+        // $('.scrollable-home').stellar();
+    }
+
+    // var ua = navigator.userAgent.toLowerCase();
+    // var isAndroid = ua.indexOf("android") > -1;
+    // if (isAndroid) {
+    //     $('.page-header').css('background', '#161415 ' + image_url);
+    //     $('.page-header').css('background-attachment', 'fixed !important');
+    //     $('.page-header').css('background-repeat', 'no-repeat !important');
+    // }
+
     // Se cambia el color de los titulos
-    var chosencolor = title_colors[images_indx_random];
+    var chosencolor = images_background[images_indx_random][2];
     $('.main-content h1').css('color', chosencolor);
     $('.main-content h2').css('color', chosencolor);
     $('.main-content h3').css('color', chosencolor);
