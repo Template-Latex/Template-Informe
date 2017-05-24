@@ -114,6 +114,7 @@ jQuery(document).ready(function($) {
     $('.menu-little-entry').css('color', chosencolor);
     $('.section-template').css('color', chosencolor);
     $('.que-hay-de-nuevo-blockquote h3').css('color', chosencolor);
+    $('.back-to-top').css('background-color', chosencolor);
 });
 
 // Se definen las líneas de cada sección en la página web
