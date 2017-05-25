@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.7.7 (21/05/2017)
+% Versión:      3.7.8 (25/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -29,7 +29,6 @@
 \setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
 \setlength{\footnotemargin}{3mm} % Margen del footnote
 \renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
-\setcaptionmargincm{\captionlrmargin} % Margen por defecto
 
 % Configuración de los colores
 \color{\maintextcolor} % Color principal
@@ -60,17 +59,26 @@
 	\renewcommand{\captiontextbold}{}
 }
 \captionsetup{
-	% Se actualizan los márgenes de los caption
-	belowskip=\captionbottommargin pt,
-	aboveskip=\captiontopmargin pt,
+	% Se configura el texto de los caption
 	labelfont={color=\captioncolor, \captiontextbold},
 	textfont={color=\captiontextcolor},
-	singlelinecheck=on
+	singlelinecheck=on,
+	belowskip=\captionbottommargin pt,
+	aboveskip=\captiontopmargin pt
 }
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las figuras
-	\floatsetup[figure]{
-		capposition=top}}{
+	\captionsetup[figure]{
+		position=top}
+	}{
+}
+\ifthenelse{\equal{\tablecaptiontop}{true}}{
+	% Se dejan los caption en la parte superior para las tablas
+	\captionsetup[table]{
+		position=top}
+	}{
+	\captionsetup[table]{
+		position=bottom}
 }
 \ifthenelse{\equal{\centeredcaption}{true}}{
 	% Se centran todos los captions
