@@ -17,6 +17,16 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function shadeColor2(color, percent) {
+    var f = parseInt(color.slice(1), 16),
+        t = percent < 0 ? 0 : 255,
+        p = percent < 0 ? percent * -1 : percent,
+        R = f >> 16,
+        G = f >> 8 & 0x00FF,
+        B = f & 0x0000FF;
+    return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
+}
+
 // Se selecciona una imagen al azar
 jQuery(document).ready(function($) {
 
@@ -32,10 +42,10 @@ jQuery(document).ready(function($) {
     var images_background = [
         ['09305524.jpg', 'bottom', '#343434'], // 0
         ['67535412.jpg', 'bottom', '#C96265'], // 1
-        ['93314696.jpg', 'center', '#6A6061'], // 2
+        ['93314696.jpg', 'top', '#6A6061'], // 2
         ['background.jpg', 'top', '#5E4E2A'], // 3
-        ['background4.jpg', 'bottom', '#614654'], // 4
-        ['background6.jpg', 'bottom', '#4E3E25'], // 5
+        ['12939392.jpg', 'bottom', '#614654'], // 4
+        ['19392139.jpg', 'bottom', '#4E3E25'], // 5
         ['46140562.jpg', 'bottom', '#EF3D4D'], // 6
         ['37320735.jpg', 'bottom', '#333132'], // 7
         ['71453949.jpg', 'bottom', '#4F4F51'], // 8
@@ -43,7 +53,7 @@ jQuery(document).ready(function($) {
         ['99206040.jpg', 'bottom', '#5284A9'], // 10
         ['92910382.jpg', 'bottom', '#444444'], // 11
         ['04274037.jpg', 'top', '#602A13'], // 12
-        ['72131838.jpg', 'center', '#896956'] // 13
+        ['72131838.jpg', 'center', '#896956'], // 13
         ['80718230.jpg', 'bottom', '#4C44AB'], // 14
         ['08038477.jpg', 'bottom', '#616D61'], // 15
         ['22532189.jpg', 'bottom', '#47474C'], // 16
@@ -62,10 +72,14 @@ jQuery(document).ready(function($) {
         ['42450256.jpg', 'bottom', '#50405B'], // 29
         ['89228305.jpg', 'bottom', '#C51A20'], // 30
         ['95243003.jpg', 'bottom', '#173966'], // 31
-        ['16978868.jpg', 'bottom', '#7E5A40'] // 32
+        ['16978868.jpg', 'bottom', '#7E5A40'], // 32
+        ['22125894.jpg', 'bottom', '#272D69'], // 33
+        ['77421788.jpg', 'bottom', '#4E6D44'], // 34
+        ['91643340.jpg', 'bottom', '#197B30'], // 35
+        ['88093858.jpg', 'bottom', '#485620'] // 36
     ];
     var images_indx_random = getRandomInt(0, images_background.length - 1);
-    // images_indx_random = 0; // testeo
+    // images_indx_random = 36; // testeo
     var image_url = 'images/' + images_background[images_indx_random][0];
     var image_pos = images_background[images_indx_random][1];
     console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
@@ -115,6 +129,14 @@ jQuery(document).ready(function($) {
     $('.section-template').css('color', chosencolor);
     $('.que-hay-de-nuevo-blockquote h3').css('color', chosencolor);
     $('.back-to-top').css('background-color', chosencolor);
+
+    // Se cambia el color de las cajas de código
+    bgprecolor = shadeColor2(chosencolor, 0.85);
+    codeprecolor = shadeColor2(chosencolor, 0.2);
+    $('.main-content pre').css('border', 'solid 1px ' + codeprecolor);
+    $('.main-content pre').css('background-color', bgprecolor);
+    $('.main-content blockquote').css('color', codeprecolor);
+    $('.main-content blockquote').css('border-left', '0.3rem solid ' + codeprecolor);
 });
 
 // Se definen las líneas de cada sección en la página web
@@ -197,7 +219,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     if (total_downloads == 0) {
         total_downloads = 'NaN';
     } else {
-        total_downloads += 129 + 60 + 138 + 3 + 3 + 1 + 4 + 55 + 115 + 74 + 17 + 3 + 18 + 7 + 68 + 71 + 12 + 9 + 4 + 33 + 1 + 37;
+        total_downloads += 129 + 60 + 138 + 3 + 3 + 1 + 4 + 55 + 115 + 74 + 17 + 3 + 18 + 7 + 68 + 71 + 12 + 9 + 4 + 33 + 1 + 60;
     }
 
     // Se establece la versión en el contador de descargas totales

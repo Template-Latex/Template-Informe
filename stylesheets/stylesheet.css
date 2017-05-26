@@ -428,8 +428,8 @@ a:hover {
     font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #567482;
     word-wrap: normal;
-    background-color: #f3f6fa;
-    border: solid 1px #dce6f0;
+    /*background-color: #f3f6fa;
+    border: solid 1px #dce6f0;*/
     border-radius: 0.3rem;
 }
 
@@ -518,8 +518,8 @@ a:hover {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     margin-left: 5px;
-    color: #819198;
-    border-left: 0.3rem solid #dce6f0;
+    /*color: #819198;
+    border-left: 0.3rem solid #dce6f0;*/
 }
 
 .section-template {
