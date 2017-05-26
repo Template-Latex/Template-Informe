@@ -207,8 +207,6 @@ body {
 
 a.back-to-top {
     display: none;
-    width: 60px;
-    height: 60px;
     text-indent: -9999px;
     position: fixed;
     z-index: 999;
@@ -220,8 +218,43 @@ a.back-to-top {
     border-radius: 30px;
 }
 
-.functtitlstyle {
-    font-size: 1.2rem;
+@media screen and (min-width: 64em) {
+    a.back-to-top {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    a.back-to-top {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 42em) {
+    a.back-to-top {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media screen and (min-width: 64em) {
+    .functtitlstyle {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .functtitlstyle {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 42em) {
+    .functtitlstyle {
+        font-size: 1.0rem;
+    }
 }
 
 .iconbutton {
@@ -305,13 +338,14 @@ a:hover {
 @media screen and (min-width: 64em) {
     .btn, .btn-pro {
         padding: 0.75rem 1rem;
+        font-size: 0.9rem;
     }
 }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .btn, .btn-pro {
         padding: 0.6rem 0.9rem;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -320,7 +354,7 @@ a:hover {
         display: block;
         width: 100%;
         padding: 0.75rem;
-        font-size: 0.9rem;
+        font-size: 0.7rem;
     }
     .btn+.btn, .btn-pro+.btn-pro {
         margin-top: 1rem;
@@ -359,13 +393,13 @@ a:hover {
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .project-name {
-        font-size: 2.25rem;
+        font-size: 2.5rem;
     }
 }
 
 @media screen and (max-width: 42em) {
     .project-name {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 }
 
@@ -456,10 +490,51 @@ a:hover {
 .main-content .highlight pre, .main-content pre {
     padding: 0.8rem;
     overflow: auto;
-    font-size: 0.79rem;
     line-height: 1.45;
     border-radius: 0.3rem;
     margin-bottom: -9px;
+}
+
+@media screen and (min-width: 64em) {
+    .main-content .highlight pre, .main-content pre {
+        font-size: 0.79rem;
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .main-content .highlight pre, .main-content pre {
+        font-size: 0.70rem;
+    }
+}
+
+@media screen and (max-width: 42em) {
+    .main-content .highlight pre, .main-content pre {
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 64em) {
+    .lateximg {
+        top: 8px;
+        position: relative;
+        height: 24px;
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .lateximg {
+        top: 6px;
+        position: relative;
+        height: 19px;
+    }
+}
+
+@media screen and (max-width: 42em) {
+    .lateximg {
+        top: 3px;
+        position: relative;
+        height: 15px;
+    }
 }
 
 .newline_br {
@@ -497,12 +572,46 @@ a:hover {
 
 .menu-big-entry {
     color: #159957;
-    font-size: 18px;
+}
+
+@media screen and (min-width: 64em) {
+    .menu-big-entry {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .menu-big-entry {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 42em) {
+    .menu-big-entry {
+        font-size: 16px;
+    }
 }
 
 .menu-little-entry {
     color: #159957;
-    font-size: 16px;
+}
+
+@media screen and (min-width: 64em) {
+    .menu-little-entry {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .menu-little-entry {
+        font-size: 14.5px;
+    }
+}
+
+@media screen and (max-width: 42em) {
+    .menu-little-entry {
+        font-size: 13px;
+    }
 }
 
 .main-content li pre b {
@@ -516,7 +625,7 @@ a:hover {
     padding-bottom: 0.5rem;
     padding-top: 0rem;
     padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-right: 0rem;
     margin-left: 5px;
     /*color: #819198;
     border-left: 0.3rem solid #dce6f0;*/
@@ -524,7 +633,24 @@ a:hover {
 
 .section-template {
     color: #159957;
-    font-size: 0.9rem;
+}
+
+@media screen and (min-width: 64em) {
+    .section-template {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .section-template {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 42em) {
+    .section-template {
+        font-size: 0.8rem;
+    }
 }
 
 .main-content blockquote> :first-child {
@@ -595,7 +721,7 @@ a:hover {
 @media screen and (max-width: 42em) {
     .main-content {
         padding: 2rem 1rem;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 }
 
