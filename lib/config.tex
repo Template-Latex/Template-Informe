@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      3.7.8 (25/05/2017)
+% Versión:      3.8.0 (25/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -14,7 +14,7 @@
 % CONFIGURACIONES GENERALES
 \def\defaultimagefolder {images/} % Carpeta de las imágenes
 \def\defaultinterline {1.0}       % Interlineado por defecto
-\def\defaultnewlinesize {11pt}    % Tamaño del salto de línea
+\def\defaultnewlinesize {11.0}    % Tamaño del salto de línea [pt]
 \def\numberedequation {true}      % Ecuaciones con \insert... numeradas
 \def\romanpageuppercase {false}   % Páginas en número romano en mayúsculas
 \def\showborderonlinks {false}    % Reemplaza el color de un link por un recuadro de color
@@ -23,10 +23,10 @@
 
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
-\def\captionlessmarginimage {0.1} % Margen sup/inf de imágenes si no hay leyenda [cm]
+\def\captionlessmarginimage {0.1} % Margen sup/inf de figuras si no hay leyenda [cm]
 \def\captionlrmargin {2.7}        % Márgenes izq/der de la leyenda [cm]
-\def\captiontbmarginfig {9.35}    % Margen sup/inf de la leyenda en figuras [pt]
-\def\captiontbmargintbl {7}       % Margen sup/inf de la leyenda en tablas [pt]
+\def\captiontbmarginfigure {9.35} % Margen sup/inf de la leyenda en figuras [pt]
+\def\captiontbmargintable {7.0}   % Margen sup/inf de la leyenda en tablas [pt]
 \def\captiontextbold {false}      % Etiquetas (Figura,Tabla,etc.) en negrita
 \def\centeredcaption {true}       % Caption centrado al tener varias líneas
 \def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
@@ -36,7 +36,7 @@
 
 % CONFIGURACIÓN DEL ÍNDICE
 \def\indexdepth {3}               % Profundidad máxima del índice
-\def\indextitlemargin {7pt}       % Margen títulos en índice
+\def\indextitlemargin {7.0}       % Margen títulos en índice con \insertindextitle [pt]
 \def\showindex {true}             % Muestra el índice
 \def\showindexofcode {true}       % Muestra la lista de códigos fuente
 \def\showindexofcontents {true}   % Muestra la lista de contenidos
@@ -44,7 +44,7 @@
 \def\showindexoftables {true}     % Muestra la lista de tablas
 
 
-% CONFIGURACIÓN DE LOS COLORES [http://latexcolor.com/]
+% CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
 \def\captioncolor {black}         % Color de la etiqueta (Figura, Tabla, Código)
 \def\captiontextcolor {black}     % Color de la leyenda
 \def\citecolor {black}            % Color del número de las referencias o citas
@@ -62,7 +62,7 @@
 
 % MÁRGENES DE FIGURAS
 \def\marginbottomimages {-0.2}    % Margen inferior figura [cm]
-\def\marginfloatimages {-13}      % Margen sup. fig. flotante (\insertimageleft/right) [pt]
+\def\marginfloatimages {-13.0}    % Margen sup. fig. flotante (\insertimageleft/right) [pt]
 \def\margintopimages {0.0}        % Margen superior figura [cm]
 
 
@@ -98,19 +98,22 @@
 
 
 % OPCIONES DEL PDF COMPILADO
-\def\pdfbookmarkopen {true}       % Abre el panel de marcadores al abrir el pdf
-\def\pdfdisplaydoctitle {true}    % Muestra el título del informe como título en el pdf
-\def\pdffitwindow {false}         % Ajusta la ventana del lector pdf al tamaño del informe
+\def\cfgbookmarksopenlevel {1}    % Nivel de los marcadores a mostrar (1: secciones)
+\def\cfgpdfbookmarkopen {true}    % Abre el panel de marcadores al abrir el pdf
+\def\cfgpdfcenterwindow {true}    % Centra la ventana del lector pdf al abrir el informe
+\def\cfgpdfdisplaydoctitle {true} % Muestra el título del informe como título en el pdf
+\def\cfgpdffitwindow {false}      % Ajusta la ventana del lector pdf al tamaño del informe
+\def\cfgpdftoolbar {true}         % Muestra la barra de herramientas del lector pdf
 
 
 % NOMBRE DE OBJETOS
-\def\nameabstract {Resumen}          % Nombre del resumen-abstract
-\def\nameportraitpage {Portada}      % Etiqueta página de la portada
-\def\namereferences {Referencias}    % Nombre de la sección de referencias
-\def\nomltcont{Índice de Contenidos} % Nombre del índice de contenidos
-\def\nomltfigure {Lista de Figuras}  % Nombre del índice de la lista de figuras
-\def\nomltsrc {Lista de Códigos}     % Nombre del índice de la lista de código
-\def\nomlttable {Lista de Tablas}    % Nombre del índice de la lista de tablas
-\def\nomltwsrc {Código}              % Etiqueta leyenda del código fuente
-\def\nomltwfigure {Figura}           % Etiqueta leyenda de las figuras
-\def\nomltwtable {Tabla}             % Etiqueta leyenda de las tablas
+\def\nameabstract {Resumen}           % Nombre del resumen-abstract
+\def\nameportraitpage {Portada}       % Etiqueta página de la portada
+\def\namereferences {Referencias}     % Nombre de la sección de referencias
+\def\nomltcont {Índice de Contenidos} % Nombre del índice de contenidos
+\def\nomltfigure {Lista de Figuras}   % Nombre del índice de la lista de figuras
+\def\nomltsrc {Lista de Códigos}      % Nombre del índice de la lista de código
+\def\nomlttable {Lista de Tablas}     % Nombre del índice de la lista de tablas
+\def\nomltwsrc {Código}               % Etiqueta leyenda del código fuente
+\def\nomltwfigure {Figura}            % Etiqueta leyenda de las figuras
+\def\nomltwtable {Tabla}              % Etiqueta leyenda de las tablas

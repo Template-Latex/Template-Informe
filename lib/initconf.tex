@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.7.8 (25/05/2017)
+% Versión:      3.8.0 (25/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -66,11 +66,11 @@
 }
 \floatsetup[figure]{
 	% Configuración de márgenes en las figuras
-	captionskip=\captiontbmarginfig pt
+	captionskip=\captiontbmarginfigure pt
 }
 \floatsetup[table]{
 	% Configuración de márgenes en las tablas
-	captionskip=\captiontbmargintbl pt
+	captionskip=\captiontbmargintable pt
 }
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las figuras
@@ -153,15 +153,14 @@
 
 % Se define metadata del pdf compilado
 \hypersetup{
-	bookmarksopen={\pdfbookmarkopen},
-	bookmarksopenlevel={1},
-	pdfpagemode={UseOutlines},
-	pdftitle={\nombredelinforme},
+	bookmarksopen={\cfgpdfbookmarkopen},
+	bookmarksopenlevel={\cfgbookmarksopenlevel},
+	bookmarkstype={toc},
 	pdfauthor={\autordeldocumento},
-	pdfsubject={\temaatratar},
+	pdfcenterwindow={\cfgpdfcenterwindow},
 	pdfcreator={LaTeX, pdfLaTeX},
-	pdfproducer={Template-Informe v\templateversion\ | (Pablo Pizarro R.) ppizarror.com},
-	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
+	pdfdisplaydoctitle={\cfgpdfdisplaydoctitle},
+	pdffitwindow={\cfgpdffitwindow},
 	pdfinfo={
 		Author={\autordeldocumento},
 		Title={\nombredelinforme},
@@ -171,12 +170,13 @@
 		Template.Version={\templateversion},
 		Template.Website={http://ppizarror.com/Template-Informe/}
 	},
-	pdfview={FitH},
-	pdfstartview={FitH},
+	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
+	pdfpagemode={UseOutlines},
+	pdfproducer={Template-Informe v\templateversion\ | (Pablo Pizarro R.) ppizarror.com},
 	pdfstartpage={1},
-	pdfdisplaydoctitle={\pdfdisplaydoctitle},
-	pdffitwindow={\pdffitwindow},
-	pdfcenterwindow={true},
-	bookmarkstype={toc},
-	pdftoolbar={false}
+	pdfstartview={FitH},
+	pdfsubject={\temaatratar},
+	pdftitle={\nombredelinforme},
+	pdftoolbar={\cfgpdftoolbar}
+	pdfview={FitH}
 }

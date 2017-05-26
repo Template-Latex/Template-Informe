@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.7.8 (25/05/2017)
+% Versión:      3.8.0 (25/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -60,7 +60,7 @@
 
 \newcommand{\newp}{
 	% Inserta nueva línea
-	\hbadness=10000 \vspace{\defaultnewlinesize} \par
+	\hbadness=10000 \vspace{\defaultnewlinesize pt} \par
 }
 
 \newcommand{\newpar}[1]{
@@ -300,7 +300,7 @@
 	%	#2	Margen superior en pt. (opcional), 10pt por defecto
 	\emptyvarerr{\insertindextitle}{#1}{Titulo no definido}
 	\ifx\hfuzz#2\hfuzz
-		\addtocontents{toc}{\protect\addvspace{\indextitlemargin}}
+		\addtocontents{toc}{\protect\addvspace{\indextitlemargin pt}}
 	\else
 		\addtocontents{toc}{\protect\addvspace{#2 pt}}
 	\fi
@@ -738,7 +738,7 @@
 		\ifx\hfuzz#4\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
-			\hspace{0.04cm} \caption{#4 #1}
+			\hspace{0cm} \caption{#4 #1}
 		\fi
 	\end{figure}
 	\vspace{\marginbottomimages cm}
@@ -759,7 +759,7 @@
 		\ifx\hfuzz#4\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
-			\hspace{0.05cm} \caption{#4 #1}
+			\hspace{0cm} \caption{#4 #1}
 		\fi
 	\end{figure}
 	\vspace{\marginbottomimages cm}

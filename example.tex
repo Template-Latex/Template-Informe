@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.7.8 (25/05/2017)
+% Versión:      3.8.0 (25/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -22,7 +22,7 @@
 		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}}
+		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
 		
 		A continuación \footnote{Como puedes observar las funciones \texttt{\textbackslash insert...} agregan un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
 		
@@ -43,7 +43,7 @@
 		% Tabla generada con Excel2Latex
 		\begin{table}[htbp]
 			\centering
-			\caption{Ejemplo de tablas}
+			\caption{Ejemplo de tablas.}
 			\begin{tabular}{ccc}
 				\hline
 				\textbf{Columna 1} & \textbf{Columna 2} & \textbf{Columna 3} \bigstrut\\
@@ -65,7 +65,7 @@
 	\subsection{Haciendo informes como un profesional}
 		
 		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, el número de filas que utilizará y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
-		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{17}{Apolo}
+		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{17}{Apolo.}
 		
 		\lipsum[1]
 		
@@ -74,7 +74,7 @@
 		\newp \lipsum[2]
 		
 		% Agrega una ecuación con leyendas
-		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) dx = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido}
+		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) dx = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido.}
 		
 		% Aquí no es necesario usar \newp dado que todas las funciones \insert... añaden un párrafo nuevo por defecto
 		\lipsum[115]
@@ -119,7 +119,7 @@
 		A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}) \footnote{El mejor lenguaje del mundo}, Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{lstlisting}: \\
 		
 % Se define el lenguaje del código, cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
-\begin{lstlisting}[style=Python, caption={Ejemplo en Python\label{codigo-python}}]
+\begin{lstlisting}[style=Python, caption={Ejemplo en Python.\label{codigo-python}}]
 import numpy as np
 
 def incmatrix(genl1, genl2):
@@ -129,7 +129,7 @@ def incmatrix(genl1, genl2):
 	VT = np.zeros((n*m, 1), int) # dummy variable
 \end{lstlisting}
 
-\begin{lstlisting}[style=Java, caption={Ejemplo en Java\label{codigo-java}}]
+\begin{lstlisting}[style=Java, caption={Ejemplo en Java.\label{codigo-java}}]
 import java.io.IOException; 
 import javax.servlet.*;
 
@@ -145,7 +145,7 @@ public class Hola extends GenericServlet {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[style=Matlab, caption={Ejemplo en Matlab\label{codigo-matlab}}]
+\begin{lstlisting}[style=Matlab, caption={Ejemplo en Matlab.\label{codigo-matlab}}]
 % Se crea gráfico
 f = figure(1); hold on; movegui(f, 'center');
 xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
