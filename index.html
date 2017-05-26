@@ -141,6 +141,7 @@
 					<li><a href="#config-elem" class="menu-little-entry">Configuración de portada, header y footer</a></li>
 					<li><a href="#config-pagemargin" class="menu-little-entry">Márgenes de la página</a></li>
 					<li><a href="#config-tstyles" class="menu-little-entry">Estilo y tamaño de los títulos</a></li>
+					<li><a href="#config-pdfoptions" class="menu-little-entry">Opciones del pdf</a></li>
 					<li><a href="#config-objname" class="menu-little-entry">Nombres de objetos</a></li>
 				</ul>
 			</li>
@@ -767,19 +768,19 @@
 						<strong>\defaultinterline</strong>: Tamaño del interlineado.
 					</li>
 					<li>
-						<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea en pt.
+						<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea, en pt.
 					</li>
 					<li>
 						<strong>\numberedequation</strong>: Muestra el número en las ecuaciones insertadas con <i>\insert...</i>.
+					</li>
+					<li>
+						<strong>\romanpageuppercase</strong>: Páginas en número romano (abstract-índice) en mayúsculas.
 					</li>
 					<li>
 						<strong>\showborderonlinks</strong>: Reemplaza el color de un link por un recuadro de color.
 					</li>
 					<li>
 						<strong>\showdotontitles</strong>: Muestra un punto en cada número de sección, subsección y sub-subsección.
-					</li>
-					<li>
-						<strong>\romanpageuppercase</strong>: Páginas en número romano (abstract-índice) en mayúsculas.
 					</li>
 					<li>
 						<strong>\tablepadding</strong>: Padding de las tablas.
@@ -791,19 +792,19 @@
 				<strong class="functtitlstyle">Configuración de las leyendas<a id="config-caption"></a></strong>
 				<ul>
 					<li>
-						<strong>\captionbottommargin</strong>: Margen inferior de las leyendas, en pt.
-					</li>
-					<li>
 						<strong>\captionlessmarginimage</strong>: Margen inferior si no hay caption en figuras, en centímetros.
 					</li>
 					<li>
 						<strong>\captionlrmargin</strong>: Márgen izquierdo (<i>left</i>) y derecho (<i>right</i>) de las leyendas, en centímetros.
 					</li>
 					<li>
-						<strong>\captiontextbold</strong>: Etiquetas (Figura,Tabla,etc.) de la leyenda en negrita.
+						<strong>\captiontbmarginfigure</strong>: Margen superior/inferior de la leyenda en las figuras, en pt.
 					</li>
 					<li>
-						<strong>\captiontopmargin</strong>: Margen superior de los caption, en pt.
+						<strong>\captiontbmargintable</strong>: Margen superior/inferior de la leyenda en las tablas, en pt.
+					</li>
+					<li>
+						<strong>\captiontextbold</strong>: Etiquetas (Figura,Tabla,etc.) de la leyenda en negrita.
 					</li>
 					<li>
 						<strong>\centeredcaption</strong>: Leyenda centrada al tener varias líneas.
@@ -814,6 +815,9 @@
 					<li>
 						<strong>\showsectiononcaption</strong>: Indica si se agrega el número de la sección en la leyenda.
 					</li>
+					<li>
+						<strong>\tablecaptiontop</strong>: Establece la leyenda encima de las tablas.
+					</li>
 				</ul>
 			</li>
 
@@ -821,10 +825,10 @@
 				<strong class="functtitlstyle">Configuración del índice<a id="config-index"></a></strong>
 				<ul>
 					<li>
-						<strong>\indextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <b>\insertindextitle</b>).
+						<strong>\indexdepth</strong>: Profundidad del índice.
 					</li>
 					<li>
-						<strong>\indexdepth</strong>: Profundidad del índice.
+						<strong>\indextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <b>\insertindextitle</b>), en pt.
 					</li>
 					<li>
 						<strong>\showindex</strong>: Muestra la página de índice.
@@ -981,6 +985,30 @@
 					</li>
 					<li>
 						<strong>\styletitlei</strong>: Estilo títulos en el índice.
+					</li>
+				</ul>
+			</li>
+
+			<li class="config-parent">
+				<strong class="functtitlstyle">Opciones del pdf<a id="config-pdfoptions"></a></strong>
+				<ul>
+					<li>
+						<strong>\cfgbookmarksopenlevel</strong>: Nivel de los marcadores a mostrar (1: secciones, 2: muestra todos los subtítulos, etc.).
+					</li>
+					<li>
+						<strong>\cfgpdfbookmarkopen</strong>: Abre el panel de marcadores al abrir el pdf.
+					</li>
+					<li>
+						<strong>\cfgpdfcenterwindow</strong>: Centra la ventana del lector pdf al abrir el informe.
+					</li>
+					<li>
+						<strong>\cfgpdfdisplaydoctitle</strong>: Muestra el título del informe como título en el lector del pdf.
+					</li>
+					<li>
+						<strong>\cfgpdffitwindow</strong>: Ajusta la ventana del lector pdf al tamaño del informe.
+					</li>
+					<li>
+						<strong>\cfgpdftoolbar</strong>: Muestra la barra de herramientas del lector pdf.
 					</li>
 				</ul>
 			</li>
