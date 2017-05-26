@@ -16,30 +16,33 @@
 \def\defaultinterline {1.0}       % Interlineado por defecto
 \def\defaultnewlinesize {11pt}    % Tamaño del salto de línea
 \def\numberedequation {true}      % Ecuaciones con \insert... numeradas
+\def\romanpageuppercase {false}   % Páginas en número romano en mayúsculas
 \def\showborderonlinks {false}    % Reemplaza el color de un link por un recuadro de color
 \def\showdotontitles {true}       % Punto al final de cada título/subtítulo/etc
-\def\romanpageuppercase {false}   % Páginas en número romano en mayúsculas
 \def\tablepadding {1.0}           % Padding de las tablas
 
-% CONFIGURACIÓN DE LOS CAPTION
-\def\captionbottommargin {4}      % Margen inferior de las leyendas [pt]
+
+% CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
 \def\captionlessmarginimage {0.1} % Margen sup/inf de imágenes si no hay leyenda [cm]
 \def\captionlrmargin {2.7}        % Márgenes izq/der de la leyenda [cm]
+\def\captiontbmarginfig {9.35}    % Margen sup/inf de la leyenda en figuras [pt]
+\def\captiontbmargintbl {7}       % Margen sup/inf de la leyenda en tablas [pt]
 \def\captiontextbold {false}      % Etiquetas (Figura,Tabla,etc.) en negrita
-\def\captiontopmargin {9}        % Margen superior de la leyenda [pt]
 \def\centeredcaption {true}       % Caption centrado al tener varias líneas
 \def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
-\def\tablecaptiontop {true}       % Leyenda arriba de las tablas
 \def\showsectiononcaption {false} % Muestra el número de sección en las leyendas
+\def\tablecaptiontop {true}       % Leyenda arriba de las tablas
+
 
 % CONFIGURACIÓN DEL ÍNDICE
-\def\indextitlemargin {7pt}       % Margen títulos en índice
 \def\indexdepth {3}               % Profundidad máxima del índice
+\def\indextitlemargin {7pt}       % Margen títulos en índice
 \def\showindex {true}             % Muestra el índice
+\def\showindexofcode {true}       % Muestra la lista de códigos fuente
 \def\showindexofcontents {true}   % Muestra la lista de contenidos
 \def\showindexoffigures {true}    % Muestra la lista de figuras
-\def\showindexofcode {true}       % Muestra la lista de códigos fuente
 \def\showindexoftables {true}     % Muestra la lista de tablas
+
 
 % CONFIGURACIÓN DE LOS COLORES [http://latexcolor.com/]
 \def\captioncolor {black}         % Color de la etiqueta (Figura, Tabla, Código)
@@ -56,20 +59,24 @@
 \def\titlecolor {black}           % Color de los títulos
 \def\urlcolor {magenta}           % Color de los enlaces web (insertados con \url, \href)
 
+
 % MÁRGENES DE FIGURAS
 \def\marginbottomimages {-0.2}    % Margen inferior figura [cm]
 \def\marginfloatimages {-13}      % Margen sup. fig. flotante (\insertimageleft/right) [pt]
 \def\margintopimages {0.0}        % Margen superior figura [cm]
+
 
 % REFERENCIAS
 \def\referencenumsection {false}  % Referencias como sección con número
 \def\twocolumnreferences {false}  % Referencias en dos columnas
 \def\typereference {apa}          % Tipo de referencias
 
+
 % CONFIGURACIÓN PORTADA Y HEADERS
 \def\gradecodeonportrait {false}  % Muestra el código del curso
 \def\showfooter {true}            % Muestra el footer
 \def\showheadertitle {true}       % Muestra título de la sección en el header
+
 
 % MÁRGENES DE PÁGINA
 \def\firstpagemargintop {3.8}     % Margen superior página portada [cm]
@@ -77,6 +84,7 @@
 \def\pagemarginleft {2.54}        % Margen izquierdo página [cm]
 \def\pagemarginright {2.54}       % Margen derecho página [cm]
 \def\pagemargintop {3.0}          % Margen superior página [cm]
+
 
 % ESTILO Y TAMAÑO DE TÍTULOS
 \def\fontsizesubsubtitle {\large} % Tamaño sub-subtítulos
@@ -87,6 +95,13 @@
 \def\stylesubtitle {\bfseries}    % Estilo subtítulos
 \def\styletitle {\bfseries}       % Estilo títulos
 \def\styletitlei {\bfseries}      % Estilo títulos en el índice
+
+
+% OPCIONES DEL PDF COMPILADO
+\def\pdfbookmarkopen {true}       % Abre el panel de marcadores al abrir el pdf
+\def\pdfdisplaydoctitle {true}    % Muestra el título del informe como título en el pdf
+\def\pdffitwindow {false}         % Ajusta la ventana del lector pdf al tamaño del informe
+
 
 % NOMBRE DE OBJETOS
 \def\nameabstract {Resumen}          % Nombre del resumen-abstract

@@ -62,22 +62,27 @@
 	% Se configura el texto de los caption
 	labelfont={color=\captioncolor, \captiontextbold},
 	textfont={color=\captiontextcolor},
-	singlelinecheck=on,
-	belowskip=\captionbottommargin pt,
-	aboveskip=\captiontopmargin pt
+	singlelinecheck=on
+}
+\floatsetup[figure]{
+	% Configuración de márgenes en las figuras
+	captionskip=\captiontbmarginfig pt
+}
+\floatsetup[table]{
+	% Configuración de márgenes en las tablas
+	captionskip=\captiontbmargintbl pt
 }
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las figuras
-	\captionsetup[figure]{
-		position=top}
-	}{
+	\floatsetup[figure]{
+		position=above}}{
 }
 \ifthenelse{\equal{\tablecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las tablas
-	\captionsetup[table]{
+	\floatsetup[table]{
 		position=top}
 	}{
-	\captionsetup[table]{
+	\floatsetup[table]{
 		position=bottom}
 }
 \ifthenelse{\equal{\centeredcaption}{true}}{
@@ -148,8 +153,8 @@
 
 % Se define metadata del pdf compilado
 \hypersetup{
-	bookmarksopen=true,
-	bookmarksopenlevel=1,
+	bookmarksopen={\pdfbookmarkopen},
+	bookmarksopenlevel={1},
 	pdfpagemode={UseOutlines},
 	pdftitle={\nombredelinforme},
 	pdfauthor={\autordeldocumento},
@@ -169,5 +174,9 @@
 	pdfview={FitH},
 	pdfstartview={FitH},
 	pdfstartpage={1},
-	pdfdisplaydoctitle={true}
+	pdfdisplaydoctitle={\pdfdisplaydoctitle},
+	pdffitwindow={\pdffitwindow},
+	pdfcenterwindow={true},
+	bookmarkstype={toc},
+	pdftoolbar={false}
 }
