@@ -146,13 +146,12 @@ jQuery(document).ready(function($) {
     }
     console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
 
-    if (!is_movile_browser || true) {
+    if (!is_movile_browser) {
         $('.page-header').parallax({
             imageSrc: image_url,
             speed: 0.15,
             positionY: image_pos,
-            positionX: 'center',
-            androidFix: false
+            positionX: 'center'
         });
     } else {
         $('.page-header').css('background', '#161415 url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
