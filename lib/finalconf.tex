@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo principal
-% Versión:      3.8.2 (27/05/2017)
+% Versión:      3.8.3 (27/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -14,6 +14,22 @@
 % Se reestablecen headers y footers
 \markboth{}{}
 \newpage
+
+% Se agrega una página en blanco si se imprime por dos lados
+\ifthenelse{\equal{\showindex}{true}}{
+	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
+		\ifoddpage
+		\else
+		\newpage
+		\null
+		\thispagestyle{empty}
+		\newpage
+		\addtocounter{page}{-1}
+		\fi
+	}{}
+}{}
+
+% Se actualiza el header
 \ifthenelse{\equal{\showheadertitle}{true}}{
 	\fancyhead[L]{\nouppercase{\leftmark}}
 }{}

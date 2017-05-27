@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.8.2 (27/05/2017)
+% Versión:      3.8.3 (27/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -299,8 +299,14 @@
 
 \newcommand{\insertemptypage}{
 	% Crea una página vacía
-	\newpage\null\thispagestyle{empty}\newpage
-	\addtocounter{page}{-1}
+	\newpage
+	\setcounter{templatepagecounter}{\thepage}
+	\pagenumbering{gobble}
+	\null
+	\thispagestyle{empty}
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{\thetemplatepagecounter}
 }
 
 \newcommand{\insertindextitle}[2]{

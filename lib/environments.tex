@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      3.8.2 (27/05/2017)
+% Versión:      3.8.3 (27/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -15,7 +15,6 @@
 	% Crea una sección de referencias
 	
 	\begingroup
-	
 	% Se configura las referencias como una sección
 	\ifthenelse{\equal{\referencenumsection}{true}}{
 		\section{\namereferences}
@@ -38,7 +37,5 @@
 	
 	% Inserta un título sin número, sin cabecera y sin aparecer en el índice,
 	% para que aparezca en el índice utilizar la función \sectionanumheadless
-	\sectionanumnoiheadless{\nameabstract}
-	}
-	{
+	\sectionanumnoiheadless{\nameabstract}}{
 }
