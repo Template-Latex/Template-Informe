@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.8.0 (25/05/2017)
+% Versión:      3.8.1 (27/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -333,7 +333,9 @@
 	%	#1	Ecuación
 	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}
 	\vspace{-0.1cm}
-	\[ #1 \]
+	\begin{equation*}
+		\ensuremath{#1}
+	\end{equation*}
 	\vspace{-0.26cm}
 	\par
 }
@@ -348,7 +350,7 @@
 		\insertequation[#1]{#2}
 	\else
 		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{0cm}
+			\vspace{-0.10cm}
 			\begin{equation}
 				\text{#1} #2
 			\end{equation}
@@ -357,7 +359,7 @@
 				\centering \textcolor{\captiontextcolor}{#3}
 				\vspace{0.05cm}
 			\end{changemargin}
-			\vspace{0cm}
+			\vspace{0.05cm}
 			\par
 		}{
 			\ifx\hfuzz#1\hfuzz
@@ -377,14 +379,16 @@
 	\ifx\hfuzz#2\hfuzz
 		\insertequationanum{#1}
 	\else
-		\vspace{0cm}
-		\[ #1 \]
+		\vspace{-0.10cm}
+		\begin{equation*}
+			\ensuremath{#1}
+		\end{equation*}
 		\vspace{-0.65cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
 			\vspace{0.05cm}
 		\end{changemargin}
-		\vspace{0cm}
+		\vspace{0.05cm}
 		\par
 	\fi
 }
@@ -430,7 +434,7 @@
 			\begin{gather}
 				\ensuremath{#1}
 			\end{gather}
-			\vspace{-0.7cm}
+			\vspace{-0.77cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#2}
 				\vspace{0.05cm}
@@ -455,7 +459,7 @@
 		\begin{gather*}
 			\ensuremath{#1}
 		\end{gather*}
-		\vspace{-0.7cm}
+		\vspace{-0.77cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
 			\vspace{0.05cm}
@@ -596,7 +600,7 @@
 			\begin{align}
 				\ensuremath{#1}
 			\end{align}
-			\vspace{-0.7cm}
+			\vspace{-0.77cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#2}
 				\vspace{0.05cm}
@@ -621,7 +625,7 @@
 		\begin{align*}
 			\ensuremath{#1}
 		\end{align*}
-		\vspace{-0.7cm}
+		\vspace{-0.77cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
 			\vspace{0.05cm}
