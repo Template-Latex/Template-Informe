@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.8.1 (27/05/2017)
+% Versión:      3.8.2 (27/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -327,7 +327,6 @@
 			\text{#1} #2
 		\end{equation}
 		\vspace{-0.26cm}
-		\par
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else
@@ -346,7 +345,6 @@
 		\ensuremath{#1}
 	\end{equation*}
 	\vspace{-0.26cm}
-	\par
 }
 
 \newcommand{\insertequationcaptioned}[3][]{
@@ -369,7 +367,6 @@
 				\vspace{0.05cm}
 			\end{changemargin}
 			\vspace{0.05cm}
-			\par
 		}{
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -398,7 +395,6 @@
 			\vspace{0.05cm}
 		\end{changemargin}
 		\vspace{0.05cm}
-		\par
 	\fi
 }
 
@@ -412,7 +408,6 @@
 			\ensuremath{#1}
 		\end{gather}
 		\vspace{-0.4cm}
-		\par
 	}{
 		\insertgatheranum{#1}
 	}
@@ -427,7 +422,6 @@
 		\ensuremath{#1}
 	\end{gather*}
 	\vspace{-0.4cm}
-	\par
 }
 
 \newcommand{\insertgathercaptioned}[2]{
@@ -449,7 +443,6 @@
 				\vspace{0.05cm}
 			\end{changemargin}
 			\vspace{0cm}
-			\par
 		}{
 			\insertgathercaptionedanum{#1}{#2}
 		}
@@ -474,7 +467,6 @@
 			\vspace{0.05cm}
 		\end{changemargin}
 		\vspace{0cm}
-		\par
 	\fi
 }
 
@@ -491,7 +483,6 @@
 			\end{gathered}
 		\end{equation}
 		\vspace{-0.05cm}
-		\par
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else
@@ -510,7 +501,6 @@
 		\ensuremath{#1}
 	\end{gather*}
 	\vspace{-0.4cm}
-	\par
 }
 
 \newcommand{\insertgatheredcaptioned}[3][]{
@@ -535,7 +525,6 @@
 				\vspace{0.05cm}
 			\end{changemargin}
 			\vspace{0cm}
-			\par
 		}{
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -564,7 +553,6 @@
 			\vspace{0.05cm}
 		\end{changemargin}
 		\vspace{0cm}
-		\par
 	\fi
 }
 
@@ -578,7 +566,6 @@
 			\ensuremath{#1}
 		\end{align}
 		\vspace{-0.4cm}
-		\par
 	}{
 		\insertalignanum{#1}
 	}
@@ -593,7 +580,6 @@
 		\ensuremath{#1}
 	\end{align*}
 	\vspace{-0.4cm}
-	\par
 }
 
 \newcommand{\insertaligncaptioned}[2]{
@@ -615,7 +601,6 @@
 				\vspace{0.05cm}
 			\end{changemargin}
 			\vspace{0cm}
-			\par
 		}{
 			\insertaligncaptionedanum{#1}{#2}
 		}
@@ -640,7 +625,6 @@
 			\vspace{0.05cm}
 		\end{changemargin}
 		\vspace{0cm}
-		\par
 	\fi
 }
 
@@ -657,7 +641,6 @@
 			\end{aligned}
 		\end{equation}
 		\vspace{-0.05cm}
-		\par
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else
@@ -676,7 +659,6 @@
 		\ensuremath{#1}
 	\end{align*}
 	\vspace{-0.4cm}
-	\par
 }
 
 \newcommand{\insertalignedcaptioned}[3][]{
@@ -701,7 +683,6 @@
 			\vspace{0.05cm}
 		\end{changemargin}
 		\vspace{0cm}
-		\par
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else
@@ -732,7 +713,6 @@
 			\vspace{0.05cm}
 		\end{changemargin}
 		\vspace{0cm}
-		\par
 	\fi
 }
 
