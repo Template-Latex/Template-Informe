@@ -213,15 +213,15 @@ a.back-to-top {
     right: 20px;
     bottom: 20px;
     background: #27AE61 url("../resources/up-arrow.png") no-repeat center 43%;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
 }
 
 @media screen and (min-width: 64em) {
     a.back-to-top {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
+        -webkit-border-radius: 35px;
+        -moz-border-radius: 35px;
+        border-radius: 35px;
     }
 }
 
@@ -229,13 +229,19 @@ a.back-to-top {
     a.back-to-top {
         width: 60px;
         height: 60px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
     }
 }
 
 @media screen and (max-width: 42em) {
     a.back-to-top {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
     }
 }
 
@@ -258,9 +264,32 @@ a.back-to-top {
 }
 
 .iconbutton {
-    top: 4px;
     position: relative;
     margin-left: 5px;
+}
+
+@media screen and (min-width: 64em) {
+    .iconbutton {
+        top: 4px;
+        width: 16px;
+        height: 16px
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .iconbutton {
+        top: 2px;
+        width: 14px;
+        height: 14px
+    }
+}
+
+@media screen and (max-width: 42em) {
+    .iconbutton {
+        top: 3px;
+        width: 13px;
+        height: 13px
+    }
 }
 
 a {
@@ -309,7 +338,7 @@ a:hover {
     background-color: rgba(210, 210, 210, 0.85);
     border-color: rgba(255, 255, 255, 0.5);
     color: rgba(20, 20, 20, 1);
-    font-weight: bold;
+    font-weight: bolder;
     margin-left: 0rem;
     margin-right: 0.5rem;
 }
@@ -345,7 +374,7 @@ a:hover {
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .btn, .btn-pro {
         padding: 0.6rem 0.9rem;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -354,6 +383,8 @@ a:hover {
         display: block;
         width: 100%;
         padding: 0.75rem;
+    }
+    .btn, .btn-pro {
         font-size: 0.7rem;
     }
     .btn+.btn, .btn-pro+.btn-pro {
@@ -393,13 +424,13 @@ a:hover {
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .project-name {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 }
 
 @media screen and (max-width: 42em) {
     .project-name {
-        font-size: 2rem;
+        font-size: 2.3rem;
     }
 }
 
