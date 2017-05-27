@@ -201,13 +201,22 @@
 	\ensuremath{\lVert #1 \rVert}
 }
 
-\newcommand{\resizeitem}[2]{
-	% Crea un resizebox de tamaño textwidth
+\newcommand{\itemresize}[2]{
+	% Redimensiona un ítem en textwidth
 	% 	#1	Tamaño del nuevo objeto (En textwidth)
 	%	#2	Objeto a redimensionar
-	\emptyvarerr{\resizeitem}{#1}{Tamano del nuevo objeto no definido}
-	\emptyvarerr{\resizeitem}{#2}{Objeto a redimensionar no definido}
+	\emptyvarerr{\itemresize}{#1}{Tamano del nuevo objeto no definido}
+	\emptyvarerr{\itemresize}{#2}{Objeto a redimensionar no definido}
 	\resizebox{#1\textwidth}{!}{#2}
+}
+
+\newcommand{\equationresize}[2]{
+	% Redimensiona una ecuación en textwidth
+	% 	#1	Tamaño del nuevo objeto (En textwidth)
+	%	#2	Ecuación a redimensionar
+	\emptyvarerr{\equationresize}{#1}{Tamano del nuevo objeto no definido}
+	\emptyvarerr{\equationresize}{#2}{Ecuacion a redimensionar no definida}
+	\resizebox{#1\textwidth}{!}{$#2$}
 }
 
 \newcommand{\sectionanum}[1]{
