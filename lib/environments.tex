@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      3.8.3 (27/05/2017)
+% Versión:      3.8.4 (28/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -38,4 +38,17 @@
 	% Inserta un título sin número, sin cabecera y sin aparecer en el índice,
 	% para que aparezca en el índice utilizar la función \sectionanumheadless
 	\sectionanumnoiheadless{\nameabstract}}{
+	
+	% Salta de página si está imprimiendo por ambas caras
+	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
+		\checkoddpage
+		\ifoddpage
+			\newpage
+			\null
+			\thispagestyle{empty}
+			\newpage
+			\addtocounter{page}{-1}
+		\else
+		\fi
+	}{}
 }

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Índice
-% Versión:      3.8.3 (27/05/2017)
+% Versión:      3.8.4 (28/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -16,18 +16,6 @@
 	% Crea nueva página y establece estilo de títulos
 	\newpage
 	\sectionfont{\color{\indextitlecolor} \fontsizetitlei \styletitlei \selectfont}
-	
-	% Salta de página si está imprimiendo por ambas caras
-	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
-		\ifoddpage
-		\else
-			\newpage
-			\null
-			\thispagestyle{empty}
-			\newpage
-			\addtocounter{page}{-1}
-		\fi
-	}{}
 	
 	% Índice de Contenidos
 	\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}
@@ -46,5 +34,19 @@
 	\iftotallstlistings
 		\ifthenelse{\equal{\showindexofcode}{true}}{\lstlistoflistings}{}
 	\fi
+	
+	% Se añade una página en blanco
+	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
+		\vfill
+		\checkoddpage
+		\ifoddpage
+		\else
+			\newpage
+			\null
+			\thispagestyle{empty}
+			\newpage
+			\addtocounter{page}{-1}
+		\fi
+	}{}
 	
 }{}

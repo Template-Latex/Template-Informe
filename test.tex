@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de testeo
-% Versión:      3.8.3 (27/05/2017)
+% Versión:      3.8.4 (28/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -21,7 +21,7 @@
 \insertequationanum{a}
 
 \section{Sectiontest}
-\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}
+\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}\subsection{Test}
 
 \lipsum[6]
 \insertequation[]{a+b}
@@ -235,8 +235,20 @@ $\fracderivat{a}{b}$
 \insertdoubleeqimage[\label{img-equal}]{ejemplos/test-image}{Descripción A}
 {ejemplos/test-image-wrap}{Descripción B}{height=5cm}{Descripción general de las imágenes}
 
+\insertdoubleeqimage[\label{img-equal2}]{ejemplos/test-image}{Descripción A}
+{ejemplos/test-image-wrap}{Descripción B}{height=5cm}{Descripción general de las imágenes}
+
+\insertdoubleeqimage[\label{img-equal3}]{ejemplos/test-image}{Descripción A}
+{ejemplos/test-image-wrap}{Descripción B}{height=5cm}{Descripción general de las imágenes}
+
+\inserttripleimage[\label{img-triple-b}]{ejemplos/test-image}{scale=0.4,angle=90}{ejemplos/test-image}{height=6cm}{ejemplos/test-image}{width=3cm}{Descripción general}
+
 \inserttripleimage[\label{img-triple-1}]{ejemplos/test-image}{scale=0.4}{ejemplos/test-image}{height=6cm}{ejemplos/test-image}{width=3cm}{Descripción general}
 
 
 % Nueva pagina
 \newpage
+
+\sectionanum{Test sin numerar}
+
+\subsection{Hola}
