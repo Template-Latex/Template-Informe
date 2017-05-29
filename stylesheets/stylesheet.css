@@ -414,6 +414,7 @@ a:hover {
 .project-name {
     margin-top: 0;
     margin-bottom: 0.1rem;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 @media screen and (min-width: 64em) {
@@ -438,6 +439,7 @@ a:hover {
     margin-bottom: 2rem;
     font-weight: normal;
     opacity: 1.0;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 @media screen and (min-width: 64em) {
