@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.8.6 (28/05/2017)
+% Versión:      3.8.6 (29/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -76,7 +76,8 @@
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las figuras
 	\floatsetup[figure]{
-		position=above}}{
+		position=above
+	}}{
 }
 \ifthenelse{\equal{\tablecaptiontop}{true}}{
 	% Se dejan los caption en la parte superior para las tablas
@@ -86,10 +87,35 @@
 	\floatsetup[table]{
 		position=bottom}
 }
-\ifthenelse{\equal{\centeredcaption}{true}}{
-	% Se centran todos los captions
-	\captionsetup{justification=centering}}{
+\ifthenelse{\equal{\captionalignment}{justified}}{
+	% Leyenda justificada
+	\captionsetup{
+		justification=justified,
+		format=plain}
+}{
+\ifthenelse{\equal{\captionalignment}{centered}}{
+	% Leyenda centrada
+	\captionsetup{
+		justification=centering
+	}
+}{
+\ifthenelse{\equal{\captionalignment}{left}}{
+	% Leyenda justificada
+	\captionsetup{
+		justification=raggedright,
+		singlelinecheck=false
+	}
+}{
+\ifthenelse{\equal{\captionalignment}{right}}{
+	% Leyenda justificada
+	\captionsetup{
+		justification=raggedleft,
+		singlelinecheck=false
+	}
+}{
+	\errmessage{Error: Posicion de leyendas desconocida \noexpand \captionalignment= \captionalignment}
 }
+}}}
 
 % Configuración de referencias
 \bibliographystyle{\typereference} % Estilo de las referencias
@@ -138,8 +164,8 @@
 }
 
 % Configuración de hbox y vbox
-\hfuzz=100pt \vfuzz=100pt
-\hbadness=2000 \vbadness=\maxdimen
+\hfuzz=200pt \vfuzz=200pt
+\hbadness=\maxdimen \vbadness=\maxdimen
 
 % Se activa el word-wrap para textos con \texttt{}
 {{\ttfamily \hyphenchar\the\font=`\-}

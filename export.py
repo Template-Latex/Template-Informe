@@ -110,7 +110,7 @@ for f in FILES.keys():
 
     # Sólo para el archivo principal se cambia la version
     if f == MAINFILE:
-        data[CODEVERSIONPOS] = versioncode.replace('\n ','\n')
+        data[CODEVERSIONPOS] = versioncode.replace('\n ', '\n')
 
     # Se reescribe el archivo
     newfl = open(f, 'w')
