@@ -132,8 +132,8 @@
 					<li><a href="#hlp-parrafo" class="menu-little-entry">Insertar párrafos y citas</a></li>
 					<li><a href="#hlp-imagen" class="menu-little-entry">Añadir una imagen</a></li>
 					<li><a href="#hlp-formulae" class="menu-little-entry">Insertar una fórmula en el documento</a></li>
-					<li><a href="#hlp-math" class="menu-little-entry">Expresiones matemáticas</a></li>
 					<li><a href="#hlp-title" class="menu-little-entry">Insertar secciones sin número y sin aparecer en el índice</a></li>
+					<li><a href="#hlp-math" class="menu-little-entry">Expresiones matemáticas</a></li>
 					<li><a href="#hlp-other" class="menu-little-entry">Otras funciones</a></li>
 				</ul>
 			</li>
@@ -558,6 +558,32 @@
 				</ul>
 			</li>
 			<li class="li-code-parent">
+				<strong class="functtitlstyle">Insertar secciones sin número y sin aparecer en el índice<a id="hlp-title"></a></strong>
+				<p>
+					También pueden añadirse secciones no numeradas <i>(anum)</i> que aparezcan en el índice o no <i>(noi)</i>. Para ello existen las siguientes funciones:
+				</p>
+				<ul>
+					<li>
+						<strong>\sectionanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número.
+					</li>
+					<li>
+						<strong>\subsectionanum</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta una subsección sin número.
+					</li>
+					<li>
+						<strong>\subsubsectionanum</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número.
+					</li>
+					<li>
+						<strong>\sectionanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número y sin que aparezca en el índice.
+					</li>
+					<li>
+						<strong>\subsectionanumnoi</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta una subsección sin número y sin que aparezca en el índice.
+					</li>
+					<li>
+						<strong>\subsubsectionanumnoi</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número y sin que aparezca en el índice.
+					</li>
+				</ul>
+			</li>
+			<li class="li-code-parent">
 				<strong class="functtitlstyle">Expresiones matemáticas <a id="hlp-math"></a></strong>
 				<p>
 					Existen varias funciones para añadir expresiones matemáticas de forma sencilla, estas se pueden usar tanto dentro como fuera de una fórmula (por ejemplo se pueden usar dentro de un párrafo sin la necesidad de hacer <i>$\...$</i>).
@@ -697,35 +723,12 @@
 					</li>
 				</ul>
 			</li>
-			<li class="li-code-parent">
-				<strong class="functtitlstyle">Insertar secciones sin número y sin aparecer en el índice<a id="hlp-title"></a></strong>
-				<p>
-					También pueden añadirse secciones no numeradas <i>(anum)</i> que aparezcan en el índice o no <i>(noi)</i>. Para ello existen las siguientes funciones:
-				</p>
-				<ul>
-					<li>
-						<strong>\sectionanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número.
-					</li>
-					<li>
-						<strong>\subsectionanum</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta una subsección sin número.
-					</li>
-					<li>
-						<strong>\subsubsectionanum</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número.
-					</li>
-					<li>
-						<strong>\sectionanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número y sin que aparezca en el índice.
-					</li>
-					<li>
-						<strong>\subsectionanumnoi</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta una subsección sin número y sin que aparezca en el índice.
-					</li>
-					<li>
-						<strong>\subsubsectionanumnoi</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número y sin que aparezca en el índice.
-					</li>
-				</ul>
-			</li>
 			<li>
 				<strong class="functtitlstyle">Otras funciones<a id="hlp-other"></a></strong>
 				<ul>
+					<li>
+						<strong>\equationresize</strong><b>{</b><em>Factor (en textwidth)</em><b>}</b><b>{</b><em>Ecuación</em><b>}</b>: Ajusta una ecuación utilizando la función <b>\resizebox</b>.
+					</li>
 					<li>
 						<strong>\insertemail</strong><b>{</b><em>Correo</em><b>}</b>: Inserta un link de un correo con formato y dirección web válida.
 					</li>
@@ -734,6 +737,9 @@
 					</li>
 					<li>
 						<strong>\insertindextitle</strong><b>{</b><em>Título</em><b>}</b><b>{</b><em>Margen vertical <i>(opcional)</i> [px]</em><b>}</b>: Inserta un título sólo en el índice. <b>Nota:</b> para utilizar esta función se debe haber creado una sección antes.
+					</li>
+					<li>
+						<strong>\itemresize</strong><b>{</b><em>Factor (en textwidth)</em><b>}</b><b>{</b><em>Objeto</em><b>}</b>: Ajusta un objeto utilizando la función <b>\resizebox</b>.
 					</li>
 					<li>
 						<strong>\quotes</strong><b>{</b><em>Texto</em><b>}</b>: Inserta un texto entre comillas.
@@ -771,6 +777,9 @@
 			<li class="config-parent">
 				<strong class="functtitlstyle">Configuraciones generales<a id="config-other"></a></strong>
 				<ul>
+					<li>
+						<strong>\addemptypagetwosides</strong>: Añade páginas en blanco después de la portada, el resumen y el índice de manera inteligente al imprimir en doble cara; el índice siempre se imprimirá en una plana impar, así como el contenido del informe.
+					</li>
 					<li>
 						<strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
 					</li>
@@ -818,6 +827,9 @@
 					</li>
 					<li>
 						<strong>\centeredcaption</strong>: Leyenda centrada al tener varias líneas.
+					</li>
+					<li>
+						<strong>\codecaptiontop</strong>: Establece la leyenda encima del código fuente.
 					</li>
 					<li>
 						<strong>\figurecaptiontop</strong>: Establece la leyenda encima de las imágenes.
@@ -1140,6 +1152,9 @@
 				<strong><a href="https://www.ctan.org/pkg/caption">caption</a></strong>: Leyendas (o títulos de objetos).
 			</li>
 			<li>
+				<strong><a href="https://www.ctan.org/pkg/changepage">changepage</a></strong>: Condicionales para administrar páginas.
+			</li>
+			<li>
 				<strong><a href="https://www.ctan.org/pkg/chngcntr">chngcntr</a></strong>: Agrega números de secciones a las leyendas <em>[dependiente]</em>.
 			</li>
 			<li>
@@ -1207,6 +1222,9 @@
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/pdfpages">pdfpages</a></strong>: Permite administrar páginas en pdf.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/physics">physics</a></strong>: Importa funciones matemáticas esenciales.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/lipsum">lipsum</a></strong>: Permite crear textos dummy.

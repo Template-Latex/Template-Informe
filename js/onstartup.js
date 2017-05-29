@@ -121,7 +121,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
             new_version_entry += String.format(whats_new_html, title_new_version, content_version);
             new_version_entry += '<hr class="style1">';
         }
-        new_version_entry += "Puedes ver la lista de cambios completa <a href='https://github.com/ppizarror/Template-Informe/releases'>en Github</a>.";
+        new_version_entry += "Puedes ver la lista de cambios completa <a href='https://github.com/ppizarror/Template-Informe/releases'>en Github<img src='resources/github.png' width='16px' height='16px' class='iconbutton' /></a>";
         document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
     } catch (err) {
         console.log('Error al obtener los contenidos de las últimas versiones');
