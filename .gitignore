@@ -43,3 +43,8 @@ versions/
 
 # Ignora accesos directos
 *.url
+
+# Ignora elementos web
+*.html
+js/
+stylesheets/
