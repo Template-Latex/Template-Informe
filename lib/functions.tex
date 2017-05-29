@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de funciones
-% Versión:      3.8.4 (28/05/2017)
+% Versión:      3.8.5 (28/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -93,14 +93,14 @@
 	% Fracción de derivadas parciales af/ax
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\ensuremath{\frac{\partial #1}{\partial #2}}
+	\ensuremath{\pdv{#1}{#2}}
 }
 
 \newcommand{\fracdpartial}[2]{
 	% Fracción de derivadas parciales dobles a^2f/ax^2
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\ensuremath{\frac{{\partial}^{2} #1}{\partial {#2}^{2}}}
+	\ensuremath{\pdv[2]{#1}{#2}}
 }
 
 \newcommand{\fracnpartial}[3]{
@@ -108,21 +108,21 @@
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
 	%	#3	Orden (n)
-	\ensuremath{\frac{{\partial}^{#3} #1}{\partial {#2}^{#3}}}
+	\ensuremath{\pdv[#3]{#1}{#2}}
 }
 
 \newcommand{\fracderivat}[2]{
 	% Fracción de derivadas df/dx
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\ensuremath{\frac{\text{d} #1}{\text{d} #2}}
+	\ensuremath{\dv{#1}{#2}}
 }
 
 \newcommand{\fracdderivat}[2]{
 	% Fracción de derivadas dobles d^2/dx^2
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
-	\ensuremath{\frac{{\text{d}}^{2} #1}{\text{d} {#2}^{2}}}
+	\ensuremath{\dv[2]{#1}{#2}}
 }
 
 \newcommand{\fracnderivat}[3]{
@@ -130,7 +130,7 @@
 	% 	#1	Función a derivar (f)
 	%	#2	Variable a derivar (x)
 	%	#3	Orden de la derivada (n)
-	\ensuremath{\frac{{\text{d}}^{#3} #1}{\text{d} {#2}^{#3}}}
+	\ensuremath{\dv[#3]{#1}{#2}}
 }
 
 \newcommand{\topequal}[2]{
@@ -159,46 +159,6 @@
 	% 	#1	Elemento a igualar
 	%	#2	Igualdad
 	\ensuremath{\underbracket{#1}_{\mathclap{#2}}}
-}
-
-\newcommand{\atan}{
-	% tan^-1
-	\ensuremath{{\tan}^{-1}}
-}
-
-\newcommand{\asin}{
-	% sin^-1
-	\ensuremath{{\sin}^{-1}}
-}
-
-\newcommand{\acos}{
-	% cos^-1
-	\ensuremath{{\cos}^{-1}}
-}
-
-\newcommand{\acsc}{
-	% csc^-1
-	\ensuremath{{\csc}^{-1}}
-}
-
-\newcommand{\asec}{
-	% sec^-1
-	\ensuremath{{\sec}^{-1}}
-}
-
-\newcommand{\acot}{
-	% cot^-1
-	\ensuremath{{\cot}^{-1}}
-}
-
-\newcommand{\abs}[1]{
-	% Valor absoluto
-	\ensuremath{\lvert #1 \rvert}
-}
-
-\newcommand{\norm}[1]{
-	% Norma
-	\ensuremath{\lVert #1 \rVert}
 }
 
 \newcommand{\itemresize}[2]{

@@ -1,5 +1,5 @@
 % Template:     Informe/Reporte LaTeX
-% Documento:    Archivo de testeo de funciones experimentales
+% Documento:    Testeo de funciones matemáticas
 % Versión:      3.8.5 (28/05/2017)
 % Codificación: UTF-8
 %
@@ -11,19 +11,13 @@
 % Manual template: [http://ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
-\def\replace#1#2#3{
-	\def\tmp##1#2{##1#3\tmp}
-	\tmp#1\stopreplace#2\stopreplace}
-\def\stopreplace#1\stopreplace{}
+$\fracpartial{a}{b}$
+$\pdv[2]{a}{b}$
+$\fracdpartial{a}{b}$
+$\abs{a}$
 
-K
+$\fracdpartial{u}{t} = \pow{c}{2} \fracdpartial{u}{x}$
 
-\newpage
-
-\sectionanum{test}
-a
-\newpage
-\section{beta}
-
-\replace{Text should be replaced here, here and here}{here}{Latex}
-\replace{Pablo|Pizarro}{|}{\\}
+$\derivative{a}{b}$
+$\dd{a}$ 
+\insertequationanum{m \fracdderivat{x}{t} + kx = 0}

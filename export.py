@@ -49,7 +49,8 @@ FILES = {
     MAINFILE: [],
     'example-chapternumber.tex': [],
     'test.tex': [],
-    'test-functions.tex': []
+    'test-functions.tex': [],
+    'test-math.tex': []
 }
 FILEDELCOMMENTS = {
     'lib/config.tex': False,
