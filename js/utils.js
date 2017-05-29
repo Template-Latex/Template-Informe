@@ -63,6 +63,8 @@ function updateDownloadCounter(downloads) {
     // Se agregan 33 descargas de version 2.3.5
     // Se agrega 1 descarga de version 2.3.6
     // Se agregan 60 de version 2.3.7-2.4.0
+    // Se agregan 3 descargas de version 2.4.1
+    download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3];
 
     // Se añaden las descargas de template-informe-cursos
     // $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases", function(json) {
@@ -75,5 +77,8 @@ function updateDownloadCounter(downloads) {
     //         }
     //     }
     // });
-    return downloads + 129 + 60 + 138 + 3 + 3 + 1 + 4 + 55 + 115 + 74 + 17 + 3 + 18 + 7 + 68 + 71 + 12 + 9 + 4 + 33 + 1 + 60;
+    for (i=0; i<download_list_counter.length; i++){
+        downloads += download_list_counter[i];
+    }
+    return downloads;
 }
