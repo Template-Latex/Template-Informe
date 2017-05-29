@@ -74,13 +74,13 @@
 	captionskip=\captiontbmargintable pt
 }
 \ifthenelse{\equal{\figurecaptiontop}{true}}{
-	% Se dejan los caption en la parte superior para las figuras
+	% Se dejan los caption en la parte superior de las figuras
 	\floatsetup[figure]{
 		position=above
 	}}{
 }
 \ifthenelse{\equal{\tablecaptiontop}{true}}{
-	% Se dejan los caption en la parte superior para las tablas
+	% Se dejan los caption en la parte superior de las tablas
 	\floatsetup[table]{
 		position=top}
 	}{
@@ -100,14 +100,14 @@
 	}
 }{
 \ifthenelse{\equal{\captionalignment}{left}}{
-	% Leyenda justificada
+	% Leyenda alineada a la izquierda
 	\captionsetup{
 		justification=raggedright,
 		singlelinecheck=false
 	}
 }{
 \ifthenelse{\equal{\captionalignment}{right}}{
-	% Leyenda justificada
+	% Leyenda alineada a la derecha
 	\captionsetup{
 		justification=raggedleft,
 		singlelinecheck=false
@@ -143,7 +143,7 @@
 		\endlist\end{multicols}}}{}
 \makeatother
 
-% Configuración los códigos fuente
+% Configuración de códigos fuente
 \lstset{
 	extendedchars=true,
 	keepspaces=true,
