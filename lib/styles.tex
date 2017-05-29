@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de estilos
-% Versión:      3.8.5 (28/05/2017)
+% Versión:      3.8.6 (28/05/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -29,88 +29,181 @@
 	>{\centering\arraybackslash}p{#1}
 }
 
-% Estilo de lenguaje C
-\lstdefinestyle{C}{
-	language=C,
-	backgroundcolor=\color{white},
-	breakatwhitespace=true,
-	breaklines=true,
-	captionpos=t,
-	numbers=left,
-	numbersep=5pt,
-	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stepnumber=1,
-	tabsize=2,
-	title=\lstname
-}
-
-% Estilo de lenguaje Java
-\lstdefinestyle{Java}{
-	language=Java,
-	aboveskip=3mm,
-	backgroundcolor=\color{backcolour},
-	basicstyle={\small\ttfamily},
-	belowskip=3mm,
-	breakatwhitespace=true,
-	breaklines=true,
-	captionpos=t,
-	columns=flexible,
-	commentstyle=\color{dkgreen},
-	keywordstyle=\color{blue},
-	numbers=left,
-	numberstyle=\tiny\color{gray},
-	showstringspaces=false,
-	stringstyle=\color{mauve},
-	tabsize=3
-}
-
-% Estilo de lenguaje Matlab
-\lstdefinestyle{Matlab}{
-	language=Matlab,
-	aboveskip=3mm,
-	backgroundcolor=\color{backcolour},
-	basicstyle={\small\ttfamily},
-	belowskip=3mm,
-	breaklines=true,
-	breaklines=true,
-	captionpos=t,
-	commentstyle=\color{mygreen},
-	emph=[1]{for,end,break},emphstyle=[1]\color{red},
-	identifierstyle=\color{black},
-	keywordstyle=\color{blue},
-	morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
-	morekeywords={matlab2tikz},
-	numbers=left,
-	numbersep=9pt,
-	numberstyle=\tiny\color{gray},
-	showstringspaces=false,
-	showstringspaces=false,
-	stringstyle=\color{mylilas},
-	tabsize=3
-}
-
-% Estilo de lenguaje Python
-\lstdefinestyle{Python}{
-	language=Python,
-	backgroundcolor=\color{backcolour},
-	basicstyle=\footnotesize,
-	basicstyle={\small\ttfamily},
-	breakatwhitespace=false,
-	breaklines=true,
-	captionpos=t,
-	commentstyle=\color{codegreen},
-	keepspaces=true,
-	keywordstyle=\color{magenta},
-	numbers=left,
-	numbersep=5pt,
-	numberstyle=\tiny\color{codegray},
-	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stringstyle=\color{codepurple},
-	tabsize=3
+% Estilo de códigos
+\ifthenelse{\equal{\codecaptiontop}{true}}{
+	% Leyenda arriba
+	
+	% Estilo de lenguaje C
+	\lstdefinestyle{C}{
+		language=C,
+		backgroundcolor=\color{white},
+		breakatwhitespace=true,
+		breaklines=true,
+		captionpos=t,
+		numbers=left,
+		numbersep=5pt,
+		showspaces=false,
+		showstringspaces=false,
+		showtabs=false,
+		stepnumber=1,
+		tabsize=2,
+		title=\lstname
+	}
+	
+	% Estilo de lenguaje Java
+	\lstdefinestyle{Java}{
+		language=Java,
+		aboveskip=3mm,
+		backgroundcolor=\color{backcolour},
+		basicstyle={\small\ttfamily},
+		belowskip=3mm,
+		breakatwhitespace=true,
+		breaklines=true,
+		captionpos=t,
+		columns=flexible,
+		commentstyle=\color{dkgreen},
+		keywordstyle=\color{blue},
+		numbers=left,
+		numberstyle=\tiny\color{gray},
+		showstringspaces=false,
+		stringstyle=\color{mauve},
+		tabsize=3
+	}
+	
+	% Estilo de lenguaje Matlab
+	\lstdefinestyle{Matlab}{
+		language=Matlab,
+		aboveskip=3mm,
+		backgroundcolor=\color{backcolour},
+		basicstyle={\small\ttfamily},
+		belowskip=3mm,
+		breaklines=true,
+		breaklines=true,
+		captionpos=t,
+		commentstyle=\color{mygreen},
+		emph=[1]{for,end,break},emphstyle=[1]\color{red},
+		identifierstyle=\color{black},
+		keywordstyle=\color{blue},
+		morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+		morekeywords={matlab2tikz},
+		numbers=left,
+		numbersep=9pt,
+		numberstyle=\tiny\color{gray},
+		showstringspaces=false,
+		showstringspaces=false,
+		stringstyle=\color{mylilas},
+		tabsize=3
+	}
+	
+	% Estilo de lenguaje Python
+	\lstdefinestyle{Python}{
+		language=Python,
+		backgroundcolor=\color{backcolour},
+		basicstyle=\footnotesize,
+		basicstyle={\small\ttfamily},
+		breakatwhitespace=false,
+		breaklines=true,
+		captionpos=t,
+		commentstyle=\color{codegreen},
+		keepspaces=true,
+		keywordstyle=\color{magenta},
+		numbers=left,
+		numbersep=5pt,
+		numberstyle=\tiny\color{codegray},
+		showspaces=false,
+		showstringspaces=false,
+		showtabs=false,
+		stringstyle=\color{codepurple},
+		tabsize=3
+	}
+	
+}{
+	% Leyenda abajo
+	
+	% Estilo de lenguaje C
+	\lstdefinestyle{C}{
+		language=C,
+		backgroundcolor=\color{white},
+		breakatwhitespace=true,
+		breaklines=true,
+		captionpos=b,
+		numbers=left,
+		numbersep=5pt,
+		showspaces=false,
+		showstringspaces=false,
+		showtabs=false,
+		stepnumber=1,
+		tabsize=2,
+		title=\lstname
+	}
+	
+	% Estilo de lenguaje Java
+	\lstdefinestyle{Java}{
+		language=Java,
+		aboveskip=3mm,
+		backgroundcolor=\color{backcolour},
+		basicstyle={\small\ttfamily},
+		belowskip=3mm,
+		breakatwhitespace=true,
+		breaklines=true,
+		captionpos=b,
+		columns=flexible,
+		commentstyle=\color{dkgreen},
+		keywordstyle=\color{blue},
+		numbers=left,
+		numberstyle=\tiny\color{gray},
+		showstringspaces=false,
+		stringstyle=\color{mauve},
+		tabsize=3
+	}
+	
+	% Estilo de lenguaje Matlab
+	\lstdefinestyle{Matlab}{
+		language=Matlab,
+		aboveskip=3mm,
+		backgroundcolor=\color{backcolour},
+		basicstyle={\small\ttfamily},
+		belowskip=3mm,
+		breaklines=true,
+		breaklines=true,
+		captionpos=b,
+		commentstyle=\color{mygreen},
+		emph=[1]{for,end,break},emphstyle=[1]\color{red},
+		identifierstyle=\color{black},
+		keywordstyle=\color{blue},
+		morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+		morekeywords={matlab2tikz},
+		numbers=left,
+		numbersep=9pt,
+		numberstyle=\tiny\color{gray},
+		showstringspaces=false,
+		showstringspaces=false,
+		stringstyle=\color{mylilas},
+		tabsize=3
+	}
+	
+	% Estilo de lenguaje Python
+	\lstdefinestyle{Python}{
+		language=Python,
+		backgroundcolor=\color{backcolour},
+		basicstyle=\footnotesize,
+		basicstyle={\small\ttfamily},
+		breakatwhitespace=false,
+		breaklines=true,
+		captionpos=b,
+		commentstyle=\color{codegreen},
+		keepspaces=true,
+		keywordstyle=\color{magenta},
+		numbers=left,
+		numbersep=5pt,
+		numberstyle=\tiny\color{codegray},
+		showspaces=false,
+		showstringspaces=false,
+		showtabs=false,
+		stringstyle=\color{codepurple},
+		tabsize=3
+	}
+	
 }
 
 % Estilo de enumeración en griego
