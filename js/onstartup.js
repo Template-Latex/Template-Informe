@@ -2,7 +2,7 @@
 var images_background = [
     ['09305524.jpg', 'center', '#343434'], // 0
     ['67535412.jpg', 'center', '#C96265'], // 1
-    ['93314696.jpg', 'top', '#6A6061'], // 2
+    ['93314696.jpg', 'center', '#6A6061'], // 2
     ['background.jpg', 'top', '#5E4E2A'], // 3
     ['12939392.jpg', 'center', '#614654'], // 4
     ['19392139.jpg', 'center', '#4E3E25'], // 5
@@ -36,10 +36,35 @@ var images_background = [
     ['22125894.jpg', 'bottom', '#272D69'], // 33
     ['77421788.jpg', 'center', '#4E6D44'], // 34
     ['91643340.jpg', 'bottom', '#197B30'], // 35
-    ['88093858.jpg', 'bottom', '#485620'] // 36
+    ['88093858.jpg', 'bottom', '#485620'], // 36
+    ['00939591.jpg', 'center', '#35455B'], // 37
+    ['13838368.jpg', 'center', '#6C5640'], // 38
+    ['14269512.jpg', 'center', '#4F63D5'], // 39
+    ['37882132.jpg', 'center', '#223836'], // 40
+    ['38920979.jpg', 'bottom', '#357789'], // 41
+    ['39850828.jpg', 'center', '#435273'], // 42
+    ['50989454.jpg', 'top', '#3e6f8f'], // 43
+    ['57231197.jpg', 'bottom', '#4d3945'], // 44
+    ['91853601.jpg', 'center', '#a32ab5'], // 45
+    ['03081592.jpg', 'center', '#3c412a'], // 46
+    ['15877230.jpg', 'center', '#3c5086'], // 47
+    ['25528122.jpg', 'center', '#f94021'], // 48
+    ['29656367.jpg', 'center', '#3b81fa'], // 49
+    ['38184232.jpg', 'center', '#6c70a6'], // 50
+    ['44532443.jpg', 'center', '#282828'], // 51
+    ['45325963.jpg', 'bottom', '#2c5362'], // 52
+    ['60192994.jpg', 'bottom', '#562554'], // 53
+    ['62639926.jpg', 'center', '#54585b'], // 54
+    ['65354463.jpg', 'center', '#3a3e3f'], // 55
+    ['65737758.jpg', 'center', '#80688a'], // 56
+    ['66539241.jpg', 'center', '#a62400'], // 57
+    ['71516908.jpg', 'center', '#483f44'], // 58
+    ['73822546.jpg', 'bottom', '#382952'], // 59
+    ['80768085.jpg', 'bottom', '#323e58'], // 60
+    ['93568387.jpg', 'center', '#354a5a'] // 61
 ];
 var images_indx_random = getRandomInt(0, images_background.length - 1);
-// images_indx_random = 36; // testeo
+// images_indx_random = 2; // testeo
 var image_url = 'images/' + images_background[images_indx_random][0];
 var image_pos = images_background[images_indx_random][1];
 
