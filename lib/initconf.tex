@@ -11,20 +11,20 @@
 % Manual template: [http://ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
-% Se actualizan variables del documento
+% Se revisa si existen las variables
+\checkvardefined{\nombredelinforme}
+\checkvardefined{\temaatratar}
+\checkvardefined{\autordeldocumento}
+\checkvardefined{\nombredelcurso}
+\checkvardefined{\codigodelcurso}
+\checkvardefined{\nombreuniversidad}
+\checkvardefined{\nombrefacultad}
+\checkvardefined{\departamentouniversidad}
+\checkvardefined{\localizacionuniversidad}
+\checkvardefined{\tablaintegrantes}
+
+% Se añade \xspace a las variables
 \makeatletter
-	% Se revisa si existen las variables
-	\checkvardefined{\nombredelinforme}
-	\checkvardefined{\temaatratar}
-	\checkvardefined{\autordeldocumento}
-	\checkvardefined{\nombredelcurso}
-	\checkvardefined{\codigodelcurso}
-	\checkvardefined{\nombreuniversidad}
-	\checkvardefined{\nombrefacultad}
-	\checkvardefined{\departamentouniversidad}
-	\checkvardefined{\localizacionuniversidad}
-	
-	% Se añade \xspace a las variables
 	\g@addto@macro\nombredelinforme\xspace
 	\g@addto@macro\temaatratar\xspace
 	\g@addto@macro\autordeldocumento\xspace
