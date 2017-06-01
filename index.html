@@ -161,7 +161,7 @@
 		<p>
 			<a id="empezando-con-el-template"></a>
 			Este proyecto corresponde a un template para confeccionar geniales informes en
-			<img src="resources/latex.png" alt="LaTeX" width="60px" height="25px" style="top: 8px;position:relative;">, contiene múltiples funciones para insertar imágenes, fórmulas, párrafos y títulos de forma sencilla, sin tener que recurrir a las largas instrucciones
+			<img src="resources/latex.png" alt="LaTeX" class="lateximg">, contiene múltiples funciones para insertar imágenes, fórmulas, párrafos y títulos de forma sencilla, sin tener que recurrir a las largas instrucciones
 			que ofrece Latex por defecto.
 		</p>
 		<p>
@@ -467,9 +467,9 @@
 			</li>
 			<li class="li-code-parent">
 				<strong class="functtitlstyle">Insertar una fórmula en el documento <a id="hlp-formulae"></a></strong>
-				<p>
-					Las funciones existentes consideran tanto la fórmula en sí (escrita en bruto, sin los <b>$</b>) como la leyenda para las funciones tipo <i>captioned</i>. Todas las siguientes funciones tienen su versión <b>anum</b> la cual no enumera la ecuación,
-					por ejemplo: <i>\insertequation<b>anum</b>{Fórmula}</i> o <i>\insertalign<b>anum</b>{Fórmula}</i>.
+				<p>Las funciones existentes consideran tanto la fórmula en sí (escrita en bruto, sin los <b>$</b>) como la leyenda para las funciones tipo <i>captioned</i>.</p>
+				<p>Todas las funciones siguientes tienen su versión <b>anum</b>, la cual <b>no</b> enumera la ecuación.
+					Por ejemplo: <i>\insertequation<b>anum</b>{Fórmula}</i>, <i>\insertalign<b>anum</b>{Fórmula}</i>, <i>\insertequationcaptioned<b>anum</b>{Fórmula}{Leyenda}</i>.
 				</p>
 				<ul>
 					<li>
