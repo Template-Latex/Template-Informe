@@ -15,8 +15,8 @@ from ziputility import ZipUtility as Zip
 
 # Constantes
 CODEVERSION = '\def\\templateversion{0}{1}% Versión del template\n '
-CODEVERSIONPOS = 18
-CODETABLEWIDTHPOS = 37
+CODEVERSIONPOS = 16
+CODETABLEWIDTHPOS = 35
 CONFIGFILE = 'lib/config.tex'
 EXAMPLEFILE = 'example.tex'
 HEADERSIZE = 13

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.8.7 (29/05/2017)
+% Versión:      3.8.8 (01/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,8 +11,20 @@
 % Manual template: [http://ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
-% Se actualizan las variables con xspace
+% Se actualizan variables del documento
 \makeatletter
+	% Se revisa si existen las variables
+	\checkvardefined{\nombredelinforme}
+	\checkvardefined{\temaatratar}
+	\checkvardefined{\autordeldocumento}
+	\checkvardefined{\nombredelcurso}
+	\checkvardefined{\codigodelcurso}
+	\checkvardefined{\nombreuniversidad}
+	\checkvardefined{\nombrefacultad}
+	\checkvardefined{\departamentouniversidad}
+	\checkvardefined{\localizacionuniversidad}
+	
+	% Se añade \xspace a las variables
 	\g@addto@macro\nombredelinforme\xspace
 	\g@addto@macro\temaatratar\xspace
 	\g@addto@macro\autordeldocumento\xspace
