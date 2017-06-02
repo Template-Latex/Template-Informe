@@ -61,10 +61,56 @@ var images_background = [
     ['71516908.jpg', 'center', '#483f44'], // 58
     ['73822546.jpg', 'bottom', '#382952'], // 59
     ['80768085.jpg', 'bottom', '#323e58'], // 60
-    ['93568387.jpg', 'center', '#354a5a'] // 61
+    ['93568387.jpg', 'center', '#354a5a'], // 61
+    ['97469752.jpg', 'center', '#ba4234'], // 62
+    ['02530621.jpg', 'center', '#313131'], // 63
+    ['02534697.jpg', 'top', '#314200'], // 64
+    ['02642756.jpg', 'center', '#5b1943'], // 65
+    ['03625208.jpg', 'center', '#484f55'], // 66
+    ['05378902.jpg', 'bottom', '#141b27'], // 67
+    ['09553028.jpg', 'center', '#51363c'], // 68
+    ['16845918.jpg', 'center', '#520031'], // 69
+    ['18027342.jpg', 'center', '#123473'], // 70
+    ['26185627.jpg', 'center', '#5142a3'], // 71
+    ['30915665.jpg', 'bottom', '#7c2e46'], // 72
+    ['31865394.jpg', 'bottom', '#782958'], // 73
+    ['32064937.jpg', 'top', '#212224'], // 74
+    ['39295944.jpg', 'center', '#a02426'], // 75
+    ['45515453.jpg', 'center', '#6a2d1b'], // 76
+    ['58763802.jpg', 'center', '#2d2c2a'], // 77
+    ['64402687.jpg', 'center', '#1c234f'], // 78
+    ['64597743.jpg', 'center', '#64202b'], // 79
+    ['65086685.jpg', 'bottom', '#4a4e50'], // 80
+    ['71169273.jpg', 'center', '#0472af'], // 81
+    ['79989977.jpg', 'top', '#09182d'], // 82
+    ['82956328.jpg', 'center', '#354b72'], // 83
+    ['83984226.jpg', 'top', '#721f3f'], // 84
+    ['86588736.jpg', 'center', '#5a5a5a'], // 85
+    ['94052111.jpg', 'center', '#484e4e'], // 86
+    ['94936130.jpg', 'center', '#561111'], // 87
+    ['97039416.jpg', 'center', '#362d2e'], // 88
+    ['07949312.jpg', 'center', '#4b6270'], // 89
+    ['08760783.jpg', 'center', '#096e6a'], // 90
+    ['33459034.jpg', 'center', '#544a34'], // 91
+    ['42501581.jpg', 'center', '#0c2747'], // 92
+    ['50861756.jpg', 'center', '#47411a'], // 93
+    ['68963144.jpg', 'center', '#462314'], // 94
+    ['70290917.jpg', 'center', '#710304'], // 95
+    ['91686162.jpg', 'center', '#644c3a'], // 96
+    ['99917062.jpg', 'bottom', '#504e4c'], // 97
+    ['05327721.jpg', 'top', '#3c3c56'], // 98
+    ['19489238.jpg', 'center', '#4c4847'], // 99
+    ['27241217.jpg', 'center', '#6e513f'], // 100
+
+    ['31534692.jpg', 'center', '#403c30'], // 101
+    ['45125712.jpg', 'center', '#1e4a0a'], // 102
+    ['59272533.jpg', 'center', '#580f25'], // 103
+    ['82884717.jpg', 'center', '#1c0031'], // 104
+    ['88649909.jpg', 'center', '#513954'], // 105
+    ['95686782.jpg', 'center', '#2f1143'] // 106
 ];
 var images_indx_random = getRandomInt(0, images_background.length - 1);
-// images_indx_random = 2; // testeo
+// images_indx_random = 106; // testeo
 var image_url = 'images/' + images_background[images_indx_random][0];
 var image_pos = images_background[images_indx_random][1];
 
@@ -72,7 +118,8 @@ var image_pos = images_background[images_indx_random][1];
 var chosencolor = images_background[images_indx_random][2];
 bgprecolor = shadeColor2(chosencolor, 0.9);
 codeprecolor = shadeColor2(chosencolor, 0.2);
-codebarcolor = shadeColor2(chosencolor, 0.6);
+codebarcolor = shadeColor2(chosencolor, 0.4);
+backgroundmaincolor = shadeColor2(chosencolor, 0.96);
 
 // Descargas totales
 var total_downloads = 0;
@@ -155,7 +202,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     }
 
     // Se actualizan los colores del whatsnew
-    $('#que-hay-de-nuevo blockquote').css('border-left', '0.3rem solid ' + codebarcolor);
+    $('#que-hay-de-nuevo blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
 });
 
 // FINAL
@@ -207,7 +254,11 @@ jQuery(document).ready(function($) {
     $('.main-content pre').css('border', 'solid 1px ' + codeprecolor);
     $('.main-content pre').css('background-color', bgprecolor);
     $('.main-content blockquote').css('color', codeprecolor);
-    $('.main-content blockquote').css('border-left', '0.3rem solid ' + codebarcolor);
+    $('.main-content blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
+
+    // Se cambia el color del fondo de la página web
+    $('.main-content').css('background-color', backgroundmaincolor);
+    $('body').css('background-color', backgroundmaincolor);
 });
 
 // Se actualiza la cantidad de descargas al hacer click

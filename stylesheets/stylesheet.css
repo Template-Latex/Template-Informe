@@ -801,7 +801,6 @@ a:hover {
 }
 
 a#aimg, a:hover#aimg, .page-header#aimg {
-    background: #fff;
     border: none;
     color: #fff;
     font: normal;
