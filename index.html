@@ -169,11 +169,11 @@
 
 			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> (línea 21)<i id="linea-informacion-documento"></i> del archivo principal, luego <a href="tabla-integrantes">editar la tabla</a> de datos de la portada en la sección
 			<em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <i id="linea-integrantes"></i>
-			<font title='Línea 37 en versión compacta' style='cursor: hand;'>(línea 36)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del
+			<font title='Línea 35 en versión compacta' style='cursor: hand;'>(línea 34)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del
 			<em class="section-template">RESUMEN O ABSTRACT</em>
-			<font title='Línea 203 en versión compacta' style='cursor: hand;'>(línea 97)</font> o en la <b>sección principal</b> del documento
+			<font title='Línea 204 en versión compacta' style='cursor: hand;'>(línea 95)</font> o en la <b>sección principal</b> del documento
 			<em class="section-template">INICIO DEL DOCUMENTO</em>
-			<font title='Línea 214 en versión compacta' style='cursor: hand;'>(línea 108)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/ppizarror/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
+			<font title='Línea 215 en versión compacta' style='cursor: hand;'>(línea 106)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/ppizarror/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
 		</p>
 		<p align="center">
 			<img src="images/informe_data.jpg" alt="Informe" width="70%px" height="70%px">
@@ -790,7 +790,13 @@
 						<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea, en pt.
 					</li>
 					<li>
+						<strong>\fontdocument</strong>: Define la fuente de todo el texto del documento (lmodern, arial, helvet).
+					</li>
+					<li>
 						<strong>\numberedequation</strong>: Muestra el número en las ecuaciones insertadas con <i>\insert...</i>.
+					</li>
+					<li>
+						<strong>\pointdecimal</strong>: Números decimales con punto en vez de coma.
 					</li>
 					<li>
 						<strong>\romanpageuppercase</strong>: Páginas en número romano (abstract-índice) en mayúsculas.
@@ -802,7 +808,7 @@
 						<strong>\showdotontitles</strong>: Muestra un punto en cada número de sección, subsección y sub-subsección.
 					</li>
 					<li>
-						<strong>\tablepadding</strong>: Padding de las tablas.
+						<strong>\tablepadding</strong>: Ancho de celda de las tablas.
 					</li>
 				</ul>
 			</li>
@@ -1143,6 +1149,9 @@
 				<strong><a href="https://www.ctan.org/pkg/bigstrut">bigstrut</a></strong>: Permite añadir líneas en tablas.
 			</li>
 			<li>
+				<strong><a href="https://www.ctan.org/pkg/bm">bm</a></strong>: Caracteres en negrita en ecuaciones.
+			</li>
+			<li>
 				<strong><a href="https://www.ctan.org/pkg/booktabs">booktabs</a></strong>: Permite manejar elementos visuales en tablas.
 			</li>
 			<li>
@@ -1158,10 +1167,10 @@
 				<strong><a href="https://www.ctan.org/pkg/chngcntr">chngcntr</a></strong>: Agrega números de secciones a las leyendas <em>[dependiente]</em>.
 			</li>
 			<li>
-				<strong><a href="https://www.ctan.org/pkg/color">color</a></strong>: Colores.
+				<strong><a href="https://www.ctan.org/pkg/colortbl">colortbl</a></strong>: Colores en las tablas.
 			</li>
 			<li>
-				<strong><a href="https://www.ctan.org/pkg/colortbl">colortbl</a></strong>: Colores en las tablas.
+				<strong><a href="https://www.ctan.org/pkg/color">color</a></strong>: Colores.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/datetime">datetime</a></strong>: Fechas.
@@ -1179,19 +1188,25 @@
 				<strong><a href="https://www.ctan.org/pkg/fancyhdr">fancyhdr</a></strong>: Encabezados y pié de páginas.
 			</li>
 			<li>
-				<strong><a href="https://www.ctan.org/pkg/footmisc">footmisc</a></strong>: Elimina la barra vertical de las notas al pié de página.
-			</li>
-			<li>
-				<strong><a href="https://www.ctan.org/pkg/float">float</a></strong>: Administrador de posiciones de objetos.
+				<strong><a href="https://www.ctan.org/pkg/floatpag">floatpag</a></strong>: Maneja números de páginas.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/floatrow">floatrow</a></strong>: Administración de floats.
 			</li>
 			<li>
-				<strong><a href="https://www.ctan.org/pkg/geometry">geometry</a></strong>: Dimensiones y geometría del documento.
+				<strong><a href="https://www.ctan.org/pkg/float">float</a></strong>: Administrador de posiciones de objetos.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/fontenc">fontenc</a></strong>: Soporta caracteres acentuados.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/footmisc">footmisc</a></strong>: Elimina la barra vertical de las notas al pié de página.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/gensymb">gensymb</a></strong>: Simbología común.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/geometry">geometry</a></strong>: Dimensiones y geometría del documento.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/graphicx">graphicx</a></strong>: Propiedades extra para los gráficos.
@@ -1221,22 +1236,25 @@
 				<strong><a href="https://www.ctan.org/pkg/notoccite">notoccite</a></strong>: Desactiva las citas en el índice.
 			</li>
 			<li>
+				<strong><a href="https://www.ctan.org/pkg/lipsum">lipsum</a></strong>: Permite crear textos dummy.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/listings">listings</a></strong>: Permite añadir código fuente.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/longtable">longtable</a></strong>: Permite utilizar tablas en varias hojas.
+			</li>
+			<li>
 				<strong><a href="https://www.ctan.org/pkg/pdfpages">pdfpages</a></strong>: Permite administrar páginas en pdf.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/physics">physics</a></strong>: Importa funciones matemáticas esenciales.
 			</li>
 			<li>
-				<strong><a href="https://www.ctan.org/pkg/lipsum">lipsum</a></strong>: Permite crear textos dummy.
-			</li>
-			<li>
-				<strong><a href="https://www.ctan.org/pkg/longtable">longtable</a></strong>: Permite utilizar tablas en varias hojas.
-			</li>
-			<li>
-				<strong><a href="https://www.ctan.org/pkg/listings">listings</a></strong>: Permite añadir código fuente.
-			</li>
-			<li>
 				<strong><a href="https://www.ctan.org/pkg/rotating">rotating</a></strong>: Permite rotación de objetos.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/secdot">secdot</a></strong>: Agrega puntos a los títulos/subtítulos.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/sectsty">sectsty</a></strong>: Cambia el estilo de los títulos.
@@ -1246,6 +1264,9 @@
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/siunitx">siunitx</a></strong>: Permite añadir unidades del sistema internacional.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/soul">soul</a></strong>: Permite subrayar texto.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/subfig">subfig</a></strong>: Permite agrupar imágenes.
