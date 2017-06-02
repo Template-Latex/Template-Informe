@@ -66,7 +66,8 @@ function updateDownloadCounter(downloads) {
     // Se agregan 3 descargas de version 2.4.1
     // Se agregan 20 descargas de version 2.4.2-2.4.5
     // Se agregan 38 descargas de version 2.4.6
-    download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3, 20, 38];
+    // Se agregan 6 descargas de version 2.4.7
+    download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3, 20, 38, 6];
 
     // Se añaden las descargas de template-informe-cursos
     // $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases", function(json) {
