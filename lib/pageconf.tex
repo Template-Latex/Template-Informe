@@ -27,7 +27,9 @@
 \def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
 
 % Se define el punto decimal
-\decimalpoint
+\ifthenelse{\equal{\pointdecimal}{true}}{
+	\decimalpoint}{
+}
 
 % Definición de nombres de objetos
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Se modifica el estilo del header
