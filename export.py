@@ -220,7 +220,7 @@ if AUTOCOMPILE:
     call(['pdflatex', MAINFILESINGLE])
 
 # Se exporta el proyecto normal
-export_normal = Zip('export/Template-Informe.zip')
+export_normal = Zip('release/Template-Informe.zip')
 export_normal.add_excepted_file('greekenum.sty')
 export_normal.add_file('main.tex')
 export_normal.add_folder('images')
@@ -229,7 +229,7 @@ export_normal.add_file(EXAMPLEFILE)
 export_normal.save()
 
 # Se exporta el proyecto unico
-export_single = Zip('export/Template-Informe-Single.zip')
+export_single = Zip('release/Template-Informe-Single.zip')
 export_single.add_file('informe.tex')
 export_single.add_folder('images')
 export_single.add_file(EXAMPLEFILE)
