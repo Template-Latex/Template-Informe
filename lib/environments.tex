@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      3.9.0 (03/06/2017)
+% Versión:      3.9.1 (03/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,9 +11,8 @@
 % Manual template: [http://ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Crea una sección de referencias
 \newenvironment{references}{
-	% Crea una sección de referencias
-	
 	\begingroup
 	% Se configura las referencias como una sección
 	\ifthenelse{\equal{\referencenumsection}{true}}{
@@ -29,9 +28,8 @@
 	\endgroup
 }
 
+% Crea una sección de resumen
 \newenvironment{resumen}{
-	% Crea una sección de resumen
-	
 	% Tipo de título para abstract
 	\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
 	
@@ -51,4 +49,9 @@
 		\else
 		\fi
 	}{}
+}
+
+% Columna centrada en tablas
+\newcolumntype{P}[1]{
+	>{\centering\arraybackslash}p{#1}
 }

@@ -200,6 +200,15 @@ for d in data:
                                         srclin = srclin.strip()
                             elif srclin.strip() is '':
                                 srclin = ''
+                        else:
+                            if libr == CONFIGFILE:
+                                # noinspection PyBroadException
+                                try:
+                                    if libdata[libdatapos + 1][0] == '%' and \
+                                                    srclin.strip() is '':
+                                        srclin = ''
+                                except:
+                                    pass
 
                         # Se ecribe la línea
                         if srclin is not '':
