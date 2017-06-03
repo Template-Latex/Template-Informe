@@ -8,6 +8,7 @@ Licencia: MIT
 """
 
 # Importación de librerías
+from __future__ import print_function
 from matplotlib.ticker import MaxNLocator
 import matplotlib.pyplot as plt
 import os
@@ -190,24 +191,34 @@ def plot_stats(statfile):
     data = open(statfile)
     numcomp = []
     timecomp = []
+    lcode = []
     k = 0
     for i in data:
         if k > 0:
             j = i.strip().replace('\t\t', '\t').split('\t')
             numcomp.append(int(j[0]))
             timecomp.append(float(j[2]))
+            lcode.append(int(j[4]))
         k += 1
     if len(numcomp) >= 3:
+        plt.figure(1)
         fig, ax = plt.subplots()
         ax.plot(numcomp, timecomp)
         ax.xaxis.set_major_locator(MaxNLocator(integer=True))
         ax.set_xlabel(u'Número de compilación')
         ax.set_ylabel(u'Tiempo de compilación [s]')
         ax.set_title(u'Estadísticas')
-        fig.savefig('stats.png', dpi=600)
-        # plt.show()
+        fig.savefig('stats-ctime.png', dpi=600)
+        plt.figure(2)
+        plt.plot(numcomp, lcode)
+        plt.xlabel(u'Número de compilación')
+        plt.ylabel(u'Líneas de código')
+        plt.title(u'Estadísticas')
+        plt.ylim([min(lcode) * 0.97, max(lcode) * 1.03])
+        plt.savefig('stats-lcode.png', dpi=600)
+
     data.close()
 
 
 if __name__ == '__main__':
-    plot_stats('stats')
+    plot_stats('stats.txt')
