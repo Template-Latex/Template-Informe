@@ -8,11 +8,12 @@ Licencia: MIT
 """
 
 # Importación de librerías
+from matplotlib.ticker import MaxNLocator
+import matplotlib.pyplot as plt
 import os
 import zipfile
 
 
-# Importación de archivos
 class Zip(object):
     """
     Clase para administrar archivos zip
@@ -134,13 +135,15 @@ def find_command(data, commandname):
     return [-1, -1]
 
 
-def addstat(statfile, version, time):
+def addstat(statfile, version, time, date, lc):
     """
     Agrega una entrada al archivo de estadísticas.
 
     :param statfile: Archivo de estadísticas
     :param version: Versión del template
     :param time: Tiempo de compilación
+    :param date: Fecha de compilación
+    :param lc: Total de líneas de código
     :return:
     """
 
@@ -150,13 +153,23 @@ def addstat(statfile, version, time):
     for i in data:
         dataarr.append(i)
     lastentrypos = len(dataarr) - 1
-    lastentry = dataarr[lastentrypos].strip().split('\t')
-    lastid = int(lastentry[0])
+    if lastentrypos >= 0:
+        lastentry = dataarr[lastentrypos].strip().split('\t')
+        lastid = int(lastentry[0])
+        dataarr[lastentrypos] = '{0}\n'.format(dataarr[lastentrypos])
+    else:
+        lastid = 0
+        dataarr.append('ID\t\tVERSION\t\tCTIME\t\tFECHA\t\t\tLINEAS\n')
     data.close()
-    dataarr[lastentrypos] = '{0}\n'.format(dataarr[lastentrypos])
 
     # Se crea una nueva línea
-    newentry = '{0}\t{1}\t{2}'.format(lastid + 1, version, time)
+    time = str(time)[0:5]
+    if lastid < 999:
+        newentry = '{0}\t\t{1}\t\t{2}\t\t{3}\t\t{4}'.format(lastid + 1, version,
+                                                            time, date, lc)
+    else:
+        newentry = '{0}\t{1}\t\t{2}\t\t{3}\t\t{4}'.format(lastid + 1, version,
+                                                          time, date, lc)
     dataarr.append(newentry)
 
     # Se guarda el nuevo archivo
@@ -164,3 +177,36 @@ def addstat(statfile, version, time):
     for i in dataarr:
         data.write(i)
     data.close()
+
+
+def plot_stats(statfile):
+    """
+    Grafica las estadísticas.
+
+    :param statfile: Archivo de estadísticas
+    :return:
+    """
+    data = open(statfile)
+    numcomp = []
+    timecomp = []
+    k = 0
+    for i in data:
+        if k > 0:
+            j = i.strip().replace('\t\t', '\t').split('\t')
+            numcomp.append(int(j[0]))
+            timecomp.append(float(j[2]))
+        k += 1
+    if len(numcomp) >= 3:
+        fig, ax = plt.subplots()
+        ax.plot(numcomp, timecomp)
+        ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+        ax.set_xlabel(u'Número de compilación')
+        ax.set_ylabel(u'Tiempo de compilación [s]')
+        ax.set_title(u'Estadísticas')
+        fig.savefig('stats.png', dpi=600)
+        # plt.show()
+    data.close()
+
+
+if __name__ == '__main__':
+    plot_stats('stats')

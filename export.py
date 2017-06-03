@@ -9,10 +9,10 @@ Licencia: MIT
 """
 
 # Importación de librerías
+from __future__ import print_function
 import time
 from subprocess import call
 from utils import *
-
 
 # Archivos
 CONFIGFILE = 'lib/config.tex'
@@ -37,6 +37,7 @@ main_data.close()
 AUTOCOMPILE = True
 ADDWHITESPACE = False
 DELETECOMMENTS = True
+PLOTSTATS = False
 
 # Archivos a revisar
 FILES = {
@@ -90,6 +91,9 @@ FILESTRIP = {
 # noinspection PyCompatibility
 version = raw_input('Ingrese la nueva version: ')  # Se pide la versión
 version = version.strip()
+versionf = version.split('-')
+versiondev = version
+version = versionf[0]
 if len(version) == 0:
     exit()
 
@@ -102,6 +106,8 @@ versionstrlen = max(0, 15 - (len(version) - 5))
 versioncode = CODEVERSION.format('{' + version + '}', ' ' * versionstrlen)
 
 # Carga los archivos y cambia las versiones
+t = time.time()
+print('\nGenerando archivos ... ', end='')
 for f in FILES.keys():
     data = FILES[f]
     # noinspection PyBroadException
@@ -125,6 +131,13 @@ for f in FILES.keys():
     for j in data:
         newfl.write(j)
     newfl.close()
+
+# Se obtiene la cantidad de líneas de código
+lc = 0
+for f in FILES.keys():
+    if f not in ['lib/greekenum.sty', 'example-chapternumber.tex', 'test.tex',
+                 'test-functions.tex', 'test-math.tex']:
+        lc += len(FILES[f])
 
 # Se crea el archivo unificado
 fl = open(MAINFILESINGLE, 'w')
@@ -222,12 +235,27 @@ for d in data:
     # Aumenta la línea
     line += 1
 
+print('OK [t {0:.3g}]'.format(time.time() - t))
 fl.close()
 
 # Compila el archivo
 if AUTOCOMPILE:
-    call(['pdflatex', MAINFILESINGLE])
-    call(['pdflatex', MAINFILESINGLE])
+    t = time.time()
+    with open(os.devnull, 'w') as FNULL:
+        print('Compilando ... ', end='')
+        call(['pdflatex', MAINFILESINGLE], stdout=FNULL)
+        t1 = time.time() - t
+        call(['pdflatex', MAINFILESINGLE], stdout=FNULL)
+        t2 = time.time() - t
+        tmean = (t1 + t2) / 2
+        print('OK [t {0:.3g}]'.format(tmean))
+
+    # Se agregan las estadísticas
+    addstat('stats', versiondev, tmean, dia, lc)
+
+    # Se plotean las estadísticas
+    if PLOTSTATS:
+        plot_stats('stats')
 
 # Se exporta el proyecto normal
 export_normal = Zip('release/Template-Informe.zip')
