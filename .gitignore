@@ -48,3 +48,6 @@ versions/
 *.html
 js/
 stylesheets/
+
+# Estadísticas
+stats
