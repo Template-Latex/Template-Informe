@@ -132,3 +132,35 @@ def find_command(data, commandname):
                 return [foundcommand, k]
         k += 1
     return [-1, -1]
+
+
+def addstat(statfile, version, time):
+    """
+    Agrega una entrada al archivo de estadísticas.
+
+    :param statfile: Archivo de estadísticas
+    :param version: Versión del template
+    :param time: Tiempo de compilación
+    :return:
+    """
+
+    # Se carga el archivo y se encuentra la última entrada
+    data = open(statfile)
+    dataarr = []
+    for i in data:
+        dataarr.append(i)
+    lastentrypos = len(dataarr) - 1
+    lastentry = dataarr[lastentrypos].strip().split('\t')
+    lastid = int(lastentry[0])
+    data.close()
+    dataarr[lastentrypos] = '{0}\n'.format(dataarr[lastentrypos])
+
+    # Se crea una nueva línea
+    newentry = '{0}\t{1}\t{2}'.format(lastid + 1, version, time)
+    dataarr.append(newentry)
+
+    # Se guarda el nuevo archivo
+    data = open(statfile, 'w')
+    for i in dataarr:
+        data.write(i)
+    data.close()

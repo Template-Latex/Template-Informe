@@ -13,6 +13,7 @@ import time
 from subprocess import call
 from utils import *
 
+
 # Archivos
 CONFIGFILE = 'lib/config.tex'
 EXAMPLEFILE = 'example.tex'
