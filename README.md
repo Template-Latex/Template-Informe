@@ -1,4 +1,4 @@
-## Template de Informe en Latex
+# Template de Informe en Latex
 
 Este corresponde a un template para confeccionar [excelentes informes en latex](https://github.com/ppizarror/Template-Informe/blob/master/Informe.pdf), contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
 
