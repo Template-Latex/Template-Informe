@@ -115,7 +115,7 @@ for f in FILES.keys():
     # Se cambia la versión
     data[HEADERVERSIONPOS] = versionhead
 
-    # Sólo para el archivo principal se cambia la version
+    # Sólo para el archivo principal se cambia la versión
     if f == MAINFILE:
         data[CODEVERSIONPOS] = versioncode.replace('\n ', '\n')
 
@@ -136,6 +136,8 @@ data[CODETABLEWIDTHPOS] = data[CODETABLEWIDTHPOS].replace(
     ITABLEORIGINAL, ITABLENEW)
 line = 0
 stconfig = False  # Indica si se han escrito comentarios en configuraciones
+
+# Se recorren las líneas del archivo
 for d in data:
     write = True
     if line < CODEVERSIONPOS + 1:
@@ -185,7 +187,7 @@ for d in data:
                             elif srclin.strip() is '':
                                 srclin = ''
 
-                        # Se ecribe la linea
+                        # Se ecribe la línea
                         if srclin is not '':
                             # Se aplica strip dependiendo del archivo
                             if libstirp:
@@ -201,7 +203,7 @@ for d in data:
 
         except Exception as e:
             pass
-        # Se agrega un espacio en blanco a la pagina después del comentario
+        # Se agrega un espacio en blanco a la página después del comentario
         if line >= CODEVERSIONPOS + 1 and write:
             if d[0:2] == '% ' and d[3] != ' ' and d != '% CONFIGURACIONES\n':
                 if d != '% FIN DEL DOCUMENTO\n' and ADDWHITESPACE:
@@ -216,7 +218,7 @@ for d in data:
             else:
                 fl.write(d)
 
-    # Aumenta la linea
+    # Aumenta la línea
     line += 1
 
 fl.close()
@@ -235,7 +237,7 @@ export_normal.add_folder('lib')
 export_normal.add_file(EXAMPLEFILE)
 export_normal.save()
 
-# Se exporta el proyecto unico
+# Se exporta el proyecto único
 export_single = Zip('release/Template-Informe-Single.zip')
 export_single.add_file('informe.tex')
 export_single.add_folder('images')
