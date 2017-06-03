@@ -8,7 +8,6 @@ Licencia: MIT
 """
 
 # Importación de librerías
-from io import IOBase
 import os
 import zipfile
 
