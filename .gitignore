@@ -50,5 +50,4 @@ js/
 stylesheets/
 
 # Estadísticas
-stats.png
-stats.txt
+stats.*
