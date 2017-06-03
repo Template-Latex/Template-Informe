@@ -260,11 +260,11 @@ if AUTOCOMPILE:
         print('OK [t {0:.3g}]'.format(tmean))
 
     # Se agregan las estadísticas
-    addstat('stats.txt', versiondev, tmean, dia, lc)
+    addstat('stats/stats.txt', versiondev, tmean, dia, lc)
 
     # Se plotean las estadísticas
     if PLOTSTATS:
-        plot_stats('stats.txt')
+        plot_stats('stats/stats.txt')
 
 # Se exporta el proyecto normal
 export_normal = Zip('release/Template-Informe.zip')

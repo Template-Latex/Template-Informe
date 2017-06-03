@@ -10,6 +10,7 @@ Licencia: MIT
 # Importación de librerías
 from __future__ import print_function
 from matplotlib.ticker import MaxNLocator
+from scipy import stats
 import matplotlib.pyplot as plt
 import os
 import zipfile
@@ -200,25 +201,37 @@ def plot_stats(statfile):
             timecomp.append(float(j[2]))
             lcode.append(int(j[4]))
         k += 1
-    if len(numcomp) >= 3:
+    nlen = len(numcomp)
+    if nlen >= 3:
+        # Tiempo de compilación
+        tme = stats.tmean(timecomp)
+        trc = stats.trim_mean(timecomp, 0.15)
+
         plt.figure(1)
         fig, ax = plt.subplots()
-        ax.plot(numcomp, timecomp)
+        ax.plot(numcomp, timecomp, 'c', label=u'Tiempo compilación (s)')
+        ax.plot([numcomp[0], numcomp[nlen - 1]], [tme, tme], 'r--',
+                label=u'Tiempo medio ({0:.3g}s)'.format(tme))
+        ax.plot([numcomp[0], numcomp[nlen - 1]], [tme, tme], 'b--',
+                label=u'Media acotada ({0:.3g}s)'.format(trc))
         ax.xaxis.set_major_locator(MaxNLocator(integer=True))
         ax.set_xlabel(u'Número de compilación')
         ax.set_ylabel(u'Tiempo de compilación [s]')
         ax.set_title(u'Estadísticas')
-        fig.savefig('stats-ctime.png', dpi=600)
-        plt.figure(2)
-        plt.plot(numcomp, lcode)
-        plt.xlabel(u'Número de compilación')
-        plt.ylabel(u'Líneas de código')
-        plt.title(u'Estadísticas')
+        ax.legend()
+        fig.savefig('stats/stats-ctime.png', dpi=600)
+
+        # Líneas de código
+        fig, ax = plt.subplots()
+        ax.plot(numcomp, lcode)
+        ax.set_xlabel(u'Número de compilación')
+        ax.set_ylabel(u'Líneas de código')
+        ax.set_title(u'Estadísticas')
         plt.ylim([min(lcode) * 0.97, max(lcode) * 1.03])
-        plt.savefig('stats-lcode.png', dpi=600)
+        fig.savefig('stats/stats-lcode.png', dpi=600)
 
     data.close()
 
 
 if __name__ == '__main__':
-    plot_stats('stats.txt')
+    plot_stats('stats/stats.txt')
