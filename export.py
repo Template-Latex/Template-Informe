@@ -11,21 +11,26 @@ Licencia: MIT
 # Importación de librerías
 import time
 from subprocess import call
-from ziputility import ZipUtility as Zip
+from utils import *
 
-# Constantes
-CODEVERSION = '\def\\templateversion{0}{1}% Versión del template\n '
-CODEVERSIONPOS = 16
-CODETABLEWIDTHPOS = 35
+# Archivos
 CONFIGFILE = 'lib/config.tex'
 EXAMPLEFILE = 'example.tex'
-HEADERSIZE = 13
-HEADERVERSIONPOS = 2
-ITABLEORIGINAL = '0.976\\textwidth'
-ITABLENEW = '1.012\\textwidth'
 MAINFILE = 'main.tex'
 MAINFILESINGLE = 'informe.tex'
+
+# Constantes
+main_data = open(MAINFILE)
+main_data.read()
+CODEVERSION = '\def\\templateversion{0}{1}% Versión del template\n '
+CODEVERSIONPOS = find_line(main_data, '\def\\templateversion')
+CODETABLEWIDTHPOS = find_line(main_data, '\\begin{minipage}{0.976\\textwidth}')
+HEADERSIZE = find_line(main_data, '% Licencia MIT:') + 2
+HEADERVERSIONPOS = find_line(main_data, '% Versión:      ')
+ITABLEORIGINAL = '0.976\\textwidth'
+ITABLENEW = '1.012\\textwidth'
 VERSIONHEADER = '% Versión:      {0} ({1})\n'
+main_data.close()
 
 # Configuraciones
 AUTOCOMPILE = True
@@ -84,6 +89,8 @@ FILESTRIP = {
 # noinspection PyCompatibility
 version = raw_input('Ingrese la nueva version: ')  # Se pide la versión
 version = version.strip()
+if len(version) == 0:
+    exit()
 
 # Se obtiene el día
 dia = time.strftime("%d/%m/%Y")
@@ -194,7 +201,7 @@ for d in data:
 
         except Exception as e:
             pass
-        # Se agrega un espacio en blanco a la pagina despues del comentario
+        # Se agrega un espacio en blanco a la pagina después del comentario
         if line >= CODEVERSIONPOS + 1 and write:
             if d[0:2] == '% ' and d[3] != ' ' and d != '% CONFIGURACIONES\n':
                 if d != '% FIN DEL DOCUMENTO\n' and ADDWHITESPACE:
