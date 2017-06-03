@@ -135,6 +135,7 @@ def find_command(data, commandname):
     return [-1, -1]
 
 
+# noinspection PyBroadException
 def addstat(statfile, version, time, date, lc):
     """
     Agrega una entrada al archivo de estadísticas.
@@ -148,28 +149,28 @@ def addstat(statfile, version, time, date, lc):
     """
 
     # Se carga el archivo y se encuentra la última entrada
-    data = open(statfile)
     dataarr = []
-    for i in data:
-        dataarr.append(i)
-    lastentrypos = len(dataarr) - 1
+    try:
+        data = open(statfile)
+        for i in data:
+            dataarr.append(i)
+        lastentrypos = len(dataarr) - 1
+    except:
+        data = open(statfile, 'w')
+        lastentrypos = -1
     if lastentrypos >= 0:
         lastentry = dataarr[lastentrypos].strip().split('\t')
         lastid = int(lastentry[0])
         dataarr[lastentrypos] = '{0}\n'.format(dataarr[lastentrypos])
     else:
         lastid = 0
-        dataarr.append('ID\t\tVERSION\t\tCTIME\t\tFECHA\t\t\tLINEAS\n')
+        dataarr.append('ID\tVERSION\t\tCTIME\t\tFECHA\t\tLINEAS\n')
     data.close()
 
     # Se crea una nueva línea
     time = str(time)[0:5]
-    if lastid < 999:
-        newentry = '{0}\t\t{1}\t\t{2}\t\t{3}\t\t{4}'.format(lastid + 1, version,
-                                                            time, date, lc)
-    else:
-        newentry = '{0}\t{1}\t\t{2}\t\t{3}\t\t{4}'.format(lastid + 1, version,
-                                                          time, date, lc)
+    newentry = '{0}\t{1}\t\t{2}\t\t{3}\t{4}'.format(lastid + 1, version,
+                                                    time, date, lc)
     dataarr.append(newentry)
 
     # Se guarda el nuevo archivo

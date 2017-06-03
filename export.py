@@ -37,7 +37,7 @@ main_data.close()
 AUTOCOMPILE = True
 ADDWHITESPACE = False
 DELETECOMMENTS = True
-PLOTSTATS = False
+PLOTSTATS = True
 
 # Archivos a revisar
 FILES = {
@@ -251,11 +251,11 @@ if AUTOCOMPILE:
         print('OK [t {0:.3g}]'.format(tmean))
 
     # Se agregan las estadísticas
-    addstat('stats', versiondev, tmean, dia, lc)
+    addstat('stats.txt', versiondev, tmean, dia, lc)
 
     # Se plotean las estadísticas
     if PLOTSTATS:
-        plot_stats('stats')
+        plot_stats('stats.txt')
 
 # Se exporta el proyecto normal
 export_normal = Zip('release/Template-Informe.zip')
