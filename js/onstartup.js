@@ -223,7 +223,8 @@ jQuery(document).ready(function($) {
             imageSrc: image_url,
             speed: 0.15,
             positionY: image_pos,
-            positionX: 'center'
+            positionX: 'center',
+            zIndex: 1
         });
     } else {
         $('.page-header').css('background', '#161415 url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
