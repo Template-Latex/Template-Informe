@@ -43,3 +43,6 @@ _test
 
 # Accesos directos
 *.url
+
+# Stats
+stats/*
