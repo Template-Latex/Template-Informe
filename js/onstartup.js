@@ -101,7 +101,6 @@ var images_background = [
     ['05327721.jpg', 'top', '#3c3c56'], // 98
     ['19489238.jpg', 'center', '#4c4847'], // 99
     ['27241217.jpg', 'center', '#6e513f'], // 100
-
     ['31534692.jpg', 'center', '#403c30'], // 101
     ['45125712.jpg', 'center', '#1e4a0a'], // 102
     ['59272533.jpg', 'center', '#580f25'], // 103
@@ -119,7 +118,7 @@ var chosencolor = images_background[images_indx_random][2];
 bgprecolor = shadeColor2(chosencolor, 0.9);
 codeprecolor = shadeColor2(chosencolor, 0.2);
 codebarcolor = shadeColor2(chosencolor, 0.4);
-backgroundmaincolor = shadeColor2(chosencolor, 0.96);
+backgroundmaincolor = shadeColor2(chosencolor, 0.97);
 
 // Descargas totales
 var total_downloads = 0;
