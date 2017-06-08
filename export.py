@@ -13,6 +13,7 @@ from __future__ import print_function
 import time
 from subprocess import call
 from utils import *
+import pyperclip
 
 # Archivos
 CONFIGFILE = 'lib/config.tex'
@@ -281,6 +282,7 @@ export_single.save()
 
 # noinspection PyBroadException
 try:
+    pyperclip.copy(versiondev)
     input('\nPulse cualquier boton para terminar.')
 except:
     pass
