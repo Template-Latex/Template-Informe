@@ -970,12 +970,12 @@
 	\emptyvarerr{\insertimageleft}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleft}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimageleft}{#4}{Altura en lineas de la imagen no definida}
-	\begin{wrapfigure}[#4]{L}{#3\textwidth}
+	\begin{wrapfigure}{L}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 		\vspace{\marginfloatimages pt}}
 		\centering
-		\includegraphics[width=\linewidth]{\defaultimagefolder#2}
+		\includegraphics[width=\linewidth]{#2}
 		\ifx\hfuzz#5\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
@@ -995,12 +995,12 @@
 	\emptyvarerr{\insertimageright}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageright}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimageright}{#4}{Altura en lineas de la imagen no definida}
-	\begin{wrapfigure}[#4]{R}{#3\textwidth}
+	\begin{wrapfigure}{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
 		\centering
-		\includegraphics[width=\linewidth]{\defaultimagefolder#2}
+		\includegraphics[width=1.0\textwidth]{#2}
 		\ifx\hfuzz#5\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
