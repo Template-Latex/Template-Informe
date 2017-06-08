@@ -90,10 +90,7 @@ FILESTRIP = {
 
 # noinspection PyCompatibility
 version = raw_input('Ingrese la nueva version: ')  # Se pide la versión
-version = version.strip()
-versionf = version.split('-')
-versiondev = version
-version = versionf[0]
+version, versiondev = mk_version(version)
 if len(version) == 0:
     exit()
 
@@ -260,7 +257,7 @@ if AUTOCOMPILE:
         print('OK [t {0:.3g}]'.format(tmean))
 
     # Se agregan las estadísticas
-    addstat('stats/stats.txt', versiondev, tmean, dia, lc)
+    add_stat('stats/stats.txt', versiondev, tmean, dia, lc)
 
     # Se plotean las estadísticas
     if PLOTSTATS:
@@ -282,5 +279,8 @@ export_single.add_folder('images')
 export_single.add_file(EXAMPLEFILE)
 export_single.save()
 
-# Se espera
-raw_input('Pulse cualquier boton para cerrar')
+# noinspection PyBroadException
+try:
+    input('\nPulse cualquier boton para terminar.')
+except:
+    pass

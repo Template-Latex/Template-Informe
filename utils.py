@@ -137,8 +137,44 @@ def find_command(data, commandname):
     return [-1, -1]
 
 
+def split_str(s, t):
+    """
+    Divide una cadena s por un término t retornando los elementos no vacíos.
+
+    :param s: String
+    :param t: Elemento a dividir la cadena
+    :return: Lista de elementos
+    """
+    s = s.split(t)
+    e = list()
+    for k in s:
+        if k is not '':
+            e.append(k)
+    return e
+
+
+def generate_statline(statid, version, time, date, lc):
+    """
+    Genera una línea de estadísticas.
+
+    :param statid: ID de la línea
+    :param version: Versión
+    :param time: Tiempo de compilación
+    :param date: Fecha de compilación
+    :param lc: Número de líneas
+    :return:
+    """
+    statid = str(statid).ljust(6)
+    version = str(version).ljust(17)
+    time = str(time).ljust(10)
+    date = str(date).ljust(14)
+    lc = str(lc).ljust(0)
+
+    return '{0}{1}{2}{3}{4}'.format(statid, version, time, date, lc)
+
+
 # noinspection PyBroadException
-def addstat(statfile, version, time, date, lc):
+def add_stat(statfile, version, time, date, lc):
     """
     Agrega una entrada al archivo de estadísticas.
 
@@ -161,18 +197,17 @@ def addstat(statfile, version, time, date, lc):
         data = open(statfile, 'w')
         lastentrypos = -1
     if lastentrypos >= 0:
-        lastentry = dataarr[lastentrypos].strip().split('\t')
+        lastentry = split_str(dataarr[lastentrypos].strip(), ' ')
         lastid = int(lastentry[0])
         dataarr[lastentrypos] = '{0}\n'.format(dataarr[lastentrypos])
     else:
         lastid = 0
-        dataarr.append('ID\tVERSION\t\tCTIME\t\tFECHA\t\tLINEAS\n')
+        dataarr.append(generate_statline('ID', 'VERSION', 'CTIME', 'FECHA',
+                                         'LINEAS\n'))
     data.close()
 
     # Se crea una nueva línea
-    time = str(time)[0:5]
-    newentry = '{0}\t{1}\t\t{2}\t\t{3}\t{4}'.format(lastid + 1, version,
-                                                    time, date, lc)
+    newentry = generate_statline(lastid + 1, version, str(time)[0:5], date, lc)
     dataarr.append(newentry)
 
     # Se guarda el nuevo archivo
@@ -196,17 +231,17 @@ def plot_stats(statfile):
     k = 0
     for i in data:
         if k > 0:
-            j = i.strip().replace('\t\t', '\t').split('\t')
+            j = split_str(i.strip(), ' ')
             numcomp.append(int(j[0]))
             timecomp.append(float(j[2]))
             lcode.append(int(j[4]))
         k += 1
     nlen = len(numcomp)
+    lastid = numcomp[nlen - 1]
     if nlen >= 3:
         # Tiempo de compilación
         tme = stats.tmean(timecomp)
         trc = stats.trim_mean(timecomp, 0.15)
-
         plt.figure(1)
         fig, ax = plt.subplots()
         ax.plot(numcomp, timecomp, 'c', label=u'Tiempo compilación (s)')
@@ -218,6 +253,7 @@ def plot_stats(statfile):
         ax.set_xlabel(u'Número de compilación')
         ax.set_ylabel(u'Tiempo de compilación [s]')
         ax.set_title(u'Estadísticas')
+        plt.xlim(1, lastid)
         ax.legend()
         fig.savefig('stats/stats-ctime.png', dpi=600)
 
@@ -228,9 +264,43 @@ def plot_stats(statfile):
         ax.set_ylabel(u'Líneas de código')
         ax.set_title(u'Estadísticas')
         plt.ylim([min(lcode) * 0.97, max(lcode) * 1.03])
+        ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+        plt.xlim(1, lastid)
         fig.savefig('stats/stats-lcode.png', dpi=600)
 
     data.close()
+
+
+def mk_version(version):
+    """
+    Genera el tag de versión.
+
+    :param version: Str de la versión
+    :return:
+    """
+    version = version.strip().lower()
+    versionf = version[0] + '.' + version[1] + '.' + version[2]
+    versiondev = ''
+    if len(version) < 3:
+        Exception('Formato de version incorrecto')
+    elif len(version) >= 4:
+        if version[3].isdigit():
+            versiondev = version[3:]
+        elif version[3] == 'a':
+            versiondev = 'alpha-' + version[4:]
+        elif version[3] == 'b':
+            versiondev = 'beta-' + version[4:]
+        elif version[3] == 'p':
+            versiondev = 'pre-' + version[4:]
+        else:
+            Exception('Formato de version incorrecto')
+
+    # Retorna las versiones
+    if versiondev is not '':
+        versiondev = versionf + '-' + versiondev
+    else:
+        versiondev = versionf
+    return versionf, versiondev
 
 
 if __name__ == '__main__':
