@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      3.9.1 (03/06/2017)
+% Versión:      4.0.0 (08/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -21,7 +21,6 @@
 \checkvardefined{\nombrefacultad}
 \checkvardefined{\departamentouniversidad}
 \checkvardefined{\localizacionuniversidad}
-\checkvardefined{\tablaintegrantes}
 
 % Se añade \xspace a las variables
 \makeatletter
@@ -36,7 +35,13 @@
 	\g@addto@macro\localizacionuniversidad\xspace
 \makeatother
 
-% Establece la carpeta de imágenes
+% Se crean variables si se borraron
+\ifthenelse{\isundefined{\tablaintegrantes}}{
+	\errmessage{LaTeX Warning: Se borro la tabla de integrantes, creando una vacia}
+	\def\tablaintegrantes {}
+}{}
+
+% Establece la carpeta de imágenes por defecto
 \graphicspath{{./\defaultimagefolder}}
 
 % Definición de valores e dimensiones

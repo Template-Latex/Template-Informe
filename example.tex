@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      3.9.1 (03/06/2017)
+% Versión:      4.0.0 (08/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -64,13 +64,11 @@
 	% SUB-SECCIÓN
 	\subsection{Haciendo informes como un profesional}
 		
-		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala, el número de filas que utilizará y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
-		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{17}{Apolo.}
+		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
+		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo a la izquierda.}
 		
 		\lipsum[1]
-		
-		\insertimageright[\label{img:imagen-izquierda2}]{ejemplos/test-image-wrap}{0.3}{17}{Apolo.}
-		
+
 		% Párrafos con \newp, lipsum por defecto no añade un párrafo nuevo
 		\newp \lipsum[115]
 		\newp \lipsum[2]
