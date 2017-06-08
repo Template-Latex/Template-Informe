@@ -281,3 +281,6 @@ export_single.add_file('informe.tex')
 export_single.add_folder('images')
 export_single.add_file(EXAMPLEFILE)
 export_single.save()
+
+# Se espera
+raw_input('Pulse cualquier boton para cerrar')
