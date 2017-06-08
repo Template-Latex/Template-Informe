@@ -282,7 +282,7 @@ export_single.save()
 
 # noinspection PyBroadException
 try:
-    pyperclip.copy(versiondev)
+    pyperclip.copy('Version ' + versiondev)
     input('\nPulse cualquier boton para terminar.')
 except:
     pass
