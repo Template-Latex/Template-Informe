@@ -115,7 +115,10 @@ def find_line(data, line, returnline=False):
             else:
                 return k
         k += 1
-    return -1
+    if returnline:
+        return [-1, '']
+    else:
+        return -1
 
 
 def find_command(data, commandname):

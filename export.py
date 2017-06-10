@@ -106,7 +106,7 @@ initconf_data = open(INITCONFFILE)
 initconf_data.read()
 l_tvdev, d_tvdev = find_line(initconf_data, 'Template.Version.Dev', True)
 l_tvrel, d_tvrel = find_line(initconf_data, 'Template.Version.Release', True)
-l_tdate, d_tdate = find_line(initconf_data, 'Template.Version.Fecha', True)
+l_tdate, d_tdate = find_line(initconf_data, 'Template.Fecha', True)
 l_ttype, d_ttype = find_line(initconf_data, 'Template.Tipo', True)
 initconf_data.close()
 
@@ -155,7 +155,7 @@ for f in FILES.keys():
 
 # Se modifican propiedades lineas data
 data = FILES[INITCONFFILE]
-d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-S')
+d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-C')
 d_ttype = replace_argument(d_ttype, 1, 'Compacto')
 data[l_tvdev] = d_tvdev
 data[l_ttype] = d_ttype
