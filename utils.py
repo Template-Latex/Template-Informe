@@ -383,5 +383,22 @@ def replace_argument(line, argnum, new, arginitsep='{', argendsep='}'):
     return z
 
 
+def get_last_ver(statfile):
+    """
+    Retorna la última versión compilada.
+
+    :param statfile:
+    :return:
+    """
+    data = open(statfile)
+    datal = []
+    for d in data:
+        datal.append(d.strip())
+    lastline = split_str(datal[len(datal) - 1], ' ')
+    lastver = '{0} ({1})'.format(lastline[1], lastline[3])
+    data.close()
+    return lastver
+
+
 if __name__ == '__main__':
     plot_stats('stats/stats.txt')

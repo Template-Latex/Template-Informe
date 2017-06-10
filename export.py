@@ -22,6 +22,7 @@ EXAMPLEFILECOMPACT = 'example.tex'
 INITCONFFILE = 'lib/initconf.tex'
 MAINFILE = 'main.tex'
 MAINFILESINGLE = 'informe.tex'
+STATSFILE = 'stats/stats.txt'
 
 # Constantes
 main_data = open(MAINFILE)
@@ -91,7 +92,9 @@ FILESTRIP = {
 }
 
 # noinspection PyCompatibility
-version = raw_input('Ingrese la nueva version: ')  # Se pide la versión
+print('ULTIMA VERSION:\t' + get_last_ver(STATSFILE))
+# noinspection PyCompatibility
+version = raw_input('\nINGRESE NUEVA VERSION: ')  # Se pide la versión
 version, versiondev = mk_version(version)
 
 # Se obtiene el día
@@ -118,7 +121,7 @@ d_ttype = replace_argument(d_ttype, 1, 'Normal')
 
 # Carga los archivos y cambia las versiones
 t = time.time()
-print('\nGenerando archivos ... ', end='')
+print('\nGENERANDO ARCHIVOS ... ', end='')
 for f in FILES.keys():
     data = FILES[f]
     # noinspection PyBroadException
@@ -282,7 +285,7 @@ fl.close()
 if AUTOCOMPILE:
     t = time.time()
     with open(os.devnull, 'w') as FNULL:
-        print('Compilando ... ', end='')
+        print('COMPILANDO ... ', end='')
         call(['pdflatex', MAINFILESINGLE], stdout=FNULL)
         t1 = time.time() - t
         call(['pdflatex', MAINFILESINGLE], stdout=FNULL)
@@ -291,11 +294,11 @@ if AUTOCOMPILE:
         print('OK [t {0:.3g}]'.format(tmean))
 
     # Se agregan las estadísticas
-    add_stat('stats/stats.txt', versiondev, tmean, dia, lc)
+    add_stat(STATSFILE, versiondev, tmean, dia, lc)
 
     # Se plotean las estadísticas
     if PLOTSTATS:
-        plot_stats('stats/stats.txt')
+        plot_stats(STATSFILE)
 
 # Se exporta el proyecto normal
 export_normal = Zip('release/Template-Informe.zip')
