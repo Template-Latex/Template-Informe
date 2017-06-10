@@ -96,10 +96,11 @@ class Zip(object):
                 self.add_folder(full_path)
 
 
-def find_line(data, line):
+def find_line(data, line, returnline=False):
     """
     Encuentra la linea en un archivo y devuelve su ubicación.
 
+    :param returnline: Indica si retorna también la línea buscada
     :param data: Datos del archivo
     :param line: Línea a buscar
     :return:
@@ -109,7 +110,10 @@ def find_line(data, line):
         data.seek(0)
     for i in data:
         if line in i.strip() or line == i.strip():
-            return k
+            if returnline:
+                return k, i
+            else:
+                return k
         k += 1
     return -1
 
@@ -165,7 +169,7 @@ def generate_statline(statid, version, time, date, lc):
     :return:
     """
     statid = str(statid).ljust(6)
-    version = str(version).ljust(17)
+    version = str(version).ljust(18)
     time = str(time).ljust(10)
     date = str(date).ljust(14)
     lc = str(lc).ljust(0)
@@ -173,11 +177,12 @@ def generate_statline(statid, version, time, date, lc):
     return '{0}{1}{2}{3}{4}'.format(statid, version, time, date, lc)
 
 
-# noinspection PyBroadException
-def add_stat(statfile, version, time, date, lc):
+# noinspection PyBroadException,PyUnboundLocalVariable
+def add_stat(statfile, version, time, date, lc, test=False):
     """
     Agrega una entrada al archivo de estadísticas.
 
+    :param test: Indica testeo
     :param statfile: Archivo de estadísticas
     :param version: Versión del template
     :param time: Tiempo de compilación
@@ -199,22 +204,37 @@ def add_stat(statfile, version, time, date, lc):
     if lastentrypos >= 0:
         lastentry = split_str(dataarr[lastentrypos].strip(), ' ')
         lastid = int(lastentry[0])
+        lastver = lastentry[1].split('.')
+        if len(lastver) == 4:
+            lastverid = int(lastver[3])
+            lastver = lastentry[1]
+            lastver = lastver.replace('.' + str(lastverid), '')
+        else:
+            lastverid = 0
+            lastver = lastentry[1]
+
         dataarr[lastentrypos] = '{0}\n'.format(dataarr[lastentrypos])
     else:
         lastid = 0
+        lastver = ''
         dataarr.append(generate_statline('ID', 'VERSION', 'CTIME', 'FECHA',
                                          'LINEAS\n'))
     data.close()
+
+    # Se comprueba que la version sea distinta
+    if version == lastver:
+        version = '{0}.{1}'.format(version, lastverid + 1)
 
     # Se crea una nueva línea
     newentry = generate_statline(lastid + 1, version, str(time)[0:5], date, lc)
     dataarr.append(newentry)
 
     # Se guarda el nuevo archivo
-    data = open(statfile, 'w')
-    for i in dataarr:
-        data.write(i)
-    data.close()
+    if not test:
+        data = open(statfile, 'w')
+        for i in dataarr:
+            data.write(i)
+        data.close()
 
 
 def plot_stats(statfile):
@@ -278,7 +298,14 @@ def mk_version(version):
     :param version: Str de la versión
     :return:
     """
+    if len(version) == 0:
+        exit()
+
     version = version.strip().lower()
+
+    if '.' in version or '-' in version:
+        raise Exception('Formato de version incorrecto')
+
     versionf = version[0] + '.' + version[1] + '.' + version[2]
     versiondev = ''
     if len(version) < 3:
@@ -301,6 +328,56 @@ def mk_version(version):
     else:
         versiondev = versionf
     return versionf, versiondev
+
+
+def replace_argument(line, argnum, new, arginitsep='{', argendsep='}'):
+    """
+    Reemplaza el argumento entre llaves de una determinada línea.
+
+    :param argendsep: Keyword al finalizar argumento
+    :param arginitsep: Keyword al iniciar argumento
+    :param new: Nuevos datos
+    :param line: Linea a reemplazar
+    :param argnum: Número del argumento
+    :return: String
+    """
+    if argnum < 1:
+        raise Exception('Numero de argumento invalido')
+    n = len(line)
+    c = False
+    ki = -1
+    ke = 0
+    a = []
+    for k in range(0, n):
+        if line[k] is arginitsep and c is not True:
+            c = True
+            k += 1
+            ki = k
+            a.append([line[ke:ki], False])
+        elif line[k] is argendsep and c:
+            c = False
+            ke = k
+            k += 1
+            if ke < ki:
+                raise Exception('Error al encontrar cierre parametro')
+            a.append([line[ki:ke], True])
+    a.append([line[ke:n], True])
+
+    d = 0
+    f = False
+    for k in range(0, len(a)):
+        if a[k][1]:
+            d += 1
+        if d == argnum:
+            a[k][0] = new
+            f = True
+            break
+    if not f:
+        raise Exception('No se encontro el numero de argumento')
+    z = ''
+    for k in a:
+        z += k[0]
+    return z
 
 
 if __name__ == '__main__':

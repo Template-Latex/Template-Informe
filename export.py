@@ -17,15 +17,16 @@ import pyperclip
 
 # Archivos
 CONFIGFILE = 'lib/config.tex'
-EXAMPLEFILE = 'example.tex'
+EXAMPLEFILE = 'lib/example.tex'
+EXAMPLEFILECOMPACT = 'example.tex'
+INITCONFFILE = 'lib/initconf.tex'
 MAINFILE = 'main.tex'
 MAINFILESINGLE = 'informe.tex'
 
 # Constantes
 main_data = open(MAINFILE)
 main_data.read()
-CODEVERSION = '\def\\templateversion{0}{1}% Versión del template\n '
-CODEVERSIONPOS = find_line(main_data, '\def\\templateversion')
+INITDOCUMENTLINE = find_line(main_data, '\\usepackage[utf8]{inputenc}') + 1
 CODETABLEWIDTHPOS = find_line(main_data, '\\begin{minipage}{0.976\\textwidth}')
 HEADERSIZE = find_line(main_data, '% Licencia MIT:') + 2
 HEADERVERSIONPOS = find_line(main_data, '% Versión:      ')
@@ -48,7 +49,7 @@ FILES = {
     'lib/greekenum.sty': [],
     'lib/imports.tex': [],
     'lib/index.tex': [],
-    'lib/initconf.tex': [],
+    INITCONFFILE: [],
     'lib/pageconf.tex': [],
     'lib/portrait.tex': [],
     'lib/styles.tex': [],
@@ -66,7 +67,7 @@ FILEDELCOMMENTS = {
     'lib/functions.tex': True,
     'lib/imports.tex': True,
     'lib/index.tex': True,
-    'lib/initconf.tex': True,
+    INITCONFFILE: True,
     'lib/pageconf.tex': True,
     'lib/portrait.tex': True,
     'lib/styles.tex': True,
@@ -80,7 +81,7 @@ FILESTRIP = {
     'lib/functions.tex': True,
     'lib/imports.tex': True,
     'lib/index.tex': True,
-    'lib/initconf.tex': True,
+    INITCONFFILE: True,
     'lib/pageconf.tex': True,
     'lib/portrait.tex': True,
     'lib/styles.tex': True,
@@ -92,8 +93,6 @@ FILESTRIP = {
 # noinspection PyCompatibility
 version = raw_input('Ingrese la nueva version: ')  # Se pide la versión
 version, versiondev = mk_version(version)
-if len(version) == 0:
-    exit()
 
 # Se obtiene el día
 dia = time.strftime("%d/%m/%Y")
@@ -101,7 +100,21 @@ dia = time.strftime("%d/%m/%Y")
 # Se crea el header de la version
 versionhead = VERSIONHEADER.format(version, dia)
 versionstrlen = max(0, 15 - (len(version) - 5))
-versioncode = CODEVERSION.format('{' + version + '}', ' ' * versionstrlen)
+
+# Se buscan numeros de lineas de hyperref
+initconf_data = open(INITCONFFILE)
+initconf_data.read()
+l_tvdev, d_tvdev = find_line(initconf_data, 'Template.Version.Dev', True)
+l_tvrel, d_tvrel = find_line(initconf_data, 'Template.Version.Release', True)
+l_tdate, d_tdate = find_line(initconf_data, 'Template.Version.Fecha', True)
+l_ttype, d_ttype = find_line(initconf_data, 'Template.Tipo', True)
+initconf_data.close()
+
+# Se actualizan lineas de hyperref
+d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-N')
+d_tvrel = replace_argument(d_tvrel, 1, version)
+d_tdate = replace_argument(d_tdate, 1, dia)
+d_ttype = replace_argument(d_ttype, 1, 'Normal')
 
 # Carga los archivos y cambia las versiones
 t = time.time()
@@ -120,9 +133,12 @@ for f in FILES.keys():
     # Se cambia la versión
     data[HEADERVERSIONPOS] = versionhead
 
-    # Sólo para el archivo principal se cambia la versión
-    if f == MAINFILE:
-        data[CODEVERSIONPOS] = versioncode.replace('\n ', '\n')
+    # Se actualiza la versión en initconf
+    if f == INITCONFFILE:
+        data[l_tvdev] = d_tvdev
+        data[l_tvrel] = d_tvrel
+        data[l_tdate] = d_tdate
+        data[l_ttype] = d_ttype
 
     # Se reescribe el archivo
     newfl = open(f, 'w')
@@ -136,6 +152,23 @@ for f in FILES.keys():
     if f not in ['lib/greekenum.sty', 'example-chapternumber.tex', 'test.tex',
                  'test-functions.tex', 'test-math.tex']:
         lc += len(FILES[f])
+
+# Se modifican propiedades lineas data
+data = FILES[INITCONFFILE]
+d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-S')
+d_ttype = replace_argument(d_ttype, 1, 'Compacto')
+data[l_tvdev] = d_tvdev
+data[l_ttype] = d_ttype
+
+# Se crea el archivo de ejemplo unificado
+fl = open(EXAMPLEFILECOMPACT, 'w')
+data = FILES[EXAMPLEFILE]
+data.pop(1)  # Se elimina el tipo de documento del header
+data.insert(1, '% Advertencia:  Documento generado automáticamente a partir '
+               'del archivo\n%               {0}\n'.format(EXAMPLEFILE))
+for d in data:
+    fl.write(d)
+fl.close()
 
 # Se crea el archivo unificado
 fl = open(MAINFILESINGLE, 'w')
@@ -152,7 +185,7 @@ stconfig = False  # Indica si se han escrito comentarios en configuraciones
 # Se recorren las líneas del archivo
 for d in data:
     write = True
-    if line < CODEVERSIONPOS + 1:
+    if line < INITDOCUMENTLINE:
         fl.write(d)
         write = False
     # Si es una línea en blanco se agrega
@@ -225,7 +258,7 @@ for d in data:
         except Exception as e:
             pass
         # Se agrega un espacio en blanco a la página después del comentario
-        if line >= CODEVERSIONPOS + 1 and write:
+        if line >= INITDOCUMENTLINE and write:
             if d[0:2] == '% ' and d[3] != ' ' and d != '% CONFIGURACIONES\n':
                 if d != '% FIN DEL DOCUMENTO\n' and ADDWHITESPACE:
                     fl.write('\n')
@@ -270,19 +303,19 @@ export_normal.add_excepted_file('greekenum.sty')
 export_normal.add_file('main.tex')
 export_normal.add_folder('images')
 export_normal.add_folder('lib')
-export_normal.add_file(EXAMPLEFILE)
 export_normal.save()
 
 # Se exporta el proyecto único
 export_single = Zip('release/Template-Informe-Single.zip')
 export_single.add_file('informe.tex')
 export_single.add_folder('images')
-export_single.add_file(EXAMPLEFILE)
+export_single.add_file(EXAMPLEFILECOMPACT)
 export_single.save()
 
 # noinspection PyBroadException
 try:
     pyperclip.copy('Version ' + versiondev)
-    input('\nPulse cualquier boton para terminar.')
+    # noinspection PyCompatibility
+    # input('\nPulse cualquier boton para terminar.')
 except:
     pass

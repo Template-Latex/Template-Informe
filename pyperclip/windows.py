@@ -132,7 +132,8 @@ def init_windows_clipboard():
                                              count * sizeof(c_wchar))
                     locked_handle = safeGlobalLock(handle)
 
-                    ctypes.memmove(c_wchar_p(locked_handle), c_wchar_p(text), count * sizeof(c_wchar))
+                    ctypes.memmove(c_wchar_p(locked_handle), c_wchar_p(text),
+                                   count * sizeof(c_wchar))
 
                     safeGlobalUnlock(handle)
                     safeSetClipboardData(CF_UNICODETEXT, handle)

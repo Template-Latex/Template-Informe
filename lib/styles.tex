@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de estilos
-% Versión:      4.0.0 (08/06/2017)
+% Versión:      4.0.0 (10/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -31,18 +31,26 @@
 	% Estilo de lenguaje C
 	\lstdefinestyle{C}{
 		language=C,
-		backgroundcolor=\color{white},
-		breakatwhitespace=true,
+		aboveskip=3mm,
+		backgroundcolor=\color{backcolour},
+		basicstyle={\small\ttfamily},
+		belowskip=3mm,
+		breakatwhitespace=false,
 		breaklines=true,
 		captionpos=t,
+		columns=flexible,
+		commentstyle=\color{mygreen},
+		keepspaces=true,
+		keywordstyle=\color{magenta},
 		numbers=left,
 		numbersep=5pt,
+		numberstyle=\tiny\color{mygray},
 		showspaces=false,
 		showstringspaces=false,
 		showtabs=false,
 		stepnumber=1,
-		tabsize=2,
-		title=\lstname
+		stringstyle=\color{mauve},
+		tabsize=3
 	}
 	
 	% Estilo de lenguaje Java
@@ -57,10 +65,13 @@
 		captionpos=t,
 		columns=flexible,
 		commentstyle=\color{dkgreen},
+		keepspaces=true,
 		keywordstyle=\color{blue},
 		numbers=left,
+		numbersep=5pt,
 		numberstyle=\tiny\color{gray},
 		showstringspaces=false,
+		stepnumber=1,
 		stringstyle=\color{mauve},
 		tabsize=3
 	}
@@ -75,17 +86,18 @@
 		breaklines=true,
 		breaklines=true,
 		captionpos=t,
+		columns=flexible,
 		commentstyle=\color{mygreen},
 		emph=[1]{for,end,break},emphstyle=[1]\color{red},
 		identifierstyle=\color{black},
+		keepspaces=true,
 		keywordstyle=\color{blue},
-		morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
 		morekeywords={matlab2tikz},
 		numbers=left,
-		numbersep=9pt,
+		numbersep=5pt,
 		numberstyle=\tiny\color{gray},
 		showstringspaces=false,
-		showstringspaces=false,
+		stepnumber=1,
 		stringstyle=\color{mylilas},
 		tabsize=3
 	}
@@ -93,12 +105,14 @@
 	% Estilo de lenguaje Python
 	\lstdefinestyle{Python}{
 		language=Python,
+		aboveskip=3mm,
 		backgroundcolor=\color{backcolour},
-		basicstyle=\footnotesize,
 		basicstyle={\small\ttfamily},
+		belowskip=3mm,
 		breakatwhitespace=false,
 		breaklines=true,
 		captionpos=t,
+		columns=flexible,
 		commentstyle=\color{codegreen},
 		keepspaces=true,
 		keywordstyle=\color{magenta},
@@ -108,6 +122,7 @@
 		showspaces=false,
 		showstringspaces=false,
 		showtabs=false,
+		stepnumber=1,
 		stringstyle=\color{codepurple},
 		tabsize=3
 	}
@@ -118,18 +133,26 @@
 	% Estilo de lenguaje C
 	\lstdefinestyle{C}{
 		language=C,
-		backgroundcolor=\color{white},
-		breakatwhitespace=true,
+		aboveskip=3mm,
+		backgroundcolor=\color{backcolour},
+		basicstyle={\small\ttfamily},
+		belowskip=3mm,
+		breakatwhitespace=false,
 		breaklines=true,
 		captionpos=b,
+		columns=flexible,
+		commentstyle=\color{mygreen},
+		keepspaces=true,
+		keywordstyle=\color{magenta},
 		numbers=left,
 		numbersep=5pt,
+		numberstyle=\tiny\color{mygray},
 		showspaces=false,
 		showstringspaces=false,
 		showtabs=false,
 		stepnumber=1,
-		tabsize=2,
-		title=\lstname
+		stringstyle=\color{mauve},
+		tabsize=3
 	}
 	
 	% Estilo de lenguaje Java
@@ -144,10 +167,13 @@
 		captionpos=b,
 		columns=flexible,
 		commentstyle=\color{dkgreen},
+		keepspaces=true,
 		keywordstyle=\color{blue},
 		numbers=left,
+		numbersep=5pt,
 		numberstyle=\tiny\color{gray},
 		showstringspaces=false,
+		stepnumber=1,
 		stringstyle=\color{mauve},
 		tabsize=3
 	}
@@ -162,17 +188,18 @@
 		breaklines=true,
 		breaklines=true,
 		captionpos=b,
+		columns=flexible,
 		commentstyle=\color{mygreen},
 		emph=[1]{for,end,break},emphstyle=[1]\color{red},
 		identifierstyle=\color{black},
+		keepspaces=true,
 		keywordstyle=\color{blue},
-		morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
 		morekeywords={matlab2tikz},
 		numbers=left,
-		numbersep=9pt,
+		numbersep=5pt,
 		numberstyle=\tiny\color{gray},
 		showstringspaces=false,
-		showstringspaces=false,
+		stepnumber=1,
 		stringstyle=\color{mylilas},
 		tabsize=3
 	}
@@ -180,12 +207,14 @@
 	% Estilo de lenguaje Python
 	\lstdefinestyle{Python}{
 		language=Python,
+		aboveskip=3mm,
 		backgroundcolor=\color{backcolour},
-		basicstyle=\footnotesize,
 		basicstyle={\small\ttfamily},
+		belowskip=3mm,
 		breakatwhitespace=false,
 		breaklines=true,
 		captionpos=b,
+		columns=flexible,
 		commentstyle=\color{codegreen},
 		keepspaces=true,
 		keywordstyle=\color{magenta},
@@ -195,6 +224,7 @@
 		showspaces=false,
 		showstringspaces=false,
 		showtabs=false,
+		stepnumber=1,
 		stringstyle=\color{codepurple},
 		tabsize=3
 	}
