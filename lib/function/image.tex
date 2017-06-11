@@ -1,0 +1,376 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Funciones para insertar imágenes
+% Versión:      4.0.0 (11/06/2017)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Manual template: [http://ppizarror.com/Template-Informe/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
+
+\newcommand{\insertimage}[4][]{
+	% Insertar una imagen
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Parámetros de la imagen
+	%	#4	Leyenda de la imagen
+	\emptyvarerr{\insertimage}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimage}{#3}{Parametros de la imagen no definidos}
+	\vspace{\margintopimages cm}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[#3]{#2}
+		\ifx\hfuzz#4\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\hspace{0cm} \caption{#4 #1}
+		\fi
+	\end{figure}
+	\vspace{\marginbottomimages cm}
+}
+
+\newcommand{\insertimageboxed}[4][]{
+	% Insertar una imagen con recuadro
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Parámetros de la imagen
+	%	#4	Leyenda de la imagen
+	\emptyvarerr{\insertimageboxed}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}
+	\vspace{\margintopimages cm}
+	\begin{figure}[H]
+		\centering
+		\fbox{\includegraphics[#3]{#2}}
+		\ifx\hfuzz#4\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\hspace{0cm} \caption{#4 #1}
+		\fi
+	\end{figure}
+	\vspace{\marginbottomimages cm}
+}
+
+\newcommand{\insertdoubleimage}[8][]{
+	% Insertar una imagen doble
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Parámetros de la imagen 1
+	%	#4	Leyenda de la imagen 1
+	%	#5	Dirección de la imagen 2
+	%	#6	Parámetros de la imagen 2
+	%	#7	Leyenda de la imagen 2
+	%	#8	Leyenda de la imagen doble
+	\emptyvarerr{\insertdoubleimage}{#2}{Direccion de la imagen 1 no definida}
+	\emptyvarerr{\insertdoubleimage}{#3}{Parametros de la imagen 1 no definidos}
+	\emptyvarerr{\insertdoubleimage}{#5}{Direccion de la imagen 2 no definida}
+	\emptyvarerr{\insertdoubleimage}{#6}{Parametros de la imagen 2 no definidos}
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=0.45cm}
+	\begin{figure}[H] \centering
+		\subfloat[#4]{
+			\includegraphics[#3]{#2}}
+		\hspace{0.2cm}
+		\subfloat[#7]{
+			\includegraphics[#6]{#5}}
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz#8\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{#8 #1}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+}
+
+\newcommand{\insertdoubleeqimage}[7][]{
+	% Insertar una imagen doble, igual propiedades
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Leyenda de la imagen 1
+	%	#4	Dirección de la imagen 2
+	%	#5	Leyenda de la imagen 2
+	%	#6	Propiedades de las imágenes
+	%	#7 	Leyenda de la imagen doble
+	\insertdoubleimage[#1]{#2}{#6}{#3}{#4}{#6}{#5}{#7}
+}
+
+\newcommand{\inserttripleimage}[8][]{
+	% Insertar una imagen triple
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Parámetros de la imagen 1
+	%	#4	Dirección de la imagen 2
+	%	#5	Parámetros de la imagen 2
+	%	#6	Dirección de la imagen 3
+	%	#7	Parámetros de la imagen 3
+	%	#8	Leyenda de la imagen triple
+	\emptyvarerr{\inserttripleimage}{#2}{Direccion de la imagen 1 no definida}
+	\emptyvarerr{\inserttripleimage}{#3}{Parametros de la imagen 1 no definidos}
+	\emptyvarerr{\inserttripleimage}{#4}{Direccion de la imagen 2 no definida}
+	\emptyvarerr{\inserttripleimage}{#5}{Parametros de la imagen 2 no definidos}
+	\emptyvarerr{\inserttripleimage}{#6}{Direccion de la imagen 3 no definida}
+	\emptyvarerr{\inserttripleimage}{#7}{Parametros de la imagen 3 no definidos}
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=0.45cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#3]{#2}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#5]{#4}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{#6}}
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz#8\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{#8 #1}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+}
+
+\newcommand{\inserttripleeqimage}[6][]{
+	% Insertar una imagen triple, igual propiedades
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Dirección de la imagen 2
+	%	#4	Dirección de la imagen 3
+	%	#5	Propiedades de las imágenes
+	%	#6	Leyenda de la imagen triple
+	\inserttripleimage[#1]{#2}{#5}{#3}{#5}{#4}{#5}{#6}
+}
+
+\newcommand{\insertquadimage}[7][]{
+	% Insertar una imagen cuádruple, igual propiedades
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Dirección de la imagen 2
+	%	#4	Dirección de la imagen 3
+	%	#5	Dirección de la imagen 4
+	%	#6	Propiedades de las imágenes
+	%	#7	Leyenda de la imagen cuádruple
+	\emptyvarerr{\insertquadimage}{#2}{Direccion de la imagen 1 no definida}
+	\emptyvarerr{\insertquadimage}{#3}{Direccion de la imagen 2 no definida}
+	\emptyvarerr{\insertquadimage}{#4}{Direccion de la imagen 3 no definida}
+	\emptyvarerr{\insertquadimage}{#5}{Direccion de la imagen 4 no definida}
+	\emptyvarerr{\insertquadimage}{#6}{Propiedades de las imagenes no definidos}
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=0.45cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#6]{#2}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#6]{#3}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#6]{#4}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#6]{#5}}
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz#7\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{#7 #1}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+}
+
+\newcommand{\insertpentaimage}[8][]{
+	% Insertar una imagen quíntuple, igual propiedades
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Dirección de la imagen 2
+	%	#4	Dirección de la imagen 3
+	%	#5	Dirección de la imagen 4
+	%	#6	Dirección de la imagen 5
+	%	#7	Propiedades de las imágenes
+	%	#8	Leyenda de la imagen quíntuple
+	\emptyvarerr{\insertpentaimage}{#2}{Direccion de la imagen 1 no definida}
+	\emptyvarerr{\insertpentaimage}{#3}{Direccion de la imagen 2 no definida}
+	\emptyvarerr{\insertpentaimage}{#4}{Direccion de la imagen 3 no definida}
+	\emptyvarerr{\insertpentaimage}{#5}{Direccion de la imagen 4 no definida}
+	\emptyvarerr{\insertpentaimage}{#6}{Direccion de la imagen 5 no definida}
+	\emptyvarerr{\insertpentaimage}{#7}{Propiedades de las imagenes no definidas}
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=0.45cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#7]{#2}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{#3}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{#4}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{#5}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#7]{#6}}
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz#8\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{#8 #1}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+}
+
+\newcommand{\inserthexaimage}[9][]{
+	% Insertar una imagen con 6 imágenes, igual propiedades
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen 1
+	%	#3	Dirección de la imagen 2
+	%	#4	Dirección de la imagen 3
+	%	#5	Dirección de la imagen 4
+	%	#6	Dirección de la imagen 5
+	%	#7	Dirección de la imagen 6
+	%	#8	Propiedades de las imágenes
+	%	#9	Leyenda de la imagen global
+	\emptyvarerr{\inserthexaimage}{#2}{Direccion de la imagen 1 no definida}
+	\emptyvarerr{\inserthexaimage}{#3}{Direccion de la imagen 2 no definida}
+	\emptyvarerr{\inserthexaimage}{#4}{Direccion de la imagen 3 no definida}
+	\emptyvarerr{\inserthexaimage}{#5}{Direccion de la imagen 4 no definida}
+	\emptyvarerr{\inserthexaimage}{#6}{Direccion de la imagen 5 no definida}
+	\emptyvarerr{\inserthexaimage}{#7}{Direccion de la imagen 6 no definida}
+	\emptyvarerr{\inserthexaimage}{#8}{Propiedades de las imagenes no definidas}
+	\vspace{\margintopimages cm}
+	\captionsetup{margin=0.45cm}
+	\begin{figure}[H] \centering
+		\subfloat[]{
+			\includegraphics[#8]{#2}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#8]{#3}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#8]{#4}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#8]{#5}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#8]{#6}}
+		\hspace{0.1cm}
+		\subfloat[]{
+			\includegraphics[#8]{#7}}
+		\setcaptionmargincm{\captionlrmargin}
+		\ifx\hfuzz#9\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{#9 #1}
+		\fi
+	\end{figure}
+	\setcaptionmargincm{\captionlrmargin}
+	\vspace{\marginbottomimages cm}
+}
+
+\newcommand{\insertimageleft}[5][]{
+	% Insertar una imagen a la izquierda
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Ancho de la imagen (en textwidth)
+	%	#5	Leyenda de la imagen (opcional)
+	\emptyvarerr{\insertimageleft}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageleft}{#3}{Ancho de la imagen no defindo}
+	\begin{wrapfigure}{l}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\centering
+		\includegraphics[width=\linewidth]{#2}
+		\ifx\hfuzz#4\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{#4 #1}
+		\fi
+		\setcaptionmargincm{\captionlrmargin}
+	\end{wrapfigure}
+}
+
+\newcommand{\insertimageleftline}[5][]{
+	% Insertar una imagen a la izquierda
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Ancho de la imagen (en textwidth)
+	%	#4	Altura en líneas de la imagen
+	%	#5	Leyenda de la imagen (opcional)
+	\emptyvarerr{\insertimageleft}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageleft}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimageleft}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
+	\begin{wrapfigure}[#4]{l}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\centering
+		\includegraphics[width=\linewidth]{#2}
+		\ifx\hfuzz#5\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{#5 #1}
+		\fi
+		\setcaptionmargincm{\captionlrmargin}
+	\end{wrapfigure}
+}
+
+\newcommand{\insertimageright}[5][]{
+	% Insertar una imagen a la derecha
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Ancho de la imagen (en textwidth)
+	%	#4	Leyenda de la imagen (opcional)
+	\emptyvarerr{\insertimageright}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageright}{#3}{Ancho de la imagen no defindo}
+	\begin{wrapfigure}{r}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\centering
+		\includegraphics[width=1.0\textwidth]{#2}
+		\ifx\hfuzz#4\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{#4 #1}
+		\fi
+		\setcaptionmargincm{\captionlrmargin}
+	\end{wrapfigure}
+}
+
+\newcommand{\insertimagerightline}[5][]{
+	% Insertar una imagen a la derecha
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Ancho de la imagen (en textwidth)
+	%	#4	Altura en líneas de la imagen
+	%	#5	Leyenda de la imagen (opcional)
+	\emptyvarerr{\insertimageright}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageright}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimageright}{#4}{Altura en lineas de la imagen flotante derecha no definida}
+	\begin{wrapfigure}[#4]{r}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\centering
+		\includegraphics[width=1.0\textwidth]{#2}
+		\ifx\hfuzz#5\hfuzz
+		\vspace{\captionlessmarginimage cm}
+		\else
+		\caption{#5 #1}
+		\fi
+		\setcaptionmargincm{\captionlrmargin}
+	\end{wrapfigure}
+}

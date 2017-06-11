@@ -33,8 +33,7 @@
 % INTEGRANTES, PROFESORES Y FECHAS
 \def\tablaintegrantes {
 \begin{minipage}{0.976\textwidth}
-\begin{flushright}
-\begin{tabular}{ll}
+\begin{flushright}\begin{tabular}{ll}
 	Integrantes:
 		& \begin{tabular}[t]{@{}l@{}}
 			Integrante 1 \\
@@ -60,8 +59,7 @@
 	\multicolumn{2}{l}{Fecha de realización: \today} \\
 	\multicolumn{2}{l}{Fecha de entrega: \today} \\
 	\multicolumn{2}{l}{\localizacionuniversidad}
-\end{tabular}
-\end{flushright}
+\end{tabular}\end{flushright}
 \end{minipage}}
 
 % CONFIGURACIONES
@@ -71,7 +69,11 @@
 \input{lib/imports}
 
 % IMPORTACIÓN DE FUNCIONES
-\input{lib/functions}
+\input{lib/function/core}
+\input{lib/function/elements}
+\input{lib/function/equation}
+\input{lib/function/image}
+\input{lib/function/title}
 
 % IMPORTACIÓN DE ENTORNOS
 \input{lib/environments}
@@ -104,7 +106,7 @@
 
 % ========================= INICIO DEL DOCUMENTO =========================
 
-\input{lib/example.tex} % Ejemplo, se puede borrar
+\input{lib/example} % Ejemplo, se puede borrar
 
 % REFERENCIAS
 \begin{references}

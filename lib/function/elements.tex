@@ -1,0 +1,142 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Funciones para insertar elementos
+% Versión:      4.0.0 (11/06/2017)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Manual template: [http://ppizarror.com/Template-Informe/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
+
+\newcommand{\newp}{
+	% Inserta nueva línea
+	\hbadness=10000 \vspace{\defaultnewlinesize pt} \par
+}
+
+\newcommand{\newpar}[1]{
+	% Insertar párrafo
+	% 	#1	Párrafo
+	\hbadness=10000 #1 \newp
+}
+
+\newcommand{\newparnl}[1]{
+	% Insertar párrafo sin nueva línea al final
+	% 	#1	Párrafo
+	#1 \par
+}
+
+\newcommand{\lpow}[2]{
+	% Insertar sub-índice, a_b
+	% 	#1	Elemento inferior (a)
+	%	#2	Elemento superior (b)
+	\ensuremath{{#1}_{#2}}
+}
+
+\newcommand{\pow}[2]{
+	% Insertar elevado, a^b
+	% 	#1	Elemento inferior (a)
+	%	#2	Elemento superior (b)
+	\ensuremath{{#1}^{#2}}
+}
+
+\newcommand{\fracpartial}[2]{
+	% Fracción de derivadas parciales af/ax
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
+	\ensuremath{\pdv{#1}{#2}}
+}
+
+\newcommand{\fracdpartial}[2]{
+	% Fracción de derivadas parciales dobles a^2f/ax^2
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
+	\ensuremath{\pdv[2]{#1}{#2}}
+}
+
+\newcommand{\fracnpartial}[3]{
+	% Fracción de derivadas parciales en n, a^nf/ax^n
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
+	%	#3	Orden (n)
+	\ensuremath{\pdv[#3]{#1}{#2}}
+}
+
+\newcommand{\fracderivat}[2]{
+	% Fracción de derivadas df/dx
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
+	\ensuremath{\dv{#1}{#2}}
+}
+
+\newcommand{\fracdderivat}[2]{
+	% Fracción de derivadas dobles d^2/dx^2
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
+	\ensuremath{\dv[2]{#1}{#2}}
+}
+
+\newcommand{\fracnderivat}[3]{
+	% Fracción de derivadas en n d^nf/dx^n
+	% 	#1	Función a derivar (f)
+	%	#2	Variable a derivar (x)
+	%	#3	Orden de la derivada (n)
+	\ensuremath{\dv[#3]{#1}{#2}}
+}
+
+\newcommand{\topequal}[2]{
+	% Llave superior de equivalencia
+	% 	#1	Elemento a igualar
+	%	#2	Igualdad
+	\ensuremath{\overbrace{#1}^{\mathclap{#2}}}
+}
+
+\newcommand{\underequal}[2]{
+	% Llave inferior de equivalencia
+	% 	#1	Elemento a igualar
+	%	#2	Igualdad
+	\ensuremath{\underbrace{#1}_{\mathclap{#2}}}
+}
+
+\newcommand{\topsequal}[2]{
+	% Rectángulo superior de equivalencia
+	% 	#1	Elemento a igualar
+	%	#2	Igualdad
+	\ensuremath{\overbracket{#1}^{\mathclap{#2}}}
+}
+
+\newcommand{\undersequal}[2]{
+	% Rectángulo inferior de equivalencia
+	% 	#1	Elemento a igualar
+	%	#2	Igualdad
+	\ensuremath{\underbracket{#1}_{\mathclap{#2}}}
+}
+
+\newcommand{\itemresize}[2]{
+	% Redimensiona un ítem en textwidth
+	% 	#1	Tamaño del nuevo objeto (En textwidth)
+	%	#2	Objeto a redimensionar
+	\emptyvarerr{\itemresize}{#1}{Tamano del nuevo objeto no definido}
+	\emptyvarerr{\itemresize}{#2}{Objeto a redimensionar no definido}
+	\resizebox{#1\textwidth}{!}{#2}
+}
+
+\newcommand{\insertemptypage}{
+	% Crea una página vacía
+	\newpage
+	\setcounter{templatepagecounter}{\thepage}
+	\pagenumbering{gobble}
+	\null
+	\thispagestyle{empty}
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{\thetemplatepagecounter}
+}
+
+% Inserta un texto entre comillas
+\newcommand{\quotes}[1]{``#1''}
+
+% Inserta un email con un link cliqueable
+\newcommand{\insertemail}[1]{\href{mailto:#1}{\texttt{#1}}}

@@ -1,0 +1,103 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Funciones para insertar títulos
+% Versión:      4.0.0 (11/06/2017)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Manual template: [http://ppizarror.com/Template-Informe/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
+
+\newcommand{\sectionanum}[1]{
+	% Insertar un título sin número
+	% 	#1	Título
+	\emptyvarerr{\sectionanum}{#1}{Titulo no definido}
+	\phantomsection
+	\needspace{3\baselineskip}
+	\section*{#1}
+	\addcontentsline{toc}{section}{#1}
+	\stepcounter{section}
+	\ifthenelse{\equal{\showheadertitle}{true}}{
+		\markboth{#1}{}
+	}{}
+}
+
+\newcommand{\sectionanumnoi}[1]{
+	% Insertar un título sin número sin indexar
+	% 	#1	Título
+	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
+	\phantomsection
+	\needspace{3\baselineskip}
+	\section*{#1}
+	\stepcounter{section}
+	\ifthenelse{\equal{\showheadertitle}{true}}{
+		\markboth{#1}{}
+	}{}
+}
+
+\newcommand{\sectionanumheadless}[1]{
+	% Insertar un título sin número sin cambiar el título del header
+	% 	#1	Título
+	\emptyvarerr{\sectionanumnoheadless}{#1}{Titulo no definido}
+	\section*{#1}
+	\addcontentsline{toc}{section}{#1}
+	\stepcounter{section}
+}
+
+\newcommand{\sectionanumnoiheadless}[1]{
+	% Insertar un título sin número sin indexar sin cambiar el título del header
+	% 	#1	Título
+	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
+	\section*{#1}
+	\stepcounter{section}
+}
+
+\newcommand{\subsectionanum}[1]{
+	% Insertar un subtítulo sin número
+	% 	#1	Subtítulo
+	\emptyvarerr{\subsectionanum}{#1}{Subtitulo no definido}
+	\subsection*{#1}
+	\addcontentsline{toc}{subsection}{#1}
+	\stepcounter{subsection}
+}
+
+\newcommand{\subsectionanumnoi}[1]{
+	% Insertar un subtítulo sin número sin indexar
+	% 	#1	Subtítulo
+	\emptyvarerr{\subsectionanumnoi}{#1}{Subtitulo no definido}
+	\subsection*{#1}
+	\stepcounter{subsection}
+}
+
+\newcommand{\subsubsectionanum}[1]{
+	% Insertar un sub-subtítulo sin número
+	% 	#1	Sub-subtítulo
+	\emptyvarerr{\subsubsectionanum}{#1}{Sub-subtitulo no definido}
+	\subsubsection*{#1}
+	\addcontentsline{toc}{subsubsection}{#1}
+	\stepcounter{subsubsection}
+}
+
+\newcommand{\subsubsectionanumnoi}[1]{
+	% Insertar un sub-subtítulo sin número sin indexar
+	% 	#1	Sub-subtítulo
+	\emptyvarerr{\subsubsectionanumnoi}{#1}{Sub-subtitulo no definido}
+	\subsubsection*{#1}
+	\stepcounter{subsubsection}
+}
+
+\newcommand{\insertindextitle}[2]{
+	% Insertar un título en un índice
+	%	#1	Título
+	%	#2	Margen superior en pt. (opcional), 10pt por defecto
+	\emptyvarerr{\insertindextitle}{#1}{Titulo no definido}
+	\ifx\hfuzz#2\hfuzz
+	\addtocontents{toc}{\protect\addvspace{\indextitlemargin pt}}
+	\else
+	\addtocontents{toc}{\protect\addvspace{#2 pt}}
+	\fi
+	\addtocontents{toc}{\noindent\hyperref[swpn]{\textbf{#1}}}
+}
