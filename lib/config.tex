@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      4.0.0 (10/06/2017)
+% Versión:      4.0.0 (11/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -19,7 +19,7 @@
 \def\fontdocument {lmodern}       % Tipografía del documento (lmodern,arial,helvet)
 \def\numberedequation {true}      % Ecuaciones con \insert... numeradas
 \def\pointdecimal {false}         % Decimales con punto en vez de coma
-\def\romanpageuppercase {false}   % Páginas en número romano en mayúsculas
+\def\romanpageuppercase {true}    % Páginas en número romano en mayúsculas
 \def\showdotontitles {true}       % Punto al final de cada número de título/subtítulo
 \def\tablepadding {1.0}           % Ancho de celda de las tablas
 
@@ -39,7 +39,7 @@
 
 % CONFIGURACIÓN DEL ÍNDICE
 \def\indexdepth {3}               % Profundidad máxima del índice
-\def\indextitlemargin {7.0}       % Margen títulos en índice con \insertindextitle [pt]
+\def\indextitlemargin {7.0}       % Margen título en índice \insertindextitle [pt]
 \def\showindex {true}             % Muestra el índice
 \def\showindexofcode {true}       % Muestra la lista de códigos fuente
 \def\showindexofcontents {true}   % Muestra la lista de contenidos
@@ -53,10 +53,10 @@
 \def\citecolor {black}            % Color del número de las referencias o citas
 \def\highlightcolor {yellow}      % Color del subrayado con \hl
 \def\indextitlecolor {black}      % Color de los títulos del índice
-\def\linkcolor {black}            % Color de los links del documento (\ref,índice,etc.)
+\def\linkcolor {black}            % Color de los links del doc. (\ref,índice,etc.)
 \def\maintextcolor {black}        % Color principal del texto
 \def\portraittitlecolor {black}   % Color de los títulos de la portada
-\def\showborderonlinks {false}    % Cambia el color de un link por un recuadro de color
+\def\showborderonlinks {false}    % Color de un links por un recuadro de color
 \def\subsubtitlecolor {black}     % Color de los sub-subtítulos
 \def\subtitlecolor {black}        % Color de los subtítulos
 \def\tablelinecolor {black}       % Color de las líneas de las tablas
@@ -66,11 +66,14 @@
 
 % MÁRGENES DE FIGURAS
 \def\marginbottomimages {-0.2}    % Margen inferior figura [cm]
-\def\marginfloatimages {-13.0}    % Margen sup. fig flotante \insertimageleft/right [pt]
+\def\marginfloatimages {-13.0}    % Margen sup. fig flot. \insertimageleft/right [pt]
 \def\margintopimages {0.0}        % Margen superior figura [cm]
 
 
 % REFERENCIAS
+\def\citeendchar {]}              % Caracter final para citas
+\def\citestartchar { [}           % Caracter inicial para citas
+\def\citesuperscript {true}       % Comando \cite retorna citas con número arriba
 \def\referencenumsection {true}   % Referencias como sección con número
 \def\twocolumnreferences {false}  % Referencias en dos columnas
 \def\typereference {apa}          % Tipo de referencias
@@ -102,10 +105,10 @@
 
 
 % OPCIONES DEL PDF COMPILADO
-\def\cfgbookmarksopenlevel {2}    % Nivel de los marcadores a mostrar (2: subsecciones)
+\def\cfgbookmarksopenlevel {1}    % Nivel de los marcadores a mostrar (1: secciones)
 \def\cfgpdfbookmarkopen {true}    % Abre el panel de marcadores al abrir el pdf
 \def\cfgpdfcenterwindow {true}    % Centra la ventana del lector al abrir el pdf
-\def\cfgpdfdisplaydoctitle {true} % Muestra el título del informe como título en el pdf
+\def\cfgpdfdisplaydoctitle {true} % Muestra el título del informe como título del pdf
 \def\cfgpdffitwindow {false}      % Ajusta la ventana del lector al tamaño del pdf
 \def\cfgpdftoolbar {true}         % Muestra la barra de herramientas del lector pdf
 
