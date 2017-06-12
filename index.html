@@ -169,11 +169,11 @@
 
 			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> (línea 21)<i id="linea-informacion-documento"></i> del archivo principal, luego <a href="tabla-integrantes">editar la tabla</a> de datos de la portada en la sección
 			<em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <i id="linea-integrantes"></i>
-			<font title='Línea 35 en versión compacta' style='cursor: hand;'>(línea 34)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del
+			<font title='Línea 34 en versión compacta' style='cursor: hand;'>(línea 33)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del
 			<em class="section-template">RESUMEN O ABSTRACT</em>
-			<font title='Línea 294 en versión compacta' style='cursor: hand;'>(línea 95)</font> o en la <b>sección principal</b> del documento
+			<font title='Línea 198 en versión compacta' style='cursor: hand;'>(línea 96)</font> o en la <b>sección principal</b> del documento
 			<em class="section-template">INICIO DEL DOCUMENTO</em>
-			<font title='Línea 205 en versión compacta' style='cursor: hand;'>(línea 106)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/ppizarror/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
+			<font title='Línea 209 en versión compacta' style='cursor: hand;'>(línea 107)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/ppizarror/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
 
 			<img src="images/collage.png" alt="Informe" width="80%px" height="80%px" style="margin: auto; display: block;">
 		</p>
@@ -381,6 +381,7 @@
 							</div>
 						</blockquote>
 					</li>
+					<hr class="style10">
 					<li>
 						<strong>\insertdoubleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
 						Inserta dos imágenes en un sólo elemento.
@@ -399,6 +400,7 @@
 							</div>
 						</blockquote>
 					</li>
+					<hr class="style10">
 					<li>
 						<strong>\inserttripleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Parámetros 3</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
 						Inserta tres imágenes en un sólo elemento.
@@ -417,6 +419,7 @@
 							</div>
 						</blockquote>
 					</li>
+					<hr class="style10">
 					<li>
 						<strong>\insertquadimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
 						Inserta cuatro imágenes en un sólo elemento.
@@ -444,21 +447,41 @@
 							</div>
 						</blockquote>
 					</li>
+					<hr class="style10">
 					<li>
-						<strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una
-						imagen alineada a la izquierda, flotante.
+						<strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una
+						imagen alineada a la izquierda de un párrafo.
 						<blockquote>
 							<div class="highlight highlight-text-tex">
-								<pre><span class="pl-e">\insertimageleft</span><b>[</b><span class="pl-c1">\label</span>{img-left-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>0.25<b>}</b><b>{</b>15<b>}</b><b>{</b>Descripción<b>}</b></pre>
+								<pre><span class="pl-e">\insertimageleft</span><b>[</b><span class="pl-c1">\label</span>{img-left-1}</span><b>]</b><b>{</b>ejemplos/test-image-wrap.jpg<b>}</b><b>{</b>0.25<b>}</b><b>{</b>Descripción<b>}</b></pre>
 							</div>
 						</blockquote>
 					</li>
 					<li>
-						<strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Escala</em><b>}</b><b>{</b><em>Número de columnas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada
-						a la derecha, flotante.
+						<strong>\insertimageleftline</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una
+						imagen alineada a la izquierda de un párrafo con un número de líneas fijo.
 						<blockquote>
 							<div class="highlight highlight-text-tex">
-								<pre><span class="pl-e">\insertimageright</span><b>[]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>Descripción<b>}</b></pre>
+								<pre><span class="pl-e">\insertimageleftline</span><b>[]</b><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.25<b>}</b><b>{</b>15<b>}</b><b>{</b>Descripción<b>}</b></pre>
+							</div>
+						</blockquote>
+					</li>
+					<hr class="style10">
+					<li>
+						<strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada
+						a la derecha de un párrafo.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\insertimageright</span><b>[]{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.21<b>}</b><b>{</b>Descripción<b>}</b></pre>
+							</div>
+						</blockquote>
+					</li>
+					<li>
+						<strong>\insertimagerightline</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada
+						a la derecha de un párrafo con un número de líneas fijo.
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre><span class="pl-e">\insertimagerightline</span><b>[</b><span class="pl-c1">\label</span>{img-right-1}</span><b>]</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>Descripción<b>}</b></pre>
 							</div>
 						</blockquote>
 					</li>
@@ -764,8 +787,7 @@
 		</h2>
 		<p>
 			También se pueden modificar los márgenes de la página, el estilo de referencia a usar, los márgenes de los títulos de tablas y figuras <em>(caption)</em>, el tamaño de los títulos de las secciones, etc. Estas configuraciones se encuentran en el archivo
-			lib/
-			<a href="https://github.com/ppizarror/Template-Informe/blob/master/lib/config.tex">config.tex</a> y son importadas en el bloque de
+			<a href="https://github.com/ppizarror/Template-Informe/blob/master/lib/config.tex">lib/config.tex</a> y son importadas en el bloque de
 			<em class="section-template">CONFIGURACIONES</em> en el archivo principal.
 		</p>
 		<p>
@@ -799,9 +821,6 @@
 					</li>
 					<li>
 						<strong>\romanpageuppercase</strong>: Páginas en número romano (abstract-índice) en mayúsculas.
-					</li>
-					<li>
-						<strong>\showborderonlinks</strong>: Reemplaza el color de un link por un recuadro de color.
 					</li>
 					<li>
 						<strong>\showdotontitles</strong>: Muestra un punto en cada número de sección, subsección y sub-subsección.
@@ -855,7 +874,7 @@
 						<strong>\indexdepth</strong>: Profundidad del índice.
 					</li>
 					<li>
-						<strong>\indextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <b>\insertindextitle</b>), en pt.
+						<strong>\indextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <i>\insertindextitle</i>), en pt.
 					</li>
 					<li>
 						<strong>\showindex</strong>: Muestra la página de índice.
@@ -888,7 +907,7 @@
 						<strong>\citecolor</strong>: Color del número de la referencia o cita.
 					</li>
 					<li>
-						<strong>\highlightcolor</strong>: Color del subrayado con <b>\hl{</b><i>text</i><b>}</b>.
+						<strong>\highlightcolor</strong>: Color del subrayado con <i>\hl{text}</i>.
 					</li>
 					<li>
 						<strong>\indextitlecolor</strong>: Color de los títulos del índice.
@@ -901,6 +920,9 @@
 					</li>
 					<li>
 						<strong>\portraittitlecolor</strong>: Color de los títulos de la portada.
+					</li>
+					<li>
+						<strong>\showborderonlinks</strong>: Reemplaza el color de un link por un recuadro de color.
 					</li>
 					<li>
 						<strong>\subsubtitlecolor</strong>: Color de los sub-subtítulos.
@@ -938,6 +960,15 @@
 			<li class="config-parent">
 				<strong class="functtitlstyle">Configuración de referencias<a id="config-ref"></a></strong>
 				<ul>
+					<li>
+						<strong>\citeendchar</strong>: Caracter final del número de la cita al insertar citas con <i>\cite</i>.
+					</li>
+					<li>
+						<strong>\citestartchar</strong>: Caracter inicial del número de la cita al insertar citas con <i>\cite</i>.
+					</li>
+					<li>
+						<strong>\citesuperscript</strong>: Comando \cite retorna citas con número arriba (<i>\textsuperscript</i>).
+					</li>
 					<li>
 						<strong>\referencenumsection</strong>: Considera las referencias como sección.
 					</li>
@@ -1083,7 +1114,7 @@
 			<a id="links" class="anchor" href="#links" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Links de interés
 		</h2>
 		<p>
-			A continuación se presentan una lista de links útiles para el uso de Latex:
+			A continuación se presentan una lista de links útiles para el uso del template:
 			<ul>
 				<li>
 					Template Auxiliares en <img src="resources/latex.png" alt="LaTeX" class="lateximg">: <a href="http://ppizarror.com/Template-Auxiliares/">http://ppizarror.com/Template-Auxiliares/</a>
@@ -1183,9 +1214,9 @@
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/enumerate">enumitem</a></strong>: Permite enumerar ítemes.
 			</li>
-			<li>
+			<!-- <li>
 				<strong><a href="https://www.ctan.org/pkg/epstopdf">epstopdf</a></strong>: Convierte archivos .eps a pdf <em>[dependiente]</em>.
-			</li>
+			</li> -->
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/etoolbox">etoolbox</a></strong>: Herramientas varias del compilador <em>[dependiente]</em>.
 			</li>
@@ -1233,6 +1264,9 @@
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/multirow">multirow</a></strong>: Añade nuevas opciones a las tablas <em>[dependiente]</em>.
+			</li>
+			<li>
+				<strong><a href="https://www.ctan.org/pkg/natbib">natbib</a></strong>: Administración de citas.
 			</li>
 			<li>
 				<strong><a href="https://www.ctan.org/pkg/needspace">needspace</a></strong>: Maneja espacios en páginas.

@@ -118,7 +118,7 @@ var chosencolor = images_background[images_indx_random][2];
 bgprecolor = shadeColor2(chosencolor, 0.9);
 codeprecolor = shadeColor2(chosencolor, 0.2);
 codebarcolor = shadeColor2(chosencolor, 0.4);
-backgroundmaincolor = shadeColor2(chosencolor, 0.97);
+backgroundmaincolor = shadeColor2(chosencolor, 0.98);
 
 // Descargas totales
 var total_downloads = 0;
