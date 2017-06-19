@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.0.0 (12/06/2017)
+% Versión:      4.0.1 (19/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -62,13 +62,13 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={12/06/2017},
+		Template.Fecha={19/06/2017},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.0.0-1-N},
-		Template.Version.Release={4.0.0},
+		Template.Version.Dev={4.0.1-N},
+		Template.Version.Release={4.0.1},
 		Template.Web.Dev={https://github.com/ppizarror/Template-Informe/},
 		Template.Web.Manual={http://ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -209,10 +209,12 @@
 \makeatother
 
 % Configuración de citas
-\ifthenelse{\equal{\citesuperscript}{true}}{
-	% Cite con textsuperscript
-	\setcitestyle{super,open={\citestartchar},close={\citeendchar}}}{
-	\setcitestyle{open={\citestartchar},close={\citeendchar}}
+\ifthenelse{\equal{\enablecitenatbib}{true}}{
+	\ifthenelse{\equal{\citesuperscript}{true}}{
+		% Cite con textsuperscript
+		\setcitestyle{super,open={\citestartchar},close={\citeendchar}}}{
+		\setcitestyle{open={\citestartchar},close={\citeendchar}}
+	}}{
 }
 
 % Configuración de códigos fuente

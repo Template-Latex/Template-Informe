@@ -10,10 +10,10 @@ Licencia: MIT
 
 # Importación de librerías
 from __future__ import print_function
-import time
+from extlbx import *
 from subprocess import call
-from utils import *
 import pyperclip
+import time
 
 # Archivos
 CONFIGFILE = 'lib/config.tex'
@@ -103,20 +103,18 @@ FILESTRIP = {
     MAINFILE: False
 }
 
-# noinspection PyCompatibility
 print('ULTIMA VERSION:\t' + get_last_ver(STATSFILE))
-# noinspection PyCompatibility
-version = raw_input('\nINGRESE NUEVA VERSION: ')  # Se pide la versión
+version = request_version()  # Se pide la versión
 version, versiondev = mk_version(version)
 
 # Se obtiene el día
 dia = time.strftime("%d/%m/%Y")
 
-# Se crea el header de la version
+# Se crea el header de la versión
 versionhead = VERSIONHEADER.format(version, dia)
 versionstrlen = max(0, 15 - (len(version) - 5))
 
-# Se buscan numeros de lineas de hyperref
+# Se buscan números de lineas de hyperref
 initconf_data = open(INITCONFFILE)
 initconf_data.read()
 l_tvdev, d_tvdev = find_line(initconf_data, 'Template.Version.Dev', True)
@@ -125,13 +123,13 @@ l_tdate, d_tdate = find_line(initconf_data, 'Template.Fecha', True)
 l_ttype, d_ttype = find_line(initconf_data, 'Template.Tipo', True)
 initconf_data.close()
 
-# Se actualizan lineas de hyperref
+# Se actualizan líneas de hyperref
 d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-N')
 d_tvrel = replace_argument(d_tvrel, 1, version)
 d_tdate = replace_argument(d_tdate, 1, dia)
 d_ttype = replace_argument(d_ttype, 1, 'Normal')
 
-# Carga los archivos y cambia las versiones
+# Carga los archivos y cambian las versiones
 t = time.time()
 print('\nGENERANDO ARCHIVOS ... ', end='')
 for f in FILES.keys():
@@ -168,7 +166,7 @@ for f in FILES.keys():
                  'test-functions.tex', 'test-math.tex']:
         lc += len(FILES[f])
 
-# Se modifican propiedades lineas data
+# Se modifican propiedades líneas data
 data = FILES[INITCONFFILE]
 d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-C')
 d_ttype = replace_argument(d_ttype, 1, 'Compacto')

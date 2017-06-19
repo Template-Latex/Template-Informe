@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de configuraciones
-% Versión:      4.0.0 (12/06/2017)
+% Versión:      4.0.1 (19/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -71,9 +71,10 @@
 
 
 % REFERENCIAS
-\def\citeendchar {]}              % Caracter final para citas
-\def\citestartchar { [}           % Caracter inicial para citas
-\def\citesuperscript {true}       % Comando \cite retorna citas con número arriba
+\def\enablecitenatbib {true}      % Activa formato citas natbib
+\def\citeendchar {]}              % Caracter final para citas {natbib}
+\def\citestartchar { [}           % Caracter inicial para citas {natbib}
+\def\citesuperscript {true}       % \cite retorna citas con número arriba {natbib}
 \def\referencenumsection {true}   % Referencias como sección con número
 \def\twocolumnreferences {false}  % Referencias en dos columnas
 \def\typereference {apa}          % Tipo de referencias
