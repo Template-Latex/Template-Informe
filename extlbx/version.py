@@ -98,6 +98,6 @@ def mk_version(version):
     # Crea el id de compilación
     m = hashlib.md5()
     m.update(versiondev)
-    m.update(time.strftime("%d/%m/%Y"))
+    m.update(time.strftime('%d/%m/%Y %H:%M:%S'))
 
     return versionf, versiondev, m.hexdigest().upper()

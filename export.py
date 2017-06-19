@@ -107,7 +107,8 @@ version = request_version()  # Se pide la versión
 version, versiondev, versionhash = mk_version(version)
 
 # Se obtiene el día
-dia = time.strftime("%d/%m/%Y")
+dia = time.strftime('%d/%m/%Y')
+diahora = time.strftime('%d/%m/%Y %H:%M:%S')
 
 # Se crea el header de la versión
 versionhead = VERSIONHEADER.format(version, dia)
