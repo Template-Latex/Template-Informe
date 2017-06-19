@@ -35,8 +35,14 @@ def get_last_ver(statfile):
     for d in data:
         datal.append(d.strip())
     lastline = split_str(datal[len(datal) - 1], ' ')
-    lastver = '{0} ({1})'.format(lastline[1], lastline[3])
+    ver = lastline[1]
+    vtime = lastline[3]
+    if ver.count('.') == 3:
+        ver = ver.split('.')
+        ver = '{0}.{1}.{2}-{3}'.format(ver[0], ver[1], ver[2], ver[3])
+    lastver = '{0} ({1})'.format(ver, vtime)
     data.close()
+
     return lastver
 
 

@@ -12,7 +12,6 @@ Licencia: MIT
 from __future__ import print_function
 from extlbx import *
 from subprocess import call
-import pyperclip
 import time
 
 # Archivos
