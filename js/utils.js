@@ -69,7 +69,8 @@ function updateDownloadCounter(downloads) {
     // Se agregan 6 descargas de version 2.4.7
     // Se agregan 146 descargas de version 3.0.0
     // Se agregan 62 descargas de version 3.0.1
-    download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3, 20, 38, 6, 146, 62];
+    // Se agregan 28 descargas de version 3.0.2
+    download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3, 20, 38, 6, 146, 62, 28];
 
     // Se añaden las descargas de template-informe-cursos
     // $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases", function(json) {
