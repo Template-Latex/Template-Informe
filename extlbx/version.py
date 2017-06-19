@@ -11,6 +11,8 @@ Licencia: MIT
 # Importación de librerías
 from __future__ import print_function
 from utils import split_str
+import hashlib
+import time
 
 
 def request_version():
@@ -82,4 +84,10 @@ def mk_version(version):
         versiondev = versionf + '-' + versiondev
     else:
         versiondev = versionf
-    return versionf, versiondev
+
+    # Crea el id de compilación
+    m = hashlib.md5()
+    m.update(versiondev)
+    m.update(time.strftime("%d/%m/%Y"))
+
+    return versionf, versiondev, m.hexdigest().upper()

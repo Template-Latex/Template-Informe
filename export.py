@@ -104,7 +104,7 @@ FILESTRIP = {
 
 print('ULTIMA VERSION:\t' + get_last_ver(STATSFILE))
 version = request_version()  # Se pide la versión
-version, versiondev = mk_version(version)
+version, versiondev, versionhash = mk_version(version)
 
 # Se obtiene el día
 dia = time.strftime("%d/%m/%Y")
@@ -116,17 +116,19 @@ versionstrlen = max(0, 15 - (len(version) - 5))
 # Se buscan números de lineas de hyperref
 initconf_data = open(INITCONFFILE)
 initconf_data.read()
+l_tdate, d_tdate = find_line(initconf_data, 'Template.Fecha', True)
+l_thash, d_thash = find_line(initconf_data, 'Template.Version.Hash', True)
+l_ttype, d_ttype = find_line(initconf_data, 'Template.Tipo', True)
 l_tvdev, d_tvdev = find_line(initconf_data, 'Template.Version.Dev', True)
 l_tvrel, d_tvrel = find_line(initconf_data, 'Template.Version.Release', True)
-l_tdate, d_tdate = find_line(initconf_data, 'Template.Fecha', True)
-l_ttype, d_ttype = find_line(initconf_data, 'Template.Tipo', True)
 initconf_data.close()
 
 # Se actualizan líneas de hyperref
+d_tdate = replace_argument(d_tdate, 1, dia)
+d_thash = replace_argument(d_thash, 1, versionhash)
+d_ttype = replace_argument(d_ttype, 1, 'Normal')
 d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-N')
 d_tvrel = replace_argument(d_tvrel, 1, version)
-d_tdate = replace_argument(d_tdate, 1, dia)
-d_ttype = replace_argument(d_ttype, 1, 'Normal')
 
 # Carga los archivos y cambian las versiones
 t = time.time()
@@ -147,10 +149,11 @@ for f in FILES.keys():
 
     # Se actualiza la versión en initconf
     if f == INITCONFFILE:
+        data[l_tdate] = d_tdate
+        data[l_thash] = d_thash
+        data[l_ttype] = d_ttype
         data[l_tvdev] = d_tvdev
         data[l_tvrel] = d_tvrel
-        data[l_tdate] = d_tdate
-        data[l_ttype] = d_ttype
 
     # Se reescribe el archivo
     newfl = open(f, 'w')
@@ -167,10 +170,11 @@ for f in FILES.keys():
 
 # Se modifican propiedades líneas data
 data = FILES[INITCONFFILE]
-d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-C')
 d_ttype = replace_argument(d_ttype, 1, 'Compacto')
-data[l_tvdev] = d_tvdev
+d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-C')
+data[l_thash] = d_thash
 data[l_ttype] = d_ttype
+data[l_tvdev] = d_tvdev
 
 # Se crea el archivo de ejemplo unificado
 fl = open(EXAMPLEFILECOMPACT, 'w')
@@ -303,7 +307,7 @@ if AUTOCOMPILE:
         print('OK [t {0:.3g}]'.format(tmean))
 
     # Se agregan las estadísticas
-    add_stat(STATSFILE, versiondev, tmean, dia, lc)
+    add_stat(STATSFILE, versiondev, tmean, dia, lc, versionhash)
 
     # Se plotean las estadísticas
     if PLOTSTATS:

@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 from utils import split_str
 
 
-def generate_statline(statid, version, time, date, lc):
+def generate_statline(statid, version, time, date, lc, vh):
     """
     Genera una línea de estadísticas.
 
@@ -25,19 +25,21 @@ def generate_statline(statid, version, time, date, lc):
     :param time: Tiempo de compilación
     :param date: Fecha de compilación
     :param lc: Número de líneas
+    :param vh: Version hash
     :return:
     """
     statid = str(statid).ljust(6)
     version = str(version).ljust(18)
     time = str(time).ljust(10)
     date = str(date).ljust(14)
-    lc = str(lc).ljust(0)
+    lc = str(lc).ljust(10)
+    vh = str(vh).ljust(0)
 
-    return '{0}{1}{2}{3}{4}'.format(statid, version, time, date, lc)
+    return '{0}{1}{2}{3}{4}{5}'.format(statid, version, time, date, lc, vh)
 
 
 # noinspection PyBroadException,PyUnboundLocalVariable
-def add_stat(statfile, version, time, date, lc, test=False):
+def add_stat(statfile, version, time, date, lc, vh, test=False):
     """
     Agrega una entrada al archivo de estadísticas.
 
@@ -47,6 +49,7 @@ def add_stat(statfile, version, time, date, lc, test=False):
     :param time: Tiempo de compilación
     :param date: Fecha de compilación
     :param lc: Total de líneas de código
+    :param vh: Version hash
     :return:
     """
 
@@ -77,7 +80,7 @@ def add_stat(statfile, version, time, date, lc, test=False):
         lastid = 0
         lastver = ''
         dataarr.append(generate_statline('ID', 'VERSION', 'CTIME', 'FECHA',
-                                         'LINEAS\n'))
+                                         'LINEAS', 'HASH\n'))
     data.close()
 
     # Se comprueba que la version sea distinta
@@ -85,7 +88,8 @@ def add_stat(statfile, version, time, date, lc, test=False):
         version = '{0}.{1}'.format(version, lastverid + 1)
 
     # Se crea una nueva línea
-    newentry = generate_statline(lastid + 1, version, str(time)[0:5], date, lc)
+    newentry = generate_statline(lastid + 1, version, str(time)[0:5], date,
+                                 lc, vh)
     dataarr.append(newentry)
 
     # Se guarda el nuevo archivo
