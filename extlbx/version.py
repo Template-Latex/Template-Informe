@@ -15,6 +15,16 @@ import hashlib
 import time
 
 
+def latex_verline(version):
+    """
+    Retorna la línea de la versión extendida.
+
+    :param version: Version a usar
+    :return: Version
+    """
+    return 'Template-Informe v' + version + ' | (Pablo Pizarro R.) ppizarror.com'
+
+
 def request_version():
     """
     Pide la versión al usuario.

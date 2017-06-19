@@ -121,6 +121,7 @@ l_thash, d_thash = find_line(initconf_data, 'Template.Version.Hash', True)
 l_ttype, d_ttype = find_line(initconf_data, 'Template.Tipo', True)
 l_tvdev, d_tvdev = find_line(initconf_data, 'Template.Version.Dev', True)
 l_tvrel, d_tvrel = find_line(initconf_data, 'Template.Version.Release', True)
+l_vcmtd, d_vcmtd = find_line(initconf_data, 'pdfproducer', True)
 initconf_data.close()
 
 # Se actualizan líneas de hyperref
@@ -129,6 +130,7 @@ d_thash = replace_argument(d_thash, 1, versionhash)
 d_ttype = replace_argument(d_ttype, 1, 'Normal')
 d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-N')
 d_tvrel = replace_argument(d_tvrel, 1, version)
+d_vcmtd = replace_argument(d_vcmtd, 1, latex_verline(version))
 
 # Carga los archivos y cambian las versiones
 t = time.time()
@@ -154,6 +156,7 @@ for f in FILES.keys():
         data[l_ttype] = d_ttype
         data[l_tvdev] = d_tvdev
         data[l_tvrel] = d_tvrel
+        data[l_vcmtd] = d_vcmtd
 
     # Se reescribe el archivo
     newfl = open(f, 'w')
