@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      4.0.2 (19/06/2017)
+% Versión:      4.0.3 (20/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -11,8 +11,12 @@
 % Manual template: [http://ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
-% Crea una sección de referencias
+% Crea una sección de referencias para natbib, apa
 \newenvironment{references}{
+	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+	}{
+		\throwerror{}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
+	}
 	\begingroup
 	% Se configura las referencias como una sección
 	\ifthenelse{\equal{\referencenumsection}{true}}{

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.0.2 (19/06/2017)
+% Versión:      4.0.3 (20/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -62,14 +62,14 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={19/06/2017},
+		Template.Fecha={20/06/2017},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.0.2-N},
-		Template.Version.Hash={D3A9833ADC4478660B5C856BB304B482},
-		Template.Version.Release={4.0.2},
+		Template.Version.Dev={4.0.3-N},
+		Template.Version.Hash={F37DCEDDAF65301A78F247FE645A7536},
+		Template.Version.Release={4.0.3},
 		Template.Web.Dev={https://github.com/ppizarror/Template-Informe/},
 		Template.Web.Manual={http://ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -78,7 +78,7 @@
 	},
 	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
 	pdfpagemode={UseOutlines},
-	pdfproducer={Template-Informe v4.0.2 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.0.3 | (Pablo Pizarro R.) ppizarror.com},
 	pdfstartpage={1},
 	pdfstartview={FitH},
 	pdfsubject={\temaatratar},
@@ -183,8 +183,20 @@
 }
 }}}
 
-% Configuración de referencias
-\bibliographystyle{\typereference} % Estilo de las referencias
+% Configuración de referencias y citas
+\ifthenelse{\equal{\stylecitereferences}{natbib}}{
+	\bibliographystyle{apa}
+}{
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{
+	\bibliographystyle{apacite}
+}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+	\bibliographystyle{apa}
+}{
+	\errmessage{Error: Estilo citas desconocido \noexpand \stylecitereferences=\stylecitereferences. Valores esperados: bibtex,apacite,natbib}
+	\stop}
+}
+}
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
 	% Referencias en 2 columnas
@@ -208,15 +220,6 @@
 		{\@latex@warning{Ambiente `thebibliography' no definido}}
 		\endlist\end{multicols}}}{}
 \makeatother
-
-% Configuración de citas
-\ifthenelse{\equal{\enablecitenatbib}{true}}{
-	\ifthenelse{\equal{\citesuperscript}{true}}{
-		% Cite con textsuperscript
-		\setcitestyle{super,open={\citestartchar},close={\citeendchar}}}{
-		\setcitestyle{open={\citestartchar},close={\citeendchar}}
-	}}{
-}
 
 % Configuración de códigos fuente
 \lstset{

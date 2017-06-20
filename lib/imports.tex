@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      4.0.2 (19/06/2017)
+% Versión:      4.0.3 (20/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -72,13 +72,15 @@
 \usepackage{multirow}      % Agrega nuevas opciones a las tablas
 
 % LIBRERÍAS CONDICIONALES
-\ifthenelse{               % Agrega puntos a los títulos/subtítulos
-	\equal{\showdotontitles}{true}}{
+\ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega puntos a los títulos/subtítulos
 	\usepackage{secdot}
 	\sectiondot{subsection}
 	\sectiondot{subsubsection}}{
 }
-\ifthenelse{               % Formato citas natbib
-	\equal{\enablecitenatbib}{true}}{
-	\usepackage{natbib}}{
+\ifthenelse{\equal{\stylecitereferences}{natbib}}{
+	\usepackage{natbib}    % Formato citas natbib
+}{
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{
+	\usepackage{apacite}   % Formato citas apacite
+}{}
 }
