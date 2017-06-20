@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.0.4 (20/06/2017)
+% Versión:      4.0.5 (20/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -67,9 +67,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.0.4-1-N},
-		Template.Version.Hash={599B86C6A6DADE32A2DFAFF12B952494},
-		Template.Version.Release={4.0.4},
+		Template.Version.Dev={4.0.5-N},
+		Template.Version.Hash={31BB637B93BBF4349B91AEAB9D2247E4},
+		Template.Version.Release={4.0.5},
 		Template.Web.Dev={https://github.com/ppizarror/Template-Informe/},
 		Template.Web.Manual={http://ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -78,7 +78,7 @@
 	},
 	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
 	pdfpagemode={UseOutlines},
-	pdfproducer={Template-Informe v4.0.4 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.0.5 | (Pablo Pizarro R.) ppizarror.com},
 	pdfstartpage={1},
 	pdfstartview={FitH},
 	pdfsubject={\temaatratar},
@@ -186,12 +186,23 @@
 % Configuración de referencias y citas
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{
 	\bibliographystyle{apa}
+	\setlength{\bibsep}{\natbibrefsep pt}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\bibliographystyle{apacite}
+	\setlength{\bibitemsep}{\apaciterefsep pt}
 }{
 \ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	\bibliographystyle{apa}
+	\newlength{\bibitemsep}\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
+	\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
+	\let\oldthebibliography\thebibliography
+	\renewcommand\thebibliography[1]{
+		\oldthebibliography{#1}
+		\setlength{\parskip}{\bibitemsep}
+		\setlength{\itemsep}{\bibparskip}
+	}
+	\setlength{\bibitemsep}{\bibtexrefsep pt}
 }{
 	\errmessage{Error: Estilo citas desconocido \noexpand \stylecitereferences=\stylecitereferences. Valores esperados: bibtex,apacite,natbib}
 	\stop}

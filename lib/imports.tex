@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      4.0.4 (20/06/2017)
+% Versión:      4.0.5 (20/06/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -78,10 +78,12 @@
 	\sectiondot{subsection}
 	\sectiondot{subsubsection}}{
 }
-\ifthenelse{\equal{\stylecitereferences}{natbib}}{
-	\usepackage{natbib}    % Formato citas natbib
+\ifthenelse{\equal{\stylecitereferences}{natbib}}{ % Formato citas natbib
+	\usepackage{natbib}
 }{
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{
-	\usepackage{apacite}   % Formato citas apacite
-}{}
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
+	\usepackage{apacite}
+}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
+}{}}
 }
