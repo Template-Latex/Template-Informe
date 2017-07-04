@@ -54,7 +54,7 @@ class Zip(object):
         """
         filebasename = os.path.basename(filename)
         for f in self._excptfiles:
-            if filebasename == f:
+            if f in filebasename:
                 return True
         return False
 

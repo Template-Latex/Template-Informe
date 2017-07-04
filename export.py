@@ -332,6 +332,9 @@ if AUTOCOMPILE:
 # Se exporta el proyecto normal
 export_normal = Zip('release/Template-Informe.zip')
 export_normal.add_excepted_file('greekenum.sty')
+export_normal.add_excepted_file('auxiliar.tex')
+export_normal.add_excepted_file('.aux')
+export_normal.add_excepted_file('auxiliar_main.tex')
 export_normal.add_file('main.tex')
 export_normal.add_folder('images')
 export_normal.add_folder('lib')
@@ -367,7 +370,7 @@ AUXF = {
     'lib/function/image.tex': copy.copy(FILES['lib/function/image.tex']),
     'lib/function/title.tex': copy.copy(FILES['lib/function/title.tex']),
     'lib/function/auxiliar.tex': file_to_list('lib/function/auxiliar.tex'),
-    'lib/example.tex': file_to_list('auxiliar_example.tex'),
+    'lib/example.tex': file_to_list('lib/auxiliar_example.tex'),
     'lib/initconf.tex': copy.copy(FILES['lib/initconf.tex']),
     'lib/config.tex': copy.copy(FILES['lib/config.tex']),
     'lib/finalconf.tex': copy.copy(FILES['lib/finalconf.tex']),
