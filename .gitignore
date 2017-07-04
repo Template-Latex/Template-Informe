@@ -53,4 +53,4 @@ stylesheets/
 stats/*.png
 
 # Subreleases
-# subreleases/*
+subreleases/*
