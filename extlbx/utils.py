@@ -48,3 +48,89 @@ def split_str(s, t):
         if k is not '':
             e.append(k)
     return e
+
+
+def del_block_from_list(data, a, b):
+    """
+    Borra el bloque de líneas desde a hasta b de la lista.
+
+    :param data: Lista
+    :param a: Línea inicial
+    :param b: Línea final
+    :return:
+    """
+    k = 0
+    newdata = []
+    for j in data:
+        if k < a or k > b:
+            newdata.append(j)
+        k += 1
+    return newdata
+
+
+def add_block_from_list(data, new, a):
+    """
+    Añade un bloque de líneas desde a.
+
+    :param data: Lista
+    :param new: Datos a añadir
+    :param a: Línea inicial
+    :return:
+    """
+    k = 0
+    newdata = []
+    for j in data:
+        if k == a:
+            for m in new:
+                newdata.append(m)
+        else:
+            newdata.append(j)
+        k += 1
+    return newdata
+
+
+def extract_block_from_list(data, a, b):
+    """
+    Extrae desde las líneas <a> a la <b> y retorna una lista.
+
+    :param data: Lista de origen
+    :param a: Posición a
+    :param b: Posición b
+    :return:
+    """
+    newdata = []
+    k = 0
+    for j in data:
+        if a <= k <= b:
+            newdata.append(j)
+        k += 1
+    return newdata
+
+
+def replace_block_from_list(data, new, ra, rb):
+    """
+    Reemplaza un bloque de una lista desde <ra> a <rb>.
+
+    :param data: Lista
+    :param new: Nuevo bloque
+    :param ra: Posición inicial
+    :param rb: Posición final
+    :return:
+    """
+    return add_block_from_list(del_block_from_list(data,
+                                                   ra, rb), new, ra)
+
+
+def file_to_list(filename):
+    """
+    Carga un archivo y lo pasa a una lista
+
+    :param filename: Nombre del archivo
+    :return: Lista
+    """
+    data = []
+    filedata = open(filename)
+    for k in filedata:
+        data.append(k)
+    filedata.close()
+    return data

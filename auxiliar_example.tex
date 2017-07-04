@@ -1,0 +1,58 @@
+% Template:     Template auxiliar LaTeX
+% Documento:    Archivo de ejemplo
+% Versión:      3.1 (18/05/2017)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas.
+%        Universidad de Chile.
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
+% Licencia: MIT           [https://opensource.org/licenses/MIT]
+
+% INTRODUCCIÓN AUXILIAR
+\lipsum[11]
+
+% PREGUNTA 1
+\newquestion{Pregunta 1}
+
+	% Párrafo
+	\lipsum[2]
+	
+	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Ubi sunt vobis? autem \quotes{Internet}}
+	
+	\newp Aequatio videbitur \footnote{ $Q_e = max\big(1 \dots n\big)$} infra:
+	
+	% Ecuación
+	\insertequationalign[\label{eqn:eqn-larga}]{\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}+ \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}
+	
+% PREGUNTA 2
+\newquestion{Pregunta 2}
+
+	% Párrafo
+	\lipsum[4]
+
+	% Lista
+	\begin{enumerate}
+		\item {$Q = \omega \cdot \sum i$}
+		\item {$e = i \pm \sqrt{1+k}$}
+		\item {$K = \frac{1 + e}{1 - \delta}$}
+	\end{enumerate}
+
+% PREGUNTA 3
+\newquestion{Pregunta 3}
+
+	% Párrafo
+	\lipsum[15] \newp
+
+\lstset{style=Python}
+\begin{lstlisting}
+import numpy as np
+
+def incmatrix(genl1,genl2):
+m = len(genl1)
+n = len(genl2)
+M = None #to become the incidence matrix
+VT = np.zeros((n*m,1), int)  #dummy variable
+\end{lstlisting}

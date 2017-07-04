@@ -13,6 +13,12 @@ from __future__ import print_function
 from extlbx import *
 from subprocess import call
 import time
+import copy
+
+"""
+TEMPLATE-INFORMES.
+A PARTIR DE ESTE SE GENERARÁN LOS SUBRELEASES.
+"""
 
 # Archivos
 CONFIGFILE = 'lib/config.tex'
@@ -40,6 +46,11 @@ AUTOCOMPILE = True
 ADDWHITESPACE = False
 DELETECOMMENTS = True
 PLOTSTATS = True
+
+# Subreleases
+SUBRELEASE = {
+    'AUXILIAR': 'subreleases/Template-Auxiliares/'
+}
 
 # Archivos a revisar
 FILES = {
@@ -135,7 +146,8 @@ d_vcmtd = replace_argument(d_vcmtd, 1, latex_verline(version))
 
 # Carga los archivos y cambian las versiones
 t = time.time()
-print('\nGENERANDO ARCHIVOS ... ', end='')
+print('\nCREANDO TEMPLATE-INFORME')
+print('GENERANDO ARCHIVOS ... ', end='')
 for f in FILES.keys():
     data = FILES[f]
     # noinspection PyBroadException
@@ -337,3 +349,126 @@ try:
     pyperclip.copy('Version ' + versiondev)
 except:
     pass
+
+"""
+TEMPLATE-AUXILIARES
+"""
+SUBRL_FOLDER = SUBRELEASE['AUXILIAR']
+t = time.time()
+print('\nCREANDO TEMPLATE-AUXILIARES')
+print('GENERANDO ARCHIVOS ... ', end='')
+
+# Crea la lista de archivos
+AUXF = {
+    'main.tex': copy.copy(FILES[MAINFILE]),
+    'lib/function/core.tex': copy.copy(FILES['lib/function/core.tex']),
+    'lib/function/elements.tex': copy.copy(FILES['lib/function/elements.tex']),
+    'lib/function/equation.tex': copy.copy(FILES['lib/function/equation.tex']),
+    'lib/function/image.tex': copy.copy(FILES['lib/function/image.tex']),
+    'lib/function/title.tex': copy.copy(FILES['lib/function/title.tex']),
+    'lib/function/auxiliar.tex': file_to_list('lib/function/auxiliar.tex'),
+    'lib/example.tex': file_to_list('auxiliar_example.tex'),
+    'lib/initconf.tex': copy.copy(FILES['lib/initconf.tex']),
+    'lib/config.tex': copy.copy(FILES['lib/config.tex']),
+    'lib/finalconf.tex': copy.copy(FILES['lib/finalconf.tex']),
+    'lib/pageconf.tex': copy.copy(FILES['lib/pageconf.tex']),
+    'lib/styles.tex': copy.copy(FILES['lib/styles.tex']),
+    'lib/imports.tex': copy.copy(FILES['lib/imports.tex']),
+}
+
+# MODIFICA EL MAIN
+main_auxiliar = file_to_list('auxiliar_main.tex')
+ia, ja = find_block(main_auxiliar, '\def\equipodocente')
+nb = extract_block_from_list(main_auxiliar, ia, ja)
+nb.append('\n\n')
+i, j = find_block(AUXF[MAINFILE], '\def\\tablaintegrantes')
+AUXF[MAINFILE] = replace_block_from_list(AUXF[MAINFILE],
+                                         nb, i, j)
+AUXF[MAINFILE][1] = '% Documento:    Archivo principal\n'
+ra, rb = find_block(AUXF[MAINFILE], '% PORTADA', True)
+AUXF[MAINFILE] = del_block_from_list(AUXF[MAINFILE], ra, rb)
+ra, rb = find_block(AUXF[MAINFILE], '% RESUMEN O ABSTRACT', True)
+AUXF[MAINFILE] = del_block_from_list(AUXF[MAINFILE], ra, rb)
+ra, rb = find_block(AUXF[MAINFILE], '% TABLA DE CONTENIDOS - ÍNDICE',
+                    True)
+AUXF[MAINFILE] = del_block_from_list(AUXF[MAINFILE], ra, rb)
+ra, rb = find_block(AUXF[MAINFILE], '% IMPORTACIÓN DE ENTORNOS', True)
+AUXF[MAINFILE] = del_block_from_list(AUXF[MAINFILE], ra, rb)
+ra, rb = find_block(AUXF[MAINFILE], 'nombredelinforme')
+AUXF[MAINFILE][ra] = '\def\\tituloauxiliar {Título de la auxiliar}\n'
+ra, rb = find_block(AUXF[MAINFILE], 'temaatratar')
+AUXF[MAINFILE][ra] = '\def\\temaatratar {Tema de la auxiliar}\n'
+
+# MODIFICA ARCHIVO FUNCIONES
+FL = 'lib/function/title.tex'
+FDEL = ['\sectionanumnoi', '\sectionanumheadless', '\sectionanumnoiheadless',
+        '\subsectionanumnoi', '\subsubsectionanumnoi', '\insertindextitle']
+for fdel in FDEL:
+    ra, rb = find_block(AUXF[FL], fdel, True)
+    AUXF[FL] = del_block_from_list(AUXF[FL], ra - 1, rb)
+AUXF[FL][len(AUXF[FL]) - 1] = AUXF[FL][len(AUXF[FL]) - 1].strip()
+
+# MODIFICA CONFIGURACIIONES
+FL = 'lib/config.tex'
+CDEL = ['addemptypagetwosides', 'nomlttable', 'nomltsrc', 'nomltfigure',
+        'nomltcont', 'nameportraitpage', 'nameabstract', 'indextitlecolor',
+        'portraittitlecolor', 'fontsizetitlei', 'styletitlei',
+        'firstpagemargintop', 'romanpageuppercase']
+for cdel in CDEL:
+    ra, rb = find_block(AUXF[FL], cdel, True)
+    AUXF[FL].pop(ra)
+ra, rb = find_block(AUXF[FL], '% CONFIGURACIÓN DEL ÍNDICE', True)
+AUXF[FL] = del_block_from_list(AUXF[FL], ra - 1, rb)
+ra, rb = find_block(AUXF[FL], '% CONFIGURACIÓN PORTADA Y HEADERS', True)
+AUXF[FL] = del_block_from_list(AUXF[FL], ra - 1, rb)
+for cdel in ['namereferences', 'nomltwsrc', 'nomltwfigure', 'nomltwtable']:
+    ra, rb = find_block(AUXF[FL], cdel, True)
+    AUXF[FL][ra] = AUXF[FL][ra].replace('    %', '%')
+ra, rb = find_block(AUXF[FL], 'showdotontitles', True)
+nconf = replace_argument(AUXF[FL][ra], 1, 'false').replace(' %', '%')
+AUXF[FL][ra] = nconf
+ra, rb = find_block(AUXF[FL], 'pagemargintop', True)
+nconf = replace_argument(AUXF[FL][ra], 1, '2.30').replace(' %', '%')
+AUXF[FL][ra] = nconf
+
+# CAMBIA IMPORTS
+FL = 'lib/imports.tex'
+IDEL = ['usepackage{notoccite}']
+for idel in IDEL:
+    ra, rb = find_block(AUXF[FL], idel, True)
+    AUXF[FL].pop(ra)
+
+# CAMBIO INITCONF
+FL = 'lib/initconf.tex'
+ra, rb = find_block(AUXF[FL], '\checkvardefined{\\nombredelinforme}')
+AUXF[FL][ra] = '\checkvardefined{\\tituloauxiliar}\n'
+ra, rb = find_block(AUXF[FL], '\g@addto@macro\\nombredelinforme\\xspace')
+AUXF[FL][ra] = '\t\g@addto@macro\\tituloauxiliar\\xspace\n'
+ra, rb = find_block(AUXF[FL], '\ifthenelse{\isundefined{\\tablaintegrantes}}{')
+AUXF[FL][ra] = '\ifthenelse{\isundefined{\\equipodocente}}{\n'
+ra, rb = find_block(AUXF[FL], '\errmessage{LaTeX Warning: Se borro la '
+                              'variable \\noexpand\\tablaintegrantes, creando una vacia}')
+AUXF[FL][
+    ra] = '\t\errmessage{LaTeX Warning: Se borro la variable ' \
+          '\\noexpand\\equipodocente, creando una vacia}\n'
+ra, rb = find_block(AUXF[FL], '\def\\tablaintegrantes {}')
+AUXF[FL][
+    ra] = '\t\def\\equipodocente {}\n'
+
+# Cambia encabezado archivos
+for fl in AUXF.keys():
+    data = AUXF[fl]
+    data[0] = '% Template:     Template auxiliar LaTeX\n'
+    data[10] = '% Sitio web del proyecto: [' \
+               'http://ppizarror.com/Template-Auxiliares/]\n'
+    data[11] = '% Licencia MIT:           [' \
+               'https://opensource.org/licenses/MIT]\n'
+    data[HEADERVERSIONPOS] = versionhead
+
+# Guarda los archivos
+for fl in AUXF.keys():
+    data = AUXF[fl]
+    newfl = open(SUBRL_FOLDER + fl, 'w')
+    for j in data:
+        newfl.write(j)
+    newfl.close()

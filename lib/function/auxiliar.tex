@@ -1,0 +1,40 @@
+% Template:     Template auxiliar LaTeX
+% Documento:    Funciones exclusivas Template-Auxiliar
+% Versión:      4.0.5 (04/07/2017)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Manual template: [http://ppizarror.com/Template-Auxiliares/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
+
+\newcommand{\newquestion}[1]{
+	% Insertar nuevo título de pregunta
+	%	#1	Título
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
+	\sectionanum{#1}
+}
+
+\newenvironment{references}{
+	% Crea una sección de referencias solo para bibtex
+	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+	}{
+		\throwerror{}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
+	}
+	\begingroup
+	% Se configura las referencias como una sección
+	\ifthenelse{\equal{\referencenumsection}{true}}{
+		\section{\namereferences}
+	}{
+		\sectionanum{\namereferences}
+	}
+	\renewcommand{\section}[2]{}
+	\begin{thebibliography}{99}
+	}
+	{ 
+	\end{thebibliography}
+	\endgroup
+}

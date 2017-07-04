@@ -9,6 +9,33 @@ Licencia: MIT
 """
 
 
+def find_block(data, initstr, blankend=False):
+    """
+    Busca el bloque de texto en una lista y devuelve el número de las líneas
+    :param blankend: Indica si el bloque termina en blanco
+    :param data: Lista de un archivo
+    :param initstr: Texto inicial del bloque
+    :return:
+    """
+    j = 0
+    i = -1
+    f = -1
+    for k in data:
+        if initstr.lower() in k.strip().lower() and i < 0:
+            i = j
+        if not blankend:
+            if i >= 0 and (k.strip() == '}' or k.strip() == '%ENDBLOCK'):
+                f = j
+                break
+        else:
+            if i >= 0 and (k.strip() == '}' or k.strip() == '%ENDBLOCK' or
+                                   k.strip() == ''):
+                f = j
+                break
+        j += 1
+    return i, f
+
+
 def find_command(data, commandname):
     """
     Busca las lineas de la función en un archivo.

@@ -25,6 +25,17 @@ def latex_verline(version):
     return 'Template-Informe v' + version + ' | (Pablo Pizarro R.) ppizarror.com'
 
 
+def latex_verline_aux(version):
+    """
+    Retorna la línea de la versión extendida.
+
+    :param version: Version a usar
+    :return: Version
+    """
+    return 'Template-Auxiliares v' + version + ' | (Pablo Pizarro R.) ' \
+                                               'ppizarror.com'
+
+
 def request_version():
     """
     Pide la versión al usuario.
@@ -70,7 +81,7 @@ def mk_version(version):
 
     version = version.strip().lower()
 
-    if '.' in version or '-' in version:
+    if '.' in version or '-' in version or len(version) < 3:
         raise Exception('Formato de version incorrecto')
 
     versionf = version[0] + '.' + version[1] + '.' + version[2]
