@@ -8,6 +8,22 @@ Fecha: 2017
 Licencia: MIT
 """
 
+import os
+
+
+class Cd(object):
+    """Context manager for changing the current working directory"""
+
+    def __init__(self, new_path):
+        self.newPath = os.path.expanduser(new_path)
+
+    def __enter__(self):
+        self.savedPath = os.getcwd()
+        os.chdir(self.newPath)
+
+    def __exit__(self, etype, value, traceback):
+        os.chdir(self.savedPath)
+
 
 def find_line(data, line, returnline=False):
     """

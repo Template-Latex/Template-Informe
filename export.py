@@ -23,7 +23,6 @@ A PARTIR DE ESTE SE GENERARÁN LOS SUBRELEASES.
 # Archivos
 CONFIGFILE = 'lib/config.tex'
 EXAMPLEFILE = 'lib/example.tex'
-EXAMPLEFILECOMPACT = 'example.tex'
 INITCONFFILE = 'lib/initconf.tex'
 MAINFILE = 'main.tex'
 MAINFILESINGLE = 'informe.tex'
@@ -61,7 +60,6 @@ FILES = {
     'lib/function/equation.tex': [],
     'lib/function/image.tex': [],
     'lib/function/title.tex': [],
-    'lib/greekenum.sty': [],
     'lib/imports.tex': [],
     'lib/index.tex': [],
     INITCONFFILE: [],
@@ -70,11 +68,7 @@ FILES = {
     'lib/styles.tex': [],
     'lib/environments.tex': [],
     EXAMPLEFILE: [],
-    MAINFILE: [],
-    'example-chapternumber.tex': [],
-    'test.tex': [],
-    'test-functions.tex': [],
-    'test-math.tex': []
+    MAINFILE: []
 }
 FILEDELCOMMENTS = {
     'lib/config.tex': False,
@@ -191,15 +185,6 @@ d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-C')
 data[l_thash] = d_thash
 data[l_ttype] = d_ttype
 data[l_tvdev] = d_tvdev
-
-# Se crea el archivo de ejemplo unificado
-fl = open(EXAMPLEFILECOMPACT, 'w')
-data = FILES[EXAMPLEFILE]
-data.pop(1)  # Se elimina el tipo de documento del header
-data.insert(1, '% Advertencia:  Documento generado automáticamente a partir del archivo\n%               {0}\n'.format(EXAMPLEFILE))
-for d in data:
-    fl.write(d)
-fl.close()
 
 # Se crea el archivo unificado
 fl = open(MAINFILESINGLE, 'w')
@@ -340,7 +325,7 @@ export_normal.save()
 export_single = Zip('release/Template-Informe-Single.zip')
 export_single.add_file('informe.tex')
 export_single.add_folder('images')
-export_single.add_file(EXAMPLEFILECOMPACT)
+export_single.add_file('lib/example.tex', 'lib/')
 export_single.save()
 
 # noinspection PyBroadException
@@ -645,11 +630,12 @@ if AUTOCOMPILE:
     t = time.time()
     with open(os.devnull, 'w') as FNULL:
         print('COMPILANDO ... ', end='')
-        call(['pdflatex', SUBRL_FOLDER + 'auxiliar.tex'], stdout=FNULL)
-        t1 = time.time() - t
-        call(['pdflatex', SUBRL_FOLDER + 'auxiliar.tex'], stdout=FNULL)
-        t2 = time.time() - t
-        tmean = (t1 + t2) / 2
+        with Cd(SUBRL_FOLDER):
+            call(['pdflatex', 'auxiliar.tex'], stdout=FNULL)
+            t1 = time.time() - t
+            call(['pdflatex', 'auxiliar.tex'], stdout=FNULL)
+            t2 = time.time() - t
+            tmean = (t1 + t2) / 2
         print('OK [t {0:.3g}]'.format(tmean))
 
     # Se plotean las estadísticas
