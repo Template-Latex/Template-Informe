@@ -196,8 +196,7 @@ data[l_tvdev] = d_tvdev
 fl = open(EXAMPLEFILECOMPACT, 'w')
 data = FILES[EXAMPLEFILE]
 data.pop(1)  # Se elimina el tipo de documento del header
-data.insert(1, '% Advertencia:  Documento generado automáticamente a partir '
-               'del archivo\n%               {0}\n'.format(EXAMPLEFILE))
+data.insert(1, '% Advertencia:  Documento generado automáticamente a partir del archivo\n%               {0}\n'.format(EXAMPLEFILE))
 for d in data:
     fl.write(d)
 fl.close()
@@ -206,11 +205,8 @@ fl.close()
 fl = open(MAINFILESINGLE, 'w')
 data = FILES[MAINFILE]
 data.pop(1)  # Se elimina el tipo de documento del header
-data.insert(1, '% Advertencia:  Documento generado automáticamente a partir '
-               'del main.tex y\n%               los archivos .tex de la '
-               'carpeta lib/\n')
-data[CODETABLEWIDTHPOS] = data[CODETABLEWIDTHPOS].replace(
-    ITABLEORIGINAL, ITABLENEW)
+data.insert(1, '% Advertencia:  Documento generado automáticamente a partir del main.tex y\n%               los archivos .tex de la carpeta lib/\n')
+data[CODETABLEWIDTHPOS] = data[CODETABLEWIDTHPOS].replace(ITABLEORIGINAL, ITABLENEW)
 line = 0
 stconfig = False  # Indica si se han escrito comentarios en configuraciones
 
@@ -255,8 +251,7 @@ for d in data:
                                 if comments[0] is '':
                                     srclin = ''
                                 else:
-                                    srclin = srclin.replace('%' + comments[1],
-                                                            '')
+                                    srclin = srclin.replace('%' + comments[1], '')
                                     if libdatapos != len(libdata) - 1:
                                         srclin = srclin.strip() + '\n'
                                     else:
@@ -267,8 +262,7 @@ for d in data:
                             if libr == CONFIGFILE:
                                 # noinspection PyBroadException
                                 try:
-                                    if libdata[libdatapos + 1][0] == '%' and \
-                                                    srclin.strip() is '':
+                                    if libdata[libdatapos + 1][0] == '%' and srclin.strip() is '':
                                         srclin = ''
                                 except:
                                     pass
@@ -296,8 +290,7 @@ for d in data:
                     fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
                 if d == '% RESUMEN O ABSTRACT\n':
-                    d = '% =========================== RESUMEN O ABSTRACT ' \
-                        '===========================\n'
+                    d = '% =========================== RESUMEN O ABSTRACT ===========================\n'
                 fl.write(d)
             elif d == '% CONFIGURACIONES\n':
                 pass
@@ -332,9 +325,12 @@ if AUTOCOMPILE:
 # Se exporta el proyecto normal
 export_normal = Zip('release/Template-Informe.zip')
 export_normal.add_excepted_file('greekenum.sty')
-export_normal.add_excepted_file('auxiliar.tex')
+export_normal.add_excepted_file('auxiliar_example.tex')
 export_normal.add_excepted_file('.aux')
 export_normal.add_excepted_file('auxiliar_main.tex')
+export_normal.add_excepted_file('auxiliar.tex')
+export_normal.add_excepted_file('auxiliar_pageconf.tex')
+export_normal.add_excepted_file('auxiliar_title.tex')
 export_normal.add_file('main.tex')
 export_normal.add_folder('images')
 export_normal.add_folder('lib')
@@ -368,48 +364,74 @@ AUXF = {
     'lib/function/elements.tex': copy.copy(FILES['lib/function/elements.tex']),
     'lib/function/equation.tex': copy.copy(FILES['lib/function/equation.tex']),
     'lib/function/image.tex': copy.copy(FILES['lib/function/image.tex']),
-    'lib/function/title.tex': copy.copy(FILES['lib/function/title.tex']),
+    'lib/function/title.tex': file_to_list('lib/function/auxiliar_title.tex'),
     'lib/function/auxiliar.tex': file_to_list('lib/function/auxiliar.tex'),
     'lib/example.tex': file_to_list('lib/auxiliar_example.tex'),
     'lib/initconf.tex': copy.copy(FILES['lib/initconf.tex']),
     'lib/config.tex': copy.copy(FILES['lib/config.tex']),
-    'lib/finalconf.tex': copy.copy(FILES['lib/finalconf.tex']),
     'lib/pageconf.tex': copy.copy(FILES['lib/pageconf.tex']),
     'lib/styles.tex': copy.copy(FILES['lib/styles.tex']),
     'lib/imports.tex': copy.copy(FILES['lib/imports.tex']),
+}
+AUXF_DELCOMENTS = {
+    'main.tex': False,
+    'lib/function/core.tex': True,
+    'lib/function/elements.tex': True,
+    'lib/function/equation.tex': True,
+    'lib/function/image.tex': True,
+    'lib/function/title.tex': True,
+    'lib/function/auxiliar.tex': True,
+    'lib/example.tex': False,
+    'lib/initconf.tex': True,
+    'lib/config.tex': False,
+    'lib/pageconf.tex': True,
+    'lib/styles.tex': True,
+    'lib/imports.tex': True
+}
+
+AUXF_STRIP = {
+    'main.tex': False,
+    'lib/function/core.tex': True,
+    'lib/function/elements.tex': True,
+    'lib/function/equation.tex': True,
+    'lib/function/image.tex': True,
+    'lib/function/title.tex': True,
+    'lib/function/auxiliar.tex': True,
+    'lib/example.tex': False,
+    'lib/initconf.tex': True,
+    'lib/config.tex': False,
+    'lib/pageconf.tex': True,
+    'lib/styles.tex': True,
+    'lib/imports.tex': True
 }
 
 # MODIFICA EL MAIN
 main_auxiliar = file_to_list('auxiliar_main.tex')
 ia, ja = find_block(main_auxiliar, '\def\equipodocente')
 nb = extract_block_from_list(main_auxiliar, ia, ja)
-nb.append('\n\n')
+nb.append('\n')
 i, j = find_block(AUXF[MAINFILE], '\def\\tablaintegrantes')
-AUXF[MAINFILE] = replace_block_from_list(AUXF[MAINFILE],
-                                         nb, i, j)
+AUXF[MAINFILE] = replace_block_from_list(AUXF[MAINFILE], nb, i, j)
 AUXF[MAINFILE][1] = '% Documento:    Archivo principal\n'
 ra, rb = find_block(AUXF[MAINFILE], '% PORTADA', True)
 AUXF[MAINFILE] = del_block_from_list(AUXF[MAINFILE], ra, rb)
 ra, rb = find_block(AUXF[MAINFILE], '% RESUMEN O ABSTRACT', True)
 AUXF[MAINFILE] = del_block_from_list(AUXF[MAINFILE], ra, rb)
-ra, rb = find_block(AUXF[MAINFILE], '% TABLA DE CONTENIDOS - ÍNDICE',
-                    True)
+ra, rb = find_block(AUXF[MAINFILE], '% TABLA DE CONTENIDOS - ÍNDICE', True)
 AUXF[MAINFILE] = del_block_from_list(AUXF[MAINFILE], ra, rb)
 ra, rb = find_block(AUXF[MAINFILE], '% IMPORTACIÓN DE ENTORNOS', True)
+AUXF[MAINFILE] = del_block_from_list(AUXF[MAINFILE], ra, rb)
+ra, rb = find_block(AUXF[MAINFILE], '% CONFIGURACIONES FINALES', True)
 AUXF[MAINFILE] = del_block_from_list(AUXF[MAINFILE], ra, rb)
 ra, rb = find_block(AUXF[MAINFILE], 'nombredelinforme')
 AUXF[MAINFILE][ra] = '\def\\tituloauxiliar {Título de la auxiliar}\n'
 ra, rb = find_block(AUXF[MAINFILE], 'temaatratar')
 AUXF[MAINFILE][ra] = '\def\\temaatratar {Tema de la auxiliar}\n'
-
-# MODIFICA ARCHIVO FUNCIONES
-FL = 'lib/function/title.tex'
-FDEL = ['\sectionanumnoi', '\sectionanumheadless', '\sectionanumnoiheadless',
-        '\subsectionanumnoi', '\subsubsectionanumnoi', '\insertindextitle']
-for fdel in FDEL:
-    ra, rb = find_block(AUXF[FL], fdel, True)
-    AUXF[FL] = del_block_from_list(AUXF[FL], ra - 1, rb)
-AUXF[FL][len(AUXF[FL]) - 1] = AUXF[FL][len(AUXF[FL]) - 1].strip()
+i1, f1 = find_block(main_auxiliar, '% IMPORTACIÓN DE FUNCIONES', True)
+nl = extract_block_from_list(main_auxiliar, i1, f1)
+i2, f2 = find_block(AUXF[MAINFILE], '% IMPORTACIÓN DE FUNCIONES', True)
+AUXF[MAINFILE] = replace_block_from_list(AUXF[MAINFILE], nl, i2, f2 - 1)
+AUXF[MAINFILE][len(AUXF[MAINFILE]) - 1] = AUXF[MAINFILE][len(AUXF[MAINFILE]) - 1].strip()
 
 # MODIFICA CONFIGURACIIONES
 FL = 'lib/config.tex'
@@ -433,6 +455,7 @@ AUXF[FL][ra] = nconf
 ra, rb = find_block(AUXF[FL], 'pagemargintop', True)
 nconf = replace_argument(AUXF[FL][ra], 1, '2.30').replace(' %', '%')
 AUXF[FL][ra] = nconf
+AUXF[FL][len(AUXF[FL]) - 1] = AUXF[FL][len(AUXF[FL]) - 1].strip()
 
 # CAMBIA IMPORTS
 FL = 'lib/imports.tex'
@@ -440,32 +463,71 @@ IDEL = ['usepackage{notoccite}']
 for idel in IDEL:
     ra, rb = find_block(AUXF[FL], idel, True)
     AUXF[FL].pop(ra)
+AUXF[FL][len(AUXF[FL]) - 1] = AUXF[FL][len(AUXF[FL]) - 1].strip()
 
 # CAMBIO INITCONF
 FL = 'lib/initconf.tex'
-ra, rb = find_block(AUXF[FL], '\checkvardefined{\\nombredelinforme}')
+ra, _ = find_block(AUXF[FL], '\checkvardefined{\\nombredelinforme}')
 AUXF[FL][ra] = '\checkvardefined{\\tituloauxiliar}\n'
-ra, rb = find_block(AUXF[FL], '\g@addto@macro\\nombredelinforme\\xspace')
+ra, _ = find_block(AUXF[FL], '\g@addto@macro\\nombredelinforme\\xspace')
 AUXF[FL][ra] = '\t\g@addto@macro\\tituloauxiliar\\xspace\n'
-ra, rb = find_block(AUXF[FL], '\ifthenelse{\isundefined{\\tablaintegrantes}}{')
+ra, _ = find_block(AUXF[FL], '\ifthenelse{\isundefined{\\tablaintegrantes}}{')
 AUXF[FL][ra] = '\ifthenelse{\isundefined{\\equipodocente}}{\n'
-ra, rb = find_block(AUXF[FL], '\errmessage{LaTeX Warning: Se borro la '
-                              'variable \\noexpand\\tablaintegrantes, creando una vacia}')
-AUXF[FL][
-    ra] = '\t\errmessage{LaTeX Warning: Se borro la variable ' \
-          '\\noexpand\\equipodocente, creando una vacia}\n'
-ra, rb = find_block(AUXF[FL], '\def\\tablaintegrantes {}')
-AUXF[FL][
-    ra] = '\t\def\\equipodocente {}\n'
+ra, _ = find_block(AUXF[FL], '\errmessage{LaTeX Warning: Se borro la variable \\noexpand\\tablaintegrantes, creando una vacia}')
+AUXF[FL][ra] = '\t\errmessage{LaTeX Warning: Se borro la variable \\noexpand\\equipodocente, creando una vacia}\n'
+ra, _ = find_block(AUXF[FL], '\def\\tablaintegrantes {}')
+AUXF[FL][ra] = '\t\def\\equipodocente {}\n'
+ra, _ = find_block(AUXF[FL], 'Template.Nombre')
+AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, 'Template-Auxiliares')
+ra, _ = find_block(AUXF[FL], 'Template.Version.Dev')
+AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, versiondev + '-AUX-N')
+ra, _ = find_block(AUXF[FL], 'Template.Tipo')
+AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, 'Normal')
+ra, _ = find_block(AUXF[FL], 'Template.Web.Dev')
+AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, 'https://github.com/ppizarror/Template-Auxiliares/')
+ra, _ = find_block(AUXF[FL], 'Documento.Titulo')
+AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, '\\tituloauxiliar')
+ra, _ = find_block(AUXF[FL], 'pdftitle')
+AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, '\\tituloauxiliar')
+ra, _ = find_block(AUXF[FL], 'Template.Web.Manual')
+AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, 'http://ppizarror.com/Template-Auxiliares/')
+ra, _ = find_block(AUXF[FL], 'pdfproducer')
+AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, latex_verline_aux(version))
+AUXF[FL][len(AUXF[FL]) - 1] = AUXF[FL][len(AUXF[FL]) - 1].strip()
+
+# PAGECONF
+FL = 'lib/pageconf.tex'
+aux_pageconf = file_to_list('lib/auxiliar_pageconf.tex')
+i1, f1 = find_block(aux_pageconf, '% Numeración de páginas', True)
+nl = extract_block_from_list(aux_pageconf, i1, f1)
+i2, f2 = find_block(AUXF[FL], '% Numeración de páginas', True)
+AUXF[FL] = replace_block_from_list(AUXF[FL], nl, i2, f2 - 1)
+i1, f1 = find_block(aux_pageconf, '% Márgenes de páginas y tablas', True)
+nl = extract_block_from_list(aux_pageconf, i1, f1)
+i2, f2 = find_block(AUXF[FL], '% Márgenes de páginas y tablas', True)
+AUXF[FL] = replace_block_from_list(AUXF[FL], nl, i2, f2 - 1)
+i1, f1 = find_block(aux_pageconf, '% Se crean los header-footer', True)
+nl = extract_block_from_list(aux_pageconf, i1, f1)
+i2, f2 = find_block(AUXF[FL], '% Se crean los header-footer', True)
+AUXF[FL] = replace_block_from_list(AUXF[FL], nl, i2, f2 - 1)
+ra, _ = find_block(AUXF[FL], '% Profundidad del índice')
+i1, f1 = find_block(aux_pageconf, '% Tamaño fuentes', True)
+nl = extract_block_from_list(aux_pageconf, i1, f1)
+for i in range(1):
+    AUXF[FL].pop()
+AUXF[FL] = add_block_from_list(AUXF[FL], nl, len(AUXF[FL]) - 1)
+PCFG = ['listfigurename', 'listtablename', 'contentsname', 'lstlistlistingname']
+for pcfg in PCFG:
+    ra, _ = find_block(AUXF[FL], pcfg)
+    AUXF[FL].pop(ra)
+AUXF[FL][len(AUXF[FL]) - 1] = AUXF[FL][len(AUXF[FL]) - 1].strip()
 
 # Cambia encabezado archivos
 for fl in AUXF.keys():
     data = AUXF[fl]
     data[0] = '% Template:     Template auxiliar LaTeX\n'
-    data[10] = '% Sitio web del proyecto: [' \
-               'http://ppizarror.com/Template-Auxiliares/]\n'
-    data[11] = '% Licencia MIT:           [' \
-               'https://opensource.org/licenses/MIT]\n'
+    data[10] = '% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]\n'
+    data[11] = '% Licencia MIT:           [https://opensource.org/licenses/MIT]\n'
     data[HEADERVERSIONPOS] = versionhead
 
 # Guarda los archivos
@@ -475,3 +537,136 @@ for fl in AUXF.keys():
     for j in data:
         newfl.write(j)
     newfl.close()
+
+# Actualizacion a compacto
+FL = 'lib/initconf.tex'
+ra, _ = find_block(AUXF[FL], 'Template.Version.Dev')
+AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, versiondev + '-AUX-C')
+ra, _ = find_block(AUXF[FL], 'Template.Tipo')
+AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, 'Compacto')
+
+# Se crea compacto
+fl = open(SUBRL_FOLDER + 'auxiliar.tex', 'w')
+data = AUXF[MAINFILE]
+for d in data:
+    write = True
+    if line < INITDOCUMENTLINE:
+        fl.write(d)
+        write = False
+    # Si es una línea en blanco se agrega
+    if d == '\n' and write:
+        fl.write(d)
+    else:
+        # Si es un import pega el contenido
+        # noinspection PyBroadException
+        try:
+            if d[0:6] == '\input':
+                libr = d.replace('\input{', '').replace('}', '').strip()
+                libr = libr.split(' ')[0]
+                libr += '.tex'
+                if libr != EXAMPLEFILE:
+
+                    # Se escribe desde el largo del header en adelante
+                    libdata = AUXF[libr]  # Datos del import
+                    libstirp = AUXF_STRIP[libr]  # Eliminar espacios en blanco
+                    libdelcom = AUXF_DELCOMENTS[libr]  # Borrar comentarios
+
+                    for libdatapos in range(HEADERSIZE, len(libdata)):
+                        srclin = libdata[libdatapos]
+
+                        # Se borran los comentarios
+                        if DELETECOMMENTS and libdelcom:
+                            if '%' in srclin:
+                                if libr == CONFIGFILE:
+                                    if srclin.upper() == srclin:
+                                        if stconfig:
+                                            fl.write('\n')
+                                        fl.write(srclin)
+                                        stconfig = True
+                                        continue
+                                comments = srclin.strip().split('%')
+                                if comments[0] is '':
+                                    srclin = ''
+                                else:
+                                    srclin = srclin.replace('%' + comments[1], '')
+                                    if libdatapos != len(libdata) - 1:
+                                        srclin = srclin.strip() + '\n'
+                                    else:
+                                        srclin = srclin.strip()
+                            elif srclin.strip() is '':
+                                srclin = ''
+                        else:
+                            if libr == CONFIGFILE:
+                                # noinspection PyBroadException
+                                try:
+                                    if libdata[libdatapos + 1][0] == '%' and srclin.strip() is '':
+                                        srclin = ''
+                                except:
+                                    pass
+
+                        # Se ecribe la línea
+                        if srclin is not '':
+                            # Se aplica strip dependiendo del archivo
+                            if libstirp:
+                                fl.write(srclin.strip())
+                            else:
+                                fl.write(srclin)
+
+                    fl.write('\n')  # Se agrega espacio vacío
+
+                else:
+                    fl.write(d)
+                write = False
+
+        except Exception as e:
+            pass
+        # Se agrega un espacio en blanco a la página después del comentario
+        if line >= INITDOCUMENTLINE and write:
+            if d[0:2] == '% ' and d[3] != ' ' and d != '% CONFIGURACIONES\n':
+                if d != '% FIN DEL DOCUMENTO\n' and ADDWHITESPACE:
+                    fl.write('\n')
+                d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
+                if d == '% RESUMEN O ABSTRACT\n':
+                    d = '% =========================== RESUMEN O ABSTRACT ===========================\n'
+                fl.write(d)
+            elif d == '% CONFIGURACIONES\n':
+                pass
+            else:
+                fl.write(d)
+
+    # Aumenta la línea
+    line += 1
+
+print('OK [t {0:.3g}]'.format(time.time() - t))
+fl.close()
+
+# Compila el archivo
+if AUTOCOMPILE:
+    t = time.time()
+    with open(os.devnull, 'w') as FNULL:
+        print('COMPILANDO ... ', end='')
+        call(['pdflatex', SUBRL_FOLDER + 'auxiliar.tex'], stdout=FNULL)
+        t1 = time.time() - t
+        call(['pdflatex', SUBRL_FOLDER + 'auxiliar.tex'], stdout=FNULL)
+        t2 = time.time() - t
+        tmean = (t1 + t2) / 2
+        print('OK [t {0:.3g}]'.format(tmean))
+
+    # Se plotean las estadísticas
+    if PLOTSTATS:
+        plot_stats(STATSFILE)
+
+# Se exporta el proyecto normal
+export_normal = Zip('release/Template-Auxiliares.zip')
+export_normal.add_excepted_file('.aux')
+export_normal.add_file(SUBRL_FOLDER + 'main.tex')
+export_normal.add_folder(SUBRL_FOLDER + 'images')
+export_normal.add_folder(SUBRL_FOLDER + 'lib')
+export_normal.save()
+
+# Se exporta el proyecto único
+export_single = Zip('release/Template-Auxiliares-Single.zip')
+export_single.add_file(SUBRL_FOLDER + 'auxiliar.tex')
+export_single.add_folder(SUBRL_FOLDER + 'images')
+export_single.add_file(SUBRL_FOLDER + 'lib/example.tex')
+export_single.save()

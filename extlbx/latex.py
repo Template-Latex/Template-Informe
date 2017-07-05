@@ -24,12 +24,11 @@ def find_block(data, initstr, blankend=False):
         if initstr.lower() in k.strip().lower() and i < 0:
             i = j
         if not blankend:
-            if i >= 0 and (k.strip() == '}' or k.strip() == '%ENDBLOCK'):
+            if i >= 0 and ((k.strip() == '}' and len(k.strip()) == 1) or k.strip() == '%ENDBLOCK'):
                 f = j
                 break
         else:
-            if i >= 0 and (k.strip() == '}' or k.strip() == '%ENDBLOCK' or
-                                   k.strip() == ''):
+            if i >= 0 and k.strip() == '':
                 f = j
                 break
         j += 1

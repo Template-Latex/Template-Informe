@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      4.0.6 (04/07/2017)
+% Versión:      4.0.7 (04/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -50,9 +50,6 @@
 	\counterwithin{table}{section}      % Añade número de sección a las tablas
 }{}
 
-% Profundidad del índice
-\setcounter{tocdepth}{\indexdepth} % Se ajusta la profundidad del índice
-
 % Se crean los header-footer
 \pagestyle{fancy} \fancyhf{}
 \ifthenelse{\equal{\showheadertitle}{true}}{ % Header izq, nombre sección
@@ -69,4 +66,8 @@
 	\renewcommand{\footrulewidth}{0.5pt}
 }{}
 \renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}
+}
+
+% Profundidad del índice
+\setcounter{tocdepth}{\indexdepth} % Se ajusta la profundidad del índice

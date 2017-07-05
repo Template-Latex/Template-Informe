@@ -1,0 +1,41 @@
+% Template:     Template auxiliar LaTeX
+% Documento:    Funciones para insertar títulos
+% Versión:      --
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
+% Licencia: MIT           [https://opensource.org/licenses/MIT]
+
+\newcommand{\sectionanum}[1]{
+	% Insertar un título sin número
+	% 	#1	Título
+	\emptyvarerr{\sectionanum}{#1}{Titulo no definido}
+	\phantomsection
+	\needspace{3\baselineskip}
+	\section*{#1}
+	\addcontentsline{toc}{section}{#1}
+	\stepcounter{section}
+}
+
+\newcommand{\subsectionanum}[1]{
+	% Insertar un subtítulo sin número
+	% 	#1	Subtítulo
+	\emptyvarerr{\subsectionanum}{#1}{Subtitulo no definido}
+	\subsection*{#1}
+	\addcontentsline{toc}{subsection}{#1}
+	\stepcounter{subsection}
+}
+
+\newcommand{\subsubsectionanum}[1]{
+	% Insertar un sub-subtítulo sin número
+	% 	#1	Sub-subtítulo
+	\emptyvarerr{\subsubsectionanum}{#1}{Sub-subtitulo no definido}
+	\subsubsection*{#1}
+	\addcontentsline{toc}{subsubsection}{#1}
+	\stepcounter{subsubsection}
+}

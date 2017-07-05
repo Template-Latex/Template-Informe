@@ -1,0 +1,70 @@
+% Template:     Template auxiliar LaTeX
+% Documento:    Configuración de página
+% Versión:      
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
+% Licencia: MIT           [https://opensource.org/licenses/MIT]
+
+% Numeración de páginas
+\newpage
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+\setcounter{section}{0}
+\setcounter{footnote}{0}
+
+% Márgenes de páginas y tablas
+\setpagemargincm{\pagemarginleft}{\pagemargintop}
+{\pagemarginright}{\pagemarginbottom}
+\def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
+
+% Se crean los header-footer
+\pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
+\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
+\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
+\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
+\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
+\fancypagestyle{styleportrait}{ % Estilo portada
+	\pagestyle{fancy}
+	\fancyhf{}
+	\fancyhead[L]{
+		\vspace*{2.5cm}
+		\nombreuniversidad \\
+		\nombrefacultad \\
+		\departamentouniversidad \\
+		\codigodelcurso\ - \nombredelcurso
+	}
+	\fancyhead[R]{
+		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
+	}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\setpagemargincm{\pagemarginleft}{2.0}
+	{\pagemarginright}{\pagemarginbottom}
+	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
+	\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
+	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
+	\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
+	\renewcommand{\footrulewidth}{0.5pt}               % Ancho de la barra del footer
+}
+\thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
+\begin{center}
+	\vspace*{2cm}
+	\huge {\tituloauxiliar} \\
+	\vspace{0.2cm}
+	\large {\temaatratar} \\
+	\vspace{0.7cm}
+	\equipodocente
+	\vspace{0.6cm}
+\end{center}
+
+% Tamaño fuentes
+\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
+\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
+\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
+
+% END
