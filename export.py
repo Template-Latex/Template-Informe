@@ -658,6 +658,7 @@ if AUTOCOMPILE:
 
 # Se exporta el proyecto normal
 export_normal = Zip('release/Template-Auxiliares.zip')
+export_normal.set_ghostpath(SUBRL_FOLDER)
 export_normal.add_excepted_file('.aux')
 export_normal.add_file(SUBRL_FOLDER + 'main.tex')
 export_normal.add_folder(SUBRL_FOLDER + 'images')
@@ -666,7 +667,8 @@ export_normal.save()
 
 # Se exporta el proyecto único
 export_single = Zip('release/Template-Auxiliares-Single.zip')
+export_single.set_ghostpath(SUBRL_FOLDER)
 export_single.add_file(SUBRL_FOLDER + 'auxiliar.tex')
 export_single.add_folder(SUBRL_FOLDER + 'images')
-export_single.add_file(SUBRL_FOLDER + 'lib/example.tex')
+export_single.add_file(SUBRL_FOLDER + 'lib/example.tex', SUBRL_FOLDER + 'lib/')
 export_single.save()

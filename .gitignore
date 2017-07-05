@@ -55,3 +55,4 @@ stats/*.png
 # Subreleases
 subreleases/*
 subreleases/Template-Auxiliares/.gitkeep
+auxiliar.pdf

@@ -33,6 +33,9 @@ class Zip(object):
         # Lista de excepciones
         self._excptfiles = []
 
+        # Path a descontar
+        self.ghostpath = ''
+
     def add_excepted_file(self, filename):
         """
         Agrega un archivo a la lista de excepciones
@@ -66,15 +69,19 @@ class Zip(object):
         """
         self._zip.close()
 
-    def add_file(self, ufile):
+    def add_file(self, ufile, ghostpath=None):
         """
         Añade un archivo al zip
 
+        :param ghostpath: Dirección a borrar
         :param ufile: Ubicación del archivo
         :type ufile: str
         :return: None
         """
-        self._zip.write(ufile)
+        if ghostpath is None:
+            self._zip.write(ufile, ufile.replace(self.ghostpath, ''))
+        else:
+            self._zip.write(ufile, ufile.replace(ghostpath, ''))
 
     def add_folder(self, folder):
         """
@@ -91,3 +98,12 @@ class Zip(object):
                     self.add_file(full_path)
             elif os.path.isdir(full_path):
                 self.add_folder(full_path)
+
+    def set_ghostpath(self, path):
+        """
+        Añade path fantasma para eliminar entrada de archivo.
+
+        :param path: Dirección
+        :return:
+        """
+        self.ghostpath = path
