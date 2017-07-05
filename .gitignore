@@ -47,3 +47,6 @@ _test
 
 # Stats
 stats/*
+
+# Subreleases
+subreleases/*
