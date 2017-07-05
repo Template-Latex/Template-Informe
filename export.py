@@ -275,7 +275,7 @@ for d in data:
                     fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
                 if d == '% RESUMEN O ABSTRACT\n':
-                    d = '% =========================== RESUMEN O ABSTRACT ===========================\n'
+                    d = '% ======================= RESUMEN O ABSTRACT =======================\n'
                 fl.write(d)
             elif d == '% CONFIGURACIONES\n':
                 pass
@@ -523,7 +523,7 @@ for fl in AUXF.keys():
         newfl.write(j)
     newfl.close()
 
-# Actualizacion a compacto
+# Actualización a compacto
 FL = 'lib/initconf.tex'
 ra, _ = find_block(AUXF[FL], 'Template.Version.Dev')
 AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, versiondev + '-AUX-C')
@@ -611,8 +611,6 @@ for d in data:
                 if d != '% FIN DEL DOCUMENTO\n' and ADDWHITESPACE:
                     fl.write('\n')
                 d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
-                if d == '% RESUMEN O ABSTRACT\n':
-                    d = '% =========================== RESUMEN O ABSTRACT ===========================\n'
                 fl.write(d)
             elif d == '% CONFIGURACIONES\n':
                 pass

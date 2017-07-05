@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.1.1 (04/07/2017)
+% Versión:      4.1.2 (04/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -67,9 +67,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.1.1-N},
-		Template.Version.Hash={CB3219A7691FD9A50B088100C6A262FB},
-		Template.Version.Release={4.1.1},
+		Template.Version.Dev={4.1.2-N},
+		Template.Version.Hash={69B1E4A521B9B03C829C03F05662A718},
+		Template.Version.Release={4.1.2},
 		Template.Web.Dev={https://github.com/ppizarror/Template-Informe/},
 		Template.Web.Manual={http://ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -78,7 +78,7 @@
 	},
 	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
 	pdfpagemode={UseOutlines},
-	pdfproducer={Template-Informe v4.1.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.1.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfstartpage={1},
 	pdfstartview={FitH},
 	pdfsubject={\temaatratar},
@@ -88,7 +88,7 @@
 }
 
 % Establece la carpeta de imágenes por defecto
-\graphicspath{{./\defaultimagefolder}{./../\defaultimagefolder}}
+\graphicspath{{./\defaultimagefolder}}
 
 % Definición de valores e dimensiones
 \setlength{\headheight}{64pt} % Tamaño de la cabecera sin fancyhdr
@@ -179,9 +179,8 @@
 		singlelinecheck=false
 	}
 }{
-	\errmessage{Error: Posicion de leyendas desconocida \noexpand \captionalignment= \captionalignment}
+	\errmessage{Error: Posicion de leyendas desconocida \noexpand \captionalignment= \captionalignment}}}}
 }
-}}}
 
 % Configuración de referencias y citas
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{
@@ -205,8 +204,7 @@
 	\setlength{\bibitemsep}{\bibtexrefsep pt}
 }{
 	\errmessage{Error: Estilo citas desconocido \noexpand \stylecitereferences=\stylecitereferences. Valores esperados: bibtex,apacite,natbib}
-	\stop}
-}
+	\stop}}
 }
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{

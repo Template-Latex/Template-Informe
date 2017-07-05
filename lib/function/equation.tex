@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar ecuaciones
-% Versión:      4.1.1 (04/07/2017)
+% Versión:      4.1.2 (04/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -15,7 +15,7 @@
 	% Redimensiona una ecuación en textwidth
 	% 	#1	Tamaño del nuevo objeto (En textwidth)
 	%	#2	Ecuación a redimensionar
-	\emptyvarerr{\equationresize}{#1}{Tamano del nuevo objeto no definido}
+	\emptyvarerr{\equationresize}{#1}{Dimension no definida}
 	\emptyvarerr{\equationresize}{#2}{Ecuacion a redimensionar no definida}
 	\resizebox{#1\textwidth}{!}{$#2$}
 }
