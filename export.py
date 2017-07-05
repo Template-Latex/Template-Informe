@@ -36,7 +36,7 @@ CODETABLEWIDTHPOS = find_line(main_data, '\\begin{minipage}{0.976\\textwidth}')
 HEADERSIZE = find_line(main_data, '% Licencia MIT:') + 2
 HEADERVERSIONPOS = find_line(main_data, '% Versión:      ')
 ITABLEORIGINAL = '0.976\\textwidth'
-ITABLENEW = '1.012\\textwidth'
+ITABLENEW = '1.0126\\textwidth'
 VERSIONHEADER = '% Versión:      {0} ({1})\n'
 main_data.close()
 
@@ -186,6 +186,13 @@ data[l_thash] = d_thash
 data[l_ttype] = d_ttype
 data[l_tvdev] = d_tvdev
 
+# Se crea ejemplo generado automáticamente
+fl = open('example.tex', 'w')
+data = FILES[EXAMPLEFILE]
+for k in data:
+    fl.write(k)
+fl.close()
+
 # Se crea el archivo unificado
 fl = open(MAINFILESINGLE, 'w')
 data = FILES[MAINFILE]
@@ -211,7 +218,8 @@ for d in data:
             if d[0:6] == '\input':
                 libr = d.replace('\input{', '').replace('}', '').strip()
                 libr = libr.split(' ')[0]
-                libr += '.tex'
+                if '.tex' not in libr:
+                    libr += '.tex'
                 if libr != EXAMPLEFILE:
 
                     # Se escribe desde el largo del header en adelante
@@ -261,9 +269,8 @@ for d in data:
                                 fl.write(srclin)
 
                     fl.write('\n')  # Se agrega espacio vacío
-
                 else:
-                    fl.write(d)
+                    fl.write(d.replace('lib/', ''))
                 write = False
 
         except Exception as e:
@@ -530,6 +537,13 @@ AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, versiondev + '-AUX-C')
 ra, _ = find_block(AUXF[FL], 'Template.Tipo')
 AUXF[FL][ra] = replace_argument(AUXF[FL][ra], 1, 'Compacto')
 
+# Se crea ejemplo
+fl = open(SUBRL_FOLDER + 'example.tex', 'w')
+data = AUXF['lib/example.tex']
+for k in data:
+    fl.write(k)
+fl.close()
+
 # Se crea compacto
 fl = open(SUBRL_FOLDER + 'auxiliar.tex', 'w')
 data = AUXF[MAINFILE]
@@ -548,7 +562,8 @@ for d in data:
             if d[0:6] == '\input':
                 libr = d.replace('\input{', '').replace('}', '').strip()
                 libr = libr.split(' ')[0]
-                libr += '.tex'
+                if '.tex' not in libr:
+                    libr += '.tex'
                 if libr != EXAMPLEFILE:
 
                     # Se escribe desde el largo del header en adelante
@@ -598,9 +613,8 @@ for d in data:
                                 fl.write(srclin)
 
                     fl.write('\n')  # Se agrega espacio vacío
-
                 else:
-                    fl.write(d)
+                    fl.write(d.replace('lib/', ''))
                 write = False
 
         except Exception as e:
