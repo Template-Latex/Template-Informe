@@ -11,14 +11,9 @@ Licencia: MIT
 # Importación de librerías
 from __future__ import print_function
 from extlbx import *
-from subprocess import call
-import time
-import copy
 
-"""
-TEMPLATE-INFORMES.
-A PARTIR DE ESTE SE GENERARÁN LOS SUBRELEASES.
-"""
+export_informe()
+exit()
 
 # Archivos
 CONFIGFILE = 'lib/config.tex'
@@ -141,7 +136,7 @@ d_vcmtd = replace_argument(d_vcmtd, 1, latex_verline(version))
 # Carga los archivos y cambian las versiones
 t = time.time()
 print('\nCREANDO TEMPLATE-INFORME')
-print('GENERANDO ARCHIVOS ... ', end='')
+print('GENERANDO ARCHIVOS ... ')
 for f in FILES.keys():
     data = FILES[f]
     # noinspection PyBroadException

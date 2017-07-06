@@ -41,10 +41,14 @@ class Zip(object):
         Agrega un archivo a la lista de excepciones
 
         :param filename: Nombre del archivo
-        :type filename: str
+        :type filename: str, list
         :return: None
         """
-        self._excptfiles.append(filename)
+        if type(filename) is list:
+            for f in filename:
+                self.add_excepted_file(f)
+        else:
+            self._excptfiles.append(filename)
 
     def _check_excepted_file(self, filename):
         """
@@ -75,29 +79,37 @@ class Zip(object):
 
         :param ghostpath: Dirección a borrar
         :param ufile: Ubicación del archivo
-        :type ufile: str
+        :type ufile: str, list
         :return: None
         """
-        if ghostpath is None:
-            self._zip.write(ufile, ufile.replace(self.ghostpath, ''))
+        if type(ufile) is list:
+            for f in ufile:
+                self.add_file(f, ghostpath)
         else:
-            self._zip.write(ufile, ufile.replace(ghostpath, ''))
+            if ghostpath is None:
+                self._zip.write(ufile, ufile.replace(self.ghostpath, ''))
+            else:
+                self._zip.write(ufile, ufile.replace(ghostpath, ''))
 
     def add_folder(self, folder):
         """
         Agrega una carpeta al archivo zip
 
         :param folder: Carpeta
-        :type folder: str
+        :type folder: str, list
         :return: None
         """
-        for f in os.listdir(folder):
-            full_path = os.path.join(folder, f)
-            if os.path.isfile(full_path):
-                if not self._check_excepted_file(full_path):
-                    self.add_file(full_path)
-            elif os.path.isdir(full_path):
-                self.add_folder(full_path)
+        if type(folder) is list:
+            for f in folder:
+                self.add_folder(f)
+        else:
+            for f in os.listdir(folder):
+                full_path = os.path.join(folder, f)
+                if os.path.isfile(full_path):
+                    if not self._check_excepted_file(full_path):
+                        self.add_file(full_path)
+                elif os.path.isdir(full_path):
+                    self.add_folder(full_path)
 
     def set_ghostpath(self, path):
         """

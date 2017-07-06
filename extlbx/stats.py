@@ -100,10 +100,12 @@ def add_stat(statfile, version, time, date, lc, vh, test=False):
         data.close()
 
 
-def plot_stats(statfile):
+def plot_stats(statfile, statplotctime, statplotlcode):
     """
     Grafica las estadísticas.
 
+    :param statplotlcode: Archivo de gráficos línea de código
+    :param statplotctime: Archivo de gráficos tiempo de compilación
     :param statfile: Archivo de estadísticas
     :return:
     """
@@ -138,7 +140,7 @@ def plot_stats(statfile):
         ax.set_title(u'Estadísticas')
         plt.xlim(1, lastid)
         ax.legend()
-        fig.savefig('stats/stats-ctime.png', dpi=600)
+        fig.savefig(statplotctime, dpi=600)
 
         # Líneas de código
         fig, ax = plt.subplots()
@@ -149,7 +151,7 @@ def plot_stats(statfile):
         plt.ylim([min(lcode) * 0.97, max(lcode) * 1.03])
         ax.xaxis.set_major_locator(MaxNLocator(integer=True))
         plt.xlim(1, lastid)
-        fig.savefig('stats/stats-lcode.png', dpi=600)
+        fig.savefig(statplotlcode, dpi=600)
 
     data.close()
 
