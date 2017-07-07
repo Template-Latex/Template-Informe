@@ -11,7 +11,8 @@ Licencia: MIT
 
 def find_block(data, initstr, blankend=False):
     """
-    Busca el bloque de texto en una lista y devuelve el número de las líneas
+    Busca el bloque de texto en una lista y devuelve el número de las líneas.
+
     :param blankend: Indica si el bloque termina en blanco
     :param data: Lista de un archivo
     :param initstr: Texto inicial del bloque
@@ -35,9 +36,22 @@ def find_block(data, initstr, blankend=False):
     return i, f
 
 
+def find_line(data, initstr, blankend=False):
+    """
+    Busca una línea.
+
+    :param blankend: Indica si el bloque termina en blanco
+    :param data: Lista de un archivo
+    :param initstr: Texto inicial de la línea
+    :return:
+    """
+    i, _ = find_block(data, initstr, blankend)
+    return i
+
+
 def find_command(data, commandname):
     """
-    Busca las lineas de la función en un archivo.
+    Busca las líneas de la función en un archivo.
 
     :param data: Datos del archivo
     :param commandname: Nombre de la función
@@ -65,7 +79,7 @@ def replace_argument(line, argnum, new, arginitsep='{', argendsep='}'):
     :param argendsep: Keyword al finalizar argumento
     :param arginitsep: Keyword al iniciar argumento
     :param new: Nuevos datos
-    :param line: Linea a reemplazar
+    :param line: Línea a reemplazar
     :param argnum: Número del argumento
     :return: String
     """

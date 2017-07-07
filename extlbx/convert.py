@@ -33,21 +33,61 @@ MSG_UPV_FILE = 'ACTUALIZANDO VERSION ...'
 def nonprint(arg, *args, **kwargs):
     """
     Desactiva el printing.
-
-    :param arg:
-    :param args:
-    :param kwargs:
-    :return:
     """
     pass
 
 
+def find_extract(data, element, white_end_block=False):
+    """
+    Encuentra el bloque determinado por <element> y retorna el bloque.
+
+    :param element: Elemento a buscar
+    :param data: Lista.
+    :param white_end_block: Indica si el bloque termina en espacio en blanco o con llave
+    :return: Retorna la lista que contiene el elemento
+    """
+    ia, ja = find_block(data, element, white_end_block)
+    return extract_block_from_list(data, ia, ja)
+
+
+def find_replace(data, block, newblock, white_end_block=False, iadd=0, jadd=0):
+    """
+    Busca el bloque en una lista de datos y reemplaza por un bloque <newblock>.
+
+    :param data: Datos
+    :param block: Bloque a buscar
+    :param newblock: Bloque a reemplazar
+    :param iadd: Agrega líneas al inicio del bloque
+    :param jadd: Agrega líneas al término del bloque
+    :param white_end_block: Indica si el bloque termina en espacio en blanco o con llave
+    :return:
+    """
+    i, j = find_block(data, block, white_end_block)
+    return replace_block_from_list(data, newblock, i + iadd, j + jadd)
+
+
+def find_delete(data, block, white_end_block=False, iadd=0, jadd=0):
+    """
+    Busca el bloque en una lista de datos y lo elimina.
+
+    :param data: Datos
+    :param block: Bloque a buscar
+    :param iadd: Agrega líneas al inicio del bloque
+    :param jadd: Agrega líneas al término del bloque
+    :param white_end_block: Indica si el bloque termina en espacio en blanco o con llave
+    :return:
+    """
+    ra, rb = find_block(data, block, white_end_block)
+    return del_block_from_list(data, ra + iadd, rb + jadd)
+
+
 # noinspection PyBroadException
 def export_informe(version, versiondev, versionhash, printfun=print, dosave=True, docompile=True,
-                   addwhitespace=False, deletecoments=True, plotstats=True, doclean=False):
+                   addwhitespace=False, deletecoments=True, plotstats=True, doclean=False, addstat=True):
     """
     Exporta el archivo principal, actualiza version.
 
+    :param addstat: Agrega las estadísticas
     :param addwhitespace: Añade espacios en blanco al comprimir archivos
     :param deletecoments: Borra comentarios
     :param doclean: Limpia el diccionario
@@ -288,7 +328,8 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
             printfun(MSG_FOKTIMER.format(tmean))
 
         # Se agregan las estadísticas
-        add_stat(stat['FILE'], versiondev, tmean, dia, lc, versionhash)
+        if addstat:
+            add_stat(stat['FILE'], versiondev, tmean, dia, lc, versionhash)
 
         # Se plotean las estadísticas
         if plotstats:
@@ -322,10 +363,11 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
 
 
 def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=True, docompile=True,
-                      addwhitespace=False, deletecoments=True, plotstats=True):
+                      addwhitespace=False, deletecoments=True, plotstats=True, addstat=True):
     """
     Exporta las auxiliares.
 
+    :param addstat: Agrega las estadísticas
     :param addwhitespace: Añade espacios en blanco al comprimir archivos
     :param deletecoments: Borra comentarios
     :param docompile: Compila automáticamente
@@ -348,7 +390,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     # noinspection PyTypeChecker
     export_informe(version, versiondev, versionhash, dosave=False, docompile=False,
                    plotstats=False, addwhitespace=addwhitespace, deletecoments=deletecoments,
-                   printfun=nonprint)
+                   printfun=nonprint, addstat=False)
 
     if dosave:
         printfun(MSG_GEN_FILE, end='')
@@ -395,30 +437,21 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
 
     # MODIFICA EL MAIN
     main_auxiliar = file_to_list(subrelfile['MAIN'])
-    ia, ja = find_block(main_auxiliar, '\def\equipodocente')
-    nb = extract_block_from_list(main_auxiliar, ia, ja)
+    nb = find_extract(main_auxiliar, '\def\equipodocente')
     nb.append('\n')
-    i, j = find_block(files[mainfile], '\def\\tablaintegrantes')
-    files[mainfile] = replace_block_from_list(files[mainfile], nb, i, j)
+    files[mainfile] = find_replace(files[mainfile], '\def\\tablaintegrantes', nb)
     files[mainfile][1] = '% Documento:    Archivo principal\n'
-    ra, rb = find_block(files[mainfile], '% PORTADA', True)
-    files[mainfile] = del_block_from_list(files[mainfile], ra, rb)
-    ra, rb = find_block(files[mainfile], '% RESUMEN O ABSTRACT', True)
-    files[mainfile] = del_block_from_list(files[mainfile], ra, rb)
-    ra, rb = find_block(files[mainfile], '% TABLA DE CONTENIDOS - ÍNDICE', True)
-    files[mainfile] = del_block_from_list(files[mainfile], ra, rb)
-    ra, rb = find_block(files[mainfile], '% IMPORTACIÓN DE ENTORNOS', True)
-    files[mainfile] = del_block_from_list(files[mainfile], ra, rb)
-    ra, rb = find_block(files[mainfile], '% CONFIGURACIONES FINALES', True)
-    files[mainfile] = del_block_from_list(files[mainfile], ra, rb)
-    ra, rb = find_block(files[mainfile], 'nombredelinforme')
+    files[mainfile] = find_delete(files[mainfile], '% PORTADA', True)
+    files[mainfile] = find_delete(files[mainfile], '% RESUMEN O ABSTRACT', True)
+    files[mainfile] = find_delete(files[mainfile], '% TABLA DE CONTENIDOS - ÍNDICE', True)
+    files[mainfile] = find_delete(files[mainfile], '% IMPORTACIÓN DE ENTORNOS', True)
+    files[mainfile] = find_delete(files[mainfile], '% CONFIGURACIONES FINALES', True)
+    ra = find_line(files[mainfile], 'nombredelinforme')
     files[mainfile][ra] = '\def\\tituloauxiliar {Título de la auxiliar}\n'
-    ra, rb = find_block(files[mainfile], 'temaatratar')
+    ra = find_line(files[mainfile], 'temaatratar')
     files[mainfile][ra] = '\def\\temaatratar {Tema de la auxiliar}\n'
-    i1, f1 = find_block(main_auxiliar, '% IMPORTACIÓN DE FUNCIONES', True)
-    nl = extract_block_from_list(main_auxiliar, i1, f1)
-    i2, f2 = find_block(files[mainfile], '% IMPORTACIÓN DE FUNCIONES', True)
-    files[mainfile] = replace_block_from_list(files[mainfile], nl, i2, f2 - 1)
+    nl = find_extract(main_auxiliar, '% IMPORTACIÓN DE FUNCIONES', True)
+    files[mainfile] = find_replace(files[mainfile], '% IMPORTACIÓN DE FUNCIONES', nl, white_end_block=True, jadd=-1)
     files[mainfile][len(files[mainfile]) - 1] = files[mainfile][len(files[mainfile]) - 1].strip()
 
     # MODIFICA CONFIGURACIIONES
@@ -426,14 +459,13 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     cdel = ['addemptypagetwosides', 'nomlttable', 'nomltsrc', 'nomltfigure',
             'nomltcont', 'nameportraitpage', 'nameabstract', 'indextitlecolor',
             'portraittitlecolor', 'fontsizetitlei', 'styletitlei',
-            'firstpagemargintop', 'romanpageuppercase']
+            'firstpagemargintop', 'romanpageuppercase', 'showappendixsecindex']
     for cdel in cdel:
         ra, rb = find_block(files[fl], cdel, True)
         files[fl].pop(ra)
-    ra, rb = find_block(files[fl], '% CONFIGURACIÓN DEL ÍNDICE', True)
-    files[fl] = del_block_from_list(files[fl], ra - 1, rb)
+    files[fl] = find_delete(files[fl], '% CONFIGURACIÓN DEL ÍNDICE', True)
     ra, rb = find_block(files[fl], '% CONFIGURACIÓN PORTADA Y HEADERS', True)
-    files[fl] = del_block_from_list(files[fl], ra - 1, rb)
+    files[fl] = del_block_from_list(files[fl], ra, rb)
     for cdel in ['namereferences', 'nomltwsrc', 'nomltwfigure', 'nomltwtable']:
         ra, rb = find_block(files[fl], cdel, True)
         files[fl][ra] = files[fl][ra].replace('    %', '%')
@@ -451,6 +483,9 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     for idel in idel:
         ra, rb = find_block(files[fl], idel, True)
         files[fl].pop(ra)
+    aux_imports = file_to_list(subrelfile['IMPORTS'])
+    nl = find_extract(aux_imports, '% Anexos/Apéndices', True)
+    files[fl] = find_replace(files[fl], '\ifthenelse{\equal{\showappendixsecindex}', nl, jadd=-1)
     files[fl][len(files[fl]) - 1] = files[fl][len(files[fl]) - 1].strip()
 
     # CAMBIO INITCONF
@@ -461,8 +496,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     files[fl][ra] = '\t\g@addto@macro\\tituloauxiliar\\xspace\n'
     ra, _ = find_block(files[fl], '\ifthenelse{\isundefined{\\tablaintegrantes}}{')
     files[fl][ra] = '\ifthenelse{\isundefined{\\equipodocente}}{\n'
-    ra, _ = find_block(files[fl], '\errmessage{LaTeX Warning: Se borro la variable \\noexpand\\tablaintegrantes, '
-                                  'creando una vacia}')
+    ra, _ = find_block(files[fl], '\errmessage{LaTeX Warning: Se borro la variable \\noexpand\\tablain')
     files[fl][ra] = '\t\errmessage{LaTeX Warning: Se borro la variable \\noexpand\\equipodocente, creando una vacia}\n'
     ra, _ = find_block(files[fl], '\def\\tablaintegrantes {}')
     files[fl][ra] = '\t\def\\equipodocente {}\n'
@@ -487,18 +521,12 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     # PAGECONF
     fl = release['PAGECONFFILE']
     aux_pageconf = file_to_list(subrelfile['PAGECONF'])
-    i1, f1 = find_block(aux_pageconf, '% Numeración de páginas', True)
-    nl = extract_block_from_list(aux_pageconf, i1, f1)
-    i2, f2 = find_block(files[fl], '% Numeración de páginas', True)
-    files[fl] = replace_block_from_list(files[fl], nl, i2, f2 - 1)
-    i1, f1 = find_block(aux_pageconf, '% Márgenes de páginas y tablas', True)
-    nl = extract_block_from_list(aux_pageconf, i1, f1)
-    i2, f2 = find_block(files[fl], '% Márgenes de páginas y tablas', True)
-    files[fl] = replace_block_from_list(files[fl], nl, i2, f2 - 1)
-    i1, f1 = find_block(aux_pageconf, '% Se crean los header-footer', True)
-    nl = extract_block_from_list(aux_pageconf, i1, f1)
-    i2, f2 = find_block(files[fl], '% Se crean los header-footer', True)
-    files[fl] = replace_block_from_list(files[fl], nl, i2, f2 - 1)
+    nl = find_extract(aux_pageconf, '% Numeración de páginas', True)
+    files[fl] = find_replace(files[fl], '% Numeración de páginas', nl, white_end_block=True, jadd=-1)
+    nl = find_extract(aux_pageconf, '% Márgenes de páginas y tablas', True)
+    files[fl] = find_replace(files[fl], '% Márgenes de páginas y tablas', nl, white_end_block=True, jadd=-1)
+    nl = find_extract(aux_pageconf, '% Se crean los header-footer', True)
+    files[fl] = find_replace(files[fl], '% Se crean los header-footer', nl, white_end_block=True, jadd=-1)
     ra, _ = find_block(files[fl], '% Profundidad del índice')
     i1, f1 = find_block(aux_pageconf, '% Tamaño fuentes', True)
     nl = extract_block_from_list(aux_pageconf, i1, f1)
@@ -608,7 +636,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
                                         # noinspection PyBroadException
                                         try:
                                             if libdata[libdatapos + 1][0] == '%' and srclin.strip() is '':
-                                                srclin = ''
+                                                srclin = '\n'
                                         except:
                                             pass
 
@@ -659,7 +687,8 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
                 printfun(MSG_FOKTIMER.format(tmean))
 
         # Se agregan las estadísticas
-        add_stat(stat['FILE'], versiondev, tmean, dia, lc, versionhash)
+        if addstat:
+            add_stat(stat['FILE'], versiondev, tmean, dia, lc, versionhash)
 
         # Se plotean las estadísticas
         if plotstats:

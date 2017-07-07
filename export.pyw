@@ -10,6 +10,8 @@ Licencia: MIT
 
 # Importación de librerías
 from extlbx import *
+from functools import partial
+import json
 import traceback
 
 # Constantes
@@ -93,6 +95,29 @@ class CreateVersion(object):
                     return
                 self._info_slider.canv.yview_scroll(move, 'units')
 
+        def _set_config(paramname, paramvalue, *args):
+            """
+            Guarda la configuración.
+
+            :param paramname: Nombre del parámetro
+            :param paramvalue: Valor del parámetro
+            :return:
+            """
+            if paramvalue is '!':
+                self._configs[paramname] = not self._configs[paramname]
+            else:
+                self._configs[paramname] = paramvalue
+            self._print('SE ESTABLECIO <{0}> EN {1}'.format(paramname, self._configs[paramname]))
+
+        def _set_templatever(template_name, *args):
+            """
+            Establece el tipo de template en la lista.
+
+            :param template_name: ID del template
+            :return:
+            """
+            self._release.set(template_name)
+
         self._root = Tk()
         self._root.protocol('WM_DELETE_WINDOW', _kill)
 
@@ -122,8 +147,11 @@ class CreateVersion(object):
 
         # Selección versión a compilar
         rels = []
+        p = 1
         for b in RELEASES.keys():
             rels.append(RELEASES[b]['NAME'])
+            self._root.bind('<Control-Key-{0}>'.format(p), partial(_set_templatever, RELEASES[b]['NAME']))
+            p += 1
         self._release = StringVar(self._root)
         self._release.set('Seleccione template')
         w = apply(OptionMenu, (f1, self._release) + tuple(rels))
@@ -161,6 +189,24 @@ class CreateVersion(object):
 
         # Otros eventos
         self._root.bind('<Escape>', _kill)
+
+        # Configuraciones
+        with open(EXTLBX_CONFIGS) as json_data:
+            d = json.load(json_data)
+            self._configs = d
+        self._root.bind('<F1>', partial(_set_config, 'SAVE', '!'))
+        self._root.bind('<F2>', partial(_set_config, 'COMPILE', '!'))
+        self._root.bind('<F3>', partial(_set_config, 'SAVE_STAT', '!'))
+        self._root.bind('<F4>', partial(_set_config, 'PLOT_STAT', '!'))
+
+    def _getconfig(self, paramname):
+        """
+        Obtiene el valor de la configuración.
+
+        :param paramname: Nombre del parámetro de la configuración
+        :return:
+        """
+        return self._configs[paramname]
 
     def _print(self, msg, hour=False, end=None):
         """
@@ -255,9 +301,13 @@ class CreateVersion(object):
                 try:
                     self._print(msg.format(versiondev))
                     if t == 1:
-                        export_informe(ver, versiondev, versionhash, printfun=self._print, doclean=True)
+                        export_informe(ver, versiondev, versionhash, printfun=self._print, doclean=True,
+                                       dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
+                                       addstat=self._getconfig('SAVE_STAT'), plotstats=self._getconfig('PLOT_STAT'))
                     elif t == 2:
-                        export_auxiliares(ver, versiondev, versionhash, printfun=self._print)
+                        export_auxiliares(ver, versiondev, versionhash, printfun=self._print,
+                                          dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
+                                          addstat=self._getconfig('SAVE_STAT'), plotstats=self._getconfig('PLOT_STAT'))
                     else:
                         self._print('ERROR: ID INCORRECTO')
                 except Exception as e:
@@ -276,6 +326,7 @@ class CreateVersion(object):
         self._root.configure(cursor='wait')
         self._root.update()
         self._root.after(400, _callback)
+        self._startbutton.configure(state='disabled')
 
 
 if __name__ == '__main__':
