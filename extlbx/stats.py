@@ -154,7 +154,3 @@ def plot_stats(statfile, statplotctime, statplotlcode):
         fig.savefig(statplotlcode, dpi=600)
 
     data.close()
-
-
-if __name__ == '__main__':
-    plot_stats('../stats/stats.txt')

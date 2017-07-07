@@ -53,13 +53,16 @@
 }
 \thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
 \begin{center}
-	\vspace*{2cm}
+	\vspace*{2.0cm}
 	\huge {\tituloauxiliar} \\
 	\vspace{0.2cm}
 	\large {\temaatratar} \\
-	\vspace{0.7cm}
-	\equipodocente
-	\vspace{0.6cm}
+	\ifx\hfuzz\equipodocente\hfuzz
+	\else
+		\vspace{0.7cm}
+		\equipodocente
+		\vspace{0.6cm}
+	\fi
 \end{center}
 
 % Tamaño fuentes

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar imágenes
-% Versión:      4.1.3 (04/07/2017)
+% Versión:      4.2.0 (06/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -24,9 +24,9 @@
 		\centering
 		\includegraphics[#3]{#2}
 		\ifx\hfuzz#4\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\hspace{0cm} \caption{#4 #1}
+			\hspace{0cm}\caption{#4 #1}
 		\fi
 	\end{figure}
 	\vspace{\marginbottomimages cm}
@@ -45,9 +45,9 @@
 		\centering
 		\fbox{\includegraphics[#3]{#2}}
 		\ifx\hfuzz#4\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\hspace{0cm} \caption{#4 #1}
+			\hspace{0cm}\caption{#4 #1}
 		\fi
 	\end{figure}
 	\vspace{\marginbottomimages cm}
@@ -77,9 +77,9 @@
 			\includegraphics[#6]{#5}}
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz#8\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\caption{#8 #1}
+			\caption{#8 #1}
 		\fi
 	\end{figure}
 	\setcaptionmargincm{\captionlrmargin}
@@ -127,9 +127,9 @@
 			\includegraphics[#7]{#6}}
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz#8\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\caption{#8 #1}
+			\caption{#8 #1}
 		\fi
 	\end{figure}
 	\setcaptionmargincm{\captionlrmargin}
@@ -177,9 +177,9 @@
 			\includegraphics[#6]{#5}}
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz#7\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\caption{#7 #1}
+			\caption{#7 #1}
 		\fi
 	\end{figure}
 	\setcaptionmargincm{\captionlrmargin}
@@ -221,9 +221,9 @@
 			\includegraphics[#7]{#6}}
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz#8\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\caption{#8 #1}
+			\caption{#8 #1}
 		\fi
 	\end{figure}
 	\setcaptionmargincm{\captionlrmargin}
@@ -270,9 +270,9 @@
 			\includegraphics[#8]{#7}}
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz#9\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\caption{#9 #1}
+			\caption{#9 #1}
 		\fi
 	\end{figure}
 	\setcaptionmargincm{\captionlrmargin}
@@ -294,9 +294,9 @@
 		\centering
 		\includegraphics[width=\linewidth]{#2}
 		\ifx\hfuzz#4\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\caption{#4 #1}
+			\caption{#4 #1}
 		\fi
 		\setcaptionmargincm{\captionlrmargin}
 	\end{wrapfigure}
@@ -319,9 +319,9 @@
 		\centering
 		\includegraphics[width=\linewidth]{#2}
 		\ifx\hfuzz#5\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\caption{#5 #1}
+			\caption{#5 #1}
 		\fi
 		\setcaptionmargincm{\captionlrmargin}
 	\end{wrapfigure}
@@ -342,9 +342,9 @@
 		\centering
 		\includegraphics[width=1.0\textwidth]{#2}
 		\ifx\hfuzz#4\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\caption{#4 #1}
+			\caption{#4 #1}
 		\fi
 		\setcaptionmargincm{\captionlrmargin}
 	\end{wrapfigure}
@@ -367,9 +367,9 @@
 		\centering
 		\includegraphics[width=1.0\textwidth]{#2}
 		\ifx\hfuzz#5\hfuzz
-		\vspace{\captionlessmarginimage cm}
+			\vspace{\captionlessmarginimage cm}
 		\else
-		\caption{#5 #1}
+			\caption{#5 #1}
 		\fi
 		\setcaptionmargincm{\captionlrmargin}
 	\end{wrapfigure}

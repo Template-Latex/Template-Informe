@@ -8,6 +8,7 @@ Fecha: 2017
 Licencia: MIT
 """
 
+# Importación de librerías
 import os
 
 
@@ -150,3 +151,53 @@ def file_to_list(filename):
         data.append(k)
     filedata.close()
     return data
+
+
+def is_windows():
+    """
+    Función que retorna True/False si el sistema operativo cliente es Windows o no.
+
+    :return: Boolean
+    """
+    if os.name == 'nt':
+        return True
+    return False
+
+
+def is_linux():
+    """
+    Función que retorna True/False si el sistema operativo cliente es Linux o no.
+
+    :return: Boolean
+    """
+    if os.name == 'posix':
+        return True
+    return False
+
+
+def is_osx():
+    """
+    Función que retorna True/False si el sistema operativo cliente es OSX.
+
+    :return: Boolean
+    """
+    if os.name == 'darwin':
+        return True
+    return False
+
+
+def clear_dict(d, entry):
+    """
+    Limpia un diccionario.
+
+    :param d: Diccionario
+    :param entry: Entrada
+    :return:
+    """
+    if type(entry) is list:
+        for u in entry:
+            for k in d[u].keys():
+                d[entry][k] = []
+    else:
+        for k in d[entry].keys():
+            d[entry][k] = []
