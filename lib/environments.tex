@@ -27,8 +27,22 @@
 	\renewcommand{\section}[2]{}
 	\begin{thebibliography}{99}
 	}
-	{ 
+	{
 	\end{thebibliography}
+	\endgroup
+}
+
+% Crea una sección de anexos
+\newenvironment{anexo}{
+	\begingroup
+	\begin{appendices}
+		\counterwithin{equation}{section}
+		\counterwithin{figure}{section}
+		\counterwithin{lstlisting}{section}
+		\counterwithin{table}{section}
+		}
+		{
+	\end{appendices}
 	\endgroup
 }
 

@@ -87,3 +87,8 @@
 \ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
 }{}}
 }
+\ifthenelse{\equal{\showappendixsecindex}{true}}{ % Muestra el título de la sección de anexos en índice
+	\usepackage[page,toc,titletoc,title]{appendix}
+}{
+	\usepackage[page,titletoc,title]{appendix}
+}

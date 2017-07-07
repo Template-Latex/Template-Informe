@@ -229,10 +229,9 @@ end
 	\subsection{Otros}
 		
 		Recuerda revisar el manual de todas las funciones de este template visitando el siguiente link: \url{http://ppizarror.com/Template-Informe/}. Además si necesitas una ayuda muy específica sobre el template me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
-		
-\newpage % Salto de página
 
 % REFERENCIAS (ESTILO BIBTEX)
+\newpage % Salto de página
 \begin{references}
 	\bibitem{ref1}
 	Template Informe en \LaTeX.
@@ -249,3 +248,44 @@ end
 	\textit{Uno de los mejores editores online para \LaTeX\.} \\
 	\href{https://www.sharelatex.com/?r=298b935f&rm=d&rs=b}{\texttt{http://www.tablesgenerator.com/}}
 \end{references}
+
+% ANEXO
+\newpage
+\begin{anexo}
+	\section{Cálculos realizados}
+	
+		\lipsum[69]
+		
+		% Imagen, se numerará automáticamente con la letra del anexo
+		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.15}{Imagen en anexo.}
+		
+		% Tablas
+		\begin{table}[htbp]
+			\centering
+			\caption{Tabla de cálculo.}
+			\begin{tabular}{ccc}
+				\hline
+				\textbf{Elemento} & \boldmath{}\textbf{$\epsilon_i$}\unboldmath{} & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
+				\hline
+				A     & 10    & 3,14$\pi$ \bigstrut[t]\\
+				B     & 20    & 6 \\
+				C     & 30    & 7 \\
+				\end{tabular}%
+			\label{tab:anexo-1}%
+		\end{table}%
+	
+		\begin{table}[htbp]
+			\centering
+			\caption{Resultados encuesta}
+			\begin{tabular}{ccc}
+				\hline
+				\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
+				\hline
+				Word  & 0\%   & No $\frownie$\\
+				\LaTeX & 100\% & Si $\checkmark$ \\
+			\end{tabular}%
+			\label{tab:anexo-2}%
+		\end{table}%
+	
+				
+\end{anexo}
