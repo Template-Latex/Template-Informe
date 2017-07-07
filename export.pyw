@@ -25,7 +25,7 @@ class CreateVersion(object):
     """
 
     def __init__(self):
-        def _kill():
+        def _kill(*args):
             """
             Destruye la ventana.
 
@@ -158,6 +158,9 @@ class CreateVersion(object):
         self._console = []
         self._root.bind('<MouseWheel>', _scroll_console)
         self._cnextnl = False
+
+        # Otros eventos
+        self._root.bind('<Escape>', _kill)
 
     def _print(self, msg, hour=False, end=None):
         """
