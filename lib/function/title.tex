@@ -95,9 +95,9 @@
 	%	#2	Margen superior en pt. (opcional), 10pt por defecto
 	\emptyvarerr{\insertindextitle}{#1}{Titulo no definido}
 	\ifx\hfuzz#2\hfuzz
-	\addtocontents{toc}{\protect\addvspace{\indextitlemargin pt}}
+		\addtocontents{toc}{\protect\addvspace{\indextitlemargin pt}}
 	\else
-	\addtocontents{toc}{\protect\addvspace{#2 pt}}
+		\addtocontents{toc}{\protect\addvspace{#2 pt}}
 	\fi
 	\addtocontents{toc}{\noindent\hyperref[swpn]{\textbf{#1}}}
 }

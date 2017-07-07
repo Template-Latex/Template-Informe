@@ -22,8 +22,7 @@
 \setcounter{footnote}{1}
 
 % Márgenes de páginas y tablas
-\setpagemargincm{\pagemarginleft}{\pagemargintop}
-{\pagemarginright}{\pagemarginbottom}
+\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 \def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
 
 % Se define el punto decimal
@@ -56,8 +55,8 @@
 % Se crean los header-footer
 \pagestyle{fancy} \fancyhf{}
 \ifthenelse{\equal{\showheadertitle}{true}}{ % Header izq, nombre sección
-	\fancyhead[L]{\nouppercase{\rightmark}}
-}{}
+	\fancyhead[L]{\nouppercase{\rightmark}}}{
+}
 \fancyhead[R]{\small \rm \thepage} % Header der, número página
 \ifthenelse{\equal{\showfooter}{true}}{
 	\fancyfoot[L]{
@@ -67,10 +66,10 @@
 		\small \rm \textit{\codigodelcurso \nombredelcurso} % Footer der, curso
 	}
 	\renewcommand{\footrulewidth}{0.5pt}
-}{}
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\sectionmark}[1]{\markboth{#1}{}
+	}{
 }
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 
 % Profundidad del índice
 \setcounter{tocdepth}{\indexdepth} % Se ajusta la profundidad del índice

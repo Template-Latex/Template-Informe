@@ -42,7 +42,7 @@
 \usepackage{longtable}     % Permite utilizar tablas en varias hojas
 \usepackage{mathtools}     % Permite utilizar notaciones matemáticas
 \usepackage{multicol}      % Múltiples columnas
-\usepackage{needspace}     % Maneja los espacios de página
+\usepackage{needspace}     % Maneja los espacios en página
 \usepackage{notoccite}     % Desactiva las citas en el índice
 \usepackage{pdfpages}      % Permite administrar páginas en pdf
 \usepackage{physics}       % Paquete de matemáticas
@@ -81,13 +81,15 @@
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{ % Formato citas natbib
 	\usepackage{natbib}
 }{
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
-	\usepackage{apacite}
-}{
-\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
-}{}}
+	\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
+		\usepackage{apacite}
+	}{
+		\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
+		}{
+		}
+	}
 }
-\ifthenelse{\equal{\showappendixsecindex}{true}}{ % Muestra el título de la sección de anexos en índice
+\ifthenelse{\equal{\showappendixsecindex}{true}}{ % Anexos/Apéndices
 	\usepackage[page,toc,titletoc,title]{appendix}
 }{
 	\usepackage[page,titletoc,title]{appendix}

@@ -14,13 +14,14 @@
 % Se escribe el header de la portada
 \newpage
 \renewcommand{\thepage}{\nameportraitpage}
-\setpagemargincm{\pagemarginleft}{\firstpagemargintop}
-{\pagemarginright}{\pagemarginbottom}
+\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 \pagestyle{fancy} \fancyhf{}
 \fancyhead[L]{
-	\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad \\ \vspace{-0.43cm}}
+	\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad \\ \vspace{-0.43cm}
+}
 \fancyhead[R]{
-	\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}}
+	\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+}
 
 % Estilo con código de curso
 \ifthenelse{\equal{\gradecodeonportrait}{true}}{
