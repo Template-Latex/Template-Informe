@@ -50,7 +50,8 @@ js/
 stylesheets/
 
 # Estadísticas
-stats/*/*.png
+stats/Auxiliares/*.png
+stats/Informe/*.png
 
 # Subreleases
 subreleases/*
