@@ -23,34 +23,10 @@ LIMIT_MESSAGES_CONSOLE = 1000
 # noinspection PyCompatibility,PyUnusedLocal,PyBroadException,PyCallByClass
 class CreateVersion(object):
     """
-    Pide la versión al usuario.
+    Pide la versión al usuario y genera releases.
     """
 
     def __init__(self):
-        def _kill(*args):
-            """
-            Destruye la ventana.
-
-            :return:
-            """
-            self._root.destroy()
-
-        def _update_ver(*args):
-            """
-            Pasa el foco al campo de versión, carga versiones de cada release.
-
-            :return:
-            """
-            self._versiontxt.focus()
-            self._versiontxt.delete(0, 'end')
-            for j in RELEASES.keys():
-                if self._release.get() == RELEASES[j]['NAME']:
-                    self._versiontxt.configure(state='normal')
-                    self._console = []
-                    self._info_slider.canv.yview_scroll(-1000, 'units')
-                    self._print('SELECCIONADO: {0}'.format(RELEASES[j]['NAME']))
-                    self._print('ÚLTIMA VERSIÓN: {0}'.format(get_last_ver(RELEASES[j]['STATS']['FILE'])))
-                    return
 
         def _checkver(sv):
             """
@@ -67,6 +43,14 @@ class CreateVersion(object):
             except:
                 self._startbutton.configure(state='disabled')
                 self._versiontxt.bind('<Return>')
+
+        def _kill(*args):
+            """
+            Destruye la ventana.
+
+            :return:
+            """
+            self._root.destroy()
 
         def _scroll_console(event):
             """
@@ -117,6 +101,23 @@ class CreateVersion(object):
             :return:
             """
             self._release.set(template_name)
+
+        def _update_ver(*args):
+            """
+            Pasa el foco al campo de versión, carga versiones de cada release.
+
+            :return:
+            """
+            self._versiontxt.focus()
+            self._versiontxt.delete(0, 'end')
+            for j in RELEASES.keys():
+                if self._release.get() == RELEASES[j]['NAME']:
+                    self._versiontxt.configure(state='normal')
+                    self._console = []
+                    self._info_slider.canv.yview_scroll(-1000, 'units')
+                    self._print('SELECCIONADO: {0}'.format(RELEASES[j]['NAME']))
+                    self._print('ÚLTIMA VERSIÓN: {0}'.format(get_last_ver(RELEASES[j]['STATS']['FILE'])))
+                    return
 
         self._root = Tk()
         self._root.protocol('WM_DELETE_WINDOW', _kill)
@@ -256,15 +257,7 @@ class CreateVersion(object):
         self._info.config(text=_consoled(self._console))
         self._info_slider.canv.yview_scroll(1000, 'units')
 
-    def getroot(self):
-        """
-        Retorna el root.
-
-        :return:
-        """
-        return self._root
-
-    def open(self):
+    def execute(self):
         """
         Inicia la ventana.
 
@@ -301,13 +294,19 @@ class CreateVersion(object):
                 try:
                     self._print(msg.format(versiondev))
                     if t == 1:
-                        export_informe(ver, versiondev, versionhash, printfun=self._print, doclean=True,
-                                       dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
-                                       addstat=self._getconfig('SAVE_STAT'), plotstats=self._getconfig('PLOT_STAT'))
+                        convert.export_informe(ver, versiondev, versionhash, printfun=self._print, doclean=True,
+                                               dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
+                                               addstat=self._getconfig('SAVE_STAT'),
+                                               plotstats=self._getconfig('PLOT_STAT'), step=convert.STEP_1)
+                        convert.export_informe(ver, versiondev, versionhash, printfun=self._print, doclean=True,
+                                               dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
+                                               addstat=self._getconfig('SAVE_STAT'),
+                                               plotstats=self._getconfig('PLOT_STAT'), step=convert.STEP_2)
                     elif t == 2:
-                        export_auxiliares(ver, versiondev, versionhash, printfun=self._print,
-                                          dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
-                                          addstat=self._getconfig('SAVE_STAT'), plotstats=self._getconfig('PLOT_STAT'))
+                        convert.export_auxiliares(ver, versiondev, versionhash, printfun=self._print,
+                                                  dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
+                                                  addstat=self._getconfig('SAVE_STAT'),
+                                                  plotstats=self._getconfig('PLOT_STAT'))
                     else:
                         self._print('ERROR: ID INCORRECTO')
                 except Exception as e:
@@ -315,6 +314,9 @@ class CreateVersion(object):
                     self._print('ERROR: EXCEPCIÓN INESPERADA')
                     self._print(str(e))
                     self._print(traceback.format_exc())
+
+                # Vuelve a cargar librerías
+                reload_extlbx()
 
             self._root.configure(cursor='arrow')
             self._root.title(TITLE)
@@ -330,4 +332,4 @@ class CreateVersion(object):
 
 
 if __name__ == '__main__':
-    CreateVersion().open()
+    CreateVersion().execute()

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de estilos
-% Versión:      4.2.1 (07/07/2017)
+% Versión:      4.2.2 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -25,9 +25,8 @@
 \definecolor{mylilas}{RGB}{170, 55, 241}
 
 % Estilo de códigos
-\ifthenelse{\equal{\codecaptiontop}{true}}{
-	% Leyenda arriba
-	
+\ifthenelse{\equal{\codecaptiontop}{true}}{ % Leyenda arriba
+
 	% Estilo de lenguaje C
 	\lstdefinestyle{C}{
 		language=C,
@@ -126,10 +125,8 @@
 		stringstyle=\color{codepurple},
 		tabsize=3
 	}
-	
-}{
-	% Leyenda abajo
-	
+}{ % Leyenda abajo
+
 	% Estilo de lenguaje C
 	\lstdefinestyle{C}{
 		language=C,
@@ -227,8 +224,7 @@
 		stepnumber=1,
 		stringstyle=\color{codepurple},
 		tabsize=3
-	}
-	
+	}	
 }
 
 % Estilo de enumeración en griego

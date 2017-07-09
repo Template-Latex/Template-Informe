@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.2.1 (07/07/2017)
+% Versión:      4.2.2 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -62,14 +62,14 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={07/07/2017},
+		Template.Fecha={09/07/2017},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.2.1-3-N},
-		Template.Version.Hash={3A3FB9212BE4FE209D0C519440003384},
-		Template.Version.Release={4.2.1},
+		Template.Version.Dev={4.2.2-N},
+		Template.Version.Hash={3CA83789BDBFDDEDD663029253B87CFB},
+		Template.Version.Release={4.2.2},
 		Template.Web.Dev={https://github.com/ppizarror/Template-Informe/},
 		Template.Web.Manual={http://ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -78,7 +78,7 @@
 	},
 	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
 	pdfpagemode={UseOutlines},
-	pdfproducer={Template-Informe v4.2.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.2.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfstartpage={1},
 	pdfstartview={FitH},
 	pdfsubject={\temaatratar},
@@ -121,66 +121,56 @@
 
 % Configuración de las leyendas
 \setcaptionmargincm{\captionlrmargin} % Márgenes de las leyendas por defecto
-\ifthenelse{\equal{\captiontextbold}{true}}{
-	% Texto en negrita en etiquetas
+\ifthenelse{\equal{\captiontextbold}{true}}{ % Texto en negrita en etiquetas
 	\renewcommand{\captiontextbold}{bf}}{
 	\renewcommand{\captiontextbold}{}
 }
-\captionsetup{
-	% Se configura el texto de los caption
+\captionsetup{ % Se configura el texto de los caption
 	labelfont={color=\captioncolor, \captiontextbold},
 	textfont={color=\captiontextcolor},
 	singlelinecheck=on
 }
-\floatsetup[figure]{
-	% Configuración de márgenes en las figuras
+\floatsetup[figure]{ % Configuración de márgenes en las figuras
 	captionskip=\captiontbmarginfigure pt
 }
-\floatsetup[table]{
-	% Configuración de márgenes en las tablas
+\floatsetup[table]{ % Configuración de márgenes en las tablas
 	captionskip=\captiontbmargintable pt
 }
-\ifthenelse{\equal{\figurecaptiontop}{true}}{
-	% Se dejan los caption en la parte superior de las figuras
-	\floatsetup[figure]{
-		position=above
-	}}{
+\ifthenelse{\equal{\figurecaptiontop}{true}}{ % Caption superior en figuras
+	\floatsetup[figure]{position=above}}{
 }
-\ifthenelse{\equal{\tablecaptiontop}{true}}{
-	% Se dejan los caption en la parte superior de las tablas
-	\floatsetup[table]{
-		position=top}
+\ifthenelse{\equal{\tablecaptiontop}{true}}{ % Caption superior en tablas
+	\floatsetup[table]{position=top}
 	}{
-	\floatsetup[table]{
-		position=bottom}
+	\floatsetup[table]{position=bottom}
 }
-\ifthenelse{\equal{\captionalignment}{justified}}{
-	% Leyenda justificada
+\ifthenelse{\equal{\captionalignment}{justified}}{ % Leyenda justificada
 	\captionsetup{
 		justification=justified,
-		format=plain}
-}{
-\ifthenelse{\equal{\captionalignment}{centered}}{
-	% Leyenda centrada
-	\captionsetup{
-		justification=centering
+		format=plain
 	}
 }{
-\ifthenelse{\equal{\captionalignment}{left}}{
-	% Leyenda alineada a la izquierda
-	\captionsetup{
-		justification=raggedright,
-		singlelinecheck=false
+	\ifthenelse{\equal{\captionalignment}{centered}}{ % Leyenda centrada
+		\captionsetup{
+			justification=centering
+		}
+	}{
+		\ifthenelse{\equal{\captionalignment}{left}}{ % Leyenda izq
+			\captionsetup{
+				justification=raggedright,
+				singlelinecheck=false
+			}
+		}{
+			\ifthenelse{\equal{\captionalignment}{right}}{ % Leyenda der
+				\captionsetup{
+					justification=raggedleft,
+					singlelinecheck=false
+				}
+			}{
+				\throwbadconfig{Posicion de leyendas desconocida}{\captionalignment}{justified,centered,left,right}
+			}
+		}
 	}
-}{
-\ifthenelse{\equal{\captionalignment}{right}}{
-	% Leyenda alineada a la derecha
-	\captionsetup{
-		justification=raggedleft,
-		singlelinecheck=false
-	}
-}{
-	\errmessage{Error: Posicion de leyendas desconocida \noexpand \captionalignment= \captionalignment}}}}
 }
 
 % Configuración de referencias y citas
@@ -188,24 +178,25 @@
 	\bibliographystyle{apa}
 	\setlength{\bibsep}{\natbibrefsep pt}
 }{
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{
-	\bibliographystyle{apacite}
-	\setlength{\bibitemsep}{\apaciterefsep pt}
-}{
-\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
-	\bibliographystyle{apa}
-	\newlength{\bibitemsep}\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
-	\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
-	\let\oldthebibliography\thebibliography
-	\renewcommand\thebibliography[1]{
-		\oldthebibliography{#1}
-		\setlength{\parskip}{\bibitemsep}
-		\setlength{\itemsep}{\bibparskip}
+	\ifthenelse{\equal{\stylecitereferences}{apacite}}{
+		\bibliographystyle{apacite}
+		\setlength{\bibitemsep}{\apaciterefsep pt}
+	}{
+		\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+			\bibliographystyle{apa}
+			\newlength{\bibitemsep}\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
+			\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
+			\let\oldthebibliography\thebibliography
+			\renewcommand\thebibliography[1]{
+				\oldthebibliography{#1}
+				\setlength{\parskip}{\bibitemsep}
+				\setlength{\itemsep}{\bibparskip}
+			}
+			\setlength{\bibitemsep}{\bibtexrefsep pt}
+		}{
+			\throwbadconfig{Estilo citas desconocido}{\stylecitereferences}{bibtex,apacite,natbib}
+		}
 	}
-	\setlength{\bibitemsep}{\bibtexrefsep pt}
-}{
-	\errmessage{Error: Estilo citas desconocido \noexpand \stylecitereferences=\stylecitereferences. Valores esperados: bibtex,apacite,natbib}
-	\stop}}
 }
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{

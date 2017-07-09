@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      4.2.1 (07/07/2017)
+% Versión:      4.2.2 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -25,11 +25,20 @@
 	\errmessage{LaTeX Warning: #1 (linea \the\inputlineno)}
 }
 
+\newcommand{\throwbadconfig}[3]{
+	% Lanza un mensaje de error indicando mala configuración
+	%	#1	Mensaje de error
+	% 	#2	Configuración usada
+	%	#3	Valores esperados
+	\errmessage{LaTeX Warning: #1 \noexpand #2=#2. Valores esperados: #3}
+	\stop
+}
+
 \newcommand{\checkvardefined}[1]{
 	% Comprueba si una variable está definida
 	%	#1	Variable
 	\ifthenelse{\isundefined{#1}}{
-		\errmessage{LaTeX Error: Variable \noexpand#1 no definida}
+		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}
 		\stop
 	}{}
 }

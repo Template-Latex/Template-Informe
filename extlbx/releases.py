@@ -154,11 +154,13 @@ RELEASES = {
         'SUBRELFILES': {
             'MAIN': 'auxiliar_main.tex',
             'PAGECONF': 'lib/auxiliar_pageconf.tex',
-            'IMPORTS': 'lib/auxiliar_imports.tex'
+            'IMPORTS': 'lib/auxiliar_imports.tex',
+            'ENVFUN': 'lib/environments.tex'
         },
         'CONFIGFILE': 'lib/config.tex',
         'EXAMPLECLONE': 'example.tex',
         'EXAMPLEFILE': 'lib/example.tex',
+        'FUNCTIONS': 'lib/function/auxiliar.tex',
         'IMPORTSFILE': 'lib/imports.tex',
         'INITCONFFILE': 'lib/initconf.tex',
         'MAINFILE': 'main.tex',

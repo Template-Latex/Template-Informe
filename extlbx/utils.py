@@ -11,6 +11,9 @@ Licencia: MIT
 # Importación de librerías
 import os
 
+# Constantes
+LIST_END_LINE = -1
+
 
 class Cd(object):
     """Context manager for changing the current working directory"""
@@ -85,10 +88,11 @@ def del_block_from_list(data, a, b):
     return newdata
 
 
-def add_block_from_list(data, new, a):
+def add_block_from_list(data, new, a, addnewline=False):
     """
     Añade un bloque de líneas desde a.
 
+    :param addnewline: Agrega línea en blanco
     :param data: Lista
     :param new: Datos a añadir
     :param a: Línea inicial
@@ -96,8 +100,14 @@ def add_block_from_list(data, new, a):
     """
     k = 0
     newdata = []
+    t = False
+    if a == LIST_END_LINE:
+        a = len(data) - 1
+        t = True and addnewline
     for j in data:
         if k == a:
+            if t:
+                newdata.append('\n')
             for m in new:
                 newdata.append(m)
         else:
@@ -134,8 +144,7 @@ def replace_block_from_list(data, new, ra, rb):
     :param rb: Posición final
     :return:
     """
-    return add_block_from_list(del_block_from_list(data,
-                                                   ra, rb), new, ra)
+    return add_block_from_list(del_block_from_list(data, ra, rb), new, ra)
 
 
 def file_to_list(filename):
