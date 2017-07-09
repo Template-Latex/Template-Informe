@@ -297,11 +297,7 @@ class CreateVersion(object):
                         convert.export_informe(ver, versiondev, versionhash, printfun=self._print, doclean=True,
                                                dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
                                                addstat=self._getconfig('SAVE_STAT'),
-                                               plotstats=self._getconfig('PLOT_STAT'), step=convert.STEP_1)
-                        convert.export_informe(ver, versiondev, versionhash, printfun=self._print, doclean=True,
-                                               dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
-                                               addstat=self._getconfig('SAVE_STAT'),
-                                               plotstats=self._getconfig('PLOT_STAT'), step=convert.STEP_2)
+                                               plotstats=self._getconfig('PLOT_STAT'))
                     elif t == 2:
                         convert.export_auxiliares(ver, versiondev, versionhash, printfun=self._print,
                                                   dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),

@@ -27,8 +27,6 @@ MSG_FOKTIMER = 'OK [t {0:.3g}]'
 MSG_GEN_FILE = 'GENERANDO ARCHIVOS ... '
 MSG_LAST_VER = 'ULTIMA VERSION:\t {0}'
 MSG_UPV_FILE = 'ACTUALIZANDO VERSION ...'
-STEP_1 = 1
-STEP_2 = 2
 
 
 # noinspection PyUnusedLocal
@@ -88,7 +86,7 @@ def find_delete(data, block, white_end_block=False, iadd=0, jadd=0):
 
 # noinspection PyBroadException
 def export_informe(version, versiondev, versionhash, printfun=print, dosave=True, docompile=True,
-                   addwhitespace=False, deletecoments=True, plotstats=True, doclean=False, addstat=True, step=1):
+                   addwhitespace=False, deletecoments=True, plotstats=True, doclean=False, addstat=True):
     """
     Exporta el archivo principal, actualiza version.
 
@@ -100,7 +98,6 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
     :param dosave: Guarda o no los archivos
     :param plotstats: Plotea las estadísticas
     :param printfun: Función que imprime en consola
-    :param step: Paso de ejecución
     :param version: Versión
     :param versiondev: Versión developer
     :param versionhash: Hash de la versión
@@ -136,236 +133,234 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
     # Se obtiene el día
     dia = time.strftime('%d/%m/%Y')
 
-    if step is STEP_1:
+    # Se crea el header de la versión
+    versionhead = versionheader.format(version, dia)
 
-        # Se crea el header de la versión
-        versionhead = versionheader.format(version, dia)
+    # Se buscan números de lineas de hyperref
+    initconf_data = open(initconffile)
+    initconf_data.read()
+    l_tdate, d_tdate = find_line(initconf_data, 'Template.Fecha', True)
+    l_thash, d_thash = find_line(initconf_data, 'Template.Version.Hash', True)
+    l_ttype, d_ttype = find_line(initconf_data, 'Template.Tipo', True)
+    l_tvdev, d_tvdev = find_line(initconf_data, 'Template.Version.Dev', True)
+    l_tvrel, d_tvrel = find_line(initconf_data, 'Template.Version.Release', True)
+    l_vcmtd, d_vcmtd = find_line(initconf_data, 'pdfproducer', True)
+    initconf_data.close()
 
-        # Se buscan números de lineas de hyperref
-        initconf_data = open(initconffile)
-        initconf_data.read()
-        l_tdate, d_tdate = find_line(initconf_data, 'Template.Fecha', True)
-        l_thash, d_thash = find_line(initconf_data, 'Template.Version.Hash', True)
-        l_ttype, d_ttype = find_line(initconf_data, 'Template.Tipo', True)
-        l_tvdev, d_tvdev = find_line(initconf_data, 'Template.Version.Dev', True)
-        l_tvrel, d_tvrel = find_line(initconf_data, 'Template.Version.Release', True)
-        l_vcmtd, d_vcmtd = find_line(initconf_data, 'pdfproducer', True)
-        initconf_data.close()
+    # Se actualizan líneas de hyperref
+    d_tdate = replace_argument(d_tdate, 1, dia)
+    d_thash = replace_argument(d_thash, 1, versionhash)
+    d_ttype = replace_argument(d_ttype, 1, 'Normal')
+    d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-N')
+    d_tvrel = replace_argument(d_tvrel, 1, version)
+    d_vcmtd = replace_argument(d_vcmtd, 1, release['VERLINE'].format(version))
 
-        # Se actualizan líneas de hyperref
-        d_tdate = replace_argument(d_tdate, 1, dia)
-        d_thash = replace_argument(d_thash, 1, versionhash)
-        d_ttype = replace_argument(d_ttype, 1, 'Normal')
-        d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-N')
-        d_tvrel = replace_argument(d_tvrel, 1, version)
-        d_vcmtd = replace_argument(d_vcmtd, 1, release['VERLINE'].format(version))
-
-        # Carga los archivos y cambian las versiones
-        t = time.time()
-        if dosave:
-            printfun(MSG_GEN_FILE, end='')
-        else:
-            printfun(MSG_UPV_FILE, end='')
-        for f in files.keys():
-            data = files[f]
-            # noinspection PyBroadException
-            try:
-                fl = open(f)
-                for line in fl:
-                    data.append(line)
-                fl.close()
-            except:
-                printfun('Error al cargar el archivo {0}'.format(f))
-
-            # Se cambia la versión
-            data[headerversionpos] = versionhead
-
-            # Se actualiza la versión en initconf
-            if f == initconffile:
-                data[l_tdate] = d_tdate
-                data[l_thash] = d_thash
-                data[l_ttype] = d_ttype
-                data[l_tvdev] = d_tvdev
-                data[l_tvrel] = d_tvrel
-                data[l_vcmtd] = d_vcmtd
-
-            # Se reescribe el archivo
-            if dosave:
-                newfl = open(f, 'w')
-                for j in data:
-                    newfl.write(j)
-                newfl.close()
-
-        if dosave:
-
-            # Se crea ejemplo generado automáticamente
-            fl = open(release['EXAMPLECLONE'], 'w')
-            data = files[examplefile]
-            for k in data:
-                fl.write(k)
+    # Carga los archivos y cambian las versiones
+    t = time.time()
+    if dosave:
+        printfun(MSG_GEN_FILE, end='')
+    else:
+        printfun(MSG_UPV_FILE, end='')
+    for f in files.keys():
+        data = files[f]
+        # noinspection PyBroadException
+        try:
+            fl = open(f)
+            for line in fl:
+                data.append(line)
             fl.close()
+        except:
+            printfun('Error al cargar el archivo {0}'.format(f))
 
-            # Se modifican propiedades para establecer tipo compacto
-            data = files[initconffile]
-            d_ttype = replace_argument(d_ttype, 1, 'Compacto')
-            d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-C')
+        # Se cambia la versión
+        data[headerversionpos] = versionhead
+
+        # Se actualiza la versión en initconf
+        if f == initconffile:
+            data[l_tdate] = d_tdate
             data[l_thash] = d_thash
             data[l_ttype] = d_ttype
             data[l_tvdev] = d_tvdev
+            data[l_tvrel] = d_tvrel
+            data[l_vcmtd] = d_vcmtd
 
-            # Se crea el archivo unificado
-            fl = open(mainsinglefile, 'w')
-            data = files[mainfile]
-            data.pop(1)  # Se elimina el tipo de documento del header
-            data.insert(1, '% Advertencia:  Documento generado automáticamente a partir del main.tex y\n%              '
-                           ' los archivos .tex de la carpeta lib/\n')
-            data[codetablewidthpos] = data[codetablewidthpos].replace(itableoriginal, itablenew)
-            line = 0
-            stconfig = False  # Indica si se han escrito comentarios en configuraciones
+        # Se reescribe el archivo
+        if dosave:
+            newfl = open(f, 'w')
+            for j in data:
+                newfl.write(j)
+            newfl.close()
 
-            # Se recorren las líneas del archivo
-            for d in data:
-                write = True
-                if line < initdocumentline:
-                    fl.write(d)
-                    write = False
-                # Si es una línea en blanco se agrega
-                if d == '\n' and write:
-                    fl.write(d)
-                else:
-                    # Si es un import pega el contenido
-                    try:
-                        if d[0:6] == '\input':
-                            libr = d.replace('\input{', '').replace('}', '').strip()
-                            libr = libr.split(' ')[0]
-                            if '.tex' not in libr:
-                                libr += '.tex'
-                            if libr != examplefile:
+    # Se obtiene la cantidad de líneas de código
+    lc = 0
+    for f in files.keys():
+        lc += len(files[f])
 
-                                # Se escribe desde el largo del header en adelante
-                                libdata = files[libr]  # Datos del import
-                                libstirp = filestrip[libr]  # Eliminar espacios en blanco
-                                libdelcom = filedelcoments[libr]  # Borrar comentarios
+    if dosave:
 
-                                for libdatapos in range(headersize, len(libdata)):
-                                    srclin = libdata[libdatapos]
+        # Se crea ejemplo generado automáticamente
+        fl = open(release['EXAMPLECLONE'], 'w')
+        data = files[examplefile]
+        for k in data:
+            fl.write(k)
+        fl.close()
 
-                                    # Se borran los comentarios
-                                    if deletecoments and libdelcom:
-                                        if '%' in srclin:
-                                            if libr == configfile:
-                                                if srclin.upper() == srclin:
-                                                    if stconfig:
-                                                        fl.write('\n')
-                                                    fl.write(srclin)
-                                                    stconfig = True
-                                                    continue
-                                            comments = srclin.strip().split('%')
-                                            if comments[0] is '':
-                                                srclin = ''
-                                            else:
-                                                srclin = srclin.replace('%' + comments[1], '')
-                                                if libdatapos != len(libdata) - 1:
-                                                    srclin = srclin.strip() + '\n'
-                                                else:
-                                                    srclin = srclin.strip()
-                                        elif srclin.strip() is '':
-                                            srclin = ''
-                                    else:
+        # Se modifican propiedades para establecer tipo compacto
+        data = files[initconffile]
+        d_ttype = replace_argument(d_ttype, 1, 'Compacto')
+        d_tvdev = replace_argument(d_tvdev, 1, versiondev + '-C')
+        data[l_thash] = d_thash
+        data[l_ttype] = d_ttype
+        data[l_tvdev] = d_tvdev
+
+        # Se crea el archivo unificado
+        fl = open(mainsinglefile, 'w')
+        data = files[mainfile]
+        data.pop(1)  # Se elimina el tipo de documento del header
+        data.insert(1,
+                    '% Advertencia:  Documento generado automáticamente a partir del main.tex y\n%               los '
+                    'archivos .tex de la carpeta lib/\n')
+        data[codetablewidthpos] = data[codetablewidthpos].replace(itableoriginal, itablenew)
+        line = 0
+        stconfig = False  # Indica si se han escrito comentarios en configuraciones
+
+        # Se recorren las líneas del archivo
+        for d in data:
+            write = True
+            if line < initdocumentline:
+                fl.write(d)
+                write = False
+            # Si es una línea en blanco se agrega
+            if d == '\n' and write:
+                fl.write(d)
+            else:
+                # Si es un import pega el contenido
+                try:
+                    if d[0:6] == '\input':
+                        libr = d.replace('\input{', '').replace('}', '').strip()
+                        libr = libr.split(' ')[0]
+                        if '.tex' not in libr:
+                            libr += '.tex'
+                        if libr != examplefile:
+
+                            # Se escribe desde el largo del header en adelante
+                            libdata = files[libr]  # Datos del import
+                            libstirp = filestrip[libr]  # Eliminar espacios en blanco
+                            libdelcom = filedelcoments[libr]  # Borrar comentarios
+
+                            for libdatapos in range(headersize, len(libdata)):
+                                srclin = libdata[libdatapos]
+
+                                # Se borran los comentarios
+                                if deletecoments and libdelcom:
+                                    if '%' in srclin:
                                         if libr == configfile:
-                                            try:
-                                                if libdata[libdatapos + 1][0] == '%' and srclin.strip() is '':
-                                                    srclin = ''
-                                            except:
-                                                pass
-
-                                    # Se ecribe la línea
-                                    if srclin is not '':
-                                        # Se aplica strip dependiendo del archivo
-                                        if libstirp:
-                                            fl.write(srclin.strip())
+                                            if srclin.upper() == srclin:
+                                                if stconfig:
+                                                    fl.write('\n')
+                                                fl.write(srclin)
+                                                stconfig = True
+                                                continue
+                                        comments = srclin.strip().split('%')
+                                        if comments[0] is '':
+                                            srclin = ''
                                         else:
-                                            fl.write(srclin)
+                                            srclin = srclin.replace('%' + comments[1], '')
+                                            if libdatapos != len(libdata) - 1:
+                                                srclin = srclin.strip() + '\n'
+                                            else:
+                                                srclin = srclin.strip()
+                                    elif srclin.strip() is '':
+                                        srclin = ''
+                                else:
+                                    if libr == configfile:
+                                        try:
+                                            if libdata[libdatapos + 1][0] == '%' and srclin.strip() is '':
+                                                srclin = ''
+                                        except:
+                                            pass
 
-                                fl.write('\n')  # Se agrega espacio vacío
-                            else:
-                                fl.write(d.replace('lib/', ''))
-                            write = False
-                    except:
-                        pass
+                                # Se ecribe la línea
+                                if srclin is not '':
+                                    # Se aplica strip dependiendo del archivo
+                                    if libstirp:
+                                        fl.write(srclin.strip())
+                                    else:
+                                        fl.write(srclin)
 
-                    # Se agrega un espacio en blanco a la página después del comentario
-                    if line >= initdocumentline and write:
-                        if d[0:2] == '% ' and d[3] != ' ' and d != '% CONFIGURACIONES\n':
-                            if d != '% FIN DEL DOCUMENTO\n' and addwhitespace:
-                                fl.write('\n')
-                                pass
-                            d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
-                            if d == '% RESUMEN O ABSTRACT\n':
-                                d = '% ======================= RESUMEN O ABSTRACT =======================\n'
-                            fl.write(d)
-                        elif d == '% CONFIGURACIONES\n':
-                            pass
+                            fl.write('\n')  # Se agrega espacio vacío
                         else:
-                            fl.write(d)
+                            fl.write(d.replace('lib/', ''))
+                        write = False
+                except:
+                    pass
 
-                # Aumenta la línea
-                line += 1
+                # Se agrega un espacio en blanco a la página después del comentario
+                if line >= initdocumentline and write:
+                    if d[0:2] == '% ' and d[3] != ' ' and d != '% CONFIGURACIONES\n':
+                        if d != '% FIN DEL DOCUMENTO\n' and addwhitespace:
+                            fl.write('\n')
+                            pass
+                        d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
+                        if d == '% RESUMEN O ABSTRACT\n':
+                            d = '% ======================= RESUMEN O ABSTRACT =======================\n'
+                        fl.write(d)
+                    elif d == '% CONFIGURACIONES\n':
+                        pass
+                    else:
+                        fl.write(d)
 
-            fl.close()
+            # Aumenta la línea
+            line += 1
 
-        printfun(MSG_FOKTIMER.format(time.time() - t))
+        fl.close()
+
+    printfun(MSG_FOKTIMER.format(time.time() - t))
 
     # Compila el archivo
-    if step is STEP_2:
+    if docompile and dosave:
+        t = time.time()
+        with open(os.devnull, 'w') as FNULL:
+            printfun(MSG_DCOMPILE, end='')
 
-        # Se obtiene la cantidad de líneas de código
-        lc = 0
-        for f in files.keys():
-            lc += len(files[f])
-        if docompile and dosave:
-            t = time.time()
-            with open(os.devnull, 'w') as FNULL:
-                printfun(MSG_DCOMPILE, end='')
+            call(['pdflatex', mainsinglefile], stdout=FNULL, creationflags=CREATE_NO_WINDOW)
+            t1 = time.time() - t
+            call(['pdflatex', mainsinglefile], stdout=FNULL, creationflags=CREATE_NO_WINDOW)
+            t2 = time.time() - t
+            tmean = (t1 + t2) / 2
+            printfun(MSG_FOKTIMER.format(tmean))
 
-                call(['pdflatex', mainsinglefile], stdout=FNULL, creationflags=CREATE_NO_WINDOW)
-                t1 = time.time() - t
-                call(['pdflatex', mainsinglefile], stdout=FNULL, creationflags=CREATE_NO_WINDOW)
-                t2 = time.time() - t
-                tmean = (t1 + t2) / 2
-                printfun(MSG_FOKTIMER.format(tmean))
+        # Se agregan las estadísticas
+        if addstat:
+            add_stat(stat['FILE'], versiondev, tmean, dia, lc, versionhash)
 
-            # Se agregan las estadísticas
-            if addstat:
-                add_stat(stat['FILE'], versiondev, tmean, dia, lc, versionhash)
+        # Se plotean las estadísticas
+        if plotstats:
+            plot_stats(stat['FILE'], stat['CTIME'], stat['LCODE'])
 
-            # Se plotean las estadísticas
-            if plotstats:
-                plot_stats(stat['FILE'], stat['CTIME'], stat['LCODE'])
+    # Se exporta el proyecto normal
+    if dosave:
+        czip = release['ZIP']['NORMAL']
+        export_normal = Zip(czip['FILE'])
+        export_normal.add_excepted_file(czip['EXCEPTED'])
+        export_normal.add_file(czip['ADD']['FILES'])
+        export_normal.add_folder(czip['ADD']['FOLDER'])
+        export_normal.save()
 
-        # Se exporta el proyecto normal
-        if dosave:
-            czip = release['ZIP']['NORMAL']
-            export_normal = Zip(czip['FILE'])
-            export_normal.add_excepted_file(czip['EXCEPTED'])
-            export_normal.add_file(czip['ADD']['FILES'])
-            export_normal.add_folder(czip['ADD']['FOLDER'])
-            export_normal.save()
+        # Se exporta el proyecto único
+        czip = release['ZIP']['COMPACT']
+        export_single = Zip(czip['FILE'])
+        export_single.add_file(czip['ADD']['FILES'], 'lib/')
+        export_single.add_folder(czip['ADD']['FOLDER'])
+        export_single.save()
 
-            # Se exporta el proyecto único
-            czip = release['ZIP']['COMPACT']
-            export_single = Zip(czip['FILE'])
-            export_single.add_file(czip['ADD']['FILES'], 'lib/')
-            export_single.add_folder(czip['ADD']['FOLDER'])
-            export_single.save()
+    try:
+        pyperclip.copy('Version ' + versiondev)
+    except:
+        pass
 
-        try:
-            pyperclip.copy('Version ' + versiondev)
-        except:
-            pass
-
-        if doclean:
-            clear_dict(RELEASES['_INFORME'], 'FILES')
+    if doclean:
+        clear_dict(RELEASES['_INFORME'], 'FILES')
 
     return
 

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.2.2 (09/07/2017)
+% Versión:      4.2.4 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -67,9 +67,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.2.2-N},
-		Template.Version.Hash={3CA83789BDBFDDEDD663029253B87CFB},
-		Template.Version.Release={4.2.2},
+		Template.Version.Dev={4.2.4-N},
+		Template.Version.Hash={11BEB87FBD5D7B4BC0F1ABAED0D20DD2},
+		Template.Version.Release={4.2.4},
 		Template.Web.Dev={https://github.com/ppizarror/Template-Informe/},
 		Template.Web.Manual={http://ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -78,7 +78,7 @@
 	},
 	pdfkeywords={\nombreuniversidad, \codigodelcurso \nombredelcurso, \localizacionuniversidad},
 	pdfpagemode={UseOutlines},
-	pdfproducer={Template-Informe v4.2.2 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.2.4 | (Pablo Pizarro R.) ppizarror.com},
 	pdfstartpage={1},
 	pdfstartview={FitH},
 	pdfsubject={\temaatratar},
@@ -221,6 +221,9 @@
 		{\@latex@warning{Ambiente `thebibliography' no definido}}
 		\endlist\end{multicols}}}{}
 \makeatother
+
+% Configuración anexo
+\patchcmd{\appendices}{\quad}{\sectionappendixlastchar\quad}{}{}
 
 % Configuración de códigos fuente
 \lstset{

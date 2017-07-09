@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      4.2.2 (09/07/2017)
+% Versión:      4.2.4 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -259,6 +259,8 @@ end
 		% Imagen, se numerará automáticamente con la letra del anexo
 		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.15}{Imagen en anexo.}
 		
+		\lipsum[10]
+		
 		% Tablas
 		\begin{table}[htbp]
 			\centering
@@ -274,6 +276,13 @@ end
 			\label{tab:anexo-1}%
 		\end{table}%
 	
+	\newpage
+	\section{Otros anexos}
+	
+		% Párrafo
+		\lipsum[1]\newp\lipsum[4]
+		
+		% Tabla de encuestas
 		\begin{table}[htbp]
 			\centering
 			\caption{Resultados encuesta}
@@ -286,6 +295,5 @@ end
 			\end{tabular}%
 			\label{tab:anexo-2}%
 		\end{table}%
-	
-				
+		
 \end{anexo}

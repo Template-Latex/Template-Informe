@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      4.2.2 (09/07/2017)
+% Versión:      4.2.4 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -35,12 +35,26 @@
 % Crea una sección de anexos
 \newenvironment{anexo}{
 	\begingroup
+	\clearpage
+	\phantomsection
+	\ifthenelse{\equal{\showappendixsectitle}{true}}{
+		\appendixpage}{
+	}
+	\appendixtitleon
+	\appendicestocpagenum
+	\appendixtitletocon
+	\bookmarksetupnext{level=part}
+	\bookmarksetup{
+		open,
+		numbered,
+		openlevel=0
+	}
 	\begin{appendices}
-		\appendixtitleon
-		\appendixtitletocon
-		\appendicestocpagenum
-		\appendixtitletocon
-		\renewcommand{\thesection}{\thechapter\Alph{section}\sectionappendixlastchar}
+		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
+			\belowpdfbookmark{\nameappendixsection}{contents}
+		}
+		\setcounter{secnumdepth}{3}
+		\setcounter{tocdepth}{3}
 		\counterwithin{equation}{section}
 		\counterwithin{figure}{section}
 		\counterwithin{lstlisting}{section}

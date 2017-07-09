@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      4.2.2 (09/07/2017)
+% Versión:      4.2.4 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -69,6 +69,7 @@
 \usepackage[usenames,dvipsnames]{xcolor} % Paquete de colores avanzado
 
 % LIBRERÍAS DEPENDIENTES
+\usepackage{bookmark}      % Administración de marcadores en pdf
 \usepackage{float}         % Administrador de posiciones de objetos
 \usepackage{multirow}      % Agrega nuevas opciones a las tablas
 
@@ -90,7 +91,7 @@
 	}
 }
 \ifthenelse{\equal{\showappendixsecindex}{true}}{ % Anexos/Apéndices
-	\usepackage[page,toc,titletoc,title]{appendix}
+	\usepackage[toc]{appendix}
 }{
-	\usepackage[page,titletoc,title]{appendix}
+	\usepackage{appendix}
 }
