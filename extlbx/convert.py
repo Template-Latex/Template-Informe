@@ -489,7 +489,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
         files[fl].pop(ra)
     aux_imports = file_to_list(subrelfile['IMPORTS'])
     nl = find_extract(aux_imports, '% Anexos/Apéndices', True)
-    files[fl] = find_replace(files[fl], '\ifthenelse{\equal{\showappendixsecindex}', nl, verbose=True, jadd=-1)
+    files[fl] = find_replace(files[fl], '\ifthenelse{\equal{\showappendixsecindex}', nl, jadd=-1)
     files[fl][len(files[fl]) - 1] = files[fl][len(files[fl]) - 1].strip()
 
     # CAMBIO INITCONF
