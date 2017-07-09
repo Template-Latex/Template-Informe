@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      4.2.5 (09/07/2017)
+% Versión:      4.2.6 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -19,12 +19,12 @@
 	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin "número" se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
 	\subsection{Una breve introducción}
 		
-		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
+		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
 		
-		A continuación \footnote{Como puedes observar las funciones \texttt{\textbackslash insert...} agregan un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
+		A continuación\footnote{Como puedes observar las funciones \texttt{\textbackslash insert...} agregan un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
 		
 		% Se inserta una ecuación, el primer parámetro entre corchetes es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos peso
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
@@ -272,9 +272,9 @@ end
 				A     & 10    & 3,14$\pi$ \bigstrut[t]\\
 				B     & 20    & 6 \\
 				C     & 30    & 7 \\
-				\end{tabular}%
-			\label{tab:anexo-1}%
-		\end{table}%
+				\end{tabular}
+			\label{tab:anexo-1}
+		\end{table}
 	
 	\newpage
 	\section{Otros anexos}
@@ -285,15 +285,15 @@ end
 		% Tabla de encuestas
 		\begin{table}[htbp]
 			\centering
-			\caption{Resultados encuesta}
+			\caption{Resultados encuesta.}
 			\begin{tabular}{ccc}
 				\hline
 				\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
 				\hline
 				Word  & 0\%   & No $\frownie$\\
 				\LaTeX & 100\% & Si $\checkmark$ \\
-			\end{tabular}%
-			\label{tab:anexo-2}%
-		\end{table}%
+			\end{tabular}
+			\label{tab:anexo-2}
+		\end{table}
 		
 \end{anexo}
