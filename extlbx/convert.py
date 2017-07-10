@@ -105,7 +105,7 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
     """
 
     # Tipo release
-    release = RELEASES['_INFORME']
+    release = RELEASES[REL_INFORME]
 
     # Obtiene archivos
     configfile = release['CONFIGFILE']
@@ -360,7 +360,7 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
         pass
 
     if doclean:
-        clear_dict(RELEASES['_INFORME'], 'FILES')
+        clear_dict(RELEASES[REL_INFORME], 'FILES')
 
     return
 
@@ -385,7 +385,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     """
 
     # Tipo release
-    release = RELEASES['AUXILIAR']
+    release = RELEASES[REL_AUXILIAR]
 
     # Obtiene archivos
     t = time.time()
@@ -400,7 +400,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
         printfun(MSG_GEN_FILE, end='')
     else:
         printfun(MSG_UPV_FILE, end='')
-    mainf = RELEASES['_INFORME']['FILES']
+    mainf = RELEASES[REL_INFORME]['FILES']
     files = release['FILES']
     files['main.tex'] = copy.copy(mainf['main.tex'])
     files['lib/function/core.tex'] = copy.copy(mainf['lib/function/core.tex'])
@@ -731,8 +731,8 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
 
     # Limpia el diccionario
     if doclean:
-        clear_dict(RELEASES['_INFORME'], 'FILES')
-        clear_dict(RELEASES['AUXILIAR'], 'FILES')
+        clear_dict(RELEASES[REL_INFORME], 'FILES')
+        clear_dict(RELEASES[REL_AUXILIAR], 'FILES')
 
     return
 
@@ -756,7 +756,7 @@ def export_controles(version, versiondev, versionhash, printfun=print, dosave=Tr
     """
 
     # Tipo release
-    release = RELEASES['CONTROLES']
+    release = RELEASES[REL_CONTROLES]
 
     # Obtiene archivos
     t = time.time()
@@ -772,7 +772,7 @@ def export_controles(version, versiondev, versionhash, printfun=print, dosave=Tr
     else:
         printfun(MSG_UPV_FILE, end='')
 
-    mainf = RELEASES['AUXILIAR']['FILES']
+    mainf = RELEASES[REL_AUXILIAR]['FILES']
     files = release['FILES']
     files['main.tex'] = copy.copy(mainf['main.tex'])
     files['lib/function/core.tex'] = copy.copy(mainf['lib/function/core.tex'])
@@ -1058,8 +1058,8 @@ def export_controles(version, versiondev, versionhash, printfun=print, dosave=Tr
         export_single.save()
 
     # Limpia el diccionario
-    clear_dict(RELEASES['_INFORME'], 'FILES')
-    clear_dict(RELEASES['AUXILIAR'], 'FILES')
-    clear_dict(RELEASES['CONTROLES'], 'FILES')
+    clear_dict(RELEASES[REL_INFORME], 'FILES')
+    clear_dict(RELEASES[REL_AUXILIAR], 'FILES')
+    clear_dict(RELEASES[REL_CONTROLES], 'FILES')
 
     return

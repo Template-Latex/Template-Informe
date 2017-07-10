@@ -15,7 +15,13 @@
 	
 	% Crea nueva página y establece estilo de títulos
 	\newpage
+	\tocloftpagestyle{fancy}
 	\sectionfont{\color{\indextitlecolor} \fontsizetitlei \styletitlei \selectfont}
+	
+	% Configuración del punto en índice
+	\ifthenelse{\equal{\showdotontitles}{true}}{
+		\def\cftsecaftersnum{.}}{
+	}
 	
 	% Índice de Contenidos
 	\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}

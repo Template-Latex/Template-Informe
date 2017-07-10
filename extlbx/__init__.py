@@ -28,7 +28,7 @@ from vframe import VerticalScrolledFrame
 
 # Archivo de configuraciones
 __actualpath = str(os.path.abspath(os.path.dirname(__file__))).replace('\\', '/')
-EXTLBX_CONFIGS = __actualpath + '/config.cfg'
+EXTLBX_CONFIGS = __actualpath + '/config.json'
 
 
 # noinspection PyCompatibility

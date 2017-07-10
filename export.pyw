@@ -17,6 +17,12 @@ import signal
 import traceback
 
 # Constantes
+HELP = {
+    'ESC': 'Cierra la aplicación',
+    'F1': 'Muestra esta ayuda',
+    'F2': 'Muestra las configuraciones',
+    'ENTER': 'Inicia la rutina'
+}
 TITLE = 'Export Template'
 TITLE_LOADING = 'Export Template | Espere ...'
 LIMIT_MESSAGES_CONSOLE = 1000
@@ -63,12 +69,31 @@ class CreateVersion(object):
             self._root.destroy()
             exit()
 
+        def _printconfig(*args):
+            """
+            Imprime las configuraciones.
+
+            :param args: Argumentos opcionales
+            :return: None
+            """
+            self._clearconsole()
+            self._print('CONFIGURACIONES')
+            maxlen = 0
+            key = self._configs.keys()
+            key.sort(key=natural_keys)
+            for j in key:
+                if self._configs[j]['EVENT']:
+                    maxlen = max(maxlen, len(j))
+            for j in key:
+                if self._configs[j]['EVENT']:
+                    self._print('\t{0} [{1}]'.format(j.ljust(maxlen), self._getconfig(j)))
+
         def _scroll_console(event):
             """
             Función que atrapa el evento del scrolling y mueve los comandos.
 
             :param event: Evento
-            :return: void
+            :return: None
             """
             if -175 < event.x < 240 and 38 < event.y < 136:
                 if is_windows():
@@ -113,6 +138,20 @@ class CreateVersion(object):
             """
             self._release.set(template_name)
 
+        def _show_help(*args):
+            """
+            Imprime la ayuda en consola.
+
+            :param args: Argumentos opcionales
+            :return: None
+            """
+            self._clearconsole()
+            self._print('AYUDA')
+            keys = HELP.keys()
+            keys.sort()
+            for k in keys:
+                self._print('\t{0}: {1}'.format(k, HELP[k]))
+
         def _update_ver(*args):
             """
             Pasa el foco al campo de versión, carga versiones de cada release.
@@ -124,8 +163,7 @@ class CreateVersion(object):
             for j in RELEASES.keys():
                 if self._release.get() == RELEASES[j]['NAME']:
                     self._versiontxt.configure(state='normal')
-                    self._console = []
-                    self._info_slider.canv.yview_scroll(-1000, 'units')
+                    self._clearconsole()
                     self._print('SELECCIONADO: {0}'.format(RELEASES[j]['NAME']))
                     self._print('ÚLTIMA VERSIÓN: {0}'.format(get_last_ver(RELEASES[j]['STATS']['FILE'])))
                     return
@@ -134,8 +172,13 @@ class CreateVersion(object):
         self._root.protocol('WM_DELETE_WINDOW', _kill)
         self._sounds = Sound()
 
+        # Se obtienen configuraciones
+        with open(EXTLBX_CONFIGS) as json_data:
+            d = json.load(json_data)
+            self._configs = d
+
         # Ajusta tamaño ventana
-        size = [420, 150]
+        size = [self._configs['WINDOW_SIZE']['WIDTH'], self._configs['WINDOW_SIZE']['HEIGHT']]
         self._root.minsize(width=size[0], height=size[1])
         self._root.geometry('%dx%d+%d+%d' % (size[0], size[1], (self._root.winfo_screenwidth() - size[0]) / 2,
                                              (self._root.winfo_screenheight() - size[1]) / 2))
@@ -202,17 +245,36 @@ class CreateVersion(object):
         self._root.bind('<MouseWheel>', _scroll_console)
         self._cnextnl = False
 
-        # Otros eventos
         self._root.bind('<Escape>', _kill)
 
-        # Configuraciones
-        with open(EXTLBX_CONFIGS) as json_data:
-            d = json.load(json_data)
-            self._configs = d
-        self._root.bind('<F1>', partial(_set_config, 'SAVE', '!'))
-        self._root.bind('<F2>', partial(_set_config, 'COMPILE', '!'))
-        self._root.bind('<F3>', partial(_set_config, 'SAVE_STAT', '!'))
-        self._root.bind('<F4>', partial(_set_config, 'PLOT_STAT', '!'))
+        # Eventos
+        self._root.bind('<F1>', _show_help)
+        self._root.bind('<F2>', _printconfig)
+        for i in self._configs.keys():
+            if self._configs[i]['EVENT']:
+                self._root.bind(self._configs[i]['KEY'], partial(_set_config, i, '!'))
+                HELP[self._configs[i]['KEY'].replace('<', '').replace('>', '')] = 'Activa/Desactiva {0}'.format(i)
+
+    def _clearconsole(self, *args):
+        """
+        Limpia la consola.
+
+        :param args: Argumentos opcionales
+        :return:
+        """
+
+        # noinspection PyShadowingNames
+        def _slide(*args):
+            """
+            Mueve el scroll.
+
+            :return: None
+            """
+            self._info_slider.canv.yview_scroll(1000, 'units')
+
+        self._console = []
+        self._info.config(text='')
+        self._root.after(10, _slide)
 
     def _getconfig(self, paramname):
         """
@@ -221,7 +283,7 @@ class CreateVersion(object):
         :param paramname: Nombre del parámetro de la configuración
         :return:
         """
-        return self._configs[paramname]
+        return self._configs[paramname]['VALUE']
 
     def _print(self, msg, hour=False, end=None):
         """
@@ -252,6 +314,14 @@ class CreateVersion(object):
             """
             return time.ctime(time.time())[11:20]
 
+        def _slide(*args):
+            """
+            Mueve el scroll.
+
+            :return: None
+            """
+            self._info_slider.canv.yview_scroll(2, 'units')
+
         msg = str(msg)
         if hour:
             msg = _get_hour() + ' ' + msg
@@ -269,7 +339,7 @@ class CreateVersion(object):
             self._console.pop()
 
         self._info.config(text=_consoled(self._console))
-        self._info_slider.canv.yview_scroll(1000, 'units')
+        self._root.after(50, _slide)
 
     def execute(self):
         """

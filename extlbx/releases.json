@@ -1,0 +1,318 @@
+{
+  "AUXILIAR": {
+    "CONFIGFILE": "lib/config.tex",
+    "EXAMPLECLONE": "example.tex",
+    "EXAMPLEFILE": "lib/example.tex",
+    "FILEDELCOMENTS": {
+      "lib/config.tex": false,
+      "lib/example.tex": false,
+      "lib/function/auxiliar.tex": true,
+      "lib/function/core.tex": true,
+      "lib/function/elements.tex": true,
+      "lib/function/equation.tex": true,
+      "lib/function/image.tex": true,
+      "lib/function/title.tex": true,
+      "lib/imports.tex": true,
+      "lib/initconf.tex": true,
+      "lib/pageconf.tex": true,
+      "lib/styles.tex": true,
+      "main.tex": false
+    },
+    "FILES": {
+      "lib/config.tex": [],
+      "lib/example.tex": [],
+      "lib/function/auxiliar.tex": [],
+      "lib/function/core.tex": [],
+      "lib/function/elements.tex": [],
+      "lib/function/equation.tex": [],
+      "lib/function/image.tex": [],
+      "lib/function/title.tex": [],
+      "lib/imports.tex": [],
+      "lib/initconf.tex": [],
+      "lib/pageconf.tex": [],
+      "lib/styles.tex": [],
+      "main.tex": []
+    },
+    "FILESTRIP": {
+      "lib/config.tex": false,
+      "lib/example.tex": false,
+      "lib/function/auxiliar.tex": true,
+      "lib/function/core.tex": true,
+      "lib/function/elements.tex": true,
+      "lib/function/equation.tex": true,
+      "lib/function/image.tex": true,
+      "lib/function/title.tex": true,
+      "lib/imports.tex": true,
+      "lib/initconf.tex": true,
+      "lib/pageconf.tex": true,
+      "lib/styles.tex": true,
+      "main.tex": false
+    },
+    "FUNCTIONS": "lib/function/auxiliar.tex",
+    "ID": 2,
+    "IMPORTSFILE": "lib/imports.tex",
+    "INITCONFFILE": "lib/initconf.tex",
+    "MAINFILE": "main.tex",
+    "MESSAGE": "\nCREANDO TEMPLATE-AUXILIARES v{0}",
+    "NAME": "Template-Auxiliares",
+    "PAGECONFFILE": "lib/pageconf.tex",
+    "ROOT": "subreleases/Template-Auxiliares/",
+    "SINGLEFILE": "auxiliar.tex",
+    "STATS": {
+      "CTIME": "stats/Auxiliares/stats-ctime.png",
+      "FILE": "stats/Auxiliares/stats.txt",
+      "LCODE": "stats/Auxiliares/stats-lcode.png"
+    },
+    "SUBRELFILES": {
+      "ENVFUN": "lib/environments.tex",
+      "IMPORTS": "lib/auxiliar_imports.tex",
+      "MAIN": "auxiliar_main.tex",
+      "PAGECONF": "lib/auxiliar_pageconf.tex"
+    },
+    "VERLINE": "Template-Auxiliares v{0} | (Pablo Pizarro R.) ppizarror.com",
+    "ZIP": {
+      "COMPACT": {
+        "ADD": {
+          "FILES": [
+            "main.tex"
+          ],
+          "FOLDER": [
+            "images",
+            "lib"
+          ]
+        },
+        "EXCEPTED": [],
+        "FILE": "release/Template-Auxiliares-Single.zip",
+        "GHOST": "subreleases/Template-Auxiliares/"
+      },
+      "NORMAL": {
+        "ADD": {
+          "FILES": [
+            "subreleases/Template-Auxiliares/main.tex"
+          ],
+          "FOLDER": [
+            "subreleases/Template-Auxiliares/images",
+            "subreleases/Template-Auxiliares/lib"
+          ]
+        },
+        "EXCEPTED": [
+          ".aux"
+        ],
+        "FILE": "release/Template-Auxiliares.zip",
+        "GHOST": "subreleases/Template-Auxiliares/"
+      }
+    }
+  },
+  "CONTROLES": {
+    "CONFIGFILE": "lib/config.tex",
+    "EXAMPLECLONE": "example.tex",
+    "EXAMPLEFILE": "lib/example.tex",
+    "FILEDELCOMENTS": {
+      "lib/config.tex": false,
+      "lib/example.tex": false,
+      "lib/function/control.tex": true,
+      "lib/function/core.tex": true,
+      "lib/function/elements.tex": true,
+      "lib/function/equation.tex": true,
+      "lib/function/image.tex": true,
+      "lib/function/title.tex": true,
+      "lib/imports.tex": true,
+      "lib/initconf.tex": true,
+      "lib/pageconf.tex": true,
+      "lib/styles.tex": true,
+      "main.tex": false
+    },
+    "FILES": {
+      "lib/config.tex": [],
+      "lib/example.tex": [],
+      "lib/function/control.tex": [],
+      "lib/function/core.tex": [],
+      "lib/function/elements.tex": [],
+      "lib/function/equation.tex": [],
+      "lib/function/image.tex": [],
+      "lib/function/title.tex": [],
+      "lib/imports.tex": [],
+      "lib/initconf.tex": [],
+      "lib/pageconf.tex": [],
+      "lib/styles.tex": [],
+      "main.tex": []
+    },
+    "FILESTRIP": {
+      "lib/config.tex": false,
+      "lib/example.tex": false,
+      "lib/function/control.tex": true,
+      "lib/function/core.tex": true,
+      "lib/function/elements.tex": true,
+      "lib/function/equation.tex": true,
+      "lib/function/image.tex": true,
+      "lib/function/title.tex": true,
+      "lib/imports.tex": true,
+      "lib/initconf.tex": true,
+      "lib/pageconf.tex": true,
+      "lib/styles.tex": true,
+      "main.tex": false
+    },
+    "FUNCTIONS": "lib/function/control.tex",
+    "ID": 3,
+    "IMPORTSFILE": "lib/imports.tex",
+    "INITCONFFILE": "lib/initconf.tex",
+    "MAINFILE": "main.tex",
+    "MESSAGE": "\nCREANDO TEMPLATE-CONTROLES v{0}",
+    "NAME": "Template-Controles",
+    "PAGECONFFILE": "lib/pageconf.tex",
+    "ROOT": "subreleases/Template-Controles/",
+    "SINGLEFILE": "control.tex",
+    "STATS": {
+      "CTIME": "stats/Controles/stats-ctime.png",
+      "FILE": "stats/Controles/stats.txt",
+      "LCODE": "stats/Controles/stats-lcode.png"
+    },
+    "SUBRELFILES": {
+      "MAIN": "control_main.tex",
+      "PAGECONF": "lib/control_pageconf.tex"
+    },
+    "VERLINE": "Template-Controles v{0} | (Pablo Pizarro R.) ppizarror.com",
+    "ZIP": {
+      "COMPACT": {
+        "ADD": {
+          "FILES": [
+            "main.tex"
+          ],
+          "FOLDER": [
+            "images",
+            "lib"
+          ]
+        },
+        "EXCEPTED": [],
+        "FILE": "release/Template-Controles-Single.zip",
+        "GHOST": "subreleases/Template-Controles/"
+      },
+      "NORMAL": {
+        "ADD": {
+          "FILES": [
+            "subreleases/Template-Controles/main.tex"
+          ],
+          "FOLDER": [
+            "subreleases/Template-Controles/images",
+            "subreleases/Template-Controles/lib"
+          ]
+        },
+        "EXCEPTED": [
+          ".aux"
+        ],
+        "FILE": "release/Template-Controles.zip",
+        "GHOST": "subreleases/Template-Controles/"
+      }
+    }
+  },
+  "INFORME": {
+    "CONFIGFILE": "lib/config.tex",
+    "EXAMPLECLONE": "example.tex",
+    "EXAMPLEFILE": "lib/example.tex",
+    "FILEDELCOMENTS": {
+      "lib/config.tex": false,
+      "lib/environments.tex": true,
+      "lib/example.tex": false,
+      "lib/finalconf.tex": true,
+      "lib/function/core.tex": true,
+      "lib/function/elements.tex": true,
+      "lib/function/equation.tex": true,
+      "lib/function/image.tex": true,
+      "lib/function/title.tex": true,
+      "lib/imports.tex": true,
+      "lib/index.tex": true,
+      "lib/initconf.tex": true,
+      "lib/pageconf.tex": true,
+      "lib/portrait.tex": true,
+      "lib/styles.tex": true,
+      "main.tex": false
+    },
+    "FILES": {
+      "lib/config.tex": [],
+      "lib/environments.tex": [],
+      "lib/example.tex": [],
+      "lib/finalconf.tex": [],
+      "lib/function/core.tex": [],
+      "lib/function/elements.tex": [],
+      "lib/function/equation.tex": [],
+      "lib/function/image.tex": [],
+      "lib/function/title.tex": [],
+      "lib/imports.tex": [],
+      "lib/index.tex": [],
+      "lib/initconf.tex": [],
+      "lib/pageconf.tex": [],
+      "lib/portrait.tex": [],
+      "lib/styles.tex": [],
+      "main.tex": []
+    },
+    "FILESTRIP": {
+      "lib/config.tex": false,
+      "lib/environments.tex": true,
+      "lib/example.tex": false,
+      "lib/finalconf.tex": true,
+      "lib/function/core.tex": true,
+      "lib/function/elements.tex": true,
+      "lib/function/equation.tex": true,
+      "lib/function/image.tex": true,
+      "lib/function/title.tex": true,
+      "lib/imports.tex": true,
+      "lib/index.tex": true,
+      "lib/initconf.tex": true,
+      "lib/pageconf.tex": true,
+      "lib/portrait.tex": true,
+      "lib/styles.tex": true,
+      "main.tex": false
+    },
+    "ID": 1,
+    "INITCONFFILE": "lib/initconf.tex",
+    "MAINFILE": "main.tex",
+    "MESSAGE": "\nCREANDO TEMPLATE-INFORME v{0}",
+    "NAME": "Template-Informe",
+    "ROOT": "",
+    "SINGLEFILE": "informe.tex",
+    "STATS": {
+      "CTIME": "stats/Informe/stats-ctime.png",
+      "FILE": "stats/Informe/stats.txt",
+      "LCODE": "stats/Informe/stats-lcode.png"
+    },
+    "VERLINE": "Template-Informe v{0} | (Pablo Pizarro R.) ppizarror.com",
+    "ZIP": {
+      "COMPACT": {
+        "ADD": {
+          "FILES": [
+            "informe.tex",
+            "example.tex"
+          ],
+          "FOLDER": [
+            "images"
+          ]
+        },
+        "EXCEPTED": [],
+        "FILE": "release/Template-Informe-Single.zip",
+        "GHOST": ""
+      },
+      "NORMAL": {
+        "ADD": {
+          "FILES": [
+            "main.tex"
+          ],
+          "FOLDER": [
+            "images",
+            "lib"
+          ]
+        },
+        "EXCEPTED": [
+          "greekenum.sty",
+          "auxiliar_example.tex",
+          ".aux",
+          "auxiliar_main.tex",
+          "auxiliar.tex",
+          "auxiliar_pageconf.tex",
+          "auxiliar_title.tex"
+        ],
+        "FILE": "release/Template-Informe.zip",
+        "GHOST": ""
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@ Licencia: MIT
 
 # Importación de librerías
 import os
+import re
 
 # Constantes
 LIST_END_LINE = -1
@@ -210,3 +211,20 @@ def clear_dict(d, entry):
     else:
         for k in d[entry].keys():
             d[entry][k] = []
+
+
+def natural_keys(text):
+    """
+    alist.sort(key=natural_keys) sorts in human order
+    http://nedbatchelder.com/blog/200712/human_sorting.html
+    (See Toothy's implementation in the comments).
+
+    :param text: Lista
+    :return:
+    """
+
+    # noinspection PyMissingOrEmptyDocstring
+    def atoi(t):
+        return int(t) if t.isdigit() else t
+
+    return [atoi(c) for c in re.split('(\d+)', text)]

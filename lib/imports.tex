@@ -63,15 +63,11 @@
 \usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
 \usepackage[inline]{enumitem} % Permite enumerar ítems
 \usepackage[bottom,norule,hang]{footmisc} % Estilo pié de página
+\usepackage[subfigure,titles]{tocloft} % Maneja entradas en el índice
 \usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
 \usepackage[figure,table,lstlisting]{totalcount} % Contador de objetos
 \usepackage[normalem]{ulem} % Permite tachar y subrayar
 \usepackage[usenames,dvipsnames]{xcolor} % Paquete de colores avanzado
-
-% LIBRERÍAS DEPENDIENTES
-\usepackage{bookmark}      % Administración de marcadores en pdf
-\usepackage{float}         % Administrador de posiciones de objetos
-\usepackage{multirow}      % Agrega nuevas opciones a las tablas
 
 % LIBRERÍAS CONDICIONALES
 \ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega puntos a los títulos/subtítulos
@@ -95,3 +91,8 @@
 }{
 	\usepackage{appendix}
 }
+
+% LIBRERÍAS DEPENDIENTES
+\usepackage{bookmark}      % Administración de marcadores en pdf
+\usepackage{float}         % Administrador de posiciones de objetos
+\usepackage{multirow}      % Agrega nuevas opciones a las tablas
