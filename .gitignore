@@ -42,6 +42,9 @@ main.pdf
 # Ejemplos
 _test
 
+# Pdf versions
+pdf_version/*
+
 # Accesos directos
 *.url
 
