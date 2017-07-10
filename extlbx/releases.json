@@ -56,6 +56,7 @@
     "MESSAGE": "\nCREANDO TEMPLATE-AUXILIARES v{0}",
     "NAME": "Template-Auxiliares",
     "PAGECONFFILE": "lib/pageconf.tex",
+    "PDF_FOLDER": "../../pdf_version/Auxiliares/Template v{0}.pdf",
     "ROOT": "subreleases/Template-Auxiliares/",
     "SINGLEFILE": "auxiliar.tex",
     "STATS": {
@@ -160,6 +161,7 @@
     "MESSAGE": "\nCREANDO TEMPLATE-CONTROLES v{0}",
     "NAME": "Template-Controles",
     "PAGECONFFILE": "lib/pageconf.tex",
+    "PDF_FOLDER": "../../pdf_version/Controles/Template v{0}.pdf",
     "ROOT": "subreleases/Template-Controles/",
     "SINGLEFILE": "control.tex",
     "STATS": {

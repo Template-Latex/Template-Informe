@@ -19,6 +19,11 @@
     "KEY": "<F8>",
     "EVENT": true
   },
+  "SAVE_PDF": {
+    "VALUE": false,
+    "KEY": "<F9>",
+    "EVENT": true
+  },
   "WINDOW_SIZE": {
     "EVENT": false,
     "WIDTH": 420,

@@ -87,7 +87,7 @@ def find_delete(data, block, white_end_block=False, iadd=0, jadd=0):
 
 # noinspection PyBroadException
 def export_informe(version, versiondev, versionhash, printfun=print, dosave=True, docompile=True,
-                   addwhitespace=False, deletecoments=True, plotstats=True, doclean=False, addstat=True):
+                   addwhitespace=False, deletecoments=True, plotstats=True, doclean=False, addstat=True, savepdf=True):
     """
     Exporta el archivo principal, actualiza version.
 
@@ -99,6 +99,7 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
     :param dosave: Guarda o no los archivos
     :param plotstats: Plotea las estadísticas
     :param printfun: Función que imprime en consola
+    :param savepdf: Guarda el pdf generado
     :param version: Versión
     :param versiondev: Versión developer
     :param versionhash: Hash de la versión
@@ -332,7 +333,8 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
             printfun(MSG_FOKTIMER.format(tmean))
 
             # Copia a la carpeta pdf_version
-            copyfile(mainsinglefile.replace('.tex', '.pdf'), release['PDF_FOLDER'].format(version))
+            if savepdf:
+                copyfile(mainsinglefile.replace('.tex', '.pdf'), release['PDF_FOLDER'].format(version))
 
         # Se agregan las estadísticas
         if addstat:
@@ -370,7 +372,8 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
 
 
 def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=True, docompile=True,
-                      addwhitespace=False, deletecoments=True, plotstats=True, addstat=True, doclean=True):
+                      addwhitespace=False, deletecoments=True, plotstats=True, addstat=True, doclean=True,
+                      savepdf=True):
     """
     Exporta las auxiliares.
 
@@ -382,6 +385,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     :param dosave: Guarda o no los archivos
     :param plotstats: Plotea las estadísticas
     :param printfun: Función que imprime en consola
+    :param savepdf: Guarda el pdf generado
     :param version: Versión
     :param versiondev: Versión developer
     :param versionhash: Hash de la versión
@@ -398,7 +402,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     # noinspection PyTypeChecker
     export_informe(version, versiondev, versionhash, dosave=False, docompile=False,
                    plotstats=False, addwhitespace=addwhitespace, deletecoments=deletecoments,
-                   printfun=nonprint, addstat=False)
+                   printfun=nonprint, addstat=False, savepdf=False)
 
     if dosave:
         printfun(MSG_GEN_FILE, end='')
@@ -704,6 +708,10 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
                 tmean = (t1 + t2) / 2
                 printfun(MSG_FOKTIMER.format(tmean))
 
+                # Copia a la carpeta pdf_version
+                if savepdf:
+                    copyfile(release['SINGLEFILE'].replace('.tex', '.pdf'), release['PDF_FOLDER'].format(version))
+
         # Se agregan las estadísticas
         if addstat:
             add_stat(stat['FILE'], versiondev, tmean, dia, lc, versionhash)
@@ -740,7 +748,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
 
 
 def export_controles(version, versiondev, versionhash, printfun=print, dosave=True, docompile=True,
-                     addwhitespace=False, deletecoments=True, plotstats=True, addstat=True):
+                     addwhitespace=False, deletecoments=True, plotstats=True, addstat=True, savepdf=True):
     """
     Exporta las auxiliares.
 
@@ -751,6 +759,7 @@ def export_controles(version, versiondev, versionhash, printfun=print, dosave=Tr
     :param dosave: Guarda o no los archivos
     :param plotstats: Plotea las estadísticas
     :param printfun: Función que imprime en consola
+    :param savepdf: Guarda el pdf generado
     :param version: Versión
     :param versiondev: Versión developer
     :param versionhash: Hash de la versión
@@ -767,7 +776,7 @@ def export_controles(version, versiondev, versionhash, printfun=print, dosave=Tr
     # noinspection PyTypeChecker
     export_auxiliares(version, versiondev, versionhash, dosave=False, docompile=False,
                       plotstats=False, addwhitespace=addwhitespace, deletecoments=deletecoments,
-                      printfun=nonprint, addstat=False, doclean=False)
+                      printfun=nonprint, addstat=False, doclean=False, savepdf=False)
 
     if dosave:
         printfun(MSG_GEN_FILE, end='')
@@ -1030,6 +1039,10 @@ def export_controles(version, versiondev, versionhash, printfun=print, dosave=Tr
                 t2 = time.time() - t
                 tmean = (t1 + t2) / 2
                 printfun(MSG_FOKTIMER.format(tmean))
+
+                # Copia a la carpeta pdf_version
+                if savepdf:
+                    copyfile(release['SINGLEFILE'].replace('.tex', '.pdf'), release['PDF_FOLDER'].format(version))
 
         # Se agregan las estadísticas
         if addstat:
