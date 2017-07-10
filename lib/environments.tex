@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      4.2.6 (09/07/2017)
+% Versión:      4.2.7 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -43,13 +43,12 @@
 	\appendixtitleon
 	\appendicestocpagenum
 	\appendixtitletocon
-	\bookmarksetupnext{level=part}
 	\bookmarksetup{
-		open,
 		numbered,
 		openlevel=0
 	}
 	\begin{appendices}
+		\bookmarksetupnext{level=part}
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
 			\belowpdfbookmark{\nameappendixsection}{contents}
 		}
@@ -62,6 +61,7 @@
 		}
 		{
 	\end{appendices}
+	\bookmarksetupnext{level=0}
 	\endgroup
 }
 

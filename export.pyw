@@ -121,6 +121,7 @@ class CreateVersion(object):
 
         self._root = Tk()
         self._root.protocol('WM_DELETE_WINDOW', _kill)
+        self._sounds = Sound()
 
         # Ajusta tamaño ventana
         size = [420, 150]
@@ -310,6 +311,7 @@ class CreateVersion(object):
                     self._print('ERROR: EXCEPCIÓN INESPERADA')
                     self._print(str(e))
                     self._print(traceback.format_exc())
+                    self._sounds.alert()
 
                 # Vuelve a cargar librerías
                 reload_extlbx()

@@ -26,9 +26,6 @@ desktop.ini
 __MACOSX/
 .DS_Store
 
-# Ignora los archivos pre-release
-_*
-
 # Ignora proyecto PyCharm
 .idea/
 

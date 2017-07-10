@@ -25,6 +25,7 @@ def request_version():
     return raw_input('\nINGRESE NUEVA VERSION: ')
 
 
+# noinspection PyBroadException
 def get_last_ver(statfile):
     """
     Retorna la última versión compilada.
@@ -32,18 +33,21 @@ def get_last_ver(statfile):
     :param statfile:
     :return:
     """
-    data = open(statfile)
-    datal = []
-    for d in data:
-        datal.append(d.strip())
-    lastline = split_str(datal[len(datal) - 1], ' ')
-    ver = lastline[1]
-    vtime = lastline[3]
-    if ver.count('.') == 3:
-        ver = ver.split('.')
-        ver = '{0}.{1}.{2}-{3}'.format(ver[0], ver[1], ver[2], ver[3])
-    lastver = '{0} ({1})'.format(ver, vtime)
-    data.close()
+    try:
+        data = open(statfile)
+        datal = []
+        for d in data:
+            datal.append(d.strip())
+        lastline = split_str(datal[len(datal) - 1], ' ')
+        ver = lastline[1]
+        vtime = lastline[3]
+        if ver.count('.') == 3:
+            ver = ver.split('.')
+            ver = '{0}.{1}.{2}-{3}'.format(ver[0], ver[1], ver[2], ver[3])
+        lastver = '{0} ({1})'.format(ver, vtime)
+        data.close()
+    except:
+        return '0.0.0 (NO_DATE)'
 
     return lastver
 

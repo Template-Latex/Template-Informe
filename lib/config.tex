@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.2.6 (09/07/2017)
+% Versión:      4.2.7 (09/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -13,10 +13,11 @@
 
 % CONFIGURACIONES GENERALES
 \def\addemptypagetwosides {false}  % Añade pags. en blanco al imprimir a 2 caras
+\def\anumsecaddtocounter {false}   % Función para insertar títulos anum aumenta contador
 \def\defaultimagefolder {images/}  % Carpeta raíz de las imágenes
 \def\defaultinterline {1.0}        % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11.0}     % Tamaño del salto de línea [pt]
-\def\fontdocument {lmodern}         % Tipografía (lmodern,arial,helvet)
+\def\fontdocument {lmodern}        % Tipografía (lmodern,arial,helvet)
 \def\numberedequation {true}       % Ecuaciones con \insert... numeradas
 \def\pointdecimal {false}          % Decimales con punto en vez de coma
 \def\romanpageuppercase {true}     % Páginas en número romano en mayúsculas
@@ -29,7 +30,7 @@
 \def\captionalignment {justified}  % Alineación leyenda: justified,centered,left,right
 \def\captiontbmarginfigure {9.35}  % Margen sup/inf de la leyenda en figuras [pt]
 \def\captiontbmargintable {7.0}    % Margen sup/inf de la leyenda en tablas [pt]
-\def\captiontextbold {false}       % Etiquetas (Figura,Tabla,Código) en negrita
+\def\captiontextbold {false}       % Etiquetas (Código,Figura,Tabla) en negrita
 \def\codecaptiontop {true}         % Leyenda arriba del código fuente
 \def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
 \def\showsectiononcaption {false}  % Muestra el número de sección en las leyendas
@@ -45,7 +46,7 @@
 \def\showindexoftables {true}      % Muestra la lista de tablas
 
 % CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
-\def\captioncolor {black}          % Color de la etiqueta (Figura, Tabla, Código)
+\def\captioncolor {black}          % Color de la etiqueta (Código,Figura,Tabla)
 \def\captiontextcolor {black}      % Color de la leyenda
 \def\citecolor {black}             % Color del número de las referencias o citas
 \def\highlightcolor {yellow}       % Color del subrayado con \hl
@@ -72,7 +73,7 @@
 \def\referencenumsection {false}   % Sección de referencias numerada
 \def\sectionappendixlastchar {.}   % Caracter entre el n° de la sec. de anexo y el título
 \def\showappendixsecindex {false}  % Muestra el título de la sec. de anexos en el índice
-\def\showappendixsectitle {false}  % Muestra el título de la sec. de anexo en el documento
+\def\showappendixsectitle {false}  % Muestra el título de la sec. de anexo en el informe
 \def\stylecitereferences {bibtex}  % Estilo citas y referencias (bibtex,apacite,natbib)
 \def\twocolumnreferences {false}   % Referencias en dos columnas
 
