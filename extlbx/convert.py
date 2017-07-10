@@ -472,7 +472,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     for cdel in ['namereferences', 'nomltwsrc', 'nomltwfigure', 'nomltwtable', 'nameappendixsection',
                  'nomltappendixsection']:
         ra, rb = find_block(files[fl], cdel, True)
-        files[fl][ra] = files[fl][ra].replace('    %', '%')
+        files[fl][ra] = files[fl][ra].replace('   %', '%')
     ra, rb = find_block(files[fl], 'showdotontitles', True)
     nconf = replace_argument(files[fl][ra], 1, 'false').replace(' %', '%')
     files[fl][ra] = nconf
