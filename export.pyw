@@ -12,6 +12,7 @@ Licencia: MIT
 from extlbx import *
 from functools import partial
 import json
+import signal
 import traceback
 
 # Constantes
@@ -50,7 +51,16 @@ class CreateVersion(object):
 
             :return:
             """
+
+            # noinspection PyUnresolvedReferences
+            def _oskill():
+                if os.name is 'nt':
+                    os.system('taskkill /PID {0} /F'.format(str(os.getpid())))
+                else:
+                    os.kill(os.getpid(), signal.SIGKILL)
+
             self._root.destroy()
+            exit()
 
         def _scroll_console(event):
             """
