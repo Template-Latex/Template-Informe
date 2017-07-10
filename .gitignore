@@ -36,6 +36,7 @@ __MACOSX/
 main.pdf
 
 # Ignora informe.pdf
+informe.pdf
 
 # Ignora accesos directos
 *.url
