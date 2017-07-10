@@ -366,13 +366,14 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
 
 
 def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=True, docompile=True,
-                      addwhitespace=False, deletecoments=True, plotstats=True, addstat=True):
+                      addwhitespace=False, deletecoments=True, plotstats=True, addstat=True, doclean=True):
     """
     Exporta las auxiliares.
 
     :param addstat: Agrega las estadísticas
     :param addwhitespace: Añade espacios en blanco al comprimir archivos
     :param deletecoments: Borra comentarios
+    :param doclean: Borra los archivos generados en lista
     :param docompile: Compila automáticamente
     :param dosave: Guarda o no los archivos
     :param plotstats: Plotea las estadísticas
@@ -440,9 +441,9 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
 
     # MODIFICA EL MAIN
     main_auxiliar = file_to_list(subrelfile['MAIN'])
-    nb = find_extract(main_auxiliar, '\def\equipodocente')
+    nb = find_extract(main_auxiliar, '% EQUIPO DOCENTE')
     nb.append('\n')
-    files[mainfile] = find_replace(files[mainfile], '\def\\tablaintegrantes', nb)
+    files[mainfile] = find_replace(files[mainfile], '% INTEGRANTES, PROFESORES Y FECHAS', nb)
     files[mainfile][1] = '% Documento:    Archivo principal\n'
     files[mainfile] = find_delete(files[mainfile], '% PORTADA', True)
     files[mainfile] = find_delete(files[mainfile], '% RESUMEN O ABSTRACT', True)
@@ -557,7 +558,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     # Cambia encabezado archivos
     for fl in files.keys():
         data = files[fl]
-        data[0] = '% Template:     Template auxiliar LaTeX\n'
+        data[0] = '% Template:     Template Auxiliar LaTeX\n'
         data[10] = '% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]\n'
         data[11] = '% Licencia MIT:           [https://opensource.org/licenses/MIT]\n'
         data[headerversionpos] = versionhead
@@ -594,7 +595,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
 
         # Se crea compacto
         line = 0
-        fl = open(subrlfolder + 'auxiliar.tex', 'w')
+        fl = open(subrlfolder + release['SINGLEFILE'], 'w')
         data = files[mainfile]
         stconfig = False  # Indica si se han escrito comentarios en configuraciones
 
@@ -694,9 +695,9 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
         with open(os.devnull, 'w') as FNULL:
             printfun(MSG_DCOMPILE, end='')
             with Cd(subrlfolder):
-                call(['pdflatex', 'auxiliar.tex'], stdout=FNULL, creationflags=CREATE_NO_WINDOW)
+                call(['pdflatex', release['SINGLEFILE']], stdout=FNULL, creationflags=CREATE_NO_WINDOW)
                 t1 = time.time() - t
-                call(['pdflatex', 'auxiliar.tex'], stdout=FNULL, creationflags=CREATE_NO_WINDOW)
+                call(['pdflatex', release['SINGLEFILE']], stdout=FNULL, creationflags=CREATE_NO_WINDOW)
                 t2 = time.time() - t
                 tmean = (t1 + t2) / 2
                 printfun(MSG_FOKTIMER.format(tmean))
@@ -723,7 +724,335 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
         czip = release['ZIP']['COMPACT']
         export_single = Zip(czip['FILE'])
         export_single.set_ghostpath(czip['GHOST'])
-        export_single.add_file(subrlfolder + 'auxiliar.tex')
+        export_single.add_file(subrlfolder + release['SINGLEFILE'])
+        export_single.add_folder(subrlfolder + 'images')
+        export_single.add_file(subrlfolder + 'lib/example.tex', subrlfolder + 'lib/')
+        export_single.save()
+
+    # Limpia el diccionario
+    if doclean:
+        clear_dict(RELEASES['_INFORME'], 'FILES')
+        clear_dict(RELEASES['AUXILIAR'], 'FILES')
+
+    return
+
+
+def export_controles(version, versiondev, versionhash, printfun=print, dosave=True, docompile=True,
+                     addwhitespace=False, deletecoments=True, plotstats=True, addstat=True):
+    """
+    Exporta las auxiliares.
+
+    :param addstat: Agrega las estadísticas
+    :param addwhitespace: Añade espacios en blanco al comprimir archivos
+    :param deletecoments: Borra comentarios
+    :param docompile: Compila automáticamente
+    :param dosave: Guarda o no los archivos
+    :param plotstats: Plotea las estadísticas
+    :param printfun: Función que imprime en consola
+    :param version: Versión
+    :param versiondev: Versión developer
+    :param versionhash: Hash de la versión
+    :return:
+    """
+
+    # Tipo release
+    release = RELEASES['CONTROLES']
+
+    # Obtiene archivos
+    t = time.time()
+
+    # Genera auxiliares
+    # noinspection PyTypeChecker
+    export_auxiliares(version, versiondev, versionhash, dosave=False, docompile=False,
+                      plotstats=False, addwhitespace=addwhitespace, deletecoments=deletecoments,
+                      printfun=nonprint, addstat=False, doclean=False)
+
+    if dosave:
+        printfun(MSG_GEN_FILE, end='')
+    else:
+        printfun(MSG_UPV_FILE, end='')
+
+    mainf = RELEASES['AUXILIAR']['FILES']
+    files = release['FILES']
+    files['main.tex'] = copy.copy(mainf['main.tex'])
+    files['lib/function/core.tex'] = copy.copy(mainf['lib/function/core.tex'])
+    files['lib/function/elements.tex'] = copy.copy(mainf['lib/function/elements.tex'])
+    files['lib/function/equation.tex'] = copy.copy(mainf['lib/function/equation.tex'])
+    files['lib/function/image.tex'] = copy.copy(mainf['lib/function/image.tex'])
+    files['lib/function/title.tex'] = copy.copy(mainf['lib/function/title.tex'])
+    files['lib/function/control.tex'] = copy.copy(mainf['lib/function/auxiliar.tex'])
+    files['lib/example.tex'] = file_to_list('lib/control_example.tex')
+    files['lib/initconf.tex'] = copy.copy(mainf['lib/initconf.tex'])
+    files['lib/config.tex'] = copy.copy(mainf['lib/config.tex'])
+    files['lib/pageconf.tex'] = copy.copy(mainf['lib/pageconf.tex'])
+    files['lib/styles.tex'] = copy.copy(mainf['lib/styles.tex'])
+    files['lib/imports.tex'] = copy.copy(mainf['lib/imports.tex'])
+    filedelcoments = release['FILEDELCOMENTS']
+    filestrip = release['FILESTRIP']
+    mainfile = release['MAINFILE']
+    subrelfile = release['SUBRELFILES']
+    examplefile = release['EXAMPLEFILE']
+    subrlfolder = release['ROOT']
+    stat = release['STATS']
+    configfile = release['CONFIGFILE']
+
+    # Constantes
+    main_data = open(mainfile)
+    main_data.read()
+    initdocumentline = find_line(main_data, '\\usepackage[utf8]{inputenc}') + 1
+    headersize = find_line(main_data, '% Licencia MIT:') + 2
+    headerversionpos = find_line(main_data, '% Versión:      ')
+    versionhead = '% Versión:      {0} ({1})\n'
+    main_data.close()
+
+    # Se obtiene el día
+    dia = time.strftime('%d/%m/%Y')
+
+    # Se crea el header
+    versionhead = versionhead.format(version, dia)
+
+    # MODIFICA EL MAIN
+    main_auxiliar = file_to_list(subrelfile['MAIN'])
+    nb = find_extract(main_auxiliar, '% EQUIPO DOCENTE')
+    nb.append('\n')
+    files[mainfile] = find_replace(files[mainfile], '% EQUIPO DOCENTE', nb)
+    ra = find_line(files[mainfile], 'tituloauxiliar')
+    files[mainfile][ra] = '\def\\tituloevaluacion {Título del Control}\n'
+    ra = find_line(files[mainfile], 'temaatratar')
+    files[mainfile][ra] = '\def\indicacionevaluacion {\\textbf{INDICACIÓN DEL CONTROL}} % Opcional\n'
+    nl = find_extract(main_auxiliar, '% IMPORTACIÓN DE FUNCIONES', True)
+    files[mainfile] = find_replace(files[mainfile], '% IMPORTACIÓN DE FUNCIONES', nl, white_end_block=True, jadd=-1)
+    files[mainfile][len(files[mainfile]) - 1] = files[mainfile][len(files[mainfile]) - 1].strip()
+
+    # CONTROL
+    fl = release['FUNCTIONS']
+    files[fl][1] = '% Documento:    Funciones exclusivas de Template-Controles\n'
+    fun_control = file_to_list(fl)
+    files[fl].append('\n')
+    nl = find_extract(fun_control, '\\newcommand{\\newquestionthemed}')
+    files[fl] = add_block_from_list(files[fl], nl, LIST_END_LINE, addnewline=True)
+    files[fl].append('\n')
+    files[fl].append('\n')
+    nl = find_extract(fun_control, '\\newcommand{\itempto}', white_end_block=True)
+    files[fl] = add_block_from_list(files[fl], nl, LIST_END_LINE)
+    files[fl].pop()
+    files[mainfile][len(files[mainfile]) - 1] = files[mainfile][len(files[mainfile]) - 1].strip()
+
+    # PAGECONFFILE
+    fl = release['PAGECONFFILE']
+    control_pageconf = file_to_list(subrelfile['PAGECONF'])
+    nl = find_extract(control_pageconf, '% Se crean los header-footer', True)
+    files[fl] = find_replace(files[fl], '% Se crean los header-footer', nl, white_end_block=True, jadd=-1)
+
+    # CONFIGS
+    fl = release['CONFIGFILE']
+    ra = find_line(files[fl], 'anumsecaddtocounter')
+    files[fl][ra] += '\def\\bolditempto {true}            % Puntaje item en negrita\n'
+
+    # CAMBIO INITCONF
+    fl = release['INITCONFFILE']
+    ra, _ = find_block(files[fl], '\checkvardefined{\\tituloauxiliar}')
+    files[fl][ra] = '\checkvardefined{\\tituloevaluacion}\n'
+    ra, _ = find_block(files[fl], '\g@addto@macro\\tituloauxiliar\\xspace')
+    files[fl][ra] = '\t\g@addto@macro\\tituloevaluacion\\xspace\n'
+    ra, _ = find_block(files[fl], '\checkvardefined{\\temaatratar}')
+    files[fl].pop(ra)
+    ra, _ = find_block(files[fl], '\g@addto@macro\\temaatratar\\xspace')
+    files[fl].pop(ra)
+    _, rb = find_block(files[fl], '\ifthenelse{\isundefined{\equipodocente}}', blankend=True)
+    files[fl][rb] = '\ifthenelse{\isundefined{\indicacionevaluacion}}{\n\t\def\indicacionevaluacion {}\n}{}\n\n'
+    ra, _ = find_block(files[fl], 'Template.Nombre')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, 'Template-Controles')
+    ra, _ = find_block(files[fl], 'Template.Version.Dev')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, versiondev + '-CTR/EXM-N')
+    ra, _ = find_block(files[fl], 'Template.Tipo')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, 'Normal')
+    ra, _ = find_block(files[fl], 'Template.Web.Dev')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, 'https://github.com/ppizarror/Template-Controles/')
+    ra, _ = find_block(files[fl], 'Documento.Titulo')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, '\\tituloevaluacion')
+    ra, _ = find_block(files[fl], 'pdftitle')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, '\\tituloevaluacion')
+    ra, _ = find_block(files[fl], 'Template.Web.Manual')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, 'http://ppizarror.com/Template-Controles/')
+    ra, _ = find_block(files[fl], 'pdfproducer')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, release['VERLINE'].format(version))
+    ra, _ = find_block(files[fl], 'Documento.Tema')
+    files[fl].pop(ra)
+    ra, _ = find_block(files[fl], 'pdfsubject={')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, '\\tituloevaluacion')
+    files[fl][len(files[fl]) - 1] = files[fl][len(files[fl]) - 1].strip()
+
+    # Cambia encabezado archivos
+    for fl in files.keys():
+        data = files[fl]
+        data[0] = '% Template:     Template Controles LaTeX\n'
+        data[10] = '% Sitio web del proyecto: [http://ppizarror.com/Template-Controles/]\n'
+        data[11] = '% Licencia MIT:           [https://opensource.org/licenses/MIT]\n'
+        data[headerversionpos] = versionhead
+
+    # Guarda los archivos
+    if dosave:
+        for fl in files.keys():
+            data = files[fl]
+            newfl = open(subrlfolder + fl, 'w')
+            for j in data:
+                newfl.write(j)
+            newfl.close()
+
+    # Se obtiene la cantidad de líneas de código
+    lc = 0
+    for f in files.keys():
+        lc += len(files[f])
+
+    if dosave:
+
+        # Se crea ejemplo
+        fl = open(subrlfolder + 'example.tex', 'w')
+        data = files['lib/example.tex']
+        for k in data:
+            fl.write(k)
+        fl.close()
+
+        # Actualización a compacto
+        fl = 'lib/initconf.tex'
+        ra, _ = find_block(files[fl], 'Template.Version.Dev')
+        files[fl][ra] = replace_argument(files[fl][ra], 1, versiondev + '-CTR/EXM-C')
+        ra, _ = find_block(files[fl], 'Template.Tipo')
+        files[fl][ra] = replace_argument(files[fl][ra], 1, 'Compacto')
+
+        # Se crea compacto
+        line = 0
+        fl = open(subrlfolder + release['SINGLEFILE'], 'w')
+        data = files[mainfile]
+        stconfig = False  # Indica si se han escrito comentarios en configuraciones
+
+        for d in data:
+            write = True
+            if line < initdocumentline:
+                fl.write(d)
+                write = False
+            # Si es una línea en blanco se agrega
+            if d == '\n' and write:
+                fl.write(d)
+            else:
+                # Si es un import pega el contenido
+                # noinspection PyBroadException
+                try:
+                    if d[0:6] == '\input':
+                        libr = d.replace('\input{', '').replace('}', '').strip()
+                        libr = libr.split(' ')[0]
+                        if '.tex' not in libr:
+                            libr += '.tex'
+                        if libr != examplefile:
+
+                            # Se escribe desde el largo del header en adelante
+                            libdata = files[libr]  # Datos del import
+                            libstirp = filestrip[libr]  # Eliminar espacios en blanco
+                            libdelcom = filedelcoments[libr]  # Borrar comentarios
+
+                            for libdatapos in range(headersize, len(libdata)):
+                                srclin = libdata[libdatapos]
+
+                                # Se borran los comentarios
+                                if deletecoments and libdelcom:
+                                    if '%' in srclin:
+                                        if libr == configfile:
+                                            if srclin.upper() == srclin:
+                                                if stconfig:
+                                                    fl.write('\n')
+                                                fl.write(srclin)
+                                                stconfig = True
+                                                continue
+                                        comments = srclin.strip().split('%')
+                                        if comments[0] is '':
+                                            srclin = ''
+                                        else:
+                                            srclin = srclin.replace('%' + comments[1], '')
+                                            if libdatapos != len(libdata) - 1:
+                                                srclin = srclin.strip() + '\n'
+                                            else:
+                                                srclin = srclin.strip()
+                                    elif srclin.strip() is '':
+                                        srclin = ''
+                                else:
+                                    if libr == configfile:
+                                        # noinspection PyBroadException
+                                        try:
+                                            if libdata[libdatapos + 1][0] == '%' and srclin.strip() is '':
+                                                srclin = '\n'
+                                        except:
+                                            pass
+
+                                # Se ecribe la línea
+                                if srclin is not '':
+                                    # Se aplica strip dependiendo del archivo
+                                    if libstirp:
+                                        fl.write(srclin.strip())
+                                    else:
+                                        fl.write(srclin)
+
+                            fl.write('\n')  # Se agrega espacio vacío
+                        else:
+                            fl.write(d.replace('lib/', ''))
+                        write = False
+                except:
+                    pass
+
+                # Se agrega un espacio en blanco a la página después del comentario
+                if line >= initdocumentline and write:
+                    if d[0:2] == '% ' and d[3] != ' ' and d != '% CONFIGURACIONES\n':
+                        if d != '% FIN DEL DOCUMENTO\n' and addwhitespace:
+                            fl.write('\n')
+                        d = d.replace('IMPORTACIÓN', 'DECLARACIÓN')
+                        fl.write(d)
+                    elif d == '% CONFIGURACIONES\n':
+                        pass
+                    else:
+                        fl.write(d)
+
+            # Aumenta la línea
+            line += 1
+        fl.close()
+
+    printfun(MSG_FOKTIMER.format((time.time() - t)))
+
+    # Compila el archivo
+    if docompile and dosave:
+        t = time.time()
+        with open(os.devnull, 'w') as FNULL:
+            printfun(MSG_DCOMPILE, end='')
+            with Cd(subrlfolder):
+                call(['pdflatex', release['SINGLEFILE']], stdout=FNULL, creationflags=CREATE_NO_WINDOW)
+                t1 = time.time() - t
+                call(['pdflatex', release['SINGLEFILE']], stdout=FNULL, creationflags=CREATE_NO_WINDOW)
+                t2 = time.time() - t
+                tmean = (t1 + t2) / 2
+                printfun(MSG_FOKTIMER.format(tmean))
+
+        # Se agregan las estadísticas
+        if addstat:
+            add_stat(stat['FILE'], versiondev, tmean, dia, lc, versionhash)
+
+        # Se plotean las estadísticas
+        if plotstats:
+            plot_stats(stat['FILE'], stat['CTIME'], stat['LCODE'])
+
+    # Se exporta el proyecto normal
+    if dosave:
+        czip = release['ZIP']['NORMAL']
+        export_normal = Zip(czip['FILE'])
+        export_normal.set_ghostpath(czip['GHOST'])
+        export_normal.add_excepted_file(czip['EXCEPTED'])
+        export_normal.add_file(czip['ADD']['FILES'])
+        export_normal.add_folder(czip['ADD']['FOLDER'])
+        export_normal.save()
+
+        # Se exporta el proyecto único
+        czip = release['ZIP']['COMPACT']
+        export_single = Zip(czip['FILE'])
+        export_single.set_ghostpath(czip['GHOST'])
+        export_single.add_file(subrlfolder + release['SINGLEFILE'])
         export_single.add_folder(subrlfolder + 'images')
         export_single.add_file(subrlfolder + 'lib/example.tex', subrlfolder + 'lib/')
         export_single.save()
@@ -731,5 +1060,6 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     # Limpia el diccionario
     clear_dict(RELEASES['_INFORME'], 'FILES')
     clear_dict(RELEASES['AUXILIAR'], 'FILES')
+    clear_dict(RELEASES['CONTROLES'], 'FILES')
 
     return

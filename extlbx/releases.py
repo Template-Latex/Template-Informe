@@ -193,5 +193,95 @@ RELEASES = {
         },
         'MESSAGE': '\nCREANDO TEMPLATE-AUXILIARES v{0}',
         'VERLINE': 'Template-Auxiliares v{0} | (Pablo Pizarro R.) ppizarror.com'
+    },
+    'CONTROLES': {
+        'NAME': 'Template-Controles',
+        'ID': 3,
+        'ROOT': 'subreleases/Template-Controles/',
+        'FILES': {
+            'main.tex': [],
+            'lib/function/core.tex': [],
+            'lib/function/elements.tex': [],
+            'lib/function/equation.tex': [],
+            'lib/function/image.tex': [],
+            'lib/function/title.tex': [],
+            'lib/function/control.tex': [],
+            'lib/example.tex': [],
+            'lib/initconf.tex': [],
+            'lib/config.tex': [],
+            'lib/pageconf.tex': [],
+            'lib/styles.tex': [],
+            'lib/imports.tex': [],
+        },
+        'FILEDELCOMENTS': {
+            'main.tex': False,
+            'lib/function/core.tex': True,
+            'lib/function/elements.tex': True,
+            'lib/function/equation.tex': True,
+            'lib/function/image.tex': True,
+            'lib/function/title.tex': True,
+            'lib/function/control.tex': True,
+            'lib/example.tex': False,
+            'lib/initconf.tex': True,
+            'lib/config.tex': False,
+            'lib/pageconf.tex': True,
+            'lib/styles.tex': True,
+            'lib/imports.tex': True
+        },
+        'FILESTRIP': {
+            'main.tex': False,
+            'lib/function/core.tex': True,
+            'lib/function/elements.tex': True,
+            'lib/function/equation.tex': True,
+            'lib/function/image.tex': True,
+            'lib/function/title.tex': True,
+            'lib/function/control.tex': True,
+            'lib/example.tex': False,
+            'lib/initconf.tex': True,
+            'lib/config.tex': False,
+            'lib/pageconf.tex': True,
+            'lib/styles.tex': True,
+            'lib/imports.tex': True
+        },
+        'SUBRELFILES': {
+            'MAIN': 'control_main.tex',
+            'PAGECONF': 'lib/control_pageconf.tex'
+        },
+        'CONFIGFILE': 'lib/config.tex',
+        'EXAMPLECLONE': 'example.tex',
+        'EXAMPLEFILE': 'lib/example.tex',
+        'FUNCTIONS': 'lib/function/control.tex',
+        'IMPORTSFILE': 'lib/imports.tex',
+        'INITCONFFILE': 'lib/initconf.tex',
+        'MAINFILE': 'main.tex',
+        'PAGECONFFILE': 'lib/pageconf.tex',
+        'SINGLEFILE': 'control.tex',
+        'STATS': {
+            'FILE': 'stats/Controles/stats.txt',
+            'LCODE': 'stats/Controles/stats-lcode.png',
+            'CTIME': 'stats/Controles/stats-ctime.png'
+        },
+        'ZIP': {
+            'NORMAL': {
+                'FILE': 'release/Template-Controles.zip',
+                'EXCEPTED': ['.aux'],
+                'ADD': {
+                    'FILES': ['subreleases/Template-Controles/main.tex'],
+                    'FOLDER': ['subreleases/Template-Controles/images', 'subreleases/Template-Controles/lib']
+                },
+                'GHOST': 'subreleases/Template-Controles/'
+            },
+            'COMPACT': {
+                'FILE': 'release/Template-Controles-Single.zip',
+                'EXCEPTED': [],
+                'ADD': {
+                    'FILES': ['main.tex'],
+                    'FOLDER': ['images', 'lib']
+                },
+                'GHOST': 'subreleases/Template-Controles/'
+            }
+        },
+        'MESSAGE': '\nCREANDO TEMPLATE-CONTROLES v{0}',
+        'VERLINE': 'Template-Controles v{0} | (Pablo Pizarro R.) ppizarror.com'
     }
 }

@@ -1,4 +1,4 @@
-% Template:     Template Auxiliares LaTeX
+% Template:     Template Controles LaTeX
 % Documento:    Configuración de página
 % Versión:      --
 % Codificación: UTF-8
@@ -8,27 +8,16 @@
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
+% Sitio web del proyecto: [http://ppizarror.com/Template-Controles/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
 % COMPILACION
-% - Reemplaza cada bloque en lib/pageconfs.tex
-
-% Numeración de páginas
-\newpage
-\renewcommand{\thepage}{\arabic{page}}
-\setcounter{page}{1}
-\setcounter{section}{0}
-\setcounter{footnote}{0}
-
-% Márgenes de páginas y tablas
-\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-\def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
+% - Reemplaza cada bloque en pageconf de compilado de Auxiliares
 
 % Se crean los header-footer
 \pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
 \renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
-\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
+\fancyfoot[L]{\small \rm \textit{\tituloevaluacion}} % Footer izq, título del informe
 \fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 \renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 \fancypagestyle{styleportrait}{ % Estilo portada
@@ -46,29 +35,26 @@
 	}
 	\renewcommand{\headrulewidth}{0.5pt}
 	\setpagemargincm{\pagemarginleft}{2.0}{\pagemarginright}{\pagemarginbottom}
-	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
+	\fancyfoot[L]{\small \rm \textit{\tituloevaluacion}} % Footer izq, título del informe
 	\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
-	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
+	\fancyfoot[L]{\small \rm \textit{\tituloevaluacion}} % Footer izq, título del informe
 	\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
 	\renewcommand{\footrulewidth}{0.5pt}               % Ancho de la barra del footer
 }
 \thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
 \begin{center}
 	\vspace*{2.0cm}
-	\huge {\tituloauxiliar} \\
-	\vspace{0.2cm}
-	\large {\temaatratar} \\
+	\huge {\tituloevaluacion} \\
 	\ifx\hfuzz\equipodocente\hfuzz
 	\else
-		\vspace{0.7cm}
-		\equipodocente
-		\vspace{0.4cm}
+		\vspace{0.2cm}
+		\large{\equipodocente}
+	\fi
+	\ifx\hfuzz\indicacionevaluacion\hfuzz
+	\else
+		\vspace{0.5cm}
+		\large{\indicacionevaluacion}
 	\fi
 \end{center}
-
-% Tamaño fuentes
-\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
-\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
-\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
 
 % END

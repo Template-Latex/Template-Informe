@@ -160,7 +160,9 @@ class CreateVersion(object):
         # Selección versión a compilar
         rels = []
         p = 1
-        for b in RELEASES.keys():
+        ky = RELEASES.keys()
+        ky.sort()
+        for b in ky:
             rels.append(RELEASES[b]['NAME'])
             self._root.bind('<Control-Key-{0}>'.format(p), partial(_set_templatever, RELEASES[b]['NAME']))
             p += 1
@@ -314,6 +316,11 @@ class CreateVersion(object):
                                                   dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
                                                   addstat=self._getconfig('SAVE_STAT'),
                                                   plotstats=self._getconfig('PLOT_STAT'))
+                    elif t == 3:
+                        convert.export_controles(ver, versiondev, versionhash, printfun=self._print,
+                                                 dosave=self._getconfig('SAVE'), docompile=self._getconfig('COMPILE'),
+                                                 addstat=self._getconfig('SAVE_STAT'),
+                                                 plotstats=self._getconfig('PLOT_STAT'))
                     else:
                         self._print('ERROR: ID INCORRECTO')
                 except Exception as e:

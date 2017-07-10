@@ -1,0 +1,40 @@
+% Template:     Template Controles LaTeX
+% Documento:    Funciones exclusivas de Template-Controles
+% Versión:      --
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web del proyecto: [http://ppizarror.com/Template-Controles/]
+% Licencia: MIT           [https://opensource.org/licenses/MIT]
+
+% COMPILACION
+% + lib/function/auxiliar.tex
+
+\newcommand{\newquestionthemed}[2]{
+	% Insertar nuevo título de pregunta con un tema de bajada
+	%	#1	Título
+	%	#2	Tema
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
+	\emptyvarerr{\newquestion}{#1}{Tema no definido}
+	\sectionanum{#1}
+	\vspace{-0.2cm}
+	\textbf{#2}
+	\newp
+}
+
+\newcommand{\itempto}[2]{
+	% Inserta un ítem con puntaje
+	%	#1	Puntaje
+	%	#2	Contenido del item
+	\ifthenelse{\equal{\bolditempto}{true}}{
+		\item \textbf{(#1 pto)} #2
+	}{
+		\item (#1 pto) #2
+	}
+}
+
+% END

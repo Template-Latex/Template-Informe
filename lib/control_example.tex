@@ -1,0 +1,63 @@
+% Template:     Template Controles LaTeX
+% Documento:    Archivo de ejemplo
+% Versión:      --
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas.
+%        Universidad de Chile.
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web del proyecto: [http://ppizarror.com/Template-Controles/]
+% Licencia: MIT           [https://opensource.org/licenses/MIT]
+
+\newquestionthemed{Pregunta 1}{Tema de la pregunta}
+
+	% Párrafo
+	\lipsum[114]
+	
+	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.20}{Phasellus a ante. Donec et diam.}
+	
+	\begin{enumerate}[label=\alph*), format=\textbf]
+		\itempto{1.0}{¿Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus?}
+		\itempto{3.0}{Lorem ipsum dolor sit amet, consectetuer adipiscing elit. ¿In hac habitasse platea dictumst?}
+		\itempto{2.0}{Proin tempus nibh sit amet nisl:
+			\begin{itemize}
+				\item{Nunc vitae tortor.}
+				\item{Nulla in ipsum.}
+			\end{itemize}
+		}
+	\end{enumerate}
+
+\newquestion{Pregunta 2}
+
+	% Párrafo
+	\lipsum[121]
+	
+	\begin{enumerate}[label=\alph*), format=\textbf]
+		\itempto{1.0}{Vestibulum ante ipsum primis in faucibus orci luctus $\nabla x+\mho u = 0$}
+		\itempto{1.0}{
+			Proin ut est:
+			\insertequationanum{
+				\begin{bmatrix}
+					\alpha  & 0 & -1\\ 
+					\beta   & \gamma  & 0\\ 
+					-\alpha & \frac{1}{\beta} & -1 
+				\end{bmatrix} =
+				\Gamma (\alpha \cdot \beta) + \prod_{i=0}^{\infty } \Phi (\alpha \cdot 2^{-i})}
+		}
+		\itempto{4.0}{\lipsum[101]}
+	\end{enumerate}
+
+\newquestionthemed{Pregunta 3}{Tema de la pregunta}
+
+	\insertimageright{ejemplos/test-image-wrap}{0.35}{¿Ubi sum?}
+	
+	\lipsum[4]
+	
+	\begin{enumerate}[label=\alph*), format=\textbf]
+		\itempto{2.0}{Aenean placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam. ¿Ac pulvina elit purus eget enim?}
+		\itempto{2.0}{In eget vitae, $a^n + b^n = c^n\quad\forall i \in \{\ldots\infty\}$}
+		\itempto{1.0}{Nibh enim $\aleph_i + i = 0\quad \forall i \in [0,1)$}
+		\itempto{1.0}{\lipsum[68]}
+	\end{enumerate}
