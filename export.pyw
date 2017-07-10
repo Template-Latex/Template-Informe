@@ -1,5 +1,6 @@
 ﻿# coding=utf-8
 """
+EXPORT
 Exporta main.tex a informe.tex (template sin archivos externos).
 Cambia versión y fecha a archivos.
 
