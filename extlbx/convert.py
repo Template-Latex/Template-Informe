@@ -12,6 +12,7 @@ Licencia: MIT
 from __future__ import print_function
 from latex import *
 from releases import *
+from shutil import copyfile
 from stats import *
 from subprocess import call
 from version import *
@@ -329,6 +330,9 @@ def export_informe(version, versiondev, versionhash, printfun=print, dosave=True
             t2 = time.time() - t
             tmean = (t1 + t2) / 2
             printfun(MSG_FOKTIMER.format(tmean))
+
+            # Copia a la carpeta pdf_version
+            copyfile(mainsinglefile.replace('.tex', '.pdf'), release['PDF_FOLDER'].format(version))
 
         # Se agregan las estadísticas
         if addstat:
