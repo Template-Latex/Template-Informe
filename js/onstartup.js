@@ -1,3 +1,10 @@
+// Configuraciones
+var href_images_parent = '';
+var href_json_releases = 'https://api.github.com/repos/ppizarror/Template-Informe/releases';
+var href_pdf_version = 'https://github.com/ppizarror/Template-Informe/raw/master/pdf_version/Informe/Template v{0}.pdf';
+var href_github_project = 'https://github.com/ppizarror/Template-Informe/releases/';
+var href_github_project_source = 'https://github.com/ppizarror/Template-Informe/';
+
 // Se selecciona una imagen al azar
 var images_background = [
     ['09305524.jpg', 'center', '#343434'], // 0
@@ -110,7 +117,7 @@ var images_background = [
 ];
 var images_indx_random = getRandomInt(0, images_background.length - 1);
 // images_indx_random = 106; // testeo
-var image_url = 'images/' + images_background[images_indx_random][0];
+var image_url = href_images_parent + 'images/' + images_background[images_indx_random][0];
 var image_pos = images_background[images_indx_random][1];
 
 // Se eligen colores al azar
@@ -124,7 +131,7 @@ backgroundmaincolor = shadeColor2(chosencolor, 0.98);
 var total_downloads = 0;
 
 // Se añaden las descargas del template base
-$.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", function(json) {
+$.getJSON(href_json_releases, function(json) {
     for (i = 0; i < json.length; i++) {
         try {
             for (j = 0; j < json[i].assets.length; j++) {
@@ -175,11 +182,11 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
     document.getElementById("download-button-1file").href = compact_link;
 
     // Se establece la última versión del pdf
-    console.log(String.format('Archivo pdf a mostrar: versions/Template v{0}.pdf', last_version))
-    document.getElementById("template-preview-pdf").href = String.format('versions/Template v{0}.pdf', last_version);
-    $(".badgeejemplopdf").prop("href", String.format('versions/Template v{0}.pdf', last_version));
+    document.getElementById("template-preview-pdf").href = String.format(href_pdf_version, last_version);
+    $(".badgeejemplopdf").prop("href", String.format(href_pdf_version, last_version));
 
     // Se obtiene el what's new
+    document.getElementById("github-button-header").href = href_github_project_source;
     whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
     whats_new_versions = 7;
     md_converter = new showdown.Converter();
@@ -192,7 +199,7 @@ $.getJSON("https://api.github.com/repos/ppizarror/Template-Informe/releases", fu
             new_version_entry += String.format(whats_new_html, title_new_version, content_version);
             new_version_entry += '<hr class="style1">';
         }
-        new_version_entry += "Puedes ver la lista de cambios completa <a href='https://github.com/ppizarror/Template-Informe/releases'>en Github<img src='resources/github.png' width='16px' height='16px' class='iconbutton' /></a>";
+        new_version_entry += String.format("Puedes ver la lista de cambios completa <a href='{0}'>en Github<img src='resources/github.png' width='16px' height='16px' class='iconbutton' /></a>", href_github_project);
         document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
     } catch (err) {
         console.log('Error al obtener los contenidos de las últimas versiones');
