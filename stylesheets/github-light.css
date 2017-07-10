@@ -38,6 +38,10 @@ SOFTWARE.
   font-weight: bold;
 }
 
+.pl-comment /* entity */{
+  color: #999999;
+}
+
 .pl-smi /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
 .pl-s .pl-s1 /* string source */ {
   color: #333;
