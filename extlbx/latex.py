@@ -8,6 +8,10 @@ Fecha: 2017
 Licencia: MIT
 """
 
+# Importación de librerías
+from __future__ import print_function
+import types
+
 
 def find_block(data, initstr, blankend=False):
     """
@@ -22,6 +26,7 @@ def find_block(data, initstr, blankend=False):
     i = -1
     f = -1
     for k in data:
+        k = decodeline(k)
         if initstr.lower() in k.strip().lower() and i < 0:
             i = j
         if not blankend:
@@ -62,6 +67,7 @@ def find_command(data, commandname):
     commandline = '\\newcommand{\\' + commandname + '}'
     foundcommand = -1
     for i in data:
+        i = decodeline(i)
         if foundcommand == -1:
             if commandline in i.strip():
                 foundcommand = k
@@ -70,6 +76,19 @@ def find_command(data, commandname):
                 return [foundcommand, k]
         k += 1
     return [-1, -1]
+
+
+def decodeline(line):
+    """
+    Convierte de unicode a utf8.
+
+    :param line: Línea
+    :return:
+    """
+    if isinstance(type(line), types.UnicodeType):
+        return line.encode('utf-8')
+    else:
+        return str(line)
 
 
 def replace_argument(line, argnum, new, arginitsep='{', argendsep='}'):
@@ -90,6 +109,7 @@ def replace_argument(line, argnum, new, arginitsep='{', argendsep='}'):
     ki = -1
     ke = 0
     a = []
+    line = decodeline(line)
     for k in range(0, n):
         if line[k] is arginitsep and c is not True:
             c = True

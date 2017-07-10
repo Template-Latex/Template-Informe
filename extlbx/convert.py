@@ -480,7 +480,6 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     ra, rb = find_block(files[fl], 'pagemargintop', True)
     nconf = replace_argument(files[fl][ra], 1, '2.30').replace(' %', '%')
     files[fl][ra] = nconf
-    files[fl][len(files[fl]) - 1] = files[fl][len(files[fl]) - 1].strip()
 
     # CAMBIA IMPORTS
     fl = release['IMPORTSFILE']
@@ -490,8 +489,8 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
         files[fl].pop(ra)
     aux_imports = file_to_list(subrelfile['IMPORTS'])
     nl = find_extract(aux_imports, '% Anexos/Apéndices', True)
-    files[fl] = find_replace(files[fl], '\ifthenelse{\equal{\showappendixsecindex}', nl, jadd=-1)
-    files[fl][len(files[fl]) - 1] = files[fl][len(files[fl]) - 1].strip()
+    files[fl] = find_replace(files[fl], '\ifthenelse{\equal{\showappendixsecindex}', nl, jadd=-1, white_end_block=True)
+    files[fl].append('\n')
 
     # CAMBIO INITCONF
     fl = release['INITCONFFILE']
@@ -521,7 +520,6 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     files[fl][ra] = replace_argument(files[fl][ra], 1, 'http://ppizarror.com/Template-Auxiliares/')
     ra, _ = find_block(files[fl], 'pdfproducer')
     files[fl][ra] = replace_argument(files[fl][ra], 1, release['VERLINE'].format(version))
-    files[fl][len(files[fl]) - 1] = files[fl][len(files[fl]) - 1].strip()
 
     # PAGECONF
     fl = release['PAGECONFFILE']
@@ -881,7 +879,6 @@ def export_controles(version, versiondev, versionhash, printfun=print, dosave=Tr
     files[fl].pop(ra)
     ra, _ = find_block(files[fl], 'pdfsubject={')
     files[fl][ra] = replace_argument(files[fl][ra], 1, '\\tituloevaluacion')
-    files[fl][len(files[fl]) - 1] = files[fl][len(files[fl]) - 1].strip()
 
     # Cambia encabezado archivos
     for fl in files.keys():

@@ -21,11 +21,13 @@ HELP = {
     'ESC': 'Cierra la aplicación',
     'F1': 'Muestra esta ayuda',
     'F2': 'Muestra las configuraciones',
+    'F3': 'Muestra el acerca de',
+    'F4': 'Limpia la ventana',
     'ENTER': 'Inicia la rutina'
 }
+LIMIT_MESSAGES_CONSOLE = 1000
 TITLE = 'Export Template'
 TITLE_LOADING = 'Export Template | Espere ...'
-LIMIT_MESSAGES_CONSOLE = 1000
 
 # Otros
 __author__ = 'Pablo Pizarro R.'
@@ -55,6 +57,18 @@ class CreateVersion(object):
             except:
                 self._startbutton.configure(state='disabled', cursor='arrow')
                 self._versiontxt.bind('<Return>')
+
+        def _clear(*args):
+            """
+            Limpia la ventana.
+
+            :param args: Argumentos opcionales
+            :return:
+            """
+            self._clearconsole(-1)
+            self._release.set('Seleccione template')
+            self._versiontxt.delete(0, 'end')
+            self._root.focus()
 
         def _kill(*args):
             """
@@ -128,10 +142,10 @@ class CreateVersion(object):
             :return:
             """
             if paramvalue is '!':
-                self._configs[paramname] = not self._configs[paramname]
+                self._configs[paramname]['VALUE'] = not self._configs[paramname]['VALUE']
             else:
-                self._configs[paramname] = paramvalue
-            self._print('SE ESTABLECIO <{0}> EN {1}'.format(paramname, self._configs[paramname]))
+                self._configs[paramname]['VALUE'] = paramvalue
+            self._print('SE ESTABLECIO <{0}> EN {1}'.format(paramname, self._configs[paramname]['VALUE']))
 
         def _set_templatever(template_name, *args):
             """
@@ -149,7 +163,7 @@ class CreateVersion(object):
             :param args: Argumentos opcionales
             :return: None
             """
-            self._clearconsole(scrolldir=-1)
+            self._clearconsole(-1)
             self._print('ACERCA DE')
             self._print('\tExport Template v{0}'.format(__version__))
             self._print('\tAutor: {0}\n'.format(__author__))
@@ -164,25 +178,26 @@ class CreateVersion(object):
             :param args: Argumentos opcionales
             :return: None
             """
-            self._clearconsole()
+            self._clearconsole(-1)
             self._print('AYUDA')
             keys = HELP.keys()
             keys.sort()
             for k in keys:
-                self._print('\t{0}: {1}'.format(k, HELP[k]))
+                self._print('\t{0}: {1}'.format(k, HELP[k]), scrolldir=-1)
 
         def _update_ver(*args):
             """
             Pasa el foco al campo de versión, carga versiones de cada release.
 
+            :param args: Argumentos opcionales
             :return:
             """
             self._versiontxt.focus()
             self._versiontxt.delete(0, 'end')
+            self._clearconsole()
             for j in RELEASES.keys():
                 if self._release.get() == RELEASES[j]['NAME']:
                     self._versiontxt.configure(state='normal')
-                    self._clearconsole()
                     self._print('SELECCIONADO: {0}'.format(RELEASES[j]['NAME']))
                     self._print('ÚLTIMA VERSIÓN: {0}'.format(get_last_ver(RELEASES[j]['STATS']['FILE'])))
                     return
@@ -271,16 +286,16 @@ class CreateVersion(object):
         self._root.bind('<F1>', _show_help)
         self._root.bind('<F2>', _printconfig)
         self._root.bind('<F3>', _show_about)
+        self._root.bind('<F4>', _clear)
         for i in self._configs.keys():
             if self._configs[i]['EVENT']:
                 self._root.bind(self._configs[i]['KEY'], partial(_set_config, i, '!'))
                 HELP[self._configs[i]['KEY'].replace('<', '').replace('>', '')] = 'Activa/Desactiva {0}'.format(i)
 
-    def _clearconsole(self, scrolldir=1, *args):
+    def _clearconsole(self, scrolldir=1):
         """
         Limpia la consola.
 
-        :param args: Argumentos opcionales
         :param scrolldir: Dirección del scroll
         :return:
         """
@@ -378,9 +393,10 @@ class CreateVersion(object):
         :return:
         """
 
-        def _callback():
+        def _scroll():
+            self._info_slider.canv.yview_scroll(1000, 'units')
 
-            # Se obtiene la id
+        def _callback():
             t = 0
             lastv = ''
             msg = ''
@@ -430,14 +446,16 @@ class CreateVersion(object):
             self._root.configure(cursor='arrow')
             self._root.title(TITLE)
             self._versiontxt.delete(0, 'end')
-            self._info_slider.canv.yview_scroll(1000, 'units')
             self._root.update()
+            self._root.after(50, _scroll)
+            return
 
         self._root.title(TITLE_LOADING)
         self._root.configure(cursor='wait')
         self._root.update()
-        self._root.after(400, _callback)
+        self._root.after(500, _callback)
         self._startbutton.configure(state='disabled')
+        return
 
 
 if __name__ == '__main__':

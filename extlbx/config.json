@@ -1,27 +1,27 @@
 {
   "COMPILE": {
     "VALUE": true,
-    "KEY": "<F9>",
+    "KEY": "<F5>",
     "EVENT": true
   },
   "SAVE": {
     "VALUE": true,
-    "KEY": "<F10>",
+    "KEY": "<F6>",
     "EVENT": true
   },
   "SAVE_STAT": {
     "VALUE": true,
-    "KEY": "<F11>",
+    "KEY": "<F7>",
     "EVENT": true
   },
   "PLOT_STAT": {
     "VALUE": true,
-    "KEY": "<F12>",
+    "KEY": "<F8>",
     "EVENT": true
   },
   "WINDOW_SIZE": {
     "EVENT": false,
     "WIDTH": 420,
-    "HEIGHT": 190
+    "HEIGHT": 180
   }
 }
