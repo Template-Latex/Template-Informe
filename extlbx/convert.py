@@ -11,7 +11,7 @@ Licencia: MIT
 # Importación de librerías
 from __future__ import print_function
 from latex import *
-from releases import RELEASES
+from releases import *
 from stats import *
 from subprocess import call
 from version import *

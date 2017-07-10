@@ -30,6 +30,9 @@ from vframe import VerticalScrolledFrame
 __actualpath = str(os.path.abspath(os.path.dirname(__file__))).replace('\\', '/')
 EXTLBX_CONFIGS = __actualpath + '/config.json'
 
+# Archivo de licencia
+EXTLBX_LICENSE = __actualpath + '/LICENSE'
+
 
 # noinspection PyCompatibility
 def reload_extlbx():

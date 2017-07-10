@@ -5,7 +5,7 @@ Exporta main.tex a informe.tex (template sin archivos externos).
 Cambia versión y fecha a archivos.
 
 Autor: PABLO PIZARRO @ github.com/ppizarror
-Fecha: ABRIL 2017
+Fecha: ABRIL-JULIO 2017
 Licencia: MIT
 """
 
@@ -27,8 +27,12 @@ TITLE = 'Export Template'
 TITLE_LOADING = 'Export Template | Espere ...'
 LIMIT_MESSAGES_CONSOLE = 1000
 
+# Otros
+__author__ = 'Pablo Pizarro R.'
+__version__ = '1.0.7'
 
-# noinspection PyCompatibility,PyUnusedLocal,PyBroadException,PyCallByClass
+
+# noinspection PyCompatibility,PyBroadException,PyCallByClass,PyUnusedLocal
 class CreateVersion(object):
     """
     Pide la versión al usuario y genera releases.
@@ -46,10 +50,10 @@ class CreateVersion(object):
             ver = sv.get()
             try:
                 mk_version(ver)
-                self._startbutton.configure(state='normal')
+                self._startbutton.configure(state='normal', cursor='hand2')
                 self._versiontxt.bind('<Return>', self._start)
             except:
-                self._startbutton.configure(state='disabled')
+                self._startbutton.configure(state='disabled', cursor='arrow')
                 self._versiontxt.bind('<Return>')
 
         def _kill(*args):
@@ -138,6 +142,21 @@ class CreateVersion(object):
             """
             self._release.set(template_name)
 
+        def _show_about(*args):
+            """
+            Imprime acerca de en consola.
+
+            :param args: Argumentos opcionales
+            :return: None
+            """
+            self._clearconsole(scrolldir=-1)
+            self._print('ACERCA DE')
+            self._print('\tExport Template v{0}'.format(__version__))
+            self._print('\tAutor: {0}\n'.format(__author__))
+            license = file_to_list(EXTLBX_LICENSE)
+            for line in license:
+                self._print(line, scrolldir=-1)
+
         def _show_help(*args):
             """
             Imprime la ayuda en consola.
@@ -216,6 +235,7 @@ class CreateVersion(object):
         w['width'] = 20
         w['relief'] = GROOVE
         w['anchor'] = W
+        w['cursor'] = 'hand2'
         w.pack(side=LEFT)
         self._release.trace('w', _update_ver)
 
@@ -236,9 +256,9 @@ class CreateVersion(object):
         self._info_slider = VerticalScrolledFrame(f2)
         self._info_slider.canv.config(bg='#000000')
         self._info_slider.pack(pady=2, anchor=NE, fill=BOTH, padx=1)
-        self._info = Label(self._info_slider.interior, text='', justify=LEFT,
-                           wraplength=380, anchor=NW, bg='black', fg='white', font=fonts[0],
-                           relief=FLAT, border=2, cursor='xterm')
+        self._info = Label(self._info_slider.interior, text='', justify=LEFT, anchor=NW, bg='black', fg='white',
+                           wraplength=self._configs['WINDOW_SIZE']['WIDTH'], font=fonts[0], relief=FLAT, border=2,
+                           cursor='arrow')
         self._info.pack(anchor=NW, fill=BOTH)
         self._info_slider.scroller.pack_forget()
         self._console = []
@@ -250,16 +270,18 @@ class CreateVersion(object):
         # Eventos
         self._root.bind('<F1>', _show_help)
         self._root.bind('<F2>', _printconfig)
+        self._root.bind('<F3>', _show_about)
         for i in self._configs.keys():
             if self._configs[i]['EVENT']:
                 self._root.bind(self._configs[i]['KEY'], partial(_set_config, i, '!'))
                 HELP[self._configs[i]['KEY'].replace('<', '').replace('>', '')] = 'Activa/Desactiva {0}'.format(i)
 
-    def _clearconsole(self, *args):
+    def _clearconsole(self, scrolldir=1, *args):
         """
         Limpia la consola.
 
         :param args: Argumentos opcionales
+        :param scrolldir: Dirección del scroll
         :return:
         """
 
@@ -270,7 +292,7 @@ class CreateVersion(object):
 
             :return: None
             """
-            self._info_slider.canv.yview_scroll(1000, 'units')
+            self._info_slider.canv.yview_scroll(1000 * scrolldir, 'units')
 
         self._console = []
         self._info.config(text='')
@@ -285,12 +307,13 @@ class CreateVersion(object):
         """
         return self._configs[paramname]['VALUE']
 
-    def _print(self, msg, hour=False, end=None):
+    def _print(self, msg, hour=False, end=None, scrolldir=1):
         """
         Imprime mensaje en consola.
 
         :param msg: Mensaje
         :param hour: Muestra la hora
+        :param scrolldir: Dirección del scroll
         :return: None
         """
 
@@ -320,7 +343,7 @@ class CreateVersion(object):
 
             :return: None
             """
-            self._info_slider.canv.yview_scroll(2, 'units')
+            self._info_slider.canv.yview_scroll(2000 * scrolldir, 'units')
 
         msg = str(msg)
         if hour:

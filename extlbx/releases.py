@@ -10,9 +10,11 @@ Licencia: MIT
 
 # Importación de librerías
 import json
+import os
 
 # Se carga json
-with open('extlbx/releases.json') as json_data:
+__actualpath = str(os.path.abspath(os.path.dirname(__file__))).replace('\\', '/')
+with open(__actualpath + '/releases.json') as json_data:
     RELEASES = json.load(json_data)
 
 # Constantes
