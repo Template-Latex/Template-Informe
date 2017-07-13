@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      4.2.8 (10/07/2017)
+% Versión:      4.2.9 (13/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -54,10 +54,12 @@
 		}
 		\setcounter{secnumdepth}{3}
 		\setcounter{tocdepth}{3}
-		\counterwithin{equation}{section}
-		\counterwithin{figure}{section}
-		\counterwithin{lstlisting}{section}
-		\counterwithin{table}{section}
+		\ifthenelse{\equal{\appendixindepobjnum}{true}}{
+			\counterwithin{equation}{section}
+			\counterwithin{figure}{section}
+			\counterwithin{lstlisting}{section}
+			\counterwithin{table}{section}}{
+		}
 		}
 		{
 	\end{appendices}

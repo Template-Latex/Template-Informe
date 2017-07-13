@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Índice
-% Versión:      4.2.8 (10/07/2017)
+% Versión:      4.2.9 (13/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -20,7 +20,24 @@
 	
 	% Configuración del punto en índice
 	\ifthenelse{\equal{\showdotontitles}{true}}{
-		\def\cftsecaftersnum{.}}{
+		\def\cftsecaftersnum{.}
+		\def\cftsubsecaftersnum{.}
+		\def\cftsubsubsecaftersnum{.}
+		}{
+	}
+
+	% Configuración del punto en número de objetos
+	\ifthenelse{\equal{\showdotonobjectindex}{true}}{
+		\def\cftfigaftersnum{.}
+		\def\cfttabaftersnum{.}
+		\def\cftsubfigaftersnum{.}
+		\def\cftlstlistingaftersnum{.}
+		}{
+	}
+
+	% Configuración punto entre objeto y número de página
+	\ifthenelse{\equal{\showdotpagenumindex}{true}}{}{
+		\renewcommand{\cftdot}{}
 	}
 	
 	% Índice de Contenidos

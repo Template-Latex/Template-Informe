@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.2.8 (10/07/2017)
+% Versión:      4.2.9 (13/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -13,7 +13,7 @@
 
 % CONFIGURACIONES GENERALES
 \def\addemptypagetwosides {false}  % Añade pags. en blanco al imprimir a 2 caras
-\def\anumsecaddtocounter {false}   % Función para insertar títulos anum aumenta contador
+\def\anumsecaddtocounter {false}   % Función para insertar títulos "anum" aumenta contador
 \def\defaultimagefolder {images/}  % Carpeta raíz de las imágenes
 \def\defaultinterline {1.0}        % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11.0}     % Tamaño del salto de línea [pt]
@@ -21,7 +21,7 @@
 \def\numberedequation {true}       % Ecuaciones con \insert... numeradas
 \def\pointdecimal {false}          % Decimales con punto en vez de coma
 \def\romanpageuppercase {false}    % Páginas en número romano en mayúsculas
-\def\showdotontitles {true}        % Punto al final de cada número de título/subtítulo
+\def\showdotontitles {true}        % Punto al final de cada número de título/sub(sub)título
 \def\tablepadding {1.0}            % Ancho de celda de las tablas
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
@@ -39,6 +39,8 @@
 % CONFIGURACIÓN DEL ÍNDICE
 \def\indexdepth {3}                % Profundidad máxima del índice
 \def\indextitlemargin {7.0}        % Margen título en índice \insertindextitle [pt]
+\def\showdotonobjectindex {false}  % Punto en cada número de figura, tabla o código
+\def\showdotpagenumindex {true}    % Muestra puntos entre objeto y número de página
 \def\showindex {true}              % Muestra el índice
 \def\showindexofcode {true}        % Muestra la lista de códigos fuente
 \def\showindexofcontents {true}    % Muestra la lista de contenidos
@@ -68,6 +70,7 @@
 
 % ANEXO, CITAS, REFERENCIAS
 \def\apaciterefsep {9}             % Separación entre referencias [pt] {apacite}
+\def\appendixindepobjnum {true}    % Anexo usa número objetos de forma independiente
 \def\bibtexrefsep {9}              % Separación entre referencias [pt] {bibtex}
 \def\natbibrefsep {5}              % Separación entre referencias [pt] {natbib}
 \def\referencenumsection {false}   % Sección de referencias numerada

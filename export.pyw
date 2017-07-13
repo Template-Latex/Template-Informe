@@ -435,7 +435,7 @@ class CreateVersion(object):
                                                  plotstats=self._getconfig('PLOT_STAT'),
                                                  savepdf=self._getconfig('SAVE_PDF'))
                     else:
-                        self._print('ERROR: ID INCORRECTO')
+                        raise Exception('ERROR: ID INCORRECTO')
                 except Exception as e:
                     tkMessageBox.showerror('Error fatal', 'Ocurrio un error inesperado al procesar la solicitud.')
                     self._print('ERROR: EXCEPCIÓN INESPERADA')

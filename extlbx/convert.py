@@ -453,11 +453,11 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     nb.append('\n')
     files[mainfile] = find_replace(files[mainfile], '% INTEGRANTES, PROFESORES Y FECHAS', nb)
     files[mainfile][1] = '% Documento:    Archivo principal\n'
-    files[mainfile] = find_delete(files[mainfile], '% PORTADA', True)
-    files[mainfile] = find_delete(files[mainfile], '% RESUMEN O ABSTRACT', True)
-    files[mainfile] = find_delete(files[mainfile], '% TABLA DE CONTENIDOS - ÍNDICE', True)
-    files[mainfile] = find_delete(files[mainfile], '% IMPORTACIÓN DE ENTORNOS', True)
-    files[mainfile] = find_delete(files[mainfile], '% CONFIGURACIONES FINALES', True)
+    files[mainfile] = find_delete(files[mainfile], '% PORTADA', white_end_block=True)
+    files[mainfile] = find_delete(files[mainfile], '% RESUMEN O ABSTRACT', white_end_block=True)
+    files[mainfile] = find_delete(files[mainfile], '% TABLA DE CONTENIDOS - ÍNDICE', white_end_block=True)
+    files[mainfile] = find_delete(files[mainfile], '% IMPORTACIÓN DE ENTORNOS', white_end_block=True)
+    files[mainfile] = find_delete(files[mainfile], '% CONFIGURACIONES FINALES', white_end_block=True)
     ra = find_line(files[mainfile], 'nombredelinforme')
     files[mainfile][ra] = '\def\\tituloauxiliar {Título de la auxiliar}\n'
     ra = find_line(files[mainfile], 'temaatratar')
@@ -475,7 +475,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     for cdel in cdel:
         ra, rb = find_block(files[fl], cdel, True)
         files[fl].pop(ra)
-    files[fl] = find_delete(files[fl], '% CONFIGURACIÓN DEL ÍNDICE', True)
+    files[fl] = find_delete(files[fl], '% CONFIGURACIÓN DEL ÍNDICE', white_end_block=True)
     ra, rb = find_block(files[fl], '% CONFIGURACIÓN PORTADA Y HEADERS', True)
     files[fl] = del_block_from_list(files[fl], ra, rb)
     for cdel in ['namereferences', 'nomltwsrc', 'nomltwfigure', 'nomltwtable', 'nameappendixsection',
@@ -528,6 +528,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     files[fl][ra] = replace_argument(files[fl][ra], 1, 'http://ppizarror.com/Template-Auxiliares/')
     ra, _ = find_block(files[fl], 'pdfproducer')
     files[fl][ra] = replace_argument(files[fl][ra], 1, release['VERLINE'].format(version))
+    files[fl] = find_delete(files[fl], '% Se añade listings a tocloft', white_end_block=True)
 
     # PAGECONF
     fl = release['PAGECONFFILE']
@@ -552,7 +553,7 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
 
     # AUXILIAR FUNCTIONS
     fl = release['FUNCTIONS']
-    files[fl] = find_delete(files[fl], '% COMPILACION', True)
+    files[fl] = find_delete(files[fl], '% COMPILACION', white_end_block=True)
     aux_fun = file_to_list(subrelfile['ENVFUN'])
     nl = find_extract(aux_fun, '% Crea una sección de referencias solo para bibtex', True)
     files[fl] = add_block_from_list(files[fl], nl, LIST_END_LINE)
