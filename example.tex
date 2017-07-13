@@ -19,12 +19,12 @@
 	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin "número" se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
 	\subsection{Una breve introducción}
 		
-		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
+		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
 		
-		A continuación\footnote{Como puedes observar las funciones \texttt{\textbackslash insert...} agregan un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
+		A continuación\footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
 		
 		% Se inserta una ecuación, el primer parámetro entre corchetes es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos peso
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
@@ -116,7 +116,7 @@
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
 		
-		A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}) \footnote{El mejor lenguaje del mundo}, Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{lstlisting}: \\
+		A continuación se presenta un ejemplo de inserción de código fuente en Python\footnote{El mejor lenguaje del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{lstlisting}:
 		
 % Se define el lenguaje del código, cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
 \begin{lstlisting}[style=Python, caption={Ejemplo en Python.\label{codigo-python}}]
@@ -258,7 +258,7 @@ end
 		\end{table}
 	
 	\newpage
-	\section{Otros anexos}
+	\section{Más cálculos}
 	
 		% Párrafo
 		\lipsum[1]\newp\lipsum[4]

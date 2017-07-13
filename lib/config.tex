@@ -14,7 +14,6 @@
 % CONFIGURACIONES GENERALES
 \def\addemptypagetwosides {false}  % Añade pags. en blanco al imprimir a 2 caras
 \def\anumsecaddtocounter {false}   % Función para insertar títulos "anum" aumenta contador
-\def\defaultimagefolder {images/}  % Carpeta raíz de las imágenes
 \def\defaultinterline {1.0}        % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11.0}     % Tamaño del salto de línea [pt]
 \def\fontdocument {lmodern}        % Tipografía (lmodern,arial,helvet)
@@ -63,7 +62,8 @@
 \def\titlecolor {black}            % Color de los títulos
 \def\urlcolor {magenta}            % Color de los enlaces web (\url,\href)
 
-% MÁRGENES DE FIGURAS
+% CONFIGURACIÓN DE FIGURAS
+\def\defaultimagefolder {images/}  % Carpeta raíz de las imágenes
 \def\marginbottomimages {-0.2}     % Margen inferior figura [cm]
 \def\marginfloatimages {-13.0}     % Margen sup. fig. float \insertimageleft/right [pt]
 \def\margintopimages {0.0}         % Margen superior figura [cm]
@@ -106,8 +106,10 @@
 \def\cfgbookmarksopenlevel {1}     % Nivel de los marcadores a mostrar (1: secciones)
 \def\cfgpdfbookmarkopen {true}     % Abre el panel de marcadores al abrir el pdf
 \def\cfgpdfcenterwindow {true}     % Centra la ventana del lector al abrir el pdf
+\def\cfgpdfcopyright {}            % Establece el copyright del documento
 \def\cfgpdfdisplaydoctitle {true}  % Muestra el título del informe como título del pdf
 \def\cfgpdffitwindow {false}       % Ajusta la ventana del lector al tamaño del pdf
+\def\cfgpdfmenubar {true}          % Muestra el menú del lector al abrir el pdf
 \def\cfgpdftoolbar {true}          % Muestra la barra de herramientas del lector pdf
 
 % NOMBRE DE OBJETOS
