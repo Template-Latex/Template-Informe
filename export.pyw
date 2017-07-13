@@ -31,7 +31,7 @@ TITLE_LOADING = 'Export Template | Espere ...'
 
 # Otros
 __author__ = 'Pablo Pizarro R.'
-__version__ = '1.0.8'
+__version__ = '1.1.0'
 
 
 # noinspection PyCompatibility,PyBroadException,PyCallByClass,PyUnusedLocal
@@ -360,24 +360,27 @@ class CreateVersion(object):
             """
             self._info_slider.canv.yview_scroll(2000 * scrolldir, 'units')
 
-        msg = str(msg)
-        if hour:
-            msg = _get_hour() + ' ' + msg
-        if len(self._console) == 0 or self._console[len(self._console) - 1] != msg:
-            if self._cnextnl:
-                self._console[len(self._console) - 1] += msg
-            else:
-                self._console.append(msg)
-            if end == '':
-                self._cnextnl = True
-            else:
-                self._cnextnl = False
+        try:
+            msg = str(msg)
+            if hour:
+                msg = _get_hour() + ' ' + msg
+            if len(self._console) == 0 or self._console[len(self._console) - 1] != msg:
+                if self._cnextnl:
+                    self._console[len(self._console) - 1] += msg
+                else:
+                    self._console.append(msg)
+                if end == '':
+                    self._cnextnl = True
+                else:
+                    self._cnextnl = False
 
-        if len(self._console) > LIMIT_MESSAGES_CONSOLE:
-            self._console.pop()
+            if len(self._console) > LIMIT_MESSAGES_CONSOLE:
+                self._console.pop()
 
-        self._info.config(text=_consoled(self._console))
-        self._root.after(50, _slide)
+            self._info.config(text=_consoled(self._console))
+            self._root.after(50, _slide)
+        except:
+            self._clearconsole()
 
     def execute(self):
         """

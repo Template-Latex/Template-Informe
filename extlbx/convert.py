@@ -488,6 +488,14 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     ra, rb = find_block(files[fl], 'pagemargintop', True)
     nconf = replace_argument(files[fl][ra], 1, '2.30').replace(' %', '%')
     files[fl][ra] = nconf
+    ra, rb = find_block(files[fl], 'cfgshowbookmarkmenu', True)
+    nconf = replace_argument(files[fl][ra], 1, 'false').replace(' %', '%')
+    files[fl][ra] = nconf
+    ra, rb = find_block(files[fl], 'cfgbookmarksopenlevel', True)
+    nconf = replace_argument(files[fl][ra], 1, '1')
+    files[fl][ra] = nconf
+    ra, rb = find_block(files[fl], 'tablepadding', True)
+    files[fl].insert(ra + 1, '\def\\templatestyle {style1}        % Estilo del template: style1,style2\n')
 
     # CAMBIA IMPORTS
     fl = release['IMPORTSFILE']
@@ -860,6 +868,10 @@ def export_controles(version, versiondev, versionhash, printfun=print, dosave=Tr
     fl = release['CONFIGFILE']
     ra = find_line(files[fl], 'anumsecaddtocounter')
     files[fl][ra] += '\def\\bolditempto {true}            % Puntaje item en negrita\n'
+    cdel = ['templatestyle']
+    for cdel in cdel:
+        ra, rb = find_block(files[fl], cdel, True)
+        files[fl].pop(ra)
 
     # CAMBIO INITCONF
     fl = release['INITCONFFILE']

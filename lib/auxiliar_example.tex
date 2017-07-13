@@ -14,10 +14,11 @@
 % Introducción
 \lipsum[11]
 
+% Pregunta en forma de título
 \newquestion{Pregunta 1}
 
 	% Párrafo
-	\lipsum[2]
+	\lipsum[114]
 	
 	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.17}{Ubi sunt vobis? autem \quotes{Internet}}
 	
@@ -25,11 +26,9 @@
 	
 	% Ecuación
 	\insertequation[\label{eqn:eqn-larga}]{\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}+ \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}
-	
-\newquestion{Pregunta 2}
 
-	% Párrafo
-	\lipsum[4]
+% Pregunta encerrada en un recuadro
+\newboxquestion{P2} \lipsum[4]
 
 	% Lista
 	\begin{enumerate}
@@ -38,10 +37,8 @@
 		\item {$K = \frac{1 + e}{1 - \delta}$}
 	\end{enumerate}
 
-\newquestion{Pregunta 3}
-
-	% Párrafo
-	\lipsum[15] \newp
+% Pregunta encerrada en un recuadro más control
+\newboxquestion{P3} (\textbf{P1 Control 2 2017/1}) \lipsum[117] \newp 
 
 \begin{lstlisting}[style=Python]
 import numpy as np

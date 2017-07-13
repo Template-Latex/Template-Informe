@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      4.2.9 (13/07/2017)
+% Versión:      4.3.0 (13/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -31,6 +31,15 @@
 	% 	#2	Configuración usada
 	%	#3	Valores esperados
 	\errmessage{LaTeX Warning: #1 \noexpand #2=#2. Valores esperados: #3}
+	\stop
+}
+
+\newcommand{\throwbadconfigondoc}[3]{
+	% Lanza un mensaje de error indicando mala configuración dentro de begin{document}
+	%	#1	Mensaje de error
+	% 	#2	Configuración usada
+	%	#3	Valores esperados
+	\errmessage{#1 \noexpand #2=#2. Valores esperados: #3}
 	\stop
 }
 
