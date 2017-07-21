@@ -6,6 +6,7 @@
 <a href="https://opensource.org/licenses/MIT/" id="aimg">
 <img src="http://ppizarror.com/Template-Informe/resources/Licencia-MIT-blue.svg" />
 </a>
+</br>
 
 <a href="http://ppizarror.com/Template-Tesis/" id="aimg">
 <img src="http://ppizarror.com/Template-Informe/resources/templates/tesis.svg" />
