@@ -8,25 +8,25 @@
 </a>
 </br>
 
-<a href="http://ppizarror.com/Template-Tesis/" id="aimg">
+<a href="https://github.com/ppizarror/Template-Tesis" id="aimg">
 <img src="http://ppizarror.com/Template-Informe/resources/templates/tesis.svg" />
 </a>
-<a href="http://ppizarror.com/Template-Apunte/" id="aimg">
+<a href="https://github.com/ppizarror/Template-Apunte" id="aimg">
 <img src="http://ppizarror.com/Template-Informe/resources/templates/apunte.svg" />
 </a>
-<a href="http://ppizarror.com/Template-Tareas/" id="aimg">
+<a href="https://github.com/ppizarror/Template-Tareas" id="aimg">
 <img src="http://ppizarror.com/Template-Informe/resources/templates/tareas.svg" />
 </a>
-<a href="http://ppizarror.com/Template-Auxiliares/" id="aimg">
+<a href="https://github.com/ppizarror/Template-Auxiliares" id="aimg">
 <img src="http://ppizarror.com/Template-Informe/resources/templates/auxiliares.svg" />
 </a>
-<a href="http://ppizarror.com/Template-Controles/" id="aimg">
+<a href="https://github.com/ppizarror/Template-Controles" id="aimg">
 <img src="http://ppizarror.com/Template-Informe/resources/templates/controles.svg" />
 </a>
-<a href="http://ppizarror.com/Template-Pautas/" id="aimg">
+<a href="https://github.com/ppizarror/Template-Pautas" id="aimg">
 <img src="http://ppizarror.com/Template-Informe/resources/templates/pauta.svg" />
 </a>
-<a href="http://ppizarror.com/Template-Informe/" id="aimg">
+<a href="https://github.com/ppizarror/Template-Informe" id="aimg">
 <img src="http://ppizarror.com/Template-Informe/resources/templates/informe.svg"/>
 </a>
 
