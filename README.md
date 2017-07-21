@@ -1,5 +1,12 @@
 # Template de Informe en Latex
 <a href="http://ppizarror.com/Template-Tesis/" id="aimg">
+    
+<a href="http://ppizarror.com" id="aimg">
+<img src="http://ppizarror.com/Template-Informe/resources/autor2.svg" class="bannerimg" />
+</a>
+<a href="https://opensource.org/licenses/MIT/" id="aimg">
+<img src="http://ppizarror.com/Template-Informe/resources/Licencia-MIT-blue.svg" />
+</a>
 
 <img src="http://ppizarror.com/Template-Informe/resources/templates/tesis.svg" />
 </a>
