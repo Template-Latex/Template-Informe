@@ -1,4 +1,26 @@
 # Template de Informe en Latex
+<a href="http://ppizarror.com/Template-Tesis/" id="aimg">
+
+<img src="http://ppizarror.com/Template-Informe/resources/templates/tesis.svg" />
+</a>
+<a href="http://ppizarror.com/Template-Apunte/" id="aimg">
+<img src="http://ppizarror.com/Template-Informe/resources/templates/apunte.svg" />
+</a>
+<a href="http://ppizarror.com/Template-Tareas/" id="aimg">
+<img src="http://ppizarror.com/Template-Informe/resources/templates/tareas.svg" />
+</a>
+<a href="http://ppizarror.com/Template-Auxiliares/" id="aimg">
+<img src="http://ppizarror.com/Template-Informe/resources/templates/auxiliares.svg" />
+</a>
+<a href="http://ppizarror.com/Template-Controles/" id="aimg">
+<img src="http://ppizarror.com/Template-Informe/resources/templates/controles.svg" />
+</a>
+<a href="http://ppizarror.com/Template-Pautas/" id="aimg">
+<img src="http://ppizarror.com/Template-Informe/resources/templates/pauta.svg" />
+</a>
+<a href="http://ppizarror.com/Template-Informe/" id="aimg">
+<img src="http://ppizarror.com/Template-Informe/resources/templates/informe.svg"/>
+</a>
 
 Este corresponde a un template para confeccionar informes en Latex, contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
 
