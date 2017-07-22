@@ -1,15 +1,15 @@
 # Template de Informe en Latex
 
-[![@ppizarror](http://ppizarror.com/Template-Informe/resources/autor2.svg)](http://ppizarror.com)
-[![Licencia MiT](http://ppizarror.com/Template-Informe/resources/Licencia-MIT-blue.svg)](https://opensource.org/licenses/MIT/)
+[![@ppizarror](http://latex.ppizarror.com/Template-Informe/resources/autor2.svg)](http://ppizarror.com)
+[![Licencia MiT](http://latex.ppizarror.com/Template-Informe/resources/Licencia-MIT-blue.svg)](https://opensource.org/licenses/MIT/)
 
-[![Template-Tesis](http://ppizarror.com/Template-Informe/resources/templates/tesis.svg)](https://github.com/ppizarror/Template-Tesis/)
-[![Template-Apunte](http://ppizarror.com/Template-Informe/resources/templates/apunte.svg)](https://github.com/ppizarror/Template-Apunte/)
-[![Template-Tareas](http://ppizarror.com/Template-Informe/resources/templates/tareas.svg)](https://github.com/ppizarror/Template-Tareas/)
-[![Template-Auxiliares](http://ppizarror.com/Template-Informe/resources/templates/auxiliares.svg)](https://github.com/ppizarror/Template-Auxiliares/)
-[![Template-Controles](http://ppizarror.com/Template-Informe/resources/templates/controles.svg)](https://github.com/ppizarror/Template-Controles/)
-[![Template-Pautas](http://ppizarror.com/Template-Informe/resources/templates/pauta.svg)](https://github.com/ppizarror/Template-Pautas/)
-[![Template-Informes](http://ppizarror.com/Template-Informe/resources/templates/informe.svg)](https://github.com/ppizarror/Template-Informes/)
+[![Template-Tesis](http://latex.ppizarror.com/Template-Informe/resources/templates/tesis.svg)](https://github.com/Template-Latex/Template-Tesis/)
+[![Template-Apunte](http://latex.ppizarror.com/Template-Informe/resources/templates/apunte.svg)](https://github.com/Template-Latex/Template-Apunte/)
+[![Template-Tareas](http://latex.ppizarror.com/Template-Informe/resources/templates/tareas.svg)](https://github.com/Template-Latex/Template-Tareas/)
+[![Template-Auxiliares](http://latex.ppizarror.com/Template-Informe/resources/templates/auxiliares.svg)](https://github.com/Template-Latex/Template-Auxiliares/)
+[![Template-Controles](http://latex.ppizarror.com/Template-Informe/resources/templates/controles.svg)](https://github.com/Template-Latex/Template-Controles/)
+[![Template-Pautas](http://latex.ppizarror.com/Template-Informe/resources/templates/pauta.svg)](https://github.com/Template-Latex/Template-Pautas/)
+[![Template-Informes](http://latex.ppizarror.com/Template-Informe/resources/templates/informe.svg)](https://github.com/Template-Latex/Template-Informe/)
 
 Este corresponde a un template para confeccionar informes en Latex, contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
 
