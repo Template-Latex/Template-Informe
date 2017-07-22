@@ -31,7 +31,7 @@ TITLE_LOADING = 'Export Template | Espere ...'
 
 # Otros
 __author__ = 'Pablo Pizarro R.'
-__version__ = '1.1.3'
+__version__ = '1.1.4'
 
 
 # noinspection PyCompatibility,PyBroadException,PyCallByClass,PyUnusedLocal
@@ -310,6 +310,7 @@ class CreateVersion(object):
                 self._root.bind(self._configs[i]['KEY'], partial(_set_config, i, '!'))
                 HELP[self._configs[i]['KEY'].replace('<', '').replace('>', '')] = 'Activa/Desactiva {0}'.format(i)
         self._root.bind('<Control-z>', _copyver)
+        self._root.bind('<Control-q>', _kill)
 
     def _clearconsole(self, scrolldir=1):
         """
