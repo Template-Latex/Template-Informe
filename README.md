@@ -13,7 +13,7 @@
 Este corresponde a un template para confeccionar informes en Latex, contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
 
 <p align="center">
-  <img src="http://latex.ppizarror.com/Template-Informe/images/collage.png" alt="Informe" width="80%px" height="80%px"/>
+  <img src="http://latex.ppizarror.com/Template-Informe/images/collage.png" alt="Informe" width="70%px" height="70%px"/>
 </p>
 
 ## Manual de uso
