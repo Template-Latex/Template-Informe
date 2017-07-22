@@ -28,5 +28,10 @@
     "EVENT": false,
     "WIDTH": 420,
     "HEIGHT": 180
+  },
+  "CLIPBOARD_FORMAT": {
+    "EVENT": false,
+    "VALUE": "Version {0}",
+    "INFOCONSOLE": false
   }
 }

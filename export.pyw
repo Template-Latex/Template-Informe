@@ -31,7 +31,7 @@ TITLE_LOADING = 'Export Template | Espere ...'
 
 # Otros
 __author__ = 'Pablo Pizarro R.'
-__version__ = '1.1.2'
+__version__ = '1.1.3'
 
 
 # noinspection PyCompatibility,PyBroadException,PyCallByClass,PyUnusedLocal
@@ -57,6 +57,24 @@ class CreateVersion(object):
             except:
                 self._startbutton.configure(state='disabled', cursor='arrow')
                 self._versiontxt.bind('<Return>')
+
+        def _copyver(*args):
+            """
+            Copia la versión del template seleccionado en el clipboard.
+
+            :param args: Argumentos opcionales
+            :return:
+            """
+            for j in RELEASES.keys():
+                if self._release.get() == RELEASES[j]['NAME']:
+                    v = get_last_ver(RELEASES[j]['STATS']['FILE']).split(' ')[0]
+                    extlbcbpaste(self._getconfig('CLIPBOARD_FORMAT').format(v))
+                    if self._getconfig('INFOCONSOLE'):
+                        self._print('INFO: VERSION COPIADA')
+                    return
+            if self._getconfig('INFOCONSOLE'):
+                self._print('ERROR: TEMPLATE NO ESCOGIDO')
+            extlbcbpaste('')
 
         def _clear(*args):
             """
@@ -291,6 +309,7 @@ class CreateVersion(object):
             if self._configs[i]['EVENT']:
                 self._root.bind(self._configs[i]['KEY'], partial(_set_config, i, '!'))
                 HELP[self._configs[i]['KEY'].replace('<', '').replace('>', '')] = 'Activa/Desactiva {0}'.format(i)
+        self._root.bind('<Control-z>', _copyver)
 
     def _clearconsole(self, scrolldir=1):
         """

@@ -26,6 +26,9 @@ import tkMessageBox
 # noinspection PyUnresolvedReferences
 from vframe import VerticalScrolledFrame
 
+# noinspection PyUnresolvedReferences
+from pyperclip import copy as extlbcbpaste
+
 # Archivo de configuraciones
 __actualpath = str(os.path.abspath(os.path.dirname(__file__))).replace('\\', '/')
 EXTLBX_CONFIGS = __actualpath + '/config.json'
