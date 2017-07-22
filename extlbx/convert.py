@@ -527,13 +527,13 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     ra, _ = find_block(files[fl], 'Template.Tipo')
     files[fl][ra] = replace_argument(files[fl][ra], 1, 'Normal')
     ra, _ = find_block(files[fl], 'Template.Web.Dev')
-    files[fl][ra] = replace_argument(files[fl][ra], 1, 'https://github.com/ppizarror/Template-Auxiliares/')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, release['WEB']['SOURCE'])
     ra, _ = find_block(files[fl], 'Documento.Titulo')
     files[fl][ra] = replace_argument(files[fl][ra], 1, '\\tituloauxiliar')
     ra, _ = find_block(files[fl], 'pdftitle')
     files[fl][ra] = replace_argument(files[fl][ra], 1, '\\tituloauxiliar')
     ra, _ = find_block(files[fl], 'Template.Web.Manual')
-    files[fl][ra] = replace_argument(files[fl][ra], 1, 'http://ppizarror.com/Template-Auxiliares/')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, release['WEB']['MANUAL'])
     ra, _ = find_block(files[fl], 'pdfproducer')
     files[fl][ra] = replace_argument(files[fl][ra], 1, release['VERLINE'].format(version))
     files[fl] = find_delete(files[fl], '% Se añade listings a tocloft', white_end_block=True)
@@ -574,8 +574,8 @@ def export_auxiliares(version, versiondev, versionhash, printfun=print, dosave=T
     for fl in files.keys():
         data = files[fl]
         data[0] = '% Template:     Template Auxiliar LaTeX\n'
-        data[10] = '% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]\n'
-        data[11] = '% Licencia MIT:           [https://opensource.org/licenses/MIT]\n'
+        data[10] = '% Sitio web:    [{0}]\n'.format(release['WEB']['MANUAL'])
+        data[11] = '% Licencia MIT: [https://opensource.org/licenses/MIT]\n'
         data[headerversionpos] = versionhead
 
     # Guarda los archivos
@@ -892,13 +892,13 @@ def export_controles(version, versiondev, versionhash, printfun=print, dosave=Tr
     ra, _ = find_block(files[fl], 'Template.Tipo')
     files[fl][ra] = replace_argument(files[fl][ra], 1, 'Normal')
     ra, _ = find_block(files[fl], 'Template.Web.Dev')
-    files[fl][ra] = replace_argument(files[fl][ra], 1, 'https://github.com/ppizarror/Template-Controles/')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, release['WEB']['SOURCE'])
     ra, _ = find_block(files[fl], 'Documento.Titulo')
     files[fl][ra] = replace_argument(files[fl][ra], 1, '\\tituloevaluacion')
     ra, _ = find_block(files[fl], 'pdftitle')
     files[fl][ra] = replace_argument(files[fl][ra], 1, '\\tituloevaluacion')
     ra, _ = find_block(files[fl], 'Template.Web.Manual')
-    files[fl][ra] = replace_argument(files[fl][ra], 1, 'http://ppizarror.com/Template-Controles/')
+    files[fl][ra] = replace_argument(files[fl][ra], 1, release['WEB']['MANUAL'])
     ra, _ = find_block(files[fl], 'pdfproducer')
     files[fl][ra] = replace_argument(files[fl][ra], 1, release['VERLINE'].format(version))
     ra, _ = find_block(files[fl], 'Documento.Tema')
@@ -910,8 +910,8 @@ def export_controles(version, versiondev, versionhash, printfun=print, dosave=Tr
     for fl in files.keys():
         data = files[fl]
         data[0] = '% Template:     Template Controles LaTeX\n'
-        data[10] = '% Sitio web del proyecto: [http://ppizarror.com/Template-Controles/]\n'
-        data[11] = '% Licencia MIT:           [https://opensource.org/licenses/MIT]\n'
+        data[10] = '% Sitio web:    [{0}]\n'.format(release['WEB']['MANUAL'])
+        data[11] = '% Licencia MIT: [https://opensource.org/licenses/MIT]\n'
         data[headerversionpos] = versionhead
 
     # Guarda los archivos

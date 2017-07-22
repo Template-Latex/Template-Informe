@@ -20,7 +20,7 @@
     "EVENT": true
   },
   "SAVE_PDF": {
-    "VALUE": false,
+    "VALUE": true,
     "KEY": "<F9>",
     "EVENT": true
   },

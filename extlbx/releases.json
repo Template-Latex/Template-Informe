@@ -71,6 +71,10 @@
       "PAGECONF": "lib/auxiliar_pageconf.tex"
     },
     "VERLINE": "Template-Auxiliares v{0} | (Pablo Pizarro R.) ppizarror.com",
+    "WEB": {
+      "MANUAL": "http://latex.ppizarror.com/Template-Auxiliares/",
+      "SOURCE": "https://github.com/Template-Latex/Template-Auxiliares/"
+    },
     "ZIP": {
       "COMPACT": {
         "ADD": {
@@ -174,6 +178,10 @@
       "PAGECONF": "lib/control_pageconf.tex"
     },
     "VERLINE": "Template-Controles v{0} | (Pablo Pizarro R.) ppizarror.com",
+    "WEB": {
+      "MANUAL": "http://latex.ppizarror.com/Template-Controles/",
+      "SOURCE": "https://github.com/Template-Latex/Template-Controles/"
+    },
     "ZIP": {
       "COMPACT": {
         "ADD": {
@@ -279,6 +287,10 @@
       "LCODE": "stats/Informe/stats-lcode.png"
     },
     "VERLINE": "Template-Informe v{0} | (Pablo Pizarro R.) ppizarror.com",
+    "WEB": {
+      "MANUAL": "http://latex.ppizarror.com/Template-Informe/",
+      "SOURCE": "https://github.com/Template-Latex/Template-Informe/"
+    },
     "ZIP": {
       "COMPACT": {
         "ADD": {

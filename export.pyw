@@ -31,7 +31,7 @@ TITLE_LOADING = 'Export Template | Espere ...'
 
 # Otros
 __author__ = 'Pablo Pizarro R.'
-__version__ = '1.1.0'
+__version__ = '1.1.2'
 
 
 # noinspection PyCompatibility,PyBroadException,PyCallByClass,PyUnusedLocal
