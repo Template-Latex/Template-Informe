@@ -884,9 +884,6 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 							<strong>\anumsecaddtocounter</strong>: Las funciones para insertar títulos sin número (anum) aumentan los respectivos contadores.
 						</li>
 						<li>
-							<strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
-						</li>
-						<li>
 							<strong>\defaultinterline</strong>: Tamaño del interlineado.
 						</li>
 						<li>
@@ -959,16 +956,22 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 							<strong>\indextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <i>\insertindextitle</i>), en pt.
 						</li>
 						<li>
+							<strong>\showdotonobjectindex</strong>: Punto en cada número de figura, tabla o código.
+						</li>
+						<li>
+							<strong>\showdotpagenumindex</strong>:  Muestra puntos entre objeto y número de página.
+						</li>
+						<li>
 							<strong>\showindex</strong>: Muestra la página de índice.
+						</li>
+						<li>
+							<strong>\showindexofcode</strong>: Muestra la lista de códigos fuente en el índice.
 						</li>
 						<li>
 							<strong>\showindexofcontents</strong>: Muestra la lista de contenidos.
 						</li>
 						<li>
 							<strong>\showindexoffigures</strong>: Muestra la lista de figuras en el índice.
-						</li>
-						<li>
-							<strong>\showindexofcode</strong>: Muestra la lista de códigos fuente en el índice.
 						</li>
 						<li>
 							<strong>\showindexoftables</strong>: Muestra la lista de tablas en el índice.
@@ -1028,6 +1031,9 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 					<strong class="functtitlstyle">Configuración de las figuras<a id="config-figure"></a></strong>
 					<ul>
 						<li>
+							<strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
+						</li>
+						<li>
 							<strong>\marginbottomimages</strong>: Margen inferior de las figuras, en centímetros.
 						</li>
 						<li>
@@ -1044,6 +1050,9 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 					<ul>
 						<li>
 							<strong>\apaciterefsep</strong>: Separación entre elementos de las referencias (Estilo <i>apaciteb</i>), en pt.
+						</li>
+						<li>
+							<strong>\appendixindepobjnum</strong>: La numeración de los objetos (figura, tabla, código) en la sección de anexo/apéndice es independiente del documento.
 						</li>
 						<li>
 							<strong>\bibtexrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>bibtex</i>), en pt.
@@ -1145,10 +1154,13 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 							<strong>\cfgbookmarksopenlevel</strong>: Nivel de los marcadores a mostrar (1: secciones, 2: muestra todos los subtítulos, etc.).
 						</li>
 						<li>
-							<strong>\cfgpdfbookmarkopen</strong>: Abre el panel de marcadores al abrir el pdf.
+							<strong>\cfgpdfbookmarkopen</strong>: Expande los marcadores hasta el nivel configurado.
 						</li>
 						<li>
 							<strong>\cfgpdfcenterwindow</strong>: Centra la ventana del lector pdf al abrir el informe.
+						</li>
+						<li>
+							<strong>\cfgpdfcopyright</strong>: Establece el copyright en la <i>metadata</i> del pdf.
 						</li>
 						<li>
 							<strong>\cfgpdfdisplaydoctitle</strong>: Muestra el título del informe como título en el lector del pdf.
@@ -1157,7 +1169,13 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 							<strong>\cfgpdffitwindow</strong>: Ajusta la ventana del lector pdf al tamaño del informe.
 						</li>
 						<li>
+							<strong>\cfgpdfmenubar</strong>: Muestra la barra de menú en el lector pdf.
+						</li>
+						<li>
 							<strong>\cfgpdftoolbar</strong>: Muestra la barra de herramientas del lector pdf.
+						</li>
+						<li>
+							<strong>\cfgshowbookmarkmenu</strong>: Muestra el menú de los marcadores en el lector pdf.
 						</li>
 					</ul>
 				</li>
@@ -1282,6 +1300,9 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 					<strong><a href="https://www.ctan.org/pkg/babel">babel</a></strong>: Soporte para idiomas.
 				</li>
 				<li>
+					<strong><a href="https://www.ctan.org/pkg/bibtex">bibtex</a></strong>: Administración de referencias.
+				</li>
+				<li>
 					<strong><a href="https://www.ctan.org/pkg/bigstrut">bigstrut</a></strong>: Permite añadir líneas en tablas.
 				</li>
 				<li>
@@ -1354,6 +1375,9 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 					<strong><a href="https://www.ctan.org/pkg/hyperref">hyperref</a></strong>: Permite añadir enlaces y referencias <em>[dependiente]</em>.
 				</li>
 				<li>
+					<strong><a href="https://www.ctan.org/pkg/hyperxmp">hyperxmp</a></strong>: Etiquetas opcionales en el <i>metadata</i> del pdf compilado.
+				</li>
+				<li>
 					<strong><a href="https://www.ctan.org/pkg/ifthen">ifthen</a></strong>: Permite el manejo de condicionales.
 				</li>
 				<li>
@@ -1415,6 +1439,9 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 				</li>
 				<li>
 					<strong><a href="https://www.ctan.org/pkg/textcomp">textcomp</a></strong>: Simbología.
+				</li>
+				<li>
+					<strong><a href="https://www.ctan.org/pkg/tocloft">tocloft</a></strong>: Manejo de entradas en la tabla de contenidos.
 				</li>
 				<li>
 					<strong><a href="https://www.ctan.org/pkg/totalcount">totalcount</a></strong>: Permite contar elementos.
