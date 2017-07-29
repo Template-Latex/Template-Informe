@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.3.3 (28/07/2017)
+% Versión:      4.3.4 (29/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,7 +12,7 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % Se revisa si las variables no han sido borradas
-\checkvardefined{\nombredelinforme}
+\checkvardefined{\titulodelinforme}
 \checkvardefined{\temaatratar}
 \checkvardefined{\autordeldocumento}
 \checkvardefined{\nombredelcurso}
@@ -24,7 +24,7 @@
 
 % Se añade \xspace a las variables
 \makeatletter
-	\g@addto@macro\nombredelinforme\xspace
+	\g@addto@macro\titulodelinforme\xspace
 	\g@addto@macro\temaatratar\xspace
 	\g@addto@macro\autordeldocumento\xspace
 	\g@addto@macro\nombredelcurso\xspace
@@ -62,20 +62,20 @@
 		Curso.Nombre={\nombredelcurso},
 		Documento.Autor={\autordeldocumento},
 		Documento.Tema={\temaatratar},
-		Documento.Titulo={\nombredelinforme},
+		Documento.Titulo={\titulodelinforme},
 		Template.Autor.Alias={ppizarror},
 		Template.Autor.Email={pablo.pizarro@ing.uchile.cl},
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={28/07/2017},
+		Template.Fecha={29/07/2017},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.3.3-N},
-		Template.Version.Hash={025CA23EA5584CF20653BFB7AFA4A846},
-		Template.Version.Release={4.3.3},
+		Template.Version.Dev={4.3.4-N},
+		Template.Version.Hash={F3C3630CD96742849BB4DEA64B4F3EA1},
+		Template.Version.Release={4.3.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -87,12 +87,12 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={SinglePage},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Informe v4.3.3 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.3.4 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={FitH},
 	pdfstartpage={1},
 	pdfstartview={FitH},
 	pdfsubject={\temaatratar},
-	pdftitle={\nombredelinforme},
+	pdftitle={\titulodelinforme},
 	pdftoolbar={\cfgpdftoolbar},
 	pdftype={Text},
 	pdfview={FitH}
@@ -161,27 +161,24 @@
 		format=plain
 	}
 }{
-	\ifthenelse{\equal{\captionalignment}{centered}}{ % Leyenda centrada
-		\captionsetup{
-			justification=centering
-		}
-	}{
-		\ifthenelse{\equal{\captionalignment}{left}}{ % Leyenda izq
-			\captionsetup{
-				justification=raggedright,
-				singlelinecheck=false
-			}
-		}{
-			\ifthenelse{\equal{\captionalignment}{right}}{ % Leyenda der
-				\captionsetup{
-					justification=raggedleft,
-					singlelinecheck=false
-				}
-			}{
-				\throwbadconfig{Posicion de leyendas desconocida}{\captionalignment}{justified,centered,left,right}
-			}
-		}
+\ifthenelse{\equal{\captionalignment}{centered}}{ % Leyenda centrada
+	\captionsetup{
+		justification=centering
 	}
+}{
+\ifthenelse{\equal{\captionalignment}{left}}{ % Leyenda izq
+	\captionsetup{
+		justification=raggedright,
+		singlelinecheck=false
+	}
+}{
+\ifthenelse{\equal{\captionalignment}{right}}{ % Leyenda der
+	\captionsetup{
+		justification=raggedleft,
+		singlelinecheck=false
+	}
+}{
+	\throwbadconfig{Posicion de leyendas desconocida}{\captionalignment}{justified,centered,left,right}}}}
 }
 
 % Configuración de referencias y citas

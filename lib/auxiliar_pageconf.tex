@@ -65,47 +65,46 @@
 		\fi
 	\end{center}
 }{
-	\ifthenelse{\equal{\templatestyle}{style2}}{
-		\pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
-		\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
+\ifthenelse{\equal{\templatestyle}{style2}}{
+	\pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
+	\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
+	\fancyfoot[L]{} % Footer izq
+	\fancyfoot[C]{\thepage} % Footer centro
+	\fancyfoot[R]{} % Footer der
+	\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
+	\fancypagestyle{styleportrait}{ % Estilo portada
+		\pagestyle{fancy}
+		\fancyhf{}
+		\fancyhead[L]{
+			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
+		}
+		\fancyhead[R]{
+			\vspace*{4.5cm}
+		}
+		\renewcommand{\headrulewidth}{0pt}
+		\setpagemargincm{\pagemarginleft}{2.0}{\pagemarginright}{\pagemarginbottom}
 		\fancyfoot[L]{} % Footer izq
 		\fancyfoot[C]{\thepage} % Footer centro
 		\fancyfoot[R]{} % Footer der
-		\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
-		\fancypagestyle{styleportrait}{ % Estilo portada
-			\pagestyle{fancy}
-			\fancyhf{}
-			\fancyhead[L]{
-				\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
-			}
-			\fancyhead[R]{
-				\vspace*{4.5cm}
-			}
-			\renewcommand{\headrulewidth}{0pt}
-			\setpagemargincm{\pagemarginleft}{2.0}{\pagemarginright}{\pagemarginbottom}
-			\fancyfoot[L]{} % Footer izq
-			\fancyfoot[C]{\thepage} % Footer centro
-			\fancyfoot[R]{} % Footer der
-			\renewcommand{\footrulewidth}{0pt}               % Ancho de la barra del footer
-		}
-		\thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
-		\begin{center}
-			\vspace*{2.0cm}
-			\LARGE {\textbf{\tituloauxiliar}} \\
-			\vspace{0.3cm}
-			\Large {\codigodelcurso \nombredelcurso} \\
-			\vspace{0.2cm}
-			\large {\temaatratar} \\
-			\ifx\hfuzz\equipodocente\hfuzz
-			\else
-				\vspace{0.5cm}
-				\equipodocente
-				\vspace{0.4cm}
-			\fi
-		\end{center}
-	}{
-		\throwbadconfigondoc{Estilo de template incorrecto}{\templatestyle}{style1,style2}
+		\renewcommand{\footrulewidth}{0pt}               % Ancho de la barra del footer
 	}
+	\thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
+	\begin{center}
+		\vspace*{2.0cm}
+		\LARGE {\textbf{\tituloauxiliar}} \\
+		\vspace{0.3cm}
+		\Large {\codigodelcurso \nombredelcurso} \\
+		\vspace{0.2cm}
+		\large {\temaatratar} \\
+		\ifx\hfuzz\equipodocente\hfuzz
+		\else
+			\vspace{0.5cm}
+			\equipodocente
+			\vspace{0.4cm}
+		\fi
+	\end{center}
+}{
+	\throwbadconfigondoc{Estilo de template incorrecto}{\templatestyle}{style1,style2}}
 }
 
 % Tamaño fuentes

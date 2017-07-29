@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Portada
-% Versión:      4.3.3 (28/07/2017)
+% Versión:      4.3.4 (29/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -14,47 +14,114 @@
 % Se escribe el header de la portada
 \newpage
 \renewcommand{\thepage}{\nameportraitpage}
-\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-\pagestyle{fancy} \fancyhf{}
-\fancyhead[L]{
-	\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad \\ \vspace{-0.43cm}
-}
-\fancyhead[R]{
-	\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
-}
 
-% Estilo con código de curso
-\ifthenelse{\equal{\gradecodeonportrait}{true}}{
-	\vspace*{3cm}
-	\begin{center}
-		\textcolor {\portraittitlecolor}{
-			\huge {\nombredelcurso} \\
-			\vspace {0.3cm}
-			\large {Código del curso: \codigodelcurso} \\
-			\vspace {1.5cm}
-			\Huge {\nombredelinforme} \\
-			\vspace {0.3cm}
-			\large {\temaatratar}
-		}
-	\end{center}
+% Estilos de portada
+\ifthenelse{\equal{\portraitstyle}{style1}}{
+	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{
+		\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad \\ \vspace{-0.43cm}
+	}
+	\fancyhead[R]{
+		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+	}
 
-% Estilo sin código
-}{
 	\vspace*{5cm}
 	\begin{center}
-		\textcolor {\portraittitlecolor}{
-			\huge {\nombredelcurso} \\
-			\vspace {1.2cm}
-			\Huge {\nombredelinforme} \\
-			\vspace {0.3cm}
-			\large {\temaatratar}
+		\textcolor{\portraittitlecolor}{
+			\huge{\nombredelcurso} \\
+			\vspace{1.2cm}
+			\Huge{\titulodelinforme} \\
+			\vspace{0.3cm}
+			\large{\temaatratar}
 		}
 	\end{center}
-}
 
-% Tabla de integrantes
-\vfill
-\tablaintegrantes
+	\vfill
+	\tablaintegrantes
+}{
+\ifthenelse{\equal{\portraitstyle}{style2}}{
+	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{
+		\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad \\ \vspace{-0.43cm}
+	}
+	\fancyhead[R]{
+		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+	}
+
+	\vspace*{3cm}
+	\begin{center}
+		\textcolor{\portraittitlecolor}{
+			\huge{\nombredelcurso} \\
+			\vspace{0.3cm}
+			\large{Código del curso: \codigodelcurso} \\
+			\vspace{1.5cm}
+			\Huge{\titulodelinforme} \\
+			\vspace{0.3cm}
+			\large{\temaatratar}
+		}
+	\end{center}
+
+	\vfill
+	\tablaintegrantes
+}{
+\ifthenelse{\equal{\portraitstyle}{style3}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\pagestyle{empty}
+	\begin{wrapfigure}{l}{0.3\textwidth}
+		\vspace{-0.69cm}
+		\includegraphics[scale=1.35]{departamentos/fcfm2}
+	\end{wrapfigure}
+	\hspace*{0.3cm}
+	\noindent \textsc{\color{red} \hspace{-1.6cm} \departamentouniversidad} \\
+	\hspace*{0.3cm}
+	\noindent \textsc{\color{dgray} \hspace{-1.0cm} \nombrefacultad} \\
+	\hspace*{0.3cm}
+	\noindent \textsc{\color{dgray} \hspace{-1.0cm} \nombreuniversidad} \\
+	\hspace*{0.3cm}
+	\noindent \textsc{\color{dgray} \hspace{-1.0cm} \codigodelcurso \nombredelcurso}\\
+	
+	\begin{center}
+		~ \\ [4.5cm]
+		{\color{dgray} \Large \textsc{\temaatratar}}
+		\rule{\linewidth}{.4mm} ~ \\ [0.4cm]
+		{ \Huge \textup \bfseries \textsc{\titulodelinforme}} \\ [0.4cm]
+		\rule{\linewidth}{.4mm} ~\\ [2.5cm]
+	\end{center}
+	\begin{minipage}{.5\textwidth}
+		~
+	\end{minipage}
+	
+	\vfill
+	\tablaintegrantes
+}{
+\ifthenelse{\equal{\portraitstyle}{style4}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\pagestyle{empty}
+	\includegraphics[width=1.5cm]{departamentos/uchile2}
+	\hspace{0cm}
+	\begin{tabular}{l}
+		\small \scshape{\MakeUppercase{\nombreuniversidad}} \\
+		\small \scshape{\MakeUppercase{\nombrefacultad}} \\
+		\small \scshape{\MakeUppercase{\departamentouniversidad}} \\
+		\vspace*{1.25cm}\mbox{}
+	\end{tabular}
+
+	\vspace*{4 cm}
+	\begin{center}
+		\fontsize{8mm}{9mm} \selectfont 
+		\titulodelinforme \\
+		\vspace*{1cm}
+		\footnotesize{\codigodelcurso\ - \nombredelcurso} \\
+		\vspace*{3cm}
+	\end{center}
+
+	\vfill
+	\tablaintegrantes
+}{
+	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1,style2,style3,style4}}}}
+}
 
 % Añade una página en blanco al imprimir por las dos caras
 \ifthenelse{\equal{\addemptypagetwosides}{true}}{
