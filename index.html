@@ -153,16 +153,16 @@
 				<a href="#configurar-el-template" class="menu-big-entry">Configurar el template</a>
 				<ul>
 					<li><a href="#config-other" class="menu-little-entry">Configuraciones generales</a></li>
+					<li><a href="#config-portraithf" class="menu-little-entry">Estilo de portada y header-footer</a></li>
+					<li><a href="#config-pagemargin" class="menu-little-entry">Márgenes de la página</a></li>
 					<li><a href="#config-caption" class="menu-little-entry">Configuración de las leyendas</a></li>
 					<li><a href="#config-index" class="menu-little-entry">Configuración del índice</a></li>
 					<li><a href="#config-colors" class="menu-little-entry">Configurar los colores del documento</a></li>
 					<li><a href="#config-figure" class="menu-little-entry">Márgenes de las figuras</a></li>
 					<li><a href="#config-ref" class="menu-little-entry">Configuración del anexo, citas y referencias</a></li>
-					<li><a href="#config-elem" class="menu-little-entry">Configuración de portada, header y footer</a></li>
-					<li><a href="#config-pagemargin" class="menu-little-entry">Márgenes de la página</a></li>
 					<li><a href="#config-tstyles" class="menu-little-entry">Estilo y tamaño de los títulos</a></li>
-					<li><a href="#config-pdfoptions" class="menu-little-entry">Opciones del pdf</a></li>
 					<li><a href="#config-objname" class="menu-little-entry">Nombres de objetos</a></li>
+					<li><a href="#config-pdfoptions" class="menu-little-entry">Opciones del pdf</a></li>
 				</ul>
 			</li>
 			<li><a href="#links" class="menu-big-entry">Links de interés</a></li>
@@ -277,6 +277,9 @@
 						<strong>fcfm</strong>: Facultad de Ciencias Físicas y Matemáticas.
 					</li>
 					<li>
+						<strong>fcfm2</strong>: Sólo el logo de la Facultad de Ciencias Físicas y Matemáticas.
+					</li>
+					<li>
 						<strong>geo</strong>: Departamento de Geología.
 					</li>
 					<li>
@@ -284,6 +287,9 @@
 					</li>
 					<li>
 						<strong>uchile</strong>: Escudo de la Universidad de Chile.
+					</li>
+					<li>
+						<strong>uchile2</strong>: Sólo el escudo de la Universidad de Chile.
 					</li>
 				</ul>
 			</li>
@@ -911,6 +917,39 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 				</li>
 
 				<li class="config-parent">
+					<strong class="functtitlstyle">Estilo de portada y header-footer<a id="config-portraithf"></a></strong>
+					<ul>
+						<li>
+							<strong>\hfstyle</strong>: Estilo del encabezado y pié de página (header-footer), existen 6 estilos distintos .
+						</li>
+						<li>
+							<strong>\portraitstyle</strong>: Estilo de la portada, existen 4 estilos distintos.
+						</li>
+					</ul>
+				</li>
+
+				<li class="config-parent">
+					<strong class="functtitlstyle">Márgenes de la página<a id="config-pagemargin"></a></strong>
+					<ul>
+						<li>
+							<strong>\firstpagemargintop</strong>: Margen superior de la portada en centímetros.
+						</li>
+						<li>
+							<strong>\pagemarginbottom</strong>: Margen inferior de las páginas en centímetros.
+						</li>
+						<li>
+							<strong>\pagemarginleft</strong>: Margen izquierdo de las páginas en centímetros.
+						</li>
+						<li>
+							<strong>\pagemarginright</strong>: Margen derecho de las páginas en centímetros.
+						</li>
+						<li>
+							<strong>\pagemargintop</strong>: Margen superior de las páginas en centímetros.
+						</li>
+					</ul>
+				</li>
+
+				<li class="config-parent">
 					<strong class="functtitlstyle">Configuración de las leyendas<a id="config-caption"></a></strong>
 					<ul>
 						<li>
@@ -1082,42 +1121,6 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 				</li>
 
 				<li class="config-parent">
-					<strong class="functtitlstyle">Configuración de portada, header y footer<a id="config-elem"></a></strong>
-					<ul>
-						<li>
-							<strong>\gradecodeonportrait</strong>: Muestra el código del curso en la portada.
-						</li>
-						<li>
-							<strong>\showfooter</strong>: Muestra el footer (nombre informe y curso).
-						</li>
-						<li>
-							<strong>\showheadertitle</strong>: Muestra el título de la sección en el header.
-						</li>
-					</ul>
-				</li>
-
-				<li class="config-parent">
-					<strong class="functtitlstyle">Márgenes de la página<a id="config-pagemargin"></a></strong>
-					<ul>
-						<li>
-							<strong>\firstpagemargintop</strong>: Margen superior de la portada en centímetros.
-						</li>
-						<li>
-							<strong>\pagemarginbottom</strong>: Margen inferior de las páginas en centímetros.
-						</li>
-						<li>
-							<strong>\pagemarginleft</strong>: Margen izquierdo de las páginas en centímetros.
-						</li>
-						<li>
-							<strong>\pagemarginright</strong>: Margen derecho de las páginas en centímetros.
-						</li>
-						<li>
-							<strong>\pagemargintop</strong>: Margen superior de las páginas en centímetros.
-						</li>
-					</ul>
-				</li>
-
-				<li class="config-parent">
 					<strong class="functtitlstyle">Estilo y tamaño de los títulos<a id="config-tstyles"></a></strong>
 					<ul>
 						<li>
@@ -1143,39 +1146,6 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 						</li>
 						<li>
 							<strong>\styletitlei</strong>: Estilo títulos en el índice.
-						</li>
-					</ul>
-				</li>
-
-				<li class="config-parent">
-					<strong class="functtitlstyle">Opciones del pdf<a id="config-pdfoptions"></a></strong>
-					<ul>
-						<li>
-							<strong>\cfgbookmarksopenlevel</strong>: Nivel de los marcadores a mostrar (1: secciones, 2: muestra todos los subtítulos, etc.).
-						</li>
-						<li>
-							<strong>\cfgpdfbookmarkopen</strong>: Expande los marcadores hasta el nivel configurado.
-						</li>
-						<li>
-							<strong>\cfgpdfcenterwindow</strong>: Centra la ventana del lector pdf al abrir el informe.
-						</li>
-						<li>
-							<strong>\cfgpdfcopyright</strong>: Establece el copyright en la <i>metadata</i> del pdf.
-						</li>
-						<li>
-							<strong>\cfgpdfdisplaydoctitle</strong>: Muestra el título del informe como título en el lector del pdf.
-						</li>
-						<li>
-							<strong>\cfgpdffitwindow</strong>: Ajusta la ventana del lector pdf al tamaño del informe.
-						</li>
-						<li>
-							<strong>\cfgpdfmenubar</strong>: Muestra la barra de menú en el lector pdf.
-						</li>
-						<li>
-							<strong>\cfgpdftoolbar</strong>: Muestra la barra de herramientas del lector pdf.
-						</li>
-						<li>
-							<strong>\cfgshowbookmarkmenu</strong>: Muestra el menú de los marcadores en el lector pdf.
 						</li>
 					</ul>
 				</li>
@@ -1218,6 +1188,39 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 						</li>
 						<li>
 							<strong>\nomltwtable</strong>: Etiqueta leyenda de las tablas.
+						</li>
+					</ul>
+				</li>
+
+				<li class="config-parent">
+					<strong class="functtitlstyle">Opciones del pdf<a id="config-pdfoptions"></a></strong>
+					<ul>
+						<li>
+							<strong>\cfgbookmarksopenlevel</strong>: Nivel de los marcadores a mostrar (1: secciones, 2: muestra todos los subtítulos, etc.).
+						</li>
+						<li>
+							<strong>\cfgpdfbookmarkopen</strong>: Expande los marcadores hasta el nivel configurado.
+						</li>
+						<li>
+							<strong>\cfgpdfcenterwindow</strong>: Centra la ventana del lector pdf al abrir el informe.
+						</li>
+						<li>
+							<strong>\cfgpdfcopyright</strong>: Establece el copyright en la <i>metadata</i> del pdf.
+						</li>
+						<li>
+							<strong>\cfgpdfdisplaydoctitle</strong>: Muestra el título del informe como título en el lector del pdf.
+						</li>
+						<li>
+							<strong>\cfgpdffitwindow</strong>: Ajusta la ventana del lector pdf al tamaño del informe.
+						</li>
+						<li>
+							<strong>\cfgpdfmenubar</strong>: Muestra la barra de menú en el lector pdf.
+						</li>
+						<li>
+							<strong>\cfgpdftoolbar</strong>: Muestra la barra de herramientas del lector pdf.
+						</li>
+						<li>
+							<strong>\cfgshowbookmarkmenu</strong>: Muestra el menú de los marcadores en el lector pdf.
 						</li>
 					</ul>
 				</li>
