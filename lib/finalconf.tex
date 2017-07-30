@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo principal
-% Versión:      4.3.4 (29/07/2017)
+% Versión:      4.3.5 (30/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -14,7 +14,13 @@
 % Se reestablecen headers y footers
 \markboth{}{}
 \newpage
-\ifthenelse{\equal{\showheadertitle}{true}}{
+\ifthenelse{\equal{\hfstyle}{style1}}{
+	\fancyhead[L]{\nouppercase{\leftmark}}}{
+}
+\ifthenelse{\equal{\hfstyle}{style5}}{
+	\fancyhead[R]{\nouppercase{\leftmark}}}{
+}
+\ifthenelse{\equal{\hfstyle}{style6}}{
 	\fancyhead[L]{\nouppercase{\leftmark}}}{
 }
 

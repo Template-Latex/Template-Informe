@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar títulos
-% Versión:      4.3.4 (29/07/2017)
+% Versión:      4.3.5 (30/07/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -20,9 +20,7 @@
 	\section*{#1}
 	\addcontentsline{toc}{section}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
-	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\markboth{#1}{}
-	}{}
+	\markboth{#1}{}
 }
 
 \newcommand{\sectionanumnoi}[1]{
@@ -33,9 +31,7 @@
 	\needspace{3\baselineskip}
 	\section*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
-	\ifthenelse{\equal{\showheadertitle}{true}}{
-		\markboth{#1}{}
-	}{}
+	\markboth{#1}{}
 }
 
 \newcommand{\sectionanumheadless}[1]{
