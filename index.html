@@ -146,6 +146,7 @@
 					<li><a href="#hlp-title" class="menu-little-entry">Insertar secciones sin número y sin aparecer en el índice</a></li>
 					<li><a href="#hlp-math" class="menu-little-entry">Expresiones matemáticas</a></li>
 					<li><a href="#hlp-annexref" class="menu-little-entry">Insertar anexos y referencias</a></li>
+					<li><a href="#hlp-srccode" class="menu-little-entry">Añadir código fuente</a></li>
 					<li><a href="#hlp-other" class="menu-little-entry">Otras funciones</a></li>
 				</ul>
 			</li>
@@ -757,7 +758,8 @@
 						</li>
 					</ul>
 				</li>
-				<li>
+
+				<li class="li-code-parent">
 					<strong class="functtitlstyle">Insertar anexos y referencias<a id="hlp-annexref"></a></strong>
 					<ul>
 						<li>
@@ -769,7 +771,7 @@
 		<span class="pl-c1">\lipsum</span>[69]
 
 		<span class="pl-comment">% Imagen, se numerará automáticamente con la letra del anexo</span>
-		<span class="pl-c1">\insertimage</span>{ejemplos/test-image.png}{scale=0.15}{Imagen en anexo.}
+		<span class="pl-c1">\insertimage</span>{ejemplos/test-image.png}{<span class="pl-v">scale</span>=0.15}{Imagen en anexo.}
 
 	<span class="pl-c1">\newpage</span>
 	<span class="pl-c1">\section</span>{Otros anexos}
@@ -832,6 +834,30 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 						</li>
 
 					</ul>
+				</li>
+
+				<li class="li-code-parent">
+					<strong class="functtitlstyle">Añadir código fuente<a id="hlp-srccode"></a></strong>
+					<p>
+						Para añadir código fuente el template da soporte por defecto a la librería <a href="https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings">listings</a>. Se da formato a los siguientes lenguajes: <b>C, Python, Matlab</b>.
+						Para insertar código se debe realizar lo siguiente:
+					</p>
+					<blockquote>
+						<div class="highlight highlight-text-tex">
+<pre>
+<span class="pl-c1">\begin</span>{lstlisting}[<span class="pl-v">style</span>=Python, <span class="pl-v">caption</span>={Ejemplo en Python.<span class="pl-c1">\label</span>{codigo-python}}]<span class="pl-srccode">
+import numpy as np
+
+def incmatrix(genl1, genl2):
+	m = len(genl1)
+	n = len(genl2)
+	M = None # Comentario 1
+	VT = np.zeros((n*m, 1), int) # Comentario 2
+</span><span class="pl-c1">\end</span>{lstlisting}
+</pre>
+						</div>
+					</blockquote>
+					<a href="#" class="menu-little-entry"></a>
 				</li>
 				<li>
 					<strong class="functtitlstyle">Otras funciones<a id="hlp-other"></a></strong>
