@@ -224,7 +224,7 @@ jQuery(document).ready(function($) {
     }
     console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
 
-    if (!is_movile_browser) {
+    if (!is_movile_browser && false) {
         $('.page-header').parallax({
             imageSrc: image_url,
             speed: 0.15,
