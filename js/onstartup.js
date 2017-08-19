@@ -224,6 +224,26 @@ jQuery(document).ready(function($) {
         console.log('Utilizando versión web.')
     }
     console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
+	
+	if (!is_movile_browser && false) {
+        $('.page-header').parallax({
+            imageSrc: image_url,
+            speed: 0.15,
+            positionY: image_pos,
+            positionX: 'center',
+            zIndex: 1
+        });
+    } else {
+        $('.page-header').css('background', '#161415 url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
+        $('.page-header').css('background-attachment', 'fixed');
+        $('.page-header').css('-webkit-background-size', 'cover');
+        $('.page-header').css('-moz-background-size', 'cover');
+        $('.page-header').css('-o-background-size', 'cover');
+        $('.page-header').css('background-size', 'cover');
+        $('.page-header').css('max-width', '100%');
+        $('.page-header').css('max-height', '100%');
+        $('.page-header').css('width', $(window).width());
+    }
 
     // Se cambia el color de pace
     // $('.pace .pace-progress').css('background', pacecolor);
@@ -253,26 +273,6 @@ jQuery(document).ready(function($) {
     // Se cambia el color del fondo de la página web
     $('.main-content').css('background-color', backgroundmaincolor);
     $('body').css('background-color', backgroundmaincolor);
-
-    if (!is_movile_browser && false) {
-        $('.page-header').parallax({
-            imageSrc: image_url,
-            speed: 0.15,
-            positionY: image_pos,
-            positionX: 'center',
-            zIndex: 1
-        });
-    } else {
-        $('.page-header').css('background', '#161415 url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
-        $('.page-header').css('background-attachment', 'fixed');
-        $('.page-header').css('-webkit-background-size', 'cover');
-        $('.page-header').css('-moz-background-size', 'cover');
-        $('.page-header').css('-o-background-size', 'cover');
-        $('.page-header').css('background-size', 'cover');
-        $('.page-header').css('max-width', '100%');
-        $('.page-header').css('max-height', '100%');
-        $('.page-header').css('width', $(window).width());
-    }
 
 });
 
