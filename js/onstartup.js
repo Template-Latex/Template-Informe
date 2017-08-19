@@ -125,6 +125,7 @@ var chosencolor = images_background[images_indx_random][2];
 bgprecolor = shadeColor2(chosencolor, 0.9);
 codeprecolor = shadeColor2(chosencolor, 0.2);
 codebarcolor = shadeColor2(chosencolor, 0.4);
+pacecolor = shadeColor2(chosencolor, 0.15);
 backgroundmaincolor = shadeColor2(chosencolor, 0.98);
 
 // Descargas totales
@@ -224,25 +225,11 @@ jQuery(document).ready(function($) {
     }
     console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
 
-    if (!is_movile_browser && false) {
-        $('.page-header').parallax({
-            imageSrc: image_url,
-            speed: 0.15,
-            positionY: image_pos,
-            positionX: 'center',
-            zIndex: 1
-        });
-    } else {
-        $('.page-header').css('background', '#161415 url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
-        $('.page-header').css('background-attachment', 'fixed');
-        $('.page-header').css('-webkit-background-size', 'cover');
-        $('.page-header').css('-moz-background-size', 'cover');
-        $('.page-header').css('-o-background-size', 'cover');
-        $('.page-header').css('background-size', 'cover');
-        $('.page-header').css('max-width', '100%');
-        $('.page-header').css('max-height', '100%');
-        $('.page-header').css('width', $(window).width());
-    }
+    // Se cambia el color de pace
+    // $('.pace .pace-progress').css('background', pacecolor);
+    // $('.pace .pace-activity').css('border-top-color', codeprecolor);
+    // $('.pace .pace-activity').css('border-left-color', codeprecolor);
+    // $('.pace .pace-progress-inner').css('box-shadow', '0 0 10px '+bgprecolor+', 0 0 5px '+bgprecolor+';');
 
     // Se cambia el color de los titulos
     $('.main-content h1').css('color', chosencolor);
@@ -266,6 +253,27 @@ jQuery(document).ready(function($) {
     // Se cambia el color del fondo de la página web
     $('.main-content').css('background-color', backgroundmaincolor);
     $('body').css('background-color', backgroundmaincolor);
+
+    if (!is_movile_browser && false) {
+        $('.page-header').parallax({
+            imageSrc: image_url,
+            speed: 0.15,
+            positionY: image_pos,
+            positionX: 'center',
+            zIndex: 1
+        });
+    } else {
+        $('.page-header').css('background', '#161415 url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
+        $('.page-header').css('background-attachment', 'fixed');
+        $('.page-header').css('-webkit-background-size', 'cover');
+        $('.page-header').css('-moz-background-size', 'cover');
+        $('.page-header').css('-o-background-size', 'cover');
+        $('.page-header').css('background-size', 'cover');
+        $('.page-header').css('max-width', '100%');
+        $('.page-header').css('max-height', '100%');
+        $('.page-header').css('width', $(window).width());
+    }
+
 });
 
 // Se actualiza la cantidad de descargas al hacer click
