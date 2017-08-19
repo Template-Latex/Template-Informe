@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Índice
-% Versión:      4.3.7 (12/08/2017)
+% Versión:      4.3.8 (19/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -15,6 +15,9 @@
 	
 	% Crea nueva página y establece estilo de títulos
 	\newpage
+	\ifthenelse{\equal{\addindextobookmarks}{true}}{
+		\belowpdfbookmark{\nomltcont}{contents}}{
+	}
 	\tocloftpagestyle{fancy}
 	\sectionfont{\color{\indextitlecolor} \fontsizetitlei \styletitlei \selectfont}
 	

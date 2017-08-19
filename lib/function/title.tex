@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar títulos
-% Versión:      4.3.7 (12/08/2017)
+% Versión:      4.3.8 (19/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -96,4 +96,21 @@
 		\addtocontents{toc}{\protect\addvspace{#2 pt}}
 	\fi
 	\addtocontents{toc}{\noindent\hyperref[swpn]{\textbf{#1}}}
+}
+
+\newcommand{\newchapter}[1]{
+	% Crear un capítulo como una sección
+	%	#1	Título
+	\emptyvarerr{\newchapter}{#1}{Titulo no definido}
+	\newpage
+	\stepcounter{section}
+	\phantomsection
+	\needspace{3\baselineskip}
+	\vspace* {3cm}
+	\noindent {\huge{\textbf{\nomchapter\ \thesection}}} \\
+	\vspace* {0.5cm} \\
+	\noindent {\Huge{\textbf{#1}}} \\
+	\vspace {0.5cm} \\
+	\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}
+	\markboth{#1}{}
 }

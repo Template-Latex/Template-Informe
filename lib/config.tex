@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.3.7 (12/08/2017)
+% Versión:      4.3.8 (19/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -13,14 +13,12 @@
 
 % CONFIGURACIONES GENERALES
 \def\addemptypagetwosides {false}  % Añade pags. en blanco al imprimir a 2 caras
-\def\anumsecaddtocounter {false}   % Función para insertar títulos anum. aumenta contador
 \def\defaultinterline {1.0}        % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11.0}     % Tamaño del salto de línea [pt]
 \def\fontdocument {lmodern}        % Tipografía (lmodern,arial,helvet)
 \def\numberedequation {true}       % Ecuaciones con \insert... numeradas
 \def\pointdecimal {false}          % Decimales con punto en vez de coma
 \def\romanpageuppercase {false}    % Páginas en número romano en mayúsculas
-\def\showdotontitles {true}        % Punto al final de cada número de título/sub(sub)título
 \def\tablepadding {1.0}            % Ancho de celda de las tablas
 
 % ESTILO PORTADA Y HEADER-FOOTER
@@ -47,6 +45,7 @@
 \def\tablecaptiontop {true}        % Leyenda arriba de las tablas
 
 % CONFIGURACIÓN DEL ÍNDICE
+\def\addindextobookmarks {false}   % Añade el índice a los bookmarks del pdf
 \def\indexdepth {3}                % Profundidad máxima del índice
 \def\indextitlemargin {7.0}        % Margen título en índice \insertindextitle [pt]
 \def\showdotonobjectindex {false}  % Punto en cada número de figura, tabla o código
@@ -91,29 +90,17 @@
 \def\stylecitereferences {bibtex}  % Estilo citas y referencias (bibtex,apacite,natbib)
 \def\twocolumnreferences {false}   % Referencias en dos columnas
 
-% ESTILO Y TAMAÑO DE TÍTULOS
+% CONFIGURACIÓN DE LOS TÍTULOS
+\def\anumsecaddtocounter {false}   % Función para insertar títulos anum. aumenta contador
 \def\fontsizesubsubtitle {\large}  % Tamaño sub-subtítulos
 \def\fontsizesubtitle {\Large}     % Tamaño subtítulos
 \def\fontsizetitle {\huge}         % Tamaño títulos
 \def\fontsizetitlei {\huge}        % Tamaño títulos en el índice
+\def\showdotontitles {true}        % Punto al final de cada número de título/sub(sub)título
 \def\stylesubsubtitle {\bfseries}  % Estilo sub-subtítulos
 \def\stylesubtitle {\bfseries}     % Estilo subtítulos
 \def\styletitle {\bfseries}        % Estilo títulos
 \def\styletitlei {\bfseries}       % Estilo títulos en el índice
-
-% NOMBRE DE OBJETOS
-\def\nameabstract {Resumen}           % Nombre del resumen-abstract
-\def\nameappendixsection{Anexos}      % Nombre de la sección de anexos/apéndices
-\def\nameportraitpage {Portada}       % Etiqueta página de la portada
-\def\namereferences {Referencias}     % Nombre de la sección de referencias
-\def\nomltappendixsection {Anexo}     % Etiqueta sección en anexo/apéndices
-\def\nomltcont {Índice de Contenidos} % Nombre del índice de contenidos
-\def\nomltfigure {Lista de Figuras}   % Nombre del índice de la lista de figuras
-\def\nomltsrc {Lista de Códigos}      % Nombre del índice de la lista de código
-\def\nomlttable {Lista de Tablas}     % Nombre del índice de la lista de tablas
-\def\nomltwfigure {Figura}            % Etiqueta leyenda de las figuras
-\def\nomltwsrc {Código}               % Etiqueta leyenda del código fuente
-\def\nomltwtable {Tabla}              % Etiqueta leyenda de las tablas
 
 % OPCIONES DEL PDF COMPILADO
 \def\cfgbookmarksopenlevel {2}     % Nivel de los marcadores a mostrar (2: subsecciones)
@@ -125,3 +112,18 @@
 \def\cfgpdfmenubar {true}          % Muestra el menú del lector al abrir el pdf
 \def\cfgpdftoolbar {true}          % Muestra la barra de herramientas del lector pdf
 \def\cfgshowbookmarkmenu {true}    % Muestra el menú de los marcadores en el lector pdf
+
+% NOMBRE DE OBJETOS
+\def\nameabstract {Resumen}           % Nombre del resumen-abstract
+\def\nameappendixsection{Anexos}      % Nombre de la sección de anexos/apéndices
+\def\nameportraitpage {Portada}       % Etiqueta página de la portada
+\def\namereferences {Referencias}     % Nombre de la sección de referencias
+\def\nomchapter {Capítulo}            % Nombre de los capítulos
+\def\nomltappendixsection {Anexo}     % Etiqueta sección en anexo/apéndices
+\def\nomltcont {Índice de Contenidos} % Nombre del índice de contenidos
+\def\nomltfigure {Lista de Figuras}   % Nombre del índice de la lista de figuras
+\def\nomltsrc {Lista de Códigos}      % Nombre del índice de la lista de código
+\def\nomlttable {Lista de Tablas}     % Nombre del índice de la lista de tablas
+\def\nomltwfigure {Figura}            % Etiqueta leyenda de las figuras
+\def\nomltwsrc {Código}               % Etiqueta leyenda del código fuente
+\def\nomltwtable {Tabla}              % Etiqueta leyenda de las tablas
