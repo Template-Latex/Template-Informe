@@ -31,6 +31,7 @@ export/
 
 # Main pdf
 main.pdf
+informe.pdf
 
 # Archivos python
 *.py
@@ -53,3 +54,6 @@ stats/*
 
 # Subreleases
 subreleases/*
+
+# Otros
+desktop.ini
