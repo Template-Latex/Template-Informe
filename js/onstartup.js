@@ -110,7 +110,7 @@ var images_background = [
 ];
 var images_indx_random = getRandomInt(0, images_background.length - 1);
 // images_indx_random = 106; // testeo
-var image_url = href_images_parent + 'images/' + images_background[images_indx_random][0];
+var image_url = href_images_parent + images_background[images_indx_random][0];
 var image_pos = images_background[images_indx_random][1];
 
 // Se eligen colores al azar
@@ -168,11 +168,11 @@ $.getJSON(href_json_releases, function(json) {
     document.getElementById('total-download-counter-2').innerHTML = total_downloads;
 
     // Se establece la versión en el botón de descargas
-    msg_download_normal = '{1} <font style="color: #333333;">({0})</font> <img src="resources/zip.png" class="iconbutton" />'
-    msg_download_compact = '{1} <font style="color: #ffffff;">({0})</font>  <img src="resources/zip.png" class="iconbutton" />'
+    msg_download_normal = '{1} <font style="color: #333333;">({0})</font> <img src="{2}/zip.png" class="iconbutton" />';
+    msg_download_compact = '{1} <font style="color: #ffffff;">({0})</font>  <img src="{2}/zip.png" class="iconbutton" />';
     document.getElementById("download-button").href = normal_link;
-    document.getElementById("download-button").innerHTML = String.format(msg_download_normal, last_version, document.getElementById("download-button").innerHTML);
-    document.getElementById("download-button-1file").innerHTML = String.format(msg_download_compact, last_version, document.getElementById("download-button-1file").innerHTML);
+    document.getElementById("download-button").innerHTML = String.format(msg_download_normal, last_version, document.getElementById("download-button").innerHTML, href_resources_folder);
+    document.getElementById("download-button-1file").innerHTML = String.format(msg_download_compact, last_version, document.getElementById("download-button-1file").innerHTML, href_resources_folder);
     document.getElementById("download-button-1file").href = compact_link;
 
     // Se establece la última versión del pdf
@@ -193,7 +193,7 @@ $.getJSON(href_json_releases, function(json) {
             new_version_entry += String.format(whats_new_html, title_new_version, content_version);
             new_version_entry += '<hr class="style1">';
         }
-        new_version_entry += String.format("Puedes ver la lista de cambios completa <a href='{0}'>en Github<img src='resources/github.png' width='16px' height='16px' class='iconbutton' /></a>", href_github_project);
+        new_version_entry += String.format("Puedes ver la lista de cambios completa <a href='{0}'>en Github<img src='{1}/github.png' width='16px' height='16px' class='iconbutton' /></a>", href_github_project, href_resources_folder);
         document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
     } catch (err) {
         console.log('Error al obtener los contenidos de las últimas versiones');
@@ -227,7 +227,7 @@ jQuery(document).ready(function($) {
             zIndex: 1
         });
     } else {
-        $('.page-header').css('background', '#161415 url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
+        $('.page-header').css('background', chosencolor + ' url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
         $('.page-header').css('background-attachment', 'fixed');
         $('.page-header').css('-webkit-background-size', 'cover');
         $('.page-header').css('-moz-background-size', 'cover');
