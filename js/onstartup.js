@@ -160,7 +160,7 @@ $.getJSON(href_json_releases, function(json) {
     if (total_downloads == 0) {
         total_downloads = 'NaN';
     } else {
-        total_downloads = updateDownloadCounter(total_downloads);
+        total_downloads = updateDownloadCounter(total_downloads, update_download_counter);
     }
 
     // Se establece la versión en el contador de descargas totales

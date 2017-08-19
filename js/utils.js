@@ -1,4 +1,4 @@
-﻿// Genera un número aleatorio entero entre min y max
+﻿ // Genera un número aleatorio entero entre min y max
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -40,49 +40,73 @@ if (!String.format) {
 }
 
 // Actualizador de descargas
-function updateDownloadCounter(downloads) {
-    // Se añaden las 129 descargas de https: //api.github.com/repos/ppizarror/Template-Informe-cursos/releases
-    // Se añaden 60 descargas entre 1.8.5 y 1.9.6
-    // Se añaden 138 descargas entre 1.9.6 y 2.0.6
-    // Se añaden 3 descargas de versión 2.0.7
-    // Se añaden 3 descargas de versión 2.0.8
-    // Se agrega 1 descarga de versión 2.0.9
-    // Se agrega 4 descara de versión 2.1.1
-    // Se agregan 55 descargas de version 2.1.2-2.1.5
-    // Se agregan 115 descargas entre version 2.1.5 y 2.2.1
-    // Se agregan 74 descargas de version 2.2.2
-    // Se agregan 17 descargas de versión 2.2.3
-    // Se agregan 3 descargas de version 2.2.4
-    // Se agregan 18 descargas de version 2.2.5
-    // Se agregan 7 descargas de version 2.2.6
-    // Se agregan 68 descargas entre version 2.2.6 y 2.3.0
-    // Se agregan 71 descargas de version 2.3.1
-    // Se agregan 12 descargas de version 2.3.2
-    // Se agregan 9 descargas de version 2.3.3
-    // Se agregan 4 descargas de version 2.3.4
-    // Se agregan 33 descargas de version 2.3.5
-    // Se agrega 1 descarga de version 2.3.6
-    // Se agregan 60 de version 2.3.7-2.4.0
-    // Se agregan 3 descargas de version 2.4.1
-    // Se agregan 20 descargas de version 2.4.2-2.4.5
-    // Se agregan 38 descargas de version 2.4.6
-    // Se agregan 6 descargas de version 2.4.7
-    // Se agregan 146 descargas de version 3.0.0
-    // Se agregan 62 descargas de version 3.0.1
-    // Se agregan 28 descargas de version 3.0.2
-    // Se agregan 28 descargas de version 3.0.3
-    // Se agregan 84 descargas de version 3.0.4-3.1.0
-    // Se agregan 3 descargas de version 3.1.2
-    // Se agregan 12 descargas de version 3.1.3
-    // Se agregan 110 descargas de version 3.1.4-3.2.0
-	// Se agregan 31 descargas de version 3.2.1
-	// Se agregan 2 descargas de version 3.2.2
-    // Se agregan 8 descargas de versión 3.2.3
-    // Se agregan 110 descargas de versión 3.2.4-3.3.0
-    download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3, 20, 38, 6, 146, 62, 28, 28, 84, 3, 12, 110, 31, 2, 8, 110];
+function updateDownloadCounter(downloads, source) {
+
+    switch (source) {
+        case 'Template-Informe':
+            // Se añaden las 129 descargas de https: //api.github.com/repos/ppizarror/Template-Informe-cursos/releases
+            // Se añaden 60 descargas entre 1.8.5 y 1.9.6
+            // Se añaden 138 descargas entre 1.9.6 y 2.0.6
+            // Se añaden 3 descargas de versión 2.0.7
+            // Se añaden 3 descargas de versión 2.0.8
+            // Se agrega 1 descarga de versión 2.0.9
+            // Se agrega 4 descara de versión 2.1.1
+            // Se agregan 55 descargas de version 2.1.2-2.1.5
+            // Se agregan 115 descargas entre version 2.1.5 y 2.2.1
+            // Se agregan 74 descargas de version 2.2.2
+            // Se agregan 17 descargas de versión 2.2.3
+            // Se agregan 3 descargas de version 2.2.4
+            // Se agregan 18 descargas de version 2.2.5
+            // Se agregan 7 descargas de version 2.2.6
+            // Se agregan 68 descargas entre version 2.2.6 y 2.3.0
+            // Se agregan 71 descargas de version 2.3.1
+            // Se agregan 12 descargas de version 2.3.2
+            // Se agregan 9 descargas de version 2.3.3
+            // Se agregan 4 descargas de version 2.3.4
+            // Se agregan 33 descargas de version 2.3.5
+            // Se agrega 1 descarga de version 2.3.6
+            // Se agregan 60 de version 2.3.7-2.4.0
+            // Se agregan 3 descargas de version 2.4.1
+            // Se agregan 20 descargas de version 2.4.2-2.4.5
+            // Se agregan 38 descargas de version 2.4.6
+            // Se agregan 6 descargas de version 2.4.7
+            // Se agregan 146 descargas de version 3.0.0
+            // Se agregan 62 descargas de version 3.0.1
+            // Se agregan 28 descargas de version 3.0.2
+            // Se agregan 28 descargas de version 3.0.3
+            // Se agregan 84 descargas de version 3.0.4-3.1.0
+            // Se agregan 3 descargas de version 3.1.2
+            // Se agregan 12 descargas de version 3.1.3
+            // Se agregan 110 descargas de version 3.1.4-3.2.0
+            // Se agregan 31 descargas de version 3.2.1
+            // Se agregan 2 descargas de version 3.2.2
+            // Se agregan 8 descargas de versión 3.2.3
+            // Se agregan 110 descargas de versión 3.2.4-3.3.0
+            download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3, 20, 38, 6, 146, 62, 28, 28, 84, 3, 12, 110, 31, 2, 8, 110];
+            break;
+        case 'Template-Auxiliares':
+            download_list_counter = [];
+            break;
+        case 'Template-Tareas':
+            download_list_counter = [];
+            break;
+        case 'Template-Apunte':
+            download_list_counter = [];
+            break;
+        case 'Template-Pautas':
+            download_list_counter = [];
+            break;
+        case 'Template-Controles':
+            download_list_counter = [];
+            break;
+        case 'Template-Tesis':
+            download_list_counter = [];
+            break;
+    }
 
     for (i = 0; i < download_list_counter.length; i++) {
         downloads += download_list_counter[i];
     }
+
     return downloads;
 }
