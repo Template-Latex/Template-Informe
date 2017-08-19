@@ -6,10 +6,12 @@
 	<title>Template Informe</title>
 
 	<!-- Metadatos -->
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="resources/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="msapplication-TileColor" content="#ffffff" />
+	<meta name="msapplication-TileImage" content="resources/ms-icon-144x144.png" />
+	<meta name="theme-color" content="#ffffff" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Un completo template para crear informes en LaTeX, contiene funciones opcionales, múltiples configuraciones, entre otros." />
+	<meta name="robots" content="noarchive" />
 
 	<!-- Ícono de la página web -->
 	<link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
@@ -38,9 +40,8 @@
 	<script type="text/javascript" src="js/button-scroll.js"></script>
 	<script type="text/javascript" src="js/smooth-scroll.js"></script>
 	<script type="text/javascript" src="js/pace.min.js"></script>
-
-	<!-- Javascript inicial -->
 	<script type="text/javascript" src="js/onstartup.js"></script>
+
 </head>
 
 <body>
@@ -311,8 +312,8 @@
 			<span aria-hidden="true" class="octicon octicon-link"></span>
 			</a> Añadiendo integrantes, profesores, auxiliares y fechas
 		</h2>
-		<p>Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> del archivo principal (<a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex">main.tex</a>), en ella se
-			encuentra una <b>tabla</b> la cual contiene la información de los integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
+		<p>Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> del archivo principal (<a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex">main.tex</a>), en ella
+			se encuentra una <b>tabla</b> la cual contiene la información de los integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
 		</p>
 
 		<!-- Insertar párrafos, figuras, fórmulas, citas y otros -->
@@ -803,8 +804,7 @@
 <span class="pl-c1">\end</span>{<span class="pl-e">references</span>}</pre>
 										</div>
 									</blockquote>
-									- Para citar se usa <span class="pl-c1">\cite</span>{ref1}. <br>
-									- Establecer configuración <span class="pl-c1">\stylecitereferences</span>{bibtex}.
+									- Para citar se usa <span class="pl-c1">\cite</span>{ref1}. <br> - Establecer configuración <span class="pl-c1">\stylecitereferences</span>{bibtex}.
 								</li>
 								<hr class="style10">
 								<li><b>Apacite</b>: Es un sistema de referencias más complejo, para ello se deben guardar las referencias en un archivo <i>.bib</i> como <a href="https://github.com/ppizarror/Template-Informe/blob/master/test.bib">este ejemplo</a>, luego para insertar
@@ -842,12 +842,12 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 				<li class="li-code-parent">
 					<strong class="functtitlstyle">Añadir código fuente<a id="hlp-srccode"></a></strong>
 					<p>
-						Para añadir código fuente el template da soporte por defecto a la librería <a href="https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings">listings</a>. Se da formato a los siguientes lenguajes: <b>C, Python, Matlab</b>.
-						Para insertar código se debe realizar lo siguiente:
+						Para añadir código fuente el template da soporte por defecto a la librería <a href="https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings">listings</a>. Se da formato a los siguientes lenguajes: <b>C, Python, Matlab</b>. Para insertar código
+						se debe realizar lo siguiente:
 					</p>
 					<blockquote>
 						<div class="highlight highlight-text-tex">
-<pre>
+							<pre>
 <span class="pl-c1">\begin</span>{lstlisting}[<span class="pl-v">style</span>=Python, <span class="pl-v">caption</span>={Ejemplo en Python.<span class="pl-c1">\label</span>{codigo-python}}]<span class="pl-srccode">
 import numpy as np
 
@@ -1030,7 +1030,7 @@ def incmatrix(genl1, genl2):
 							<strong>\showdotonobjectindex</strong>: Punto en cada número de figura, tabla o código.
 						</li>
 						<li>
-							<strong>\showdotpagenumindex</strong>:  Muestra puntos entre objeto y número de página.
+							<strong>\showdotpagenumindex</strong>: Muestra puntos entre objeto y número de página.
 						</li>
 						<li>
 							<strong>\showindex</strong>: Muestra la página de índice.
