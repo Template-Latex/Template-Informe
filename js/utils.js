@@ -41,7 +41,7 @@ if (!String.format) {
 
 // Actualizador de descargas
 function updateDownloadCounter(downloads) {
-    // Se añaden las 129 descargas de https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases
+    // Se añaden las 129 descargas de https: //api.github.com/repos/ppizarror/Template-Informe-cursos/releases
     // Se añaden 60 descargas entre 1.8.5 y 1.9.6
     // Se añaden 138 descargas entre 1.9.6 y 2.0.6
     // Se añaden 3 descargas de versión 2.0.7

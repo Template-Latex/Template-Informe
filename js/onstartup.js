@@ -1,11 +1,4 @@
-﻿// Configuraciones
-var href_images_parent = '';
-var href_json_releases = 'https://api.github.com/repos/Template-Latex/Template-Informe/releases';
-var href_pdf_version = 'https://github.com/Template-Latex/pdf-version/raw/master/Informe/Template-Informe v{0}.pdf';
-var href_github_project = 'https://github.com/Template-Latex/Template-Informe/releases/';
-var href_github_project_source = 'https://github.com/Template-Latex/Template-Informe/';
-
-// Se selecciona una imagen al azar
+﻿ // Se selecciona una imagen al azar
 var images_background = [
     ['09305524.jpg', 'center', '#343434'], // 0
     ['67535412.jpg', 'center', '#C96265'], // 1
@@ -224,8 +217,8 @@ jQuery(document).ready(function($) {
         console.log('Utilizando versión web.')
     }
     console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
-	
-	if (!is_movile_browser && false) {
+
+    if (!is_movile_browser && enableparallax) {
         $('.page-header').parallax({
             imageSrc: image_url,
             speed: 0.15,
