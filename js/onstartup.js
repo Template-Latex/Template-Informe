@@ -176,8 +176,9 @@ $.getJSON(href_json_releases, function(json) {
     document.getElementById("download-button-1file").href = compact_link;
 
     // Se establece la última versión del pdf
-    document.getElementById("template-preview-pdf").href = String.format(href_pdf_version, last_version);
-    $(".badgeejemplopdf").prop("href", String.format(href_pdf_version, last_version));
+    var pdf_href_lastv = pdf_js_href + String.format(href_pdf_version, last_version);
+    document.getElementById("template-preview-pdf").href = pdf_href_lastv;
+    $(".badgeejemplopdf").prop("href", pdf_href_lastv);
 
     // Se obtiene el what's new
     document.getElementById("github-button-header").href = href_github_project_source;
