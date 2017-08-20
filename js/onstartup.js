@@ -227,15 +227,25 @@ jQuery(document).ready(function($) {
             zIndex: 1
         });
     } else {
-        $('.page-header').css('background', chosencolor + ' url(' + image_url + ') ' + image_pos + ' no-repeat fixed');
-        $('.page-header').css('background-attachment', 'fixed');
-        $('.page-header').css('-webkit-background-size', 'cover');
-        $('.page-header').css('-moz-background-size', 'cover');
-        $('.page-header').css('-o-background-size', 'cover');
-        $('.page-header').css('background-size', 'cover');
-        $('.page-header').css('max-width', '100%');
-        $('.page-header').css('max-height', '100%');
-        $('.page-header').css('width', $(window).width());
+        var back_img = new Image();
+        back_img.onload = function() {
+            $('.page-header').css({
+                'background': chosencolor + ' url(' + image_url + ') ' + image_pos + ' no-repeat fixed',
+                'background-attachment': 'fixed',
+            });
+            $('.page-header').css('-webkit-background-size', 'cover');
+            $('.page-header').css('-moz-background-size', 'cover');
+            $('.page-header').css('-o-background-size', 'cover');
+            $('.page-header').css('background-size', 'cover');
+            $('.page-header').css('max-width', '100%');
+            $('.page-header').css('width', $(window).width());
+            $('.page-header').css('animation-name', 'fadeIn');
+            $('.page-header').css('animation-iteration-count', 2);
+            $('.page-header').css('animation-timing-function', 'ease-in-out');
+            $('.page-header').css('animation-duration', '0.5s');
+            $('.page-header').css('animation-fill-mode', 'forwards');
+        }
+        back_img.src = image_url;
     }
 
     // Se cambia el color de pace
