@@ -166,7 +166,7 @@
 					<li><a href="#config-colors" class="menu-little-entry">Configurar los colores del documento</a></li>
 					<li><a href="#config-figure" class="menu-little-entry">Márgenes de las figuras</a></li>
 					<li><a href="#config-ref" class="menu-little-entry">Configuración del anexo, citas y referencias</a></li>
-					<li><a href="#config-tstyles" class="menu-little-entry">Estilo y tamaño de los títulos</a></li>
+					<li><a href="#config-tstyles" class="menu-little-entry">Configuración de los títulos</a></li>
 					<li><a href="#config-objname" class="menu-little-entry">Nombres de objetos</a></li>
 					<li><a href="#config-pdfoptions" class="menu-little-entry">Opciones del pdf</a></li>
 				</ul>
@@ -882,6 +882,9 @@ def incmatrix(genl1, genl2):
 							<strong>\itemresize</strong><b>{</b><em>Factor (en textwidth)</em><b>}</b><b>{</b><em>Objeto</em><b>}</b>: Ajusta un objeto utilizando la función <b>\resizebox</b>.
 						</li>
 						<li>
+							<strong>\newchapter</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección como si fuese un capítulo.
+						</li>
+						<li>
 							<strong>\quotes</strong><b>{</b><em>Texto</em><b>}</b>: Inserta un texto entre comillas.
 						</li>
 						<li>
@@ -920,9 +923,6 @@ def incmatrix(genl1, genl2):
 							<strong>\addemptypagetwosides</strong>: Añade páginas en blanco después de la portada, el resumen y el índice de manera inteligente al imprimir en doble cara; el índice siempre se imprimirá en una plana impar, así como el contenido del informe.
 						</li>
 						<li>
-							<strong>\anumsecaddtocounter</strong>: Las funciones para insertar títulos sin número (anum) aumentan los respectivos contadores.
-						</li>
-						<li>
 							<strong>\defaultinterline</strong>: Tamaño del interlineado.
 						</li>
 						<li>
@@ -939,9 +939,6 @@ def incmatrix(genl1, genl2):
 						</li>
 						<li>
 							<strong>\romanpageuppercase</strong>: Páginas en número romano (abstract-índice) en mayúsculas.
-						</li>
-						<li>
-							<strong>\showdotontitles</strong>: Muestra un punto en cada número de sección, subsección y sub-subsección.
 						</li>
 						<li>
 							<strong>\tablepadding</strong>: Ancho de celda de las tablas.
@@ -1021,6 +1018,9 @@ def incmatrix(genl1, genl2):
 				<li class="config-parent">
 					<strong class="functtitlstyle">Configuración del índice<a id="config-index"></a></strong>
 					<ul>
+						<li>
+							<strong>\addindextobookmarks</strong>: Añade el índice a los marcadores del pdf compilado.
+						</li>
 						<li>
 							<strong>\indexdepth</strong>: Profundidad del índice.
 						</li>
@@ -1154,8 +1154,11 @@ def incmatrix(genl1, genl2):
 				</li>
 
 				<li class="config-parent">
-					<strong class="functtitlstyle">Estilo y tamaño de los títulos<a id="config-tstyles"></a></strong>
+					<strong class="functtitlstyle">Configuración de los títulos<a id="config-tstyles"></a></strong>
 					<ul>
+						<li>
+							<strong>\anumsecaddtocounter</strong>: Las funciones para insertar títulos sin número (anum) aumentan los respectivos contadores.
+						</li>
 						<li>
 							<strong>\fontsizesubsubtitle</strong>: Tamaño sub-subtítulos.
 						</li>
@@ -1169,6 +1172,9 @@ def incmatrix(genl1, genl2):
 							<strong>\fontsizetitlei</strong>: Tamaño títulos en el índice.
 						</li>
 						<li>
+							<strong>\showdotontitles</strong>: Muestra un punto en cada número de sección, subsección y sub-subsección.
+						</li>
+						<li>
 							<strong>\stylesubsubtitle</strong>: Estilo sub-subtítulos.
 						</li>
 						<li>
@@ -1179,6 +1185,39 @@ def incmatrix(genl1, genl2):
 						</li>
 						<li>
 							<strong>\styletitlei</strong>: Estilo títulos en el índice.
+						</li>
+					</ul>
+				</li>
+
+				<li class="config-parent">
+					<strong class="functtitlstyle">Opciones del pdf<a id="config-pdfoptions"></a></strong>
+					<ul>
+						<li>
+							<strong>\cfgbookmarksopenlevel</strong>: Nivel de los marcadores a mostrar (1: secciones, 2: muestra todos los subtítulos, etc.).
+						</li>
+						<li>
+							<strong>\cfgpdfbookmarkopen</strong>: Expande los marcadores hasta el nivel configurado.
+						</li>
+						<li>
+							<strong>\cfgpdfcenterwindow</strong>: Centra la ventana del lector pdf al abrir el informe.
+						</li>
+						<li>
+							<strong>\cfgpdfcopyright</strong>: Establece el copyright en la <i>metadata</i> del pdf.
+						</li>
+						<li>
+							<strong>\cfgpdfdisplaydoctitle</strong>: Muestra el título del informe como título en el lector del pdf.
+						</li>
+						<li>
+							<strong>\cfgpdffitwindow</strong>: Ajusta la ventana del lector pdf al tamaño del informe.
+						</li>
+						<li>
+							<strong>\cfgpdfmenubar</strong>: Muestra la barra de menú en el lector pdf.
+						</li>
+						<li>
+							<strong>\cfgpdftoolbar</strong>: Muestra la barra de herramientas del lector pdf.
+						</li>
+						<li>
+							<strong>\cfgshowbookmarkmenu</strong>: Muestra el menú de los marcadores en el lector pdf.
 						</li>
 					</ul>
 				</li>
@@ -1221,39 +1260,6 @@ def incmatrix(genl1, genl2):
 						</li>
 						<li>
 							<strong>\nomltwtable</strong>: Etiqueta leyenda de las tablas.
-						</li>
-					</ul>
-				</li>
-
-				<li class="config-parent">
-					<strong class="functtitlstyle">Opciones del pdf<a id="config-pdfoptions"></a></strong>
-					<ul>
-						<li>
-							<strong>\cfgbookmarksopenlevel</strong>: Nivel de los marcadores a mostrar (1: secciones, 2: muestra todos los subtítulos, etc.).
-						</li>
-						<li>
-							<strong>\cfgpdfbookmarkopen</strong>: Expande los marcadores hasta el nivel configurado.
-						</li>
-						<li>
-							<strong>\cfgpdfcenterwindow</strong>: Centra la ventana del lector pdf al abrir el informe.
-						</li>
-						<li>
-							<strong>\cfgpdfcopyright</strong>: Establece el copyright en la <i>metadata</i> del pdf.
-						</li>
-						<li>
-							<strong>\cfgpdfdisplaydoctitle</strong>: Muestra el título del informe como título en el lector del pdf.
-						</li>
-						<li>
-							<strong>\cfgpdffitwindow</strong>: Ajusta la ventana del lector pdf al tamaño del informe.
-						</li>
-						<li>
-							<strong>\cfgpdfmenubar</strong>: Muestra la barra de menú en el lector pdf.
-						</li>
-						<li>
-							<strong>\cfgpdftoolbar</strong>: Muestra la barra de herramientas del lector pdf.
-						</li>
-						<li>
-							<strong>\cfgshowbookmarkmenu</strong>: Muestra el menú de los marcadores en el lector pdf.
 						</li>
 					</ul>
 				</li>
@@ -1475,6 +1481,9 @@ def incmatrix(genl1, genl2):
 				</li>
 				<li>
 					<strong><a href="https://www.ctan.org/pkg/textcomp">textcomp</a></strong>: Simbología.
+				</li>
+				<li>
+					<strong><a href="https://www.ctan.org/pkg/titlesec">titlesec</a></strong>: Configuración de los titulos.
 				</li>
 				<li>
 					<strong><a href="https://www.ctan.org/pkg/tocloft">tocloft</a></strong>: Manejo de entradas en la tabla de contenidos.
