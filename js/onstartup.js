@@ -240,7 +240,7 @@ jQuery(document).ready(function($) {
             $('.page-header').css('max-width', '100%');
             $('.page-header').css('width', $(window).width());
             $('.page-header').css('animation-name', 'fadeIn');
-            $('.page-header').css('animation-iteration-count', 2);
+            $('.page-header').css('animation-iteration-count', 1);
             $('.page-header').css('animation-timing-function', 'ease-in-out');
             $('.page-header').css('animation-duration', '0.5s');
             $('.page-header').css('animation-fill-mode', 'forwards');
