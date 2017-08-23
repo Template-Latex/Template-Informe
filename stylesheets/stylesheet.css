@@ -2,7 +2,9 @@
     box-sizing: border-box;
 }
 
+
 /* pace */
+
 .pace {
     -webkit-pointer-events: none;
     pointer-events: none;
@@ -937,4 +939,26 @@ a#aimg, a:hover#aimg, .page-header#aimg {
     width: auto;
     word-spacing: normal;
     z-index: auto;
+}
+
+.error_msg_1 {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    border-color: rgb(232, 100, 100);
+    border-width: 1px;
+    border-style: solid;
+    font-size: 17px;
+    color: white;
+    text-shadow: 1px 1px 3px #000000;
+    background-color: rgb(224, 177, 177);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.error_msg_1::before {
+
 }

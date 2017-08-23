@@ -121,8 +121,11 @@ codebarcolor = shadeColor2(chosencolor, 0.4);
 pacecolor = shadeColor2(chosencolor, 0.15);
 backgroundmaincolor = shadeColor2(chosencolor, 0.98);
 
-// Descargas totales
+// Descargas totales y última versión
 var total_downloads = 0;
+var last_version = "$VERSION";
+var last_version_link = "$VERSION_LINK";
+var github_changelog = false;
 
 // Se añaden las descargas del template base
 $.getJSON(href_json_releases, function(json) {
@@ -135,8 +138,6 @@ $.getJSON(href_json_releases, function(json) {
             console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
         }
     }
-    var last_version = "$VERSION";
-    var last_version_link = "$VERSION_LINK";
     try {
         last_version = json[0].tag_name;
         last_version_link = json[0].assets[0].browser_download_url;
@@ -196,10 +197,11 @@ $.getJSON(href_json_releases, function(json) {
         }
         new_version_entry += String.format("Puedes ver la lista de cambios completa <a href='{0}'>en Github<img src='{1}/github.png' width='16px' height='16px' class='iconbutton' /></a>", href_github_project, href_resources_folder);
         document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
+        github_changelog = true;
     } catch (err) {
         console.log('Error al obtener los contenidos de las últimas versiones');
-        document.getElementById('whatsnew').style = 'display:none';
-        document.getElementById('changelog-menu').style = 'display:none';
+        hide_element_id('whatsnew');
+        hide_element_id('changelog-menu');
     }
 
     // Se actualizan los colores del whatsnew
@@ -208,6 +210,37 @@ $.getJSON(href_json_releases, function(json) {
 
 // FINAL
 jQuery(document).ready(function($) {
+
+    // Si no se encontraron descargas
+    if (enable_error_window && total_downloads == 0 && last_version == '$VERSION' && github_changelog == false) {
+        console.log('ERROR: No se detectó una versión, desactivando paneles.');
+        document.getElementById('whatsnew').style = 'display:none';
+        hide_element_id('download-button');
+        hide_element_id('download-button-1file');
+        hide_element_id('whatsnew');
+        hide_element_id('downloadcounter-banner');
+        document.getElementById('main-content-section').innerHTML = "<div class='error_msg_1'>Error: No se pudo obtener la última versión disponible :(</div>";
+        $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")')
+    } else {
+        // Se actualiza la cantidad de descargas al hacer click
+        $('total-download-counter').each(function() {
+            this.id.innerHTML = total_downloads;
+        });
+        $(function() {
+            $('#download-button').click(function() {
+                total_downloads += 1;
+                document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+                document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+            });
+        });
+        $(function() {
+            $('#download-button-1file').click(function() {
+                total_downloads += 1;
+                document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+                document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+            });
+        });
+    }
 
     // Se comprueba si es navegador móvil
     var is_movile_browser = false;
@@ -278,23 +311,4 @@ jQuery(document).ready(function($) {
     $('.main-content').css('background-color', backgroundmaincolor);
     $('body').css('background-color', backgroundmaincolor);
 
-});
-
-// Se actualiza la cantidad de descargas al hacer click
-$('total-download-counter').each(function() {
-    this.id.innerHTML = total_downloads;
-});
-$(function() {
-    $('#download-button').click(function() {
-        total_downloads += 1;
-        document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-        document.getElementById('total-download-counter-2').innerHTML = total_downloads;
-    });
-});
-$(function() {
-    $('#download-button-1file').click(function() {
-        total_downloads += 1;
-        document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-        document.getElementById('total-download-counter-2').innerHTML = total_downloads;
-    });
 });

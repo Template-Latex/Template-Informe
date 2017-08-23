@@ -39,6 +39,15 @@ if (!String.format) {
     };
 }
 
+// Desactiva cualquier elemento por id
+function hide_element_id(idelem) {
+    try {
+        document.getElementById(idelem).style = 'display:none';
+    } catch (err) {
+        console.log('Error al ocultar id: ' + idelem)
+    }
+}
+
 // Actualizador de descargas
 function updateDownloadCounter(downloads, source) {
 
@@ -82,7 +91,7 @@ function updateDownloadCounter(downloads, source) {
             // Se agregan 2 descargas de version 3.2.2
             // Se agregan 8 descargas de versión 3.2.3
             // Se agregan 110 descargas de versión 3.2.4-3.3.0
-			// Se agregan 55 descargas de versión 3.3.0-3.4.5
+            // Se agregan 55 descargas de versión 3.3.0-3.4.5
             download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3, 20, 38, 6, 146, 62, 28, 28, 84, 3, 12, 110, 31, 2, 8, 110, 55];
             break;
         case 'Template-Auxiliares':
