@@ -171,7 +171,6 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{empty}
 	\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
-	
 	\vfill
 	\begin{center}
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.3cm}
@@ -324,7 +323,38 @@
 		\noindent \textsf{\tablaintegrantes}
 	\end{flushright}
 }{
-	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1,style2,style3,style4,style5,style6,style7,style8,style9,style10,style11}}}}}}}}}}}
+\ifthenelse{\equal{\portraitstyle}{doge}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\pagestyle{empty}
+	\definecolor{lbrown}{RGB}{255,252,249}
+	\pagecolor{lbrown}
+	
+	\begin{center}
+		\vspace*{-1.0cm}
+		\scshape{\nombreuniversidad} \\
+		\scshape{\nombrefacultad} \\
+		\scshape{\departamentouniversidad}
+	\end{center}
+	
+	~ \\
+	\begin{center}
+		\bgtemplatetestimg
+	\end{center}
+
+	\begin{center}
+		\vspace*{-6cm}
+		{\setstretch{1.2} \fontsize{25pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\titulodelinforme}} \vspace{0.5cm}} \\
+		{\fontsize{15pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\temaatratar}}}
+	\end{center}
+
+	\vfill
+	\begin{flushright}
+		\noindent \tablaintegrantes
+	\end{flushright}
+	\newpage
+	\pagecolor{white}
+}{
+	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1,style2,style3,style4,style5,style6,style7,style8,style9,style10,style11}}}}}}}}}}}}
 }
 
 % Añade una página en blanco al imprimir por las dos caras
