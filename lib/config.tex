@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.3.8 (19/08/2017)
+% Versión:      4.3.9 (25/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,9 +12,10 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % CONFIGURACIONES GENERALES
-\def\addemptypagetwosides {false} % Añade pags. en blanco al imprimir a 2 caras
+\def\addemptypagetwosides {false} % Añade páginas en blanco al imprimir a 2 caras
 \def\defaultinterline {1.0}       % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11.0}    % Tamaño del salto de línea [pt]
+\def\documentlang {es-CL}         % Define el idioma del documento
 \def\fontdocument {lmodern}       % Tipografía (lmodern,arial,helvet)
 \def\numberedequation {true}      % Ecuaciones con \insert... numeradas
 \def\pointdecimal {false}         % Decimales con punto en vez de coma
@@ -71,6 +72,7 @@
 \def\tablelinecolor {black}       % Color de las líneas de las tablas
 \def\titlecolor {black}           % Color de los títulos
 \def\urlcolor {magenta}           % Color de los enlaces web (\url,\href)
+\def\pagecolor {white}            % Color de la página
 
 % CONFIGURACIÓN DE FIGURAS
 \def\defaultimagefolder {images/} % Carpeta raíz de las imágenes
@@ -84,7 +86,7 @@
 \def\bibtexrefsep {9}             % Separación entre referencias [pt] {bibtex}
 \def\natbibrefsep {5}             % Separación entre referencias [pt] {natbib}
 \def\referencenumsection {false}  % Sección de referencias numerada
-\def\sectionappendixlastchar {.}  % Caracter entre el N° de la sec. de anexo y el título
+\def\sectionappendixlastchar {.}  % Carácter entre el N° de la sec. de anexo y el título
 \def\showappendixsecindex {false} % Muestra el título de la sec. de anexos en el índice
 \def\showappendixsectitle {false} % Muestra el título de la sec. de anexo en el informe
 \def\stylecitereferences {bibtex} % Estilo citas y referencias (bibtex,apacite,natbib)
@@ -110,10 +112,10 @@
 \def\cfgpdfdisplaydoctitle {true} % Muestra el título del informe como título del pdf
 \def\cfgpdffitwindow {false}      % Ajusta la ventana del lector al tamaño del pdf
 \def\cfgpdfmenubar {true}         % Muestra el menú del lector al abrir el pdf
-\def\cfgpdftoolbar {true}         % Muestra la barra de herramientas del lector pdf
-\def\cfgshowbookmarkmenu {false}  % Muestra el menú de los marcadores en el lector pdf
 \def\cfgpdfpagemode {OneColumn}   % Modo de página en el lector (OneColumn,SinglePage)
 \def\cfgpdfpageview {FitH}        % Ajuste de pag. (Fit,FitH,FitV,FitR,FitB,FitBH,FitBV)
+\def\cfgpdftoolbar {true}         % Muestra la barra de herramientas del lector pdf
+\def\cfgshowbookmarkmenu {false}  % Muestra el menú de los marcadores en el lector pdf
 
 % NOMBRE DE OBJETOS
 \def\nameabstract {Resumen}           % Nombre del resumen-abstract
