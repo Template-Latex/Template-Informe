@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Portada
-% Versión:      4.4.3 (26/08/2017)
+% Versión:      4.4.4 (26/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -28,12 +28,12 @@
 
 	\vspace*{5cm}
 	\begin{center}
+		\noindent \LARGE{\nombredelcurso} \\
+		\vspace{1.0cm}
 		\textcolor{\portraittitlecolor}{
-			\LARGE{\nombredelcurso} \\
-			\vspace{1.0cm}
-			\Huge{\titulodelinforme} \\
-			\vspace{0.3cm}
-			\large{\temaatratar}
+			\noindent \Huge{\titulodelinforme} \\
+			\vspace{0.2cm}
+			\noindent \large{\temaatratar}
 		}
 	\end{center}
 
@@ -57,14 +57,14 @@
 
 	\vspace*{4cm}
 	\begin{center}
+		\noindent \huge{\nombredelcurso} \\
+		\vspace{0.3cm}
+		\noindent \large{Código del curso: \codigodelcurso} \\
+		\vspace{1.8cm}
 		\textcolor{\portraittitlecolor}{
-			\huge{\nombredelcurso} \\
+			\noindent \Huge{\titulodelinforme} \\
 			\vspace{0.3cm}
-			\large{Código del curso: \codigodelcurso} \\
-			\vspace{1.8cm}
-			\Huge{\titulodelinforme} \\
-			\vspace{0.3cm}
-			\large{\temaatratar}
+			\noindent \large{\temaatratar}
 		}
 	\end{center}
 
@@ -96,7 +96,7 @@
 		~ \\ [4.5cm]
 		{\color{dgray} \Large \textsc{\temaatratar}} \\
 		\noindent \rule{\linewidth}{0.4mm} ~ \\ [0.35cm]
-		{\Huge \textup \bfseries \textsc{\titulodelinforme}} \\ [0.4cm]
+		\Huge \textup \bfseries \textsc{\textcolor{\portraittitlecolor}{\titulodelinforme}} \\ [0.4cm]
 		\noindent \rule{\linewidth}{0.4mm} ~ \\ [2.5cm]
 	\end{center}
 	\begin{minipage}{.5\textwidth}
@@ -124,12 +124,12 @@
 		\vspace*{1.25cm}\mbox{}
 	\end{tabular}
 
-	\vspace*{4.5cm}
+	\vspace*{4.3cm}
 	\begin{center}
 		\fontsize{8mm}{9mm} \selectfont 
-		\titulodelinforme \\
-		\vspace*{0.7cm}
-		\large{\codigodelcurso\ - \nombredelcurso} \\
+		\noindent \textcolor{\portraittitlecolor}{\titulodelinforme} \\
+		\vspace*{0.35cm}
+		\noindent \textcolor{\portraittitlecolor}{\large{\codigodelcurso\ - \nombredelcurso}} \\
 		\vspace*{3cm}
 	\end{center}
 
@@ -149,9 +149,9 @@
 	\vspace*{3cm}
 	\begin{center}
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.3cm}
-		{\huge \titulodelinforme \vspace{0.2cm} \\}
-		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.4cm}
-		{\large \temaatratar \\}
+		{\huge \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
+		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.35cm}
+		{\large \textcolor{\portraittitlecolor}{\temaatratar} \\}
 	\end{center}
 
 	\vspace{2cm}
@@ -184,9 +184,9 @@
 	\vspace*{4cm}
 	\begin{center}
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.3cm}
-		{\huge \titulodelinforme \vspace{0.2cm} \\}
-		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.4cm}
-		{\large \temaatratar \\}
+		{\huge \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
+		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.40cm}
+		{\large \textcolor{\portraittitlecolor}{\temaatratar} \\}
 	\end{center}
 	
 	\vfill
@@ -209,10 +209,8 @@
 	
 	\vspace{6.0cm}
 	\begin{center}
-		\scshape{
-			{\Huge \titulodelinforme \vspace{0.6cm}} \\
-			{\Large \temaatratar}
-		}
+		{\Huge \textcolor{\portraittitlecolor}{\scshape{\titulodelinforme}} \vspace{0.6cm}} \\
+		{\Large \textcolor{\portraittitlecolor}{\scshape{\temaatratar}}}
 	\end{center}
 	
 	\vfill
@@ -230,8 +228,8 @@
 
 	\vspace{4.5cm}
 	\begin{center}
-		{\bf \Huge \scshape{\titulodelinforme} \vspace{0.3cm}} \\
-		{\bf \Large \temaatratar}
+		{\bf \Huge \scshape{\textcolor{\portraittitlecolor}{\titulodelinforme}} \vspace{0.3cm}} \\
+		{\bf \Large \textcolor{\portraittitlecolor}{\temaatratar}}
 	\end{center}
 	
 	\vfill
@@ -251,8 +249,8 @@
 	\pagestyle{empty}
 	\noindent \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{6.5cm} \\
 	
-	\noindent {\bf \huge \textsf{\MakeUppercase{\titulodelinforme}} \vspace*{0.3cm}} \\
-	\noindent {\bf \large \textsf{\MakeUppercase{\temaatratar}}} \\
+	\noindent {\bf \huge \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\titulodelinforme}} \vspace*{0.3cm}}} \\
+	\noindent {\bf \large \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\temaatratar}}}} \\
 	
 	\vfill
 	\begin{flushright}
