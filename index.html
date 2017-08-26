@@ -906,6 +906,9 @@ def incmatrix(genl1, genl2):
 							<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea, en pt.
 						</li>
 						<li>
+							<strong>\documentlang</strong>: Define el idioma del documento.
+						</li>
+						<li>
 							<strong>\fontdocument</strong>: Define la fuente de todo el texto del documento (lmodern, arial, helvet).
 						</li>
 						<li>
@@ -930,7 +933,7 @@ def incmatrix(genl1, genl2):
 							<strong>\hfstyle</strong>: Estilo del encabezado y pié de página (header-footer), existen 6 estilos distintos .
 						</li>
 						<li>
-							<strong>\portraitstyle</strong>: Estilo de la portada, existen 4 estilos distintos.
+							<strong>\portraitstyle</strong>: Estilo de la portada, existen 9 estilos distintos.
 						</li>
 					</ul>
 				</li>
@@ -1038,7 +1041,7 @@ def incmatrix(genl1, genl2):
 							<strong>\captiontextcolor</strong>: Color de la leyenda de los objetos.
 						</li>
 						<li>
-							<strong>\citecolor</strong>: Color del número de la referencia o cita.
+							<strong>\colorpage</strong>: Define el color de fondo de las páginas del documento.
 						</li>
 						<li>
 							<strong>\highlightcolor</strong>: Color del subrayado con <i>\hl{text}</i>.
@@ -1051,6 +1054,9 @@ def incmatrix(genl1, genl2):
 						</li>
 						<li>
 							<strong>\maintextcolor</strong>: Color del texto del documento, afecta al color de los títulos, párrafos, líneas, tablas, etc.
+						</li>
+						<li>
+							<strong>\numcitecolor</strong>: Color del número de las referencias o citas.
 						</li>
 						<li>
 							<strong>\portraittitlecolor</strong>: Color de los títulos de la portada.
@@ -1107,10 +1113,10 @@ def incmatrix(genl1, genl2):
 							<strong>\bibtexrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>bibtex</i>), en pt.
 						</li>
 						<li>
-							<strong>\natbibrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>natbib</i>), en pt.
+							<strong>\donumrefsection</strong>: Sección de referencias numerada en el informe.
 						</li>
 						<li>
-							<strong>\referencenumsection</strong>: Sección de referencias numerada en el informe.
+							<strong>\natbibrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>natbib</i>), en pt.
 						</li>
 						<li>
 							<strong>\sectionappendixlastchar</strong>: Caracter entre el número de la sección del anexo y el título.
@@ -1191,6 +1197,12 @@ def incmatrix(genl1, genl2):
 							<strong>\cfgpdfmenubar</strong>: Muestra la barra de menú en el lector pdf.
 						</li>
 						<li>
+							<strong>\cfgpdfpagemode</strong>: Modo de página en el lector. Valores esperados: OneColumn,SinglePage.
+						</li>
+						<li>
+							<strong>\cfgpdfpageview</strong>: Establece cómo se ve la página en el lector pdf, valores esperados: Fit,FitH,FitV,FitR,FitB,FitBH,FitBV.
+						</li>
+						<li>
 							<strong>\cfgpdftoolbar</strong>: Muestra la barra de herramientas del lector pdf.
 						</li>
 						<li>
@@ -1213,6 +1225,9 @@ def incmatrix(genl1, genl2):
 						</li>
 						<li>
 							<strong>\namereferences</strong>: Nombre de la sección de referencias.
+						</li>
+						<li>
+							<strong>\nomchapter</strong>: Nombre de los capítulos.
 						</li>
 						<li>
 							<strong>\nomltappendixsection</strong>: Etiqueta sección en anexo/apéndices.
