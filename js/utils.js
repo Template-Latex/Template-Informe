@@ -53,7 +53,8 @@ function updateDownloadCounter(downloads, source) {
 
     switch (source) {
         case 'Template-Informe':
-            // Se añaden las 129 descargas de https://api.github.com/repos/ppizarror/Template-Informe-cursos/releases
+            // Ajuste por json de Template-Informe https://api.github.com/repos/Template-Latex/Template-Informe/releases
+            // Se añaden las 129 descargas de Template-Informe-cursos
             // Se añaden 60 descargas entre versiones 1.8.5 y 1.9.6
             // Se añaden 138 descargas entre versiones 1.9.6 y 2.0.6
             // Se añaden 3 descargas de versión 2.0.7
@@ -94,7 +95,8 @@ function updateDownloadCounter(downloads, source) {
             // Se agregan 55 descargas entre versiones 3.3.0-3.4.5
             // Se agregan 6 descargas entre versión 3.4.5-4.6.0
             // Se agregan 8 descargas de versión 3.6.0
-            download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3, 20, 38, 6, 146, 62, 28, 28, 84, 3, 12, 110, 31, 2, 8, 110, 55, 6, 8];
+            // Se agregan 45 descargas de versión 3.6.3
+            download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3, 20, 38, 6, 146, 62, 28, 28, 84, 3, 12, 110, 31, 2, 8, 110, 55, 6, 8, 45];
             break;
         case 'Template-Auxiliares':
             download_list_counter = [];
