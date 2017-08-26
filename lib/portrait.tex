@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Portada
-% Versión:      4.4.0 (26/08/2017)
+% Versión:      4.4.1 (26/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -38,7 +38,12 @@
 	\end{center}
 
 	\vfill
-	\tablaintegrantes
+	\noindent
+	\begin{minipage}{1.0\textwidth}
+		\begin{flushright}
+			\tablaintegrantes
+		\end{flushright}
+	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style2}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
@@ -64,7 +69,12 @@
 	\end{center}
 
 	\vfill
-	\tablaintegrantes
+	\noindent
+	\begin{minipage}{1.0\textwidth}
+		\begin{flushright}
+			\tablaintegrantes
+		\end{flushright}
+	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style3}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
@@ -94,7 +104,12 @@
 	\end{minipage}
 	
 	\vfill
-	\tablaintegrantes
+	\noindent
+	\begin{minipage}{1.0\textwidth}
+		\begin{flushright}
+			\tablaintegrantes
+		\end{flushright}
+	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style4}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
@@ -119,7 +134,12 @@
 	\end{center}
 
 	\vfill
-	\tablaintegrantes
+	\noindent
+	\begin{minipage}{1.0\textwidth}
+		\begin{flushright}
+			\tablaintegrantes
+		\end{flushright}
+	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style5}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
@@ -144,7 +164,9 @@
 	\end{center}
 	
 	\vfill
-	\scshape{\tablaintegrantes}
+	\begin{center}
+		\indent \scshape{\tablaintegrantes}
+	\end{center}
 }{
 \ifthenelse{\equal{\portraitstyle}{style6}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
@@ -168,7 +190,12 @@
 	\end{center}
 	
 	\vfill
-	\scshape{\tablaintegrantes}
+	\noindent
+	\begin{minipage}{1.0\textwidth}
+		\begin{flushright}
+			\scshape{\tablaintegrantes}
+		\end{flushright}
+	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style7}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
@@ -189,7 +216,9 @@
 	\end{center}
 	
 	\vfill
-	\tablaintegrantes
+	\begin{center}
+		\indent \tablaintegrantes
+	\end{center}
 }{
 \ifthenelse{\equal{\portraitstyle}{style8}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
@@ -206,7 +235,9 @@
 	\end{center}
 	
 	\vfill
-	\tablaintegrantes
+	\begin{flushright}
+		\noindent \tablaintegrantes
+	\end{flushright}
 
 	\vspace{0.5cm}
 	\noindent \rule{\textwidth}{0.4mm}
@@ -218,13 +249,15 @@
 \ifthenelse{\equal{\portraitstyle}{style9}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{empty}
-	\noindent \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{6.8cm} \\
+	\noindent \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{6.5cm} \\
 	
 	\noindent {\bf \huge \textsf{\MakeUppercase{\titulodelinforme}} \vspace*{0.3cm}} \\
 	\noindent {\bf \large \textsf{\MakeUppercase{\temaatratar}}} \\
 	
 	\vfill
-	{\textsf{\tablaintegrantes}}
+	\begin{flushright}
+		\noindent \tablaintegrantes
+	\end{flushright}
 }{
 	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1,style2,style3,style4,style5,style6,style7,style8,style9}}}}}}}}}
 }
