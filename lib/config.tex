@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.3.9 (25/08/2017)
+% Versión:      4.4.0 (26/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -24,7 +24,7 @@
 
 % ESTILO PORTADA Y HEADER-FOOTER
 \def\hfstyle {style1}             % Estilo del header-footer (6 estilos distintos)
-\def\portraitstyle {style1}       % Estilo de la portada (4 estilos distintos)
+\def\portraitstyle {style9}       % Estilo de la portada (9 estilos distintos)
 
 % MÁRGENES DE PÁGINA
 \def\firstpagemargintop {3.8}     % Margen superior página portada [cm]
@@ -60,11 +60,12 @@
 % CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
 \def\captioncolor {black}         % Color de la etiqueta (Código,Figura,Tabla)
 \def\captiontextcolor {black}     % Color de la leyenda
-\def\citecolor {black}            % Color del número de las referencias o citas
+\def\colorpage {white}            % Color de la página
 \def\highlightcolor {yellow}      % Color del subrayado con \hl
 \def\indextitlecolor {black}      % Color de los títulos del índice
 \def\linkcolor {black}            % Color de los links del doc.
 \def\maintextcolor {black}        % Color principal del texto
+\def\numcitecolor {black}         % Color del número de las referencias o citas
 \def\portraittitlecolor {black}   % Color de los títulos de la portada
 \def\showborderonlinks {false}    % Color de un links por un recuadro de color
 \def\subsubtitlecolor {black}     % Color de los sub-subtítulos
@@ -72,7 +73,6 @@
 \def\tablelinecolor {black}       % Color de las líneas de las tablas
 \def\titlecolor {black}           % Color de los títulos
 \def\urlcolor {magenta}           % Color de los enlaces web (\url,\href)
-\def\pagecolor {white}            % Color de la página
 
 % CONFIGURACIÓN DE FIGURAS
 \def\defaultimagefolder {images/} % Carpeta raíz de las imágenes
@@ -84,8 +84,8 @@
 \def\apaciterefsep {9}            % Separación entre referencias [pt] {apacite}
 \def\appendixindepobjnum {true}   % Anexo usa número objetos de forma independiente
 \def\bibtexrefsep {9}             % Separación entre referencias [pt] {bibtex}
+\def\donumrefsection {false}      % Sección de referencias numerada
 \def\natbibrefsep {5}             % Separación entre referencias [pt] {natbib}
-\def\referencenumsection {false}  % Sección de referencias numerada
 \def\sectionappendixlastchar {.}  % Carácter entre el N° de la sec. de anexo y el título
 \def\showappendixsecindex {false} % Muestra el título de la sec. de anexos en el índice
 \def\showappendixsectitle {false} % Muestra el título de la sec. de anexo en el informe
