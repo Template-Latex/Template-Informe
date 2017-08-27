@@ -55,3 +55,6 @@ stats/Tesis/*.png
 
 # Subreleases
 subreleases/*
+
+# Logs
+log.txt
