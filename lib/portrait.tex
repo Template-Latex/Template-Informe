@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Portada
-% Versión:      4.4.5 (26/08/2017)
+% Versión:      4.4.6 (27/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -105,7 +105,8 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style4}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{empty}
+	\thispagestyle{empty}
+	
 	\begin{wrapfigure}{l}{0.3\textwidth}
 		\vspace{-0.69cm}
 		\noindent \hspace{-1.10cm} \includegraphics[scale=1.35]{departamentos/fcfm2}
@@ -140,10 +141,11 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style5}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{empty}
-	\vspace*{-1.0cm}
-	\includegraphics[width=1.5cm]{departamentos/uchile2}
-	\hspace{0cm}
+	\thispagestyle{empty}
+	
+	\vspace*{-1.5cm}
+	\noindent \includegraphics[width=1.75cm]{departamentos/uchile2}
+	\hspace*{-0.3cm}
 	\begin{tabular}{l}
 		\small \scshape{\MakeUppercase{\nombreuniversidad}} \\
 		\small \scshape{\MakeUppercase{\nombrefacultad}} \\
@@ -169,8 +171,9 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style6}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{empty}
-	\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+	\thispagestyle{empty}
+	
+	\noindent \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	\vfill
 	\begin{center}
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.3cm}
@@ -195,7 +198,8 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style7}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{empty}
+	\thispagestyle{empty}
+	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\begin{tabular}{c}
@@ -224,7 +228,8 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style8}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{empty}
+	\thispagestyle{empty}
+	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\scshape{\nombreuniversidad} \\
@@ -245,7 +250,8 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style9}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{empty}
+	\thispagestyle{empty}
+	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
@@ -271,7 +277,8 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style10}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{empty}
+	\thispagestyle{empty}
+	
 	\noindent
 	\vspace*{-1.5cm}
 	\begin{flushleft}
@@ -307,7 +314,8 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style11}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{empty}
+	\thispagestyle{empty}
+	
 	\noindent
 	\begin{flushleft}
 		\vspace*{-1.0cm}
@@ -322,6 +330,79 @@
 	\begin{flushright}
 		\noindent \textsf{\tablaintegrantes}
 	\end{flushright}
+}{
+\ifthenelse{\equal{\portraitstyle}{style12}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\thispagestyle{empty}
+	
+	% Se chequean variables propias de la portada
+	\checkextravarexist{\imagenextraportada}{}
+	\checkextravarexist{\imagenextraportadaescala}{}
+	
+	\vspace*{-1.5cm}
+	\noindent \begin{minipage}{0.8\textwidth}
+		\noindent \begin{minipage}{0.22\textwidth}
+			\includegraphics[scale=1.0]{departamentos/fcfm2} \\
+		\end{minipage}
+		\begin{minipage}{0.6\textwidth}
+			\begin{flushleft}
+				\textsc{
+				\begin{tabular}{l}
+					{\small \nombreuniversidad} \\
+					{\small \nombrefacultad} \\
+					{\small \departamentouniversidad}
+				\end{tabular}
+				}
+			\end{flushleft}
+		\end{minipage}
+	\end{minipage}
+	\noindent \begin{minipage}{0.2\textwidth}
+		\begin{flushright}
+			\ifthenelse{\isundefined{\imagenextraportada}}{}{
+				\ifthenelse{\isundefined{\imagenextraportadaescala}}{}{
+					\noindent \includegraphics[scale=\imagenextraportadaescala]{\imagenextraportada} \\
+				}
+			}
+		\end{flushright}
+	\end{minipage}
+	
+	\vfill
+	\begin{center}
+		{\fontsize{25pt}{15pt} \selectfont \textcolor{\portraittitlecolor}{\textbf{\titulodelinforme}} \vspace{0.7cm}} \\
+		{\Large \textcolor{\portraittitlecolor}{\temaatratar}}
+	\end{center}
+	
+	\vfill
+	\begin{center}
+		\noindent \tablaintegrantes
+	\end{center}
+}{
+\ifthenelse{\equal{\portraitstyle}{style13}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	
+	\checkextravarexist{\imagenfondoportada}{Defina el fondo de la portada en el bloque INFORMACION DEL DOCUMENTO. Por defecto se uso la portada ubicada en ejemplos}
+	\ifthenelse{\isundefined{\imagenfondoportada}}{
+		\def\imagenfondoportada {ejemplos/background-1}
+	}{}
+	\checkextravarexist{\colorbloqueportada}{Defina el color del bloque del titulo de la portada en el bloque INFORMACION DEL DOCUMENTO. Por defecto se uso el color ocre}
+	\ifthenelse{\isundefined{\imagenfondoportada}}{
+		\def\imagenfondoportada {ejemplos/background-1}
+	}{}
+	\ifthenelse{\isundefined{\colorbloqueportada}}{
+		\def\colorbloqueportada {ocre}
+	}{}
+	
+	\begingroup
+	\thispagestyle{empty}
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\imagenfondoportada}};
+		\draw (current page.center) node [fill=\colorbloqueportada!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
+				\centering \textcolor{\portraittitlecolor}{\titulodelinforme} \\ [10pt]
+				{\Large \temaatratar} \\ [25pt]
+				{\huge \autordeldocumento}}};
+	\end{tikzpicture}
+	\vfill
+	\endgroup
 }{
 \ifthenelse{\equal{\portraitstyle}{doge}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
@@ -354,7 +435,7 @@
 	\newpage
 	\pagecolor{white}
 }{
-	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1..11}}}}}}}}}}}}
+	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1..13}}}}}}}}}}}}}}
 }
 
 % Añade una página en blanco al imprimir por las dos caras
