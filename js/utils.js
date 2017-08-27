@@ -48,6 +48,15 @@ function hide_element_id(idelem) {
     }
 }
 
+// Animacion fadein css
+function fadein_css(idelem, t) {
+    $(idelem).css('animation-name', 'fadeIn');
+    $(idelem).css('animation-iteration-count', 1);
+    $(idelem).css('animation-timing-function', 'ease-in-out');
+    $(idelem).css('animation-duration', t);
+    $(idelem).css('animation-fill-mode', 'forwards');
+}
+
 // Actualizador de descargas
 function updateDownloadCounter(downloads, source) {
 

@@ -273,11 +273,9 @@ jQuery(document).ready(function($) {
             $('.page-header').css('background-size', 'cover');
             $('.page-header').css('max-width', '100%');
             $('.page-header').css('width', $(window).width());
-            $('.page-header').css('animation-name', 'fadeIn');
-            $('.page-header').css('animation-iteration-count', 1);
-            $('.page-header').css('animation-timing-function', 'ease-in-out');
-            $('.page-header').css('animation-duration', '0.5s');
-            $('.page-header').css('animation-fill-mode', 'forwards');
+            fadein_css('.page-header', '0.5s');
+            fadein_css('#total-download-counter-1', '0.1s');
+            fadein_css('#total-download-counter-2', '0.1s');
         }
         back_img.src = image_url;
     }

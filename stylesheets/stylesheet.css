@@ -7,7 +7,7 @@
     display: inline-block;
 }
 
-.tooltip .tooltiptext {
+.tooltip .tooltiptext-headerbtn {
     visibility: hidden;
     width: 150px;
     background-color: rgba(30, 30, 30, 0.8);
@@ -29,7 +29,7 @@
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.tooltip .tooltiptext::after {
+.tooltip .tooltiptext-headerbtn::after {
     content: "";
     position: absolute;
     bottom: 100%;
@@ -41,8 +41,77 @@
     opacity: 0.8;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltip:hover .tooltiptext-headerbtn {
     visibility: visible;
+}
+
+.tooltip .tooltiptext_autor {
+    visibility: hidden;
+    width: 200px;
+    background-color: rgba(30, 30, 30, 1.0);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 115%;
+    left: 50%;
+    margin-left: -100px;
+    border-color: rgba(255, 255, 255, 0.2);;
+    border-width: 1px;
+    border-style: solid;
+    opacity: 0.97;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+}
+
+.tooltip .tooltiptext_autor::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
+    opacity: 1.0;
+}
+
+.tooltip:hover .tooltiptext_autor {
+    visibility: visible;
+}
+
+.tooltip .tooltiptext_autor img {
+    height: 50px;
+    float: left;
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    border-radius: 3px;
+}
+
+.autor_name {
+    display: inline-block;
+    float: left;
+    position: relative;
+    font-weight: bold;
+    width: 140px;
+    padding-left: -4px;
+    margin-top: 4px;
+}
+
+.autor_location {
+    display: inline-block;
+    float: left;
+    width: 140px;
+    text-align: left;
+}
+
+.tooltiptext_autor_svg {
+    fill: rgb(255, 255, 255);
+    margin-left: 12px;
 }
 
 .pace {
