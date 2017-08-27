@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.4.8 (27/08/2017)
+% Versión:      4.4.9 (27/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -73,9 +73,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.4.8-N},
-		Template.Version.Hash={5B943A6EBAFEDBD59B0E256E29730B92},
-		Template.Version.Release={4.4.8},
+		Template.Version.Dev={4.4.9-N},
+		Template.Version.Hash={7E3EE5D4C986F6E71288767873A01A00},
+		Template.Version.Release={4.4.9},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -87,7 +87,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Informe v4.4.8 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.4.9 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -283,9 +283,9 @@
 % Se define el tipo de texto de los url
 \urlstyle{tt}
 
-% Se define la versión menor a compilar
-\pdfminorversion = \pdfcompileversion
-
 % Se revisa si se importa tikz
 \ifthenelse{\equal{\portraitstyle}{style13}}{\importtikzlib}{}
 \ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{\importtikzlib}{}
+
+% Se define la versión menor a compilar
+\pdfminorversion = \pdfcompileversion
