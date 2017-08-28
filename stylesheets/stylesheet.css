@@ -20,7 +20,8 @@
     top: 115%;
     left: 50%;
     margin-left: -75px;
-    border-color: rgba(255, 255, 255, 0.2);;
+    border-color: rgba(255, 255, 255, 0.2);
+    ;
     border-width: 1px;
     border-style: solid;
     opacity: 0.8;
@@ -58,7 +59,8 @@
     top: 115%;
     left: 50%;
     margin-left: -100px;
-    border-color: rgba(255, 255, 255, 0.2);;
+    border-color: rgba(255, 255, 255, 0.2);
+    ;
     border-width: 1px;
     border-style: solid;
     opacity: 0.97;
