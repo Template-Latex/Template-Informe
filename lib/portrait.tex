@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Portada
-% Versión:      4.4.9 (27/08/2017)
+% Versión:      4.5.0 (27/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -407,6 +407,7 @@
 \ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{empty}
+	
 	\definecolor{lbrown}{RGB}{255,252,249}
 	\pagecolor{lbrown}
 	
@@ -435,7 +436,7 @@
 	\newpage
 	\pagecolor{white}
 }{
-	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1..13}}}}}}}}}}}}}}
+	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style13}}}}}}}}}}}}}}
 }
 
 % Añade una página en blanco al imprimir por las dos caras

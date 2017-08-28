@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      4.4.9 (27/08/2017)
+% Versión:      4.5.0 (27/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -168,10 +168,10 @@ end
 
 % NUEVA SECCIÓN
 % Inserta una sección sin número
-\section{Más ejemplos}
+\sectionanum{Más ejemplos}
 	
 	% Inserta un subtítulo sin número
-	\subsection{Listas y Enumeraciones}
+	\subsectionanum{Listas y Enumeraciones}
 		
 		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template\footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.}, para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
 		
@@ -226,7 +226,7 @@ end
 		\end{multicols}
 		
 	% Inserta un subtítulo sin número
-	\subsection{Otros}
+	\subsectionanum{Otros}
 		
 		Recuerda revisar el manual de todas las funciones de este template visitando el siguiente link: \url{http://ppizarror.com/Template-Informe/}. Además si necesitas una ayuda muy específica sobre el template me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
 
@@ -235,7 +235,7 @@ end
 \begin{anexo}
 	\section{Cálculos realizados}
 	
-		\lipsum[69]
+		\lipsum[1]
 		
 		% Imagen, se numerará automáticamente con la letra del anexo
 		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.15}{Imagen en anexo.}

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.4.9 (27/08/2017)
+% Versión:      4.5.0 (27/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -23,7 +23,7 @@
 \def\tablepadding {1.0}           % Ancho de celda de las tablas
 
 % ESTILO PORTADA Y HEADER-FOOTER
-\def\hfstyle {style1}             % Estilo del header-footer (6 estilos distintos)
+\def\hfstyle {style1}             % Estilo del header-footer (7 estilos distintos)
 \def\portraitstyle {style1}       % Estilo de la portada (13 estilos distintos)
 
 % MÁRGENES DE PÁGINA
@@ -46,7 +46,6 @@
 \def\tablecaptiontop {true}       % Leyenda arriba de las tablas
 
 % CONFIGURACIÓN DEL ÍNDICE
-\def\addindextobookmarks {false}  % Añade el índice a los marcadores del pdf
 \def\indexdepth {3}               % Profundidad máxima del índice
 \def\indextitlemargin {7.0}       % Margen título en índice \insertindextitle [pt]
 \def\showdotonobjectindex {false} % Punto en cada número de figura, tabla o código
@@ -86,14 +85,14 @@
 \def\bibtexrefsep {9}             % Separación entre referencias [pt] {bibtex}
 \def\donumrefsection {false}      % Sección de referencias numerada
 \def\natbibrefsep {5}             % Separación entre referencias [pt] {natbib}
-\def\sectionappendixlastchar {.}  % Carácter entre el N° de la sec. de anexo y el título
+\def\sectionappendixlastchar {.}  % Carácter entre N° de la sec. de anexo y el título
 \def\showappendixsecindex {false} % Muestra el título de la sec. de anexos en el índice
 \def\showappendixsectitle {false} % Muestra el título de la sec. de anexo en el informe
 \def\stylecitereferences {bibtex} % Estilo citas y referencias (bibtex,apacite,natbib)
 \def\twocolumnreferences {false}  % Referencias en dos columnas
 
 % CONFIGURACIÓN DE LOS TÍTULOS
-\def\anumsecaddtocounter {false}  % Función para insertar títulos <anum> aumenta contador
+\def\anumsecaddtocounter {false}  % Fun. para insertar títulos <anum> aumenta contador
 \def\fontsizesubsubtitle {\large} % Tamaño sub-subtítulos
 \def\fontsizesubtitle {\Large}    % Tamaño subtítulos
 \def\fontsizetitle {\huge}        % Tamaño títulos
@@ -105,6 +104,7 @@
 \def\styletitlei {\bfseries}      % Estilo títulos en el índice
 
 % OPCIONES DEL PDF COMPILADO
+\def\addindextobookmarks {false}  % Añade el índice a los marcadores del pdf
 \def\cfgbookmarksopenlevel {2}    % Nivel de los marcadores a mostrar (2: subsecciones)
 \def\cfgpdfbookmarkopen {true}    % Expande los marcadores hasta el nivel configurado
 \def\cfgpdfcenterwindow {true}    % Centra la ventana del lector al abrir el pdf
@@ -113,7 +113,8 @@
 \def\cfgpdffitwindow {false}      % Ajusta la ventana del lector al tamaño del pdf
 \def\cfgpdfmenubar {true}         % Muestra el menú del lector al abrir el pdf
 \def\cfgpdfpagemode {OneColumn}   % Modo de página en el lector (OneColumn,SinglePage)
-\def\cfgpdfpageview {FitH}        % Ajuste de pag. (Fit,FitH,FitV,FitR,FitB,FitBH,FitBV)
+\def\cfgpdfpageview {FitH}        % Ajuste de p. (Fit,FitH,FitV,FitR,FitB,FitBH,FitBV)
+\def\cfgpdfsecnumbookmarks {true} % Número de la sección en los marcadores del pdf
 \def\cfgpdftoolbar {true}         % Muestra la barra de herramientas del lector pdf
 \def\cfgshowbookmarkmenu {true}   % Muestra el menú de los marcadores al abrir el pdf
 \def\pdfcompileversion {7}        % Version mínima del pdf a compilar (1.x)

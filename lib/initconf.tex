@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.4.9 (27/08/2017)
+% Versión:      4.5.0 (27/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -41,6 +41,11 @@
 	\def\tablaintegrantes {}
 }{}
 
+% Se activan números en menú marcadores del pdf
+\ifthenelse{\equal{\cfgpdfsecnumbookmarks}{true}}{
+	\bookmarksetup{numbered}
+}{}
+
 % Se define metadata del pdf
 \ifthenelse{\equal{\cfgshowbookmarkmenu}{true}}{
 	\def\cdfpagemodepdf {UseOutlines}
@@ -73,9 +78,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.4.9-N},
-		Template.Version.Hash={7E3EE5D4C986F6E71288767873A01A00},
-		Template.Version.Release={4.4.9},
+		Template.Version.Dev={4.5.0-N},
+		Template.Version.Hash={5FD9F9FEC9CCD851D9340B7C2F09E41E},
+		Template.Version.Release={4.5.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -87,7 +92,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Informe v4.4.9 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.5.0 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -288,4 +293,4 @@
 \ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{\importtikzlib}{}
 
 % Se define la versión menor a compilar
-\pdfminorversion = \pdfcompileversion
+\pdfminorversion=\pdfcompileversion

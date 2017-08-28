@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      4.4.9 (27/08/2017)
+% Versión:      4.5.0 (27/08/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -58,18 +58,28 @@
 	\fancyhead[R]{\small \rm \thepage}
 	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
 	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
-	\renewcommand{\footrulewidth}{0.5pt}
 	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0.5pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 }{
 \ifthenelse{\equal{\hfstyle}{style2}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+	\fancyhead[R]{\small \rm \thepage}
+	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
+	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+}{
+\ifthenelse{\equal{\hfstyle}{style3}}{
 	\pagestyle{fancy} \fancyhf{}
 	\fancyfoot[C]{\thepage}
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{0pt}
 	\setlength{\headheight}{49pt}
 }{
-\ifthenelse{\equal{\hfstyle}{style3}}{
+\ifthenelse{\equal{\hfstyle}{style4}}{
 	\pagestyle{fancy} \fancyhf{}
 	\fancyfoot[L]{\departamentouniversidad}
 	\fancyfoot[C]{\thepage}
@@ -78,33 +88,33 @@
 	\renewcommand{\footrulewidth}{0pt}
 	\setlength{\headheight}{49pt}
 }{
-\ifthenelse{\equal{\hfstyle}{style4}}{
+\ifthenelse{\equal{\hfstyle}{style5}}{
 	\pagestyle{fancy} \fancyhf{}
 	\fancyfoot[R]{\thepage}
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{0pt}
 	\setlength{\headheight}{49pt}
 }{
-\ifthenelse{\equal{\hfstyle}{style5}}{
+\ifthenelse{\equal{\hfstyle}{style6}}{
 	\pagestyle{fancy} \fancyhf{}
 	\fancyhead[L]{\codigodelcurso \nombredelcurso}
 	\fancyhead[R]{\nouppercase{\rightmark}}
 	\fancyfoot[L]{\departamentouniversidad, \nombreuniversidad}
 	\fancyfoot[R]{\small \rm \thepage}
-	\renewcommand{\footrulewidth}{0pt}
 	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 }{
-\ifthenelse{\equal{\hfstyle}{style6}}{
+\ifthenelse{\equal{\hfstyle}{style7}}{
 	\pagestyle{fancy} \fancyhf{}
 	\fancyhead[L]{\nouppercase{\rightmark}}
 	\fancyhead[R]{}
 	\fancyfoot[C]{\small \rm \thepage}
-	\renewcommand{\footrulewidth}{0pt}
 	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 }{
-	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1,style2,style3,style4,style5,style6}}}}}}
+	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style6}}}}}}}
 }
 
 % Profundidad del índice
