@@ -169,18 +169,17 @@
 			<a id="empezando-con-el-template"></a> Este proyecto corresponde a un template para confeccionar geniales informes en
 			<img src="resources/latex.png" alt="LaTeX" class="lateximg">, contiene múltiples funciones para insertar imágenes, fórmulas, párrafos y títulos de forma sencilla, sin tener que recurrir a las largas instrucciones que ofrece Latex por defecto.
 		</p>
+
+		<img src="images/collage.png" alt="Informe" width="70%px" style="margin: auto; display: block;">
+
 		<p>
 			Para crear un informe con este template debes primero <a href="#configurando-el-documento">editar la información del documento</a> (título, nombre de la universidad, etc) en la sección
 
-			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> (línea 21)<i id="linea-informacion-documento"></i> del archivo principal, luego <a href="tabla-integrantes">editar la tabla</a> de datos de la portada en la sección
+			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> <font title='Línea 19 en versión compacta' style='cursor: pointer;'>(línea 18)</font> <i id="linea-informacion-documento"></i> del archivo principal <i><a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>, luego <a href="tabla-integrantes">editar la tabla</a> de datos de la portada en la sección
 			<em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <i id="linea-integrantes"></i>
-			<font title='Línea 34 en versión compacta' style='cursor: hand;'>(línea 33)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del
-			<em class="section-template">RESUMEN O ABSTRACT</em>
-			<font title='Línea 200 en versión compacta' style='cursor: hand;'>(línea 97)</font> o en la <b>sección principal</b> del documento
-			<em class="section-template">INICIO DEL DOCUMENTO</em>
-			<font title='Línea 211 en versión compacta' style='cursor: hand;'>(línea 108)</font><i id="linea-inicio"></i> al final del archivo principal <i><a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>.
-
-			<img src="images/collage.png" alt="Informe" width="70%px" style="margin: auto; display: block;">
+			<font title='Línea 34 en versión compacta' style='cursor: pointer;'>(línea 33)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del <em class="section-template">RESUMEN O ABSTRACT</em>
+			<font title='Línea 216 en versión compacta' style='cursor: pointer;'>(línea 95)</font> o en la <b>sección principal</b> del documento
+			<em class="section-template">INICIO DEL DOCUMENTO</em> <font title='Línea 227 en versión compacta' style='cursor: pointer;'>(línea 106)</font><i id="linea-inicio"></i>.
 		</p>
 		<p>
 			Existe además una versión <b>compacta</b> en donde se encuentra todo el código en un sólo archivo si es que no prefieres los archivos por separado. Para ver más información sobre cómo utilizar las funciones exclusivas del template, o cómo configurar
@@ -251,6 +250,9 @@
 						<strong>dic</strong>: Departamento de Ingeniería Civil.
 					</li>
 					<li>
+						<strong>dic2</strong>: Departamento de Ingeniería Civil (otra versión).
+					</li>
+					<li>
 						<strong>die</strong>: Departamento de Ingeniería Eléctrica.
 					</li>
 					<li>
@@ -302,8 +304,9 @@
 			<span aria-hidden="true" class="octicon octicon-link"></span>
 			</a> Añadiendo integrantes, profesores, auxiliares y fechas
 		</h2>
-		<p>Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> del archivo principal (<a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex">main.tex</a>), en ella
-			se encuentra una <b>tabla</b> la cual contiene la información de los integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
+		<p>
+			Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> del archivo principal (<a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex">main.tex</a>), en
+			ella se encuentra una <b>tabla</b> la cual contiene la información de los integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
 		</p>
 
 		<!-- Insertar párrafos, figuras, fórmulas, citas y otros -->
@@ -942,10 +945,10 @@ def incmatrix(genl1, genl2):
 					<strong class="functtitlstyle">Estilo de portada y header-footer<a id="config-portraithf"></a></strong>
 					<ul>
 						<li>
-							<strong>\hfstyle</strong>: Estilo del encabezado y pié de página (header-footer), existen 6 estilos distintos .
+							<strong>\hfstyle</strong>: Estilo del encabezado y pié de página (header-footer), existen 7 estilos distintos .
 						</li>
 						<li>
-							<strong>\portraitstyle</strong>: Estilo de la portada, existen 11 estilos distintos.
+							<strong>\portraitstyle</strong>: Estilo de la portada, existen 13 estilos distintos.
 						</li>
 					</ul>
 				</li>
@@ -1010,9 +1013,6 @@ def incmatrix(genl1, genl2):
 				<li class="config-parent">
 					<strong class="functtitlstyle">Configuración del índice<a id="config-index"></a></strong>
 					<ul>
-						<li>
-							<strong>\addindextobookmarks</strong>: Añade el índice a los marcadores del pdf compilado.
-						</li>
 						<li>
 							<strong>\indexdepth</strong>: Profundidad del índice.
 						</li>
@@ -1188,6 +1188,9 @@ def incmatrix(genl1, genl2):
 					<strong class="functtitlstyle">Opciones del pdf<a id="config-pdfoptions"></a></strong>
 					<ul>
 						<li>
+							<strong>\addindextobookmarks</strong>: Añade el índice a los marcadores del pdf compilado.
+						</li>
+						<li>
 							<strong>\cfgbookmarksopenlevel</strong>: Nivel de los marcadores a mostrar (1: secciones, 2: muestra todos los subtítulos, etc.).
 						</li>
 						<li>
@@ -1215,10 +1218,16 @@ def incmatrix(genl1, genl2):
 							<strong>\cfgpdfpageview</strong>: Establece cómo se ve la página en el lector pdf, valores esperados: Fit,FitH,FitV,FitR,FitB,FitBH,FitBV.
 						</li>
 						<li>
+							<strong>\cfgpdfsecnumbookmarks</strong>: Muestra el número de la sección en los marcadores del pdf.
+						</li>
+						<li>
 							<strong>\cfgpdftoolbar</strong>: Muestra la barra de herramientas del lector pdf.
 						</li>
 						<li>
 							<strong>\cfgshowbookmarkmenu</strong>: Muestra el menú de los marcadores en el lector pdf.
+						</li>
+						<li>
+							<strong>\pdfcompileversion</strong>: Establece la versión mínima de compatibilidad del pdf.
 						</li>
 					</ul>
 				</li>
@@ -1498,9 +1507,9 @@ def incmatrix(genl1, genl2):
 				<li>
 					<strong><a href="https://www.ctan.org/pkg/totalcount">totalcount</a></strong>: Permite contar elementos.
 				</li>
-				<!-- <li>
-				<strong><a href="https://www.ctan.org/pkg/tikz">tikz</a></strong>: Permite dibujar.
-			</li> -->
+				<li>
+					<strong><a href="https://www.ctan.org/pkg/tikz">tikz</a></strong>: Permite dibujar.
+				</li>
 				<li>
 					<strong><a href="https://www.ctan.org/pkg/ulem">ulem</a></strong>: Permite cachar, subrayar, etc.
 				</li>
