@@ -154,9 +154,7 @@ $.getJSON(href_json_releases, function(json) {
     }
 
     // Se imprimen estados en consola
-    // console.log(String.format('Cantidad de descargas totales: {0}', total_downloads));
-    console.log(String.format('Última versión: {0}', last_version));
-    console.log(String.format('Última versión - enlace descarga: {0}', last_version_link));
+    console.log(String.format('Última versión template: {0}', last_version));
 
     if (total_downloads == 0) {
         total_downloads = 'NaN';
@@ -220,35 +218,16 @@ jQuery(document).ready(function($) {
         hide_element_id('whatsnew');
         hide_element_id('downloadcounter-banner');
         document.getElementById('main-content-section').innerHTML = "<div class='error_msg_1'>Error: No se pudo obtener la última versión disponible :(</div>";
-        $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")')
-    } else {
-        // Se actualiza la cantidad de descargas al hacer click
-        $('total-download-counter').each(function() {
-            this.id.innerHTML = total_downloads;
-        });
-        $(function() {
-            $('#download-button').click(function() {
-                total_downloads += 1;
-                document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-                document.getElementById('total-download-counter-2').innerHTML = total_downloads;
-            });
-        });
-        $(function() {
-            $('#download-button-1file').click(function() {
-                total_downloads += 1;
-                document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-                document.getElementById('total-download-counter-2').innerHTML = total_downloads;
-            });
-        });
-    }
+        $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")');
+    } else {}
 
     // Se comprueba si es navegador móvil
     var is_movile_browser = false;
     if (/Mobi/.test(navigator.userAgent)) {
         is_movile_browser = true;
-        console.log('Utilizando versión móvil.')
+        console.log('Utilizando versión móvil');
     } else {
-        console.log('Utilizando versión web.')
+        console.log('Utilizando versión web');
     }
     console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
 
@@ -260,6 +239,7 @@ jQuery(document).ready(function($) {
             positionX: 'center',
             zIndex: 1
         });
+        console.log('Se activo el parallax');
     } else {
         var back_img = new Image();
         back_img.onload = function() {
@@ -308,5 +288,29 @@ jQuery(document).ready(function($) {
     // Se cambia el color del fondo de la página web
     $('.main-content').css('background-color', backgroundmaincolor);
     $('body').css('background-color', backgroundmaincolor);
+
+    // Se añade un evento al cambiar tamaño página web
+    $(window).resize(function() {
+        $('.page-header').css('width', $(window).width());
+    });
+
+    // Se actualiza la cantidad de descargas al hacer click
+    $('total-download-counter').each(function() {
+        this.id.innerHTML = total_downloads;
+    });
+    $(function() {
+        $('#download-button').click(function() {
+            total_downloads += 1;
+            document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+            document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+        });
+    });
+    $(function() {
+        $('#download-button-1file').click(function() {
+            total_downloads += 1;
+            document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+            document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+        });
+    });
 
 });
