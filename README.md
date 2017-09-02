@@ -13,7 +13,7 @@
 Este corresponde a un template para confeccionar informes en Latex, contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
 
 <p align="center">
-  <img src="http://latex.ppizarror.com/Template-Informe/images/collage.png" alt="Informe" width="70%px" />
+  <img src="http://latex.ppizarror.com/Template-Informe/images/collage.png" alt="Informe" width="70%" />
 </p>
 
 ## Manual de uso
@@ -23,6 +23,6 @@ El manual de uso se encuentra disponible en su página web: <a href="http://ppiz
 Este proyecto está licenciado bajo la licencia MIT [https://opensource.org/licenses/MIT].
 
 ## Autor
-<a href="http://ppizarror.com">Pablo Pizarro R.</a> | 2016-2017
+<a href="http://ppizarror.com">Pablo Pizarro R.</a> | 2016-2017.
 
 Si tienes alguna sugerencia envíame un correo a: [pablo.pizarro@ing.uchile.cl](mailto:pablo.pizarro@ing.uchile.cl).
