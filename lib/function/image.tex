@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar imágenes
-% Versión:      4.5.0 (04/09/2017)
+% Versión:      4.5.2 (04/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -293,7 +293,7 @@
 	%	#4	Leyenda de la imagen (opcional)
 	\emptyvarerr{\insertimageleft}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleft}{#3}{Ancho de la imagen no defindo}
-	\begin{wrapfigure}{l}{#3\textwidth}
+	\begin{wrapfigure}{L}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
@@ -318,14 +318,14 @@
 	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
-	\begin{wrapfigure}{l}{#3\textwidth}
+	\begin{wrapfigure}{L}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
-		\centering
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
 			\setlength{\fboxrule}{#4 pt}
+			\centering
 			\fbox{\includegraphics[width=\linewidth]{#2}}
 		\endgroup
 		\ifx\hfuzz#5\hfuzz
@@ -348,7 +348,7 @@
 	\emptyvarerr{\insertimageleftline}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleftline}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimageleftline}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
-	\begin{wrapfigure}[#4]{l}{#3\textwidth}
+	\begin{wrapfigure}[#4]{L}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
@@ -375,14 +375,14 @@
 	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimageleftlineboxed}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
 	\emptyvarerr{\insertimageleftlineboxed}{#5}{Ancho de la linea no definido}
-	\begin{wrapfigure}[#4]{l}{#3\textwidth}
+	\begin{wrapfigure}[#4]{L}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
-		\centering
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
 			\setlength{\fboxrule}{#5 pt}
+			\centering
 			\fbox{\includegraphics[width=\linewidth]{#2}}
 		\endgroup
 		\ifx\hfuzz#6\hfuzz
@@ -407,9 +407,7 @@
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
 		\centering
-		{
-			\includegraphics[width=\textwidth]{#2}
-		}
+		\includegraphics[width=\textwidth]{#2}
 		\ifx\hfuzz#4\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
