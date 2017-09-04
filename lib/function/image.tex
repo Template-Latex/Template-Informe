@@ -32,22 +32,28 @@
 	\vspace{\marginbottomimages cm}
 }
 
-\newcommand{\insertimageboxed}[4][]{
+\newcommand{\insertimageboxed}[5][]{
 	% Insertar una imagen con recuadro
 	% 	#1	Label (opcional)
 	%	#2	Dirección de la imagen
 	%	#3	Parámetros de la imagen
-	%	#4	Leyenda de la imagen (opcional)
+	%	#4	Ancho de la línea (en pt)
+	%	#5	Leyenda de la imagen (opcional)
 	\emptyvarerr{\insertimageboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}
+	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}
 	\vspace{\margintopimages cm}
 	\begin{figure}[H]
 		\centering
-		\fbox{\includegraphics[#3]{#2}}
-		\ifx\hfuzz#4\hfuzz
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#4 pt}
+			\fbox{\includegraphics[#3]{#2}}
+		\endgroup
+		\ifx\hfuzz#5\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
-			\hspace{0cm}\caption{#4 #1}
+			\hspace{0cm}\caption{#5 #1}
 		\fi
 	\end{figure}
 	\vspace{\marginbottomimages cm}
@@ -298,9 +304,39 @@
 		\else
 			\caption{#4 #1}
 		\fi
-		\setcaptionmargincm{\captionlrmargin}
 	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
 }
+
+\newcommand{\insertimageleftboxed}[5][]{
+	% Insertar una imagen a la izquierda
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Ancho de la imagen (en textwidth)
+	%	#4	Ancho de la línea (en pt)
+	%	#5	Leyenda de la imagen (opcional)
+	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
+	\begin{wrapfigure}{l}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\centering
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#4 pt}
+			\fbox{\includegraphics[width=\linewidth]{#2}}
+		\endgroup
+		\ifx\hfuzz#5\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#5 #1}
+		\fi
+	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
+}
+
 
 \newcommand{\insertimageleftline}[5][]{
 	% Insertar una imagen a la izquierda
@@ -309,9 +345,9 @@
 	%	#3	Ancho de la imagen (en textwidth)
 	%	#4	Altura en líneas de la imagen
 	%	#5	Leyenda de la imagen (opcional)
-	\emptyvarerr{\insertimageleft}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleft}{#3}{Ancho de la imagen no defindo}
-	\emptyvarerr{\insertimageleft}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
+	\emptyvarerr{\insertimageleftline}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageleftline}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimageleftline}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
 	\begin{wrapfigure}[#4]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -323,8 +359,39 @@
 		\else
 			\caption{#5 #1}
 		\fi
-		\setcaptionmargincm{\captionlrmargin}
 	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
+}
+
+\newcommand{\insertimageleftlineboxed}[6][]{
+	% Insertar una imagen a la izquierda
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Ancho de la imagen (en textwidth)
+	%	#4	Altura en líneas de la imagen
+	%	#5	Ancho de la línea (en pt)
+	%	#6	Leyenda de la imagen (opcional)
+	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimageleftlineboxed}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
+	\emptyvarerr{\insertimageleftlineboxed}{#5}{Ancho de la linea no definido}
+	\begin{wrapfigure}[#4]{l}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\centering
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#5 pt}
+			\fbox{\includegraphics[width=\linewidth]{#2}}
+		\endgroup
+		\ifx\hfuzz#6\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#6 #1}
+		\fi
+	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
 }
 
 \newcommand{\insertimageright}[4][]{
@@ -335,19 +402,50 @@
 	%	#4	Leyenda de la imagen (opcional)
 	\emptyvarerr{\insertimageright}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageright}{#3}{Ancho de la imagen no defindo}
-	\begin{wrapfigure}{r}{#3\textwidth}
+	\begin{wrapfigure}{R}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
 		\centering
-		\includegraphics[width=1.0\textwidth]{#2}
+		{
+			\includegraphics[width=\textwidth]{#2}
+		}
 		\ifx\hfuzz#4\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
 			\caption{#4 #1}
 		\fi
-		\setcaptionmargincm{\captionlrmargin}
 	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
+}
+
+\newcommand{\insertimagerightboxed}[5][]{
+	% Insertar una imagen a la derecha
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Ancho de la imagen (en textwidth)
+	%	#4	Ancho de la línea (en pt)
+	%	#5	Leyenda de la imagen (opcional)
+	\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}
+	\begin{wrapfigure}{R}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#4 pt}
+			\centering
+			\fbox{\includegraphics[width=\linewidth]{#2}}
+		\endgroup
+		\ifx\hfuzz#5\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#5 #1}
+		\fi
+	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
 }
 
 \newcommand{\insertimagerightline}[5][]{
@@ -357,20 +455,51 @@
 	%	#3	Ancho de la imagen (en textwidth)
 	%	#4	Altura en líneas de la imagen
 	%	#5	Leyenda de la imagen (opcional)
-	\emptyvarerr{\insertimageright}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageright}{#3}{Ancho de la imagen no defindo}
-	\emptyvarerr{\insertimageright}{#4}{Altura en lineas de la imagen flotante derecha no definida}
-	\begin{wrapfigure}[#4]{r}{#3\textwidth}
+	\emptyvarerr{\insertimagerightline}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimagerightline}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimagerightline}{#4}{Altura en lineas de la imagen flotante derecha no definida}
+	\begin{wrapfigure}[#4]{R}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
 		\centering
-		\includegraphics[width=1.0\textwidth]{#2}
+		\includegraphics[width=\textwidth]{#2}
 		\ifx\hfuzz#5\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
 			\caption{#5 #1}
 		\fi
-		\setcaptionmargincm{\captionlrmargin}
 	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
+}
+
+\newcommand{\insertimagerightlineboxed}[6][]{
+	% Insertar una imagen a la derecha
+	% 	#1	Label (opcional)
+	%	#2	Dirección de la imagen
+	%	#3	Ancho de la imagen (en textwidth)
+	%	#4	Altura en líneas de la imagen
+	%	#5	Ancho de la línea (en pt)
+	%	#6	Leyenda de la imagen (opcional)
+	\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimagerightlineboxed}{#4}{Altura en lineas de la imagen flotante derecha no definida}
+	\emptyvarerr{\insertimagerightlineboxed}{#5}{Ancho de la linea no definido}
+	\begin{wrapfigure}[#4]{R}{#3\textwidth}
+		\setcaptionmargincm{0}
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
+			\vspace{\marginfloatimages pt}}
+		\begingroup
+			\setlength{\fboxsep}{0 pt}
+			\setlength{\fboxrule}{#5 pt}
+			\centering
+			\fbox{\includegraphics[width=\linewidth]{#2}}
+		\endgroup
+		\ifx\hfuzz#6\hfuzz
+			\vspace{\captionlessmarginimage cm}
+		\else
+			\caption{#6 #1}
+		\fi
+	\end{wrapfigure}
+	\setcaptionmargincm{\captionlrmargin}
 }
