@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar imágenes
-% Versión:      4.5.6 (05/09/2017)
+% Versión:      4.5.7 (05/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -292,7 +292,7 @@
 	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
-	\begin{wrapfigure}{L}{#3\textwidth}
+	\begin{wrapfigure}{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
@@ -334,7 +334,7 @@
 	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftlineboxed}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
 	\emptyvarerr{\insertimageleftlineboxed}{#5}{Ancho de la linea no definido}
-	\begin{wrapfigure}[#4]{L}{#3\textwidth}
+	\begin{wrapfigure}[#4]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
@@ -372,7 +372,7 @@
 	\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}
-	\begin{wrapfigure}{R}{#3\textwidth}
+	\begin{wrapfigure}{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
@@ -413,7 +413,7 @@
 	\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimagerightlineboxed}{#4}{Altura en lineas de la imagen flotante derecha no definida}
 	\emptyvarerr{\insertimagerightlineboxed}{#5}{Ancho de la linea no definido}
-	\begin{wrapfigure}[#4]{R}{#3\textwidth}
+	\begin{wrapfigure}[#4]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
