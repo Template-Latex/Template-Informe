@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de portadas
-% Versión:      4.5.4 (04/09/2017)
+% Versión:      4.5.5 (04/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -235,7 +235,30 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
-	% Añadir pagina 8
+	\includegraphics[width=1.5cm]{departamentos/uchile3} 
+	\hspace{0cm}
+	\begin{tabular}{l}
+		\small \scshape{\MakeUppercase{\nombreuniversidad}} \\
+		\small \scshape{\MakeUppercase{\nombrefacultad}} \\
+		\small \scshape{\MakeUppercase{\departamentouniversidad}} \\
+		\vspace*{1cm}\mbox{}
+	\end{tabular}
+	
+	\vfill
+	\begin{center}
+		\fontsize{8mm}{9mm}\selectfont 
+		\noindent \titulodelinforme \\
+		\noindent \temaatratar
+		
+		\vspace*{1cm}
+		\footnotesize{\codigodelcurso - \nombredelcurso} \\
+		\vspace*{1.4cm}
+	\end{center}
+	
+	\vfill
+	\begin{center}
+		\noindent \normalsize{\tablaintegrantes}
+	\end{center}
 }{
 \ifthenelse{\equal{\portraitstyle}{style9}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
