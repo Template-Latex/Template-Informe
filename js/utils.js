@@ -63,49 +63,50 @@ function updateDownloadCounter(downloads, source) {
     switch (source) {
         case 'Template-Informe':
             // Ajuste por json de Template-Informe https://api.github.com/repos/Template-Latex/Template-Informe/releases
-            // Se añaden las 129 descargas de Template-Informe-cursos
-            // Se añaden 60 descargas entre versiones 1.8.5 y 1.9.6
-            // Se añaden 138 descargas entre versiones 1.9.6 y 2.0.6
-            // Se añaden 3 descargas de versión 2.0.7
-            // Se añaden 3 descargas de versión 2.0.8
-            // Se agrega 1 descarga de versión 2.0.9
-            // Se agrega 4 descara de versión 2.1.1
-            // Se agregan 55 descargas de versión 2.1.2-2.1.5
-            // Se agregan 115 descargas entre versiones 2.1.5 y 2.2.1
-            // Se agregan 74 descargas de versión 2.2.2
-            // Se agregan 17 descargas de versión 2.2.3
-            // Se agregan 3 descargas de versión 2.2.4
-            // Se agregan 18 descargas de versión 2.2.5
-            // Se agregan 7 descargas de versión 2.2.6
-            // Se agregan 68 descargas entre versiones 2.2.6 y 2.3.0
-            // Se agregan 71 descargas de versión 2.3.1
-            // Se agregan 12 descargas de versión 2.3.2
-            // Se agregan 9 descargas de versión 2.3.3
-            // Se agregan 4 descargas de versión 2.3.4
-            // Se agregan 33 descargas de versión 2.3.5
-            // Se agrega 1 descarga de versión 2.3.6
-            // Se agregan 60 de versión 2.3.7-2.4.0
-            // Se agregan 3 descargas de versión 2.4.1
-            // Se agregan 20 descargas entre versiones 2.4.2-2.4.5
-            // Se agregan 38 descargas de versión 2.4.6
-            // Se agregan 6 descargas de versión 2.4.7
-            // Se agregan 146 descargas de versión 3.0.0
-            // Se agregan 62 descargas de versión 3.0.1
-            // Se agregan 28 descargas de versión 3.0.2
-            // Se agregan 28 descargas de versión 3.0.3
-            // Se agregan 84 descargas entre versiones 3.0.4-3.1.0
-            // Se agregan 3 descargas de versión 3.1.2
-            // Se agregan 12 descargas de versión 3.1.3
-            // Se agregan 110 descargas entre versiones 3.1.4-3.2.0
-            // Se agregan 31 descargas de versión 3.2.1
-            // Se agregan 2 descargas de versión 3.2.2
-            // Se agregan 8 descargas de versión 3.2.3
-            // Se agregan 110 descargas de versión 3.2.4-3.3.0
-            // Se agregan 55 descargas entre versiones 3.3.0-3.4.5
-            // Se agregan 6 descargas entre versión 3.4.5-4.6.0
-            // Se agregan 8 descargas de versión 3.6.0
-            // Se agregan 45 descargas de versión 3.6.3
-            download_list_counter = [129, 60, 138, 3, 3, 1, 4, 55, 115, 74, 17, 3, 18, 7, 68, 71, 12, 9, 4, 33, 1, 60, 3, 20, 38, 6, 146, 62, 28, 28, 84, 3, 12, 110, 31, 2, 8, 110, 55, 6, 8, 45];
+            download_list_counter = [
+                [129, '<1.8.5'],
+                [60, '1.9.6'],
+                [138, '2.0.6'],
+                [3, '2.0.7'],
+                [3, '2.0.8'],
+                [1, '2.0.9'],
+                [4, '2.1.1'],
+                [55, '2.1.5'],
+                [115, '2.2.1'],
+                [74, '2.2.2'],
+                [17, '2.2.3'],
+                [3, '2.2.4'],
+                [18, '2.2.5'],
+                [7, '2.2.6'],
+                [68, '2.3.0'],
+                [71, '2.3.1'],
+                [12, '2.3.2'],
+                [9, '2.3.3'],
+                [4, '2.3.4'],
+                [33, '2.3.5'],
+                [1, '2.3.6'],
+                [60, '2.4.0'],
+                [3, '2.4.1'],
+                [20, '2.4.5'],
+                [38, '2.4.6'],
+                [6, '2.4.7'],
+                [146, '3.0.0'],
+                [62, '3.0.1'],
+                [28, '3.0.2'],
+                [28, '3.0.3'],
+                [84, '3.1.0'],
+                [3, '3.1.2'],
+                [12, '3.1.3'],
+                [110, '3.2.0'],
+                [31, '3.2.1'],
+                [2, '3.2.2'],
+                [8, '3.2.3'],
+                [110, '3.3.0'],
+                [55, '3.4.5'],
+                [6, '3.5.0'],
+                [8, '3.6.0'],
+                [45, '3.6.3']
+            ];
             break;
         case 'Template-Auxiliares':
             download_list_counter = [];
@@ -128,7 +129,7 @@ function updateDownloadCounter(downloads, source) {
     }
 
     for (i = 0; i < download_list_counter.length; i++) {
-        downloads += download_list_counter[i];
+        downloads += download_list_counter[i][0];
     }
 
     return downloads;

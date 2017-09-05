@@ -92,17 +92,19 @@
 		<a href="" id="aimg" class="badgeejemplopdf">
 			<img src="resources/badge-pdf.svg" />
 		</a>
-		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="104" height="20" id="downloadcounter-banner">
-		    <linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
-		    <clipPath id="a"><rect width="104" height="20" rx="3" fill="#fff"/></clipPath>
-		    <g clip-path="url(#a)"><path fill="#555" d="M0 0h67v20H0z"/><path fill="#4c1" d="M67 0h37v20H67z"/><path fill="url(#b)" d="M0 0h104v20H0z"/></g>
-		    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-		        <text x="33.5" y="15" fill="#010101" fill-opacity=".3">Descargas</text>
-		        <text x="33.5" y="14">Descargas</text>
-		        <text x="84.5" y="15" fill="#010101" fill-opacity=".3" id="total-download-counter-1" style="opacity: 0"></text>
-		        <text x="84.5" y="14" id="total-download-counter-2" style="opacity: 0"></text>
-		    </g>
-		</svg>
+		<a href="" id="templatestats">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="104" height="20" id="downloadcounter-banner">
+			    <linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
+			    <clipPath id="a"><rect width="104" height="20" rx="3" fill="#fff"/></clipPath>
+			    <g clip-path="url(#a)"><path fill="#555" d="M0 0h67v20H0z"/><path fill="#4c1" d="M67 0h37v20H67z"/><path fill="url(#b)" d="M0 0h104v20H0z"/></g>
+			    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+			        <text x="33.5" y="15" fill="#010101" fill-opacity=".3">Descargas</text>
+			        <text x="33.5" y="14">Descargas</text>
+			        <text x="84.5" y="15" fill="#010101" fill-opacity=".3" id="total-download-counter-1" style="opacity: 0"></text>
+			        <text x="84.5" y="14" id="total-download-counter-2" style="opacity: 0"></text>
+			    </g>
+			</svg>
+		</a>
 		</br>
 		<a href="http://latex.ppizarror.com/Template-Tesis/" id="aimg">
 			<img src="resources/templates/tesis.svg" style="display: none" />
@@ -175,11 +177,13 @@
 		<p>
 			Para crear un informe con este template debes primero <a href="#configurando-el-documento">editar la información del documento</a> (título, nombre de la universidad, etc) en la sección
 
-			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> <font title='Línea 19 en versión compacta' style='cursor: pointer;'>(línea 18)</font> <i id="linea-informacion-documento"></i> del archivo principal <i><a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>, luego <a href="tabla-integrantes">editar la tabla</a> de datos de la portada en la sección
+			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em>
+			<font title='Línea 19 en versión compacta' style='cursor: pointer;'>(línea 18)</font> <i id="linea-informacion-documento"></i> del archivo principal <i><a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>, luego <a href="tabla-integrantes">editar la tabla</a>			de datos de la portada en la sección
 			<em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <i id="linea-integrantes"></i>
 			<font title='Línea 34 en versión compacta' style='cursor: pointer;'>(línea 33)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del <em class="section-template">RESUMEN O ABSTRACT</em>
 			<font title='Línea 216 en versión compacta' style='cursor: pointer;'>(línea 95)</font> o en la <b>sección principal</b> del documento
-			<em class="section-template">INICIO DEL DOCUMENTO</em> <font title='Línea 227 en versión compacta' style='cursor: pointer;'>(línea 106)</font><i id="linea-inicio"></i>.
+			<em class="section-template">INICIO DEL DOCUMENTO</em>
+			<font title='Línea 227 en versión compacta' style='cursor: pointer;'>(línea 106)</font><i id="linea-inicio"></i>.
 		</p>
 		<p>
 			Existe además una versión <b>compacta</b> en donde se encuentra todo el código en un sólo archivo si es que no prefieres los archivos por separado. Para ver más información sobre cómo utilizar las funciones exclusivas del template, o cómo configurar
@@ -288,6 +292,9 @@
 					<li>
 						<strong>uchile2</strong>: Sólo el escudo de la Universidad de Chile.
 					</li>
+					<li>
+						<strong>uchile3</strong>: Escudo en negro de la Universidad de Chile.
+					</li>
 				</ul>
 			</li>
 			<li>
@@ -385,10 +392,10 @@
 							</blockquote>
 						</li>
 						<li>
-							<strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.
+							<strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.
 							<blockquote>
 								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimageboxed</span><b>[]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.5<b>}</b><b>{</b><b>}</b></pre>
+									<pre><span class="pl-e">\insertimageboxed</span><b>[]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.5<b>}</b><b>{</b>0.5<b>}</b><b>{</b><b>}</b></pre>
 								</div>
 							</blockquote>
 						</li>
@@ -479,6 +486,25 @@
 						</li>
 						<hr class="style10">
 						<li>
+							<strong>\insertimageleftboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+							Inserta una imagen alineada a la izquierda de un párrafo, encerrada en un recuadro.
+							<blockquote>
+								<div class="highlight highlight-text-tex">
+									<pre><span class="pl-e">\insertimageleftboxed</span><b>{</b>ejemplos/test-image-wrap.jpg<b>}</b><b>{</b>0.25<b>}</b><b>{</b>0.5<b>}</b><b>{</b>Descripción<b>}</b></pre>
+								</div>
+							</blockquote>
+						</li>
+						<li>
+							<strong>\insertimageleftlineboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+							Inserta una imagen alineada a la izquierda de un párrafo con un número de líneas fijo, encerrada en un recuadro.
+							<blockquote>
+								<div class="highlight highlight-text-tex">
+									<pre><span class="pl-e">\insertimageleftlineboxed</span><b>[</b><span class="pl-c1">\label</span>{img-leftbox-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>0.25<b>}</b><b>{</b>15<b>}</b><b>{</b>0.7<b>}</b><b>{</b><b>}</b></pre>
+								</div>
+							</blockquote>
+						</li>
+						<hr class="style10">
+						<li>
 							<strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la derecha de un
 							párrafo.
 							<blockquote>
@@ -492,7 +518,26 @@
 							Inserta una imagen alineada a la derecha de un párrafo con un número de líneas fijo.
 							<blockquote>
 								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimagerightline</span><b>[</b><span class="pl-c1">\label</span>{img-right-1}</span><b>]</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>Descripción<b>}</b></pre>
+									<pre><span class="pl-e">\insertimagerightline</span><b>[</b><span class="pl-c1">\label</span>{img-right-1}</span><b>]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>Descripción<b>}</b></pre>
+								</div>
+							</blockquote>
+						</li>
+						<hr class="style10">
+						<li>
+							<strong>\insertimagerightboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+							Inserta una imagen alineada a la derecha de un párrafo, encerrada en un recuadro.
+							<blockquote>
+								<div class="highlight highlight-text-tex">
+									<pre><span class="pl-e">\insertimagerightboxed</span><b>[</b><span class="pl-c1">\label</span>{img-box-r}</span><b>]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>1.0<b>}</b><b>{</b><b>}</b></pre>
+								</div>
+							</blockquote>
+						</li>
+						<li>
+							<strong>\insertimagerightlineboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+							Inserta una imagen alineada a la derecha de un párrafo con un número de líneas fijo, encerrada en un recuadro.
+							<blockquote>
+								<div class="highlight highlight-text-tex">
+									<pre><span class="pl-e">\insertimagerightlineboxed</span><b>[]{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>0.6<b>}</b><b>{</b>Descripción<b>}</b></pre>
 								</div>
 							</blockquote>
 						</li>
@@ -501,7 +546,9 @@
 				<li class="li-code-parent">
 					<strong class="functtitlstyle">Insertar una fórmula en el documento <a id="hlp-formulae"></a></strong>
 					<p>Las funciones existentes consideran tanto la fórmula en sí (escrita en bruto, sin los <b>$</b>) como la leyenda para las funciones tipo <i>captioned</i>.</p>
-					<p>Todas las funciones siguientes tienen su versión <b>anum</b>, la cual <b>no</b> enumera la ecuación. Por ejemplo: <i>\insertequation<b>anum</b>{Fórmula}</i>, <i>\insertalign<b>anum</b>{Fórmula}</i>, <i>\insertequationcaptioned<b>anum</b>{Fórmula}{Leyenda}</i>.
+					<p>
+						Todas las funciones siguientes tienen su versión <b>anum</b>, la cual <b>no</b> enumera la ecuación. Por ejemplo: <i>\insertequation<b>anum</b>{Fórmula}</i>, <i>\insertalign<b>anum</b>{Fórmula}</i>, <i>\insertequationcaptioned<b>anum</b>{Fórmula}{Leyenda}</i>.
+						Dado que las versiones <b>anum</b> no tienen número, <b>NO</b> se puede añadir un label al comando.
 					</p>
 					<ul>
 						<li>
@@ -948,7 +995,7 @@ def incmatrix(genl1, genl2):
 							<strong>\hfstyle</strong>: Estilo del encabezado y pié de página (header-footer), existen 7 estilos distintos .
 						</li>
 						<li>
-							<strong>\portraitstyle</strong>: Estilo de la portada, existen 13 estilos distintos.
+							<strong>\portraitstyle</strong>: Estilo de la portada, existen 15 estilos distintos.
 						</li>
 					</ul>
 				</li>
@@ -1284,7 +1331,6 @@ def incmatrix(genl1, genl2):
 			<a id="links" class="anchor" href="#links" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Links de interés
 		</h2>
 			<p>
-				A continuación se presentan una lista de links útiles para el uso del template:
 				<ul>
 					<li>
 						Template Auxiliares en <img src="resources/latex.png" alt="LaTeX" class="lateximg">: <a href="http://latex.ppizarror.com/Template-Auxiliares/">http://latex.ppizarror.com/Template-Auxiliares/</a>
@@ -1316,8 +1362,9 @@ def incmatrix(genl1, genl2):
 					<li>
 						Editor de Latex para Windows <span class="fa fa-windows" aria-hidden="true"></span>: <a href="http://www.texstudio.org/">http://www.texstudio.org/</a>
 						<ul>
-							<li class="help-links">Si ocurren errores como <i>Package not found</i> intentar compilar muchas veces.</li>
-							<li class="help-links">Diccionario en español (Chile): <a href="./es_CL/es_CL.oxt">descargar</a>.</li>
+							<li class="help-links">Si ocurren errores como <i>Package not found</i> intentar compilar muchas veces</li>
+							<li class="help-links">Diccionario en español (Chile): <a href="./es_CL/es_CL.oxt">descargar</a></li>
+							<li class="help-links">Autocompletar todas las funciones del template: <a href="https://github.com/Template-Latex/cwl-docs">descargar</a></li>
 						</ul>
 				</ul>
 			</p>

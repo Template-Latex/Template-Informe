@@ -1052,6 +1052,22 @@ a#aimg, a:hover#aimg, .page-header#aimg {
     z-index: auto;
 }
 
+a#templatestats, a:hover#templatestats, .page-header#templatestats {
+    border: none;
+    color: #fff;
+    font: normal;
+    height: auto;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    text-transform: normal;
+    visibility: visible;
+    width: auto;
+    word-spacing: normal;
+    z-index: auto;
+}
+
 .error_msg_1 {
     width: 50%;
     text-align: center;

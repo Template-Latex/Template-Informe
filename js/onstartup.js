@@ -166,6 +166,9 @@ $.getJSON(href_json_releases, function(json) {
     document.getElementById('total-download-counter-1').innerHTML = total_downloads;
     document.getElementById('total-download-counter-2').innerHTML = total_downloads;
 
+    // Se añade link estadísticas a banner descargas
+    $('#main-content-section #templatestats').attr('href', 'http://latex.ppizarror.com/stats/index.html?template=' + stats_name);
+
     // Se establece la versión en el botón de descargas
     msg_download_normal = '{1} <font style="color: #333333;">({0})</font> <img src="{2}/zip.png" class="iconbutton" />';
     msg_download_compact = '{1} <font style="color: #ffffff;">({0})</font>  <img src="{2}/zip.png" class="iconbutton" />';
