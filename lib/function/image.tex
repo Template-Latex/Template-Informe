@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar imágenes
-% Versión:      4.5.2 (04/09/2017)
+% Versión:      4.5.3 (04/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -17,19 +17,7 @@
 	%	#2	Dirección de la imagen
 	%	#3	Parámetros de la imagen
 	%	#4	Leyenda de la imagen (opcional)
-	\emptyvarerr{\insertimage}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimage}{#3}{Parametros de la imagen no definidos}
-	\vspace{\margintopimages cm}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[#3]{#2}
-		\ifx\hfuzz#4\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\hspace{0cm}\caption{#4 #1}
-		\fi
-	\end{figure}
-	\vspace{\marginbottomimages cm}
+	\insertimageboxed[#1]{#2}{#3}{0}{#4}
 }
 
 \newcommand{\insertimageboxed}[5][]{
@@ -291,21 +279,7 @@
 	%	#2	Dirección de la imagen
 	%	#3	Ancho de la imagen (en textwidth)
 	%	#4	Leyenda de la imagen (opcional)
-	\emptyvarerr{\insertimageleft}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleft}{#3}{Ancho de la imagen no defindo}
-	\begin{wrapfigure}{L}{#3\textwidth}
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}}
-		\centering
-		\includegraphics[width=\linewidth]{#2}
-		\ifx\hfuzz#4\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\caption{#4 #1}
-		\fi
-	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
+	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}
 }
 
 \newcommand{\insertimageleftboxed}[5][]{
@@ -316,7 +290,7 @@
 	%	#4	Ancho de la línea (en pt)
 	%	#5	Leyenda de la imagen (opcional)
 	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
 	\begin{wrapfigure}{L}{#3\textwidth}
 		\setcaptionmargincm{0}
@@ -345,22 +319,7 @@
 	%	#3	Ancho de la imagen (en textwidth)
 	%	#4	Altura en líneas de la imagen
 	%	#5	Leyenda de la imagen (opcional)
-	\emptyvarerr{\insertimageleftline}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftline}{#3}{Ancho de la imagen no defindo}
-	\emptyvarerr{\insertimageleftline}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
-	\begin{wrapfigure}[#4]{L}{#3\textwidth}
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}}
-		\centering
-		\includegraphics[width=\linewidth]{#2}
-		\ifx\hfuzz#5\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\caption{#5 #1}
-		\fi
-	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
+	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}
 }
 
 \newcommand{\insertimageleftlineboxed}[6][]{
@@ -372,7 +331,7 @@
 	%	#5	Ancho de la línea (en pt)
 	%	#6	Leyenda de la imagen (opcional)
 	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no defindo}
+	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftlineboxed}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
 	\emptyvarerr{\insertimageleftlineboxed}{#5}{Ancho de la linea no definido}
 	\begin{wrapfigure}[#4]{L}{#3\textwidth}
@@ -400,21 +359,7 @@
 	%	#2	Dirección de la imagen
 	%	#3	Ancho de la imagen (en textwidth)
 	%	#4	Leyenda de la imagen (opcional)
-	\emptyvarerr{\insertimageright}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageright}{#3}{Ancho de la imagen no defindo}
-	\begin{wrapfigure}{R}{#3\textwidth}
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}}
-		\centering
-		\includegraphics[width=\textwidth]{#2}
-		\ifx\hfuzz#4\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\caption{#4 #1}
-		\fi
-	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
+	\insertimagerightboxed[#1]{#2}{#3}{0}{#4}
 }
 
 \newcommand{\insertimagerightboxed}[5][]{
@@ -453,22 +398,7 @@
 	%	#3	Ancho de la imagen (en textwidth)
 	%	#4	Altura en líneas de la imagen
 	%	#5	Leyenda de la imagen (opcional)
-	\emptyvarerr{\insertimagerightline}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimagerightline}{#3}{Ancho de la imagen no defindo}
-	\emptyvarerr{\insertimagerightline}{#4}{Altura en lineas de la imagen flotante derecha no definida}
-	\begin{wrapfigure}[#4]{R}{#3\textwidth}
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}}
-		\centering
-		\includegraphics[width=\textwidth]{#2}
-		\ifx\hfuzz#5\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\caption{#5 #1}
-		\fi
-	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
+	\insertimagerightlineboxed[#1]{#2}{#3}{#4}{0}{#5}
 }
 
 \newcommand{\insertimagerightlineboxed}[6][]{
