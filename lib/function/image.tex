@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar imágenes
-% Versión:      4.5.3 (04/09/2017)
+% Versión:      4.5.4 (04/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -32,10 +32,10 @@
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}
 	\vspace{\margintopimages cm}
 	\begin{figure}[H]
-		\centering
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
 			\setlength{\fboxrule}{#4 pt}
+			\centering
 			\fbox{\includegraphics[#3]{#2}}
 		\endgroup
 		\ifx\hfuzz#5\hfuzz
