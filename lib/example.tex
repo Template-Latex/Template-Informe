@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      4.5.5 (05/09/2017)
+% Versión:      4.5.6 (05/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -93,7 +93,7 @@
 		% Se inserta una ecuación larga con el entorno gathered (1 solo número de ecuación)
 		\insertgathered[\label{eqn:eqn-larga}]{
 			\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}\\
-			Q_e = 2.5Q \cdot \int_{0}^{e} V(x) \dd{x}
+			Q_e = 2.5Q \cdot \int_{0}^{e} V(x) \dd{x} + \aasin{ \bigg(1+\frac{1-e}{den}\bigg) }
 		}
 	
 		% Nuevo párrafo
