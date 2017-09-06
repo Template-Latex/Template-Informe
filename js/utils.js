@@ -105,7 +105,8 @@ function updateDownloadCounter(downloads, source) {
                 [55, '3.4.5'],
                 [6, '3.5.0'],
                 [8, '3.6.0'],
-                [45, '3.6.3']
+                [45, '3.6.3'],
+                [8, '3.6.7']
             ];
             break;
         case 'Template-Auxiliares':
