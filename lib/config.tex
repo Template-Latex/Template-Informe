@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.5.8 (06/09/2017)
+% Versión:      4.5.9 (06/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -48,7 +48,7 @@
 % CONFIGURACIÓN DEL ÍNDICE
 \def\indexdepth {3}               % Profundidad máxima del índice
 \def\indextitlemargin {7.0}       % Margen título en índice \insertindextitle [pt]
-\def\showdotonobjectindex {false} % Punto en cada número de figura, tabla o código
+\def\showdotonobjectindex {true}  % Punto en cada número de figura, tabla o código
 \def\showdotpagenumindex {true}   % Muestra puntos entre objeto y número de página
 \def\showindex {true}             % Muestra el índice
 \def\showindexofcode {true}       % Muestra la lista de códigos fuente
@@ -85,14 +85,14 @@
 \def\bibtexrefsep {9}             % Separación entre referencias [pt] {bibtex}
 \def\donumrefsection {false}      % Sección de referencias numerada
 \def\natbibrefsep {5}             % Separación entre referencias [pt] {natbib}
-\def\sectionappendixlastchar {.}  % Carácter entre N° de la sec. de anexo y el título
+\def\sectionappendixlastchar {.}  % Carácter entre N° de la sec. de anexo y título
 \def\showappendixsecindex {false} % Título de la sección de anexos en el índice
 \def\showappendixsectitle {false} % Título de la sección de anexo en el informe
-\def\stylecitereferences {bibtex} % Estilo cita y referencias (bibtex,apacite,natbib)
+\def\stylecitereferences {bibtex} % Estilo cita&referencias (bibtex,apacite,natbib)
 \def\twocolumnreferences {false}  % Referencias en dos columnas
 
 % CONFIGURACIÓN DE LOS TÍTULOS
-\def\anumsecaddtocounter {false}  % Fn. para insertar títulos anum. aumenta contador
+\def\anumsecaddtocounter {false}  % Insertar títulos 'anum' aumenta contador
 \def\fontsizesubsubtitle {\large} % Tamaño sub-subtítulos
 \def\fontsizesubtitle {\Large}    % Tamaño subtítulos
 \def\fontsizetitle {\huge}        % Tamaño títulos
@@ -106,17 +106,17 @@
 % OPCIONES DEL PDF COMPILADO
 \def\addindextobookmarks {false}  % Añade el índice a los marcadores del pdf
 \def\cfgbookmarksopenlevel {2}    % Nivel de los marcadores (2: subsecciones)
-\def\cfgpdfbookmarkopen {true}    % Expande los marcadores hasta el nivel configurado
+\def\cfgpdfbookmarkopen {true}    % Expande marcadores hasta el nivel configurado
 \def\cfgpdfcenterwindow {true}    % Centra la ventana del lector al abrir el pdf
 \def\cfgpdfcopyright {}           % Establece el copyright del documento
-\def\cfgpdfdisplaydoctitle {true} % Muestra el título del informe como título del pdf
+\def\cfgpdfdisplaydoctitle {true} % Muestra título del informe como título del pdf
 \def\cfgpdffitwindow {false}      % Ajusta la ventana del lector al tamaño del pdf
 \def\cfgpdfmenubar {true}         % Muestra el menú del lector al abrir el pdf
 \def\cfgpdfpagemode {OneColumn}   % Modo de página en lector (OneColumn,SinglePage)
-\def\cfgpdfpageview {FitH}        % Ajuste pag. (Fit,FitH,FitV,FitR,FitB,FitBH,FitBV)
+\def\cfgpdfpageview {FitH}        % Ajuste pag (Fit,FitH,FitV,FitR,FitB,FitBH,FitBV)
 \def\cfgpdfsecnumbookmarks {true} % Número de la sección en los marcadores del pdf
 \def\cfgpdftoolbar {true}         % Muestra la barra de herramientas del lector pdf
-\def\cfgshowbookmarkmenu {true}   % Muestra el menú de los marcadores al abrir el pdf
+\def\cfgshowbookmarkmenu {true}   % Muestra menú de los marcadores al abrir el pdf
 \def\pdfcompileversion {7}        % Version mínima del pdf a compilar (1.x)
 
 % NOMBRE DE OBJETOS

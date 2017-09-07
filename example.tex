@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      4.5.8 (06/09/2017)
+% Versión:      4.5.9 (06/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -19,12 +19,12 @@
 	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin "número" se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
 	\subsection{Una breve introducción}
 		
-		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
+		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
 		
-		A continuación\footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
+		A continuación \footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
 		
 		% Se inserta una ecuación, el primer parámetro entre corchetes es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos peso
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
@@ -116,7 +116,7 @@
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
 		
-		A continuación se presenta un ejemplo de inserción de código fuente en Python\footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{lstlisting}:
+		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{lstlisting}:
 		
 % Se define el lenguaje del código, cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
 \begin{lstlisting}[style=Python, caption={Ejemplo en Python.\label{codigo-python}}]
@@ -173,7 +173,7 @@ end
 	% Inserta un subtítulo sin número
 	\subsectionanum{Listas y Enumeraciones}
 		
-		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template\footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.}, para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
+		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template \footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.}, para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
 		
 		\begin{enumerate}
 			\item Ítem 1
@@ -181,7 +181,7 @@ end
 			\item Manzanas
 		\end{enumerate}
 		
-		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph}\footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.}, números romanos con \texttt{\textbackslash roman}\footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek}\footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}:
+		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph} \footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.}, números romanos con \texttt{\textbackslash roman} \footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek} \footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}:
 		
 		\begin{multicols}{3}
 			\begin{enumerate}[label=\alph*) ,font=\bfseries] % Fuente en negrita
@@ -228,34 +228,36 @@ end
 	% Inserta un subtítulo sin número
 	\subsectionanum{Otros}
 		
-		Recuerda revisar el manual de todas las funciones de este template visitando el siguiente link: \url{http://ppizarror.com/Template-Informe/}. Además si necesitas una ayuda muy específica sobre el template me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
+		Recuerda revisar el manual de todas las funciones de este template visitando el siguiente link: \url{http://latex.ppizarror.com/Template-Informe/}. Además si necesitas una ayuda muy específica sobre el template me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
 
 % ANEXO
 \newpage
 \begin{anexo}
 	\section{Cálculos realizados}
-	
-		\lipsum[1]
+
+		\subsection{Metodología}
+			\lipsum[1]
+			
+			% Imagen, se numerará automáticamente con la letra del anexo
+			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.15}{Imagen en anexo.}
 		
-		% Imagen, se numerará automáticamente con la letra del anexo
-		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.15}{Imagen en anexo.}
-		
-		\lipsum[10]
-		
-		% Tablas
-		\begin{table}[htbp]
-			\centering
-			\caption{Tabla de cálculo.}
-			\begin{tabular}{ccc}
-				\hline
-				\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
-				\hline
-				A     & 10    & 3,14$\pi$ \bigstrut[t]\\
-				B     & 20    & 6 \\
-				C     & 30    & 7 \\
-				\end{tabular}
-			\label{tab:anexo-1}
-		\end{table}
+		\subsection{Resultados}
+			\lipsum[10]
+			
+			% Tablas
+			\begin{table}[htbp]
+				\centering
+				\caption{Tabla de cálculo.}
+				\begin{tabular}{ccc}
+					\hline
+					\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
+					\hline
+					A     & 10    & 3,14$\pi$ \bigstrut[t]\\
+					B     & 20    & 6 \\
+					C     & 30    & 7 \\
+					\end{tabular}
+				\label{tab:anexo-1}
+			\end{table}
 	
 	\newpage
 	\section{Más cálculos}
@@ -285,7 +287,7 @@ end
 	\bibitem{ref1}
 	Template Informe en \LaTeX.
 	\textit{¡Revisa el manual online de este template!} \\
-	\url{http://ppizarror.com/Template-Informe/}
+	\url{http://latex.ppizarror.com/Template-Informe/}
 	
 	\bibitem{ref2}
 	Excel2Latex.
