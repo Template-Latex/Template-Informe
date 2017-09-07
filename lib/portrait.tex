@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de portadas
-% Versión:      4.5.7 (05/09/2017)
+% Versión:      4.5.8 (06/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -25,18 +25,16 @@
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	}
-
+	
 	~ \\
 	\vfill
 	\begin{center}
-		{\noindent \LARGE{\nombredelcurso} \vspace{0.3cm}} ~ \\
-		\vspace*{1.5cm}
 		\textcolor{\portraittitlecolor}{
-			{\centering \noindent \Huge{\titulodelinforme} \vspace{0.3cm}} ~ \\
+			{\noindent \Huge{\titulodelinforme} \vspace{0.5cm}} ~ \\
 			{\noindent \large{\temaatratar}}
 		}
 	\end{center}
-
+	
 	\vfill
 	\noindent
 	\begin{minipage}{1.0\textwidth}
@@ -58,8 +56,10 @@
 	~ \\
 	\vfill
 	\begin{center}
+		{\noindent \LARGE{\nombredelcurso} \vspace{0.3cm}} ~ \\
+		\vspace*{1.5cm}
 		\textcolor{\portraittitlecolor}{
-			{\noindent \Huge{\titulodelinforme} \vspace{0.5cm}} ~ \\
+			{\centering \noindent \Huge{\titulodelinforme} \vspace{0.3cm}} ~ \\
 			{\noindent \large{\temaatratar}}
 		}
 	\end{center}
@@ -107,6 +107,66 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	\vspace*{-1.5cm}
+	\noindent \includegraphics[width=1.75cm]{departamentos/uchile2}
+	\hspace*{-0.15cm}
+	\begin{tabular}{l}
+		\small \scshape{\MakeUppercase{\nombreuniversidad}} \\
+		\small \scshape{\MakeUppercase{\nombrefacultad}} \\
+		\small \scshape{\MakeUppercase{\departamentouniversidad}} \\
+		\vspace*{1.25cm}\mbox{}
+	\end{tabular}
+	
+	\vfill
+	\begin{center}
+		{\fontsize{22pt}{10pt} \selectfont 
+			\noindent \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace*{0.35cm}} \\
+		{\noindent \fontsize{10pt}{5pt} \selectfont  \textcolor{\portraittitlecolor}{\codigodelcurso\ - \nombredelcurso}} \\
+		\vspace*{3cm}
+	\end{center}
+	
+	\vfill
+	\noindent
+	\begin{minipage}{1.0\textwidth}
+		\begin{flushright}
+			\tablaintegrantes
+		\end{flushright}
+	\end{minipage}
+}{
+\ifthenelse{\equal{\portraitstyle}{style5}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\thispagestyle{empty}
+	
+	\includegraphics[width=1.5cm]{departamentos/uchile3} 
+	\hspace{-0.2cm}
+	\begin{tabular}{l}
+		\small \scshape{\MakeUppercase{\nombreuniversidad}} \\
+		\small \scshape{\MakeUppercase{\nombrefacultad}} \\
+		\small \scshape{\MakeUppercase{\departamentouniversidad}} \\
+		\vspace*{1cm}\mbox{}
+	\end{tabular}
+	
+	\vfill
+	\begin{center}
+		\fontsize{8mm}{9mm}\selectfont
+		\textcolor{\portraittitlecolor}{
+			\noindent \titulodelinforme \\
+			\noindent \temaatratar \\
+		}
+		\vspace*{1cm}
+		\footnotesize{\codigodelcurso - \nombredelcurso} \\
+		\vspace*{1.4cm}
+	\end{center}
+	
+	\vfill
+	\begin{center}
+		\noindent \normalsize{\tablaintegrantes}
+	\end{center}
+}{
+\ifthenelse{\equal{\portraitstyle}{style6}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\thispagestyle{empty}
+	
 	\begin{wrapfigure}{l}{0.3\textwidth}
 		\vspace{-0.69cm}
 		\noindent \hspace{-1.10cm} \includegraphics[scale=1.35]{departamentos/fcfm2}
@@ -124,9 +184,9 @@
 	\begin{center}
 		\vspace*{0.5cm}
 		{\color{dgray} \Large \textbf{\MakeUppercase{\temaatratar}}} \\
-		\noindent \rule{\linewidth}{0.4mm} ~ \\
+		\noindent \rule{\linewidth}{0.3mm} ~ \\
 		\Huge \textup \bfseries \textsc{\textcolor{\portraittitlecolor}{\titulodelinforme}} \\
-		\noindent \rule{\linewidth}{0.4mm} ~ \\
+		\noindent \rule{\linewidth}{0.3mm} ~ \\
 	\end{center}
 	\begin{minipage}{.5\textwidth}
 		~
@@ -139,37 +199,7 @@
 		\end{flushright}
 	\end{minipage}
 }{
-\ifthenelse{\equal{\portraitstyle}{style5}}{
-	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\thispagestyle{empty}
-	
-	\vspace*{-1.5cm}
-	\noindent \includegraphics[width=1.75cm]{departamentos/uchile2}
-	\hspace*{-0.15cm}
-	\begin{tabular}{l}
-		\small \scshape{\MakeUppercase{\nombreuniversidad}} \\
-		\small \scshape{\MakeUppercase{\nombrefacultad}} \\
-		\small \scshape{\MakeUppercase{\departamentouniversidad}} \\
-		\vspace*{1.25cm}\mbox{}
-	\end{tabular}
-
-	\vfill
-	\begin{center}
-		{\fontsize{22pt}{10pt} \selectfont 
-		\noindent \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace*{0.35cm}} \\
-		{\noindent \fontsize{10pt}{5pt} \selectfont  \textcolor{\portraittitlecolor}{\codigodelcurso\ - \nombredelcurso}} \\
-		\vspace*{3cm}
-	\end{center}
-
-	\vfill
-	\noindent
-	\begin{minipage}{1.0\textwidth}
-		\begin{flushright}
-			\tablaintegrantes
-		\end{flushright}
-	\end{minipage}
-}{
-\ifthenelse{\equal{\portraitstyle}{style6}}{
+\ifthenelse{\equal{\portraitstyle}{style7}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
@@ -184,8 +214,10 @@
 			\small \scshape{\MakeUppercase{\departamentouniversidad}} \\
 			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
-		
-		\vfill
+	\end{center}
+	
+	\vfill
+	\begin{center}
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.3cm}
 		{\huge \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.40cm}
@@ -199,9 +231,8 @@
 			\scshape{\tablaintegrantes}
 		\end{flushright}
 	\end{minipage}
-	
 }{
-\ifthenelse{\equal{\portraitstyle}{style7}}{
+\ifthenelse{\equal{\portraitstyle}{style8}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
@@ -230,35 +261,6 @@
 			\scshape{\tablaintegrantes}
 		\end{flushright}
 	\end{minipage}
-}{
-\ifthenelse{\equal{\portraitstyle}{style8}}{
-	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\thispagestyle{empty}
-	
-	\includegraphics[width=1.5cm]{departamentos/uchile3} 
-	\hspace{0cm}
-	\begin{tabular}{l}
-		\small \scshape{\MakeUppercase{\nombreuniversidad}} \\
-		\small \scshape{\MakeUppercase{\nombrefacultad}} \\
-		\small \scshape{\MakeUppercase{\departamentouniversidad}} \\
-		\vspace*{1cm}\mbox{}
-	\end{tabular}
-	
-	\vfill
-	\begin{center}
-		\fontsize{8mm}{9mm}\selectfont 
-		\noindent \titulodelinforme \\
-		\noindent \temaatratar
-		
-		\vspace*{1cm}
-		\footnotesize{\codigodelcurso - \nombredelcurso} \\
-		\vspace*{1.4cm}
-	\end{center}
-	
-	\vfill
-	\begin{center}
-		\noindent \normalsize{\tablaintegrantes}
-	\end{center}
 }{
 \ifthenelse{\equal{\portraitstyle}{style9}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
@@ -291,6 +293,33 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	~ \\
+	\vfill
+	\begin{center}
+		\noindent {\large \textsc{\nombreuniversidad, \departamentouniversidad}}
+	\end{center}
+	
+	\vfill
+	\begin{center}
+		\noindent {\large \scshape{\nombredelcurso}} \vspace{0.5cm} \\
+		\noindent {\large \scshape{\codigodelcurso}} \vspace{0.5cm} \\
+		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.3cm}
+		{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
+		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{1.5cm}
+	\end{center}
+	
+	\vfill
+	\begin{center}
+		\indent \tablaintegrantes
+	\end{center}
+	
+	\vfill
+	~ \\
+}{
+\ifthenelse{\equal{\portraitstyle}{style11}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\thispagestyle{empty}
+	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\scshape{\nombreuniversidad} \\
@@ -309,7 +338,7 @@
 		\indent \tablaintegrantes
 	\end{center}
 }{
-\ifthenelse{\equal{\portraitstyle}{style11}}{
+\ifthenelse{\equal{\portraitstyle}{style12}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
@@ -336,7 +365,7 @@
 		\scshape{\departamentouniversidad}
 	\end{center}
 }{
-\ifthenelse{\equal{\portraitstyle}{style12}}{
+\ifthenelse{\equal{\portraitstyle}{style13}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
@@ -373,7 +402,7 @@
 		\noindent \textsf{\tablaintegrantes}
 	\end{flushright}
 }{
-\ifthenelse{\equal{\portraitstyle}{style13}}{
+\ifthenelse{\equal{\portraitstyle}{style14}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
@@ -392,7 +421,7 @@
 		\noindent \textsf{\tablaintegrantes}
 	\end{flushright}
 }{
-\ifthenelse{\equal{\portraitstyle}{style14}}{
+\ifthenelse{\equal{\portraitstyle}{style15}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
@@ -438,7 +467,7 @@
 		\noindent \tablaintegrantes
 	\end{center}
 }{
-\ifthenelse{\equal{\portraitstyle}{style15}}{
+\ifthenelse{\equal{\portraitstyle}{style16}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	
 	\checkextravarexist{\imagenfondoportada}{Defina el fondo de la portada en el bloque INFORMACION DEL DOCUMENTO. Por defecto se uso la portada ubicada en ejemplos}
@@ -495,7 +524,7 @@
 	\newpage
 	\pagecolor{white}
 }{
-	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style15}}}}}}}}}}}}}}}}
+	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style16}}}}}}}}}}}}}}}}}
 }
 
 % Añade una página en blanco al imprimir por las dos caras
