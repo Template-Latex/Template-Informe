@@ -14,6 +14,26 @@ function shadeColor2(color, percent) {
     return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
 }
 
+// Selecciona el texto de un elemento
+jQuery.fn.selText = function() {
+    var obj = this[0];
+    if ($.browser.msie) {
+        var range = obj.offsetParent.createTextRange();
+        range.moveToElementText(obj);
+        range.select();
+    } else if ($.browser.mozilla || $.browser.opera) {
+        var selection = obj.ownerDocument.defaultView.getSelection();
+        var range = obj.ownerDocument.createRange();
+        range.selectNodeContents(obj);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    } else if ($.browser.safari) {
+        var selection = obj.ownerDocument.defaultView.getSelection();
+        selection.setBaseAndExtent(obj, 0, obj, 1);
+    }
+    return this;
+}
+
 // Función que transforma colores y los mezcla
 function blendColors(c0, c1, p) {
     var f = parseInt(c0.slice(1), 16),
@@ -108,7 +128,7 @@ function updateDownloadCounter(downloads, source) {
                 [45, '3.6.3'],
                 [8, '3.6.7'],
                 [1, '3.7.0'],
-                [0, '3.7.3'],
+                [1, '3.7.3'],
                 [0, '3.7.4'],
                 [0, '3.7.5'],
                 [0, '3.7.7'],
