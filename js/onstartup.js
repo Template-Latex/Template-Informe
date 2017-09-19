@@ -1,4 +1,27 @@
-﻿ // Se selecciona una imagen al azar
+/*
+The MIT License (MIT)
+
+Copyright 2017 Pablo Pizarro R.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+// Se selecciona una imagen al azar
 var images_background = [
     ['09305524.jpg', 'center', '#343434'], // 0
     ['67535412.jpg', 'bottom', '#C96265'], // 1
@@ -316,4 +339,14 @@ jQuery(document).ready(function($) {
         });
     });
 
+    // Muestra un botón para subir al hacer scroll
+    var amountScrolled = 600;
+    $(window).scroll(function() {
+        location.pathname.replace(/^\//, '')
+        if ($(window).scrollTop() > amountScrolled) {
+            $('a.back-to-top').fadeIn('slow');
+        } else {
+            $('a.back-to-top').fadeOut('slow');
+        }
+    });
 });
