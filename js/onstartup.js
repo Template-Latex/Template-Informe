@@ -152,6 +152,10 @@ var github_changelog = false;
 
 // Se añaden las descargas del template base
 $.getJSON(href_json_releases, function(json) {
+
+    // Escribe los badges
+    // writeBadges();
+
     for (i = 0; i < json.length; i++) {
         try {
             for (j = 0; j < json[i].assets.length; j++) {
