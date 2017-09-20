@@ -249,61 +249,6 @@ jQuery(document).ready(function($) {
     $('#background-page-header-colored').css('background-color', chosencolor);
     $('#background-page-header-colored').fadeIn('slow');
 
-    // Si no se encontraron descargas
-    if (enable_error_window && total_downloads == 0 && last_version == '$VERSION' && github_changelog == false) {
-        console.log('ERROR: No se detectó una versión, desactivando paneles.');
-        document.getElementById('whatsnew').style = 'display:none';
-        hide_element_id('download-button');
-        hide_element_id('download-button-1file');
-        hide_element_id('whatsnew');
-        hide_element_id('downloadcounter-banner');
-        document.getElementById('main-content-section').innerHTML = "<div class='error_msg_1'>Error: No se pudo obtener la última versión disponible :(</div>";
-        $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")');
-    } else {}
-
-    // Se comprueba si es navegador móvil
-    var is_movile_browser = false;
-    if (/Mobi/.test(navigator.userAgent)) {
-        is_movile_browser = true;
-        console.log('Utilizando versión móvil');
-    } else {
-        console.log('Utilizando versión web');
-    }
-    console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
-
-    if (!is_movile_browser && enableparallax) {
-        $('.page-header').parallax({
-            imageSrc: image_url,
-            speed: 0.15,
-            positionY: image_pos,
-            positionX: 'center',
-            zIndex: 1
-        });
-        console.log('Se activo el parallax');
-    } else {
-        var back_img = new Image();
-        back_img.onload = function() {
-            $('#background-page-header').css({
-                'background': chosencolor + ' url(' + image_url + ') ' + image_pos + ' no-repeat fixed',
-                'background-attachment': 'fixed',
-            });
-            $('#background-page-header').css('-webkit-background-size', 'cover');
-            $('#background-page-header').css('-moz-background-size', 'cover');
-            $('#background-page-header').css('-o-background-size', 'cover');
-            $('#background-page-header').css('background-size', 'cover');
-            $('#background-page-header').css('max-width', '100%');
-            $('#background-page-header').css('width', $(window).width());
-            fadein_css('#background-page-header', '0.5s');
-        }
-        back_img.src = image_url;
-    }
-
-    // Se cambia el color de pace
-    // $('.pace .pace-progress').css('background', pacecolor);
-    // $('.pace .pace-activity').css('border-top-color', codeprecolor);
-    // $('.pace .pace-activity').css('border-left-color', codeprecolor);
-    // $('.pace .pace-progress-inner').css('box-shadow', '0 0 10px '+bgprecolor+', 0 0 5px '+bgprecolor+';');
-
     // Se cambia el color de los titulos
     $('.main-content h1').css('color', chosencolor);
     $('.main-content h2').css('color', chosencolor);
@@ -327,6 +272,62 @@ jQuery(document).ready(function($) {
     $('.main-content').css('background-color', backgroundmaincolor);
     $('body').css('background-color', backgroundmaincolor);
     $('#contentBackground').css('background-color', backgroundmaincolor);
+
+    // Si no se encontraron descargas
+    if (enable_error_window && total_downloads == 0 && last_version == '$VERSION' && github_changelog == false) {
+        console.log('ERROR: No se detectó una versión, desactivando paneles.');
+        document.getElementById('whatsnew').style = 'display:none';
+        hide_element_id('download-button');
+        hide_element_id('download-button-1file');
+        hide_element_id('whatsnew');
+        hide_element_id('downloadcounter-banner');
+        document.getElementById('main-content-section').innerHTML = "<div class='error_msg_1'>Error: No se pudo obtener la última versión disponible :(</div>";
+        $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")');
+    } else {}
+
+    // Se comprueba si es navegador móvil
+    var is_movile_browser = false;
+    if (/Mobi/.test(navigator.userAgent)) {
+        is_movile_browser = true;
+        console.log('Utilizando versión móvil');
+    } else {
+        console.log('Utilizando versión web');
+    }
+    console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
+
+    if (!is_movile_browser && enableparallax) {
+        $('#background-page-header').parallax({
+            imageSrc: image_url,
+            speed: 0.15,
+            positionY: image_pos,
+            positionX: 'center',
+            zIndex: 1
+        });
+        console.log('Se activo el parallax');
+    } else {
+        var back_img = new Image();
+        back_img.onload = function() {
+            $('#background-page-header').css({
+                'background': chosencolor + ' url(' + image_url + ') ' + image_pos + ' no-repeat fixed',
+                'background-attachment': 'fixed',
+            });
+            $('#background-page-header').css('-webkit-background-size', 'cover');
+            $('#background-page-header').css('-moz-background-size', 'cover');
+            $('#background-page-header').css('-o-background-size', 'cover');
+            $('#background-page-header').css('background-size', 'cover');
+            $('#background-page-header').css('max-width', '100%');
+            $('#background-page-header').css('width', $(window).width());
+            fadein_css('#background-page-header', '0.5s');
+            random_blur('#background-page-header');
+        }
+        back_img.src = image_url;
+    }
+
+    // Se cambia el color de pace
+    // $('.pace .pace-progress').css('background', pacecolor);
+    // $('.pace .pace-activity').css('border-top-color', codeprecolor);
+    // $('.pace .pace-activity').css('border-left-color', codeprecolor);
+    // $('.pace .pace-progress-inner').css('box-shadow', '0 0 10px '+bgprecolor+', 0 0 5px '+bgprecolor+';');
 
     // Se añade un evento al cambiar tamaño página web
     $(window).resize(function() {

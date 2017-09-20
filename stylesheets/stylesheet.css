@@ -561,7 +561,7 @@ a.back-to-top {
 }
 
 a {
-    color: #1e6bb8;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -887,7 +887,6 @@ a:hover {
 }
 
 .menu-big-entry {
-    color: #159957;
 }
 
 @media screen and (min-width: 64em) {
@@ -909,7 +908,6 @@ a:hover {
 }
 
 .menu-little-entry {
-    color: #159957;
 }
 
 @media screen and (min-width: 64em) {
