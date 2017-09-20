@@ -115,7 +115,6 @@ function random_blur(idelem) {
 
 // Actualizador de descargas
 function updateDownloadCounter(downloads, source) {
-
     switch (source) {
         case 'Template-Informe':
             // Ajuste por json de Template-Informe https://api.github.com/repos/Template-Latex/Template-Informe/releases
@@ -193,6 +192,5 @@ function updateDownloadCounter(downloads, source) {
     for (i = 0; i < download_list_counter.length; i++) {
         downloads += download_list_counter[i][0];
     }
-
     return downloads;
 }
