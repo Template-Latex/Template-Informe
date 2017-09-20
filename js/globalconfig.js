@@ -23,7 +23,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // Configuraciones de toda la suite Template-Latex
 var blurlimits = [3, 10];
-var blurprobability = 50;
+var blurprobability = 40;
 var enable_error_window = false;
 var enableparallax = false;
 var pdf_js_href = 'http://latex.ppizarror.com/Template-Informe/web/viewer.html?file=';

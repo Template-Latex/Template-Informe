@@ -45,7 +45,7 @@ var images_background = [
     ['11944943.jpg', 'bottom', '#0A344F'], // 19
     ['15032996.jpg', 'bottom', '#304651'], // 20
     ['37994916.jpg', 'center', '#30307A'], // 21
-    ['63330443.jpg', 'top', '#0C3C9A'], // 22
+    ['63330443.jpg', 'top', '#000000'], // 22
     ['46199258.jpg', 'bottom', '#5B4A48'], // 23
     ['39593777.jpg', 'bottom', '#014BBA'], // 24
     ['47702546.jpg', 'bottom', '#702269'], // 25
@@ -331,7 +331,7 @@ jQuery(document).ready(function($) {
 
     // Se añade un evento al cambiar tamaño página web
     $(window).resize(function() {
-        $('.page-header').css('width', $(window).width());
+        $('#background-page-header').css('width', $(window).width());
     });
 
     // Se actualiza la cantidad de descargas al hacer click
