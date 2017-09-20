@@ -108,6 +108,8 @@ function random_blur(idelem) {
             if (blur >= blurlimits[0] && blur <= blurlimits[1]) {
                 $(idelem).css('filter', String.format('blur({0}px)', blur));
                 $(idelem).css('transform', 'scale(1.05)');
+                console.log(console.log('Se define blur en {0}px', blur));
+                return;
             }
         }
     }
