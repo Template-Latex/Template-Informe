@@ -197,12 +197,18 @@ $.getJSON(href_json_releases, function(json) {
     $('#main-content-section #templatestats').attr('href', 'http://latex.ppizarror.com/stats/index.html?template=' + stats_name);
 
     // Se establece la versión en el botón de descargas
-    msg_download_normal = '{1} <font style="color: #333333;">({0})</font> <img src="{2}/zip.png" class="iconbutton" />';
-    msg_download_compact = '{1} <font style="color: #ffffff;">({0})</font>  <img src="{2}/zip.png" class="iconbutton" />';
+    msg_download_normal = '{1} <font id="buttonfile1text">({0}) <img src="{2}/zip.png" class="iconbutton" /></font>';
+    msg_download_compact = '{1} <font id="buttonfilectext">({0}) <img src="{2}/zip.png" class="iconbutton" /></font>';
     document.getElementById("download-button").href = normal_link;
     document.getElementById("download-button").innerHTML = String.format(msg_download_normal, last_version, document.getElementById("download-button").innerHTML, href_resources_folder);
     document.getElementById("download-button-1file").innerHTML = String.format(msg_download_compact, last_version, document.getElementById("download-button-1file").innerHTML, href_resources_folder);
     document.getElementById("download-button-1file").href = compact_link;
+
+    // Se muestra descargas y botones con efecto
+    fadein_css('#total-download-counter-1', '0.1s');
+    fadein_css('#total-download-counter-2', '0.1s');
+    $('#buttonfile1text').fadeIn('slow');
+    $('#buttonfilectext').fadeIn('slow');
 
     // Se establece la última versión del pdf
     var pdf_href_lastv = pdf_js_href + String.format(href_pdf_version, last_version);
@@ -239,6 +245,10 @@ $.getJSON(href_json_releases, function(json) {
 // FINAL
 jQuery(document).ready(function($) {
 
+    // Se define color de fondo principal antes de carga imagen
+    $('#background-page-header-colored').css('background-color', chosencolor);
+    $('#background-page-header-colored').fadeIn('slow');
+
     // Si no se encontraron descargas
     if (enable_error_window && total_downloads == 0 && last_version == '$VERSION' && github_changelog == false) {
         console.log('ERROR: No se detectó una versión, desactivando paneles.');
@@ -273,19 +283,17 @@ jQuery(document).ready(function($) {
     } else {
         var back_img = new Image();
         back_img.onload = function() {
-            $('.page-header').css({
+            $('#background-page-header').css({
                 'background': chosencolor + ' url(' + image_url + ') ' + image_pos + ' no-repeat fixed',
                 'background-attachment': 'fixed',
             });
-            $('.page-header').css('-webkit-background-size', 'cover');
-            $('.page-header').css('-moz-background-size', 'cover');
-            $('.page-header').css('-o-background-size', 'cover');
-            $('.page-header').css('background-size', 'cover');
-            $('.page-header').css('max-width', '100%');
-            $('.page-header').css('width', $(window).width());
-            fadein_css('.page-header', '0.5s');
-            fadein_css('#total-download-counter-1', '0.1s');
-            fadein_css('#total-download-counter-2', '0.1s');
+            $('#background-page-header').css('-webkit-background-size', 'cover');
+            $('#background-page-header').css('-moz-background-size', 'cover');
+            $('#background-page-header').css('-o-background-size', 'cover');
+            $('#background-page-header').css('background-size', 'cover');
+            $('#background-page-header').css('max-width', '100%');
+            $('#background-page-header').css('width', $(window).width());
+            fadein_css('#background-page-header', '0.5s');
         }
         back_img.src = image_url;
     }
@@ -318,6 +326,7 @@ jQuery(document).ready(function($) {
     // Se cambia el color del fondo de la página web
     $('.main-content').css('background-color', backgroundmaincolor);
     $('body').css('background-color', backgroundmaincolor);
+    $('#contentBackground').css('background-color', backgroundmaincolor);
 
     // Se añade un evento al cambiar tamaño página web
     $(window).resize(function() {

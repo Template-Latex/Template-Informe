@@ -231,7 +231,45 @@
     color: #fff;
     text-align: center;
     position: relative;
+}
+
+#background-page-header-colored {
+    z-index: -2;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+#background-page-header {
+    z-index: -1;
+    width: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     opacity: 0;
+}
+
+#contentBackground {
+    z-index: 2;
+    width: 100%;
+    position: relative;
+}
+
+#buttonfile1text {
+    color: #333333;
+    display: none;
+}
+
+#buttonfilectext {
+    color: #ffffff;
+    display: none;
 }
 
 @keyframes fadeIn {

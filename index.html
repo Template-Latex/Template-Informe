@@ -76,6 +76,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 <body>
 	<a href="#" class="back-to-top" id="scrolls">Back to Top</a>
+	<div id="background-page-header-colored">
+	</div>
+	<div id="background-page-header">
+	</div>
 	<section class="page-header">
 		<h1 class="project-name">Template para Informes</h1>
 		<h2 class="project-tagline">
@@ -94,15 +98,16 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			<span class="tooltiptext-headerbtn">Todo el template en 1 sólo archivo</span>
 		</a>
 	</section>
-	<section id="main-content-section" class="main-content" style="margin-top: 1px;">
-		<h2>
+	<div id="contentBackground">
+		<section id="main-content-section" class="main-content" style="margin-top: 1px;">
+			<h2>
 			<a id="template-de-informe-en-latex" class="anchor" href="#template-de-informe-en-latex" aria-hidden="true">
 			<span aria-hidden="true" class="octicon octicon-link"></span>
 			</a>Template de Informe en Latex
 		</h2>
 
-		<!-- Badges -->
-		<a href="http://ppizarror.com" id="aimg" class="tooltip">
+			<!-- Badges -->
+			<a href="http://ppizarror.com" id="aimg" class="tooltip">
 			<img src="resources/autor2.svg" class="bannerimg">
 			<span class="tooltiptext_autor">
 				<img src="https://avatars0.githubusercontent.com/u/12925256" />
@@ -115,13 +120,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 				</div>
 			</span>
 		</a>
-		<a href="https://opensource.org/licenses/MIT/" id="aimg">
+			<a href="https://opensource.org/licenses/MIT/" id="aimg">
 			<img src="resources/Licencia-MIT-blue.svg" />
 		</a>
-		<a href="" id="aimg" class="badgeejemplopdf">
+			<a href="" id="aimg" class="badgeejemplopdf">
 			<img src="resources/badge-pdf.svg" />
 		</a>
-		<a href="" id="templatestats">
+			<a href="" id="templatestats">
 			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="104" height="20" id="downloadcounter-banner">
 			    <linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
 			    <clipPath id="a"><rect width="104" height="20" rx="3" fill="#fff"/></clipPath>
@@ -134,256 +139,256 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			    </g>
 			</svg>
 		</a>
-		</br>
-		<a href="http://latex.ppizarror.com/Template-Tesis/" id="aimg">
+			</br>
+			<a href="http://latex.ppizarror.com/Template-Tesis/" id="aimg">
 			<img src="resources/templates/tesis.svg" style="display: none" />
 		</a>
-		<a href="http://latex.ppizarror.com/Template-Apunte/" id="aimg">
+			<a href="http://latex.ppizarror.com/Template-Apunte/" id="aimg">
 			<img src="resources/templates/apunte.svg" style="display: none" />
 		</a>
-		<a href="http://latex.ppizarror.com/Template-Tareas/" id="aimg">
+			<a href="http://latex.ppizarror.com/Template-Tareas/" id="aimg">
 			<img src="resources/templates/tareas.svg" style="display: none" />
 		</a>
-		<a href="http://latex.ppizarror.com/Template-Auxiliares/" id="aimg">
+			<a href="http://latex.ppizarror.com/Template-Auxiliares/" id="aimg">
 			<img src="resources/templates/auxiliares.svg" />
 		</a>
-		<a href="http://latex.ppizarror.com/Template-Controles/" id="aimg">
+			<a href="http://latex.ppizarror.com/Template-Controles/" id="aimg">
 			<img src="resources/templates/controles.svg" />
 		</a>
-		<a href="http://latex.ppizarror.com/Template-Pautas/" id="aimg">
+			<a href="http://latex.ppizarror.com/Template-Pautas/" id="aimg">
 			<img src="resources/templates/pauta.svg" style="display: none" />
 		</a>
-		<a href="http://latex.ppizarror.com/Template-Informe/" id="aimg">
+			<a href="http://latex.ppizarror.com/Template-Informe/" id="aimg">
 			<img src="resources/templates/informe.svg" />
 		</a>
 
-		<!-- Menú -->
-		<ul style="list-style-type: upper-roman;">
-			<li><a href="#empezando-con-el-template" class="menu-big-entry">Empezando con el template</a></li>
-			<li><a href="#configurando-el-documento" class="menu-big-entry">Configurando el documento</a></li>
-			<li><a href="#tabla-integrantes" class="menu-big-entry">Añadiendo integrantes, profesores, auxiliares y fechas</a></li>
-			<li>
-				<a href="#funciones-template" class="menu-big-entry">Funciones propias del template</a>
-				<ul>
-					<li><a href="#hlp-parrafo" class="menu-little-entry">Insertar párrafos</a></li>
-					<li><a href="#hlp-imagen" class="menu-little-entry">Añadir una imagen</a></li>
-					<li><a href="#hlp-formulae" class="menu-little-entry">Insertar una fórmula en el documento</a></li>
-					<li><a href="#hlp-title" class="menu-little-entry">Insertar secciones sin número y sin aparecer en el índice</a></li>
-					<li><a href="#hlp-math" class="menu-little-entry">Expresiones matemáticas</a></li>
-					<li><a href="#hlp-annexref" class="menu-little-entry">Insertar anexos y referencias</a></li>
-					<li><a href="#hlp-srccode" class="menu-little-entry">Añadir código fuente</a></li>
-					<li><a href="#hlp-other" class="menu-little-entry">Otras funciones</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="#configurar-el-template" class="menu-big-entry">Configurar el template</a>
-				<ul>
-					<li><a href="#config-other" class="menu-little-entry">Configuraciones generales</a></li>
-					<li><a href="#config-portraithf" class="menu-little-entry">Estilo de portada y header-footer</a></li>
-					<li><a href="#config-pagemargin" class="menu-little-entry">Márgenes de la página</a></li>
-					<li><a href="#config-caption" class="menu-little-entry">Configuración de las leyendas</a></li>
-					<li><a href="#config-index" class="menu-little-entry">Configuración del índice</a></li>
-					<li><a href="#config-colors" class="menu-little-entry">Configurar los colores del documento</a></li>
-					<li><a href="#config-figure" class="menu-little-entry">Márgenes de las figuras</a></li>
-					<li><a href="#config-ref" class="menu-little-entry">Configuración del anexo, citas y referencias</a></li>
-					<li><a href="#config-tstyles" class="menu-little-entry">Configuración de los títulos</a></li>
-					<li><a href="#config-elemname" class="menu-little-entry">Nombres de los elementos</a></li>
-					<li><a href="#config-pdfoptions" class="menu-little-entry">Opciones del pdf</a></li>
-				</ul>
-			</li>
-			<li><a href="#links" class="menu-big-entry">Links de interés</a></li>
-			<li><a href="#librerias-utilizadas" class="menu-big-entry">Librerías utilizadas</a></li>
-			<li id='changelog-menu'><a href="#que-hay-de-nuevo" class="menu-big-entry">Lista de cambios</a> </li>
-			<li><a href="#autor" class="menu-big-entry">Autor</a> </li>
-		</ul>
-		<p>
-			<a id="empezando-con-el-template"></a> Este proyecto corresponde a un template para confeccionar geniales informes en
-			<img src="resources/latex.png" alt="LaTeX" class="lateximg">, contiene múltiples funciones para insertar imágenes, fórmulas, párrafos y títulos de forma sencilla, sin tener que recurrir a las largas instrucciones que ofrece Latex por defecto.
-		</p>
+			<!-- Menú -->
+			<ul style="list-style-type: upper-roman;">
+				<li><a href="#empezando-con-el-template" class="menu-big-entry">Empezando con el template</a></li>
+				<li><a href="#configurando-el-documento" class="menu-big-entry">Configurando el documento</a></li>
+				<li><a href="#tabla-integrantes" class="menu-big-entry">Añadiendo integrantes, profesores, auxiliares y fechas</a></li>
+				<li>
+					<a href="#funciones-template" class="menu-big-entry">Funciones propias del template</a>
+					<ul>
+						<li><a href="#hlp-parrafo" class="menu-little-entry">Insertar párrafos</a></li>
+						<li><a href="#hlp-imagen" class="menu-little-entry">Añadir una imagen</a></li>
+						<li><a href="#hlp-formulae" class="menu-little-entry">Insertar una fórmula en el documento</a></li>
+						<li><a href="#hlp-title" class="menu-little-entry">Insertar secciones sin número y sin aparecer en el índice</a></li>
+						<li><a href="#hlp-math" class="menu-little-entry">Expresiones matemáticas</a></li>
+						<li><a href="#hlp-annexref" class="menu-little-entry">Insertar anexos y referencias</a></li>
+						<li><a href="#hlp-srccode" class="menu-little-entry">Añadir código fuente</a></li>
+						<li><a href="#hlp-other" class="menu-little-entry">Otras funciones</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#configurar-el-template" class="menu-big-entry">Configurar el template</a>
+					<ul>
+						<li><a href="#config-other" class="menu-little-entry">Configuraciones generales</a></li>
+						<li><a href="#config-portraithf" class="menu-little-entry">Estilo de portada y header-footer</a></li>
+						<li><a href="#config-pagemargin" class="menu-little-entry">Márgenes de la página</a></li>
+						<li><a href="#config-caption" class="menu-little-entry">Configuración de las leyendas</a></li>
+						<li><a href="#config-index" class="menu-little-entry">Configuración del índice</a></li>
+						<li><a href="#config-colors" class="menu-little-entry">Configurar los colores del documento</a></li>
+						<li><a href="#config-figure" class="menu-little-entry">Márgenes de las figuras</a></li>
+						<li><a href="#config-ref" class="menu-little-entry">Configuración del anexo, citas y referencias</a></li>
+						<li><a href="#config-tstyles" class="menu-little-entry">Configuración de los títulos</a></li>
+						<li><a href="#config-elemname" class="menu-little-entry">Nombres de los elementos</a></li>
+						<li><a href="#config-pdfoptions" class="menu-little-entry">Opciones del pdf</a></li>
+					</ul>
+				</li>
+				<li><a href="#links" class="menu-big-entry">Links de interés</a></li>
+				<li><a href="#librerias-utilizadas" class="menu-big-entry">Librerías utilizadas</a></li>
+				<li id='changelog-menu'><a href="#que-hay-de-nuevo" class="menu-big-entry">Lista de cambios</a> </li>
+				<li><a href="#autor" class="menu-big-entry">Autor</a> </li>
+			</ul>
+			<p>
+				<a id="empezando-con-el-template"></a> Este proyecto corresponde a un template para confeccionar geniales informes en
+				<img src="resources/latex.png" alt="LaTeX" class="lateximg">, contiene múltiples funciones para insertar imágenes, fórmulas, párrafos y títulos de forma sencilla, sin tener que recurrir a las largas instrucciones que ofrece Latex por defecto.
+			</p>
 
-		<img src="images/collage.png" alt="Informe" width="70%px" style="margin: auto; display: block;">
+			<img src="images/collage.png" alt="Informe" width="70%px" style="margin: auto; display: block;">
 
-		<p>
-			Para crear un informe con este template debes primero <a href="#configurando-el-documento">editar la información del documento</a> (título, nombre de la universidad, etc) en la sección
+			<p>
+				Para crear un informe con este template debes primero <a href="#configurando-el-documento">editar la información del documento</a> (título, nombre de la universidad, etc) en la sección
 
-			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em>
-			<font title='Línea 19 en versión compacta' style='cursor: pointer;'>(línea 18)</font> <i id="linea-informacion-documento"></i> del archivo principal <i><a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>, luego <a href="tabla-integrantes">editar la tabla</a>			de datos de la portada en la sección
-			<em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <i id="linea-integrantes"></i>
-			<font title='Línea 34 en versión compacta' style='cursor: pointer;'>(línea 33)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del <em class="section-template">RESUMEN O ABSTRACT</em>
-			<font title='Línea 216 en versión compacta' style='cursor: pointer;'>(línea 95)</font> o en la <b>sección principal</b> del documento
-			<em class="section-template">INICIO DEL DOCUMENTO</em>
-			<font title='Línea 227 en versión compacta' style='cursor: pointer;'>(línea 106)</font><i id="linea-inicio"></i>.
-		</p>
-		<p>
-			Existe además una versión <b>compacta</b> en donde se encuentra todo el código en un sólo archivo si es que no prefieres los archivos por separado. Para ver más información sobre cómo utilizar las funciones exclusivas del template, o cómo configurar
-			a gusto el template, visita el resto de las secciones de este manual.
-		</p>
+				<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em>
+				<font title='Línea 19 en versión compacta' style='cursor: pointer;'>(línea 18)</font> <i id="linea-informacion-documento"></i> del archivo principal <i><a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>, luego <a href="tabla-integrantes">editar la tabla</a>				de datos de la portada en la sección
+				<em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <i id="linea-integrantes"></i>
+				<font title='Línea 34 en versión compacta' style='cursor: pointer;'>(línea 33)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del <em class="section-template">RESUMEN O ABSTRACT</em>
+				<font title='Línea 216 en versión compacta' style='cursor: pointer;'>(línea 95)</font> o en la <b>sección principal</b> del documento
+				<em class="section-template">INICIO DEL DOCUMENTO</em>
+				<font title='Línea 227 en versión compacta' style='cursor: pointer;'>(línea 106)</font><i id="linea-inicio"></i>.
+			</p>
+			<p>
+				Existe además una versión <b>compacta</b> en donde se encuentra todo el código en un sólo archivo si es que no prefieres los archivos por separado. Para ver más información sobre cómo utilizar las funciones exclusivas del template, o cómo configurar
+				a gusto el template, visita el resto de las secciones de este manual.
+			</p>
 
-		<!-- Configurando el documento -->
-		<h2>
+			<!-- Configurando el documento -->
+			<h2>
 			<a id="configurando-el-documento" class="anchor" href="#configurando-el-documento" aria-hidden="true">
 			<span aria-hidden="true" class="octicon octicon-link"></span>
 			</a> Configurando el documento
 		</h2>
-		<p>
-			Para configurar el documento (título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de
-			<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> al principio del archivo principal, estas variables son del estilo:
-			<blockquote>
-				<em>\def</em><span class="pl-e">\nombreVariable</span> {<b>Valor</b>}
-			</blockquote>
-		</p>
+			<p>
+				Para configurar el documento (título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de
+				<em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> al principio del archivo principal, estas variables son del estilo:
+				<blockquote>
+					<em>\def</em><span class="pl-e">\nombreVariable</span> {<b>Valor</b>}
+				</blockquote>
+			</p>
 
-		<p>Si por ejemplo tu informe no tiene un tema, debes dejar el valor en blanco, pero <b> no eliminar la variable</b>.
-		</p>
-		<ul>
-			<li>
-				<strong>\titulodelinforme</strong>: Título del informe.
-			</li>
-			<li>
-				<strong>\temaatratar</strong>: Tema a tratar.
-			</li>
-			<li>
-				<strong>\autordeldocumento</strong>: Nombre del autor o grupo. <b>No</b> es usado en la portada.
-			</li>
-			<li>
-				<strong>\nombredelcurso</strong>: Curso - Ramo referido al informe.
-			</li>
-			<li>
-				<strong>\codigodelcurso</strong>: Código del curso.
-			</li>
-			<li>
-				<strong>\nombreuniversidad</strong>: Universidad, Instituto, etc.
-			</li>
-			<li>
-				<strong>\nombrefacultad</strong>: Facultad relacionada a la Universidad, Instituto, etc.
-			</li>
-			<li>
-				<strong>\departamentouniversidad</strong>: Departamento de la Universidad.
-			</li>
-			<li>
-				<strong>\imagendeldepartamento</strong>: Imagen del departamento o universidad a usar en la portada, estos se pueden encontrar en la carpeta
-				<em><a href="https://github.com/Template-Latex/Template-Informe/tree/master/images/departamentos">/images/departamentos/</a></em>. Imágenes disponibles:
-				<ul>
-					<li>
-						<strong>adh</strong>: Área de Humanidades.
-					</li>
-					<li>
-						<strong>das</strong>: Departamento de Astronomía.
-					</li>
-					<li>
-						<strong>dcc</strong>: Departamento de Ciencias de la Computación.
-					</li>
-					<li>
-						<strong>dfi</strong>: Departamento de Física.
-					</li>
-					<li>
-						<strong>dgf</strong>: Departamento de Geofísica.
-					</li>
-					<li>
-						<strong>dic</strong>: Departamento de Ingeniería Civil.
-					</li>
-					<li>
-						<strong>dic2</strong>: Departamento de Ingeniería Civil (otra versión).
-					</li>
-					<li>
-						<strong>die</strong>: Departamento de Ingeniería Eléctrica.
-					</li>
-					<li>
-						<strong>dii</strong>: Departamento de Ingeniería Industrial.
-					</li>
-					<li>
-						<strong>dii2</strong>: Departamento de Ingeniería Industrial (otra versión).
-					</li>
-					<li>
-						<strong>dim</strong>: Departamento de Ingeniería Matemática.
-					</li>
-					<li>
-						<strong>dimec</strong>: Departamento de Ingeniería Mecánica.
-					</li>
-					<li>
-						<strong>diqbt</strong>: Departamento de Ingeniería Química y Biotecnología.
-					</li>
-					<li>
-						<strong>fcfm</strong>: Facultad de Ciencias Físicas y Matemáticas.
-					</li>
-					<li>
-						<strong>fcfm2</strong>: Sólo el logo de la Facultad de Ciencias Físicas y Matemáticas.
-					</li>
-					<li>
-						<strong>geo</strong>: Departamento de Geología.
-					</li>
-					<li>
-						<strong>minas</strong>: Departamento de Ingeniería en Minas.
-					</li>
-					<li>
-						<strong>uchile</strong>: Escudo de la Universidad de Chile.
-					</li>
-					<li>
-						<strong>uchile2</strong>: Sólo el escudo de la Universidad de Chile.
-					</li>
-					<li>
-						<strong>uchile3</strong>: Escudo en negro de la Universidad de Chile.
-					</li>
-				</ul>
-			</li>
-			<li>
-				<strong>\imagendepartamentoescala</strong>: Escala de la imagen a usar.
-			</li>
-			<li>
-				<strong>\localizacionuniversidad</strong>: Ciudad o región en donde se ubica la universidad o instituto.
-			</li>
-		</ul>
+			<p>Si por ejemplo tu informe no tiene un tema, debes dejar el valor en blanco, pero <b> no eliminar la variable</b>.
+			</p>
+			<ul>
+				<li>
+					<strong>\titulodelinforme</strong>: Título del informe.
+				</li>
+				<li>
+					<strong>\temaatratar</strong>: Tema a tratar.
+				</li>
+				<li>
+					<strong>\autordeldocumento</strong>: Nombre del autor o grupo. <b>No</b> es usado en la portada.
+				</li>
+				<li>
+					<strong>\nombredelcurso</strong>: Curso - Ramo referido al informe.
+				</li>
+				<li>
+					<strong>\codigodelcurso</strong>: Código del curso.
+				</li>
+				<li>
+					<strong>\nombreuniversidad</strong>: Universidad, Instituto, etc.
+				</li>
+				<li>
+					<strong>\nombrefacultad</strong>: Facultad relacionada a la Universidad, Instituto, etc.
+				</li>
+				<li>
+					<strong>\departamentouniversidad</strong>: Departamento de la Universidad.
+				</li>
+				<li>
+					<strong>\imagendeldepartamento</strong>: Imagen del departamento o universidad a usar en la portada, estos se pueden encontrar en la carpeta
+					<em><a href="https://github.com/Template-Latex/Template-Informe/tree/master/images/departamentos">/images/departamentos/</a></em>. Imágenes disponibles:
+					<ul>
+						<li>
+							<strong>adh</strong>: Área de Humanidades.
+						</li>
+						<li>
+							<strong>das</strong>: Departamento de Astronomía.
+						</li>
+						<li>
+							<strong>dcc</strong>: Departamento de Ciencias de la Computación.
+						</li>
+						<li>
+							<strong>dfi</strong>: Departamento de Física.
+						</li>
+						<li>
+							<strong>dgf</strong>: Departamento de Geofísica.
+						</li>
+						<li>
+							<strong>dic</strong>: Departamento de Ingeniería Civil.
+						</li>
+						<li>
+							<strong>dic2</strong>: Departamento de Ingeniería Civil (otra versión).
+						</li>
+						<li>
+							<strong>die</strong>: Departamento de Ingeniería Eléctrica.
+						</li>
+						<li>
+							<strong>dii</strong>: Departamento de Ingeniería Industrial.
+						</li>
+						<li>
+							<strong>dii2</strong>: Departamento de Ingeniería Industrial (otra versión).
+						</li>
+						<li>
+							<strong>dim</strong>: Departamento de Ingeniería Matemática.
+						</li>
+						<li>
+							<strong>dimec</strong>: Departamento de Ingeniería Mecánica.
+						</li>
+						<li>
+							<strong>diqbt</strong>: Departamento de Ingeniería Química y Biotecnología.
+						</li>
+						<li>
+							<strong>fcfm</strong>: Facultad de Ciencias Físicas y Matemáticas.
+						</li>
+						<li>
+							<strong>fcfm2</strong>: Sólo el logo de la Facultad de Ciencias Físicas y Matemáticas.
+						</li>
+						<li>
+							<strong>geo</strong>: Departamento de Geología.
+						</li>
+						<li>
+							<strong>minas</strong>: Departamento de Ingeniería en Minas.
+						</li>
+						<li>
+							<strong>uchile</strong>: Escudo de la Universidad de Chile.
+						</li>
+						<li>
+							<strong>uchile2</strong>: Sólo el escudo de la Universidad de Chile.
+						</li>
+						<li>
+							<strong>uchile3</strong>: Escudo en negro de la Universidad de Chile.
+						</li>
+					</ul>
+				</li>
+				<li>
+					<strong>\imagendepartamentoescala</strong>: Escala de la imagen a usar.
+				</li>
+				<li>
+					<strong>\localizacionuniversidad</strong>: Ciudad o región en donde se ubica la universidad o instituto.
+				</li>
+			</ul>
 
-		<!-- Añadiendo integrantes, profesores, auxiliares y fechas -->
-		<h2>
+			<!-- Añadiendo integrantes, profesores, auxiliares y fechas -->
+			<h2>
 			<a id="tabla-integrantes" class="anchor" href="#tabla-integrantes" aria-hidden="true">
 			<span aria-hidden="true" class="octicon octicon-link"></span>
 			</a> Añadiendo integrantes, profesores, auxiliares y fechas
 		</h2>
-		<p>
-			Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> del archivo principal (<a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex">main.tex</a>), en
-			ella se encuentra una <b>tabla</b> la cual contiene la información de los integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
-		</p>
+			<p>
+				Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> del archivo principal (<a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex">main.tex</a>), en
+				ella se encuentra una <b>tabla</b> la cual contiene la información de los integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
+			</p>
 
-		<!-- Insertar párrafos, figuras, fórmulas, citas y otros -->
-		<h2>
+			<!-- Insertar párrafos, figuras, fórmulas, citas y otros -->
+			<h2>
 			<a id="funciones-template" class="anchor" href="#funciones-template" aria-hidden="true">
 			<span aria-hidden="true" class="octicon octicon-link"></span>
 		</a> Funciones propias del template
 		</h2>
-		<p>También es posible añadir fórmulas, párrafos, figuras y otros elementos de forma sencilla, utilizando funciones especiales definidas en el template.
-			<ul>
-				<li class="li-code-parent">
-					<strong class="functtitlstyle">Insertar párrafos<a id="hlp-parrafo"></a></strong>
-					<p>
-						Para esto existen las siguientes funciones:
-					</p>
-					<ul>
-						<li>
-							<strong>\newp</strong>: Sencilla forma de añadir un nuevo párrafo.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre>Este es un parrafo. <br><span class="pl-e">\newp</span> Este es otro.</pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\newpar</strong><b><b>{</b></b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo con un salto de linea al terminar.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\newpar</span><b>{</b>Este es un parrafo.<b>}</b><br><span class="pl-e">\newpar</span><b>{</b>Este es otro.<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\newparnl</strong><b>{</b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo sin un salto de linea al terminar.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\newparnl</span><b>{</b>Este es un parrafo sin salto de línea.<b>}</b><br><span class="pl-e">\newparnl</span><b>{</b>Este es otro párrafo sin salto de línea.<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<!--
+			<p>También es posible añadir fórmulas, párrafos, figuras y otros elementos de forma sencilla, utilizando funciones especiales definidas en el template.
+				<ul>
+					<li class="li-code-parent">
+						<strong class="functtitlstyle">Insertar párrafos<a id="hlp-parrafo"></a></strong>
+						<p>
+							Para esto existen las siguientes funciones:
+						</p>
+						<ul>
+							<li>
+								<strong>\newp</strong>: Sencilla forma de añadir un nuevo párrafo.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre>Este es un parrafo. <br><span class="pl-e">\newp</span> Este es otro.</pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\newpar</strong><b><b>{</b></b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo con un salto de linea al terminar.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\newpar</span><b>{</b>Este es un parrafo.<b>}</b><br><span class="pl-e">\newpar</span><b>{</b>Este es otro.<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\newparnl</strong><b>{</b><em>Párrafo</em><b>}</b>: Inserta un nuevo párrafo sin un salto de linea al terminar.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\newparnl</span><b>{</b>Este es un parrafo sin salto de línea.<b>}</b><br><span class="pl-e">\newparnl</span><b>{</b>Este es otro párrafo sin salto de línea.<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<!--
 					<li>
 						<strong>\quotes</strong><b>{</b><em>Texto</em><b>}</b>: Función simplificada para insertar "citas".
 						<blockquote>
@@ -400,446 +405,446 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 						</blockquote>
 					</li>
 					-->
-					</ul>
-				</li>
-				<li class="li-code-parent">
-					<strong class="functtitlstyle">Añadir una imagen <a id="hlp-imagen"></a></strong>
-					<p>
-						Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la configuración <a href="#config-otros">\defaultimagefolder</a>, por defecto la carpeta <strong>images/</strong>), sus parámetros
-						y la leyenda (la cual es opcional).
-					</p>
-					<p>
-						Los parámetros pueden ser <strong>scale=0.5</strong>, <strong>width=5cm</strong>, <strong>width=50%</strong>, <strong>angle=45</strong>, etc.
-					</p>
-					<ul>
-						<li>
-							<strong>\insertimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una simple imagen.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimage</span><b>[</b><span class="pl-c1">\label</span>{img-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">width</span>=10cm<b>}</b><b>{</b>Descripción de la imagen<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimageboxed</span><b>[]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.5<b>}</b><b>{</b>0.5<b>}</b><b>{</b><b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<hr class="style10">
-						<li>
-							<strong>\insertdoubleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
-							Inserta dos imágenes en un sólo elemento.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertdoubleimage</span><b>[</b><span class="pl-c1">\label</span>{img-double-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.4<b>}</b><b>{</b>Descripción A<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b><span class="pl-v">width</span>=5cm<b>}</b><b>{</b>Descripción B<b>}</b><b>{</b>Descripción general de las imágenes<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\insertdoubleeqimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Parámetros generales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
-							Inserta dos imágenes en un sólo elemento utilizando los mismos parámetros (estilos de imagen).
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertdoubleeqimage</span><b>[</b><span class="pl-c1">\label</span>{img-equal}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>Descripción A<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>Descripción B<b>}</b><b>{</b><span class="pl-v">height</span>=5cm<b>}</b><b>{</b>Descripción general de las imágenes<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<hr class="style10">
-						<li>
-							<strong>\inserttripleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Parámetros 3</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
-							Inserta tres imágenes en un sólo elemento.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\inserttripleimage</span><b>[</b><span class="pl-c1">\label</span>{img-triple-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b><span class="pl-v">scale</span>=0.4<b>}</b><b>{</b>ejemplos/test-<span class="newline_br"></span>image-2.png<b>}</b><b>{</b><span class="pl-v">height</span>=6cm<b>}</b><b>{</b>ejemplos/test-image-3.pdf<b>}</b><b>{</b><span class="pl-v">width</span>=3cm<b>}</b><b>{</b>Descripción general<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\inserttripleeqimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Parámetros generales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
-							Inserta tres imágenes en un sólo elemento utilizando los mismos parámetros (estilos de imagen).
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\inserttripleeqimage</span><b>[</b><span class="pl-c1">\label</span>{img-triple}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.png<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.pdf<b>}</b><b>{</b><span class="pl-v">scale</span>=0.6<b>}</b><b>{</b>Descripción general<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<hr class="style10">
-						<li>
-							<strong>\insertquadimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
-							Inserta cuatro imágenes en un sólo elemento.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertquadimage</span><b>[</b><span class="pl-c1">\label</span>{img-quad-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b><span class="pl-v">width</span>=6cm<b>}</b><b>{</b>Descripción general<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\insertpentaimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Dirección de la imagen 5</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
-							Inserta cinco imágenes en un sólo elemento.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertpentaimage</span><b>[</b><span class="pl-c1">\label</span>{img-penta-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b>ejemplos/test-image-5.jpg<b>}</b><b>{</b><span class="pl-v">scale</span>=0.7<b>}</b><span class="newline_br"></span><b>{</b>Descripción general<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\inserthexaimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Dirección de la imagen 5</em><b>}</b><b>{</b><em>Dirección de la imagen 6</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
-							Inserta seis imágenes en un sólo elemento.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\inserthexaimage</span><b>[</b><span class="pl-c1">\label</span>{img-hexa-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b>ejemplos/test-image-5.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-6.jpg<b>}</b><b>{</b><span class="pl-v">width</span>=4cm, <span class="pl-v">height</span>=5cm<b>}{</b>Descripción general<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<hr class="style10">
-						<li>
-							<strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la izquierda de
-							un párrafo.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimageleft</span><b>[</b><span class="pl-c1">\label</span>{img-left-1}</span><b>]</b><b>{</b>ejemplos/test-image-wrap.jpg<b>}</b><b>{</b>0.25<b>}</b><b>{</b>Descripción<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\insertimageleftline</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
-							Inserta una imagen alineada a la izquierda de un párrafo con un número de líneas fijo.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimageleftline</span><b>[]</b><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.25<b>}</b><b>{</b>15<b>}</b><b>{</b>Descripción<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<hr class="style10">
-						<li>
-							<strong>\insertimageleftboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
-							Inserta una imagen alineada a la izquierda de un párrafo, encerrada en un recuadro.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimageleftboxed</span><b>{</b>ejemplos/test-image-wrap.jpg<b>}</b><b>{</b>0.25<b>}</b><b>{</b>0.5<b>}</b><b>{</b>Descripción<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\insertimageleftlineboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
-							Inserta una imagen alineada a la izquierda de un párrafo con un número de líneas fijo, encerrada en un recuadro.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimageleftlineboxed</span><b>[</b><span class="pl-c1">\label</span>{img-leftbox-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>0.25<b>}</b><b>{</b>15<b>}</b><b>{</b>0.7<b>}</b><b>{</b><b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<hr class="style10">
-						<li>
-							<strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la derecha de un
-							párrafo.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimageright</span><b>[]{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.21<b>}</b><b>{</b>Descripción<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\insertimagerightline</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
-							Inserta una imagen alineada a la derecha de un párrafo con un número de líneas fijo.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimagerightline</span><b>[</b><span class="pl-c1">\label</span>{img-right-1}</span><b>]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>Descripción<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<hr class="style10">
-						<li>
-							<strong>\insertimagerightboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
-							Inserta una imagen alineada a la derecha de un párrafo, encerrada en un recuadro.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimagerightboxed</span><b>[</b><span class="pl-c1">\label</span>{img-box-r}</span><b>]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>1.0<b>}</b><b>{</b><b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\insertimagerightlineboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
-							Inserta una imagen alineada a la derecha de un párrafo con un número de líneas fijo, encerrada en un recuadro.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertimagerightlineboxed</span><b>[]{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>0.6<b>}</b><b>{</b>Descripción<b>}</b></pre>
-								</div>
-							</blockquote>
-						</li>
-					</ul>
-				</li>
-				<li class="li-code-parent">
-					<strong class="functtitlstyle">Insertar una fórmula en el documento <a id="hlp-formulae"></a></strong>
-					<p>Las funciones existentes consideran tanto la fórmula en sí (escrita en bruto, sin los <b>$</b>) como la leyenda para las funciones tipo <i>captioned</i>.</p>
-					<p>
-						Todas las funciones siguientes tienen su versión <b>anum</b>, la cual <b>no</b> enumera la ecuación. Por ejemplo: <i>\insertequation<b>anum</b>{Fórmula}</i>, <i>\insertalign<b>anum</b>{Fórmula}</i>, <i>\insertequationcaptioned<b>anum</b>{Fórmula}{Leyenda}</i>.
-						Dado que las versiones <b>anum</b> no tienen número, <b>NO</b> se puede añadir un label al comando.
-					</p>
-					<ul>
-						<li>
-							<strong>\insertequation</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertequation</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b>e = 2<span class="pl-c1">\pi</span> <span class="pl-c1">\int</span>^{a}_{b} f(x)dx<b>}</b></pre>
-								</div>
-								<p><img src="examples/formula.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li style="margin-bottom: 20px">
-							<strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertequationcaptioned</span><b>[</b><span class="pl-c1">\label</span>{formula-1}<b>]</b><b>{</b><span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\pi</span> <span class="pl-c1">\nu</span> 4 <span class="pl-c1">\pow</span>{t}{4}}<b>}{</b>Título de fórmula<b>}</b></pre>
-								</div>
-								<p><img src="examples/titleformula.png" align="center"></p>
-							</blockquote>
-						</li>
+						</ul>
+					</li>
+					<li class="li-code-parent">
+						<strong class="functtitlstyle">Añadir una imagen <a id="hlp-imagen"></a></strong>
+						<p>
+							Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la configuración <a href="#config-otros">\defaultimagefolder</a>, por defecto la carpeta <strong>images/</strong>), sus parámetros
+							y la leyenda (la cual es opcional).
+						</p>
+						<p>
+							Los parámetros pueden ser <strong>scale=0.5</strong>, <strong>width=5cm</strong>, <strong>width=50%</strong>, <strong>angle=45</strong>, etc.
+						</p>
+						<ul>
+							<li>
+								<strong>\insertimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una simple imagen.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertimage</span><b>[</b><span class="pl-c1">\label</span>{img-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">width</span>=10cm<b>}</b><b>{</b>Descripción de la imagen<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertimageboxed</span><b>[]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.5<b>}</b><b>{</b>0.5<b>}</b><b>{</b><b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<hr class="style10">
+							<li>
+								<strong>\insertdoubleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+								Inserta dos imágenes en un sólo elemento.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertdoubleimage</span><b>[</b><span class="pl-c1">\label</span>{img-double-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.4<b>}</b><b>{</b>Descripción A<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b><span class="pl-v">width</span>=5cm<b>}</b><b>{</b>Descripción B<b>}</b><b>{</b>Descripción general de las imágenes<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\insertdoubleeqimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Parámetros generales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+								Inserta dos imágenes en un sólo elemento utilizando los mismos parámetros (estilos de imagen).
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertdoubleeqimage</span><b>[</b><span class="pl-c1">\label</span>{img-equal}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>Descripción A<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>Descripción B<b>}</b><b>{</b><span class="pl-v">height</span>=5cm<b>}</b><b>{</b>Descripción general de las imágenes<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<hr class="style10">
+							<li>
+								<strong>\inserttripleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Parámetros 3</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+								Inserta tres imágenes en un sólo elemento.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\inserttripleimage</span><b>[</b><span class="pl-c1">\label</span>{img-triple-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b><span class="pl-v">scale</span>=0.4<b>}</b><b>{</b>ejemplos/test-<span class="newline_br"></span>image-2.png<b>}</b><b>{</b><span class="pl-v">height</span>=6cm<b>}</b><b>{</b>ejemplos/test-image-3.pdf<b>}</b><b>{</b><span class="pl-v">width</span>=3cm<b>}</b><b>{</b>Descripción general<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\inserttripleeqimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Parámetros generales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+								Inserta tres imágenes en un sólo elemento utilizando los mismos parámetros (estilos de imagen).
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\inserttripleeqimage</span><b>[</b><span class="pl-c1">\label</span>{img-triple}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.png<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.pdf<b>}</b><b>{</b><span class="pl-v">scale</span>=0.6<b>}</b><b>{</b>Descripción general<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<hr class="style10">
+							<li>
+								<strong>\insertquadimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+								Inserta cuatro imágenes en un sólo elemento.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertquadimage</span><b>[</b><span class="pl-c1">\label</span>{img-quad-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b><span class="pl-v">width</span>=6cm<b>}</b><b>{</b>Descripción general<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\insertpentaimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Dirección de la imagen 5</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+								Inserta cinco imágenes en un sólo elemento.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertpentaimage</span><b>[</b><span class="pl-c1">\label</span>{img-penta-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b>ejemplos/test-image-5.jpg<b>}</b><b>{</b><span class="pl-v">scale</span>=0.7<b>}</b><span class="newline_br"></span><b>{</b>Descripción general<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\inserthexaimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Dirección de la imagen 5</em><b>}</b><b>{</b><em>Dirección de la imagen 6</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+								Inserta seis imágenes en un sólo elemento.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\inserthexaimage</span><b>[</b><span class="pl-c1">\label</span>{img-hexa-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b>ejemplos/test-image-5.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-6.jpg<b>}</b><b>{</b><span class="pl-v">width</span>=4cm, <span class="pl-v">height</span>=5cm<b>}{</b>Descripción general<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<hr class="style10">
+							<li>
+								<strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la izquierda de
+								un párrafo.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertimageleft</span><b>[</b><span class="pl-c1">\label</span>{img-left-1}</span><b>]</b><b>{</b>ejemplos/test-image-wrap.jpg<b>}</b><b>{</b>0.25<b>}</b><b>{</b>Descripción<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\insertimageleftline</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+								Inserta una imagen alineada a la izquierda de un párrafo con un número de líneas fijo.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertimageleftline</span><b>[]</b><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.25<b>}</b><b>{</b>15<b>}</b><b>{</b>Descripción<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<hr class="style10">
+							<li>
+								<strong>\insertimageleftboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+								Inserta una imagen alineada a la izquierda de un párrafo, encerrada en un recuadro.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertimageleftboxed</span><b>{</b>ejemplos/test-image-wrap.jpg<b>}</b><b>{</b>0.25<b>}</b><b>{</b>0.5<b>}</b><b>{</b>Descripción<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\insertimageleftlineboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+								Inserta una imagen alineada a la izquierda de un párrafo con un número de líneas fijo, encerrada en un recuadro.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertimageleftlineboxed</span><b>[</b><span class="pl-c1">\label</span>{img-leftbox-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>0.25<b>}</b><b>{</b>15<b>}</b><b>{</b>0.7<b>}</b><b>{</b><b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<hr class="style10">
+							<li>
+								<strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la derecha de
+								un párrafo.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertimageright</span><b>[]{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.21<b>}</b><b>{</b>Descripción<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\insertimagerightline</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+								Inserta una imagen alineada a la derecha de un párrafo con un número de líneas fijo.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertimagerightline</span><b>[</b><span class="pl-c1">\label</span>{img-right-1}</span><b>]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>Descripción<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<hr class="style10">
+							<li>
+								<strong>\insertimagerightboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+								Inserta una imagen alineada a la derecha de un párrafo, encerrada en un recuadro.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertimagerightboxed</span><b>[</b><span class="pl-c1">\label</span>{img-box-r}</span><b>]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>1.0<b>}</b><b>{</b><b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\insertimagerightlineboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+								Inserta una imagen alineada a la derecha de un párrafo con un número de líneas fijo, encerrada en un recuadro.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertimagerightlineboxed</span><b>[]{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>0.6<b>}</b><b>{</b>Descripción<b>}</b></pre>
+									</div>
+								</blockquote>
+							</li>
+						</ul>
+					</li>
+					<li class="li-code-parent">
+						<strong class="functtitlstyle">Insertar una fórmula en el documento <a id="hlp-formulae"></a></strong>
+						<p>Las funciones existentes consideran tanto la fórmula en sí (escrita en bruto, sin los <b>$</b>) como la leyenda para las funciones tipo <i>captioned</i>.</p>
+						<p>
+							Todas las funciones siguientes tienen su versión <b>anum</b>, la cual <b>no</b> enumera la ecuación. Por ejemplo: <i>\insertequation<b>anum</b>{Fórmula}</i>, <i>\insertalign<b>anum</b>{Fórmula}</i>, <i>\insertequationcaptioned<b>anum</b>{Fórmula}{Leyenda}</i>.
+							Dado que las versiones <b>anum</b> no tienen número, <b>NO</b> se puede añadir un label al comando.
+						</p>
+						<ul>
+							<li>
+								<strong>\insertequation</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertequation</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b>e = 2<span class="pl-c1">\pi</span> <span class="pl-c1">\int</span>^{a}_{b} f(x)dx<b>}</b></pre>
+									</div>
+									<p><img src="examples/formula.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li style="margin-bottom: 20px">
+								<strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertequationcaptioned</span><b>[</b><span class="pl-c1">\label</span>{formula-1}<b>]</b><b>{</b><span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\pi</span> <span class="pl-c1">\nu</span> 4 <span class="pl-c1">\pow</span>{t}{4}}<b>}{</b>Título de fórmula<b>}</b></pre>
+									</div>
+									<p><img src="examples/titleformula.png" align="center"></p>
+								</blockquote>
+							</li>
 
-						<hr class="style10">
+							<hr class="style10">
 
-						<li>
-							<strong>\insertgather</strong><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>gather</b>, permite insertar nuevas líneas con <b>\\</b> y centra todas las fórmulas. Cada nueva línea tiene un propio número de ecuación. No
-							se pueden usar <i>\label</i>.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertgather</span><b>{</b><span class="pl-c1">\Delta</span> = <span class="pl-c1">\begin</span>{bmatrix}y&x\\z&w<span class="pl-c1">\end</span>{bmatrix}<span class="pl-c1">\cdot</span> f(x)<b>}</b></pre>
-								</div>
-								<p><img src="examples/insertequationgathered.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li style="margin-bottom: 20px">
-							<strong>\insertgathercaptioned</strong><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gather</b>.
-						</li>
+							<li>
+								<strong>\insertgather</strong><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>gather</b>, permite insertar nuevas líneas con <b>\\</b> y centra todas las fórmulas. Cada nueva línea tiene un propio número de ecuación. No
+								se pueden usar <i>\label</i>.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertgather</span><b>{</b><span class="pl-c1">\Delta</span> = <span class="pl-c1">\begin</span>{bmatrix}y&x\\z&w<span class="pl-c1">\end</span>{bmatrix}<span class="pl-c1">\cdot</span> f(x)<b>}</b></pre>
+									</div>
+									<p><img src="examples/insertequationgathered.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li style="margin-bottom: 20px">
+								<strong>\insertgathercaptioned</strong><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gather</b>.
+							</li>
 
-						<hr class="style10">
+							<hr class="style10">
 
-						<li>
-							<strong>\insertgathered</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gathered</b>, permite insertar nuevas líneas con <b>\\</b>							y centra todas las fórmulas. Todas las líneas tienen sólo 1 número de ecuación por lo que esta puede tener etiqueta o un <i>\label</i>.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertgathered</span><b>[</b><span class="pl-c1">\label</span>{formula-4}<b>]</b><b>{</b><span class="pl-c1">\iint_</span>{a}^{b} f(y) \dy<b>}</b></pre>
-								</div>
-								<p><img src="examples/insertequationgathered2.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li style="margin-bottom: 20px">
-							<strong>\insertgatheredcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gathered</b>.
-						</li>
+							<li>
+								<strong>\insertgathered</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gathered</b>, permite insertar nuevas líneas con <b>\\</b>								y centra todas las fórmulas. Todas las líneas tienen sólo 1 número de ecuación por lo que esta puede tener etiqueta o un <i>\label</i>.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertgathered</span><b>[</b><span class="pl-c1">\label</span>{formula-4}<b>]</b><b>{</b><span class="pl-c1">\iint_</span>{a}^{b} f(y) \dy<b>}</b></pre>
+									</div>
+									<p><img src="examples/insertequationgathered2.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li style="margin-bottom: 20px">
+								<strong>\insertgatheredcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gathered</b>.
+							</li>
 
-						<hr class="style10">
+							<hr class="style10">
 
-						<li>
-							<strong>\insertalign</strong><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>align</b> el cual permite insertar nuevas líneas con <b>\\</b> y ajusta un alineado especial con respecto a los <b>=</b> de cada fórmula. Cada
-							nueva línea tiene un propio número de ecuación. No se pueden usar <i>\label</i>.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertalign</span><b>{</b>F(<span class="pl-c1">\vec</span>{f},y, y') = <span class="pl-c1">\widehat</span>{<<span class="pl-c1">\vec</span>{f},y>} <span class="pl-c1">\times</span> y'<b>}</b></pre>
-								</div>
-								<p><img src="examples/insertequationalign.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li style="margin-bottom: 20px">
-							<strong>\insertaligncaptioned</strong><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>align</b>.
-						</li>
+							<li>
+								<strong>\insertalign</strong><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>align</b> el cual permite insertar nuevas líneas con <b>\\</b> y ajusta un alineado especial con respecto a los <b>=</b> de cada fórmula. Cada
+								nueva línea tiene un propio número de ecuación. No se pueden usar <i>\label</i>.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertalign</span><b>{</b>F(<span class="pl-c1">\vec</span>{f},y, y') = <span class="pl-c1">\widehat</span>{<<span class="pl-c1">\vec</span>{f},y>} <span class="pl-c1">\times</span> y'<b>}</b></pre>
+									</div>
+									<p><img src="examples/insertequationalign.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li style="margin-bottom: 20px">
+								<strong>\insertaligncaptioned</strong><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>align</b>.
+							</li>
 
-						<hr class="style10">
+							<hr class="style10">
 
-						<li>
-							<strong>\insertaligned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>aligned</b> el cual permite insertar nuevas líneas, y ajusta un alineado especial con respecto a los
-							<b>=</b> de cada fórmula. Todas las líneas tienen sólo 1 número de ecuación por lo que esta puede tener etiqueta o un <i>\label</i>.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\insertaligned</span><b>[</b><span class="pl-c1">\label</span>{formula-5}<b>]</b><b>{</b><span class="pl-c1">\sqrt</span>[a]{b} + c<b>}</b></pre>
-								</div>
-								<p><img src="examples/insertequationaligned.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\insertalignedcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>aligned</b>.
-						</li>
+							<li>
+								<strong>\insertaligned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>aligned</b> el cual permite insertar nuevas líneas, y ajusta un alineado especial con respecto a los
+								<b>=</b> de cada fórmula. Todas las líneas tienen sólo 1 número de ecuación por lo que esta puede tener etiqueta o un <i>\label</i>.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\insertaligned</span><b>[</b><span class="pl-c1">\label</span>{formula-5}<b>]</b><b>{</b><span class="pl-c1">\sqrt</span>[a]{b} + c<b>}</b></pre>
+									</div>
+									<p><img src="examples/insertequationaligned.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\insertalignedcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>aligned</b>.
+							</li>
 
 
-					</ul>
-				</li>
-				<li class="li-code-parent">
-					<strong class="functtitlstyle">Insertar secciones sin número y sin aparecer en el índice<a id="hlp-title"></a></strong>
-					<p>
-						También pueden añadirse secciones no numeradas <i>(anum)</i> que aparezcan en el índice o no <i>(noi)</i>. Para ello existen las siguientes funciones:
-					</p>
-					<ul>
-						<li>
-							<strong>\sectionanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número.
-						</li>
-						<li>
-							<strong>\subsectionanum</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta una subsección sin número.
-						</li>
-						<li>
-							<strong>\subsubsectionanum</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número.
-						</li>
-						<li>
-							<strong>\sectionanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número y sin que aparezca en el índice.
-						</li>
-						<li>
-							<strong>\subsectionanumnoi</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta una subsección sin número y sin que aparezca en el índice.
-						</li>
-						<li>
-							<strong>\subsubsectionanumnoi</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número y sin que aparezca en el índice.
-						</li>
-					</ul>
-				</li>
-				<li class="li-code-parent">
-					<strong class="functtitlstyle">Expresiones matemáticas <a id="hlp-math"></a></strong>
-					<p>
-						Existen varias funciones para añadir expresiones matemáticas de forma sencilla, estas se pueden usar tanto dentro como fuera de una fórmula (por ejemplo se pueden usar dentro de un párrafo sin la necesidad de hacer <i>$\...$</i>).
-					</p>
-					<ul>
-						<li>
-							<strong>\abs</strong><b>{</b><em>a</em><b>}</b>: Valor absoluto de a.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\abs</span><b>{</b> x + y <b>}</b></pre>
-								</div>
-								<p><img src="examples/abs.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\norm</strong><b>{</b><em>a</em><b>}</b>: Norma de a.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre>La norma de z es <span class="pl-e">\norm</span><b>{</b> z <b>}</b></pre>
-								</div>
-								<p><img src="examples/norm2.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\pow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\pow</span><b>{</b> (1 + <span class="pl-e">\pow</span><b>{</b><span class="pl-c1">\pi</span><b>}{</b><span class="pl-c1">\epsilon</span><b>}</b>) <b>}{</b>2<b>}</b></pre>
-								</div>
-								<p><img src="examples/pow.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\lpow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una sub potencia del tipo a_b.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i+1<b>}</b> = 2 <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i<b>}</b> + <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i-2<b>}</b></pre>
-								</div>
-								<p><img src="examples/lpow.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\fracpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales del estilo ∂a/∂b.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre>f(x) = <span class="pl-e">\fracpartial</span><b>{</b>g<b>}{</b>x<b>}</b></pre>
-								</div>
-								<p><img src="examples/fpartial.png" align="center"></p>
-							</blockquote>
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-c1">\lpow</span>{h}{y} = 2 + <span class="pl-e">\fracpartial</span><b>{}{</b>y<b>}</b> h</pre>
-								</div>
-								<p><img src="examples/fpartial2.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\fracdpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 a/∂b^2.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\fracdpartial</span><b>{</b>u<b>}</b><b>{</b>t<b>}</b> = <span class="pl-c1">\pow</span>{c}{2} <span class="pl-e">\fracdpartial</span><b>{</b>u<b>}{</b>x<b>}</b></pre>
-								</div>
-								<p><img src="examples/fracdpartial.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\fracnpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2. \frac{\partial {f}^{n+m}}{\partial {x}^{n+m}} =
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\fracnpartial</span><b>{</b>f<b>}</b><b>{</b>x<b>}</b><b>{</b>n+m<b>}</b> = <span class="pl-c1">\widehat</span>{<span class="pl-e">\fracnpartial</span><b>{</b>h<b>}</b><b>{</b>x<b>}</b><b>{</b>n<b>}</b> + <span class="pl-e">\fracnpartial</span><b>{</b>g<b>}</b><b>{</b>x<b>}</b><b>{</b>m<b>}</b>}</pre>
-								</div>
-								<p><img src="examples/fracnpartial.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\fracderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas del estilo da/db.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\fracderivat</span><b>{}{</b>x<b>}</b><span class="pl-c1">\arccos</span>(x) = -{<span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\sqrt</span>{ 1 - <span class="pl-c1">\pow</span>{x}{2} }}</pre>
-								</div>
-								<p><img src="examples/fracderivativ.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\fracdderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas al cuadrado al estilo d^2 a/db^2.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre>m <span class="pl-e">\fracdderivat</span><b>{</b>x<b>}{</b>t<b>}</b> + kx = 0</pre>
-								</div>
-								<p><img src="examples/fracddpartial.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\fracnderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas a la n al estilo d^c a/db^2.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\fracnderivat</span><b>{</b>y<b>}{</b>x<b>}{</b>3<b>}</b> <span class="pl-c1">\times</span> <span class="pl-e">\fracnderivat</span><b>{</b>h<b>}{</b>x<b>}{</b>n<b>}</b> = <span class="pl-c1">\chi</span></pre>
-								</div>
-								<p><img src="examples/fracndpartial.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\topequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave sobre el elemento a con valor b.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\topequal</span><b>{</b>1 + <span class="pl-c1">\sqrt</span>{1+x}<b>}{</b>f(x)<b>}</b></pre>
-								</div>
-								<p><img src="examples/topequal.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\underequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave bajo el elemento a con valor b.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-c1">\pi</span> + <span class="pl-e">\underequal</span><b>{</b>1 - <span class="pl-c1">\frac</span>{1}{e}<b>}</b><b>{</b>e <span class="pl-c1">\approx</span> 2.718<b>}</b></pre>
-								</div>
-								<p><img src="examples/underequal.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\topsequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave rectangular sobre el elemento a con valor b.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-e">\topsequal</span><b>{</b> 1+x+<span class="pl-c1">\ldots</span>+<span class="pl-c1">\pow</span>{x}{n} <b>}{</b>x <span class="pl-c1">\in \Re</span><b>}</b> = <span class="pl-c1">\sum</span>_{i=0}^{n}<span class="pl-c1">\pow</span>{x}{i}</pre>
-								</div>
-								<p><img src="examples/topsequal.png" align="center"></p>
-							</blockquote>
-						</li>
-						<li>
-							<strong>\undersequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave rectangular bajo el elemento a con valor b.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-c1">\lim</span>_{n} <span class="pl-c1">\pow</span>{2}{n} <span class="pl-e">\undersequal</span><b>{</b> <span class="pl-c1">\sqrt</span>{2 - <span class="pl-c1">\sqrt</span>{2+ <span class="pl-c1">\ldots</span> + <span class="pl-c1">\sqrt</span>{2}}} <b>}</b><b>{</b>n<b>}</b> = <span class="pl-c1">\pi</span></pre>
-								</div>
-								<p><img src="examples/undersequal.png" width="220px" align="center"></p>
-							</blockquote>
-						</li>
-					</ul>
-				</li>
+						</ul>
+					</li>
+					<li class="li-code-parent">
+						<strong class="functtitlstyle">Insertar secciones sin número y sin aparecer en el índice<a id="hlp-title"></a></strong>
+						<p>
+							También pueden añadirse secciones no numeradas <i>(anum)</i> que aparezcan en el índice o no <i>(noi)</i>. Para ello existen las siguientes funciones:
+						</p>
+						<ul>
+							<li>
+								<strong>\sectionanum</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número.
+							</li>
+							<li>
+								<strong>\subsectionanum</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta una subsección sin número.
+							</li>
+							<li>
+								<strong>\subsubsectionanum</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número.
+							</li>
+							<li>
+								<strong>\sectionanumnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número y sin que aparezca en el índice.
+							</li>
+							<li>
+								<strong>\subsectionanumnoi</strong><b>{</b><em>Subtítulo</em><b>}</b>: Inserta una subsección sin número y sin que aparezca en el índice.
+							</li>
+							<li>
+								<strong>\subsubsectionanumnoi</strong><b>{</b><em>Sub-subtítulo</em><b>}</b>: Inserta una sub-subsección sin número y sin que aparezca en el índice.
+							</li>
+						</ul>
+					</li>
+					<li class="li-code-parent">
+						<strong class="functtitlstyle">Expresiones matemáticas <a id="hlp-math"></a></strong>
+						<p>
+							Existen varias funciones para añadir expresiones matemáticas de forma sencilla, estas se pueden usar tanto dentro como fuera de una fórmula (por ejemplo se pueden usar dentro de un párrafo sin la necesidad de hacer <i>$\...$</i>).
+						</p>
+						<ul>
+							<li>
+								<strong>\abs</strong><b>{</b><em>a</em><b>}</b>: Valor absoluto de a.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\abs</span><b>{</b> x + y <b>}</b></pre>
+									</div>
+									<p><img src="examples/abs.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\norm</strong><b>{</b><em>a</em><b>}</b>: Norma de a.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre>La norma de z es <span class="pl-e">\norm</span><b>{</b> z <b>}</b></pre>
+									</div>
+									<p><img src="examples/norm2.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\pow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una potencia del tipo a^b.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\pow</span><b>{</b> (1 + <span class="pl-e">\pow</span><b>{</b><span class="pl-c1">\pi</span><b>}{</b><span class="pl-c1">\epsilon</span><b>}</b>) <b>}{</b>2<b>}</b></pre>
+									</div>
+									<p><img src="examples/pow.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\lpow</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Forma simplificada de añadir una sub potencia del tipo a_b.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i+1<b>}</b> = 2 <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i<b>}</b> + <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i-2<b>}</b></pre>
+									</div>
+									<p><img src="examples/lpow.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\fracpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales del estilo ∂a/∂b.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre>f(x) = <span class="pl-e">\fracpartial</span><b>{</b>g<b>}{</b>x<b>}</b></pre>
+									</div>
+									<p><img src="examples/fpartial.png" align="center"></p>
+								</blockquote>
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-c1">\lpow</span>{h}{y} = 2 + <span class="pl-e">\fracpartial</span><b>{}{</b>y<b>}</b> h</pre>
+									</div>
+									<p><img src="examples/fpartial2.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\fracdpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas parciales al cuadrado al estilo ∂^2 a/∂b^2.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\fracdpartial</span><b>{</b>u<b>}</b><b>{</b>t<b>}</b> = <span class="pl-c1">\pow</span>{c}{2} <span class="pl-e">\fracdpartial</span><b>{</b>u<b>}{</b>x<b>}</b></pre>
+									</div>
+									<p><img src="examples/fracdpartial.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\fracnpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2. \frac{\partial {f}^{n+m}}{\partial {x}^{n+m}} =
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\fracnpartial</span><b>{</b>f<b>}</b><b>{</b>x<b>}</b><b>{</b>n+m<b>}</b> = <span class="pl-c1">\widehat</span>{<span class="pl-e">\fracnpartial</span><b>{</b>h<b>}</b><b>{</b>x<b>}</b><b>{</b>n<b>}</b> + <span class="pl-e">\fracnpartial</span><b>{</b>g<b>}</b><b>{</b>x<b>}</b><b>{</b>m<b>}</b>}</pre>
+									</div>
+									<p><img src="examples/fracnpartial.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\fracderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas del estilo da/db.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\fracderivat</span><b>{}{</b>x<b>}</b><span class="pl-c1">\arccos</span>(x) = -{<span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\sqrt</span>{ 1 - <span class="pl-c1">\pow</span>{x}{2} }}</pre>
+									</div>
+									<p><img src="examples/fracderivativ.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\fracdderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b>: Crea una fracción de derivadas al cuadrado al estilo d^2 a/db^2.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre>m <span class="pl-e">\fracdderivat</span><b>{</b>x<b>}{</b>t<b>}</b> + kx = 0</pre>
+									</div>
+									<p><img src="examples/fracddpartial.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\fracnderivat</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas a la n al estilo d^c a/db^2.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\fracnderivat</span><b>{</b>y<b>}{</b>x<b>}{</b>3<b>}</b> <span class="pl-c1">\times</span> <span class="pl-e">\fracnderivat</span><b>{</b>h<b>}{</b>x<b>}{</b>n<b>}</b> = <span class="pl-c1">\chi</span></pre>
+									</div>
+									<p><img src="examples/fracndpartial.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\topequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave sobre el elemento a con valor b.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\topequal</span><b>{</b>1 + <span class="pl-c1">\sqrt</span>{1+x}<b>}{</b>f(x)<b>}</b></pre>
+									</div>
+									<p><img src="examples/topequal.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\underequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave bajo el elemento a con valor b.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-c1">\pi</span> + <span class="pl-e">\underequal</span><b>{</b>1 - <span class="pl-c1">\frac</span>{1}{e}<b>}</b><b>{</b>e <span class="pl-c1">\approx</span> 2.718<b>}</b></pre>
+									</div>
+									<p><img src="examples/underequal.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\topsequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave rectangular sobre el elemento a con valor b.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-e">\topsequal</span><b>{</b> 1+x+<span class="pl-c1">\ldots</span>+<span class="pl-c1">\pow</span>{x}{n} <b>}{</b>x <span class="pl-c1">\in \Re</span><b>}</b> = <span class="pl-c1">\sum</span>_{i=0}^{n}<span class="pl-c1">\pow</span>{x}{i}</pre>
+									</div>
+									<p><img src="examples/topsequal.png" align="center"></p>
+								</blockquote>
+							</li>
+							<li>
+								<strong>\undersequal</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b></b>:Crea una llave rectangular bajo el elemento a con valor b.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-c1">\lim</span>_{n} <span class="pl-c1">\pow</span>{2}{n} <span class="pl-e">\undersequal</span><b>{</b> <span class="pl-c1">\sqrt</span>{2 - <span class="pl-c1">\sqrt</span>{2+ <span class="pl-c1">\ldots</span> + <span class="pl-c1">\sqrt</span>{2}}} <b>}</b><b>{</b>n<b>}</b> = <span class="pl-c1">\pi</span></pre>
+									</div>
+									<p><img src="examples/undersequal.png" width="220px" align="center"></p>
+								</blockquote>
+							</li>
+						</ul>
+					</li>
 
-				<li class="li-code-parent">
-					<strong class="functtitlstyle">Insertar anexos y referencias<a id="hlp-annexref"></a></strong>
-					<ul>
-						<li>
-							Para insertar anexos existe el ambiente <b>anexos</b>, dentro de él se pueden crear secciones, sub-secciones, etc.
-							<blockquote>
-								<div class="highlight highlight-text-tex">
-									<pre><span class="pl-c1">\begin</span>{<span class="pl-e">anexo</span>}
+					<li class="li-code-parent">
+						<strong class="functtitlstyle">Insertar anexos y referencias<a id="hlp-annexref"></a></strong>
+						<ul>
+							<li>
+								Para insertar anexos existe el ambiente <b>anexos</b>, dentro de él se pueden crear secciones, sub-secciones, etc.
+								<blockquote>
+									<div class="highlight highlight-text-tex">
+										<pre><span class="pl-c1">\begin</span>{<span class="pl-e">anexo</span>}
 	<span class="pl-c1">\section</span>{Cálculos realizados}
 		<span class="pl-c1">\lipsum</span>[69]
 
@@ -850,17 +855,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<span class="pl-c1">\section</span>{Otros anexos}
 		<span class="pl-c1">\lipsum</span>[1]
 <span class="pl-c1">\end</span>{<span class="pl-e">anexo</span>}</pre>
-								</div>
-							</blockquote>
-						</li>
-						<li>
-							Para insertar referencias el template ofrece 3 alternativas distintas: el uso de <b>bibtex</b>, <b>apacite</b> y <b>natbib</b>. Para usar cada uno de ellos es necesario cambiar la configuración.
-							<a href="#ref-style-config">\stylecitereferences</a>.
-							<ul style="margin-top:5px">
-								<li><b>Bibtex</b>: Es el sistema más sencillo, para insertar referencias existe el ambiente <b>references</b>:
-									<blockquote>
-										<div class="highlight highlight-text-tex">
-											<pre><span class="pl-c1">\begin</span>{<span class="pl-e">references</span>}
+									</div>
+								</blockquote>
+							</li>
+							<li>
+								Para insertar referencias el template ofrece 3 alternativas distintas: el uso de <b>bibtex</b>, <b>apacite</b> y <b>natbib</b>. Para usar cada uno de ellos es necesario cambiar la configuración.
+								<a href="#ref-style-config">\stylecitereferences</a>.
+								<ul style="margin-top:5px">
+									<li><b>Bibtex</b>: Es el sistema más sencillo, para insertar referencias existe el ambiente <b>references</b>:
+										<blockquote>
+											<div class="highlight highlight-text-tex">
+												<pre><span class="pl-c1">\begin</span>{<span class="pl-e">references</span>}
 	<span class="pl-c1">\bibitem</span>{ref1}
 		Template Informe en <span class="pl-c1">\LaTeX</span>.
 		<span class="pl-c1">\textit</span>{¡Revisa el manual online de este template!} \\
@@ -871,52 +876,52 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		<span class="pl-c1">\textit</span>{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
 		<span class="pl-c1">\url</span>{https://www.ctan.org/tex-archive/support/excel2latex/}
 <span class="pl-c1">\end</span>{<span class="pl-e">references</span>}</pre>
-										</div>
-									</blockquote>
-									- Para citar se usa <span class="pl-c1">\cite</span>{ref1}. <br> - Establecer configuración <span class="pl-c1">\stylecitereferences</span>{bibtex}.
-								</li>
-								<hr class="style10">
-								<li><b>Apacite</b>: Es un sistema de referencias más complejo, para ello se deben guardar las referencias en un archivo <i>.bib</i> como <a href="https://github.com/ppizarror/Template-Informe/blob/master/test.bib">este ejemplo</a>, luego para insertar
-									las referencias y citar se realiza lo siguiente:
-									<blockquote>
-										<div class="highlight highlight-text-tex">
-											<pre>Para citar de forma abreviada se usa <span class="pl-c1">\shortcite</span>{braas}.
+											</div>
+										</blockquote>
+										- Para citar se usa <span class="pl-c1">\cite</span>{ref1}. <br> - Establecer configuración <span class="pl-c1">\stylecitereferences</span>{bibtex}.
+									</li>
+									<hr class="style10">
+									<li><b>Apacite</b>: Es un sistema de referencias más complejo, para ello se deben guardar las referencias en un archivo <i>.bib</i> como <a href="https://github.com/ppizarror/Template-Informe/blob/master/test.bib">este ejemplo</a>, luego para insertar
+										las referencias y citar se realiza lo siguiente:
+										<blockquote>
+											<div class="highlight highlight-text-tex">
+												<pre>Para citar de forma abreviada se usa <span class="pl-c1">\shortcite</span>{braas}.
 Para usar citas extensas se utiliza <span class="pl-c1">\fullcite</span>{braas}
 
 <span class="pl-comment">% La siguiente línea importa el archivo .bib donde están guardadas las referencias</span>
 <span class="pl-e">\bibliography</span>{test}</pre>
-										</div>
-									</blockquote>
-									- Establecer configuración <span class="pl-c1">\stylecitereferences</span>{apacite}.
-								</li>
-								<hr class="style10">
-								<li><b>Natbib</b>: El uso de natbib es el mismo que el de <i>Apacite</i>:
-									<blockquote>
-										<div class="highlight highlight-text-tex">
-											<pre>Para citar de forma abreviada se usa <span class="pl-c1">\shortcite</span>{baggio}.
+											</div>
+										</blockquote>
+										- Establecer configuración <span class="pl-c1">\stylecitereferences</span>{apacite}.
+									</li>
+									<hr class="style10">
+									<li><b>Natbib</b>: El uso de natbib es el mismo que el de <i>Apacite</i>:
+										<blockquote>
+											<div class="highlight highlight-text-tex">
+												<pre>Para citar de forma abreviada se usa <span class="pl-c1">\shortcite</span>{baggio}.
 Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 
 <span class="pl-comment">% La siguiente línea importa el archivo .bib donde están guardadas las referencias</span>
 <span class="pl-e">\bibliography</span>{test}</pre>
-										</div>
-									</blockquote>
-									- Establecer configuración <span class="pl-c1">\stylecitereferences</span>{natbib}.
-								</li>
-							</ul>
-						</li>
+											</div>
+										</blockquote>
+										- Establecer configuración <span class="pl-c1">\stylecitereferences</span>{natbib}.
+									</li>
+								</ul>
+							</li>
 
-					</ul>
-				</li>
+						</ul>
+					</li>
 
-				<li class="li-code-parent">
-					<strong class="functtitlstyle">Añadir código fuente<a id="hlp-srccode"></a></strong>
-					<p>
-						Para añadir código fuente el template da soporte por defecto a la librería <a href="https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings">listings</a>. Se da formato a los siguientes lenguajes: <b>C, Python, Matlab</b>. Para insertar código
-						se debe realizar lo siguiente:
-					</p>
-					<blockquote>
-						<div class="highlight highlight-text-tex">
-							<pre>
+					<li class="li-code-parent">
+						<strong class="functtitlstyle">Añadir código fuente<a id="hlp-srccode"></a></strong>
+						<p>
+							Para añadir código fuente el template da soporte por defecto a la librería <a href="https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings">listings</a>. Se da formato a los siguientes lenguajes: <b>C, Python, Matlab</b>. Para insertar código
+							se debe realizar lo siguiente:
+						</p>
+						<blockquote>
+							<div class="highlight highlight-text-tex">
+								<pre>
 <span class="pl-c1">\begin</span>{lstlisting}[<span class="pl-v">style</span>=Python, <span class="pl-v">caption</span>={Ejemplo en Python.<span class="pl-c1">\label</span>{codigo-python}}]<span class="pl-srccode">
 import numpy as np
 
@@ -927,713 +932,714 @@ def incmatrix(genl1, genl2):
 	VT = np.zeros((n*m, 1), int) # Comentario 2
 </span><span class="pl-c1">\end</span>{lstlisting}
 </pre>
-						</div>
-					</blockquote>
-					<a href="#" class="menu-little-entry"></a>
-				</li>
-				<li>
-					<strong class="functtitlstyle">Otras funciones<a id="hlp-other"></a></strong>
-					<ul>
-						<li>
-							<strong>\equationresize</strong><b>{</b><em>Factor (en textwidth)</em><b>}</b><b>{</b><em>Ecuación</em><b>}</b>: Ajusta una ecuación utilizando la función <b>\resizebox</b>.
-						</li>
-						<li>
-							<strong>\insertemail</strong><b>{</b><em>Correo</em><b>}</b>: Inserta un link de un correo con formato y dirección web válida.
-						</li>
-						<li>
-							<strong>\insertemptypage</strong>: Inserta una página vacía (sin headers ni contenido).
-						</li>
-						<li>
-							<strong>\insertindextitle</strong><b>{</b><em>Título</em><b>}</b><b>{</b><em>Margen vertical <i>(opcional)</i> [px]</em><b>}</b>: Inserta un título sólo en el índice. <b>Nota:</b> para utilizar esta función se debe haber creado una sección antes.
-						</li>
-						<li>
-							<strong>\itemresize</strong><b>{</b><em>Factor (en textwidth)</em><b>}</b><b>{</b><em>Objeto</em><b>}</b>: Ajusta un objeto utilizando la función <b>\resizebox</b>.
-						</li>
-						<li>
-							<strong>\newchapter</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección como si fuese un capítulo.
-						</li>
-						<li>
-							<strong>\quotes</strong><b>{</b><em>Texto</em><b>}</b>: Inserta un texto entre comillas.
-						</li>
-						<li>
-							<strong>\sectionanumheadless</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número y sin aparecer en el header del informe.
-						</li>
-						<li>
-							<strong>\sectionanumheadlessnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número, sin aparecer en el header del informe y sin aparecer en el índice.
-						</li>
-						<li>
-							<strong>\setcaptionmargincm</strong><b>{</b><em>Margen</em><b>}</b>: Modifica el margen izquierdo/derecho de los <i>caption</i> medido en centímetros.
-						</li>
-					</ul>
-				</li>
-			</ul>
+							</div>
+						</blockquote>
+						<a href="#" class="menu-little-entry"></a>
+					</li>
+					<li>
+						<strong class="functtitlstyle">Otras funciones<a id="hlp-other"></a></strong>
+						<ul>
+							<li>
+								<strong>\equationresize</strong><b>{</b><em>Factor (en textwidth)</em><b>}</b><b>{</b><em>Ecuación</em><b>}</b>: Ajusta una ecuación utilizando la función <b>\resizebox</b>.
+							</li>
+							<li>
+								<strong>\insertemail</strong><b>{</b><em>Correo</em><b>}</b>: Inserta un link de un correo con formato y dirección web válida.
+							</li>
+							<li>
+								<strong>\insertemptypage</strong>: Inserta una página vacía (sin headers ni contenido).
+							</li>
+							<li>
+								<strong>\insertindextitle</strong><b>{</b><em>Título</em><b>}</b><b>{</b><em>Margen vertical <i>(opcional)</i> [px]</em><b>}</b>: Inserta un título sólo en el índice. <b>Nota:</b> para utilizar esta función se debe haber creado una sección antes.
+							</li>
+							<li>
+								<strong>\itemresize</strong><b>{</b><em>Factor (en textwidth)</em><b>}</b><b>{</b><em>Objeto</em><b>}</b>: Ajusta un objeto utilizando la función <b>\resizebox</b>.
+							</li>
+							<li>
+								<strong>\newchapter</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección como si fuese un capítulo.
+							</li>
+							<li>
+								<strong>\quotes</strong><b>{</b><em>Texto</em><b>}</b>: Inserta un texto entre comillas.
+							</li>
+							<li>
+								<strong>\sectionanumheadless</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número y sin aparecer en el header del informe.
+							</li>
+							<li>
+								<strong>\sectionanumheadlessnoi</strong><b>{</b><em>Título</em><b>}</b>: Inserta una sección sin número, sin aparecer en el header del informe y sin aparecer en el índice.
+							</li>
+							<li>
+								<strong>\setcaptionmargincm</strong><b>{</b><em>Margen</em><b>}</b>: Modifica el margen izquierdo/derecho de los <i>caption</i> medido en centímetros.
+							</li>
+						</ul>
+					</li>
+				</ul>
 
-			<!-- Configurar otros elementos del documento -->
-			<h2>
+				<!-- Configurar otros elementos del documento -->
+				<h2>
 			<a id="configurar-el-template" class="anchor" href="#configurar-otros-elementos-del-documento" aria-hidden="true">
 			<span aria-hidden="true" class="octicon octicon-link"></span>
 		</a> Configurar el template
 		</h2>
-			<p>
-				También se pueden modificar los márgenes de la página, el estilo de referencia a usar, los márgenes de los títulos de tablas y figuras <em>(caption)</em>, el tamaño de los títulos de las secciones, etc. Estas configuraciones se encuentran en el archivo
-				<a href="https://github.com/Template-Latex/Template-Informe/blob/master/lib/config.tex">lib/config.tex</a> y son importadas en el bloque de
-				<em class="section-template">CONFIGURACIONES</em> en el archivo principal.
-			</p>
-			<p>
-				Las configuraciones disponibles son las siguientes:
-			</p>
-			<ul>
+				<p>
+					También se pueden modificar los márgenes de la página, el estilo de referencia a usar, los márgenes de los títulos de tablas y figuras <em>(caption)</em>, el tamaño de los títulos de las secciones, etc. Estas configuraciones se encuentran en el archivo
+					<a href="https://github.com/Template-Latex/Template-Informe/blob/master/lib/config.tex">lib/config.tex</a> y son importadas en el bloque de
+					<em class="section-template">CONFIGURACIONES</em> en el archivo principal.
+				</p>
+				<p>
+					Las configuraciones disponibles son las siguientes:
+				</p>
+				<ul>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Configuraciones generales<a id="config-other"></a></strong>
-					<ul>
-						<li>
-							<strong>\addemptypagetwosides</strong>: Añade páginas en blanco después de la portada, el resumen y el índice de manera inteligente al imprimir en doble cara; el índice siempre se imprimirá en una plana impar, así como el contenido del informe.
-						</li>
-						<li>
-							<strong>\defaultinterline</strong>: Tamaño del interlineado.
-						</li>
-						<li>
-							<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea, en pt.
-						</li>
-						<li>
-							<strong>\documentlang</strong>: Define el idioma del documento.
-						</li>
-						<li>
-							<strong>\fontdocument</strong>: Define la fuente de todo el texto del documento (lmodern, arial, helvet).
-						</li>
-						<li>
-							<strong>\numberedequation</strong>: Muestra el número en las ecuaciones insertadas con <i>\insert...</i>.
-						</li>
-						<li>
-							<strong>\pointdecimal</strong>: Números decimales con punto en vez de coma.
-						</li>
-						<li>
-							<strong>\romanpageuppercase</strong>: Páginas en número romano (abstract-índice) en mayúsculas.
-						</li>
-						<li>
-							<strong>\tablepadding</strong>: Ancho de celda de las tablas.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Configuraciones generales<a id="config-other"></a></strong>
+						<ul>
+							<li>
+								<strong>\addemptypagetwosides</strong>: Añade páginas en blanco después de la portada, el resumen y el índice de manera inteligente al imprimir en doble cara; el índice siempre se imprimirá en una plana impar, así como el contenido del informe.
+							</li>
+							<li>
+								<strong>\defaultinterline</strong>: Tamaño del interlineado.
+							</li>
+							<li>
+								<strong>\defaultnewlinesize</strong>: Tamaño del salto de línea, en pt.
+							</li>
+							<li>
+								<strong>\documentlang</strong>: Define el idioma del documento.
+							</li>
+							<li>
+								<strong>\fontdocument</strong>: Define la fuente de todo el texto del documento (lmodern, arial, helvet).
+							</li>
+							<li>
+								<strong>\numberedequation</strong>: Muestra el número en las ecuaciones insertadas con <i>\insert...</i>.
+							</li>
+							<li>
+								<strong>\pointdecimal</strong>: Números decimales con punto en vez de coma.
+							</li>
+							<li>
+								<strong>\romanpageuppercase</strong>: Páginas en número romano (abstract-índice) en mayúsculas.
+							</li>
+							<li>
+								<strong>\tablepadding</strong>: Ancho de celda de las tablas.
+							</li>
+						</ul>
+					</li>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Estilo de portada y header-footer<a id="config-portraithf"></a></strong>
-					<ul>
-						<li>
-							<strong>\hfstyle</strong>: Estilo del encabezado y pié de página (header-footer), existen 7 estilos distintos .
-						</li>
-						<li>
-							<strong>\portraitstyle</strong>: Estilo de la portada, existen 15 estilos distintos.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Estilo de portada y header-footer<a id="config-portraithf"></a></strong>
+						<ul>
+							<li>
+								<strong>\hfstyle</strong>: Estilo del encabezado y pié de página (header-footer), existen 7 estilos distintos .
+							</li>
+							<li>
+								<strong>\portraitstyle</strong>: Estilo de la portada, existen 15 estilos distintos.
+							</li>
+						</ul>
+					</li>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Márgenes de la página<a id="config-pagemargin"></a></strong>
-					<ul>
-						<li>
-							<strong>\firstpagemargintop</strong>: Margen superior de la portada en centímetros.
-						</li>
-						<li>
-							<strong>\pagemarginbottom</strong>: Margen inferior de las páginas en centímetros.
-						</li>
-						<li>
-							<strong>\pagemarginleft</strong>: Margen izquierdo de las páginas en centímetros.
-						</li>
-						<li>
-							<strong>\pagemarginright</strong>: Margen derecho de las páginas en centímetros.
-						</li>
-						<li>
-							<strong>\pagemargintop</strong>: Margen superior de las páginas en centímetros.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Márgenes de la página<a id="config-pagemargin"></a></strong>
+						<ul>
+							<li>
+								<strong>\firstpagemargintop</strong>: Margen superior de la portada en centímetros.
+							</li>
+							<li>
+								<strong>\pagemarginbottom</strong>: Margen inferior de las páginas en centímetros.
+							</li>
+							<li>
+								<strong>\pagemarginleft</strong>: Margen izquierdo de las páginas en centímetros.
+							</li>
+							<li>
+								<strong>\pagemarginright</strong>: Margen derecho de las páginas en centímetros.
+							</li>
+							<li>
+								<strong>\pagemargintop</strong>: Margen superior de las páginas en centímetros.
+							</li>
+						</ul>
+					</li>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Configuración de las leyendas<a id="config-caption"></a></strong>
-					<ul>
-						<li>
-							<strong>\captionlessmarginimage</strong>: Margen inferior si no hay caption en figuras, en centímetros.
-						</li>
-						<li>
-							<strong>\captionlrmargin</strong>: Márgen izquierdo (<i>left</i>) y derecho (<i>right</i>) de las leyendas, en centímetros.
-						</li>
-						<li>
-							<strong>\captionalignment</strong>: Alineación leyenda: justified, centered, left, right.
-						</li>
-						<li>
-							<strong>\captiontbmarginfigure</strong>: Margen superior/inferior de la leyenda en las figuras, en pt.
-						</li>
-						<li>
-							<strong>\captiontbmargintable</strong>: Margen superior/inferior de la leyenda en las tablas, en pt.
-						</li>
-						<li>
-							<strong>\captiontextbold</strong>: Etiquetas (Figura,Tabla,etc.) de la leyenda en negrita.
-						</li>
-						<li>
-							<strong>\codecaptiontop</strong>: Establece la leyenda encima del código fuente.
-						</li>
-						<li>
-							<strong>\figurecaptiontop</strong>: Establece la leyenda encima de las imágenes.
-						</li>
-						<li>
-							<strong>\showsectiononcaption</strong>: Indica si se agrega el número de la sección en la leyenda.
-						</li>
-						<li>
-							<strong>\tablecaptiontop</strong>: Establece la leyenda encima de las tablas.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Configuración de las leyendas<a id="config-caption"></a></strong>
+						<ul>
+							<li>
+								<strong>\captionlessmarginimage</strong>: Margen inferior si no hay caption en figuras, en centímetros.
+							</li>
+							<li>
+								<strong>\captionlrmargin</strong>: Márgen izquierdo (<i>left</i>) y derecho (<i>right</i>) de las leyendas, en centímetros.
+							</li>
+							<li>
+								<strong>\captionalignment</strong>: Alineación leyenda: justified, centered, left, right.
+							</li>
+							<li>
+								<strong>\captiontbmarginfigure</strong>: Margen superior/inferior de la leyenda en las figuras, en pt.
+							</li>
+							<li>
+								<strong>\captiontbmargintable</strong>: Margen superior/inferior de la leyenda en las tablas, en pt.
+							</li>
+							<li>
+								<strong>\captiontextbold</strong>: Etiquetas (Figura,Tabla,etc.) de la leyenda en negrita.
+							</li>
+							<li>
+								<strong>\codecaptiontop</strong>: Establece la leyenda encima del código fuente.
+							</li>
+							<li>
+								<strong>\figurecaptiontop</strong>: Establece la leyenda encima de las imágenes.
+							</li>
+							<li>
+								<strong>\showsectiononcaption</strong>: Indica si se agrega el número de la sección en la leyenda.
+							</li>
+							<li>
+								<strong>\tablecaptiontop</strong>: Establece la leyenda encima de las tablas.
+							</li>
+						</ul>
+					</li>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Configuración del índice<a id="config-index"></a></strong>
-					<ul>
-						<li>
-							<strong>\charafterobjectindex</strong>: Carácter tras cada número de figura, tabla o código en el índice.
-						</li>
-						<li>
-							<strong>\indexdepth</strong>: Profundidad del índice.
-						</li>
-						<li>
-							<strong>\indextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <i>\insertindextitle</i>), en pt.
-						</li>
-						<li>
-							<strong>\showdotpagenumindex</strong>: Muestra puntos entre objeto y número de página.
-						</li>
-						<li>
-							<strong>\showindex</strong>: Muestra la página de índice.
-						</li>
-						<li>
-							<strong>\showindexofcode</strong>: Muestra la lista de códigos fuente en el índice.
-						</li>
-						<li>
-							<strong>\showindexofcontents</strong>: Muestra la lista de contenidos.
-						</li>
-						<li>
-							<strong>\showindexoffigures</strong>: Muestra la lista de figuras en el índice.
-						</li>
-						<li>
-							<strong>\showindexoftables</strong>: Muestra la lista de tablas en el índice.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Configuración del índice<a id="config-index"></a></strong>
+						<ul>
+							<li>
+								<strong>\charafterobjectindex</strong>: Carácter tras cada número de figura, tabla o código en el índice.
+							</li>
+							<li>
+								<strong>\indexdepth</strong>: Profundidad del índice.
+							</li>
+							<li>
+								<strong>\indextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <i>\insertindextitle</i>), en pt.
+							</li>
+							<li>
+								<strong>\showdotpagenumindex</strong>: Muestra puntos entre objeto y número de página.
+							</li>
+							<li>
+								<strong>\showindex</strong>: Muestra la página de índice.
+							</li>
+							<li>
+								<strong>\showindexofcode</strong>: Muestra la lista de códigos fuente en el índice.
+							</li>
+							<li>
+								<strong>\showindexofcontents</strong>: Muestra la lista de contenidos.
+							</li>
+							<li>
+								<strong>\showindexoffigures</strong>: Muestra la lista de figuras en el índice.
+							</li>
+							<li>
+								<strong>\showindexoftables</strong>: Muestra la lista de tablas en el índice.
+							</li>
+						</ul>
+					</li>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Configurar los colores del documento<a id="config-colors"></a></strong>
-					<ul>
-						<li>
-							<strong>\captioncolor</strong>: Color de la etiqueta (Figura, Tabla, Código) en la leyenda de los objetos.
-						</li>
-						<li>
-							<strong>\captiontextcolor</strong>: Color de la leyenda de los objetos.
-						</li>
-						<li>
-							<strong>\colorpage</strong>: Define el color de fondo de las páginas del documento.
-						</li>
-						<li>
-							<strong>\highlightcolor</strong>: Color del subrayado con <i>\hl{text}</i>.
-						</li>
-						<li>
-							<strong>\indextitlecolor</strong>: Color de los títulos del índice.
-						</li>
-						<li>
-							<strong>\linkcolor</strong>: Color de los enlaces del documento, entiendase por números de figuras, entradas del índice, etc.
-						</li>
-						<li>
-							<strong>\maintextcolor</strong>: Color del texto del documento, afecta al color de los títulos, párrafos, líneas, tablas, etc.
-						</li>
-						<li>
-							<strong>\numcitecolor</strong>: Color del número de las referencias o citas.
-						</li>
-						<li>
-							<strong>\portraittitlecolor</strong>: Color de los títulos de la portada.
-						</li>
-						<li>
-							<strong>\showborderonlinks</strong>: Reemplaza el color de un link por un recuadro de color.
-						</li>
-						<li>
-							<strong>\subsubtitlecolor</strong>: Color de los sub-subtítulos.
-						</li>
-						<li>
-							<strong>\subtitlecolor</strong>: Color de los subtítulos.
-						</li>
-						<li>
-							<strong>\tablelinecolor</strong>: Color de las líneas de las tablas.
-						</li>
-						<li>
-							<strong>\titlecolor</strong>: Color de los títulos.
-						</li>
-						<li>
-							<strong>\urlcolor</strong>: Color de los enlaces http:// del documento insertados con <i>\url</i> y <i>\href</i>.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Configurar los colores del documento<a id="config-colors"></a></strong>
+						<ul>
+							<li>
+								<strong>\captioncolor</strong>: Color de la etiqueta (Figura, Tabla, Código) en la leyenda de los objetos.
+							</li>
+							<li>
+								<strong>\captiontextcolor</strong>: Color de la leyenda de los objetos.
+							</li>
+							<li>
+								<strong>\colorpage</strong>: Define el color de fondo de las páginas del documento.
+							</li>
+							<li>
+								<strong>\highlightcolor</strong>: Color del subrayado con <i>\hl{text}</i>.
+							</li>
+							<li>
+								<strong>\indextitlecolor</strong>: Color de los títulos del índice.
+							</li>
+							<li>
+								<strong>\linkcolor</strong>: Color de los enlaces del documento, entiendase por números de figuras, entradas del índice, etc.
+							</li>
+							<li>
+								<strong>\maintextcolor</strong>: Color del texto del documento, afecta al color de los títulos, párrafos, líneas, tablas, etc.
+							</li>
+							<li>
+								<strong>\numcitecolor</strong>: Color del número de las referencias o citas.
+							</li>
+							<li>
+								<strong>\portraittitlecolor</strong>: Color de los títulos de la portada.
+							</li>
+							<li>
+								<strong>\showborderonlinks</strong>: Reemplaza el color de un link por un recuadro de color.
+							</li>
+							<li>
+								<strong>\subsubtitlecolor</strong>: Color de los sub-subtítulos.
+							</li>
+							<li>
+								<strong>\subtitlecolor</strong>: Color de los subtítulos.
+							</li>
+							<li>
+								<strong>\tablelinecolor</strong>: Color de las líneas de las tablas.
+							</li>
+							<li>
+								<strong>\titlecolor</strong>: Color de los títulos.
+							</li>
+							<li>
+								<strong>\urlcolor</strong>: Color de los enlaces http:// del documento insertados con <i>\url</i> y <i>\href</i>.
+							</li>
+						</ul>
+					</li>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Configuración de las figuras<a id="config-figure"></a></strong>
-					<ul>
-						<li>
-							<strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
-						</li>
-						<li>
-							<strong>\marginbottomimages</strong>: Margen inferior de las figuras, en centímetros.
-						</li>
-						<li>
-							<strong>\marginfloatimages</strong>: Margen superior de las figuras flotantes (insertadas con <i>\insertimageleft</i> o <i>\insertimageright</i>), en pt.
-						</li>
-						<li>
-							<strong>\margintopimages</strong>: Margen superior de las figuras, en centímetros.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Configuración de las figuras<a id="config-figure"></a></strong>
+						<ul>
+							<li>
+								<strong>\defaultimagefolder</strong>: Directorio de las imágenes, sólo utilizado por las funciones que insertan figuras.
+							</li>
+							<li>
+								<strong>\marginbottomimages</strong>: Margen inferior de las figuras, en centímetros.
+							</li>
+							<li>
+								<strong>\marginfloatimages</strong>: Margen superior de las figuras flotantes (insertadas con <i>\insertimageleft</i> o <i>\insertimageright</i>), en pt.
+							</li>
+							<li>
+								<strong>\margintopimages</strong>: Margen superior de las figuras, en centímetros.
+							</li>
+						</ul>
+					</li>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Configuración del anexo, citas y referencias<a id="config-ref"></a></strong>
-					<ul>
-						<li>
-							<strong>\apaciterefsep</strong>: Separación entre elementos de las referencias (Estilo <i>apaciteb</i>), en pt.
-						</li>
-						<li>
-							<strong>\appendixindepobjnum</strong>: La numeración de los objetos (figura, tabla, código) en la sección de anexo/apéndice es independiente del documento.
-						</li>
-						<li>
-							<strong>\bibtexrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>bibtex</i>), en pt.
-						</li>
-						<li>
-							<strong>\donumrefsection</strong>: Sección de referencias numerada en el informe.
-						</li>
-						<li>
-							<strong>\natbibrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>natbib</i>), en pt.
-						</li>
-						<li>
-							<strong>\sectionappendixlastchar</strong>: Carácter entre el número de la sección del anexo y el título.
-						</li>
-						<li>
-							<strong>\showappendixsecindex</strong>: Muestra el título de la sección de anexos en el índice.
-						</li>
-						<li>
-							<strong>\showappendixsectitle</strong>: Muestra el título de la sección de anexo en el informe.
-						</li>
-						<li>
-							<strong>\stylecitereferences</strong><a id="ref-style-config"></a>: Estilo citas y referencias, puede ser <i>bibtex</i>, <i>apacite</i> o <i>natbib</i>.
-						</li>
-						<li>
-							<strong>\twocolumnreferences</strong>: Referencias en dos columnas.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Configuración del anexo, citas y referencias<a id="config-ref"></a></strong>
+						<ul>
+							<li>
+								<strong>\apaciterefsep</strong>: Separación entre elementos de las referencias (Estilo <i>apaciteb</i>), en pt.
+							</li>
+							<li>
+								<strong>\appendixindepobjnum</strong>: La numeración de los objetos (figura, tabla, código) en la sección de anexo/apéndice es independiente del documento.
+							</li>
+							<li>
+								<strong>\bibtexrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>bibtex</i>), en pt.
+							</li>
+							<li>
+								<strong>\donumrefsection</strong>: Sección de referencias numerada en el informe.
+							</li>
+							<li>
+								<strong>\natbibrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>natbib</i>), en pt.
+							</li>
+							<li>
+								<strong>\sectionappendixlastchar</strong>: Carácter entre el número de la sección del anexo y el título.
+							</li>
+							<li>
+								<strong>\showappendixsecindex</strong>: Muestra el título de la sección de anexos en el índice.
+							</li>
+							<li>
+								<strong>\showappendixsectitle</strong>: Muestra el título de la sección de anexo en el informe.
+							</li>
+							<li>
+								<strong>\stylecitereferences</strong><a id="ref-style-config"></a>: Estilo citas y referencias, puede ser <i>bibtex</i>, <i>apacite</i> o <i>natbib</i>.
+							</li>
+							<li>
+								<strong>\twocolumnreferences</strong>: Referencias en dos columnas.
+							</li>
+						</ul>
+					</li>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Configuración de los títulos<a id="config-tstyles"></a></strong>
-					<ul>
-						<li>
-							<strong>\anumsecaddtocounter</strong>: Las funciones para insertar títulos sin número (anum) aumentan los respectivos contadores.
-						</li>
-						<li>
-							<strong>\fontsizesubsubtitle</strong>: Tamaño sub-subtítulos.
-						</li>
-						<li>
-							<strong>\fontsizesubtitle</strong>: Tamaño subtítulos.
-						</li>
-						<li>
-							<strong>\fontsizetitle</strong>: Tamaño títulos.
-						</li>
-						<li>
-							<strong>\fontsizetitlei</strong>: Tamaño títulos en el índice.
-						</li>
-						<li>
-							<strong>\showdotontitles</strong>: Muestra un punto en cada número de sección, subsección y sub-subsección.
-						</li>
-						<li>
-							<strong>\stylesubsubtitle</strong>: Estilo sub-subtítulos.
-						</li>
-						<li>
-							<strong>\stylesubtitle</strong>: Estilo subtítulos.
-						</li>
-						<li>
-							<strong>\styletitle</strong>: Estilo títulos.
-						</li>
-						<li>
-							<strong>\styletitlei</strong>: Estilo títulos en el índice.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Configuración de los títulos<a id="config-tstyles"></a></strong>
+						<ul>
+							<li>
+								<strong>\anumsecaddtocounter</strong>: Las funciones para insertar títulos sin número (anum) aumentan los respectivos contadores.
+							</li>
+							<li>
+								<strong>\fontsizesubsubtitle</strong>: Tamaño sub-subtítulos.
+							</li>
+							<li>
+								<strong>\fontsizesubtitle</strong>: Tamaño subtítulos.
+							</li>
+							<li>
+								<strong>\fontsizetitle</strong>: Tamaño títulos.
+							</li>
+							<li>
+								<strong>\fontsizetitlei</strong>: Tamaño títulos en el índice.
+							</li>
+							<li>
+								<strong>\showdotontitles</strong>: Muestra un punto en cada número de sección, subsección y sub-subsección.
+							</li>
+							<li>
+								<strong>\stylesubsubtitle</strong>: Estilo sub-subtítulos.
+							</li>
+							<li>
+								<strong>\stylesubtitle</strong>: Estilo subtítulos.
+							</li>
+							<li>
+								<strong>\styletitle</strong>: Estilo títulos.
+							</li>
+							<li>
+								<strong>\styletitlei</strong>: Estilo títulos en el índice.
+							</li>
+						</ul>
+					</li>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Opciones del pdf<a id="config-pdfoptions"></a></strong>
-					<ul>
-						<li>
-							<strong>\addindextobookmarks</strong>: Añade el índice a los marcadores del pdf compilado.
-						</li>
-						<li>
-							<strong>\cfgbookmarksopenlevel</strong>: Nivel de los marcadores a mostrar (1: secciones, 2: muestra todos los subtítulos, etc.).
-						</li>
-						<li>
-							<strong>\cfgpdfbookmarkopen</strong>: Expande los marcadores hasta el nivel configurado.
-						</li>
-						<li>
-							<strong>\cfgpdfcenterwindow</strong>: Centra la ventana del lector pdf al abrir el informe.
-						</li>
-						<li>
-							<strong>\cfgpdfcopyright</strong>: Establece el copyright en la <i>metadata</i> del pdf.
-						</li>
-						<li>
-							<strong>\cfgpdfdisplaydoctitle</strong>: Muestra el título del informe como título en el lector del pdf.
-						</li>
-						<li>
-							<strong>\cfgpdffitwindow</strong>: Ajusta la ventana del lector pdf al tamaño del informe.
-						</li>
-						<li>
-							<strong>\cfgpdfmenubar</strong>: Muestra la barra de menú en el lector pdf.
-						</li>
-						<li>
-							<strong>\cfgpdfpagemode</strong>: Modo de página en el lector. Valores esperados: OneColumn,SinglePage.
-						</li>
-						<li>
-							<strong>\cfgpdfpageview</strong>: Establece cómo se ve la página en el lector pdf, valores esperados: Fit,FitH,FitV,FitR,FitB,FitBH,FitBV.
-						</li>
-						<li>
-							<strong>\cfgpdfsecnumbookmarks</strong>: Muestra el número de la sección en los marcadores del pdf.
-						</li>
-						<li>
-							<strong>\cfgpdftoolbar</strong>: Muestra la barra de herramientas del lector pdf.
-						</li>
-						<li>
-							<strong>\cfgshowbookmarkmenu</strong>: Muestra el menú de los marcadores en el lector pdf.
-						</li>
-						<li>
-							<strong>\pdfcompileversion</strong>: Establece la versión mínima de compatibilidad del pdf.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Opciones del pdf<a id="config-pdfoptions"></a></strong>
+						<ul>
+							<li>
+								<strong>\addindextobookmarks</strong>: Añade el índice a los marcadores del pdf compilado.
+							</li>
+							<li>
+								<strong>\cfgbookmarksopenlevel</strong>: Nivel de los marcadores a mostrar (1: secciones, 2: muestra todos los subtítulos, etc.).
+							</li>
+							<li>
+								<strong>\cfgpdfbookmarkopen</strong>: Expande los marcadores hasta el nivel configurado.
+							</li>
+							<li>
+								<strong>\cfgpdfcenterwindow</strong>: Centra la ventana del lector pdf al abrir el informe.
+							</li>
+							<li>
+								<strong>\cfgpdfcopyright</strong>: Establece el copyright en la <i>metadata</i> del pdf.
+							</li>
+							<li>
+								<strong>\cfgpdfdisplaydoctitle</strong>: Muestra el título del informe como título en el lector del pdf.
+							</li>
+							<li>
+								<strong>\cfgpdffitwindow</strong>: Ajusta la ventana del lector pdf al tamaño del informe.
+							</li>
+							<li>
+								<strong>\cfgpdfmenubar</strong>: Muestra la barra de menú en el lector pdf.
+							</li>
+							<li>
+								<strong>\cfgpdfpagemode</strong>: Modo de página en el lector. Valores esperados: OneColumn,SinglePage.
+							</li>
+							<li>
+								<strong>\cfgpdfpageview</strong>: Establece cómo se ve la página en el lector pdf, valores esperados: Fit,FitH,FitV,FitR,FitB,FitBH,FitBV.
+							</li>
+							<li>
+								<strong>\cfgpdfsecnumbookmarks</strong>: Muestra el número de la sección en los marcadores del pdf.
+							</li>
+							<li>
+								<strong>\cfgpdftoolbar</strong>: Muestra la barra de herramientas del lector pdf.
+							</li>
+							<li>
+								<strong>\cfgshowbookmarkmenu</strong>: Muestra el menú de los marcadores en el lector pdf.
+							</li>
+							<li>
+								<strong>\pdfcompileversion</strong>: Establece la versión mínima de compatibilidad del pdf.
+							</li>
+						</ul>
+					</li>
 
-				<li class="config-parent">
-					<strong class="functtitlstyle">Nombres de los elementos<a id="config-elemname"></a></strong>
-					<ul>
-						<li>
-							<strong>\nameabstract</strong>: Nombre del resumen-abstract.
-						</li>
-						<li>
-							<strong>\nameappendixsection</strong>: Nombre de la sección de anexos/apéndices.
-						</li>
-						<li>
-							<strong>\nameportraitpage</strong>: Nombre de la primera página (portada) en el pdf.
-						</li>
-						<li>
-							<strong>\namereferences</strong>: Nombre de la sección de referencias.
-						</li>
-						<li>
-							<strong>\nomchapter</strong>: Nombre de los capítulos.
-						</li>
-						<li>
-							<strong>\nomltappendixsection</strong>: Etiqueta sección en anexo/apéndices.
-						</li>
-						<li>
-							<strong>\nomltcont</strong>: Nombre del índice de contenidos.
-						</li>
-						<li>
-							<strong>\nomltfigure</strong>: Nombre de la lista de figuras.
-						</li>
-						<li>
-							<strong>\nomltsrc</strong>: Nombre de la lista de código fuente.
-						</li>
-						<li>
-							<strong>\nomlttable</strong>: Nombre de la lista de tablas.
-						</li>
-						<li>
-							<strong>\nomltwsrc</strong>: Etiqueta leyenda del código fuente.
-						</li>
-						<li>
-							<strong>\nomltwfigure</strong>: Etiqueta leyenda de las figuras.
-						</li>
-						<li>
-							<strong>\nomltwtable</strong>: Etiqueta leyenda de las tablas.
-						</li>
-					</ul>
-				</li>
+					<li class="config-parent">
+						<strong class="functtitlstyle">Nombres de los elementos<a id="config-elemname"></a></strong>
+						<ul>
+							<li>
+								<strong>\nameabstract</strong>: Nombre del resumen-abstract.
+							</li>
+							<li>
+								<strong>\nameappendixsection</strong>: Nombre de la sección de anexos/apéndices.
+							</li>
+							<li>
+								<strong>\nameportraitpage</strong>: Nombre de la primera página (portada) en el pdf.
+							</li>
+							<li>
+								<strong>\namereferences</strong>: Nombre de la sección de referencias.
+							</li>
+							<li>
+								<strong>\nomchapter</strong>: Nombre de los capítulos.
+							</li>
+							<li>
+								<strong>\nomltappendixsection</strong>: Etiqueta sección en anexo/apéndices.
+							</li>
+							<li>
+								<strong>\nomltcont</strong>: Nombre del índice de contenidos.
+							</li>
+							<li>
+								<strong>\nomltfigure</strong>: Nombre de la lista de figuras.
+							</li>
+							<li>
+								<strong>\nomltsrc</strong>: Nombre de la lista de código fuente.
+							</li>
+							<li>
+								<strong>\nomlttable</strong>: Nombre de la lista de tablas.
+							</li>
+							<li>
+								<strong>\nomltwsrc</strong>: Etiqueta leyenda del código fuente.
+							</li>
+							<li>
+								<strong>\nomltwfigure</strong>: Etiqueta leyenda de las figuras.
+							</li>
+							<li>
+								<strong>\nomltwtable</strong>: Etiqueta leyenda de las tablas.
+							</li>
+						</ul>
+					</li>
 
-			</ul>
+				</ul>
 
-			<!-- Links de interés -->
-			<h2>
+				<!-- Links de interés -->
+				<h2>
 			<a id="links" class="anchor" href="#links" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Links de interés
 		</h2>
-			<p>
-				<ul>
-					<li>
-						Template Auxiliares en <img src="resources/latex.png" alt="LaTeX" class="lateximg">: <a href="http://latex.ppizarror.com/Template-Auxiliares/">http://latex.ppizarror.com/Template-Auxiliares/</a>
-					</li>
-					<li>
-						Manual para usar Latex: <a href="https://es.sharelatex.com/learn">https://es.sharelatex.com/learn</a>
-					</li>
-					<li>
-						Plugin para expotar tablas desde Excel: <a href="https://www.ctan.org/pkg/excel2latex">https://www.ctan.org/pkg/excel2latex</a>
-						<ol>
-							<li class="help-links">Descargar el <a href="http://mirrors.ctan.org/support/excel2latex.zip">plugin</a> y extraer el zip</li>
-							<li class="help-links">
-								Pegar los contenidos del zip en <i>C:\Users\UserName\AppData\Roaming\Microsoft\AddIns</i>
-								<ul>
-									<li>Si no encuentras la carpeta Appdata: Pulsa <i class="fa fa-windows" aria-hidden="true"></i>+<b>R</b> &rarr; Escribe <i>appdata</i> &rarr; Aceptar</li> (<a href="./images/ejemplo-appdata.PNG">ejemplo</a>)
-								</ul>
-							</li>
-							<li class="help-links">Abrir el archivo <i>Excel2LaTeX.xla</i> con Excel</li>
-							<li class="help-links">Abrir el plugin ubicado en <i>Complementos</i> &rarr; <i>Convert Table to Latex</i></li>
-							<li class="help-links">Configurar el plugin a gusto (<a href="./images/ejemplo-config.PNG">ejemplo</a>)</li>
-						</ol>
-					</li>
-					<li>
-						Editor Latex online (Sharelatex): <a href="https://www.sharelatex.com?r=298b935f&rm=d&rs=b">https://www.sharelatex.com/</a>
-						<ul>
-							<li class="help-links">En ShareLatex: <a href="https://www.sharelatex.com/project">Menú principal</a> &rarr; <i>New project</i> &rarr; <i>Upload project</i> &rarr; Seleccionar el .zip descargado del template</li>
-						</ul>
-					</li>
-					<li>
-						Editor Latex online (Overleaf): <a href="https://www.overleaf.com/signup?ref=4d3bd09b7e78">https://www.overleaf.com/</a>
-						<ul>
-							<li class="help-links">En Overleaf: <a href="https://www.overleaf.com/dash">My projects</a> &rarr; <i>Upload zip</i> &rarr; Seleccionar el .zip descargado del template</li>
-						</ul>
-					</li>
-					<li>
-						Editor de Latex para Windows <span class="fa fa-windows" aria-hidden="true"></span>: <a href="http://www.texstudio.org/">http://www.texstudio.org/</a>
-						<ul>
-							<li class="help-links">Si ocurren errores como <i>Package not found</i> intentar compilar muchas veces</li>
-							<li class="help-links">Diccionario en español (Chile): <a href="./es_CL/es_CL.oxt">descargar</a></li>
-							<li class="help-links">Autocompletar todas las funciones del template: <a href="https://github.com/Template-Latex/cwl-docs">descargar</a></li>
-						</ul>
-				</ul>
-			</p>
+				<p>
+					<ul>
+						<li>
+							Template Auxiliares en <img src="resources/latex.png" alt="LaTeX" class="lateximg">: <a href="http://latex.ppizarror.com/Template-Auxiliares/">http://latex.ppizarror.com/Template-Auxiliares/</a>
+						</li>
+						<li>
+							Manual para usar Latex: <a href="https://es.sharelatex.com/learn">https://es.sharelatex.com/learn</a>
+						</li>
+						<li>
+							Plugin para expotar tablas desde Excel: <a href="https://www.ctan.org/pkg/excel2latex">https://www.ctan.org/pkg/excel2latex</a>
+							<ol>
+								<li class="help-links">Descargar el <a href="http://mirrors.ctan.org/support/excel2latex.zip">plugin</a> y extraer el zip</li>
+								<li class="help-links">
+									Pegar los contenidos del zip en <i>C:\Users\UserName\AppData\Roaming\Microsoft\AddIns</i>
+									<ul>
+										<li>Si no encuentras la carpeta Appdata: Pulsa <i class="fa fa-windows" aria-hidden="true"></i>+<b>R</b> &rarr; Escribe <i>appdata</i> &rarr; Aceptar</li> (<a href="./images/ejemplo-appdata.PNG">ejemplo</a>)
+									</ul>
+								</li>
+								<li class="help-links">Abrir el archivo <i>Excel2LaTeX.xla</i> con Excel</li>
+								<li class="help-links">Abrir el plugin ubicado en <i>Complementos</i> &rarr; <i>Convert Table to Latex</i></li>
+								<li class="help-links">Configurar el plugin a gusto (<a href="./images/ejemplo-config.PNG">ejemplo</a>)</li>
+							</ol>
+						</li>
+						<li>
+							Editor Latex online (Sharelatex): <a href="https://www.sharelatex.com?r=298b935f&rm=d&rs=b">https://www.sharelatex.com/</a>
+							<ul>
+								<li class="help-links">En ShareLatex: <a href="https://www.sharelatex.com/project">Menú principal</a> &rarr; <i>New project</i> &rarr; <i>Upload project</i> &rarr; Seleccionar el .zip descargado del template</li>
+							</ul>
+						</li>
+						<li>
+							Editor Latex online (Overleaf): <a href="https://www.overleaf.com/signup?ref=4d3bd09b7e78">https://www.overleaf.com/</a>
+							<ul>
+								<li class="help-links">En Overleaf: <a href="https://www.overleaf.com/dash">My projects</a> &rarr; <i>Upload zip</i> &rarr; Seleccionar el .zip descargado del template</li>
+							</ul>
+						</li>
+						<li>
+							Editor de Latex para Windows <span class="fa fa-windows" aria-hidden="true"></span>: <a href="http://www.texstudio.org/">http://www.texstudio.org/</a>
+							<ul>
+								<li class="help-links">Si ocurren errores como <i>Package not found</i> intentar compilar muchas veces</li>
+								<li class="help-links">Diccionario en español (Chile): <a href="./es_CL/es_CL.oxt">descargar</a></li>
+								<li class="help-links">Autocompletar todas las funciones del template: <a href="https://github.com/Template-Latex/cwl-docs">descargar</a></li>
+							</ul>
+					</ul>
+				</p>
 
-			<!-- Importar librerías -->
-			<h2>
+				<!-- Importar librerías -->
+				<h2>
 			<a id="librerias-utilizadas" class="anchor" href="#librerias-utilizadas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 			Librerías utilizadas
 		</h2>
-			<p>
-				Las librerías se listan en el archivo lib/<a href="https://github.com/ppizarror/Template-Informe/blob/master/lib/imports.tex">imports.tex</a> y se cargan en la sección
-				<em class="section-template">LIBRERÍAS INDEPENDIENTES</em> y <em class="section-template">LIBRERÍAS DEPENDIENTES</em>, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación de otras,
-				o que su importación no genera algún error.
-			</p>
-			<p>
-				Las librerías utilizadas por el template son:
-			</p>
-			<ul>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características extras a las tablas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/amsmath">amsmath</a></strong>: Librería matemática.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/amssymb">amssymb</a></strong>: Librería matemática.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/apacite">apacite</a></strong>: Administración de citas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características a las tablas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/babel">babel</a></strong>: Soporte para idiomas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/bibtex">bibtex</a></strong>: Administración de referencias.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/bigstrut">bigstrut</a></strong>: Permite añadir líneas en tablas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/bm">bm</a></strong>: Caracteres en negrita en ecuaciones.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/booktabs">booktabs</a></strong>: Permite manejar elementos visuales en tablas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/cancel">cancel</a></strong>: Cancelar términos en fórmulas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/caption">caption</a></strong>: Leyendas (o títulos de objetos).
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/changepage">changepage</a></strong>: Condicionales para administrar páginas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/chngcntr">chngcntr</a></strong>: Agrega números de secciones a las leyendas <em>[dependiente]</em>.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/colortbl">colortbl</a></strong>: Colores en las tablas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/color">color</a></strong>: Colores.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/csquotes">csquotes</a></strong>: Citas y comillas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/datetime">datetime</a></strong>: Fechas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/enumerate">enumitem</a></strong>: Permite enumerar ítemes.
-				</li>
-				<!-- <li>
+				<p>
+					Las librerías se listan en el archivo lib/<a href="https://github.com/ppizarror/Template-Informe/blob/master/lib/imports.tex">imports.tex</a> y se cargan en la sección
+					<em class="section-template">LIBRERÍAS INDEPENDIENTES</em> y <em class="section-template">LIBRERÍAS DEPENDIENTES</em>, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación de otras,
+					o que su importación no genera algún error.
+				</p>
+				<p>
+					Las librerías utilizadas por el template son:
+				</p>
+				<ul>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características extras a las tablas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/amsmath">amsmath</a></strong>: Librería matemática.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/amssymb">amssymb</a></strong>: Librería matemática.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/apacite">apacite</a></strong>: Administración de citas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características a las tablas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/babel">babel</a></strong>: Soporte para idiomas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/bibtex">bibtex</a></strong>: Administración de referencias.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/bigstrut">bigstrut</a></strong>: Permite añadir líneas en tablas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/bm">bm</a></strong>: Caracteres en negrita en ecuaciones.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/booktabs">booktabs</a></strong>: Permite manejar elementos visuales en tablas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/cancel">cancel</a></strong>: Cancelar términos en fórmulas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/caption">caption</a></strong>: Leyendas (o títulos de objetos).
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/changepage">changepage</a></strong>: Condicionales para administrar páginas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/chngcntr">chngcntr</a></strong>: Agrega números de secciones a las leyendas <em>[dependiente]</em>.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/colortbl">colortbl</a></strong>: Colores en las tablas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/color">color</a></strong>: Colores.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/csquotes">csquotes</a></strong>: Citas y comillas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/datetime">datetime</a></strong>: Fechas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/enumerate">enumitem</a></strong>: Permite enumerar ítemes.
+					</li>
+					<!-- <li>
 				<strong><a href="https://www.ctan.org/pkg/epstopdf">epstopdf</a></strong>: Convierte archivos .eps a pdf <em>[dependiente]</em>.
 			</li> -->
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/etoolbox">etoolbox</a></strong>: Herramientas varias del compilador <em>[dependiente]</em>.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/fancyhdr">fancyhdr</a></strong>: Encabezados y pie de páginas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/floatpag">floatpag</a></strong>: Maneja números de páginas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/floatrow">floatrow</a></strong>: Administración de floats.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/float">float</a></strong>: Administrador de posiciones de objetos.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/fontenc">fontenc</a></strong>: Soporta caracteres acentuados.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/footmisc">footmisc</a></strong>: Elimina la barra vertical de las notas al pié de página.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/framed">framed</a></strong>: Permite insertar recuadros.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/gensymb">gensymb</a></strong>: Simbología común.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/geometry">geometry</a></strong>: Dimensiones y geometría del documento.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/graphicx">graphicx</a></strong>: Propiedades extra para los gráficos.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/hyperref">hyperref</a></strong>: Permite añadir enlaces y referencias <em>[dependiente]</em>.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/hyperxmp">hyperxmp</a></strong>: Etiquetas opcionales en el <i>metadata</i> del pdf compilado.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/ifthen">ifthen</a></strong>: Permite el manejo de condicionales.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/mathtools">mathtools</a></strong>: Permite utilizar notaciones matemáticas avanzadas.
-				</li>
-				<!-- <li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/etoolbox">etoolbox</a></strong>: Herramientas varias del compilador <em>[dependiente]</em>.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/fancyhdr">fancyhdr</a></strong>: Encabezados y pie de páginas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/floatpag">floatpag</a></strong>: Maneja números de páginas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/floatrow">floatrow</a></strong>: Administración de floats.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/float">float</a></strong>: Administrador de posiciones de objetos.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/fontenc">fontenc</a></strong>: Soporta caracteres acentuados.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/footmisc">footmisc</a></strong>: Elimina la barra vertical de las notas al pié de página.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/framed">framed</a></strong>: Permite insertar recuadros.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/gensymb">gensymb</a></strong>: Simbología común.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/geometry">geometry</a></strong>: Dimensiones y geometría del documento.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/graphicx">graphicx</a></strong>: Propiedades extra para los gráficos.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/hyperref">hyperref</a></strong>: Permite añadir enlaces y referencias <em>[dependiente]</em>.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/hyperxmp">hyperxmp</a></strong>: Etiquetas opcionales en el <i>metadata</i> del pdf compilado.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/ifthen">ifthen</a></strong>: Permite el manejo de condicionales.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/mathtools">mathtools</a></strong>: Permite utilizar notaciones matemáticas avanzadas.
+					</li>
+					<!-- <li>
 				<strong><a href="https://www.ctan.org/pkg/mhchem">mhchem</a></strong>: Fórmulas químicas [versión 4].
 			</li> -->
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/multicol">multicol</a></strong>: Múltiples columnas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/multirow">multirow</a></strong>: Añade nuevas opciones a las tablas <em>[dependiente]</em>.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/natbib">natbib</a></strong>: Administración de citas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/needspace">needspace</a></strong>: Maneja espacios en páginas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/notoccite">notoccite</a></strong>: Desactiva las citas en el índice.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/lipsum">lipsum</a></strong>: Permite crear textos dummy.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/listings">listings</a></strong>: Permite añadir código fuente.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/longtable">longtable</a></strong>: Permite utilizar tablas en varias hojas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/pdfpages">pdfpages</a></strong>: Permite administrar páginas en pdf.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/physics">physics</a></strong>: Importa funciones matemáticas esenciales.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/rotating">rotating</a></strong>: Permite rotación de objetos.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/secdot">secdot</a></strong>: Agrega puntos a los títulos/subtítulos.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/sectsty">sectsty</a></strong>: Cambia el estilo de los títulos.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/setspace">setspace</a></strong>: Cambia el espacio entre líneas.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/siunitx">siunitx</a></strong>: Permite añadir unidades del sistema internacional.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/soul">soul</a></strong>: Permite subrayar texto.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/subfig">subfig</a></strong>: Permite agrupar imágenes.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/textcomp">textcomp</a></strong>: Simbología.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/titlesec">titlesec</a></strong>: Configuración de los titulos.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/tocloft">tocloft</a></strong>: Manejo de entradas en la tabla de contenidos.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/totalcount">totalcount</a></strong>: Permite contar elementos.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/tikz">tikz</a></strong>: Permite dibujar.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/ulem">ulem</a></strong>: Permite cachar, subrayar, etc.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/url">url</a></strong>: Permite añadir enlaces.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/wasysym">wasysym</a></strong>: Contiene caracteres misceláneos.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/wrapfig">wrapfig</a></strong>: Permite comprimir imágenes.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/xcolor">xcolor</a></strong>: Paquete de colores avanzado.
-				</li>
-				<li>
-					<strong><a href="https://www.ctan.org/pkg/xcolor">xspace</a></strong>: Adminsitra espacios en párrafos y líneas.
-				</li>
-			</ul>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/multicol">multicol</a></strong>: Múltiples columnas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/multirow">multirow</a></strong>: Añade nuevas opciones a las tablas <em>[dependiente]</em>.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/natbib">natbib</a></strong>: Administración de citas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/needspace">needspace</a></strong>: Maneja espacios en páginas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/notoccite">notoccite</a></strong>: Desactiva las citas en el índice.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/lipsum">lipsum</a></strong>: Permite crear textos dummy.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/listings">listings</a></strong>: Permite añadir código fuente.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/longtable">longtable</a></strong>: Permite utilizar tablas en varias hojas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/pdfpages">pdfpages</a></strong>: Permite administrar páginas en pdf.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/physics">physics</a></strong>: Importa funciones matemáticas esenciales.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/rotating">rotating</a></strong>: Permite rotación de objetos.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/secdot">secdot</a></strong>: Agrega puntos a los títulos/subtítulos.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/sectsty">sectsty</a></strong>: Cambia el estilo de los títulos.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/setspace">setspace</a></strong>: Cambia el espacio entre líneas.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/siunitx">siunitx</a></strong>: Permite añadir unidades del sistema internacional.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/soul">soul</a></strong>: Permite subrayar texto.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/subfig">subfig</a></strong>: Permite agrupar imágenes.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/textcomp">textcomp</a></strong>: Simbología.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/titlesec">titlesec</a></strong>: Configuración de los titulos.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/tocloft">tocloft</a></strong>: Manejo de entradas en la tabla de contenidos.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/totalcount">totalcount</a></strong>: Permite contar elementos.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/tikz">tikz</a></strong>: Permite dibujar.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/ulem">ulem</a></strong>: Permite cachar, subrayar, etc.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/url">url</a></strong>: Permite añadir enlaces.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/wasysym">wasysym</a></strong>: Contiene caracteres misceláneos.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/wrapfig">wrapfig</a></strong>: Permite comprimir imágenes.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/xcolor">xcolor</a></strong>: Paquete de colores avanzado.
+					</li>
+					<li>
+						<strong><a href="https://www.ctan.org/pkg/xcolor">xspace</a></strong>: Adminsitra espacios en párrafos y líneas.
+					</li>
+				</ul>
 
-			<!-- Qué hay de nuevo, CHANGELOG -->
-			<div id='whatsnew' class='whatsnew'>
-				<h2 style='margin-top: 2.5rem;'>
-				<a id="qhaydenuevo" class="anchor" href="#que-hay-de-nuevo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lista de cambios
-			</h2>
-				<div id="que-hay-de-nuevo">
+				<!-- Qué hay de nuevo, CHANGELOG -->
+				<div id='whatsnew' class='whatsnew'>
+					<h2 style='margin-top: 2.5rem;'>
+						<a id="qhaydenuevo" class="anchor" href="#que-hay-de-nuevo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lista de cambios
+					</h2>
+					<div id="que-hay-de-nuevo">
+					</div>
 				</div>
-			</div>
 
-			<!-- Autor -->
-			<h2>
-			<a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor
-		</h2>
-			<p><a href="http://ppizarror.com/">Pablo Pizarro R.</a> | 2016-2017.</p>
-			<p>Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.</p>
-			<br><br><br><br>
-			<!--
+				<!-- Autor -->
+				<h2>
+					<a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor
+				</h2>
+				<p><a href="http://ppizarror.com/">Pablo Pizarro R.</a> | 2016-2017.</p>
+				<p>Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.</p>
+				<br><br><br><br>
+				<!--
 		<footer class="site-footer">
 		<span class="site-footer-owner"><a href="https://github.com/ppizarror/Template-Informe">Template-informe</a> es desarrollado por <a href="">ppizarror</a>.</span>
 		</footer>
 		-->
-	</section>
+		</section>
+	</div>
 </body>
 
 </html>
