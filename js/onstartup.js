@@ -136,13 +136,16 @@ var images_indx_random = getRandomInt(0, images_background.length - 1);
 var image_url = href_images_parent + images_background[images_indx_random][0];
 var image_pos = images_background[images_indx_random][1];
 
-// Se eligen colores al azar
+// Se obtiene color primario
 var chosencolor = images_background[images_indx_random][2];
-bgprecolor = shadeColor2(chosencolor, 0.9);
-codeprecolor = shadeColor2(chosencolor, 0.2);
-codebarcolor = shadeColor2(chosencolor, 0.4);
-pacecolor = shadeColor2(chosencolor, 0.15);
+
+// Se eligen colores al azar
+acolor = shadeColor2(chosencolor, 0.3);
 backgroundmaincolor = shadeColor2(chosencolor, 0.98);
+bgprecolor = shadeColor2(chosencolor, 0.9);
+codebarcolor = shadeColor2(chosencolor, 0.4);
+codeprecolor = shadeColor2(chosencolor, 0.2);
+pacecolor = shadeColor2(chosencolor, 0.15);
 
 // Descargas totales y última versión
 var total_downloads = 0;
@@ -261,6 +264,9 @@ jQuery(document).ready(function($) {
     $('.section-template').css('color', chosencolor);
     $('.que-hay-de-nuevo-blockquote h3').css('color', chosencolor);
     $('.back-to-top').css('background-color', chosencolor);
+
+    // Se cambia el color de los enlaces
+    // $('a').css('color', acolor);
 
     // Se cambia el color de las cajas de código
     $('.main-content pre').css('border', 'solid 1px ' + codeprecolor);
