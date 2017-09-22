@@ -67,20 +67,18 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <script type="text/javascript" src="js/parallax.min.js"></script>
     <script type="text/javascript" src="js/jquery.ScrollTo.min.js"></script>
     <script type="text/javascript" src="js/showdown.min.js"></script>
+    <script type="text/javascript" src="http://latex.ppizarror.com/pdf-version/utils.min.js"></script>
+    <script type="text/javascript" src="http://ppizarror.com/wallpaper-db/db.min.js"></script>
     <script type="text/javascript" src="js/utils.min.js"></script>
-    <!-- <script type="text/javascript" src="js/modularHtml.min.js"></script> -->
     <script type="text/javascript" src="js/smooth-scroll.min.js"></script>
     <script type="text/javascript" src="js/pace.min.js"></script>
-    <script type="text/javascript" src="js/wallpaperdb.min.js"></script>
-    <script type="text/javascript" src="js/onstartup.min.js"></script>
+    <script type="text/javascript" src="js/onstartup.js"></script>
 </head>
 
 <body>
     <a href="#" class="back-to-top" id="scrolls"></a>
-    <div id="background-page-header-colored">
-    </div>
-    <div id="background-page-header">
-    </div>
+    <div id="background-page-header-colored"></div>
+    <div id="background-page-header"></div>
     <section class="page-header">
         <h1 class="project-name">Template Informe</h1>
         <h2 class="project-tagline">
@@ -582,7 +580,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertequation</span><b>[</b><span class="pl-c1">\label</span>{eqn-1}<b>]</b><b>{</b>e = 2<span class="pl-c1">\pi</span> <span class="pl-c1">\int</span>^{a}_{b} f(x)dx<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/formula.png" align="center"></p>
+                                    <p><img src="images/formula.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li style="margin-bottom: 20px">
@@ -591,7 +589,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertequationcaptioned</span><b>[</b><span class="pl-c1">\label</span>{formula-1}<b>]</b><b>{</b><span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\pi</span> <span class="pl-c1">\nu</span> 4 <span class="pl-c1">\pow</span>{t}{4}}<b>}{</b>Título de fórmula<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/titleformula.png" align="center"></p>
+                                    <p><img src="images/titleformula.png" align="center"></p>
                                 </blockquote>
                             </li>
 
@@ -603,7 +601,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertgather</span><b>{</b><span class="pl-c1">\Delta</span> = <span class="pl-c1">\begin</span>{bmatrix}y&x\\z&w<span class="pl-c1">\end</span>{bmatrix}<span class="pl-c1">\cdot</span> f(x)<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/insertequationgathered.png" align="center"></p>
+                                    <p><img src="images/insertequationgathered.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li style="margin-bottom: 20px">
@@ -618,7 +616,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertgathered</span><b>[</b><span class="pl-c1">\label</span>{formula-4}<b>]</b><b>{</b><span class="pl-c1">\iint_</span>{a}^{b} f(y) \dy<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/insertequationgathered2.png" align="center"></p>
+                                    <p><img src="images/insertequationgathered2.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li style="margin-bottom: 20px">
@@ -633,7 +631,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertalign</span><b>{</b>F(<span class="pl-c1">\vec</span>{f},y, y') = <span class="pl-c1">\widehat</span>{<<span class="pl-c1">\vec</span>{f},y>} <span class="pl-c1">\times</span> y'<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/insertequationalign.png" align="center"></p>
+                                    <p><img src="images/insertequationalign.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li style="margin-bottom: 20px">
@@ -649,7 +647,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertaligned</span><b>[</b><span class="pl-c1">\label</span>{formula-5}<b>]</b><b>{</b><span class="pl-c1">\sqrt</span>[a]{b} + c<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/insertequationaligned.png" align="center"></p>
+                                    <p><img src="images/insertequationaligned.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -696,7 +694,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\abs</span><b>{</b> x + y <b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/abs.png" align="center"></p>
+                                    <p><img src="images/abs.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -705,7 +703,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre>La norma de z es <span class="pl-e">\norm</span><b>{</b> z <b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/norm2.png" align="center"></p>
+                                    <p><img src="images/norm2.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -714,7 +712,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\pow</span><b>{</b> (1 + <span class="pl-e">\pow</span><b>{</b><span class="pl-c1">\pi</span><b>}{</b><span class="pl-c1">\epsilon</span><b>}</b>) <b>}{</b>2<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/pow.png" align="center"></p>
+                                    <p><img src="images/pow.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -723,7 +721,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i+1<b>}</b> = 2 <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i<b>}</b> + <span class="pl-e">\lpow</span><b>{</b>f<b>}{</b>i-2<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/lpow.png" align="center"></p>
+                                    <p><img src="images/lpow.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -732,13 +730,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre>f(x) = <span class="pl-e">\fracpartial</span><b>{</b>g<b>}{</b>x<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/fpartial.png" align="center"></p>
+                                    <p><img src="images/fpartial.png" align="center"></p>
                                 </blockquote>
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-c1">\lpow</span>{h}{y} = 2 + <span class="pl-e">\fracpartial</span><b>{}{</b>y<b>}</b> h</pre>
                                     </div>
-                                    <p><img src="examples/fpartial2.png" align="center"></p>
+                                    <p><img src="images/fpartial2.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -747,7 +745,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\fracdpartial</span><b>{</b>u<b>}</b><b>{</b>t<b>}</b> = <span class="pl-c1">\pow</span>{c}{2} <span class="pl-e">\fracdpartial</span><b>{</b>u<b>}{</b>x<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/fracdpartial.png" align="center"></p>
+                                    <p><img src="images/fracdpartial.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -756,7 +754,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\fracnpartial</span><b>{</b>f<b>}</b><b>{</b>x<b>}</b><b>{</b>n+m<b>}</b> = <span class="pl-c1">\widehat</span>{<span class="pl-e">\fracnpartial</span><b>{</b>h<b>}</b><b>{</b>x<b>}</b><b>{</b>n<b>}</b> + <span class="pl-e">\fracnpartial</span><b>{</b>g<b>}</b><b>{</b>x<b>}</b><b>{</b>m<b>}</b>}</pre>
                                     </div>
-                                    <p><img src="examples/fracnpartial.png" align="center"></p>
+                                    <p><img src="images/fracnpartial.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -765,7 +763,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\fracderivat</span><b>{}{</b>x<b>}</b><span class="pl-c1">\arccos</span>(x) = -{<span class="pl-c1">\frac</span>{1}{<span class="pl-c1">\sqrt</span>{ 1 - <span class="pl-c1">\pow</span>{x}{2} }}</pre>
                                     </div>
-                                    <p><img src="examples/fracderivativ.png" align="center"></p>
+                                    <p><img src="images/fracderivativ.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -774,7 +772,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre>m <span class="pl-e">\fracdderivat</span><b>{</b>x<b>}{</b>t<b>}</b> + kx = 0</pre>
                                     </div>
-                                    <p><img src="examples/fracddpartial.png" align="center"></p>
+                                    <p><img src="images/fracddpartial.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -783,7 +781,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\fracnderivat</span><b>{</b>y<b>}{</b>x<b>}{</b>3<b>}</b> <span class="pl-c1">\times</span> <span class="pl-e">\fracnderivat</span><b>{</b>h<b>}{</b>x<b>}{</b>n<b>}</b> = <span class="pl-c1">\chi</span></pre>
                                     </div>
-                                    <p><img src="examples/fracndpartial.png" align="center"></p>
+                                    <p><img src="images/fracndpartial.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -792,7 +790,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\topequal</span><b>{</b>1 + <span class="pl-c1">\sqrt</span>{1+x}<b>}{</b>f(x)<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/topequal.png" align="center"></p>
+                                    <p><img src="images/topequal.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -801,7 +799,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-c1">\pi</span> + <span class="pl-e">\underequal</span><b>{</b>1 - <span class="pl-c1">\frac</span>{1}{e}<b>}</b><b>{</b>e <span class="pl-c1">\approx</span> 2.718<b>}</b></pre>
                                     </div>
-                                    <p><img src="examples/underequal.png" align="center"></p>
+                                    <p><img src="images/underequal.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -810,7 +808,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\topsequal</span><b>{</b> 1+x+<span class="pl-c1">\ldots</span>+<span class="pl-c1">\pow</span>{x}{n} <b>}{</b>x <span class="pl-c1">\in \Re</span><b>}</b> = <span class="pl-c1">\sum</span>_{i=0}^{n}<span class="pl-c1">\pow</span>{x}{i}</pre>
                                     </div>
-                                    <p><img src="examples/topsequal.png" align="center"></p>
+                                    <p><img src="images/topsequal.png" align="center"></p>
                                 </blockquote>
                             </li>
                             <li>
@@ -819,7 +817,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-c1">\lim</span>_{n} <span class="pl-c1">\pow</span>{2}{n} <span class="pl-e">\undersequal</span><b>{</b> <span class="pl-c1">\sqrt</span>{2 - <span class="pl-c1">\sqrt</span>{2+ <span class="pl-c1">\ldots</span> + <span class="pl-c1">\sqrt</span>{2}}} <b>}</b><b>{</b>n<b>}</b> = <span class="pl-c1">\pi</span></pre>
                                     </div>
-                                    <p><img src="examples/undersequal.png" width="220px" align="center"></p>
+                                    <p><img src="images/undersequal.png" width="220px" align="center"></p>
                                 </blockquote>
                             </li>
                         </ul>
@@ -1391,7 +1389,7 @@ def incmatrix(genl1, genl2):
                             Editor de Latex para Windows <span class="fa fa-windows" aria-hidden="true"></span>: <a href="http://www.texstudio.org/">http://www.texstudio.org/</a>
                             <ul>
                                 <li class="help-links">Si ocurren errores como <i>Package not found</i> intentar compilar muchas veces</li>
-                                <li class="help-links">Diccionario en español (Chile): <a href="./es_CL/es_CL.oxt">descargar</a></li>
+                                <li class="help-links">Diccionario en español (Chile): <a href="./es_CL.oxt">descargar</a></li>
                                 <li class="help-links">Autocompletar todas las funciones del template: <a href="https://github.com/Template-Latex/cwl-docs">descargar</a></li>
                             </ul>
                     </ul>

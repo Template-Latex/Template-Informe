@@ -21,14 +21,6 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// Se eligen colores al azar
-acolor = shadeColor2(chosencolor, 0.3);
-backgroundmaincolor = shadeColor2(chosencolor, 0.98);
-bgprecolor = shadeColor2(chosencolor, 0.9);
-codebarcolor = shadeColor2(chosencolor, 0.4);
-codeprecolor = shadeColor2(chosencolor, 0.2);
-pacecolor = shadeColor2(chosencolor, 0.15);
-
 // Descargas totales y última versión
 var total_downloads = 0;
 var last_version = "$VERSION";
@@ -130,22 +122,30 @@ $.getJSON(href_json_releases, function(json) {
 // FINAL
 jQuery(document).ready(function($) {
 
+    // Se eligen colores al azar
+    acolor = shadeColor2(wallpaper_db.color, 0.3);
+    backgroundmaincolor = shadeColor2(wallpaper_db.color, 0.98);
+    bgprecolor = shadeColor2(wallpaper_db.color, 0.9);
+    codebarcolor = shadeColor2(wallpaper_db.color, 0.4);
+    codeprecolor = shadeColor2(wallpaper_db.color, 0.2);
+    pacecolor = shadeColor2(wallpaper_db.color, 0.15);
+
     // Se define color de fondo principal antes de carga imagen
-    $('#background-page-header-colored').css('background-color', chosencolor);
+    $('#background-page-header-colored').css('background-color', wallpaper_db.color);
     $('#background-page-header-colored').fadeIn('slow');
 
     // Se cambia el color de los titulos
-    $('.main-content h1').css('color', chosencolor);
-    $('.main-content h2').css('color', chosencolor);
-    $('.main-content h3').css('color', chosencolor);
-    $('.main-content h4').css('color', chosencolor);
-    $('.main-content h5').css('color', chosencolor);
-    $('.main-content h6').css('color', chosencolor);
-    $('.menu-big-entry').css('color', chosencolor);
-    $('.menu-little-entry').css('color', chosencolor);
-    $('.section-template').css('color', chosencolor);
-    $('.que-hay-de-nuevo-blockquote h3').css('color', chosencolor);
-    $('.back-to-top').css('background-color', chosencolor);
+    $('.main-content h1').css('color', wallpaper_db.color);
+    $('.main-content h2').css('color', wallpaper_db.color);
+    $('.main-content h3').css('color', wallpaper_db.color);
+    $('.main-content h4').css('color', wallpaper_db.color);
+    $('.main-content h5').css('color', wallpaper_db.color);
+    $('.main-content h6').css('color', wallpaper_db.color);
+    $('.menu-big-entry').css('color', wallpaper_db.color);
+    $('.menu-little-entry').css('color', wallpaper_db.color);
+    $('.section-template').css('color', wallpaper_db.color);
+    $('.que-hay-de-nuevo-blockquote h3').css('color', wallpaper_db.color);
+    $('.back-to-top').css('background-color', wallpaper_db.color);
 
     // Se cambia el color de los enlaces
     // $('a').css('color', acolor);
@@ -181,13 +181,13 @@ jQuery(document).ready(function($) {
     } else {
         console.log('Utilizando versión web');
     }
-    console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', image_url, images_indx_random));
+    console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', wallpaper_db.image, wallpaper_db.index));
 
     if (!is_movile_browser && enableparallax) {
         $('#background-page-header').parallax({
-            imageSrc: image_url,
+            imageSrc: wallpaper_db.image,
             speed: 0.15,
-            positionY: image_pos,
+            positionY: wallpaper_db.position,
             positionX: 'center',
             zIndex: 1
         });
@@ -196,7 +196,7 @@ jQuery(document).ready(function($) {
         var back_img = new Image();
         back_img.onload = function() {
             $('#background-page-header').css({
-                'background': chosencolor + ' url(' + image_url + ') ' + image_pos + ' no-repeat fixed',
+                'background': wallpaper_db.color + ' url(' + wallpaper_db.image + ') ' + wallpaper_db.position + ' no-repeat fixed',
                 'background-attachment': 'fixed',
             });
             $('#background-page-header').css('-webkit-background-size', 'cover');
@@ -206,9 +206,9 @@ jQuery(document).ready(function($) {
             $('#background-page-header').css('max-width', '100%');
             $('#background-page-header').css('width', $(window).width());
             fadein_css('#background-page-header', '0.5s');
-            random_blur('#background-page-header');
+            wallpaper_db_random_blur('#background-page-header', blurprobability, blurlimits);
         }
-        back_img.src = image_url;
+        back_img.src = wallpaper_db.image;
     }
 
     // Se cambia el color de pace
