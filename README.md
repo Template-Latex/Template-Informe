@@ -3,8 +3,7 @@
     <img alt="Template-Informe" src="http://latex.ppizarror.com/Template-Informe/icon.png" width="200px" height="200px" />
   </a>
   <br /><br />
-  Template-Informe
-</h1>
+  Template-Informe</h1>
 <div align="center">Template de informe en LaTeX para tareas y trabajos</div><br />
 <div align="center"><a href="http://ppizarror.com"><img alt="@ppizarror" src="http://ppizarror.com/badges/autor.svg" /></a>
 <a href="https://opensource.org/licenses/MIT/"><img alt="Licencia MIT" src="http://ppizarror.com/badges/licensemit.svg" /></a>
