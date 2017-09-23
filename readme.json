@@ -1,0 +1,75 @@
+{
+    "PROJECT": {
+        "NAME": "Template-Informe",
+        "ICON": {
+            "IMAGE": "http://latex.ppizarror.com/Template-Informe/icon.png",
+            "ALT": "Template-Informe",
+            "WIDTH": 200,
+            "HEIGHT": 200
+        },
+        "URL": "http://latex.ppizarror.com/Template-Informe/",
+        "URL_TITLE": "Template-Informe"
+    },
+    "AUTHOR": {
+        "NAME": "Pablo Pizarro R.",
+        "URL": "http://ppizarror.com",
+        "ALT": "ppizarror",
+        "DATE": "2016 - 2017",
+        "SECTION": {
+            "TITLE": "Autor",
+            "SHOW": true
+        }
+    },
+    "DESCRIPTION": "Template de informe en LaTeX para tareas y trabajos",
+    "BADGES": {
+        "0": {
+            "IMAGE": "http://ppizarror.com/badges/autor.svg",
+            "HREF": "http://ppizarror.com",
+            "ALT": "@ppizarror"
+        },
+        "1": {
+            "IMAGE": "http://ppizarror.com/badges/licensemit.svg",
+            "HREF": "https://opensource.org/licenses/MIT/",
+            "ALT": "Licencia MIT"
+        },
+        "2": {
+            "NEWLINE": true
+        },
+        "3": {
+            "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/tesis.svg",
+            "HREF": "https://github.com/Template-Latex/Template-Tesis/",
+            "ALT": "Template-Tesis"
+        },
+        "4": {
+            "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/apunte.svg",
+            "HREF": "https://github.com/Template-Latex/Template-Apunte/",
+            "ALT": "Template-Apunte"
+        },
+        "5": {
+            "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/tareas.svg",
+            "HREF": "https://github.com/Template-Latex/Template-Tareas/",
+            "ALT": "Template-Tareas"
+        },
+        "6": {
+            "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/auxiliares.svg",
+            "HREF": "https://github.com/Template-Latex/Template-Auxiliares/",
+            "ALT": "Template-Auxiliares"
+        },
+        "7": {
+            "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/controles.svg",
+            "HREF": "https://github.com/Template-Latex/Template-Controles/",
+            "ALT": "Template-Controles"
+        },
+        "8": {
+            "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/pauta.svg",
+            "HREF": "https://github.com/Template-Latex/Template-Pautas/",
+            "ALT": "Template-Pautas"
+        },
+        "9": {
+            "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/informe.svg",
+            "HREF": "https://github.com/Template-Latex/Template-Informe/",
+            "ALT": "Template-Informe"
+        }
+    },
+    "CONTENT": "readme.content.md"
+}
