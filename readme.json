@@ -38,17 +38,20 @@
         "3": {
             "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/tesis.svg",
             "HREF": "https://github.com/Template-Latex/Template-Tesis/",
-            "ALT": "Template-Tesis"
+            "ALT": "Template-Tesis",
+            "SHOW": false
         },
         "4": {
             "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/apunte.svg",
             "HREF": "https://github.com/Template-Latex/Template-Apunte/",
-            "ALT": "Template-Apunte"
+            "ALT": "Template-Apunte",
+            "SHOW": false
         },
         "5": {
             "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/tareas.svg",
             "HREF": "https://github.com/Template-Latex/Template-Tareas/",
-            "ALT": "Template-Tareas"
+            "ALT": "Template-Tareas",
+            "SHOW": false
         },
         "6": {
             "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/auxiliares.svg",
@@ -63,7 +66,8 @@
         "8": {
             "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/pauta.svg",
             "HREF": "https://github.com/Template-Latex/Template-Pautas/",
-            "ALT": "Template-Pautas"
+            "ALT": "Template-Pautas",
+            "SHOW": false
         },
         "9": {
             "IMAGE": "http://latex.ppizarror.com/Template-Informe/resources/templates/informe.svg",
