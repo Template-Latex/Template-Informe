@@ -480,7 +480,7 @@ a.back-to-top {
     z-index: 999;
     right: 20px;
     bottom: 20px;
-    background: #27AE61 url("../resources/up-arrow.png") no-repeat center 43%;
+    background: #27AE61 url("http://latex.ppizarror.com/resources/up-arrow.png") no-repeat center 43%;
 }
 
 @media screen and (min-width: 64em) {
