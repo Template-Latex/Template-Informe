@@ -4,7 +4,7 @@
   </a>
   <br /><br />
   Template-Informe</h1>
-<div align="center">Template de informe en LaTeX para tareas y trabajos</div><br />
+<p align="center">Template de informe en LaTeX para tareas y trabajos</p>
 <div align="center"><a href="http://ppizarror.com"><img alt="@ppizarror" src="http://ppizarror.com/badges/autor.svg" /></a>
 <a href="https://opensource.org/licenses/MIT/"><img alt="Licencia MIT" src="http://ppizarror.com/badges/licenciamit.svg" /></a>
 <br><a href="https://github.com/Template-Latex/Template-Tesis/"><img alt="Template-Tesis" src="http://latex.ppizarror.com/Template-Informe/resources/templates/tesis.svg" /></a>
