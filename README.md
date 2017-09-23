@@ -6,7 +6,7 @@
   Template-Informe</h1>
 <div align="center">Template de informe en LaTeX para tareas y trabajos</div><br />
 <div align="center"><a href="http://ppizarror.com"><img alt="@ppizarror" src="http://ppizarror.com/badges/autor.svg" /></a>
-<a href="https://opensource.org/licenses/MIT/"><img alt="Licencia MIT" src="http://ppizarror.com/badges/licensemit.svg" /></a>
+<a href="https://opensource.org/licenses/MIT/"><img alt="Licencia MIT" src="http://ppizarror.com/badges/licenciamit.svg" /></a>
 <br><a href="https://github.com/Template-Latex/Template-Tesis/"><img alt="Template-Tesis" src="http://latex.ppizarror.com/Template-Informe/resources/templates/tesis.svg" /></a>
 <a href="https://github.com/Template-Latex/Template-Apunte/"><img alt="Template-Apunte" src="http://latex.ppizarror.com/Template-Informe/resources/templates/apunte.svg" /></a>
 <a href="https://github.com/Template-Latex/Template-Tareas/"><img alt="Template-Tareas" src="http://latex.ppizarror.com/Template-Informe/resources/templates/tareas.svg" /></a>
