@@ -26,4 +26,4 @@ var blurlimits = [3, 10];
 var blurprobability = 50;
 var enable_error_window = false;
 var enableparallax = false;
-var pdf_js_href = 'http://latex.ppizarror.com/Template-Informe/web/viewer.html?file=';
+var pdf_js_href = 'http://latex.ppizarror.com/pdf-version/web/viewer.html?file=';
