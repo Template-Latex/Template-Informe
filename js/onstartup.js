@@ -95,10 +95,10 @@ $.getJSON(href_json_releases, function(json) {
     // Se obtiene el what's new
     document.getElementById("github-button-header").href = href_github_project_source;
     whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
-    whats_new_versions = 7;
+    whats_new_versions = Math.min(7, json.length);
     md_converter = new showdown.Converter();
+    var new_version_entry = "";
     try {
-        var new_version_entry = "";
         for (i = 0; i < whats_new_versions; i++) {
             version_created_at = json[i].created_at.substring(0, 10);
             title_new_version = String.format('<b>Versión <a href="{2}"">{0}</b></a>: <i class="fecha-estilo">{1}</i>', json[i].tag_name, version_created_at, json[i].html_url);
