@@ -55,12 +55,12 @@
         },
         "6": {
             "IMAGE": "http://latex.ppizarror.com/badges/auxiliares.svg",
-            "HREF": "https://github.com/Template-Latex/Template-Auxiliares/",
+            "HREF": "http://latex.ppizarror.com/stats/?template=Auxiliares",
             "ALT": "Template-Auxiliares"
         },
         "7": {
             "IMAGE": "http://latex.ppizarror.com/badges/controles.svg",
-            "HREF": "https://github.com/Template-Latex/Template-Controles/",
+            "HREF": "http://latex.ppizarror.com/stats/?template=Controles",
             "ALT": "Template-Controles"
         },
         "8": {
@@ -71,8 +71,13 @@
         },
         "9": {
             "IMAGE": "http://latex.ppizarror.com/badges/informe.svg",
-            "HREF": "https://github.com/Template-Latex/Template-Informe/",
+            "HREF": "http://latex.ppizarror.com/stats/?template=Informe",
             "ALT": "Template-Informe"
+        },
+        "10": {
+            "IMAGE": "http://latex.ppizarror.com/badges/professionalcv.svg",
+            "HREF": "http://latex.ppizarror.com/stats/?template=Professional-CV",
+            "ALT": "Professional-CV"
         }
     },
     "CONTENT": "readme.content.md"
