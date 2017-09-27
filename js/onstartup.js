@@ -21,18 +21,17 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// Descargas totales y última versión
-var total_downloads = 0;
+var github_changelog = false;
 var last_version = "$VERSION";
 var last_version_link = "$VERSION_LINK";
-var github_changelog = false;
+var new_version_entry = "";
+var pdf_href_lastv;
+var total_downloads = 0;
 
 // Se añaden las descargas del template base
 $.getJSON(href_json_releases, function(json) {
 
-    // Escribe los badges
-    // writeBadges();
-
+    // Se cargan los datos del json
     for (i = 0; i < json.length; i++) {
         try {
             for (j = 0; j < json[i].assets.length; j++) {
@@ -88,7 +87,7 @@ $.getJSON(href_json_releases, function(json) {
     $('#buttonfilectext').fadeIn('slow');
 
     // Se establece la última versión del pdf
-    var pdf_href_lastv = pdf_js_href + String.format(href_pdf_version, last_version);
+    pdf_href_lastv = pdf_js_href + String.format(href_pdf_version, last_version);
     document.getElementById("template-preview-pdf").href = pdf_href_lastv;
     $(".badgeejemplopdf").prop("href", pdf_href_lastv);
 
@@ -97,7 +96,6 @@ $.getJSON(href_json_releases, function(json) {
     whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
     whats_new_versions = Math.min(7, json.length);
     md_converter = new showdown.Converter();
-    var new_version_entry = "";
     try {
         for (i = 0; i < whats_new_versions; i++) {
             version_created_at = json[i].created_at.substring(0, 10);
@@ -117,6 +115,9 @@ $.getJSON(href_json_releases, function(json) {
 
     // Se actualizan los colores del whatsnew
     $('#que-hay-de-nuevo blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
+
+    // Se llama a afterJSON
+    afterJSONLoad();
 });
 
 // FINAL
@@ -251,4 +252,7 @@ jQuery(document).ready(function($) {
             $('a.back-to-top').fadeOut('slow');
         }
     });
+
+    // Se llama a la función de cada template después de cargar
+    afterDocumentReady();
 });

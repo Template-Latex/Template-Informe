@@ -29,3 +29,8 @@ var href_pdf_version = '../Informe/Template-Informe v{0}.pdf';
 var href_resources_folder = 'http://latex.ppizarror.com/resources/';
 var stats_name = 'Informe';
 var update_download_counter = 'Template-Informe';
+
+// Declaración de funciones propias de cada template
+function afterDocumentReady() {}
+
+function afterJSONLoad() {}
