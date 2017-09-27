@@ -911,13 +911,13 @@ a:hover {
 
 @media screen and (min-width: 64em) {
     .menu-little-entry {
-        font-size: 16px;
+        font-size: 17px;
     }
 }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .menu-little-entry {
-        font-size: 14.5px;
+        font-size: 15px;
     }
 }
 
