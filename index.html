@@ -212,7 +212,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             </ul>
             <p>
                 <a id="empezando-con-el-template"></a> Este proyecto corresponde a un template para confeccionar geniales informes en
-                <img src="http://latex.ppizarror.com/resources/latex.png" alt="LaTeX" class="lateximg">, contiene múltiples funciones para insertar imágenes, fórmulas, párrafos y títulos de forma sencilla, sin tener que recurrir a las largas instrucciones que ofrece Latex por defecto.
+                <img src="http://latex.ppizarror.com/resources/latex.png" alt="LaTeX" class="lateximg">, contiene múltiples funciones para insertar imágenes, fórmulas, párrafos y títulos de forma sencilla, sin tener que recurrir a las largas instrucciones
+                que ofrece Latex por defecto.
             </p>
 
             <img src="images/collage.png" alt="Informe" width="80%" style="margin: auto; display: block;">
@@ -221,7 +222,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 Para crear un informe con este template debes primero <a href="#configurando-el-documento">editar la información del documento</a> (título, nombre de la universidad, etc) en la sección
 
                 <em class="section-template">INFORMACIÓN DEL DOCUMENTO</em>
-                <font title='Línea 19 en versión compacta' style='cursor: pointer;'>(línea 18)</font> <i id="linea-informacion-documento"></i> del archivo principal <i><a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>, luego <a href="tabla-integrantes">editar la tabla</a> de datos de la portada en la sección
+                <font title='Línea 19 en versión compacta' style='cursor: pointer;'>(línea 18)</font> <i id="linea-informacion-documento"></i> del archivo principal <i><a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>, luego <a href="tabla-integrantes">editar la tabla</a>                de datos de la portada en la sección
                 <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <i id="linea-integrantes"></i>
                 <font title='Línea 34 en versión compacta' style='cursor: pointer;'>(línea 33)</font> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del <em class="section-template">RESUMEN O ABSTRACT</em>
                 <font title='Línea 216 en versión compacta' style='cursor: pointer;'>(línea 95)</font> o en la <b>sección principal</b> del documento
@@ -229,7 +230,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 <font title='Línea 227 en versión compacta' style='cursor: pointer;'>(línea 106)</font><i id="linea-inicio"></i>.
             </p>
             <p>
-                Existe además una versión <b>compacta</b> en donde se encuentra todo el código en un sólo archivo si es que no prefieres los archivos por separado. Para ver más información sobre cómo utilizar las funciones exclusivas del template, o cómo configurar a gusto el template, visita el resto de las secciones de este manual.
+                Existe además una versión <b>compacta</b> en donde se encuentra todo el código en un sólo archivo si es que no prefieres los archivos por separado. Para ver más información sobre cómo utilizar las funciones exclusivas del template, o cómo
+                configurar a gusto el template, visita el resto de las secciones de este manual.
             </p>
 
             <!-- Configurando el documento -->
@@ -354,7 +356,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			</a> Añadiendo integrantes, profesores, auxiliares y fechas
 		</h2>
             <p>
-                Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> del archivo principal (<a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex">main.tex</a>), en ella se encuentra una <b>tabla</b> la cual contiene la información de los integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
+                Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> del archivo principal (<a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex">main.tex</a>),
+                en ella se encuentra una <b>tabla</b> la cual contiene la información de los integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
             </p>
 
             <!-- Insertar párrafos, figuras, fórmulas, citas y otros -->
@@ -417,7 +420,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                     <li class="li-code-parent">
                         <strong class="functtitlstyle">Añadir una imagen <a id="hlp-imagen"></a></strong>
                         <p>
-                            Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la configuración <a href="#config-otros">\defaultimagefolder</a>, por defecto la carpeta <strong>images/</strong>), sus parámetros y la leyenda (la cual es opcional).
+                            Las funciones para añadir imágenes requieren del nombre de la imagen (el archivo almacenado en el directorio definido por la configuración <a href="#config-otros">\defaultimagefolder</a>, por defecto la carpeta <strong>images/</strong>),
+                            sus parámetros y la leyenda (la cual es opcional).
                         </p>
                         <p>
                             Los parámetros pueden ser <strong>scale=0.5</strong>, <strong>width=5cm</strong>, <strong>width=50%</strong>, <strong>angle=45</strong>, etc.
@@ -432,7 +436,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                 </blockquote>
                             </li>
                             <li>
-                                <strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen recuadrada.
+                                <strong>\insertimageboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Parámetros</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta
+                                una imagen recuadrada.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertimageboxed</span><b>[]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.5<b>}</b><b>{</b>0.5<b>}</b><b>{</b><b>}</b></pre>
@@ -441,7 +446,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             </li>
                             <hr class="style10">
                             <li>
-                                <strong>\insertdoubleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>: Inserta dos imágenes en un sólo elemento.
+                                <strong>\insertdoubleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+                                Inserta dos imágenes en un sólo elemento.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertdoubleimage</span><b>[</b><span class="pl-c1">\label</span>{img-double-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b><span class="pl-v">scale</span>=0.4<b>}</b><b>{</b>Descripción A<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b><span class="pl-v">width</span>=5cm<b>}</b><b>{</b>Descripción B<b>}</b><b>{</b>Descripción general de las imágenes<b>}</b></pre>
@@ -449,7 +455,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                 </blockquote>
                             </li>
                             <li>
-                                <strong>\insertdoubleeqimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Parámetros generales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>: Inserta dos imágenes en un sólo elemento utilizando los mismos parámetros (estilos de imagen).
+                                <strong>\insertdoubleeqimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Leyenda 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Leyenda 2</em><b>}</b><b>{</b><em>Parámetros generales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+                                Inserta dos imágenes en un sólo elemento utilizando los mismos parámetros (estilos de imagen).
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertdoubleeqimage</span><b>[</b><span class="pl-c1">\label</span>{img-equal}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>Descripción A<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>Descripción B<b>}</b><b>{</b><span class="pl-v">height</span>=5cm<b>}</b><b>{</b>Descripción general de las imágenes<b>}</b></pre>
@@ -458,7 +465,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             </li>
                             <hr class="style10">
                             <li>
-                                <strong>\inserttripleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Parámetros 3</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>: Inserta tres imágenes en un sólo elemento.
+                                <strong>\inserttripleimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Parámetros 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Parámetros 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Parámetros 3</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+                                Inserta tres imágenes en un sólo elemento.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\inserttripleimage</span><b>[</b><span class="pl-c1">\label</span>{img-triple-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b><span class="pl-v">scale</span>=0.4<b>}</b><b>{</b>ejemplos/test-<span class="newline_br"></span>image-2.png<b>}</b><b>{</b><span class="pl-v">height</span>=6cm<b>}</b><b>{</b>ejemplos/test-image-3.pdf<b>}</b><b>{</b><span class="pl-v">width</span>=3cm<b>}</b><b>{</b>Descripción general<b>}</b></pre>
@@ -466,7 +474,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                 </blockquote>
                             </li>
                             <li>
-                                <strong>\inserttripleeqimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Parámetros generales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>: Inserta tres imágenes en un sólo elemento utilizando los mismos parámetros (estilos de imagen).
+                                <strong>\inserttripleeqimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Parámetros generales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+                                Inserta tres imágenes en un sólo elemento utilizando los mismos parámetros (estilos de imagen).
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\inserttripleeqimage</span><b>[</b><span class="pl-c1">\label</span>{img-triple}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.png<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.pdf<b>}</b><b>{</b><span class="pl-v">scale</span>=0.6<b>}</b><b>{</b>Descripción general<b>}</b></pre>
@@ -475,7 +484,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             </li>
                             <hr class="style10">
                             <li>
-                                <strong>\insertquadimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>: Inserta cuatro imágenes en un sólo elemento.
+                                <strong>\insertquadimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+                                Inserta cuatro imágenes en un sólo elemento.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertquadimage</span><b>[</b><span class="pl-c1">\label</span>{img-quad-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b><span class="pl-v">width</span>=6cm<b>}</b><b>{</b>Descripción general<b>}</b></pre>
@@ -483,7 +493,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                 </blockquote>
                             </li>
                             <li>
-                                <strong>\insertpentaimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Dirección de la imagen 5</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>: Inserta cinco imágenes en un sólo elemento.
+                                <strong>\insertpentaimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Dirección de la imagen 5</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+                                Inserta cinco imágenes en un sólo elemento.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertpentaimage</span><b>[</b><span class="pl-c1">\label</span>{img-penta-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b>ejemplos/test-image-5.jpg<b>}</b><b>{</b><span class="pl-v">scale</span>=0.7<b>}</b><span class="newline_br"></span><b>{</b>Descripción general<b>}</b></pre>
@@ -491,7 +502,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                 </blockquote>
                             </li>
                             <li>
-                                <strong>\inserthexaimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Dirección de la imagen 5</em><b>}</b><b>{</b><em>Dirección de la imagen 6</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>: Inserta seis imágenes en un sólo elemento.
+                                <strong>\inserthexaimage</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Dirección de la imagen 1</em><b>}</b><b>{</b><em>Dirección de la imagen 2</em><b>}</b><b>{</b><em>Dirección de la imagen 3</em><b>}</b><b>{</b><em>Dirección de la imagen 4</em><b>}</b><b>{</b><em>Dirección de la imagen 5</em><b>}</b><b>{</b><em>Dirección de la imagen 6</em><b>}</b><b>{</b><em>Parámetros globales</em><b>}</b><b>{</b><em>Leyenda general</em><b>}</b>:
+                                Inserta seis imágenes en un sólo elemento.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\inserthexaimage</span><b>[</b><span class="pl-c1">\label</span>{img-hexa-1}</span><b>]</b><b>{</b>ejemplos/test-image.jpg<b>}</b><b>{</b>ejemplos/test-image-2.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-3.jpg<b>}</b><b>{</b>ejemplos/test-image-4.jpg<b>}</b><b>{</b>ejemplos/test-image-5.jpg<b>}</b><span class="newline_br"></span><b>{</b>ejemplos/test-image-6.jpg<b>}</b><b>{</b><span class="pl-v">width</span>=4cm, <span class="pl-v">height</span>=5cm<b>}{</b>Descripción general<b>}</b></pre>
@@ -500,7 +512,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             </li>
                             <hr class="style10">
                             <li>
-                                <strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la izquierda de un párrafo.
+                                <strong>\insertimageleft</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada
+                                a la izquierda de un párrafo.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertimageleft</span><b>[</b><span class="pl-c1">\label</span>{img-left-1}</span><b>]</b><b>{</b>ejemplos/test-image-wrap.jpg<b>}</b><b>{</b>0.25<b>}</b><b>{</b>Descripción<b>}</b></pre>
@@ -508,7 +521,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                 </blockquote>
                             </li>
                             <li>
-                                <strong>\insertimageleftline</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la izquierda de un párrafo con un número de líneas fijo.
+                                <strong>\insertimageleftline</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+                                Inserta una imagen alineada a la izquierda de un párrafo con un número de líneas fijo.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertimageleftline</span><b>[]</b><b>{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.25<b>}</b><b>{</b>15<b>}</b><b>{</b>Descripción<b>}</b></pre>
@@ -517,7 +531,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             </li>
                             <hr class="style10">
                             <li>
-                                <strong>\insertimageleftboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la izquierda de un párrafo, encerrada en un recuadro.
+                                <strong>\insertimageleftboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+                                Inserta una imagen alineada a la izquierda de un párrafo, encerrada en un recuadro.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertimageleftboxed</span><b>{</b>ejemplos/test-image-wrap.jpg<b>}</b><b>{</b>0.25<b>}</b><b>{</b>0.5<b>}</b><b>{</b>Descripción<b>}</b></pre>
@@ -525,7 +540,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                 </blockquote>
                             </li>
                             <li>
-                                <strong>\insertimageleftlineboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la izquierda de un párrafo con un número de líneas fijo, encerrada en un recuadro.
+                                <strong>\insertimageleftlineboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+                                Inserta una imagen alineada a la izquierda de un párrafo con un número de líneas fijo, encerrada en un recuadro.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertimageleftlineboxed</span><b>[</b><span class="pl-c1">\label</span>{img-leftbox-1}</span><b>]</b><b>{</b>ejemplos/test-image<b>}</b><b>{</b>0.25<b>}</b><b>{</b>15<b>}</b><b>{</b>0.7<b>}</b><b>{</b><b>}</b></pre>
@@ -534,7 +550,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             </li>
                             <hr class="style10">
                             <li>
-                                <strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la derecha de un párrafo.
+                                <strong>\insertimageright</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada
+                                a la derecha de un párrafo.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertimageright</span><b>[]{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.21<b>}</b><b>{</b>Descripción<b>}</b></pre>
@@ -542,7 +559,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                 </blockquote>
                             </li>
                             <li>
-                                <strong>\insertimagerightline</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la derecha de un párrafo con un número de líneas fijo.
+                                <strong>\insertimagerightline</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+                                Inserta una imagen alineada a la derecha de un párrafo con un número de líneas fijo.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertimagerightline</span><b>[</b><span class="pl-c1">\label</span>{img-right-1}</span><b>]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>Descripción<b>}</b></pre>
@@ -551,7 +569,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             </li>
                             <hr class="style10">
                             <li>
-                                <strong>\insertimagerightboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la derecha de un párrafo, encerrada en un recuadro.
+                                <strong>\insertimagerightboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+                                Inserta una imagen alineada a la derecha de un párrafo, encerrada en un recuadro.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertimagerightboxed</span><b>[</b><span class="pl-c1">\label</span>{img-box-r}</span><b>]{</b>ejemplos/test-image<b>}</b><b>{</b>0.21<b>}</b><b>{</b>1.0<b>}</b><b>{</b><b>}</b></pre>
@@ -559,7 +578,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                 </blockquote>
                             </li>
                             <li>
-                                <strong>\insertimagerightlineboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una imagen alineada a la derecha de un párrafo con un número de líneas fijo, encerrada en un recuadro.
+                                <strong>\insertimagerightlineboxed</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Archivo</em><b>}</b><b>{</b><em>Ancho de la imagen (en textwidth)</em><b>}</b><b>{</b><em>Número de líneas a usar</em><b>}</b><b>{</b><em>Ancho de la línea</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>:
+                                Inserta una imagen alineada a la derecha de un párrafo con un número de líneas fijo, encerrada en un recuadro.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertimagerightlineboxed</span><b>[]{</b>ejemplos/test-image-wrap<b>}</b><b>{</b>0.21<b>}</b><b>{</b>22<b>}</b><b>{</b>0.6<b>}</b><b>{</b>Descripción<b>}</b></pre>
@@ -572,7 +592,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                         <strong class="functtitlstyle">Insertar una fórmula en el documento <a id="hlp-formulae"></a></strong>
                         <p>Las funciones existentes consideran tanto la fórmula en sí (escrita en bruto, sin los <b>$</b>) como la leyenda para las funciones tipo <i>captioned</i>.</p>
                         <p>
-                            Todas las funciones siguientes tienen su versión <b>anum</b>, la cual <b>no</b> enumera la ecuación. Por ejemplo: <i>\insertequation<b>anum</b>{Fórmula}</i>, <i>\insertalign<b>anum</b>{Fórmula}</i>, <i>\insertequationcaptioned<b>anum</b>{Fórmula}{Leyenda}</i>. Dado que las versiones <b>anum</b> no tienen número, <b>NO</b> se puede añadir un label al comando.
+                            Todas las funciones siguientes tienen su versión <b>anum</b>, la cual <b>no</b> enumera la ecuación. Por ejemplo: <i>\insertequation<b>anum</b>{Fórmula}</i>, <i>\insertalign<b>anum</b>{Fórmula}</i>, <i>\insertequationcaptioned<b>anum</b>{Fórmula}{Leyenda}</i>.
+                            Dado que las versiones <b>anum</b> no tienen número, <b>NO</b> se puede añadir un label al comando.
                         </p>
                         <ul>
                             <li>
@@ -597,7 +618,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             <hr class="style10">
 
                             <li>
-                                <strong>\insertgather</strong><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>gather</b>, permite insertar nuevas líneas con <b>\\</b> y centra todas las fórmulas. Cada nueva línea tiene un propio número de ecuación. No se pueden usar <i>\label</i>.
+                                <strong>\insertgather</strong><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>gather</b>, permite insertar nuevas líneas con <b>\\</b> y centra todas las fórmulas. Cada nueva línea tiene un propio
+                                número de ecuación. No se pueden usar <i>\label</i>.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertgather</span><b>{</b><span class="pl-c1">\Delta</span> = <span class="pl-c1">\begin</span>{bmatrix}y&x\\z&w<span class="pl-c1">\end</span>{bmatrix}<span class="pl-c1">\cdot</span> f(x)<b>}</b></pre>
@@ -612,7 +634,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             <hr class="style10">
 
                             <li>
-                                <strong>\insertgathered</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gathered</b>, permite insertar nuevas líneas con <b>\\</b> y centra todas las fórmulas. Todas las líneas tienen sólo 1 número de ecuación por lo que esta puede tener etiqueta o un <i>\label</i>.
+                                <strong>\insertgathered</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gathered</b>, permite insertar
+                                nuevas líneas con <b>\\</b> y centra todas las fórmulas. Todas las líneas tienen sólo 1 número de ecuación por lo que esta puede tener etiqueta o un <i>\label</i>.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertgathered</span><b>[</b><span class="pl-c1">\label</span>{formula-4}<b>]</b><b>{</b><span class="pl-c1">\iint_</span>{a}^{b} f(y) \dy<b>}</b></pre>
@@ -627,7 +650,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             <hr class="style10">
 
                             <li>
-                                <strong>\insertalign</strong><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>align</b> el cual permite insertar nuevas líneas con <b>\\</b> y ajusta un alineado especial con respecto a los <b>=</b> de cada fórmula. Cada nueva línea tiene un propio número de ecuación. No se pueden usar <i>\label</i>.
+                                <strong>\insertalign</strong><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>align</b> el cual permite insertar nuevas líneas con <b>\\</b> y ajusta un alineado especial con respecto a los <b>=</b>                                de cada fórmula. Cada nueva línea tiene un propio número de ecuación. No se pueden usar <i>\label</i>.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\insertalign</span><b>{</b>F(<span class="pl-c1">\vec</span>{f},y, y') = <span class="pl-c1">\widehat</span>{<<span class="pl-c1">\vec</span>{f},y>} <span class="pl-c1">\times</span> y'<b>}</b></pre>
@@ -642,7 +665,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             <hr class="style10">
 
                             <li>
-                                <strong>\insertaligned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>aligned</b> el cual permite insertar nuevas líneas, y ajusta un alineado especial con respecto a los
+                                <strong>\insertaligned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b>: Inserta una fórmula con el entorno <b>aligned</b> el cual permite insertar nuevas líneas, y ajusta un alineado especial
+                                con respecto a los
                                 <b>=</b> de cada fórmula. Todas las líneas tienen sólo 1 número de ecuación por lo que esta puede tener etiqueta o un <i>\label</i>.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
@@ -750,7 +774,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                 </blockquote>
                             </li>
                             <li>
-                                <strong>\fracnpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2. \frac{\partial {f}^{n+m}}{\partial {x}^{n+m}} =
+                                <strong>\fracnpartial</strong><b>{</b><em>a</em><b>}</b><b>{</b><em>b</em><b>}</b><b>{</b><em>c</em><b>}</b>: Crea una fracción de derivadas parciales a la n al estilo ∂^c a/∂b^2. \frac{\partial {f}^{n+m}}{\partial {x}^{n+m}}
+                                =
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
                                         <pre><span class="pl-e">\fracnpartial</span><b>{</b>f<b>}</b><b>{</b>x<b>}</b><b>{</b>n+m<b>}</b> = <span class="pl-c1">\widehat</span>{<span class="pl-e">\fracnpartial</span><b>{</b>h<b>}</b><b>{</b>x<b>}</b><b>{</b>n<b>}</b> + <span class="pl-e">\fracnpartial</span><b>{</b>g<b>}</b><b>{</b>x<b>}</b><b>{</b>m<b>}</b>}</pre>
@@ -869,7 +894,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                         <br> - Establecer configuración <span class="pl-c1">\stylecitereferences</span>{bibtex}.
                                     </li>
                                     <hr class="style10">
-                                    <li><b>Apacite</b>: Es un sistema de referencias más complejo, para ello se deben guardar las referencias en un archivo <i>.bib</i> como <a href="https://github.com/ppizarror/Template-Informe/blob/master/test.bib">este ejemplo</a>, luego para insertar las referencias y citar se realiza lo siguiente:
+                                    <li><b>Apacite</b>: Es un sistema de referencias más complejo, para ello se deben guardar las referencias en un archivo <i>.bib</i> como <a href="https://github.com/ppizarror/Template-Informe/blob/master/test.bib">este ejemplo</a>,
+                                        luego para insertar las referencias y citar se realiza lo siguiente:
                                         <blockquote>
                                             <div class="highlight highlight-text-tex">
                                                 <pre>Para citar de forma abreviada se usa <span class="pl-c1">\shortcite</span>{braas}.
@@ -903,7 +929,8 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
                     <li class="li-code-parent">
                         <strong class="functtitlstyle">Añadir código fuente<a id="hlp-srccode"></a></strong>
                         <p>
-                            Para añadir código fuente el template da soporte por defecto a la librería <a href="https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings">listings</a>. Se da formato a los siguientes lenguajes: <b>C, Python, Matlab</b>. Para insertar código se debe realizar lo siguiente:
+                            Para añadir código fuente el template da soporte por defecto a la librería <a href="https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings">listings</a>. Se da formato a los siguientes lenguajes: <b>C, Python, Matlab</b>.
+                            Para insertar código se debe realizar lo siguiente:
                         </p>
                         <blockquote>
                             <div class="highlight highlight-text-tex">
@@ -935,7 +962,8 @@ def incmatrix(genl1, genl2):
                                 <strong>\insertemptypage</strong>: Inserta una página vacía (sin headers ni contenido).
                             </li>
                             <li>
-                                <strong>\insertindextitle</strong><b>{</b><em>Título</em><b>}</b><b>{</b><em>Margen vertical <i>(opcional)</i> [px]</em><b>}</b>: Inserta un título sólo en el índice. <b>Nota:</b> para utilizar esta función se debe haber creado una sección antes.
+                                <strong>\insertindextitle</strong><b>{</b><em>Título</em><b>}</b><b>{</b><em>Margen vertical <i>(opcional)</i> [px]</em><b>}</b>: Inserta un título sólo en el índice. <b>Nota:</b> para utilizar esta función se debe haber
+                                creado una sección antes.
                             </li>
                             <li>
                                 <strong>\itemresize</strong><b>{</b><em>Factor (en textwidth)</em><b>}</b><b>{</b><em>Objeto</em><b>}</b>: Ajusta un objeto utilizando la función <b>\resizebox</b>.
@@ -966,7 +994,8 @@ def incmatrix(genl1, genl2):
 		</a> Configurar el template
 		</h2>
                 <p>
-                    También se pueden modificar los márgenes de la página, el estilo de referencia a usar, los márgenes de los títulos de tablas y figuras <em>(caption)</em>, el tamaño de los títulos de las secciones, etc. Estas configuraciones se encuentran en el archivo
+                    También se pueden modificar los márgenes de la página, el estilo de referencia a usar, los márgenes de los títulos de tablas y figuras <em>(caption)</em>, el tamaño de los títulos de las secciones, etc. Estas configuraciones se encuentran
+                    en el archivo
                     <a href="https://github.com/Template-Latex/Template-Informe/blob/master/lib/config.tex">lib/config.tex</a> y son importadas en el bloque de
                     <em class="section-template">CONFIGURACIONES</em> en el archivo principal.
                 </p>
@@ -979,7 +1008,8 @@ def incmatrix(genl1, genl2):
                         <strong class="functtitlstyle">Configuraciones generales<a id="config-other"></a></strong>
                         <ul>
                             <li>
-                                <strong>\addemptypagetwosides</strong>: Añade páginas en blanco después de la portada, el resumen y el índice de manera inteligente al imprimir en doble cara; el índice siempre se imprimirá en una plana impar, así como el contenido del informe.
+                                <strong>\addemptypagetwosides</strong>: Añade páginas en blanco después de la portada, el resumen y el índice de manera inteligente al imprimir en doble cara; el índice siempre se imprimirá en una plana impar, así como
+                                el contenido del informe.
                             </li>
                             <li>
                                 <strong>\defaultinterline</strong>: Tamaño del interlineado.
@@ -1403,7 +1433,8 @@ def incmatrix(genl1, genl2):
 		</h2>
                 <p>
                     Las librerías se listan en el archivo lib/<a href="https://github.com/ppizarror/Template-Informe/blob/master/lib/imports.tex">imports.tex</a> y se cargan en la sección
-                    <em class="section-template">LIBRERÍAS INDEPENDIENTES</em> y <em class="section-template">LIBRERÍAS DEPENDIENTES</em>, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación de otras, o que su importación no genera algún error.
+                    <em class="section-template">LIBRERÍAS INDEPENDIENTES</em> y <em class="section-template">LIBRERÍAS DEPENDIENTES</em>, en librerías independientes se cargan las librerías que, como bien dice su nombre, no dependen de la previa importación
+                    de otras, o que su importación no genera algún error.
                 </p>
                 <p>
                     Las librerías utilizadas por el template son:
@@ -1613,15 +1644,10 @@ def incmatrix(genl1, genl2):
                 </div>
 
                 <!-- Autor -->
-                <h2>
-					<a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor
-				</h2>
-                <p><a href="http://ppizarror.com/">Pablo Pizarro R.</a> | 2016-2017</p>
+                <h2><a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor</h2>
+                <p><a href="http://ppizarror.com/">Pablo Pizarro</a> | 2017</p>
                 <p>Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.</p>
-                <br>
-                <br>
-                <br>
-                <br>
+
         </section>
     </div>
 </body>

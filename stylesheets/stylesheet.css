@@ -538,7 +538,7 @@ a.back-to-top {
 
 @media screen and (min-width: 64em) {
     .iconbutton {
-        top: 4px;
+        top: 3px;
         width: 16px;
         height: 16px
     }
@@ -838,7 +838,7 @@ a:hover {
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .lateximg {
-        top: 6px;
+        top: 5px;
         position: relative;
         height: 18px;
     }
