@@ -272,6 +272,10 @@
     display: none;
 }
 
+#badgeslistdiv {
+    display: none;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

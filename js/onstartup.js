@@ -123,6 +123,9 @@ $.getJSON(href_json_releases, function(json) {
 // FINAL
 jQuery(document).ready(function($) {
 
+    // Se escriben los badges
+    writeBadges();
+
     // Se eligen colores al azar
     acolor = shadeColor2(wallpaper_db.color, 0.3);
     backgroundmaincolor = shadeColor2(wallpaper_db.color, 0.98);
