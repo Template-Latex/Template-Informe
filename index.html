@@ -72,6 +72,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <script type="text/javascript" src="js/smooth-scroll.min.js"></script>
     <script type="text/javascript" src="js/pace.min.js"></script>
     <script type="text/javascript" src="js/onstartup.min.js"></script>
+
+    <!-- Photoswipe -->
+    <link rel="stylesheet" href="stylesheets/photoswipe.min.css">
+    <link rel="stylesheet" href="stylesheets/default-skin/default-skin.min.css">
+    <script src="js/photoswipe.min.js"></script>
+    <script src="js/photoswipe-ui-default.min.js"></script>
 </head>
 
 <body>
@@ -1015,7 +1021,7 @@ def incmatrix(genl1, genl2):
                                 <strong>\hfstyle</strong>: Estilo del encabezado y pié de página (header-footer), existen 7 estilos distintos .
                             </li>
                             <li>
-                                <strong>\portraitstyle</strong>: Estilo de la portada, existen 15 estilos distintos.
+                                <strong>\portraitstyle</strong>: Estilo de la portada, existen <a href="javascript:openPhotoSwipe()" id="openportaitstyle">16 estilos distintos</a>.
                             </li>
                         </ul>
                     </li>
@@ -1617,6 +1623,42 @@ def incmatrix(genl1, genl2):
                 <h2><a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor</h2>
                 <p><a href="http://ppizarror.com/">Pablo Pizarro</a> | 2017</p>
                 <p>Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.</p>
+
+                <!-- PhotoSwipe -->
+                <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="pswp__bg"></div>
+                    <div class="pswp__scroll-wrap">
+                        <div class="pswp__container">
+                            <div class="pswp__item"></div>
+                            <div class="pswp__item"></div>
+                            <div class="pswp__item"></div>
+                        </div>
+                        <div class="pswp__ui pswp__ui--hidden">
+                            <div class="pswp__top-bar">
+                                <div class="pswp__counter"></div>
+                                <button class="pswp__button pswp__button--close" title="Cerrar (Esc)"></button>
+                                <button class="pswp__button pswp__button--share" title="Compartir"></button>
+                                <button class="pswp__button pswp__button--fs" title="Cerrar pantalla completa"></button>
+                                <button class="pswp__button pswp__button--zoom" title="Zoom"></button>
+                                <div class="pswp__preloader">
+                                    <div class="pswp__preloader__icn">
+                                        <div class="pswp__preloader__cut">
+                                            <div class="pswp__preloader__donut"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                                <div class="pswp__share-tooltip"></div>
+                            </div>
+                            <button class="pswp__button pswp__button--arrow--left" title="Anterior (Flecha izquierda)"></button>
+                            <button class="pswp__button pswp__button--arrow--right" title="Siguiente (Flecha derecha)"></button>
+                            <div class="pswp__caption">
+                                <div class="pswp__caption__center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
         </section>
     </div>

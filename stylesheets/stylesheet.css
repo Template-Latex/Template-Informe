@@ -116,6 +116,24 @@
     margin-left: 12px;
 }
 
+.codegallerytitle {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0px;
+    padding-bottom: 1px;
+    position: relative;
+    bottom: 1px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: normal;
+    color: #567482;
+    word-wrap: normal;
+    border-radius: .3rem;
+    font-size: 13px;
+}
+
 .pace {
     -webkit-pointer-events: none;
     pointer-events: none;
@@ -889,8 +907,7 @@ a:hover {
     padding-left: 3%;
 }
 
-.menu-big-entry {
-}
+.menu-big-entry {}
 
 @media screen and (min-width: 64em) {
     .menu-big-entry {
@@ -910,8 +927,7 @@ a:hover {
     }
 }
 
-.menu-little-entry {
-}
+.menu-little-entry {}
 
 @media screen and (min-width: 64em) {
     .menu-little-entry {

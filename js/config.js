@@ -31,6 +31,32 @@ var stats_name = 'Informe';
 var update_download_counter = 'Template-Informe';
 
 // Declaración de funciones propias de cada template
-function afterDocumentReady() {}
+var openPhotoSwipe;
+
+function afterDocumentReady() {
+    // Muestra las portadas
+    openPhotoSwipe = function() {
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        var items = [];
+        for (var i = 1; i <= 16; i++) {
+            items.push({
+                src: String.format('images/portada{0}.png', i),
+                w: 544,
+                h: 704,
+                title: String.format('<b>Portada {0}</b> (<div class="codegallerytitle">\\portraitstyle=style{0}</div>)', i)
+            })
+        }
+        var options = {
+            index: 0,
+            showAnimationDuration: 400,
+            hideAnimationDuration: 400,
+            shareEl: false,
+            counterEl: true,
+            history: true
+        };
+        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+    };
+}
 
 function afterJSONLoad() {}
