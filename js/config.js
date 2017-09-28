@@ -31,11 +31,10 @@ var stats_name = 'Informe';
 var update_download_counter = 'Template-Informe';
 
 // Declaración de funciones propias de cada template
-var openPhotoSwipe;
+var portraitGallery; // Muestra la galería de portadas
 
 function afterDocumentReady() {
-    // Muestra las portadas
-    openPhotoSwipe = function() {
+    portraitGallery = function() {
         var pswpElement = document.querySelectorAll('.pswp')[0];
         var items = [];
         for (var i = 1; i <= 16; i++) {
