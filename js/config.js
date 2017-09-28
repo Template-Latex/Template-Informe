@@ -55,7 +55,11 @@ function afterDocumentReady() {
             history: true
         };
         var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.listen('close', function() {
+            $('a.back-to-top').fadeIn('slow');
+        });
         gallery.init();
+        $('a.back-to-top').fadeOut('slow');
     };
 }
 
