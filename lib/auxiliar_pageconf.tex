@@ -8,8 +8,8 @@
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
-% Licencia: MIT           [https://opensource.org/licenses/MIT]
+% Sitio web:    [http://latex.ppizarror.com/Template-Auxiliares/]
+% Licencia MIT: [https://opensource.org/licenses/MIT]
 
 % COMPILACION
 % - Reemplaza cada bloque en lib/pageconfs.tex
@@ -47,9 +47,9 @@
 		}
 		\renewcommand{\headrulewidth}{0.5pt}
 		\setpagemargincm{\pagemarginleft}{2.0}{\pagemarginright}{\pagemarginbottom}
-		\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
-		\fancyfoot[R]{\small \rm \nouppercase{\thepage}}   % Footer der, curso
-		\renewcommand{\footrulewidth}{0.5pt}               % Ancho de la barra del footer
+		\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título
+		\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
+		\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 	}
 	\thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
 	\begin{center}
@@ -86,7 +86,7 @@
 		\fancyfoot[L]{} % Footer izq
 		\fancyfoot[C]{\thepage} % Footer centro
 		\fancyfoot[R]{} % Footer der
-		\renewcommand{\footrulewidth}{0pt}               % Ancho de la barra del footer
+		\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
 	}
 	\thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
 	\begin{center}
@@ -107,9 +107,12 @@
 	\throwbadconfigondoc{Estilo de template incorrecto}{\templatestyle}{style1,style2}}
 }
 
-% Tamaño fuentes
-\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
-\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
-\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
+% Numeración de objetos
+\ifthenelse{\equal{\showsectiononcaption}{true}}{
+	\counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
+	\counterwithin{figure}{section}     % Añade número de sección a las figuras
+	\counterwithin{lstlisting}{section} % Añade número de sección a los códigos
+	\counterwithin{table}{section}      % Añade número de sección a las tablas
+}{}
 
 % END
