@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      4.6.2 (10/09/2017)
+% Versión:      4.6.3 (28/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -43,20 +43,21 @@
 \renewcommand{\refname}{\namereferences} % Nombre de las referencias
 \renewcommand{\tablename}{\nomltwtable} % Nombre de la leyenda de tablas
 
-% Numeración de objetos
-\ifthenelse{\equal{\showsectiononcaption}{true}}{
-	\counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
-	\counterwithin{figure}{section}     % Añade número de sección a las figuras
-	\counterwithin{lstlisting}{section} % Añade número de sección a los códigos
-	\counterwithin{table}{section}      % Añade número de sección a las tablas
-}{}
+% Estilo de títulos
+\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
+\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
+\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
 
 % Se crean los header-footer
 \ifthenelse{\equal{\hfstyle}{style1}}{
 	\pagestyle{fancy} \fancyhf{}
 	\fancyhead[L]{\nouppercase{\rightmark}}
 	\fancyhead[R]{\small \rm \thepage}
-	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
+	\fancyfoot[L]{
+	\begin{minipage}[l]{0.6\textwidth}
+		\small \rm \textit{\titulodelinforme}
+	\end{minipage}
+	}
 	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
 	\renewcommand{\headrulewidth}{0.5pt}
 	\renewcommand{\footrulewidth}{0.5pt}

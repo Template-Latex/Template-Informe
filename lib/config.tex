@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.6.2 (10/09/2017)
+% Versión:      4.6.3 (28/09/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -34,15 +34,15 @@
 \def\pagemargintop {3.0}          % Margen superior página [cm]
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
+\def\captionalignment {justified} % Alineado leyenda (justified,centered,left,right)
 \def\captionlessmarginimage {0.1} % Margen sup/inf de figuras si no hay leyenda [cm]
 \def\captionlrmargin {2.0}        % Márgenes izq/der de la leyenda [cm]
-\def\captionalignment {justified} % Alineado leyenda (justified,centered,left,right)
 \def\captiontbmarginfigure {9.35} % Margen sup/inf de la leyenda en figuras [pt]
 \def\captiontbmargintable {7.0}   % Margen sup/inf de la leyenda en tablas [pt]
 \def\captiontextbold {false}      % Etiquetas (Código,Figura,Tabla) en negrita
 \def\codecaptiontop {true}        % Leyenda arriba del código fuente
 \def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
-\def\showsectiononcaption {false} % Muestra el número de sección en las leyendas
+\def\showsectiononcaption {false} % Número de la sección en el N° de figura/tabla/código
 \def\tablecaptiontop {true}       % Leyenda arriba de las tablas
 
 % CONFIGURACIÓN DEL ÍNDICE
@@ -105,7 +105,7 @@
 
 % OPCIONES DEL PDF COMPILADO
 \def\addindextobookmarks {false}  % Añade el índice a los marcadores del pdf
-\def\cfgbookmarksopenlevel {2}    % Nivel de los marcadores (2: subsecciones)
+\def\cfgbookmarksopenlevel {1}    % Nivel de los marcadores en el pdf (1: secciones)
 \def\cfgpdfbookmarkopen {true}    % Expande marcadores hasta el nivel configurado
 \def\cfgpdfcenterwindow {true}    % Centra la ventana del lector al abrir el pdf
 \def\cfgpdfcopyright {}           % Establece el copyright del documento
@@ -117,7 +117,7 @@
 \def\cfgpdfsecnumbookmarks {true} % Número de la sección en los marcadores del pdf
 \def\cfgpdftoolbar {true}         % Muestra la barra de herramientas del lector pdf
 \def\cfgshowbookmarkmenu {true}   % Muestra menú de los marcadores al abrir el pdf
-\def\pdfcompileversion {7}        % Version mínima del pdf a compilar (1.x)
+\def\pdfcompileversion {7}        % Versión mínima del pdf compilado (1.x)
 
 % NOMBRE DE OBJETOS
 \def\nameabstract {Resumen}           % Nombre del resumen-abstract
