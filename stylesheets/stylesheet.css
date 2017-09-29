@@ -100,7 +100,6 @@
     position: relative;
     font-weight: bold;
     width: 140px;
-    padding-left: -4px;
     margin-top: 4px;
 }
 
@@ -1091,7 +1090,7 @@ a:hover {
     }
 }
 
-a#aimg, a:hover#aimg, .page-header#aimg {
+a.aimg, a:hover.aimg, .page-header.aimg {
     border: none;
     color: #fff;
     font: normal;
@@ -1100,7 +1099,6 @@ a#aimg, a:hover#aimg, .page-header#aimg {
     line-height: normal;
     margin: 0;
     padding: 0;
-    text-transform: normal;
     visibility: visible;
     width: auto;
     word-spacing: normal;
@@ -1116,7 +1114,6 @@ a#templatestats, a:hover#templatestats, .page-header#templatestats {
     line-height: normal;
     margin: 0;
     padding: 0;
-    text-transform: normal;
     visibility: visible;
     width: auto;
     word-spacing: normal;

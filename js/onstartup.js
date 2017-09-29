@@ -28,97 +28,96 @@ var new_version_entry = "";
 var pdf_href_lastv;
 var total_downloads = 0;
 
-// Se añaden las descargas del template base
-$.getJSON(href_json_releases, function(json) {
+jQuery(document).ready(function($) {
 
-    // Se cargan los datos del json
-    for (i = 0; i < json.length; i++) {
+    // Se añaden las descargas del template base
+    $.getJSON(href_json_releases, function(json) {
+
+        // Se cargan los datos del json
+        for (i = 0; i < json.length; i++) {
+            try {
+                for (j = 0; j < json[i].assets.length; j++) {
+                    total_downloads += parseInt(json[i].assets[j].download_count);
+                }
+            } catch (err) {
+                console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
+            }
+        }
         try {
-            for (j = 0; j < json[i].assets.length; j++) {
-                total_downloads += parseInt(json[i].assets[j].download_count);
+            last_version = json[0].tag_name;
+            last_version_link = json[0].assets[0].browser_download_url;
+            last_version_link_1 = json[0].assets[1].browser_download_url;
+            if (last_version_link.includes('-Single')) {
+                normal_link = last_version_link_1;
+                compact_link = last_version_link;
+            } else {
+                normal_link = last_version_link;
+                compact_link = last_version_link_1;
             }
         } catch (err) {
-            console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
+            console.log('Error al obtener la última versión del software');
         }
-    }
-    try {
-        last_version = json[0].tag_name;
-        last_version_link = json[0].assets[0].browser_download_url;
-        last_version_link_1 = json[0].assets[1].browser_download_url;
-        if (last_version_link.includes('-Single')) {
-            normal_link = last_version_link_1;
-            compact_link = last_version_link;
+
+        // Se imprimen estados en consola
+        console.log(String.format('Última versión template: {0}', last_version));
+
+        if (total_downloads == 0) {
+            total_downloads = 'NaN';
         } else {
-            normal_link = last_version_link;
-            compact_link = last_version_link_1;
+            total_downloads = updateDownloadCounter(total_downloads, update_download_counter);
         }
-    } catch (err) {
-        console.log('Error al obtener la última versión del software');
-    }
 
-    // Se imprimen estados en consola
-    console.log(String.format('Última versión template: {0}', last_version));
+        // Se establece la versión en el contador de descargas totales
+        document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+        document.getElementById('total-download-counter-2').innerHTML = total_downloads;
 
-    if (total_downloads == 0) {
-        total_downloads = 'NaN';
-    } else {
-        total_downloads = updateDownloadCounter(total_downloads, update_download_counter);
-    }
+        // Se añade link estadísticas a banner descargas
+        $('#main-content-section #templatestats').attr('href', 'http://latex.ppizarror.com/stats/index.html?template=' + stats_name);
 
-    // Se establece la versión en el contador de descargas totales
-    document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-    document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+        // Se establece la versión en el botón de descargas
+        msg_download_normal = '{1} <font id="buttonfile1text">({0}) <img src="{2}/zip.png" class="iconbutton" /></font>';
+        msg_download_compact = '{1} <font id="buttonfilectext">({0}) <img src="{2}/zip.png" class="iconbutton" /></font>';
+        document.getElementById("download-button").href = normal_link;
+        document.getElementById("download-button").innerHTML = String.format(msg_download_normal, last_version, document.getElementById("download-button").innerHTML, href_resources_folder);
+        document.getElementById("download-button-1file").innerHTML = String.format(msg_download_compact, last_version, document.getElementById("download-button-1file").innerHTML, href_resources_folder);
+        document.getElementById("download-button-1file").href = compact_link;
 
-    // Se añade link estadísticas a banner descargas
-    $('#main-content-section #templatestats').attr('href', 'http://latex.ppizarror.com/stats/index.html?template=' + stats_name);
+        // Se muestra descargas y botones con efecto
+        fadein_css('#total-download-counter-1', '0.1s');
+        fadein_css('#total-download-counter-2', '0.1s');
+        $('#buttonfile1text').fadeIn('slow');
+        $('#buttonfilectext').fadeIn('slow');
 
-    // Se establece la versión en el botón de descargas
-    msg_download_normal = '{1} <font id="buttonfile1text">({0}) <img src="{2}/zip.png" class="iconbutton" /></font>';
-    msg_download_compact = '{1} <font id="buttonfilectext">({0}) <img src="{2}/zip.png" class="iconbutton" /></font>';
-    document.getElementById("download-button").href = normal_link;
-    document.getElementById("download-button").innerHTML = String.format(msg_download_normal, last_version, document.getElementById("download-button").innerHTML, href_resources_folder);
-    document.getElementById("download-button-1file").innerHTML = String.format(msg_download_compact, last_version, document.getElementById("download-button-1file").innerHTML, href_resources_folder);
-    document.getElementById("download-button-1file").href = compact_link;
+        // Se establece la última versión del pdf
+        pdf_href_lastv = pdf_js_href + String.format(href_pdf_version, last_version);
+        document.getElementById("template-preview-pdf").href = pdf_href_lastv;
+        $(".badgeejemplopdf").prop("href", pdf_href_lastv);
 
-    // Se muestra descargas y botones con efecto
-    fadein_css('#total-download-counter-1', '0.1s');
-    fadein_css('#total-download-counter-2', '0.1s');
-    $('#buttonfile1text').fadeIn('slow');
-    $('#buttonfilectext').fadeIn('slow');
-
-    // Se establece la última versión del pdf
-    pdf_href_lastv = pdf_js_href + String.format(href_pdf_version, last_version);
-    document.getElementById("template-preview-pdf").href = pdf_href_lastv;
-    $(".badgeejemplopdf").prop("href", pdf_href_lastv);
-
-    // Se obtiene el what's new
-    document.getElementById("github-button-header").href = href_github_project_source;
-    whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
-    whats_new_versions = Math.min(7, json.length);
-    md_converter = new showdown.Converter();
-    try {
-        for (i = 0; i < whats_new_versions; i++) {
-            version_created_at = json[i].created_at.substring(0, 10);
-            title_new_version = String.format('<b>Versión <a href="{2}"">{0}</b></a>: <i class="fecha-estilo">{1}</i>', json[i].tag_name, version_created_at, json[i].html_url);
-            content_version = md_converter.makeHtml(json[i].body);
-            new_version_entry += String.format(whats_new_html, title_new_version, content_version);
-            new_version_entry += '<hr class="style1">';
+        // Se obtiene el what's new
+        document.getElementById("github-button-header").href = href_github_project_source;
+        whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
+        whats_new_versions = Math.min(7, json.length);
+        md_converter = new showdown.Converter();
+        try {
+            for (i = 0; i < whats_new_versions; i++) {
+                version_created_at = json[i].created_at.substring(0, 10);
+                title_new_version = String.format('<b>Versión <a href="{2}"">{0}</b></a>: <i class="fecha-estilo">{1}</i>', json[i].tag_name, version_created_at, json[i].html_url);
+                content_version = md_converter.makeHtml(json[i].body);
+                new_version_entry += String.format(whats_new_html, title_new_version, content_version);
+                new_version_entry += '<hr class="style1">';
+            }
+            new_version_entry += String.format("Puedes ver la lista de cambios completa <a href='{0}'>en Github<img src='{1}/github.png' width='16px' height='16px' class='iconbutton' /></a>", href_github_project, href_resources_folder);
+            document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
+            github_changelog = true;
+        } catch (err) {
+            console.log('Error al obtener los contenidos de las últimas versiones');
+            hide_element_id('whatsnew');
+            hide_element_id('changelog-menu');
         }
-        new_version_entry += String.format("Puedes ver la lista de cambios completa <a href='{0}'>en Github<img src='{1}/github.png' width='16px' height='16px' class='iconbutton' /></a>", href_github_project, href_resources_folder);
-        document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
-        github_changelog = true;
-    } catch (err) {
-        console.log('Error al obtener los contenidos de las últimas versiones');
-        hide_element_id('whatsnew');
-        hide_element_id('changelog-menu');
-    }
 
-    // Se llama a afterJSON
-    afterJSONLoad();
-});
-
-// FINAL
-jQuery(document).ready(function($) {
+        // Se llama a afterJSON
+        afterJSONLoad();
+    });
 
     // Se escriben los badges
     writeBadges();

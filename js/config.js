@@ -32,9 +32,25 @@ var update_download_counter = 'Template-Informe';
 
 // Declaración de funciones propias de cada template
 var hfGallery; // Muestra la galería de header-footer
+var line_abstract = [95, 216]; // Número de línea de abstract/resumen
+var line_authortable = [33, 34]; // Número de línea tabla de integrantes
+var line_docinit = [106, 227]; // Número de línea inicio del documento
+var line_infodocument = [18, 19]; // Número de línea información del documento
 var portraitGallery; // Muestra la galería de portadas
 
 function afterDocumentReady() {
+    $('#intro-line-abstract').attr('style', 'cursor:pointer;');
+    $('#intro-line-abstract').attr('title', String.format('Línea {0} en versión compacta', line_abstract[1]));
+    $('#intro-line-abstract').html(String.format('(línea {0})', line_abstract[0]));
+    $('#intro-line-authortable').attr('style', 'cursor:pointer;');
+    $('#intro-line-authortable').attr('title', String.format('Línea {0} en versión compacta', line_authortable[1]));
+    $('#intro-line-authortable').html(String.format('(línea {0})', line_authortable[0]));
+    $('#intro-line-docinit').attr('style', 'cursor:pointer;');
+    $('#intro-line-docinit').attr('title', String.format('Línea {0} en versión compacta', line_docinit[1]));
+    $('#intro-line-docinit').html(String.format('(línea {0})', line_docinit[0]));
+    $('#intro-line-infodocument').attr('style', 'cursor:pointer;');
+    $('#intro-line-infodocument').attr('title', String.format('Línea {0} en versión compacta', line_infodocument[1]));
+    $('#intro-line-infodocument').html(String.format('(línea {0})', line_infodocument[0]));
     hfGallery = function() {
         var pswpElement = document.querySelectorAll('.pswp')[0];
         var items = [];
