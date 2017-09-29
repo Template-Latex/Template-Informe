@@ -136,6 +136,7 @@ jQuery(document).ready(function($) {
     $('#background-page-header-colored').fadeIn('slow');
 
     // Se cambia el color de los titulos
+    $('.back-to-top').css('background-color', wallpaper_db.color);
     $('.main-content h1').css('color', wallpaper_db.color);
     $('.main-content h2').css('color', wallpaper_db.color);
     $('.main-content h3').css('color', wallpaper_db.color);
@@ -144,23 +145,22 @@ jQuery(document).ready(function($) {
     $('.main-content h6').css('color', wallpaper_db.color);
     $('.menu-big-entry').css('color', wallpaper_db.color);
     $('.menu-little-entry').css('color', wallpaper_db.color);
-    $('.section-template').css('color', wallpaper_db.color);
     $('.que-hay-de-nuevo-blockquote h3').css('color', wallpaper_db.color);
-    $('.back-to-top').css('background-color', wallpaper_db.color);
+    $('.section-template').css('color', wallpaper_db.color);
 
     // Se cambia el color de los enlaces
     // $('a').css('color', acolor);
 
     // Se cambia el color de las cajas de código
-    $('.main-content pre').css('border', 'solid 1px ' + codeprecolor);
-    $('.main-content pre').css('background-color', bgprecolor);
-    $('.main-content blockquote').css('color', codeprecolor);
     $('.main-content blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
+    $('.main-content blockquote').css('color', codeprecolor);
+    $('.main-content pre').css('background-color', bgprecolor);
+    $('.main-content pre').css('border', 'solid 1px ' + codeprecolor);
 
     // Se cambia el color del fondo de la página web
     $('.main-content').css('background-color', backgroundmaincolor);
-    $('body').css('background-color', backgroundmaincolor);
     $('#contentBackground').css('background-color', backgroundmaincolor);
+    $('body').css('background-color', backgroundmaincolor);
 
     // Se actualizan los colores del whatsnew
     $('#que-hay-de-nuevo blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
