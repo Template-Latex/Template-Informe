@@ -42,7 +42,7 @@ function afterDocumentReady() {
                 src: String.format('images/portada{0}.png', i),
                 w: 544,
                 h: 704,
-                title: String.format('<b>Portada {0}</b> (<div class="codegallerytitle">\\portraitstyle=style{0}</div>)', i)
+                title: String.format('<b>Portada {0}</b> (<div class="codegallerytitle">\\portraitstyle=\{style{0}\}</div>)', i)
             })
         }
         var options = {

@@ -66,7 +66,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/parallax.min.js"></script>
     <script type="text/javascript" src="js/showdown.min.js"></script>
-    <script type="text/javascript" src="http://latex.ppizarror.com/pdf-version/utils.min.js"></script>
+    <script type="text/javascript" src="http://latex.ppizarror.com/stats/js/prevdownload.min.js"></script>
     <script type="text/javascript" src="http://ppizarror.com/wallpaper-db/db.min.js"></script>
     <script type="text/javascript" src="js/utils.min.js"></script>
     <script type="text/javascript" src="js/smooth-scroll.min.js"></script>
@@ -1051,13 +1051,13 @@ def incmatrix(genl1, genl2):
                         <strong class="functtitlstyle">Configuración de las leyendas<a id="config-caption"></a></strong>
                         <ul>
                             <li>
+                                <strong>\captionalignment</strong>: Alineación leyenda: justified, centered, left, right.
+                            </li>
+                            <li>
                                 <strong>\captionlessmarginimage</strong>: Margen inferior si no hay caption en figuras, en centímetros.
                             </li>
                             <li>
                                 <strong>\captionlrmargin</strong>: Márgen izquierdo (<i>left</i>) y derecho (<i>right</i>) de las leyendas, en centímetros.
-                            </li>
-                            <li>
-                                <strong>\captionalignment</strong>: Alineación leyenda: justified, centered, left, right.
                             </li>
                             <li>
                                 <strong>\captiontbmarginfigure</strong>: Margen superior/inferior de la leyenda en las figuras, en pt.
@@ -1075,7 +1075,7 @@ def incmatrix(genl1, genl2):
                                 <strong>\figurecaptiontop</strong>: Establece la leyenda encima de las imágenes.
                             </li>
                             <li>
-                                <strong>\showsectiononcaption</strong>: Indica si se agrega el número de la sección en la leyenda.
+                                <strong>\showsectiononcaption</strong>: Muestra el número de la sección en el número de figura/tabla/código.
                             </li>
                             <li>
                                 <strong>\tablecaptiontop</strong>: Establece la leyenda encima de las tablas.
