@@ -113,9 +113,6 @@ $.getJSON(href_json_releases, function(json) {
         hide_element_id('changelog-menu');
     }
 
-    // Se actualizan los colores del whatsnew
-    $('#que-hay-de-nuevo blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
-
     // Se llama a afterJSON
     afterJSONLoad();
 });
@@ -164,6 +161,9 @@ jQuery(document).ready(function($) {
     $('.main-content').css('background-color', backgroundmaincolor);
     $('body').css('background-color', backgroundmaincolor);
     $('#contentBackground').css('background-color', backgroundmaincolor);
+
+    // Se actualizan los colores del whatsnew
+    $('#que-hay-de-nuevo blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
 
     // Si no se encontraron descargas
     if (enable_error_window && total_downloads == 0 && last_version == '$VERSION' && github_changelog == false) {
