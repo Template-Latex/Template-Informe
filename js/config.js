@@ -31,9 +31,36 @@ var stats_name = 'Informe';
 var update_download_counter = 'Template-Informe';
 
 // Declaración de funciones propias de cada template
+var hfGallery; // Muestra la galería de header-footer
 var portraitGallery; // Muestra la galería de portadas
 
 function afterDocumentReady() {
+    hfGallery = function() {
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        var items = [];
+        for (var i = 1; i <= 8; i++) {
+            items.push({
+                src: String.format('images/hf{0}.png', i),
+                w: 544,
+                h: 704,
+                title: String.format('<b>Header-Footer estilo {0}</b> (<div class="codegallerytitle">\\hfstyle=\{style{0}\}</div>)', i)
+            })
+        }
+        var options = {
+            index: 0,
+            showAnimationDuration: 400,
+            hideAnimationDuration: 400,
+            shareEl: false,
+            counterEl: true,
+            history: true
+        };
+        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.listen('close', function() {
+            $('a.back-to-top').fadeIn('slow');
+        });
+        gallery.init();
+        $('a.back-to-top').fadeOut('slow');
+    };
     portraitGallery = function() {
         var pswpElement = document.querySelectorAll('.pswp')[0];
         var items = [];
@@ -42,7 +69,7 @@ function afterDocumentReady() {
                 src: String.format('images/portada{0}.png', i),
                 w: 544,
                 h: 704,
-                title: String.format('<b>Portada {0}</b> (<div class="codegallerytitle">\\portraitstyle=\{style{0}\}</div>)', i)
+                title: String.format('<b>Portada estilo {0}</b> (<div class="codegallerytitle">\\portraitstyle=\{style{0}\}</div>)', i)
             })
         }
         var options = {
