@@ -22,9 +22,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 var github_changelog = false;
-var last_version = "$VERSION";
-var last_version_link = "$VERSION_LINK";
-var new_version_entry = "";
+var last_version = '$VERSION';
+var last_version_link = '$VERSION_LINK';
+var new_version_entry = '';
 var pdf_href_lastv;
 var total_downloads = 0;
 
@@ -96,7 +96,7 @@ jQuery(document).ready(function($) {
         // Se obtiene el what's new
         document.getElementById("github-button-header").href = href_github_project_source;
         whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
-        whats_new_versions = Math.min(7, json.length);
+        whats_new_versions = Math.min(changelog_max, json.length);
         md_converter = new showdown.Converter();
         try {
             for (i = 0; i < whats_new_versions; i++) {
@@ -106,7 +106,9 @@ jQuery(document).ready(function($) {
                 new_version_entry += String.format(whats_new_html, title_new_version, content_version);
                 new_version_entry += '<hr class="style1">';
             }
-            new_version_entry += String.format("Puedes ver la lista de cambios completa <a href='{0}'>en Github<img src='{1}/github.png' width='16px' height='16px' class='iconbutton' /></a>", href_github_project, href_resources_folder);
+            if (whats_new_versions > changelog_max) {
+                new_version_entry += String.format("Puedes ver la lista de cambios completa <a href='{0}'>en Github<img src='{1}/github.png' width='16' height='' class='iconbutton' alt='' /></a>", href_github_project, href_resources_folder);
+            }
             document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
             github_changelog = true;
         } catch (err) {

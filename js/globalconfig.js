@@ -24,6 +24,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // Configuraciones de toda la suite Template-Latex
 var blurlimits = [3, 10];
 var blurprobability = 50;
+var changelog_max = 7;
 var enable_error_window = false;
 var enableparallax = false;
 var pdf_js_href = 'http://latex.ppizarror.com/pdf-version/web/viewer.html?file=';
@@ -39,6 +40,6 @@ function writeBadges() {
     $('#badgeslistdiv').append('<a href="http://latex.ppizarror.com/Template-Pautas/" id="aimg"><img src="http://latex.ppizarror.com/badges/pauta.svg" style="display: none" /></a> ');
     $('#badgeslistdiv').append('<a href="http://latex.ppizarror.com/Template-Informe/" id="aimg"><img src="http://latex.ppizarror.com/badges/informe.svg" /></a> ');
     $('#badgeslistdiv').append('<a href="http://latex.ppizarror.com/Professional-CV/" id="aimg"><img src="http://latex.ppizarror.com/badges/professionalcv.svg" /></a> ');
-    
+
     $('#badgeslistdiv').fadeIn('slow');
 }
