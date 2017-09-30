@@ -82,30 +82,26 @@ jQuery(document).ready(function($) {
             }
             console.log(String.format('Última versión template: {0}', last_version));
         } catch (err) {
-            console.log('Error al obtener la última versión del software');
+            console.log('Error al obtener la última versión del template');
             errVersion();
         }
 
+        // Se actualiza total de descargas
         if (total_downloads == 0) {
             total_downloads = nan_value;
         } else {
             total_downloads = updateDownloadCounter(total_downloads, update_download_counter);
         }
-
-        // Se establece la versión en el contador de descargas totales
-        document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-        document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+        update_download_banner(total_downloads);
 
         // Se añade link estadísticas a banner descargas
         $('#main-content-section #templatestats').attr('href', 'http://latex.ppizarror.com/stats/index.html?template=' + stats_name);
 
         // Se establece la versión en el botón de descargas
-        msg_download_normal = '{1} <font id="buttonfile1text">({0}) <img src="{2}/zip.png" class="iconbutton" /></font>';
-        msg_download_compact = '{1} <font id="buttonfilectext">({0}) <img src="{2}/zip.png" class="iconbutton" /></font>';
-        document.getElementById("download-button").href = normal_link;
-        document.getElementById("download-button").innerHTML = String.format(msg_download_normal, last_version, document.getElementById("download-button").innerHTML, href_resources_folder);
-        document.getElementById("download-button-1file").innerHTML = String.format(msg_download_compact, last_version, document.getElementById("download-button-1file").innerHTML, href_resources_folder);
-        document.getElementById("download-button-1file").href = compact_link;
+        $('#download-button').attr('href', normal_link);
+        $('#download-button').append(String.format(' <font id="buttonfile1text">({0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
+        $('#download-button-1file').attr('href', compact_link);
+        $('#download-button-1file').append(String.format(' <font id="buttonfilectext">({0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
 
         // Se muestra descargas y botones con efecto
         fadein_css('#total-download-counter-1', '0.1s');
@@ -115,12 +111,12 @@ jQuery(document).ready(function($) {
 
         // Se establece la última versión del pdf
         pdf_href_lastv = pdf_js_href + String.format(href_pdf_version, last_version);
-        document.getElementById("template-preview-pdf").href = pdf_href_lastv;
-        $(".badgeejemplopdf").prop("href", pdf_href_lastv);
+        $('#template-preview-pdf').attr('href', pdf_href_lastv);
+        $(".badgeejemplopdf").attr('href', pdf_href_lastv);
 
         // Se obtiene el what's new
-        document.getElementById("github-button-header").href = href_github_project_source;
-        whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
+        $('#github-button-header').attr('href', href_github_project_source);
+        whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote class='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
         whats_new_versions = Math.min(changelog_max, json.length);
         md_converter = new showdown.Converter();
         show_github_button = (whats_new_versions == changelog_max);
@@ -130,15 +126,16 @@ jQuery(document).ready(function($) {
                 title_new_version = String.format('<b>Versión <a href="{2}"">{0}</b></a>: <i class="fecha-estilo">{1}</i>', json[i].tag_name, version_created_at, json[i].html_url);
                 content_version = md_converter.makeHtml(json[i].body);
                 new_version_entry += String.format(whats_new_html, title_new_version, content_version);
-                if (i < whats_new_versions - 1) {
+                if (i < whats_new_versions - 1 && changelog_show_hr) {
                     new_version_entry += '<hr class="style1">';
                 }
             }
             if (show_github_button) {
                 new_version_entry += String.format("Puedes ver la lista de cambios completa <a href='{0}'>en Github<img src='{1}/github.png' width='16' height='' class='iconbutton' alt='' /></a>", href_github_project, href_resources_folder);
             }
-            document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
+            $('#que-hay-de-nuevo').html(new_version_entry);
             $('.main-content hr').css('background-color', hrcolor);
+            $('.que-hay-de-nuevo-blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
         } catch (err) {
             console.log('Error al obtener los contenidos de las últimas versiones');
             hide_element_id('whatsnew');
@@ -242,8 +239,7 @@ jQuery(document).ready(function($) {
         $('#download-button').click(function() {
             if (total_downloads != nan_value) {
                 total_downloads += 1;
-                document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-                document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+                update_download_banner(total_downloads);
             }
         });
     });
@@ -251,8 +247,7 @@ jQuery(document).ready(function($) {
         $('#download-button-1file').click(function() {
             if (total_downloads != nan_value) {
                 total_downloads += 1;
-                document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-                document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+                update_download_banner(total_downloads);
             }
         });
     });
@@ -260,7 +255,7 @@ jQuery(document).ready(function($) {
     // Muestra un botón para subir al hacer scroll
     var amountScrolled = 600;
     $(window).scroll(function() {
-        location.pathname.replace(/^\//, '')
+        location.pathname.replace(/^\//, '');
         if ($(window).scrollTop() > amountScrolled) {
             $('a.back-to-top').fadeIn('slow');
         } else {

@@ -91,11 +91,17 @@ function hide_element_id(idelem) {
     }
 }
 
-// Animacion fadein css
+// Animación fadein css
 function fadein_css(idelem, t) {
     $(idelem).css('animation-name', 'fadeIn');
     $(idelem).css('animation-iteration-count', 1);
     $(idelem).css('animation-timing-function', 'ease-in-out');
     $(idelem).css('animation-duration', t);
     $(idelem).css('animation-fill-mode', 'forwards');
+}
+
+// Actualiza el contador de descargas
+function update_download_banner(total_downloads){
+    $('#total-download-counter-1').html(total_downloads);
+    $('#total-download-counter-2').html(total_downloads);
 }
