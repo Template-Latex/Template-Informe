@@ -775,7 +775,6 @@ a:hover {
     margin-top: 2.5rem;
     margin-bottom: 1rem;
     font-weight: normal;
-    /* color: #159957;*/
 }
 
 .main-content p {
@@ -833,19 +832,19 @@ a:hover {
 
 @media screen and (min-width: 64em) {
     .main-content .highlight pre, .main-content pre {
-        font-size: 0.79rem;
+        font-size: 0.82rem;
     }
 }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .main-content .highlight pre, .main-content pre {
-        font-size: 0.70rem;
+        font-size: 0.72rem;
     }
 }
 
 @media screen and (max-width: 42em) {
     .main-content .highlight pre, .main-content pre {
-        font-size: 0.5rem;
+        font-size: 0.51rem;
     }
 }
 
@@ -1029,7 +1028,8 @@ a:hover {
 .main-content hr {
     height: 2px;
     padding: 0;
-    margin: 1rem 0;
+    margin-top: 1rem;
+    margin-bottom: 1.15rem;
     background-color: #eff0f1;
     border: 0;
 }

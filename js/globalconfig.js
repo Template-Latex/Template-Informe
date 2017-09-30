@@ -25,8 +25,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 var blurlimits = [3, 10];
 var blurprobability = 50;
 var changelog_max = 7;
+var changepacecolor = false;
 var enable_error_window = false;
 var enableparallax = false;
+var nan_value = 'NaN';
 var pdf_js_href = 'http://latex.ppizarror.com/pdf-version/web/viewer.html?file=';
 
 // Escribe los badges de la suite Template-Latex

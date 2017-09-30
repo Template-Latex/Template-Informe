@@ -21,19 +21,45 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-var github_changelog = false;
-var last_version = '$VERSION';
-var last_version_link = '$VERSION_LINK';
-var new_version_entry = '';
+var last_version_link;
+var last_version;
+var new_version_entry;
 var pdf_href_lastv;
-var total_downloads = 0;
+var total_downloads;
 
 jQuery(document).ready(function($) {
+
+    // Se escriben los badges
+    writeBadges();
+
+    // Se crean colores de elementos a partir de color base wallpaper
+    acolor = shadeColor2(wallpaper_db.color, 0.3);
+    backgroundmaincolor = shadeColor2(wallpaper_db.color, 0.98);
+    bgprecolor = shadeColor2(wallpaper_db.color, 0.9);
+    codebarcolor = shadeColor2(wallpaper_db.color, 0.4);
+    codeprecolor = shadeColor2(wallpaper_db.color, 0.2);
+    hrcolor = shadeColor2(wallpaper_db.color, 0.7);
+    pacecolor = shadeColor2(wallpaper_db.color, 0.15);
 
     // Se añaden las descargas del template base
     $.getJSON(href_json_releases, function(json) {
 
+        // Si no se encontraron descargas
+        errVersion = function() {
+            console.log('ERROR: No se detectó una versión, desactivando paneles.');
+            document.getElementById('whatsnew').style = 'display:none';
+            hide_element_id('download-button');
+            hide_element_id('download-button-1file');
+            hide_element_id('whatsnew');
+            hide_element_id('downloadcounter-banner');
+            $('#main-content-section').html("<div class='error_msg_1'>Error: No se pudo obtener la última versión disponible :(</div>");
+            backheight = $(window).height() - $('.page-header').innerHeight();
+            $('#main-content-section').css('height', backheight);
+            $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")');
+        }
+
         // Se cargan los datos del json
+        total_downloads = 0;
         for (i = 0; i < json.length; i++) {
             try {
                 for (j = 0; j < json[i].assets.length; j++) {
@@ -54,15 +80,14 @@ jQuery(document).ready(function($) {
                 normal_link = last_version_link;
                 compact_link = last_version_link_1;
             }
+            console.log(String.format('Última versión template: {0}', last_version));
         } catch (err) {
             console.log('Error al obtener la última versión del software');
+            errVersion();
         }
 
-        // Se imprimen estados en consola
-        console.log(String.format('Última versión template: {0}', last_version));
-
         if (total_downloads == 0) {
-            total_downloads = 'NaN';
+            total_downloads = nan_value;
         } else {
             total_downloads = updateDownloadCounter(total_downloads, update_download_counter);
         }
@@ -98,19 +123,22 @@ jQuery(document).ready(function($) {
         whats_new_html = "<div id='que-hay-de-nuevo-version-title'>{0}</div><blockquote id='que-hay-de-nuevo-blockquote'>{1}</blockquote>";
         whats_new_versions = Math.min(changelog_max, json.length);
         md_converter = new showdown.Converter();
+        show_github_button = (whats_new_versions == changelog_max);
         try {
             for (i = 0; i < whats_new_versions; i++) {
                 version_created_at = json[i].created_at.substring(0, 10);
                 title_new_version = String.format('<b>Versión <a href="{2}"">{0}</b></a>: <i class="fecha-estilo">{1}</i>', json[i].tag_name, version_created_at, json[i].html_url);
                 content_version = md_converter.makeHtml(json[i].body);
                 new_version_entry += String.format(whats_new_html, title_new_version, content_version);
-                new_version_entry += '<hr class="style1">';
+                if (i < whats_new_versions - 1) {
+                    new_version_entry += '<hr class="style1">';
+                }
             }
-            if (whats_new_versions > changelog_max) {
+            if (show_github_button) {
                 new_version_entry += String.format("Puedes ver la lista de cambios completa <a href='{0}'>en Github<img src='{1}/github.png' width='16' height='' class='iconbutton' alt='' /></a>", href_github_project, href_resources_folder);
             }
             document.getElementById("que-hay-de-nuevo").innerHTML = new_version_entry;
-            github_changelog = true;
+            $('.main-content hr').css('background-color', hrcolor);
         } catch (err) {
             console.log('Error al obtener los contenidos de las últimas versiones');
             hide_element_id('whatsnew');
@@ -120,17 +148,6 @@ jQuery(document).ready(function($) {
         // Se llama a afterJSON
         afterJSONLoad();
     });
-
-    // Se escriben los badges
-    writeBadges();
-
-    // Se eligen colores al azar
-    acolor = shadeColor2(wallpaper_db.color, 0.3);
-    backgroundmaincolor = shadeColor2(wallpaper_db.color, 0.98);
-    bgprecolor = shadeColor2(wallpaper_db.color, 0.9);
-    codebarcolor = shadeColor2(wallpaper_db.color, 0.4);
-    codeprecolor = shadeColor2(wallpaper_db.color, 0.2);
-    pacecolor = shadeColor2(wallpaper_db.color, 0.15);
 
     // Se define color de fondo principal antes de carga imagen
     $('#background-page-header-colored').css('background-color', wallpaper_db.color);
@@ -149,8 +166,8 @@ jQuery(document).ready(function($) {
     $('.que-hay-de-nuevo-blockquote h3').css('color', wallpaper_db.color);
     $('.section-template').css('color', wallpaper_db.color);
 
-    // Se cambia el color de los enlaces
-    // $('a').css('color', acolor);
+    // Se cambia el color de las barras hr
+    $('.main-content hr').css('background-color', hrcolor);
 
     // Se cambia el color de las cajas de código
     $('.main-content blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
@@ -165,18 +182,6 @@ jQuery(document).ready(function($) {
 
     // Se actualizan los colores del whatsnew
     $('#que-hay-de-nuevo blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
-
-    // Si no se encontraron descargas
-    if (enable_error_window && total_downloads == 0 && last_version == '$VERSION' && github_changelog == false) {
-        console.log('ERROR: No se detectó una versión, desactivando paneles.');
-        document.getElementById('whatsnew').style = 'display:none';
-        hide_element_id('download-button');
-        hide_element_id('download-button-1file');
-        hide_element_id('whatsnew');
-        hide_element_id('downloadcounter-banner');
-        document.getElementById('main-content-section').innerHTML = "<div class='error_msg_1'>Error: No se pudo obtener la última versión disponible :(</div>";
-        $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")');
-    } else {}
 
     // Se comprueba si es navegador móvil
     var is_movile_browser = false;
@@ -217,10 +222,12 @@ jQuery(document).ready(function($) {
     }
 
     // Se cambia el color de pace
-    // $('.pace .pace-progress').css('background', pacecolor);
-    // $('.pace .pace-activity').css('border-top-color', codeprecolor);
-    // $('.pace .pace-activity').css('border-left-color', codeprecolor);
-    // $('.pace .pace-progress-inner').css('box-shadow', '0 0 10px '+bgprecolor+', 0 0 5px '+bgprecolor+';');
+    if (changepacecolor) {
+        $('.pace .pace-progress').css('background', pacecolor);
+        $('.pace .pace-activity').css('border-top-color', codeprecolor);
+        $('.pace .pace-activity').css('border-left-color', codeprecolor);
+        $('.pace .pace-progress-inner').css('box-shadow', '0 0 10px ' + bgprecolor + ', 0 0 5px ' + bgprecolor + ';');
+    }
 
     // Se añade un evento al cambiar tamaño página web
     $(window).resize(function() {
@@ -233,16 +240,20 @@ jQuery(document).ready(function($) {
     });
     $(function() {
         $('#download-button').click(function() {
-            total_downloads += 1;
-            document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-            document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+            if (total_downloads != nan_value) {
+                total_downloads += 1;
+                document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+                document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+            }
         });
     });
     $(function() {
         $('#download-button-1file').click(function() {
-            total_downloads += 1;
-            document.getElementById('total-download-counter-1').innerHTML = total_downloads;
-            document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+            if (total_downloads != nan_value) {
+                total_downloads += 1;
+                document.getElementById('total-download-counter-1').innerHTML = total_downloads;
+                document.getElementById('total-download-counter-2').innerHTML = total_downloads;
+            }
         });
     });
 
