@@ -21,11 +21,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-var last_version_link;
-var last_version;
-var new_version_entry;
-var pdf_href_lastv;
-var total_downloads;
+var last_version = '$VERSION';
+var last_version_link = '$VERSION_LINK';
+var new_version_entry = '';
+var pdf_href_lastv = '';
+var total_downloads = 0;
 
 jQuery(document).ready(function($) {
 
