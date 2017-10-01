@@ -31,6 +31,7 @@ var enable_error_window = false;
 var enableparallax = false;
 var nan_value = 'NaN';
 var pdf_js_href = 'http://latex.ppizarror.com/pdf-version/web/viewer.html?file=';
+var stats_href = 'http://latex.ppizarror.com/stats/index.html?template=';
 
 // Escribe los badges de la suite Template-Latex
 function writeBadges() {

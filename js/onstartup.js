@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 
         // Si no se encontraron descargas
         errVersion = function() {
-            console.log('ERROR: No se detectó una versión, desactivando paneles.');
+            console.log('ERROR: No se detectó una versión, desactivando paneles');
             document.getElementById('whatsnew').style = 'display:none';
             hide_element_id('download-button');
             hide_element_id('download-button-1file');
@@ -95,7 +95,7 @@ jQuery(document).ready(function($) {
         update_download_banner(total_downloads);
 
         // Se añade link estadísticas a banner descargas
-        $('#main-content-section #templatestats').attr('href', 'http://latex.ppizarror.com/stats/index.html?template=' + stats_name);
+        $('#main-content-section #templatestats').attr('href', stats_href + stats_name);
 
         // Se establece la versión en el botón de descargas
         $('#download-button').attr('href', normal_link);
