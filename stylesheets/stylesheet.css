@@ -277,6 +277,9 @@
     z-index: 2;
     width: 100%;
     position: relative;
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.3);
 }
 
 #buttonfile1text {
