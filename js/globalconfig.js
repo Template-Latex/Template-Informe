@@ -24,7 +24,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // Configuraciones de toda la suite Template-Latex
 var blurlimits = [3, 10];
 var blurprobability = 50;
-var changelog_max = 7;
+var changelog_max = 5;
 var changelog_show_hr = false;
 var changepacecolor = false;
 var enable_error_window = false;
