@@ -32,49 +32,54 @@
             "HREF": "https://opensource.org/licenses/MIT/",
             "ALT": "Licencia MIT"
         },
-        "2": {
-            "NEWLINE": true
+		"2": {
+            "IMAGE": "http://latex.ppizarror.com/badges/chat.svg",
+            "HREF": "https://gitter.im/Template-Latex/Template-Informe",
+            "ALT": "Chat"
         },
         "3": {
+            "NEWLINE": true
+        },
+        "4": {
             "IMAGE": "http://latex.ppizarror.com/badges/tesis.svg",
             "HREF": "https://github.com/Template-Latex/Template-Tesis/",
             "ALT": "Template-Tesis",
             "SHOW": false
         },
-        "4": {
+        "5": {
             "IMAGE": "http://latex.ppizarror.com/badges/apunte.svg",
             "HREF": "https://github.com/Template-Latex/Template-Apunte/",
             "ALT": "Template-Apunte",
             "SHOW": false
         },
-        "5": {
+        "6": {
             "IMAGE": "http://latex.ppizarror.com/badges/tareas.svg",
             "HREF": "https://github.com/Template-Latex/Template-Tareas/",
             "ALT": "Template-Tareas",
             "SHOW": false
         },
-        "6": {
+        "7": {
             "IMAGE": "http://latex.ppizarror.com/badges/auxiliares.svg",
             "HREF": "https://github.com/Template-Latex/Template-Auxiliares/",
             "ALT": "Template-Auxiliares"
         },
-        "7": {
+        "8": {
             "IMAGE": "http://latex.ppizarror.com/badges/controles.svg",
-            "HREF": "https://github.com/Template-Latex/Template-Controles",
+            "HREF": "https://github.com/Template-Latex/Template-Controles/",
             "ALT": "Template-Controles"
         },
-        "8": {
+        "9": {
             "IMAGE": "http://latex.ppizarror.com/badges/pauta.svg",
             "HREF": "https://github.com/Template-Latex/Template-Pautas/",
             "ALT": "Template-Pautas",
             "SHOW": false
         },
-        "9": {
+        "10": {
             "IMAGE": "http://latex.ppizarror.com/badges/informe.svg",
             "HREF": "https://github.com/Template-Latex/Template-Informe/",
             "ALT": "Template-Informe"
         },
-        "10": {
+        "11": {
             "IMAGE": "http://latex.ppizarror.com/badges/professionalcv.svg",
             "HREF": "https://github.com/Template-Latex/Professional-CV/",
             "ALT": "Professional-CV"
