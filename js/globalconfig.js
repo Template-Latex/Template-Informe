@@ -29,6 +29,7 @@ var changelog_show_hr = false;
 var changepacecolor = false;
 var enable_error_window = false;
 var enableparallax = false;
+var gitter_href = 'https://gitter.im/Template-Latex/';
 var nan_value = 'NaN';
 var pdf_js_href = 'http://latex.ppizarror.com/pdf-version/web/viewer.html?file=';
 var stats_href = 'http://latex.ppizarror.com/stats/index.html?template=';

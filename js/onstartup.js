@@ -279,6 +279,9 @@ jQuery(document).ready(function($) {
         });
     });
 
+    // Se añade el link a chat banner
+    $('#chatgitter').attr('href', gitter_href + update_download_counter);
+
     // Se llama a la función de cada template después de cargar
     afterDocumentReady();
 });
