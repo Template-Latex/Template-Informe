@@ -31,6 +31,7 @@ var stats_name = 'Informe';
 var update_download_counter = 'Template-Informe';
 
 // Declaración de funciones propias de cada template
+var bounceStyleReferences; // Efecto en entrada de configuración
 var hfGallery; // Muestra la galería de header-footer
 var line_abstract = [95, 216]; // Número de línea de abstract/resumen
 var line_authortable = [33, 34]; // Número de línea tabla de integrantes
@@ -103,6 +104,12 @@ function afterDocumentReady() {
         gallery.init();
         $('a.back-to-top').fadeOut('slow');
     };
+    bounceStyleReferences = function() {
+        $('#config-ref').ScrollTo();
+        setTimeout(function() {
+            doBounce($('#stylecitereferences'), 3, '6px', 100);
+        }, 1000);
+    }
 }
 
 function afterJSONLoad() {}

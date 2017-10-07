@@ -101,7 +101,19 @@ function fadein_css(idelem, t) {
 }
 
 // Actualiza el contador de descargas
-function update_download_banner(total_downloads){
+function update_download_banner(total_downloads) {
     $('#total-download-counter-1').html(total_downloads);
     $('#total-download-counter-2').html(total_downloads);
+}
+
+// Efecto de rebote de un elemento
+function doBounce(element, times, distance, speed) {
+    for (i = 0; i < times; i++) {
+        element.animate({
+                marginTop: '-=' + distance
+            }, speed)
+            .animate({
+                marginTop: '+=' + distance
+            }, speed);
+    }
 }

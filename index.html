@@ -65,6 +65,7 @@
     <script type="text/javascript" src="js/globalconfig.min.js"></script>
     <script type="text/javascript" src="http://ppizarror.com/wallpaper-db/db.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-scrollto.min.js"></script>
     <script type="text/javascript" src="js/parallax.min.js"></script>
     <script type="text/javascript" src="js/showdown.min.js"></script>
     <script type="text/javascript" src="http://latex.ppizarror.com/stats/js/prevdownload.min.js"></script>
@@ -158,7 +159,8 @@
                         <li><a href="#hlp-formulae" class="menu-little-entry">Insertar una fórmula en el documento</a></li>
                         <li><a href="#hlp-title" class="menu-little-entry">Insertar secciones sin número y sin aparecer en el índice</a></li>
                         <li><a href="#hlp-math" class="menu-little-entry">Expresiones matemáticas</a></li>
-                        <li><a href="#hlp-annexref" class="menu-little-entry">Insertar anexos y referencias</a></li>
+                        <li><a href="#hlp-annex" class="menu-little-entry">Insertar anexos</a></li>
+                        <li><a href="#hlp-ref" class="menu-little-entry">Añadir referencias</a></li>
                         <li><a href="#hlp-srccode" class="menu-little-entry">Añadir código fuente</a></li>
                         <li><a href="#hlp-other" class="menu-little-entry">Otras funciones</a></li>
                     </ul>
@@ -563,7 +565,7 @@
                                     <p><img src="images/formula.png" alt=""></p>
                                 </blockquote>
                             </li>
-                            <li style="margin-bottom: 20">
+                            <li style="margin-bottom:20">
                                 <strong>\insertequationcaptioned</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda.
                                 <blockquote>
                                     <div class="highlight highlight-text-tex">
@@ -585,7 +587,7 @@
                                     <p><img src="images/insertequationgathered.png" alt=""></p>
                                 </blockquote>
                             </li>
-                            <li style="margin-bottom: 20">
+                            <li style="margin-bottom:20">
                                 <strong>\insertgathercaptioned</strong><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>gather</b>.
                             </li>
                         </ul>
@@ -616,7 +618,7 @@
                                     <p><img src="images/insertequationalign.png" alt=""></p>
                                 </blockquote>
                             </li>
-                            <li style="margin-bottom: 20">
+                            <li style="margin-bottom:20">
                                 <strong>\insertaligncaptioned</strong><b>{</b><em>Fórmula</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta una fórmula con leyenda en el entorno <b>align</b>.
                             </li>
                         </ul>
@@ -809,87 +811,84 @@
                         </ul>
                     </li>
                     <li class="li-code-parent">
-                        <strong class="functtitlstyle">Insertar anexos y referencias<a id="hlp-annexref"></a></strong>
-                        <ul>
-                            <li>
-                                Para insertar anexos existe el ambiente <b>anexos</b>, dentro de él se pueden crear secciones, sub-secciones, etc.
-                                <blockquote>
-                                    <div class="highlight highlight-text-tex">
-                                        <pre><span class="pl-c1">\begin</span>{<span class="pl-e">anexo</span>}
+                        <strong class="functtitlstyle">Insertar anexos<a id="hlp-annex"></a></strong>
+                        <p>
+                            Para insertar anexos existe el ambiente <b>anexos</b>, dentro de él se pueden crear secciones, sub-secciones, etc.
+                        </p>
+                        <blockquote>
+                            <div class="highlight highlight-text-tex">
+                                <pre><span class="pl-c1">\begin</span>{<span class="pl-e">anexo</span>}
 <span class="pl-c1">\section</span>{Cálculos realizados}
-	<span class="pl-c1">\lipsum</span>[69]
-
-	<span class="pl-comment">% Imagen, se numerará automáticamente con la letra del anexo</span>
-	<span class="pl-c1">\insertimage</span>{ejemplos/test-image.png}{<span class="pl-v">scale</span>=0.15}{Imagen en anexo.}
+    <span class="pl-c1">\lipsum</span>[69]
+    <span class="pl-comment">% Imagen, se numerará automáticamente con la letra del anexo</span>
+    <span class="pl-c1">\insertimage</span>{ejemplos/test-image.png}{<span class="pl-v">scale</span>=0.15}{Imagen en anexo.}
 
 <span class="pl-c1">\newpage</span>
 <span class="pl-c1">\section</span>{Otros anexos}
-	<span class="pl-c1">\lipsum</span>[1]
+    <span class="pl-c1">\lipsum</span>[1]
 <span class="pl-c1">\end</span>{<span class="pl-e">anexo</span>}</pre>
-                                    </div>
-                                </blockquote>
-                            </li>
-                            <li>
-                                Para insertar referencias el template ofrece 3 alternativas distintas: el uso de <b>bibtex</b>, <b>apacite</b> y <b>natbib</b>. Para usar cada uno de ellos es necesario cambiar la configuración.
-                                <a href="#ref-style-config">\stylecitereferences</a>.
-                                <ul style="margin-top:5">
-                                    <li><b>Bibtex</b>: Es el sistema más sencillo, para insertar referencias existe el ambiente <b>references</b>:
-                                        <blockquote>
-                                            <div class="highlight highlight-text-tex">
-                                                <pre>
+                            </div>
+                        </blockquote>
+                    </li>
+                    <li class="li-code-parent">
+                        <strong class="functtitlstyle">Añadir referencias<a id="hlp-ref"></a></strong>
+                        <p>
+                            Para añadir referencias el template ofrece 3 alternativas distintas: el uso de <b>bibtex</b>, <b>apacite</b> y <b>natbib</b>. Para usar cada uno de ellos es necesario cambiar la configuración.
+                            <a href="javascript:bounceStyleReferences();">\stylecitereferences</a>.
+                        </p>
+                        <ul>
+                            <li style="margin-top:10px"><b>Bibtex</b>: Es el sistema más sencillo, para insertar referencias existe el ambiente <b>references</b>:
+                                <blockquote>
+                                    <div class="highlight highlight-text-tex">
+                                        <pre>
 <span class="pl-c1">\begin</span>{<span class="pl-e">references</span>}
 <span class="pl-c1">\bibitem</span>{ref1}
-	Template Informe en <span class="pl-c1">\LaTeX</span>.
-	<span class="pl-c1">\textit</span>{¡Revisa el manual online de este template!} \\
-	<span class="pl-c1">\url</span>{http://ppizarror.com/Template-Informe/}
+Template Informe en <span class="pl-c1">\LaTeX</span>.
+<span class="pl-c1">\textit</span>{¡Revisa el manual online de este template!} \\
+<span class="pl-c1">\url</span>{http://ppizarror.com/Template-Informe/}
 
 <span class="pl-c1">\bibitem</span>{ref2}
-	Excel2Latex.
-	<span class="pl-c1">\textit</span>{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
-	<span class="pl-c1">\url</span>{https://www.ctan.org/tex-archive/support/excel2latex/}
-<span class="pl-c1">\end</span>{<span class="pl-e">references</span>}
-                                                </pre>
-                                            </div>
-                                        </blockquote>
-                                        - Para citar se usa <span class="pl-c1">\cite</span>{ref1}.
-                                        <br> - Establecer configuración <span class="pl-c1">\stylecitereferences</span>={bibtex}.
-                                    </li>
-                                </ul>
-                                <hr class="style1">
-                                <ul>
-                                    <li><b>Apacite</b>: Es un sistema de referencias más complejo, para ello se deben guardar las referencias en un archivo <i>.bib</i> como <a href="https://github.com/ppizarror/Template-Informe/blob/master/test.bib">este ejemplo</a>,
-                                        luego para insertar las referencias y citar se realiza lo siguiente:
-                                        <blockquote>
-                                            <div class="highlight highlight-text-tex">
-                                                <pre>
+Excel2Latex.
+<span class="pl-c1">\textit</span>{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
+<span class="pl-c1">\url</span>{https://www.ctan.org/tex-archive/support/excel2latex/}
+<span class="pl-c1">\end</span>{<span class="pl-e">references</span>}</pre>
+                                    </div>
+                                </blockquote>
+                                - Para citar se usa <span class="pl-c1">\cite</span>{ref1}.
+                                <br> - Establecer configuración <a href="javascript:bounceStyleReferences();"><span class="pl-c1">\stylecitereferences</span></a>={bibtex}.
+                            </li>
+                        </ul>
+                        <hr class="style1">
+                        <ul>
+                            <li><b>Apacite</b>: Es un sistema de referencias más complejo, para ello se deben guardar las referencias en un archivo <i>.bib</i> como <a href="references.bib" download>este ejemplo <i>(references.bib)</i></a>, luego para insertar
+                                las referencias y citar se realiza lo siguiente:
+                                <blockquote>
+                                    <div class="highlight highlight-text-tex">
+                                        <pre>
 Para citar de forma abreviada se usa <span class="pl-c1">\shortcite</span>{braas}.
 Para usar citas extensas se utiliza <span class="pl-c1">\fullcite</span>{braas}
 
 <span class="pl-comment">% La siguiente línea importa el archivo .bib donde están guardadas las referencias</span>
-<span class="pl-e">\bibliography</span>{test}
-                                                </pre>
-                                            </div>
-                                        </blockquote>
-                                        - Establecer configuración <span class="pl-c1">\stylecitereferences</span>={apacite}.
-                                    </li>
-                                </ul>
-                                <hr class="style1">
-                                <ul>
-                                    <li><b>Natbib</b>: El uso de natbib es el mismo que el de <i>Apacite</i>:
-                                        <blockquote>
-                                            <div class="highlight highlight-text-tex">
-                                                <pre>
+<span class="pl-e">\bibliography</span>{references}</pre>
+                                    </div>
+                                </blockquote>
+                                - Establecer configuración <a href="javascript:bounceStyleReferences();"><span class="pl-c1">\stylecitereferences</span></a>={apacite}.
+                            </li>
+                        </ul>
+                        <hr class="style1">
+                        <ul>
+                            <li><b>Natbib</b>: El uso de natbib es el mismo que el de <i>Apacite</i>:
+                                <blockquote>
+                                    <div class="highlight highlight-text-tex">
+                                        <pre>
 Para citar de forma abreviada se usa <span class="pl-c1">\shortcite</span>{baggio}.
 Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 
 <span class="pl-comment">% La siguiente línea importa el archivo .bib donde están guardadas las referencias</span>
-<span class="pl-e">\bibliography</span>{test}
-                                                </pre>
-                                            </div>
-                                        </blockquote>
-                                        - Establecer configuración <span class="pl-c1">\stylecitereferences</span>={natbib}.
-                                    </li>
-                                </ul>
+<span class="pl-e">\bibliography</span>{references}</pre>
+                                    </div>
+                                </blockquote>
+                                - Establecer configuración <a href="javascript:bounceStyleReferences();"><span class="pl-c1">\stylecitereferences</span></a>={natbib}.
                             </li>
                         </ul>
                     </li>
@@ -1200,8 +1199,10 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
                             <strong>\showappendixsectitle</strong>: Muestra el título de la sección de anexo en el informe.
                         </li>
                         <li>
-                            <strong>\stylecitereferences</strong>
-                            <a id="ref-style-config"></a>: Estilo citas y referencias, puede ser <i>bibtex</i>, <i>apacite</i> o <i>natbib</i>.
+                            <div id="stylecitereferences">
+                                <strong>\stylecitereferences</strong>
+                                <a id="ref-style-config"></a>: Estilo citas y referencias, puede ser <i>bibtex</i>, <i>apacite</i> o <i>natbib</i>.
+                            </div>
                         </li>
                         <li>
                             <strong>\twocolumnreferences</strong>: Referencias en dos columnas.
@@ -1592,6 +1593,7 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
                 <p>
                     Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.
                 </p>
+                <br />
 
                 <!-- Galerías -->
                 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
