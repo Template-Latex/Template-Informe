@@ -616,13 +616,6 @@ a:hover {
     margin-right: 0.5rem;
 }
 
-
-/*.btn:hover {
-    -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
-}*/
-
 .btn-pro {
     display: inline-block;
     margin-bottom: 1rem;
@@ -861,7 +854,7 @@ a:hover {
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .lateximg {
-        top: 5px;
+        top: 4px;
         position: relative;
         height: 18px;
     }

@@ -193,10 +193,11 @@
                 <img src="http://latex.ppizarror.com/resources/latex.png" alt="LaTeX" class="lateximg">, contiene múltiples funciones para insertar imágenes, fórmulas, párrafos y títulos de forma sencilla, sin tener que recurrir a las largas instrucciones
                 que ofrece Latex por defecto.
             </p>
-            <img src="images/collage.png" alt="Informe" style="margin:auto; display:block; width=80%">
+            <img src="images/collage.png" alt="Informe" style="margin:auto; display:block; width:80%" />
             <p>
-                Para crear un informe con este template debes primero <a href="#configurando-el-documento">editar la información del documento</a> (título, nombre de la universidad, etc) en la sección <em class="section-template">INFORMACIÓN DEL DOCUMENTO</em>                <span id="intro-line-infodocument"></span> del archivo principal <i><a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>, luego <a href="tabla-integrantes">editar la tabla de datos</a>                de la portada en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <span id="intro-line-authortable"></span> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección del
-                <em class="section-template">RESUMEN O ABSTRACT</em> <span id="intro-line-abstract"></span> o en la <b>sección principal</b> del documento <em class="section-template">INICIO DEL DOCUMENTO</em> <span id="intro-line-docinit"></span>.
+                Para crear un informe con este template debes primero <a href="#configurando-el-documento">editar la información del documento</a> (título, nombre de la universidad, etc) en la sección <em class="section-template">INFORMACIÓN DEL DOCUMENTO</em>                <span class="intro-line-infodocument"></span> del archivo principal <i><a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex" title="informe.tex en versión compacta">main.tex</a></i>, luego <a href="tabla-integrantes">editar la tabla de datos</a>                de la portada en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <span class="intro-line-authortable"></span> y por último <a href="#agregar-fig-form-cita">empezar a escribir</a> tu documento en la sección
+                del
+                <em class="section-template">RESUMEN O ABSTRACT</em> <span class="intro-line-abstract"></span> o en la <b>sección principal</b> del documento <em class="section-template">INICIO DEL DOCUMENTO</em> <span class="intro-line-docinit"></span>.
             </p>
             <p>
                 Existe además una versión <b>compacta</b> en donde se encuentra todo el código en un sólo archivo si es que no prefieres los archivos por separado. Para ver más información sobre cómo utilizar las funciones exclusivas del template, o cómo
@@ -205,7 +206,7 @@
 
             <!-- Configurando el documento -->
             <h2><a id="configurando-el-documento" class="anchor" href="#configurando-el-documento" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configurando el documento</h2> Para configurar el documento (título, nombre de la universidad, curso, etc.) se deben modificar las variables definidas en el bloque de
-            <em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> al principio del archivo principal, estas variables son del estilo:
+            <em class="section-template">INFORMACIÓN DEL DOCUMENTO</em> <span class="intro-line-docinit"></span> al principio del archivo principal, estas variables son del estilo:
             <blockquote>
                 <em>\def</em><span class="pl-e">\nombreVariable</span> {<b>Valor</b>}
             </blockquote>
@@ -314,7 +315,7 @@
             <!-- Añadiendo integrantes, profesores, auxiliares y fechas -->
             <h2><a id="tabla-integrantes" class="anchor" href="#tabla-integrantes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Añadiendo integrantes, profesores, auxiliares y fechas</h2>
             <p>
-                Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> del archivo principal (<a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex">main.tex</a>),
+                Esta información de la portada se encuentra en la sección <em class="section-template">INTEGRANTES, PROFESORES Y FECHAS</em> <span class="intro-line-authortable"></span> del archivo principal (<a href="https://github.com/Template-Latex/Template-Informe/blob/master/main.tex">main.tex</a>),
                 en ella se encuentra una <b>tabla</b> la cual contiene la información de los integrantes, profesores, auxiliares, auxiliar de laboratorio, fecha de entrega y realización, etc.
             </p>
 
