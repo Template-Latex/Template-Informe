@@ -94,6 +94,14 @@
     border-radius: 3px;
 }
 
+.javascripthref {
+    color: blue;
+}
+
+.javascripthref:hover {
+    cursor: pointer;
+}
+
 .autor_name {
     display: inline-block;
     float: left;
@@ -1135,3 +1143,7 @@ a#templatestats, a:hover#templatestats, .page-header#templatestats {
 }
 
 .error_msg_1::before {}
+
+.linkssection a {
+    color: blue;
+}

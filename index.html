@@ -834,7 +834,8 @@
                     <li class="li-code-parent">
                         <strong class="functtitlstyle">Añadir referencias<a id="hlp-ref"></a></strong>
                         <p>
-                            Para añadir referencias el template ofrece 3 alternativas distintas: el uso de <b>bibtex</b>, <b>apacite</b> y <b>natbib</b>. Para usar cada uno de ellos es necesario cambiar la configuración <a href="javascript:bounceStyleReferences();">\stylecitereferences</a>.
+                            Para añadir referencias el template ofrece 3 alternativas distintas: el uso de <b>bibtex</b>, <b>apacite</b> y <b>natbib</b>. Para usar cada uno de ellos es necesario cambiar la configuración <a onclick="javascript:bounceStyleReferences();"
+                                class="javascripthref">\stylecitereferences</a>.
                         </p>
                         <ul>
                             <li><b>Bibtex</b>: Es el sistema más sencillo, para insertar referencias existe el ambiente <b>references</b>:
@@ -856,7 +857,7 @@ Excel2Latex.
                                 </blockquote>
                                 <b>-</b> Para citar se usa <span class="pl-c1">\cite</span>{ref1}
                                 <br />
-                                <b>-</b> Establecer configuración <a href="javascript:bounceStyleReferences();"><span class="pl-c1">\stylecitereferences</span></a>={bibtex}
+                                <b>-</b> Establecer configuración <a onclick="javascript:bounceStyleReferences();" class="javascripthref"><span class="pl-c1">\stylecitereferences</span></a>={bibtex}
                             </li>
                         </ul>
                         <hr class="style1">
@@ -873,7 +874,7 @@ Para usar citas extensas se utiliza <span class="pl-c1">\fullcite</span>{braas}
 <span class="pl-e">\bibliography</span>{references}</pre>
                                     </div>
                                 </blockquote>
-                                <b>-</b> Establecer configuración <a href="javascript:bounceStyleReferences();"><span class="pl-c1">\stylecitereferences</span></a>={apacite}
+                                <b>-</b> Establecer configuración <a onclick="javascript:bounceStyleReferences();" class="javascripthref"><span class="pl-c1">\stylecitereferences</span></a>={apacite}
                             </li>
                         </ul>
                         <hr class="style1">
@@ -889,7 +890,7 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
 <span class="pl-e">\bibliography</span>{references}</pre>
                                     </div>
                                 </blockquote>
-                                <b>-</b> Establecer configuración <a href="javascript:bounceStyleReferences();"><span class="pl-c1">\stylecitereferences</span></a>={natbib}
+                                <b>-</b> Establecer configuración <a onclick="javascript:bounceStyleReferences();" class="javascripthref"><span class="pl-c1">\stylecitereferences</span></a>={natbib}
                             </li>
                         </ul>
                     </li>
@@ -959,14 +960,12 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
             <p>
                 También se pueden modificar los márgenes de la página, el estilo de referencia a usar, los márgenes de los títulos de tablas y figuras <em>(caption)</em>, el tamaño de los títulos de las secciones, etc. Estas configuraciones se encuentran
                 en el archivo
-                <a href="https://github.com/Template-Latex/Template-Informe/blob/master/lib/config.tex">lib/config.tex</a> y son importadas en el bloque de
-                <em class="section-template">CONFIGURACIONES</em> en el archivo principal.
-            </p>
-            <p>
-                Las configuraciones disponibles son las siguientes:
+                <a href="https://github.com/Template-Latex/Template-Informe/blob/master/lib/config.tex">lib/config.tex</a> (versión normal) y son importadas en el bloque de
+                <em class="section-template">CONFIGURACIONES</em> <span class="intro-line-configimport"></span> en el archivo principal.
+                <br />
+                <br /> Las configuraciones disponibles son las siguientes:
             </p>
             <ul>
-
                 <li class="config-parent">
                     <strong class="functtitlstyle">Configuraciones generales<a id="config-other"></a></strong>
                     <ul>
@@ -1005,10 +1004,10 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
                     <strong class="functtitlstyle">Estilo de portada y header-footer<a id="config-portraithf"></a></strong>
                     <ul>
                         <li>
-                            <strong>\hfstyle</strong>: Estilo del encabezado y pie de página (header-footer), existen <a href="javascript:hfGallery();">8 estilos distintos</a>.
+                            <strong>\hfstyle</strong>: Estilo del encabezado y pie de página (header-footer), existen <a onclick="javascript:hfGallery();" class="javascripthref">8 estilos distintos</a>.
                         </li>
                         <li>
-                            <strong>\portraitstyle</strong>: Estilo de la portada, existen <a href="javascript:portraitGallery();">16 estilos distintos</a>.
+                            <strong>\portraitstyle</strong>: Estilo de la portada, existen <a onclick="javascript:portraitGallery();" class="javascripthref">16 estilos distintos</a>.
                         </li>
                     </ul>
                 </li>
@@ -1343,294 +1342,291 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
             </ul>
 
             <!-- Links de interés -->
-            <h2>
-			<a id="links" class="anchor" href="#links" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Links de interés
-		</h2>
-            <p>
-                <ul>
-                    <li>
-                        Template Auxiliares en <img src="http://latex.ppizarror.com/resources/latex.png" alt="LaTeX" class="lateximg">: <a href="http://latex.ppizarror.com/Template-Auxiliares/">http://latex.ppizarror.com/Template-Auxiliares/</a>
-                    </li>
-                    <li>
-                        Manual para usar Latex: <a href="https://es.sharelatex.com/learn">https://es.sharelatex.com/learn</a>
-                    </li>
-                    <li>
-                        Plugin para expotar tablas desde Excel: <a href="https://www.ctan.org/pkg/excel2latex">https://www.ctan.org/pkg/excel2latex</a>
-                        <ol>
-                            <li class="help-links">Descargar el <a href="http://mirrors.ctan.org/support/excel2latex.zip">plugin</a> y extraer el zip</li>
-                            <li class="help-links">
-                                Pegar los contenidos del zip en <i>C:\Users\UserName\AppData\Roaming\Microsoft\AddIns</i>
-                                <ul>
-                                    <li>Si no encuentras la carpeta Appdata: Pulsa <i class="fa fa-windows" aria-hidden="true"></i>+<b>R</b> &rarr; Escribe <i>appdata</i> &rarr; Aceptar (<a href="./images/ejemplo-appdata.PNG">ejemplo</a>)</li>
-                                </ul>
-                            </li>
-                            <li class="help-links">Abrir el archivo <i>Excel2LaTeX.xla</i> con Excel</li>
-                            <li class="help-links">Abrir el plugin ubicado en <i>Complementos</i> &rarr; <i>Convert Table to Latex</i></li>
-                            <li class="help-links">Configurar el plugin a gusto (<a href="./images/ejemplo-config.PNG">ejemplo</a>)</li>
-                        </ol>
-                    </li>
-                    <li>
-                        Editor Latex online (Sharelatex): <a href="https://www.sharelatex.com?r=298b935f&rm=d&rs=b">https://www.sharelatex.com/</a>
-                        <ul>
-                            <li class="help-links">En ShareLatex: <a href="https://www.sharelatex.com/project">Menú principal</a> &rarr; <i>New project</i> &rarr; <i>Upload project</i> &rarr; Seleccionar el .zip descargado del template</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Editor Latex online (Overleaf): <a href="https://www.overleaf.com/signup?ref=4d3bd09b7e78">https://www.overleaf.com/</a>
-                        <ul>
-                            <li class="help-links">En Overleaf: <a href="https://www.overleaf.com/dash">My projects</a> &rarr; <i>Upload zip</i> &rarr; Seleccionar el .zip descargado del template</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Editor de Latex para Windows <span class="fa fa-windows" aria-hidden="true"></span>: <a href="http://www.texstudio.org/">http://www.texstudio.org/</a>
-                        <ul>
-                            <li class="help-links">Si ocurren errores como <i>Package not found</i> intentar compilar muchas veces</li>
-                            <li class="help-links">Diccionario en español (Chile): <a href="./es_CL.oxt">descargar</a></li>
-                            <li class="help-links">Autocompletar todas las funciones del template: <a href="https://github.com/Template-Latex/cwl-docs">descargar</a></li>
-                        </ul>
-                </ul>
+            <h2><a id="links" class="anchor" href="#links" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Links de interés</h2>
+            <ul class="linkssection">
+                <li>
+                    Template Auxiliares en <img src="http://latex.ppizarror.com/resources/latex.png" alt="LaTeX" class="lateximg">: <a href="http://latex.ppizarror.com/Template-Auxiliares/">http://latex.ppizarror.com/Template-Auxiliares/</a>
+                </li>
+                <li>
+                    Manual para usar Latex: <a href="https://es.sharelatex.com/learn">https://es.sharelatex.com/learn</a>
+                </li>
+                <li>
+                    Plugin para expotar tablas desde Excel: <a href="https://www.ctan.org/pkg/excel2latex">https://www.ctan.org/pkg/excel2latex</a>
+                    <ol>
+                        <li class="help-links">Descargar el <a href="http://mirrors.ctan.org/support/excel2latex.zip">plugin</a> y extraer el zip</li>
+                        <li class="help-links">
+                            Pegar los contenidos del zip en <i>C:\Users\UserName\AppData\Roaming\Microsoft\AddIns</i>
+                            <ul>
+                                <li>Si no encuentras la carpeta Appdata: Pulsa <i class="fa fa-windows" aria-hidden="true"></i>+<b>R</b> &rarr; Escribe <i>appdata</i> &rarr; Aceptar (<a href="./images/ejemplo-appdata.PNG">ejemplo</a>)</li>
+                            </ul>
+                        </li>
+                        <li class="help-links">Abrir el archivo <i>Excel2LaTeX.xla</i> con Excel</li>
+                        <li class="help-links">Abrir el plugin ubicado en <i>Complementos</i> &rarr; <i>Convert Table to Latex</i></li>
+                        <li class="help-links">Configurar el plugin a gusto (<a href="./images/ejemplo-config.PNG">ejemplo</a>)</li>
+                    </ol>
+                </li>
+                <li>
+                    Editor Latex online (Sharelatex): <a href="https://www.sharelatex.com?r=298b935f&rm=d&rs=b">https://www.sharelatex.com/</a>
+                    <ul>
+                        <li class="help-links">En ShareLatex: <a href="https://www.sharelatex.com/project">Menú principal</a> &rarr; <i>New project</i> &rarr; <i>Upload project</i> &rarr; Seleccionar el .zip descargado del template</li>
+                    </ul>
+                </li>
+                <li>
+                    Editor Latex online (Overleaf): <a href="https://www.overleaf.com/signup?ref=4d3bd09b7e78">https://www.overleaf.com/</a>
+                    <ul>
+                        <li class="help-links">En Overleaf: <a href="https://www.overleaf.com/dash">My projects</a> &rarr; <i>Upload zip</i> &rarr; Seleccionar el .zip descargado del template</li>
+                    </ul>
+                </li>
+                <li>
+                    Editor de Latex para Windows <span class="fa fa-windows" aria-hidden="true"></span>: <a href="http://www.texstudio.org/">http://www.texstudio.org/</a>
+                    <ul>
+                        <li class="help-links">Si ocurren errores como <i>Package not found</i> intentar compilar muchas veces</li>
+                        <li class="help-links">Diccionario en español (Chile): <a href="./es_CL.oxt" download>descargar</a></li>
+                        <li class="help-links">Autocompletar todas las funciones del template: <a href="https://github.com/Template-Latex/cwl-docs">descargar</a></li>
+                    </ul>
+            </ul>
 
-                <!-- Librerías utilizadas -->
-                <h2><a id="librerias-utilizadas" class="anchor" href="#librerias-utilizadas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Librerías utilizadas</h2>
-                <ul>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características extras a las tablas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/amsmath">amsmath</a></strong>: Librería matemática.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/amssymb">amssymb</a></strong>: Librería matemática.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/apacite">apacite</a></strong>: Administración de citas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características a las tablas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/babel">babel</a></strong>: Soporte para idiomas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/bibtex">bibtex</a></strong>: Administración de referencias.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/bigstrut">bigstrut</a></strong>: Permite añadir líneas en tablas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/bm">bm</a></strong>: Caracteres en negrita en ecuaciones.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/booktabs">booktabs</a></strong>: Permite manejar elementos visuales en tablas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/cancel">cancel</a></strong>: Cancelar términos en fórmulas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/caption">caption</a></strong>: Leyendas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/changepage">changepage</a></strong>: Condicionales para administrar páginas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/chngcntr">chngcntr</a></strong>: Agrega números de secciones a las leyendas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/colortbl">colortbl</a></strong>: Colores en las tablas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/color">color</a></strong>: Colores.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/csquotes">csquotes</a></strong>: Citas y comillas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/datetime">datetime</a></strong>: Fechas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/enumerate">enumitem</a></strong>: Permite enumerar ítemes.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/etoolbox">etoolbox</a></strong>: Herramientas varias del compilador.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/fancyhdr">fancyhdr</a></strong>: Encabezados y pie de páginas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/floatpag">floatpag</a></strong>: Maneja números de páginas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/floatrow">floatrow</a></strong>: Administración de floats.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/float">float</a></strong>: Administrador de posiciones de objetos.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/fontenc">fontenc</a></strong>: Soporta caracteres acentuados.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/footmisc">footmisc</a></strong>: Elimina la barra vertical de las notas al pié de página.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/framed">framed</a></strong>: Permite insertar recuadros.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/gensymb">gensymb</a></strong>: Simbología común.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/geometry">geometry</a></strong>: Dimensiones y geometría del documento.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/graphicx">graphicx</a></strong>: Propiedades extra para los gráficos.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/hyperref">hyperref</a></strong>: Permite añadir enlaces y referencias <em>[dependiente]</em>.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/hyperxmp">hyperxmp</a></strong>: Etiquetas opcionales en el <i>metadata</i> del pdf compilado.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/ifthen">ifthen</a></strong>: Permite el manejo de condicionales.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/mathtools">mathtools</a></strong>: Permite utilizar notaciones matemáticas avanzadas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/multicol">multicol</a></strong>: Múltiples columnas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/multirow">multirow</a></strong>: Añade nuevas opciones a las tablas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/natbib">natbib</a></strong>: Administración de citas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/needspace">needspace</a></strong>: Maneja espacios en páginas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/notoccite">notoccite</a></strong>: Desactiva las citas en el índice.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/lipsum">lipsum</a></strong>: Permite crear párrafos de prueba.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/listings">listings</a></strong>: Permite añadir código fuente.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/longtable">longtable</a></strong>: Permite utilizar tablas en varias hojas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/pdfpages">pdfpages</a></strong>: Permite administrar páginas en pdf.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/physics">physics</a></strong>: Importa funciones matemáticas esenciales.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/rotating">rotating</a></strong>: Permite rotación de objetos.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/secdot">secdot</a></strong>: Agrega puntos a los títulos/subtítulos.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/sectsty">sectsty</a></strong>: Cambia el estilo de los títulos.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/setspace">setspace</a></strong>: Cambia el espacio entre líneas.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/siunitx">siunitx</a></strong>: Permite añadir unidades del sistema internacional.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/soul">soul</a></strong>: Permite subrayar texto.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/subfig">subfig</a></strong>: Permite agrupar imágenes.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/textcomp">textcomp</a></strong>: Simbología.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/titlesec">titlesec</a></strong>: Configuración de los titulos.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/tocloft">tocloft</a></strong>: Manejo de entradas en la tabla de contenidos.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/totalcount">totalcount</a></strong>: Permite contar elementos.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/tikz">tikz</a></strong>: Permite dibujar.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/ulem">ulem</a></strong>: Permite cachar, subrayar, etc.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/url">url</a></strong>: Permite añadir enlaces.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/wasysym">wasysym</a></strong>: Contiene caracteres misceláneos.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/wrapfig">wrapfig</a></strong>: Permite comprimir imágenes.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/xcolor">xcolor</a></strong>: Paquete de colores avanzado.
-                    </li>
-                    <li>
-                        <strong><a href="https://www.ctan.org/pkg/xcolor">xspace</a></strong>: Adminisitra espacios en párrafos y líneas.
-                    </li>
-                </ul>
+            <!-- Librerías utilizadas -->
+            <h2><a id="librerias-utilizadas" class="anchor" href="#librerias-utilizadas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Librerías utilizadas</h2>
+            <ul class="linkssection">
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características extras a las tablas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/amsmath">amsmath</a></strong>: Librería matemática.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/amssymb">amssymb</a></strong>: Librería matemática.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/apacite">apacite</a></strong>: Administración de citas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/array">array</a></strong>: Añade características a las tablas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/babel">babel</a></strong>: Soporte para idiomas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/bibtex">bibtex</a></strong>: Administración de referencias.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/bigstrut">bigstrut</a></strong>: Permite añadir líneas en tablas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/bm">bm</a></strong>: Caracteres en negrita en ecuaciones.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/booktabs">booktabs</a></strong>: Permite manejar elementos visuales en tablas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/cancel">cancel</a></strong>: Cancelar términos en fórmulas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/caption">caption</a></strong>: Leyendas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/changepage">changepage</a></strong>: Condicionales para administrar páginas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/chngcntr">chngcntr</a></strong>: Agrega números de secciones a las leyendas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/colortbl">colortbl</a></strong>: Colores en las tablas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/color">color</a></strong>: Colores.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/csquotes">csquotes</a></strong>: Citas y comillas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/datetime">datetime</a></strong>: Fechas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/enumerate">enumitem</a></strong>: Permite enumerar ítemes.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/etoolbox">etoolbox</a></strong>: Herramientas varias del compilador.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/fancyhdr">fancyhdr</a></strong>: Encabezados y pie de páginas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/floatpag">floatpag</a></strong>: Maneja números de páginas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/floatrow">floatrow</a></strong>: Administración de floats.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/float">float</a></strong>: Administrador de posiciones de objetos.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/fontenc">fontenc</a></strong>: Soporta caracteres acentuados.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/footmisc">footmisc</a></strong>: Elimina la barra vertical de las notas al pié de página.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/framed">framed</a></strong>: Permite insertar recuadros.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/gensymb">gensymb</a></strong>: Simbología común.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/geometry">geometry</a></strong>: Dimensiones y geometría del documento.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/graphicx">graphicx</a></strong>: Propiedades extra para los gráficos.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/hyperref">hyperref</a></strong>: Permite añadir enlaces y referencias <em>[dependiente]</em>.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/hyperxmp">hyperxmp</a></strong>: Etiquetas opcionales en el <i>metadata</i> del pdf compilado.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/ifthen">ifthen</a></strong>: Permite el manejo de condicionales.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/mathtools">mathtools</a></strong>: Permite utilizar notaciones matemáticas avanzadas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/multicol">multicol</a></strong>: Múltiples columnas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/multirow">multirow</a></strong>: Añade nuevas opciones a las tablas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/natbib">natbib</a></strong>: Administración de citas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/needspace">needspace</a></strong>: Maneja espacios en páginas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/notoccite">notoccite</a></strong>: Desactiva las citas en el índice.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/lipsum">lipsum</a></strong>: Permite crear párrafos de prueba.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/listings">listings</a></strong>: Permite añadir código fuente.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/longtable">longtable</a></strong>: Permite utilizar tablas en varias hojas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/pdfpages">pdfpages</a></strong>: Permite administrar páginas en pdf.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/physics">physics</a></strong>: Importa funciones matemáticas esenciales.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/rotating">rotating</a></strong>: Permite rotación de objetos.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/secdot">secdot</a></strong>: Agrega puntos a los títulos/subtítulos.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/sectsty">sectsty</a></strong>: Cambia el estilo de los títulos.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/setspace">setspace</a></strong>: Cambia el espacio entre líneas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/siunitx">siunitx</a></strong>: Permite añadir unidades del sistema internacional.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/soul">soul</a></strong>: Permite subrayar texto.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/subfig">subfig</a></strong>: Permite agrupar imágenes.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/textcomp">textcomp</a></strong>: Simbología.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/titlesec">titlesec</a></strong>: Configuración de los titulos.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/tocloft">tocloft</a></strong>: Manejo de entradas en la tabla de contenidos.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/totalcount">totalcount</a></strong>: Permite contar elementos.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/tikz">tikz</a></strong>: Permite dibujar.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/ulem">ulem</a></strong>: Permite cachar, subrayar, etc.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/url">url</a></strong>: Permite añadir enlaces.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/wasysym">wasysym</a></strong>: Contiene caracteres misceláneos.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/wrapfig">wrapfig</a></strong>: Permite comprimir imágenes.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/xcolor">xcolor</a></strong>: Paquete de colores avanzado.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/xcolor">xspace</a></strong>: Adminisitra espacios en párrafos y líneas.
+                </li>
+            </ul>
 
-                <!-- Qué hay de nuevo, CHANGELOG -->
-                <div id='whatsnew' class='whatsnew'>
-                    <h2 style='margin-top: 2.5rem;'><a id="changelog" class="anchor" href="changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changelog</h2>
-                    <div id="que-hay-de-nuevo">
-                    </div>
+            <!-- Qué hay de nuevo, CHANGELOG -->
+            <div id='whatsnew' class='whatsnew'>
+                <h2 style='margin-top: 2.5rem;'><a id="changelog" class="anchor" href="changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changelog</h2>
+                <div id="que-hay-de-nuevo">
                 </div>
+            </div>
 
-                <!-- Autor -->
-                <h2><a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor</h2>
-                <p><a href="http://ppizarror.com/">Pablo Pizarro R.</a> | 2017</p>
-                <p>
-                    Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.
-                </p>
-                <br />
+            <!-- Autor -->
+            <h2><a id="autor" class="anchor" href="#autor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autor</h2>
+            <p><a href="http://ppizarror.com/">Pablo Pizarro R.</a> | 2017</p>
+            <p>
+                Si tienes alguna sugerencia envíame un correo a: <a href="mailto:pablo.pizarro@ing.uchile.cl">pablo.pizarro@ing.uchile.cl</a>.
+            </p>
+            <br />
 
-                <!-- Galerías -->
-                <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="pswp__bg"></div>
-                    <div class="pswp__scroll-wrap">
-                        <div class="pswp__container">
-                            <div class="pswp__item"></div>
-                            <div class="pswp__item"></div>
-                            <div class="pswp__item"></div>
-                        </div>
-                        <div class="pswp__ui pswp__ui--hidden">
-                            <div class="pswp__top-bar">
-                                <div class="pswp__counter"></div>
-                                <button class="pswp__button pswp__button--close" title="Cerrar (Esc)"></button>
-                                <button class="pswp__button pswp__button--share" title="Compartir"></button>
-                                <button class="pswp__button pswp__button--fs" title="Cerrar pantalla completa"></button>
-                                <button class="pswp__button pswp__button--zoom" title="Zoom"></button>
-                                <div class="pswp__preloader">
-                                    <div class="pswp__preloader__icn">
-                                        <div class="pswp__preloader__cut">
-                                            <div class="pswp__preloader__donut"></div>
-                                        </div>
+            <!-- Galerías -->
+            <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="pswp__bg"></div>
+                <div class="pswp__scroll-wrap">
+                    <div class="pswp__container">
+                        <div class="pswp__item"></div>
+                        <div class="pswp__item"></div>
+                        <div class="pswp__item"></div>
+                    </div>
+                    <div class="pswp__ui pswp__ui--hidden">
+                        <div class="pswp__top-bar">
+                            <div class="pswp__counter"></div>
+                            <button class="pswp__button pswp__button--close" title="Cerrar (Esc)"></button>
+                            <button class="pswp__button pswp__button--share" title="Compartir"></button>
+                            <button class="pswp__button pswp__button--fs" title="Cerrar pantalla completa"></button>
+                            <button class="pswp__button pswp__button--zoom" title="Zoom"></button>
+                            <div class="pswp__preloader">
+                                <div class="pswp__preloader__icn">
+                                    <div class="pswp__preloader__cut">
+                                        <div class="pswp__preloader__donut"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                                <div class="pswp__share-tooltip"></div>
-                            </div>
-                            <button class="pswp__button pswp__button--arrow--left" title="Anterior (Flecha izquierda)"></button>
-                            <button class="pswp__button pswp__button--arrow--right" title="Siguiente (Flecha derecha)"></button>
-                            <div class="pswp__caption">
-                                <div class="pswp__caption__center"></div>
-                            </div>
+                        </div>
+                        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                            <div class="pswp__share-tooltip"></div>
+                        </div>
+                        <button class="pswp__button pswp__button--arrow--left" title="Anterior (Flecha izquierda)"></button>
+                        <button class="pswp__button pswp__button--arrow--right" title="Siguiente (Flecha derecha)"></button>
+                        <div class="pswp__caption">
+                            <div class="pswp__caption__center"></div>
                         </div>
                     </div>
                 </div>
+            </div>
 
         </section>
     </div>

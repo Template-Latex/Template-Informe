@@ -35,6 +35,7 @@ var bounceStyleReferences; // Efecto en entrada de configuración
 var hfGallery; // Muestra la galería de header-footer
 var line_abstract = [95, 216]; // Número de línea de abstract/resumen
 var line_authortable = [33, 34]; // Número de línea tabla de integrantes
+var line_configimport = [64, 65]; // Número línea importación de configuraciones
 var line_docinit = [106, 227]; // Número de línea inicio del documento
 var line_infodocument = [18, 19]; // Número de línea información del documento
 var portraitGallery; // Muestra la galería de portadas
@@ -52,6 +53,13 @@ function afterDocumentReady() {
         $(this).attr('title', String.format('Línea {0} en versión compacta', line_authortable[1]));
         $(this).html(String.format('(línea {0})', line_authortable[0]));
     });
+    $('.intro-line-configimport').each(
+        function() {
+            $(this).attr('style', 'cursor:pointer;');
+            $(this).attr('title', String.format('Línea {0} en versión compacta', line_configimport[1]));
+            $(this).html(String.format('(línea {0})', line_configimport[0]));
+        }
+    );
     $('.intro-line-docinit').each(
         function() {
             $(this).attr('style', 'cursor:pointer;');
@@ -81,7 +89,9 @@ function afterDocumentReady() {
             hideAnimationDuration: 400,
             shareEl: false,
             counterEl: true,
-            history: true
+            history: true,
+            fullscreenEl: false,
+            zoomEl: false
         };
         var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
         gallery.listen('close', function() {
@@ -107,7 +117,9 @@ function afterDocumentReady() {
             hideAnimationDuration: 400,
             shareEl: false,
             counterEl: true,
-            history: true
+            history: true,
+            fullscreenEl: false,
+            zoomEl: false
         };
         var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
         gallery.listen('close', function() {
