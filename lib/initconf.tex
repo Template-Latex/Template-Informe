@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.6.4 (14/10/2017)
+% Versión:      4.6.5 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -38,13 +38,13 @@
 % Se crean variables si se borraron
 \ifthenelse{\isundefined{\tablaintegrantes}}{
 	\errmessage{LaTeX Warning: Se borro la variable \noexpand\tablaintegrantes, creando una vacia}
-	\def\tablaintegrantes {}
-}{}
+	\def\tablaintegrantes {}}{
+}
 
 % Se activan números en menú marcadores del pdf
 \ifthenelse{\equal{\cfgpdfsecnumbookmarks}{true}}{
-	\bookmarksetup{numbered}
-}{}
+	\bookmarksetup{numbered}}{
+}
 
 % Se define metadata del pdf
 \ifthenelse{\equal{\cfgshowbookmarkmenu}{true}}{
@@ -78,9 +78,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.6.4-N},
-		Template.Version.Hash={C003DBBF0CB37DDACA0615B2478CA0C3},
-		Template.Version.Release={4.6.4},
+		Template.Version.Dev={4.6.5-N},
+		Template.Version.Hash={AC7EF65B8BAABB05B2490A8E7CD02413},
+		Template.Version.Release={4.6.5},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -92,7 +92,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Informe v4.6.4 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.6.5 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -109,17 +109,19 @@
 % Definición de valores e dimensiones
 \newcounter{templatepagecounter} % Administra números de páginas
 \renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
-\setlength{\headheight}{64pt} % Tamaño de la cabecera sin fancyhdr
+\setlength{\headheight}{64 pt} % Tamaño de la cabecera sin fancyhdr
 \setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
-\setlength{\footnotemargin}{3mm} % Margen del footnote
+\setlength{\footnotemargin}{4 mm} % Margen del footnote
 \setlength{\columnsep}{\columnsepwidth em} % Separación entre columnas
-\ifthenelse{\equal{\showlinenumbers}{true}}{ % Espaciado entre número de línea y texto
-	\setlength{\linenumbersep}{0.2cm}}{
+\ifthenelse{\equal{\showlinenumbers}{true}}{
+	\setlength{\linenumbersep}{0.2cm} % Espaciado entre número de línea y texto
+	\renewcommand\linenumberfont{\normalfont\tiny\color{gray}} % Estilo número
+	}{
 }
 
 % Configuración de los colores
 \color{\maintextcolor} % Color principal
-\arrayrulecolor{\tablelinecolor} % Color de las lineas de las tablas
+\arrayrulecolor{\tablelinecolor} % Color de las líneas de las tablas
 \sethlcolor{\highlightcolor} % Color del subrayado por defecto
 \ifthenelse{\equal{\showborderonlinks}{true}}{
 	\hypersetup{
@@ -218,8 +220,7 @@
 	\throwbadconfig{Estilo citas desconocido}{\stylecitereferences}{bibtex,apacite,natbib}}}
 }
 \makeatletter
-\ifthenelse{\equal{\twocolumnreferences}{true}}{
-	% Referencias en 2 columnas
+\ifthenelse{\equal{\twocolumnreferences}{true}}{ % Referencias en 2 columnas
 	\renewenvironment{thebibliography}[1]
 	{\begin{multicols}{2}[\section*{\refname}]
 		\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}

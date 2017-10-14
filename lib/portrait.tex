@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de portadas
-% Versión:      4.6.4 (14/10/2017)
+% Versión:      4.6.5 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,8 +18,8 @@
 % Estilos de portada
 \ifthenelse{\equal{\portraitstyle}{style1}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{fancy} \fancyhf{}
-	
+	\pagestyle{fancy}
+	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad \\ \vspace{-0.43cm}
 	}
@@ -46,8 +46,8 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style2}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{fancy} \fancyhf{}
-	
+	\pagestyle{fancy}
+	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad \\ \vspace{-0.43cm}
 	}
@@ -76,8 +76,8 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style3}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{fancy} \fancyhf{}
-	
+	\pagestyle{fancy}
+	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad \\ \nombrefacultad \\ \departamentouniversidad \\ \vspace{-0.43cm}
 	}
@@ -109,7 +109,6 @@
 \ifthenelse{\equal{\portraitstyle}{style4}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\vspace*{-1.5cm}
 	\noindent \includegraphics[width=1.75cm]{departamentos/uchile2}
 	\hspace*{-0.15cm}
@@ -139,7 +138,6 @@
 \ifthenelse{\equal{\portraitstyle}{style5}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\includegraphics[width=1.5cm]{departamentos/uchile3} 
 	\hspace{-0.2cm}
 	\begin{tabular}{l}
@@ -169,7 +167,6 @@
 \ifthenelse{\equal{\portraitstyle}{style6}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\begin{wrapfigure}{l}{0.3\textwidth}
 		\vspace{-0.69cm}
 		\noindent \hspace{-1.10cm} \includegraphics[scale=1.35]{departamentos/fcfm2}
@@ -205,7 +202,6 @@
 \ifthenelse{\equal{\portraitstyle}{style7}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\begin{center}
 		\vspace*{-1.5cm}
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
@@ -238,7 +234,6 @@
 \ifthenelse{\equal{\portraitstyle}{style8}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\begin{tabular}{c}
@@ -268,7 +263,6 @@
 \ifthenelse{\equal{\portraitstyle}{style9}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\noindent \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	\vfill
 	\begin{center}
@@ -323,7 +317,6 @@
 \ifthenelse{\equal{\portraitstyle}{style11}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\scshape{\nombreuniversidad} \\
@@ -345,7 +338,6 @@
 \ifthenelse{\equal{\portraitstyle}{style12}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
@@ -372,7 +364,6 @@
 \ifthenelse{\equal{\portraitstyle}{style13}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\noindent
 	\vspace*{-1.5cm}
 	\begin{flushleft}
@@ -409,7 +400,6 @@
 \ifthenelse{\equal{\portraitstyle}{style14}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\noindent
 	\begin{flushleft}
 		\vspace*{-1.0cm}
@@ -502,7 +492,6 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{empty}
 	\pagecolor{lbrown}
-	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\scshape{\nombreuniversidad} \\

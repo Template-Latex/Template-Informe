@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      4.6.4 (14/10/2017)
+% Versión:      4.6.5 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,11 +12,11 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % NUEVA SECCIÓN
-% Las secciones se inician con \section, si se quiere una sección sin "número" se pueden usar las funciones \sectionanum (sección sin número) o la función \sectionanumnoi para crear el mismo título sin numerar y sin aparecer en el índice
+% Las secciones se inician con \section, si se quiere una sección sin número se pueden usar las funciones \sectionanum (sección sin número) o la función \sectionanumnoi para crear el mismo título sin numerar y sin aparecer en el índice
 \section{Informes con \LaTeX}
 	
 	% SUB-SECCIÓN
-	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin "número" se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
+	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin número se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
 	\subsection{Una breve introducción}
 		
 		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
@@ -29,7 +29,7 @@
 		% Se inserta una ecuación, el primer parámetro entre corchetes es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos peso
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 		
-		% Se añade parrafo de prueba, notar que no se requiere añadir un salto de línea después de insertar una función
+		% Se añade parrafo de prueba, notar que no se requiere añadir un salto de línea después de insertar una ecuación
 		\lipsum[75]
 		
 		% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar errores y warnings por parte del compilador
@@ -63,7 +63,7 @@
 	% SUB-SECCIÓN
 	\subsection{Haciendo informes como un profesional}
 		
-		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
+		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala (un 30% del ancho de página) y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
 		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
 		
 		\lipsum[1]
@@ -72,7 +72,7 @@
 		\newp \lipsum[115]
 		\newp \lipsum[2]
 		
-		% Agrega una ecuación con leyendas
+		% Agrega una ecuación con leyenda
 		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido.}
 		
 		% Aquí no es necesario usar \newp dado que todas las funciones \insert... añaden un párrafo nuevo por defecto
@@ -115,9 +115,9 @@
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
 		
-		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{lstlisting}:
+		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{sourcecode}:
 		
-% Se define el lenguaje del código, cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
+% Se define el lenguaje del código. Cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
 \begin{sourcecode}[\label{codigo-python}]{Python}{Ejemplo en Python.}
 import numpy as np
 
@@ -164,7 +164,6 @@ for j = 1:length(BETA)
 end	
 \end{sourcecode}
 
-
 % NUEVA SECCIÓN
 % Inserta una sección sin número
 \sectionanum{Más ejemplos}
@@ -172,7 +171,7 @@ end
 	% Inserta un subtítulo sin número
 	\subsectionanum{Listas y Enumeraciones}
 		
-		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template \footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.}, para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
+		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template \footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.}, para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento comienza por \texttt{\textbackslash item}, resultando así:
 		
 		\begin{enumerate}
 			\item Ítem 1
@@ -227,7 +226,9 @@ end
 	% Inserta un subtítulo sin número
 	\subsectionanum{Otros}
 		
-		Recuerda revisar el manual de todas las funciones de este template visitando el siguiente link: \url{http://latex.ppizarror.com/Template-Informe/}. Además si necesitas una ayuda muy específica sobre el template me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
+		Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{http://latex.ppizarror.com/Template-Informe/}.
+		
+		\newp Si necesitas una ayuda muy específica sobre el template, o si tienes alguna sugerencia, me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
 
 % ANEXO
 \newpage
@@ -277,7 +278,6 @@ end
 			\end{tabular}
 			\label{tab:anexo-2}
 		\end{table}
-		
 \end{anexo}
 
 % REFERENCIAS (ESTILO BIBTEX)
@@ -294,7 +294,12 @@ end
 	\url{https://www.ctan.org/tex-archive/support/excel2latex/}
 	
 	\bibitem{ref3}
+	Overleaf.
+	\textit{Un aclamado editor online \LaTeX.} \\
+	\href{https://www.overleaf.com/signup?ref=4d3bd09b7e78}{\texttt{https://www.overleaf.com/}}
+	
+	\bibitem{ref4}
 	ShareLatex.
 	\textit{Uno de los mejores editores online para \LaTeX.} \\
-	\href{https://www.sharelatex.com/?r=298b935f&rm=d&rs=b}{\texttt{http://www.tablesgenerator.com/}}
+	\href{https://www.sharelatex.com/?r=298b935f&rm=d&rs=b}{\texttt{https://www.sharelatex.com/}}
 \end{references}

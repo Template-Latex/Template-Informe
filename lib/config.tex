@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      4.6.4 (14/10/2017)
+% Versión:      4.6.5 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -18,9 +18,9 @@
 \def\documentlang {es-CL}         % Define el idioma del documento
 \def\fontdocument {lmodern}       % Tipografía (lmodern,arial,helvet)
 \def\numberedequation {true}      % Ecuaciones con \insert... numeradas
-\def\pointdecimal {false}         % Decimales con punto en vez de coma
+\def\pointdecimal {false}         % Números decimales con punto en vez de coma
 \def\romanpageuppercase {false}   % Páginas en número romano en mayúsculas
-\def\showlinenumbers {true}       % Muestra los números de línea del documento
+\def\showlinenumbers {false}      % Muestra los números de línea del documento
 \def\columnsepwidth {2.1}         % Separación entre columnas [em]
 \def\tablepadding {1.0}           % Ancho de celda de las tablas
 
@@ -44,7 +44,7 @@
 \def\captiontextbold {false}      % Etiquetas (Código,Figura,Tabla) en negrita
 \def\codecaptiontop {true}        % Leyenda arriba del código fuente
 \def\figurecaptiontop {false}     % Leyenda arriba de las imágenes
-\def\showsectiononcaption {false} % Número de la sección en el N° de figura/tabla/código
+\def\showsectiononcaption {false} % Número de la sección en N° de figura/tabla/código
 \def\tablecaptiontop {true}       % Leyenda arriba de las tablas
 
 % CONFIGURACIÓN DEL ÍNDICE
@@ -82,15 +82,15 @@
 \def\margintopimages {0.0}        % Margen superior figura [cm]
 
 % ANEXO, CITAS, REFERENCIAS
-\def\apaciterefsep {9}            % Separación entre referencias [pt] {apacite}
+\def\apaciterefsep {9}            % Separación entre referencias {apacite} [pt]
 \def\appendixindepobjnum {true}   % Anexo usa número objetos de forma independiente
-\def\bibtexrefsep {9}             % Separación entre referencias [pt] {bibtex}
+\def\bibtexrefsep {9}             % Separación entre referencias {bibtex} [pt]
 \def\donumrefsection {false}      % Sección de referencias numerada
-\def\natbibrefsep {5}             % Separación entre referencias [pt] {natbib}
+\def\natbibrefsep {5}             % Separación entre referencias {natbib} [pt]
 \def\sectionappendixlastchar {.}  % Carácter entre N° de la sec. de anexo y título
 \def\showappendixsecindex {false} % Título de la sección de anexos en el índice
 \def\showappendixsectitle {false} % Título de la sección de anexo en el informe
-\def\stylecitereferences {bibtex} % Estilo cita&referencias (bibtex,apacite,natbib)
+\def\stylecitereferences {bibtex} % Estilo cita y referencias (bibtex,apacite,natbib)
 \def\twocolumnreferences {false}  % Referencias en dos columnas
 
 % CONFIGURACIÓN DE LOS TÍTULOS
@@ -99,7 +99,7 @@
 \def\fontsizesubtitle {\Large}    % Tamaño subtítulos
 \def\fontsizetitle {\huge}        % Tamaño títulos
 \def\fontsizetitlei {\huge}       % Tamaño títulos en el índice
-\def\showdotontitles {true}       % Punto al final de N° de título/sub(sub)título
+\def\showdotontitles {true}       % Punto al final del N° de título/sub(sub)título
 \def\stylesubsubtitle {\bfseries} % Estilo sub-subtítulos
 \def\stylesubtitle {\bfseries}    % Estilo subtítulos
 \def\styletitle {\bfseries}       % Estilo títulos
