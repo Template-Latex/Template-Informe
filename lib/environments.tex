@@ -18,9 +18,7 @@
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
 	\begingroup
-	
-	% Se configura las referencias como una sección
-	\ifthenelse{\equal{\donumrefsection}{true}}{
+	\ifthenelse{\equal{\donumrefsection}{true}}{ % Se configura las referencias como una sección
 		\section{\namereferences}
 	}{
 		\sectionanum{\namereferences}
@@ -68,6 +66,31 @@
 	\endgroup
 }
 
+% Inserta código fuente
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Caption
+\lstnewenvironment{sourcecode}[3][]{
+	\emptyvarerr{\equationresize}{#2}{Estilo no definido}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\rightlinenumbers}{
+	}
+	\ifx\hfuzz#3\hfuzz
+	\lstset{
+		style=#2
+	}
+	\else
+	\lstset{
+		style=#2,
+		caption=#3 #1
+	}
+	\fi
+}{
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\leftlinenumbers}{
+	}
+}
+
 % Crea una sección de resumen
 \newenvironment{resumen}{
 	% Tipo de título para abstract
@@ -88,29 +111,4 @@
 		\else
 		\fi
 	}{}
-}
-
-% Inserta código fuente
-%	#1	Label (opcional)
-%	#2	Estilo de código
-%	#3	Caption
-\lstnewenvironment{sourcecode}[3][]{
-	\emptyvarerr{\equationresize}{#2}{Estilo no definido}
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\rightlinenumbers}{
-	}
-	\ifx\hfuzz#3\hfuzz
-		\lstset{
-			style=#2
-		}
-	\else
-		\lstset{
-			style=#2,
-			caption=#3 #1
-		}
-	\fi
-	}{
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
 }
