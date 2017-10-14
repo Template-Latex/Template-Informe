@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      4.6.3 (28/09/2017)
+% Versión:      4.6.4 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -15,7 +15,7 @@
 \newenvironment{references}{
 	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	}{
-		\throwerror{}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
+		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
 	\begingroup
 	% Se configura las referencias como una sección
@@ -87,4 +87,29 @@
 		\else
 		\fi
 	}{}
+}
+
+% Inserta código fuente
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Caption
+\lstnewenvironment{sourcecode}[3][]{
+	\emptyvarerr{\equationresize}{#2}{Estilo no definido}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\rightlinenumbers}{
+	}
+	\ifx\hfuzz#3\hfuzz
+		\lstset{
+			style=#2
+		}
+	\else
+		\lstset{
+			style=#2,
+			caption=#3 #1
+		}
+	\fi
+	}{
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\leftlinenumbers}{
+	}
 }

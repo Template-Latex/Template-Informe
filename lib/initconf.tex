@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.6.3 (28/09/2017)
+% Versión:      4.6.4 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -73,14 +73,14 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={28/09/2017},
+		Template.Fecha={14/10/2017},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.6.3-2-N},
-		Template.Version.Hash={92BF36E9E212A2117EE6C7B541C4694B},
-		Template.Version.Release={4.6.3},
+		Template.Version.Dev={4.6.4-N},
+		Template.Version.Hash={C003DBBF0CB37DDACA0615B2478CA0C3},
+		Template.Version.Release={4.6.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -92,7 +92,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Informe v4.6.3 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.6.4 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -107,11 +107,15 @@
 \graphicspath{{./\defaultimagefolder}}
 
 % Definición de valores e dimensiones
+\newcounter{templatepagecounter} % Administra números de páginas
+\renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
 \setlength{\headheight}{64pt} % Tamaño de la cabecera sin fancyhdr
 \setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
-\newcounter{templatepagecounter} % Administra números de páginas
 \setlength{\footnotemargin}{3mm} % Margen del footnote
-\renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
+\setlength{\columnsep}{\columnsepwidth em} % Separación entre columnas
+\ifthenelse{\equal{\showlinenumbers}{true}}{ % Espaciado entre número de línea y texto
+	\setlength{\linenumbersep}{0.2cm}}{
+}
 
 % Configuración de los colores
 \color{\maintextcolor} % Color principal

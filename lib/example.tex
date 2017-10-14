@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      4.6.3 (28/09/2017)
+% Versión:      4.6.4 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -30,7 +30,7 @@
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 		
 		% Se añade parrafo de prueba, notar que no se requiere añadir un salto de línea después de insertar una función
-		Nunc sed pede. Praesent vitae lectus. Praesent neque justo, vehicula eget, interdum id, facilisis et, nibh. Phasellus at purus et libero lacinia dictum. Fusce aliquet. Nulla eu ante placerat leo semper dictum. Mauris metus. Curabitur lobortis. Curabitur sollicitudin hendrerit nunc.
+		\lipsum[75]
 		
 		% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar errores y warnings por parte del compilador
 		\newp Este es un nuevo párrafo insertado con el comando \texttt{\textbackslash newp}. Si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales acompañado de \texttt{\textbackslash par}. Además puedes editar las funciones, definidas en el archivo \texttt{lib/functions.tex}.
@@ -50,7 +50,6 @@
 				\hline
 				$\omega$ & $\nu$ & $\delta$ \bigstrut[t]\\
 				$\beta$ & $\gamma$ & $\epsilon$ \\
-				$\varepsilon$ & $\upsilon$ & $\varphi$\\
 				$\Phi$ & $\Theta$ & $\varSigma$ \bigstrut[b]\\
 				\hline
 			\end{tabular}
@@ -119,7 +118,7 @@
 		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{lstlisting}:
 		
 % Se define el lenguaje del código, cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
-\begin{lstlisting}[style=Python, caption={Ejemplo en Python.\label{codigo-python}}]
+\begin{sourcecode}[\label{codigo-python}]{Python}{Ejemplo en Python.}
 import numpy as np
 
 def incmatrix(genl1, genl2):
@@ -127,9 +126,9 @@ def incmatrix(genl1, genl2):
 	n = len(genl2)
 	M = None # Comentario 1
 	VT = np.zeros((n*m, 1), int) # Comentario 2
-\end{lstlisting}
+\end{sourcecode}
 
-\begin{lstlisting}[style=Java, caption={Ejemplo en Java.\label{codigo-java}}]
+\begin{sourcecode}[\label{codigo-java}]{Java}{Ejemplo en Java.}
 import java.io.IOException; 
 import javax.servlet.*;
 
@@ -143,18 +142,18 @@ public class Hola extends GenericServlet {
 		pw.close();
 	}
 }
-\end{lstlisting}
+\end{sourcecode}
 
-\begin{lstlisting}[style=Matlab, caption={Ejemplo en Matlab.\label{codigo-matlab}}]
+\begin{sourcecode}[\label{codigo-matlab}]{Matlab}{Ejemplo en Matlab.}
 % Se crea gráfico
-f = figure(1); hold on; movegui(f, 'center');
+f = figure(1);
+hold on;
+movegui(f, 'center');
 xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
 title('Espectro de pulso de desplazamiento');
 
 for j = 1:length(BETA)
 	fad = ones(1, NDATOS); % Arreglo para el FAD, uno para cada r
-	
-	% Se crea el espectro de respuesta máximo para cada par de beta/r
 	for i = 1:NDATOS
 		[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
 		fad(i) = max(abs(u_t)) / uf0;
@@ -162,8 +161,8 @@ for j = 1:length(BETA)
 	mx = find(fad == max(fad(:)));
 	fprintf('BETA=%.2f, MAX: FAD=%.3f, TD/TN=%.3f\n', BETA(j), fad(mx), tdtn(mx));
 	plot(tdtn, fad, 'DisplayName', strcat('\beta=', sprintf('%.2f', BETA(j))));
-end
-\end{lstlisting}
+end	
+\end{sourcecode}
 
 
 % NUEVA SECCIÓN

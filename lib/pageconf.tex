@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      4.6.3 (28/09/2017)
+% Versión:      4.6.4 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -130,3 +130,8 @@
 
 % Profundidad del índice
 \setcounter{tocdepth}{\indexdepth} % Se ajusta la profundidad del índice
+
+% Muestra los números de línea
+\ifthenelse{\equal{\showlinenumbers}{true}}{
+	\linenumbers}{
+}

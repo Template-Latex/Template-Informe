@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Índice
-% Versión:      4.6.3 (28/09/2017)
+% Versión:      4.6.4 (14/10/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -15,11 +15,13 @@
 	
 	% Crea nueva página y establece estilo de títulos
 	\newpage
+	\sectionfont{\color{\indextitlecolor} \fontsizetitlei \styletitlei \selectfont}
+	
+	% Añade la entrada del índice a los marcadores del pdf
 	\ifthenelse{\equal{\addindextobookmarks}{true}}{
 		\belowpdfbookmark{\nomltcont}{contents}}{
 	}
 	\tocloftpagestyle{fancy}
-	\sectionfont{\color{\indextitlecolor} \fontsizetitlei \styletitlei \selectfont}
 	
 	% Configuración del punto en índice
 	\ifthenelse{\equal{\showdotontitles}{true}}{
@@ -38,6 +40,11 @@
 	% Configuración punto entre objeto y número de página
 	\ifthenelse{\equal{\showdotpagenumindex}{true}}{}{
 		\renewcommand{\cftdot}{}
+	}
+
+	% Desactiva los números de línea
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\nolinenumbers}{
 	}
 	
 	% Índice de Contenidos
