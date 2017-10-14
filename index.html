@@ -819,14 +819,14 @@
                         <blockquote>
                             <div class="highlight highlight-text-tex">
                                 <pre><span class="pl-c1">\begin</span>{<span class="pl-e">anexo</span>}
-<span class="pl-c1">\section</span>{Cálculos realizados}
-    <span class="pl-c1">\lipsum</span>[69]
-    <span class="pl-comment">% Imagen, se numerará automáticamente con la letra del anexo</span>
-    <span class="pl-c1">\insertimage</span>{ejemplos/test-image.png}{<span class="pl-v">scale</span>=0.15}{Imagen en anexo.}
+    <span class="pl-c1">\section</span>{Cálculos realizados}
+        <span class="pl-c1">\lipsum</span>[69]
+        <span class="pl-comment">% Imagen, se numerará automáticamente con la letra del anexo</span>
+        <span class="pl-c1">\insertimage</span>{ejemplos/test-image.png}{<span class="pl-v">scale</span>=0.15}{Imagen en anexo.}
 
-<span class="pl-c1">\newpage</span>
-<span class="pl-c1">\section</span>{Otros anexos}
-    <span class="pl-c1">\lipsum</span>[1]
+    <span class="pl-c1">\newpage</span>
+    <span class="pl-c1">\section</span>{Otros anexos}
+        <span class="pl-c1">\lipsum</span>[1]
 <span class="pl-c1">\end</span>{<span class="pl-e">anexo</span>}</pre>
                             </div>
                         </blockquote>
@@ -843,15 +843,15 @@
                                     <div class="highlight highlight-text-tex">
                                         <pre>
 <span class="pl-c1">\begin</span>{<span class="pl-e">references</span>}
-<span class="pl-c1">\bibitem</span>{ref1}
-Template Informe en <span class="pl-c1">\LaTeX</span>.
-<span class="pl-c1">\textit</span>{¡Revisa el manual online de este template!} \\
-<span class="pl-c1">\url</span>{http://ppizarror.com/Template-Informe/}
+    <span class="pl-c1">\bibitem</span>{ref1}
+    Template Informe en <span class="pl-c1">\LaTeX</span>.
+    <span class="pl-c1">\textit</span>{¡Revisa el manual online de este template!} \\
+    <span class="pl-c1">\url</span>{http://ppizarror.com/Template-Informe/}
 
-<span class="pl-c1">\bibitem</span>{ref2}
-Excel2Latex.
-<span class="pl-c1">\textit</span>{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
-<span class="pl-c1">\url</span>{https://www.ctan.org/tex-archive/support/excel2latex/}
+    <span class="pl-c1">\bibitem</span>{ref2}
+    Excel2Latex.
+    <span class="pl-c1">\textit</span>{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
+    <span class="pl-c1">\url</span>{https://www.ctan.org/tex-archive/support/excel2latex/}
 <span class="pl-c1">\end</span>{<span class="pl-e">references</span>}</pre>
                                     </div>
                                 </blockquote>
@@ -897,24 +897,28 @@ Para usar citas normales se utiliza <span class="pl-c1">\cite</span>{braas}
                     <li class="li-code-parent">
                         <strong class="functtitlstyle">Añadir código fuente<a id="hlp-srccode"></a></strong>
                         <p>
-                            Para añadir código fuente el template da soporte por defecto a la librería <a href="https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings">listings</a>. Se da formato por defecto a los siguientes lenguajes: <b>C, Python, Matlab</b>.
-                            Para insertar código se debe realizar lo siguiente:
+                            Para añadir código fuente existe el entorno <b>sourcecode</b> que permite añadir código de los lenguajes de programación <i>C, Python, Matlab</i>:
                         </p>
-                        <blockquote>
-                            <div class="highlight highlight-text-tex">
-                                <pre>
-<span class="pl-c1">\begin</span>{lstlisting}[<span class="pl-v">style</span>=Python, <span class="pl-v">caption</span>={Ejemplo en Python.<span class="pl-c1">\label</span>{codigo-python}}]<span class="pl-srccode">
+                        <ul>
+                            <li>
+                                <strong>\begin{sourcecode}</strong><b>[</b><em>Label</em> (opcional)<b>]</b><b>{</b><em>Lenguaje</em><b>}</b><b>{</b><em>Leyenda</em><b>}</b>: Inserta un código fuente de un lenguaje definido (Python, Matlab, C), con leyenda.
+                                <blockquote>
+                                    <div class="highlight highlight-text-tex">
+                                        <pre>
+<span class="pl-c1">\begin</span>{<span class="pl-e">sourcecode</span>}<b>[</b><span class="pl-c1">\label</span>{codigo-python}<b>]{</b>Python<b>}{</b>Ejemplo en Python.<b>}</b><span class="pl-srccode">
 import numpy as np
 
 def incmatrix(genl1, genl2):
-m = len(genl1)
-n = len(genl2)
-M = None # Comentario 1
-VT = np.zeros((n*m, 1), int) # Comentario 2
-</span><span class="pl-c1">\end</span>{lstlisting}
+    m = len(genl1)
+    n = len(genl2)
+    M = None # Comentario 1
+    VT = np.zeros((n*m, 1), int) # Comentario 2
+</span><span class="pl-c1">\end</span>{<span class="pl-e">sourcecode</span>}
 </pre>
-                            </div>
-                        </blockquote>
+                                    </div>
+                                </blockquote>
+                            </li>
+                        </ul>
                         <a href="#" class="menu-little-entry"></a>
                     </li>
                     <li>
@@ -974,10 +978,13 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
                             del informe.
                         </li>
                         <li>
+                            <strong>\columnsepwidth</strong>: Separación de las columnas, en <i>em</i>.
+                        </li>
+                        <li>
                             <strong>\defaultinterline</strong>: Tamaño del interlineado.
                         </li>
                         <li>
-                            <strong>\defaultnewlinesize</strong>: Tamaño del salto de línea, en pt.
+                            <strong>\defaultnewlinesize</strong>: Tamaño del salto de línea, en <i>pt</i>.
                         </li>
                         <li>
                             <strong>\documentlang</strong>: Define el idioma del documento.
@@ -993,6 +1000,9 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
                         </li>
                         <li>
                             <strong>\romanpageuppercase</strong>: Páginas en número romano (abstract-índice) en mayúsculas.
+                        </li>
+                        <li>
+                            <strong>\showlinenumbers</strong>: Muestra los números de línea del documento.
                         </li>
                         <li>
                             <strong>\tablepadding</strong>: Ancho de celda de las tablas.
@@ -1046,10 +1056,10 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
                             <strong>\captionlrmargin</strong>: Márgen izquierdo (<i>left</i>) y derecho (<i>right</i>) de las leyendas, en centímetros.
                         </li>
                         <li>
-                            <strong>\captiontbmarginfigure</strong>: Margen superior/inferior de la leyenda en las figuras, en pt.
+                            <strong>\captiontbmarginfigure</strong>: Margen superior/inferior de la leyenda en las figuras, en <i>pt</i>.
                         </li>
                         <li>
-                            <strong>\captiontbmargintable</strong>: Margen superior/inferior de la leyenda en las tablas, en pt.
+                            <strong>\captiontbmargintable</strong>: Margen superior/inferior de la leyenda en las tablas, en <i>pt</i>.
                         </li>
                         <li>
                             <strong>\captiontextbold</strong>: Etiquetas (Figura,Tabla,etc.) de la leyenda en negrita.
@@ -1079,7 +1089,7 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
                             <strong>\indexdepth</strong>: Profundidad del índice.
                         </li>
                         <li>
-                            <strong>\indextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <i>\insertindextitle</i>), en pt.
+                            <strong>\indextitlemargin</strong>: Margen superior en los títulos de los índices (insertado con <i>\insertindextitle</i>), en <i>pt</i>.
                         </li>
                         <li>
                             <strong>\showdotpagenumindex</strong>: Muestra puntos entre objeto y número de página.
@@ -1119,6 +1129,9 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
                         </li>
                         <li>
                             <strong>\indextitlecolor</strong>: Color de los títulos del índice.
+                        </li>
+                        <li>
+                            <strong>\linenumbercolor</strong>: Color del número de línea (Al tener activado <i>\showlinenumbers</i>).
                         </li>
                         <li>
                             <strong>\linkcolor</strong>: Color de los enlaces del documento, entiendase por números de figuras, entradas del índice, etc.
@@ -1163,7 +1176,7 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
                             <strong>\marginbottomimages</strong>: Margen inferior de las figuras, en centímetros.
                         </li>
                         <li>
-                            <strong>\marginfloatimages</strong>: Margen superior de las figuras flotantes (insertadas con <i>\insertimageleft</i> o <i>\insertimageright</i>), en pt.
+                            <strong>\marginfloatimages</strong>: Margen superior de las figuras flotantes (insertadas con <i>\insertimageleft</i> o <i>\insertimageright</i>), en <i>pt</i>.
                         </li>
                         <li>
                             <strong>\margintopimages</strong>: Margen superior de las figuras, en centímetros.
@@ -1175,19 +1188,19 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
                     <strong class="functtitlstyle">Configuración del anexo, citas y referencias<a id="config-ref"></a></strong>
                     <ul>
                         <li>
-                            <strong>\apaciterefsep</strong>: Separación entre elementos de las referencias (Estilo <i>apaciteb</i>), en pt.
+                            <strong>\apaciterefsep</strong>: Separación entre elementos de las referencias (Estilo <i>apaciteb</i>), en <i>pt</i>.
                         </li>
                         <li>
                             <strong>\appendixindepobjnum</strong>: La numeración de los objetos (figura, tabla, código) en la sección de anexo/apéndice es independiente del documento.
                         </li>
                         <li>
-                            <strong>\bibtexrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>bibtex</i>), en pt.
+                            <strong>\bibtexrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>bibtex</i>), en <i>pt</i>.
                         </li>
                         <li>
                             <strong>\donumrefsection</strong>: Sección de referencias numerada en el informe.
                         </li>
                         <li>
-                            <strong>\natbibrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>natbib</i>), en pt.
+                            <strong>\natbibrefsep</strong>: Separación entre elementos de las referencias (Estilo <i>natbib</i>), en <i>pt</i>.
                         </li>
                         <li>
                             <strong>\sectionappendixlastchar</strong>: Carácter entre el número de la sección del anexo y el título.

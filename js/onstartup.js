@@ -42,21 +42,7 @@ jQuery(document).ready(function($) {
     pacecolor = shadeColor2(wallpaper_db.color, 0.15);
 
     // Se añaden las descargas del template base
-    $.getJSON(href_json_releases, function(json) {
-
-        // Si no se encontraron descargas
-        errVersion = function() {
-            console.log('ERROR: No se detectó una versión, desactivando paneles');
-            document.getElementById('whatsnew').style = 'display:none';
-            hide_element_id('download-button');
-            hide_element_id('download-button-1file');
-            hide_element_id('whatsnew');
-            hide_element_id('downloadcounter-banner');
-            $('#main-content-section').html("<div class='error_msg_1'>Error: No se pudo obtener la última versión disponible :(</div>");
-            backheight = $(window).height() - $('.page-header').innerHeight();
-            $('#main-content-section').css('height', backheight);
-            $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")');
-        }
+    var jsonquery = $.getJSON(href_json_releases, function(json) {
 
         // Se cargan los datos del json
         total_downloads = 0;
@@ -144,6 +130,12 @@ jQuery(document).ready(function($) {
 
         // Se llama a afterJSON
         afterJSONLoad();
+    });
+
+    // Se activa error de json
+    jsonquery.fail(function() {
+        console.log('Error al obtener la última versión del template');
+        errVersion();
     });
 
     // Se define color de fondo principal antes de carga imagen

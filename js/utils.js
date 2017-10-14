@@ -117,3 +117,18 @@ function doBounce(element, times, distance, speed) {
             }, speed);
     }
 }
+
+// Lanza un error al no encontrar la última versión del json
+function errVersion() {
+    console.log('ERROR: No se detectó una versión, desactivando paneles');
+    $('#whatsnew').attr('style', 'display:none');
+    hide_element_id('download-button');
+    hide_element_id('download-button-1file');
+    hide_element_id('whatsnew');
+    hide_element_id('downloadcounter-banner');
+    hide_element_id('template-preview-pdf');
+    $('#main-content-section').html("<div class='error_msg_1'>Error: No se pudo obtener la última versión disponible :(</div>");
+    backheight = $(window).height() - $('.page-header').innerHeight();
+    $('#main-content-section').css('height', backheight);
+    $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")');
+}
