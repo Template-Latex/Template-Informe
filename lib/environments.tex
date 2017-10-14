@@ -75,16 +75,33 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\rightlinenumbers}{
 	}
-	\ifx\hfuzz#3\hfuzz
-	\lstset{
-		style=#2
+	\ifthenelse{\equal{\codecaptiontop}{true}}{
+		\ifx\hfuzz#3\hfuzz
+			\lstset{
+				style=#2,
+				captionpos=t
+			}
+		\else
+			\lstset{
+				style=#2,
+				caption=#3 #1,
+				captionpos=t
+			}
+		\fi
+	}{
+		\ifx\hfuzz#3\hfuzz
+			\lstset{
+				style=#2,
+				captionpos=b
+			}
+		\else
+			\lstset{
+				style=#2,
+				caption=#3 #1,
+				captionpos=b
+			}
+		\fi
 	}
-	\else
-	\lstset{
-		style=#2,
-		caption=#3 #1
-	}
-	\fi
 }{
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{

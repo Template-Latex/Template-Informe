@@ -239,7 +239,7 @@ end
 			\lipsum[1]
 			
 			% Imagen, se numerará automáticamente con la letra del anexo
-			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.15}{Imagen en anexo.}
+			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.25}{Imagen en anexo.}
 		
 		\subsection{Resultados}
 			\lipsum[10]
@@ -263,7 +263,10 @@ end
 	\section{Más cálculos}
 	
 		% Párrafo
-		\lipsum[1]\newp\lipsum[4]
+		\lipsum[1]
+		
+		% Nuevo párrafo con identación
+		\newp \lipsum[4]
 		
 		% Tabla de encuestas
 		\begin{table}[htbp]
@@ -273,8 +276,8 @@ end
 				\hline
 				\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
 				\hline
-				Word  & 0\%   & No $\frownie$\\
 				\LaTeX & 100\% & Si $\checkmark$ \\
+				Microsoft Word \textsuperscript{\textregistered} & 0\%   & No $\frownie$\\
 			\end{tabular}
 			\label{tab:anexo-2}
 		\end{table}
