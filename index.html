@@ -925,7 +925,27 @@ def incmatrix(genl1, genl2):
                         <strong class="functtitlstyle">Otras funciones<a id="hlp-other"></a></strong>
                         <ul>
                             <li>
+                                <strong>\beginplandscape, \endplandscape</strong>: Crea una página en modo horizontal.
+                                <blockquote>
+                                    <div class="highlight highlight-text-tex">
+                                        <pre>
+<span class="pl-c1">\lipsum</span>[1]
+<span class="pl-comment">...</span>
+<span class="pl-e">\beginplandscape</span>
+<span class="pl-c1">\lipsum</span>[1]
+<span class="pl-e">\endplandscape</span>
+<span class="pl-comment">...</span>
+</pre>
+                                    </div>
+                                </blockquote>
+                            </li>
+                            <li>
                                 <strong>\equationresize</strong><b>{</b><em>Factor (en textwidth)</em><b>}</b><b>{</b><em>Ecuación</em><b>}</b>: Ajusta una ecuación utilizando la función <b>\resizebox</b>.
+                                <blockquote>
+                                    <div class="highlight highlight-text-tex">
+                                        <pre><span class="pl-c1">\insertequation</span>{ <span class="pl-e">\equationresize</span><b>{</b>0.9<b>}{</b><span class="pl-c1">\pow</span>{e}{<span class="pl-c1">\frac</span>{1}{x}+y}+5<b>}</b> }</pre>
+                                    </div>
+                                </blockquote>
                             </li>
                             <li>
                                 <strong>\insertemail</strong><b>{</b><em>Correo</em><b>}</b>: Inserta un link de un correo con formato y dirección web válida.
@@ -1527,6 +1547,9 @@ def incmatrix(genl1, genl2):
                 </li>
                 <li>
                     <strong><a href="https://www.ctan.org/pkg/longtable">longtable</a></strong>: Permite utilizar tablas en varias hojas.
+                </li>
+                <li>
+                    <strong><a href="https://www.ctan.org/pkg/lscape">lscape</a></strong>: Permite insertar páginas en modo horizontal.
                 </li>
                 <li>
                     <strong><a href="https://www.ctan.org/pkg/pdfpages">pdfpages</a></strong>: Permite administrar páginas en pdf.

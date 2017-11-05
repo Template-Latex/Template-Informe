@@ -26,6 +26,7 @@ var last_version_link = '$VERSION_LINK';
 var new_version_entry = '';
 var pdf_href_lastv = '';
 var total_downloads = 0;
+var version_entries = [];
 
 jQuery(document).ready(function($) {
 
@@ -50,6 +51,7 @@ jQuery(document).ready(function($) {
             try {
                 for (j = 0; j < json[i].assets.length; j++) {
                     total_downloads += parseInt(json[i].assets[j].download_count);
+                    version_entries.push(json[i].tag_name);
                 }
             } catch (err) {
                 console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
@@ -76,7 +78,18 @@ jQuery(document).ready(function($) {
         if (total_downloads == 0) {
             total_downloads = nan_value;
         } else {
-            total_downloads = updateDownloadCounter(total_downloads, update_download_counter);
+            updateDownloadCounter(total_downloads, update_download_counter);
+            j = '';
+            for (var i = 0; i < download_list_counter.length; i++) {
+                j = download_list_counter[i][1];
+                if (version_entries.indexOf(j) == -1) {
+                    if (Array.isArray(download_list_counter[i][0])) {
+                        total_downloads += download_list_counter[i][0][0] + download_list_counter[i][0][1];
+                    } else {
+                        total_downloads += download_list_counter[i][0];
+                    }
+                }
+            }
         }
         update_download_banner(total_downloads);
 
