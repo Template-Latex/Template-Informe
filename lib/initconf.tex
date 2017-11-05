@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.6.6 (14/10/2017)
+% Versión:      4.6.7 (04/11/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -73,14 +73,14 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={14/10/2017},
+		Template.Fecha={04/11/2017},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.6.6-N},
-		Template.Version.Hash={2E7913698C7B6BF5AFDE809C73E8A817},
-		Template.Version.Release={4.6.6},
+		Template.Version.Dev={4.6.7-N},
+		Template.Version.Hash={3CF552A482622787009210E8A76440C4},
+		Template.Version.Release={4.6.7},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -92,7 +92,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Informe v4.6.6 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.6.7 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -275,6 +275,17 @@
 	\def\cftlstlistingindent{1.48em}
 	\def\cftlstlistingnumwidth{2.3em}
 \endgroup
+
+% Reconfiguración de tamaño de páginas
+\makeatletter
+	\def\ifGm@preamble#1{\@firstofone}
+	\appto\restoregeometry{
+		\pdfpagewidth=\paperwidth
+		\pdfpageheight=\paperheight}
+	\apptocmd\newgeometry{
+		\pdfpagewidth=\paperwidth
+		\pdfpageheight=\paperheight}{}{}
+\makeatother
 
 % Configuración de hbox y vbox
 \hfuzz=200pt \vfuzz=200pt
