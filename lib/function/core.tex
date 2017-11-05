@@ -119,13 +119,13 @@
 	\usepackage{tikz}
 }
 
-\def\beginlandscape {
+\def\beginplandscape {
 	% Inicia el modo de página horizontal
 	\newgeometry{landscape,left=\pagemarginleft cm,top=\pagemargintop cm,right=\pagemarginright cm,bottom=\pagemarginbottom cm}
 	\headwidth=\textwidth
 }
 
-\def\endlandscape {
+\def\endplandscape {
 	% Termina el modo de página horizontal
 	\restoregeometry
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
