@@ -57,6 +57,8 @@ jQuery(document).ready(function($) {
                 console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
             }
         }
+
+        // Válido para los subtemplates
         try {
             last_version = json[0].tag_name;
             last_version_link = json[0].assets[0].browser_download_url;
@@ -113,6 +115,14 @@ jQuery(document).ready(function($) {
             $('#download-button-1file').append(String.format(' <font id="buttonfilectext">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
             $('#download-button').attr('href', normal_link);
             $('#download-button').append(String.format(' <font id="buttonfile1text">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
+            $(function() {
+                $('#download-button-1file').click(function() {
+                    if (total_downloads != nan_value) {
+                        total_downloads += 1;
+                        update_download_banner(total_downloads);
+                    }
+                });
+            });
         }
 
         // Se muestra descargas y botones con efecto
@@ -255,14 +265,6 @@ jQuery(document).ready(function($) {
     });
     $(function() {
         $('#download-button').click(function() {
-            if (total_downloads != nan_value) {
-                total_downloads += 1;
-                update_download_banner(total_downloads);
-            }
-        });
-    });
-    $(function() {
-        $('#download-button-1file').click(function() {
             if (total_downloads != nan_value) {
                 total_downloads += 1;
                 update_download_banner(total_downloads);
