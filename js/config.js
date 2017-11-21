@@ -157,8 +157,8 @@ function writeOtherLinks(verid) {
         ['Universidad de Chile', 'uchile']
     ];
     $('#downloadtitle-title').html(String.format('Descargas v{0}', verid));
-    $('#downloadother-contents').append(String.format('<div class="downloadother-entry"><div class="downloadother-name">Versión compacta</div><div class="downloadother-link"><a href="{0}/download/{1}/Template-Informe-Single.zip">Descargar</a></div></div>', href_github_project, verid));
+    $('#downloadother-contents').append(String.format('<div class="downloadother-entry"><div class="downloadother-name">Versión compacta</div><div class="downloadother-link"><a href="{0}download/{1}/Template-Informe-Single.zip">Descargar</a></div></div>', href_github_project, verid));
     for (var i = 0; i < deptos.length; i++) {
-        $('#downloadother-contents').append(String.format('<div id="downloadentry-{1}" class="downloadother-entry"><div class="downloadother-name">{0}</div><div class="downloadother-link-double"><a href="{3}/download/{2}/Template-Informe-{1}.zip">Normal</a></div><div class="downloadother-link-double"><a href="{3}/download/{2}/Template-Informe-{1}-Single.zip">Compacta</a></div></div>', deptos[i][0], deptos[i][1], verid, href_github_project));
+        $('#downloadother-contents').append(String.format('<div id="downloadentry-{1}" class="downloadother-entry"><div class="downloadother-name">{0}</div><div class="downloadother-link-double"><a href="{3}download/{2}/Template-Informe-{1}.zip">Normal</a></div><div class="downloadother-link-double"><a href="{3}download/{2}/Template-Informe-{1}-Single.zip">Compacta</a></div></div>', deptos[i][0], deptos[i][1], verid, href_github_project));
     }
 }

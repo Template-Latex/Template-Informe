@@ -102,6 +102,7 @@ jQuery(document).ready(function($) {
                 top: 200,
                 closeButton: '.modal_close'
             });
+            normal_link = String.format('{0}/download/{1}/Template-Informe.zip', href_github_project, last_version);
             $('#download-button-1file').append(String.format(' <font id="buttonfile1text">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
             $('#download-button').attr('href', normal_link);
             $('#download-button').append(String.format(' <font id="buttonfilectext">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
