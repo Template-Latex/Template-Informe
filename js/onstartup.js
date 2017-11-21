@@ -96,11 +96,23 @@ jQuery(document).ready(function($) {
         // Se añade link estadísticas a banner descargas
         $('#main-content-section #templatestats').attr('href', stats_href + stats_name);
 
-        // Se establece la versión en el botón de descargas
-        $('#download-button').attr('href', normal_link);
-        $('#download-button').append(String.format(' <font id="buttonfile1text">({0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
-        $('#download-button-1file').attr('href', compact_link);
-        $('#download-button-1file').append(String.format(' <font id="buttonfilectext">({0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
+        if (update_download_counter == 'Template-Informe') {
+            // Si es Template-Informe se muestra botón otras descargas
+            $('a[name*=leanModal]').leanModal({
+                top: 200,
+                closeButton: '.modal_close'
+            });
+            $('#download-button-1file').append(String.format(' <font id="buttonfile1text">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
+            $('#download-button').attr('href', normal_link);
+            $('#download-button').append(String.format(' <font id="buttonfilectext">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
+            writeOtherLinks(last_version);
+        } else {
+            // Se establece la versión en el botón de descargas
+            $('#download-button-1file').attr('href', compact_link);
+            $('#download-button-1file').append(String.format(' <font id="buttonfilectext">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
+            $('#download-button').attr('href', normal_link);
+            $('#download-button').append(String.format(' <font id="buttonfile1text">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
+        }
 
         // Se muestra descargas y botones con efecto
         fadein_css('#total-download-counter-1', '0.1s');

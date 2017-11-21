@@ -68,6 +68,7 @@
     <script type="text/javascript" src="js/jquery-scrollto.min.js"></script>
     <script type="text/javascript" src="js/parallax.min.js"></script>
     <script type="text/javascript" src="js/showdown.min.js"></script>
+    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
     <script type="text/javascript" src="http://latex.ppizarror.com/stats/js/prevdownload.min.js"></script>
     <script type="text/javascript" src="js/utils.min.js"></script>
     <script type="text/javascript" src="js/pace.min.js"></script>
@@ -81,6 +82,20 @@
 </head>
 
 <body>
+    <!-- Lista de descargas -->
+    <div id="downloadother">
+        <div id="downloadother-ct">
+            <div id="downloadother-header">
+                <div class="downloadtitle">
+                    <div id="downloadtitle-title">
+                    </div>
+                    <a class="modal_close" href="#"></a>
+                </div>
+            </div>
+            <div id="downloadother-contents">
+            </div>
+        </div>
+    </div>
     <a href="#" class="back-to-top" id="scrolls"></a>
     <div id="background-page-header-colored"></div>
     <div id="background-page-header"></div>
@@ -90,8 +105,8 @@
         <h2 class="project-tagline">Template de informe en LaTeX para tareas y trabajos</h2>
         <a href="" id="github-button-header" class="btn">Ver en GitHub <img src="http://latex.ppizarror.com/resources/github.png" width="16" height="16" class="iconbutton" alt="Latex" /></a>
         <a id="template-preview-pdf" href="#bad-pdf-preview-url" class="btn">Ver Ejemplo <img src="http://latex.ppizarror.com/resources/pdf.png" width="16" height="16" class="iconbutton" alt="" /></a>
-        <a href="#Error_al_cargar_enlace_descarga" class="btn-pro" id="download-button">Descargar versión normal</a>
-        <a href="#Error_al_cargar_enlace_descarga" class="btn tooltip" id="download-button-1file">Descargar versión compacta<span class="tooltiptext-headerbtn">Todo el template en 1 sólo archivo</span></a>
+        <a content="#downloadother" class="btn-pro tooltip" id="download-button-1file" name="leanModal">Descargar<span class="tooltiptext-headerbtn">Seleccionar entre distintas versiones</span></a>
+        <a href="#Error_al_cargar_enlace_descarga" class="btn" id="download-button">Descargar versión normal</a>
     </section>
 
     <div id="contentBackground">

@@ -21,7 +21,8 @@
     left: 50%;
     margin-left: -75px;
     border-color: rgba(255, 255, 255, 0.2);
-    ;
+    font-style: normal;
+    font-weight: normal;
     border-width: 1px;
     border-style: solid;
     opacity: 0.8;
@@ -40,6 +41,8 @@
     border-style: solid;
     border-color: transparent transparent rgba(255, 255, 255, 0.3) transparent;
     opacity: 0.8;
+    font-style: normal;
+    font-weight: normal;
 }
 
 .tooltip:hover .tooltiptext-headerbtn {
@@ -48,7 +51,7 @@
 
 .tooltip .tooltiptext_autor {
     visibility: hidden;
-    width: 200px;
+    width: 240px;
     background-color: rgba(30, 30, 30, 1.0);
     color: #fff;
     text-align: center;
@@ -649,6 +652,7 @@ a:hover {
     -webkit-box-shadow: 0px 0px 8px 0px rgba(10, 10, 10, 0.75);
     -moz-box-shadow: 0px 0px 8px 0px rgba(10, 10, 10, 0.75);
     box-shadow: 0px 0px 8px 0px rgba(10, 10, 10, 0.75);
+    cursor: pointer;
 }
 
 .btn+.btn {
@@ -1142,8 +1146,117 @@ a#templatestats, a:hover#templatestats, .page-header#templatestats {
     background-size: contain;
 }
 
-.error_msg_1::before {}
-
 .linkssection a {
     color: blue;
+}
+
+#lean_overlay {
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    display: none;
+    overflow: hidden;
+}
+
+#downloadother {
+    width: 500px;
+    padding-bottom: 2px;
+    display: none;
+    background: #FFF;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 0px 7px rgba(0, 0, 0, 0.7);
+    z-index: 3;
+}
+
+#downloadother-header {
+    background: url(../images/hd-bg.png);
+    padding: 14px 12px 12px 14px;
+    border-bottom: 1px solid #CCC;
+    border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+
+#downloadother h2 {
+    color: #444;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 3px;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+#downloadother p {
+    color: #444;
+    font-size: 1.3em;
+    margin: 0;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+    text-shadow: none;
+}
+
+#downloadother .downloadtitle {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: black;
+}
+
+.modal_close {
+    position: absolute;
+    top: 24px;
+    right: 12px;
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: url(../images/modal_close.png);
+    z-index: 2;
+}
+
+#downloadother-contents {
+    padding: 0px;
+    color: rgb(0, 0, 0);
+    height: 350px;
+    overflow-y: scroll;
+}
+
+.downloadother-entry {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    display: inline-block;
+    width: 100%;
+    font-size: 0.8rem;
+}
+
+.downloadother-entry:hover {
+    background-color: rgb(246, 246, 246);
+}
+
+.downloadother-name {
+    font-weight: 700;
+    width: 74%;
+    float: left;
+    display: block;
+}
+
+.downloadother-link {
+    display: block;
+    float: left;
+    width: 26%;
+}
+
+.downloadother-link-double {
+    display: block;
+    float: left;
+    width: 13%;
 }
