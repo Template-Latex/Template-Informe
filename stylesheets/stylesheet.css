@@ -134,8 +134,6 @@
     padding-bottom: 1px;
     position: relative;
     bottom: 1px;
-    margin-top: 0;
-    margin-bottom: 1rem;
     font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
     line-height: normal;
     color: #567482;
@@ -913,8 +911,6 @@ a:hover {
     padding-left: 3%;
 }
 
-.menu-big-entry {}
-
 @media screen and (min-width: 64em) {
     .menu-big-entry {
         font-size: 18px;
@@ -932,8 +928,6 @@ a:hover {
         font-size: 16px;
     }
 }
-
-.menu-little-entry {}
 
 @media screen and (min-width: 64em) {
     .menu-little-entry {
@@ -1240,6 +1234,10 @@ a#templatestats, a:hover#templatestats, .page-header#templatestats {
 
 .downloadother-entry:hover {
     background-color: rgb(246, 246, 246);
+}
+
+.downloadother-compact {
+    border-bottom: 1px rgb(205, 205, 205) dashed;
 }
 
 .downloadother-name {

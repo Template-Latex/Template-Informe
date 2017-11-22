@@ -145,19 +145,19 @@ function writeOtherLinks(verid) {
         ['Departamento de Ciencias de la Computación', 'dcc'],
         ['Departamento de Física', 'dfi'],
         ['Departamento de Geofísica', 'dgf'],
+        ['Departamento de Geología', 'geo'],
         ['Departamento de Ingeniería Civil', 'dic'],
         ['Departamento de Ingeniería Eléctrica', 'die'],
         ['Departamento de Ingeniería Industrial', 'dii'],
         ['Departamento de Ingeniería Matemática', 'dim'],
         ['Departamento de Ingeniería Mecánica', 'dimec'],
+        ['Departamento de Ingeniería en Minas', 'minas'],
         ['Departamento de Ingeniería Química y Biotecnología', 'diqbt'],
         ['Facultad de Ciencias Físicas y Matemáticas', 'fcfm'],
-        ['Departamento de Geología', 'geo'],
-        ['Departamento de Ingeniería en Minas', 'minas'],
         ['Universidad de Chile', 'uchile']
     ];
     $('#downloadtitle-title').html(String.format('Descargas v{0}', verid));
-    $('#downloadother-contents').append(String.format('<div class="downloadother-entry"><div class="downloadother-name">Versión compacta</div><div class="downloadother-link"><a href="{0}download/{1}/Template-Informe-Single.zip">Descargar</a></div></div>', href_github_project, verid));
+    $('#downloadother-contents').append(String.format('<div class="downloadother-entry downloadother-compact"><div class="downloadother-name">Versión compacta</div><div class="downloadother-link"><a href="{0}download/{1}/Template-Informe-Single.zip">Descargar</a></div></div>', href_github_project, verid));
     for (var i = 0; i < deptos.length; i++) {
         $('#downloadother-contents').append(String.format('<div id="downloadentry-{1}" class="downloadother-entry"><div class="downloadother-name">{0}</div><div class="downloadother-link-double"><a href="{3}download/{2}/Template-Informe-{1}.zip" class="otherdownloadclickeable">Normal</a></div><div class="downloadother-link-double"><a href="{3}download/{2}/Template-Informe-{1}-Single.zip" class="otherdownloadclickeable">Compacta</a></div></div>', deptos[i][0], deptos[i][1], verid, href_github_project));
         $(String.format('#downloadentry-{0} .otherdownloadclickeable', deptos[i][1])).click(function() {
