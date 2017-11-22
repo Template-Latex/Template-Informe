@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      4.7.1 (22/11/2017)
+% Versión:      4.7.2 (22/11/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -78,9 +78,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={4.7.1-N},
-		Template.Version.Hash={F52D20C86CACDF1DA516623E7426ED73},
-		Template.Version.Release={4.7.1},
+		Template.Version.Dev={4.7.2-N},
+		Template.Version.Hash={DCB22E8CD7D7DAC497C6085B2E8D8DC8},
+		Template.Version.Release={4.7.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -92,7 +92,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Informe v4.7.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v4.7.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -265,14 +265,31 @@
 }
 
 % Se añade listings a tocloft
+\ifthenelse{\equal{\showsectioncaption}{none}}{
+	\def\cftdefautllistingnumwidth {2.5em}
+}{
+\ifthenelse{\equal{\showsectioncaption}{sec}}{
+	\def\cftdefautllistingnumwidth {3.0em}
+}{
+\ifthenelse{\equal{\showsectioncaption}{ssec}}{
+	\def\cftdefautllistingnumwidth {3.5em}
+}{
+\ifthenelse{\equal{\showsectioncaption}{sssec}}{
+	\def\cftdefautllistingnumwidth {4.0em}
+}{
+\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}
+}}}}
 \begingroup
 	\makeatletter
 	\let\newcounter\@gobble\let\setcounter\@gobbletwo
 	\globaldefs\@ne \let\c@loldepth\@ne
 	\newlistof{listings}{lol}{\lstlistlistingname}
 	\newlistentry{lstlisting}{lol}{0}
-	\def\cftlstlistingindent{1.48em}
-	\def\cftlstlistingnumwidth{2.3em}
+	\def\cftlstlistingindent {1.5em}
+	\def\cftlstlistingnumwidth {\cftdefautllistingnumwidth}
+	\def\l@figure{\@dottedtocline{1}{1.5em}{\cftdefautllistingnumwidth}}
+	\def\l@table{\@dottedtocline{1}{1.5em}{\cftdefautllistingnumwidth}}
+	\makeatother
 \endgroup
 
 % Reconfiguración de tamaño de páginas

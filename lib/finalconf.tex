@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones finales
-% Versión:      4.7.1 (22/11/2017)
+% Versión:      4.7.2 (22/11/2017)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -33,12 +33,28 @@
 \subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
 
 % Numeración de objetos
-\ifthenelse{\equal{\showsectiononcaption}{true}}{
+\ifthenelse{\equal{\showsectioncaption}{none}}{
+}{
+\ifthenelse{\equal{\showsectioncaption}{sec}}{
 	\counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
 	\counterwithin{figure}{section}     % Añade número de sección a las figuras
 	\counterwithin{lstlisting}{section} % Añade número de sección a los códigos
 	\counterwithin{table}{section}      % Añade número de sección a las tablas
-}{}
+}{
+\ifthenelse{\equal{\showsectioncaption}{ssec}}{
+	\counterwithin{equation}{subsection}   % Añade número de subsección a las ecuaciones
+	\counterwithin{figure}{subsection}     % Añade número de subsección a las figuras
+	\counterwithin{lstlisting}{subsection} % Añade número de subsección a los códigos
+	\counterwithin{table}{subsection}      % Añade número de subsección a las tablas
+}{
+\ifthenelse{\equal{\showsectioncaption}{sssec}}{
+	\counterwithin{equation}{subsubsection}   % Añade número de subsección a las ecuaciones
+	\counterwithin{figure}{subsubsection}     % Añade número de subsección a las figuras
+	\counterwithin{lstlisting}{subsubsection} % Añade número de subsección a los códigos
+	\counterwithin{table}{subsubsection}      % Añade número de subsección a las tablas
+}{
+\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}
+}}}}
 
 % Se reestablecen números de página y secciones
 \renewcommand{\thepage}{\arabic{page}}
