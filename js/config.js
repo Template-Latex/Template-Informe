@@ -134,9 +134,36 @@ function afterDocumentReady() {
             doBounce($('#stylecitereferences'), 3, '6px', 100);
         }, 1000);
     }
+    // Se lee una acción desde url cuando json está cargado
+    initAction = $.urlParam('action');
+    if (initAction != null) {
+        switch (initAction) {
+            case 'portraitGallery':
+                portraitGallery();
+                break;
+            case 'hfGallery':
+                hfGallery();
+                break;
+        }
+    }
 }
 
-function afterJSONLoad() {}
+function afterJSONLoad() {
+    // Se lee una acción desde url cuando json está cargado
+    initAction = $.urlParam('action');
+    if (initAction != null) {
+        switch (initAction) {
+            case 'download':
+                $('a[name*=leanModal]').leanModal({
+                    closeButton: '.modal_close'
+                }).click();
+                break;
+            case 'download-normal':
+                $('#download-button')[0].click();
+                break;
+        }
+    }
+}
 
 function writeOtherLinks(verid) {
     var deptos = [

@@ -132,3 +132,13 @@ function errVersion() {
     $('#main-content-section').css('height', backheight);
     $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")');
 }
+
+// Obtiene parámetros de la url
+$.urlParam = function(name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results == null) {
+        return null;
+    } else {
+        return decodeURI(results[1]) || 0;
+    }
+}

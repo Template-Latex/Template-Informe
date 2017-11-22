@@ -43,8 +43,8 @@
                         'margin-left': -(modal_width / 2) + 'px',
                         'top': modal_height + 'px'
                     });
-                    $(modal_id).fadeTo(200, 1);
-                    $('a.back-to-top').fadeOut(400);
+                    $('a.back-to-top').fadeOut(otherdownloadsfadetime);
+                    $(modal_id).fadeTo(otherdownloadsfadetime, 1);
                     $('html').css('overflow-y', 'hidden');
                     $('#downloadother-contents').scrollTop(0);
                     $(window).resize(function() {
@@ -57,7 +57,7 @@
             });
 
             function close_modal(modal_id) {
-                $('#lean_overlay').fadeOut(200);
+                $('#lean_overlay').fadeOut(otherdownloadsfadetime);
                 $('html').css('overflow-y', 'visible');
                 $(modal_id).css({
                     'display': 'none'
