@@ -1157,16 +1157,16 @@ a#templatestats, a:hover#templatestats, .page-header#templatestats {
 }
 
 #downloadother {
-    width: 500px;
+    width: 550px;
     padding-bottom: 2px;
     display: none;
     background: #FFF;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.7);
-    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: 0 0px 7px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
     z-index: 3;
 }
 
@@ -1229,7 +1229,7 @@ a#templatestats, a:hover#templatestats, .page-header#templatestats {
     padding-bottom: 3px;
     display: inline-block;
     width: 100%;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .downloadother-entry:hover {

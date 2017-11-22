@@ -2,7 +2,6 @@
     $.fn.extend({
         leanModal: function(options) {
             var defaults = {
-                top: 100,
                 overlay: 0.7,
                 closeButton: null
             };
@@ -19,7 +18,7 @@
                     });
 
                     function onDocumentKeyUp(event) {
-                        if (event.keyCode === 27) {
+                        if (event.keyCode == 27 || event.keyCode == 8) {
                             close_modal(modal_id);
                         }
                     }
@@ -28,7 +27,7 @@
                     $(o.closeButton).click(function() {
                         close_modal(modal_id);
                     });
-                    var modal_height = $(modal_id).outerHeight();
+                    var modal_height = ($(window).height() - $(modal_id).height()) / 2;
                     var modal_width = $(modal_id).outerWidth();
                     $('#lean_overlay').css({
                         'display': 'block',
@@ -42,12 +41,17 @@
                         'z-index': 11000,
                         'left': 50 + '%',
                         'margin-left': -(modal_width / 2) + 'px',
-                        'top': o.top + 'px'
+                        'top': modal_height + 'px'
                     });
                     $(modal_id).fadeTo(200, 1);
                     $('a.back-to-top').fadeOut(400);
                     $('html').css('overflow-y', 'hidden');
                     $('#downloadother-contents').scrollTop(0);
+                    $(window).resize(function() {
+                        $(modal_id).css({
+                            'top': ($(window).height() - $(modal_id).height()) / 2 + 'px'
+                        });
+                    });
                     e.preventDefault();
                 });
             });

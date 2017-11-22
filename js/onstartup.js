@@ -101,7 +101,6 @@ jQuery(document).ready(function($) {
         if (update_download_counter == 'Template-Informe') {
             // Si es Template-Informe se muestra botón otras descargas
             $('a[name*=leanModal]').leanModal({
-                top: 200,
                 closeButton: '.modal_close'
             });
             normal_link = String.format('{0}/download/{1}/Template-Informe.zip', href_github_project, last_version);
@@ -239,7 +238,7 @@ jQuery(document).ready(function($) {
             $('#background-page-header').css('-o-background-size', 'cover');
             $('#background-page-header').css('background-size', 'cover');
             $('#background-page-header').css('max-width', '100%');
-            $('#background-page-header').css('width', $(window).width());
+            $('#background-page-header').css('width', $(window).width() + 20);
             fadein_css('#background-page-header', '0.5s');
             wallpaper_db_random_blur('#background-page-header', blurprobability, blurlimits);
         }
@@ -256,7 +255,7 @@ jQuery(document).ready(function($) {
 
     // Se añade un evento al cambiar tamaño página web
     $(window).resize(function() {
-        $('#background-page-header').css('width', $(window).width());
+        $('#background-page-header').css('width', $(window).width() + 20);
     });
 
     // Se actualiza la cantidad de descargas al hacer click
