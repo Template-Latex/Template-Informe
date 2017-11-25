@@ -72,8 +72,7 @@ jQuery(document).ready(function($) {
             }
             console.log(String.format('Última versión template: {0}', last_version));
         } catch (err) {
-            console.log('Error al obtener la última versión del template');
-            errVersion();
+            throwError(errors.cantGetVersion);
         }
 
         // Se actualiza total de descargas
@@ -114,13 +113,11 @@ jQuery(document).ready(function($) {
             $('#download-button-1file').append(String.format(' <font id="buttonfilectext">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
             $('#download-button').attr('href', normal_link);
             $('#download-button').append(String.format(' <font id="buttonfile1text">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
-            $(function() {
-                $('#download-button-1file').click(function() {
-                    if (total_downloads != nan_value) {
-                        total_downloads += 1;
-                        update_download_banner(total_downloads);
-                    }
-                });
+            $('#download-button-1file').click(function() {
+                if (total_downloads != nan_value) {
+                    total_downloads += 1;
+                    update_download_banner(total_downloads);
+                }
             });
         }
 
@@ -158,9 +155,7 @@ jQuery(document).ready(function($) {
             $('.main-content hr').css('background-color', hrcolor);
             $('.que-hay-de-nuevo-blockquote').css('border-left', '0.25rem solid ' + codebarcolor);
         } catch (err) {
-            console.log('Error al obtener los contenidos de las últimas versiones');
-            hide_element_id('whatsnew');
-            hide_element_id('changelog-menu');
+            throwError(errors.retrieveContentVersions);
         }
 
         // Se llama a afterJSON
@@ -169,8 +164,7 @@ jQuery(document).ready(function($) {
 
     // Se activa error de json
     jsonquery.fail(function() {
-        console.log('Error al obtener la última versión del template');
-        errVersion();
+        throwError(errors.cantLoadJson);
     });
 
     // Se define color de fondo principal antes de carga imagen
@@ -215,7 +209,7 @@ jQuery(document).ready(function($) {
     } else {
         console.log('Utilizando versión web');
     }
-    console.log(String.format('Estableciendo el fondo de pantalla {0} - ID {1}', wallpaper_db.image, wallpaper_db.index));
+    console.log(String.format('Cargando fondo {0} - ID {1} (wallpaper.db)', wallpaper_db.image, wallpaper_db.index));
 
     if (!is_movile_browser && enableparallax) {
         $('#background-page-header').parallax({
@@ -225,7 +219,7 @@ jQuery(document).ready(function($) {
             positionX: 'center',
             zIndex: 1
         });
-        console.log('Se activo el parallax');
+        console.log('Se activó el parallax');
     } else {
         var back_img = new Image();
         back_img.onload = function() {
@@ -262,13 +256,11 @@ jQuery(document).ready(function($) {
     $('total-download-counter').each(function() {
         this.id.innerHTML = total_downloads;
     });
-    $(function() {
-        $('#download-button').click(function() {
-            if (total_downloads != nan_value) {
-                total_downloads += 1;
-                update_download_banner(total_downloads);
-            }
-        });
+    $('#download-button').click(function() {
+        if (total_downloads != nan_value) {
+            total_downloads += 1;
+            update_download_banner(total_downloads);
+        }
     });
 
     // Muestra un botón para subir al hacer scroll
@@ -283,19 +275,17 @@ jQuery(document).ready(function($) {
     });
 
     // Smooth scrolling al clickear un anchor
-    $(function() {
-        $('a[href*="#"]:not([href="#"])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html, body').animate({
-                        scrollTop: target.offset().top
-                    }, 700);
-                    return false;
-                }
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 700);
+                return false;
             }
-        });
+        }
     });
 
     // Se añade el link a chat banner

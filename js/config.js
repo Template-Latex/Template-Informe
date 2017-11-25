@@ -32,6 +32,7 @@ var update_download_counter = 'Template-Informe';
 
 // Declaración de funciones propias de cada template
 var bounceStyleReferences; // Efecto en entrada de configuración
+var downloadOtherBackgroundBlur = 1; // Blur del fondo al mostrar cajón de descargas
 var hfGallery; // Muestra la galería de header-footer
 var line_abstract = [95, 216]; // Número de línea de abstract/resumen
 var line_authortable = [33, 34]; // Número de línea tabla de integrantes
@@ -149,7 +150,6 @@ function afterDocumentReady() {
 }
 
 function afterJSONLoad() {
-    // Se lee una acción desde url cuando json está cargado
     initAction = $.urlParam('action');
     if (initAction != null) {
         switch (initAction) {

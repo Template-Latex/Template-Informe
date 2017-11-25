@@ -87,7 +87,7 @@ function hide_element_id(idelem) {
     try {
         document.getElementById(idelem).style = 'display:none';
     } catch (err) {
-        console.log('Error al ocultar id: ' + idelem)
+        console.log('Error al ocultar id: ' + idelem);
     }
 }
 
@@ -118,19 +118,23 @@ function doBounce(element, times, distance, speed) {
     }
 }
 
-// Lanza un error al no encontrar la última versión del json
-function errVersion() {
-    console.log('ERROR: No se detectó una versión, desactivando paneles');
+// Lanza un error, oculta contenido y muestra un div con información
+function throwError(error) {
+    console.log(String.format('ERROR[{0}]: {1}', error.code, error.msg));
     $('#whatsnew').attr('style', 'display:none');
     hide_element_id('download-button');
     hide_element_id('download-button-1file');
     hide_element_id('whatsnew');
     hide_element_id('downloadcounter-banner');
     hide_element_id('template-preview-pdf');
-    $('#main-content-section').html("<div class='error_msg_1'>Error: No se pudo obtener la última versión disponible :(</div>");
+    html_error_div = '<div class="tooltip error_msg_1"><div id="errorMsgText"><img src="{2}/erroricon.png" />{0}</div><div></div><div id="errorMoreInfoMsg" class="tooltiptext_errormsg">{1}</div></div>';
+    $('#main-content-section').html(String.format(html_error_div, error.msg, error.moreinfo, href_resources_folder));
     backheight = $(window).height() - $('.page-header').innerHeight();
     $('#main-content-section').css('height', backheight);
-    $('.error_msg_1').css('background-image', 'url("' + href_resources_folder + 'alert_background.png")');
+    $(window).resize(function() {
+        backheight = $(window).height() - $('.page-header').innerHeight();
+        $('#main-content-section').css('height', backheight);
+    });
 }
 
 // Obtiene parámetros de la url

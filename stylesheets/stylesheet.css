@@ -51,7 +51,7 @@
 
 .tooltip .tooltiptext_autor {
     visibility: hidden;
-    width: 240px;
+    width: 200px;
     background-color: rgba(30, 30, 30, 1.0);
     color: #fff;
     text-align: center;
@@ -63,7 +63,6 @@
     left: 50%;
     margin-left: -100px;
     border-color: rgba(255, 255, 255, 0.2);
-    ;
     border-width: 1px;
     border-style: solid;
     opacity: 0.97;
@@ -92,7 +91,7 @@
     height: 50px;
     float: left;
     position: relative;
-    display: inline-block;
+    display: block;
     margin-left: 5px;
     border-radius: 3px;
 }
@@ -106,24 +105,30 @@
 }
 
 .autor_name {
-    display: inline-block;
+    display: block;
     float: left;
     position: relative;
     font-weight: bold;
     width: 140px;
     margin-top: 4px;
+    margin-left: -5px;
+    font-size: 0.9rem;
 }
 
 .autor_location {
-    display: inline-block;
+    display: block;
     float: left;
     width: 140px;
     text-align: left;
+    font-size: 0.9rem;
 }
 
 .tooltiptext_autor_svg {
     fill: rgb(255, 255, 255);
-    margin-left: 12px;
+    margin-left: 11px;
+    height: 14px;
+    top: 2px;
+    position: relative;
 }
 
 .codegallerytitle {
@@ -196,50 +201,6 @@
     -ms-animation: pace-spinner 400ms linear infinite;
     -o-animation: pace-spinner 400ms linear infinite;
     animation: pace-spinner 400ms linear infinite;
-}
-
-@-webkit-keyframes pace-spinner {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@-moz-keyframes pace-spinner {
-    0% {
-        -moz-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -moz-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@-o-keyframes pace-spinner {
-    0% {
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@-ms-keyframes pace-spinner {
-    0% {
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
 }
 
 @keyframes pace-spinner {
@@ -474,9 +435,6 @@ body:before {
     width: 100%;
     height: 100%;
     z-index: -10;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
 }
 
@@ -1123,21 +1081,83 @@ a#templatestats, a:hover#templatestats, .page-header#templatestats {
 }
 
 .error_msg_1 {
-    width: 50%;
-    text-align: center;
-    margin: 0 auto;
+    margin: auto;
+    position: relative;
+    width: 60%;
     padding: 20px;
-    border-radius: 10px;
-    border-color: rgb(232, 100, 100);
+    margin-top: 10%;
+    border-color: rgb(218, 218, 218);
+    background-color: rgb(235, 235, 235);
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+    border-radius: 5px;
     border-width: 1px;
     border-style: solid;
-    font-size: 17px;
-    color: white;
-    text-shadow: 1px 1px 3px #000000;
-    background-color: rgb(224, 177, 177);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+    word-wrap: break-word;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: block;
+}
+
+.error_msg_1:hover {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.error_msg_1 img {
+    width: 35px;
+    position: relative;
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 8px;
+    margin-right: 5px;
+    opacity: 0.6;
+}
+
+.error_msg_1 {
+    position: relative;
+    top: -5px;
+}
+
+.tooltip .tooltiptext_errormsg {
+    visibility: hidden;
+    width: 80%;
+    background-color: rgba(30, 30, 30, 1.0);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 115%;
+    left: 50%;
+    margin-left: -42.5%;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-width: 1px;
+    border-style: solid;
+    opacity: 0.97;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    font-size: 13px;
+}
+
+.tooltip .tooltiptext_errormsg::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+    opacity: 1.0;
+}
+
+.tooltip:hover .tooltiptext_errormsg {
+    visibility: visible;
 }
 
 .linkssection a {
@@ -1157,17 +1177,49 @@ a#templatestats, a:hover#templatestats, .page-header#templatestats {
 }
 
 #downloadother {
-    width: 550px;
     padding-bottom: 2px;
     display: none;
     background: #FFF;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
     z-index: 3;
+}
+
+@media screen and (min-width: 64em) {
+    #downloadother {
+        width: 550px;
+    }
+    .downloadother-entry {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    #downloadother {
+        width: 550px;
+    }
+    .downloadother-entry {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 42em) {
+    #downloadother {
+        width: 90%;
+    }
+    .downloadother-entry {
+        font-size: 0.7rem;
+    }
+    .downloadother-link {
+        font-size: 0.6rem;
+    }
+    .downloadother-link-double {
+        font-size: 0.6rem;
+    }
 }
 
 #downloadother-header {
@@ -1220,6 +1272,7 @@ a#templatestats, a:hover#templatestats, .page-header#templatestats {
     color: rgb(0, 0, 0);
     height: 350px;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .downloadother-entry {
@@ -1229,7 +1282,6 @@ a#templatestats, a:hover#templatestats, .page-header#templatestats {
     padding-bottom: 3px;
     display: inline-block;
     width: 100%;
-    font-size: 0.9rem;
 }
 
 .downloadother-entry:hover {

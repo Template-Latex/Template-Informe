@@ -13,9 +13,6 @@
                 var o = options;
                 $(this).click(function(e) {
                     var modal_id = $(this).attr('content');
-                    $('#lean_overlay').click(function() {
-                        close_modal(modal_id);
-                    });
 
                     function onDocumentKeyUp(event) {
                         if (event.keyCode == 27 || event.keyCode == 8) {
@@ -23,6 +20,9 @@
                         }
                     }
 
+                    $('#lean_overlay').click(function() {
+                        close_modal(modal_id);
+                    });
                     document.addEventListener('keyup', onDocumentKeyUp, false);
                     $(o.closeButton).click(function() {
                         close_modal(modal_id);
@@ -43,13 +43,23 @@
                         'margin-left': -(modal_width / 2) + 'px',
                         'top': modal_height + 'px'
                     });
+                    $('.page-header').css({
+                        'filter': 'blur(' + downloadOtherBackgroundBlur + 'px)',
+                        '-webkit-filter': 'blur(' + downloadOtherBackgroundBlur + 'px)'
+                    });
+                    $('#contentBackground').css({
+                        'filter': 'blur(' + downloadOtherBackgroundBlur + 'px)',
+                        '-webkit-filter': 'blur(' + downloadOtherBackgroundBlur + 'px)'
+                    });
                     $('a.back-to-top').fadeOut(otherdownloadsfadetime);
                     $(modal_id).fadeTo(otherdownloadsfadetime, 1);
                     $('html').css('overflow-y', 'hidden');
                     $('#downloadother-contents').scrollTop(0);
                     $(window).resize(function() {
+                        modal_width = $(modal_id).outerWidth();
                         $(modal_id).css({
-                            'top': ($(window).height() - $(modal_id).height()) / 2 + 'px'
+                            'top': ($(window).height() - $(modal_id).height()) / 2 + 'px',
+                            'margin-left': -(modal_width / 2) + 'px'
                         });
                     });
                     e.preventDefault();
@@ -59,6 +69,14 @@
             function close_modal(modal_id) {
                 $('#lean_overlay').fadeOut(otherdownloadsfadetime);
                 $('html').css('overflow-y', 'visible');
+                $('.page-header').css({
+                    'filter': 'blur(0px)',
+                    '-webkit-filter': 'blur(0px)'
+                });
+                $('#contentBackground').css({
+                    'filter': 'blur(0px)',
+                    '-webkit-filter': 'blur(0px)'
+                });
                 $(modal_id).css({
                     'display': 'none'
                 });

@@ -45,7 +45,25 @@ function writeBadges() {
     $('#badgeslistdiv').append('<a href="http://latex.ppizarror.com/Template-Controles/" id="aimg"><img src="http://latex.ppizarror.com/badges/controles.svg" /></a> ');
     $('#badgeslistdiv').append('<a href="http://latex.ppizarror.com/Template-Pautas/" id="aimg"><img src="http://latex.ppizarror.com/badges/pauta.svg" style="display: none" /></a> ');
     $('#badgeslistdiv').append('<a href="http://latex.ppizarror.com/Template-Informe/" id="aimg"><img src="http://latex.ppizarror.com/badges/informe.svg" /></a> ');
-    $('#badgeslistdiv').append('<a href="http://latex.ppizarror.com/Professional-CV/" id="aimg"><img src="http://latex.ppizarror.com/badges/professionalcv.svg" /></a> ');
-
+    $('#badgeslistdiv').append('<a href="http://latex.ppizarror.com/Professional-CV/" id="aimg"><img src="http://latex.ppizarror.com/badges/professionalcv.svg" /></a>');
     $('#badgeslistdiv').fadeIn('slow');
 }
+
+// Mensajes de error
+errors = {
+    "cantGetVersion": {
+        "msg": "No se pudo obtener la última versión.",
+        "code": 0,
+        "moreinfo": "Error de conexión con servidor de Github, intente nuevamente."
+    },
+    "cantLoadJson": {
+        "msg": "No se pudo acceder al JSON de releases de Github.",
+        "code": 1,
+        "moreinfo": "Error de conexión con servidor de Github, intente nuevamente."
+    },
+    "retrieveContentVersions": {
+        "msg": "Error al obtener la descripción de las versiones del Template.",
+        "code": 2,
+        "moreinfo": "Ocurrió un error crítico al obtener la descripción de las versiones del Template (changelog) desde el servidor de Github, probable error de configuración, error en showdown.js o bien error de conexión con el servidor."
+    }
+};
