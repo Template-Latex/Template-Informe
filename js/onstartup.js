@@ -34,7 +34,13 @@ jQuery(document).ready(function($) {
     writeBadges();
 
     // Se crean colores de elementos a partir de color base wallpaper
-    acolor = shadeColor2(wallpaper_db.color, 0.3);
+    try {
+        acolor = shadeColor2(wallpaper_db.color, 0.3);
+    } catch (e) {
+        wallpaper_db.color = '#000000';
+        acolor = shadeColor2(wallpaper_db.color, 0.3);
+        console.log('Error crítico al obtener el color del wallpaper (wallpaper.db)');
+    } finally {}
     backgroundmaincolor = shadeColor2(wallpaper_db.color, 0.98);
     bgprecolor = shadeColor2(wallpaper_db.color, 0.9);
     codebarcolor = shadeColor2(wallpaper_db.color, 0.4);
@@ -209,8 +215,6 @@ jQuery(document).ready(function($) {
     } else {
         console.log('Utilizando versión web');
     }
-    console.log(String.format('Cargando fondo {0} - ID {1} (wallpaper.db)', wallpaper_db.image, wallpaper_db.index));
-
     if (!is_movile_browser && enableparallax) {
         $('#background-page-header').parallax({
             imageSrc: wallpaper_db.image,
@@ -221,22 +225,27 @@ jQuery(document).ready(function($) {
         });
         console.log('Se activó el parallax');
     } else {
-        var back_img = new Image();
-        back_img.onload = function() {
-            $('#background-page-header').css({
-                'background': wallpaper_db.color + ' url(' + wallpaper_db.image + ') ' + wallpaper_db.position + ' no-repeat fixed',
-                'background-attachment': 'fixed',
-            });
-            $('#background-page-header').css('-webkit-background-size', 'cover');
-            $('#background-page-header').css('-moz-background-size', 'cover');
-            $('#background-page-header').css('-o-background-size', 'cover');
-            $('#background-page-header').css('background-size', 'cover');
-            $('#background-page-header').css('max-width', '100%');
-            $('#background-page-header').css('width', $(window).width() + 20);
-            fadein_css('#background-page-header', '0.5s');
-            wallpaper_db_random_blur('#background-page-header', blurprobability, blurlimits);
-        }
-        back_img.src = wallpaper_db.image;
+        try {
+            var back_img = new Image();
+            console.log(String.format('Cargando fondo {0} - ID {1} (wallpaper.db)', wallpaper_db.image, wallpaper_db.index));
+            back_img.onload = function() {
+                $('#background-page-header').css({
+                    'background': wallpaper_db.color + ' url(' + wallpaper_db.image + ') ' + wallpaper_db.position + ' no-repeat fixed',
+                    'background-attachment': 'fixed',
+                });
+                $('#background-page-header').css('-webkit-background-size', 'cover');
+                $('#background-page-header').css('-moz-background-size', 'cover');
+                $('#background-page-header').css('-o-background-size', 'cover');
+                $('#background-page-header').css('background-size', 'cover');
+                $('#background-page-header').css('max-width', '100%');
+                $('#background-page-header').css('width', $(window).width() + 20);
+                fadein_css('#background-page-header', '0.5s');
+                wallpaper_db_random_blur('#background-page-header', blurprobability, blurlimits);
+            }
+            back_img.src = wallpaper_db.image;
+        } catch (e) {
+            console.log('Error crítico al obtener la imagen del wallpaper (wallpaper.db)');
+        } finally {}
     }
 
     // Se cambia el color de pace
