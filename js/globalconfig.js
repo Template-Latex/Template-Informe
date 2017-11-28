@@ -52,7 +52,7 @@ function writeBadges() {
 }
 
 // Mensajes de error
-errors = {
+var errors = {
     "cantGetVersion": {
         "msg": "No se pudo obtener la última versión.",
         "code": 0,
