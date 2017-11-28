@@ -26,9 +26,13 @@ var last_version_link = '$VERSION_LINK';
 var new_version_entry = '';
 var pdf_href_lastv = '';
 var total_downloads = 0;
+var total_downloads_l30 = 0;
 var version_entries = [];
 
 jQuery(document).ready(function($) {
+
+    // Escribe el acerca-de
+    printAboutInfo();
 
     // Se escriben los badges
     writeBadges();
@@ -82,6 +86,7 @@ jQuery(document).ready(function($) {
         }
 
         // Se actualiza total de descargas
+        total_downloads_l30 = total_downloads;
         if (total_downloads == 0) {
             total_downloads = nan_value;
         } else {
@@ -122,6 +127,7 @@ jQuery(document).ready(function($) {
             $('#download-button-1file').click(function() {
                 if (total_downloads != nan_value) {
                     total_downloads += 1;
+                    total_downloads_l30 += 1;
                     update_download_banner(total_downloads);
                 }
             });
@@ -268,6 +274,7 @@ jQuery(document).ready(function($) {
     $('#download-button').click(function() {
         if (total_downloads != nan_value) {
             total_downloads += 1;
+            total_downloads_l30 += 1;
             update_download_banner(total_downloads);
         }
     });
@@ -299,6 +306,41 @@ jQuery(document).ready(function($) {
 
     // Se añade el link a chat banner
     $('#chatgitter').attr('href', gitter_href + update_download_counter);
+
+    // Se actualiza el total de descargas cada n-segundos
+    if (update_downloads_version) {
+        setInterval(function() {
+            update_downloads = 0;
+            update_last_version = '';
+            jsonquery = $.getJSON(href_json_releases, function(json) {
+                for (i = 0; i < json.length; i++) {
+                    try {
+                        for (j = 0; j < json[i].assets.length; j++) {
+                            update_downloads += parseInt(json[i].assets[j].download_count);
+                        }
+                    } catch (err) {
+                        console.log(String.format('Error al obtener la cantidad de descargas del archivo {0}', json[i].name));
+                    }
+                }
+                update_last_version = json[0].tag_name;
+
+                // Si cambió la versión actual entonces recarga la página
+                if (update_last_version != last_version) {
+                    console.log(String.format('Se encontró una nueva versión v{0}, recargando págna', update_last_version));
+                    location.reload();
+                }
+
+                // Si existieron nuevas descargas actualiza contador
+                if (update_downloads > total_downloads_l30) {
+                    delta_downloads = update_downloads - total_downloads_l30;
+                    console.log(String.format('Actualizando el contador de descargas, +{0} descargas', delta_downloads));
+                    total_downloads += delta_downloads;
+                    total_downloads_l30 += delta_downloads;
+                    update_download_banner(total_downloads);
+                }
+            });
+        }, seconds_update_downloadCounter * 1000);
+    }
 
     // Se llama a la función de cada template después de cargar
     afterDocumentReady();

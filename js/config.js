@@ -190,6 +190,7 @@ function writeOtherLinks(verid) {
         $(String.format('#downloadentry-{0} .otherdownloadclickeable', deptos[i][1])).click(function() {
             if (total_downloads != nan_value) {
                 total_downloads += 1;
+                total_downloads_l30 += 1;
                 update_download_banner(total_downloads);
             }
         });
