@@ -33,7 +33,7 @@ var gitter_href = 'https://gitter.im/Template-Latex/';
 var nan_value = 'NaN';
 var otherdownloadsfadetime = 400;
 var pdf_js_href = 'http://latex.ppizarror.com/pdf-version/web/viewer.html?file=';
-var seconds_update_downloadCounter = 30;
+var seconds_update_downloadCounter = 45;
 var stats_href = 'http://latex.ppizarror.com/stats/?template=';
 var update_downloads_version = true;
 
