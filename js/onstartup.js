@@ -333,7 +333,8 @@ jQuery(document).ready(function($) {
                 // Si existieron nuevas descargas actualiza contador
                 if (update_downloads > total_downloads_l30) {
                     delta_downloads = update_downloads - total_downloads_l30;
-                    console.log(String.format('Actualizando el contador de descargas, +{0} descargas', delta_downloads));
+                    d = new Date();
+                    console.log(String.format('[{1} {2}] Actualizando el contador de descargas, +{0} descargas', delta_downloads, d.toLocaleDateString(), d.toLocaleTimeString()));
                     total_downloads += delta_downloads;
                     total_downloads_l30 += delta_downloads;
                     update_download_banner(total_downloads);

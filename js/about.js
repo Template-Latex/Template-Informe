@@ -23,7 +23,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // About
 var aboutinfo = {
-    "version": "2.403-281117",
+    "version": "2.404-301117",
     "date": "28/11/2017",
     "author": {
         "name": "Pablo Pizarro R.",
