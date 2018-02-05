@@ -27,4 +27,4 @@ El manual de uso se encuentra disponible en su página web: <a href="http://ppiz
 Este proyecto está licenciado bajo la licencia MIT [https://opensource.org/licenses/MIT]
 
 ## Autor
-<a href="http://ppizarror.com" title="ppizarror">Pablo Pizarro R.</a> | 2016 - 2017
+<a href="http://ppizarror.com" title="ppizarror">Pablo Pizarro R.</a> | 2016 - 2018
