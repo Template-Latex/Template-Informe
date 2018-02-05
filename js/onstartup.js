@@ -1,7 +1,7 @@
 /*
 The MIT License (MIT)
 
-Copyright 2017 Pablo Pizarro R.
+Copyright 2017,2018 Pablo Pizarro R.
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -51,6 +51,13 @@ jQuery(document).ready(function($) {
     codeprecolor = shadeColor2(wallpaper_db.color, 0.2);
     hrcolor = shadeColor2(wallpaper_db.color, 0.7);
     pacecolor = shadeColor2(wallpaper_db.color, 0.15);
+
+    // Aplica tema de color a página
+    var $head = $('head');
+    $head.append(String.format('<meta name="theme-color" content="{0}">', backgroundmaincolor));
+    $head.append(String.format('<meta name="msapplication-navbutton-color" content="{0}">', backgroundmaincolor));
+    $head.append(String.format('<meta name="apple-mobile-web-app-capable" content="yes">', backgroundmaincolor));
+    $head.append(String.format('<meta name="apple-mobile-web-app-status-bar-style" content="{0}">', backgroundmaincolor));
 
     // Se añaden las descargas del template base
     var jsonquery = $.getJSON(href_json_releases, function(json) {

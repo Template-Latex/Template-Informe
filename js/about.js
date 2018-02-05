@@ -1,7 +1,7 @@
 /*
 The MIT License (MIT)
 
-Copyright 2017 Pablo Pizarro R.
+Copyright 2017,2018 Pablo Pizarro R.
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -23,8 +23,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // About
 var aboutinfo = {
-    "version": "2.404-301117",
-    "date": "28/11/2017",
+    "version": "2.405-050218",
+    "date": "05/02/2018",
     "author": {
         "name": "Pablo Pizarro R.",
         "tag": "@ppizarror",
