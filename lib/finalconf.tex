@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones finales
-% Versión:      4.7.4 (04/04/2018)
+% Versión:      4.7.5 (05/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -36,22 +36,22 @@
 \ifthenelse{\equal{\showsectioncaption}{none}}{
 }{
 \ifthenelse{\equal{\showsectioncaption}{sec}}{
-	\counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
-	\counterwithin{figure}{section}     % Añade número de sección a las figuras
-	\counterwithin{lstlisting}{section} % Añade número de sección a los códigos
-	\counterwithin{table}{section}      % Añade número de sección a las tablas
+	\counterwithin{equation}{section}
+	\counterwithin{figure}{section}
+	\counterwithin{lstlisting}{section}
+	\counterwithin{table}{section}
 }{
 \ifthenelse{\equal{\showsectioncaption}{ssec}}{
-	\counterwithin{equation}{subsection}   % Añade número de subsección a las ecuaciones
-	\counterwithin{figure}{subsection}     % Añade número de subsección a las figuras
-	\counterwithin{lstlisting}{subsection} % Añade número de subsección a los códigos
-	\counterwithin{table}{subsection}      % Añade número de subsección a las tablas
+	\counterwithin{equation}{subsection}
+	\counterwithin{figure}{subsection}
+	\counterwithin{lstlisting}{subsection}
+	\counterwithin{table}{subsection}
 }{
 \ifthenelse{\equal{\showsectioncaption}{sssec}}{
-	\counterwithin{equation}{subsubsection}   % Añade número de subsección a las ecuaciones
-	\counterwithin{figure}{subsubsection}     % Añade número de subsección a las figuras
-	\counterwithin{lstlisting}{subsubsection} % Añade número de subsección a los códigos
-	\counterwithin{table}{subsubsection}      % Añade número de subsección a las tablas
+	\counterwithin{equation}{subsubsection}
+	\counterwithin{figure}{subsubsection}
+	\counterwithin{lstlisting}{subsubsection}
+	\counterwithin{table}{subsubsection}
 }{
 \throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}
 }}}}
@@ -61,6 +61,9 @@
 \setcounter{page}{1}
 \setcounter{section}{0}
 \setcounter{footnote}{0}
+
+% Se definen otras variables
+\def\pagewidth {0.995\linewidth}
 
 % Muestra los números de línea
 \ifthenelse{\equal{\showlinenumbers}{true}}{

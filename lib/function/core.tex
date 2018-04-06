@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      4.7.4 (04/04/2018)
+% Versión:      4.7.5 (05/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -116,7 +116,9 @@
 
 \newcommand{\importtikzlib}{
 	% Se importa la librería tikz
-	\usepackage{tikz}
+	\ifthenelse{\equal{\importtikzlib}{false}}{
+		\usepackage{tikz}
+	}{}
 }
 
 \def\beginplandscape {

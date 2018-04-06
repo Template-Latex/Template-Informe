@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      4.7.4 (04/04/2018)
+% Versión:      4.7.5 (05/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -86,8 +86,7 @@
 		\usepackage{apacite}
 	}{
 		\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
-		}{
-		}
+		}{}
 	}
 }
 \ifthenelse{\equal{\showappendixsecindex}{true}}{ % Anexos/Apéndices
@@ -95,6 +94,9 @@
 }{
 	\usepackage{appendix}
 }
+\ifthenelse{\equal{\importtikz}{true}}{ % Importa la librería tikz
+	\usepackage{tikz}
+}{}
 
 % LIBRERÍAS DEPENDIENTES
 \usepackage{bookmark}      % Administración de marcadores en pdf
