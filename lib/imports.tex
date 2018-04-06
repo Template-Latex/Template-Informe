@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      4.7.5 (05/04/2018)
+% Versión:      4.7.6 (06/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,7 +12,7 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % LIBRERÍAS IMPORTANTES
-\usepackage[spanish,es-nosectiondot,es-lcroman]{babel} % Idioma
+\usepackage[spanish,es-nosectiondot,es-lcroman]{babel} % Define el idioma
 \usepackage[T1]{fontenc} % Caracteres acentuados
 \usepackage{\fontdocument} % Tipografía del documento
 \usepackage{ifthen} % Manejo de condicionales
@@ -74,7 +74,7 @@
 \usepackage[usenames,dvipsnames]{xcolor} % Paquete de colores avanzado
 
 % LIBRERÍAS CONDICIONALES
-\ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega puntos a los títulos/subtítulos
+\ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega punto a títulos/subtítulos
 	\usepackage{secdot}
 	\sectiondot{subsection}
 	\sectiondot{subsubsection}}{
