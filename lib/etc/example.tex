@@ -117,25 +117,14 @@
 		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{sourcecode}:
 		
 % Se define el lenguaje del código. Cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
-\begin{sourcecode}[\label{codigo-python}]{php}{Ejemplo en Python.}
-<?php
-/* this is a stupid example */
-$username = $_POST["username"];
-$passwort = $_POST["passwort"];
+\begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
+import numpy as np
 
-$pass = md5($passwort);
-
-// another comment
-if($username=="Andavos" and
-$pass=="fd0d9cdefd5d42dfa36c74a449aa8214")
-{
-	echo "Herzlich Willkommen";
-}
-else
-{
-	echo "Login Fehlgeschlagen";
-}
-?>
+def incmatrix(genl1, genl2):
+	m = len(genl1)
+	n = len(genl2)
+	M = None # Comentario 1
+	VT = np.zeros((n*m, 1), int) # Comentario 2
 \end{sourcecode}
 
 \begin{sourcecode}[\label{codigo-java}]{java}{Ejemplo en Java.}
