@@ -11,6 +11,30 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+\newcommand{\addimage}[3]{
+	% Añade una imagen a un env 'image' con borde
+	%	#1	Dirección de la imagen
+	%	#2	Parámetros de la imagen
+	%	#3	Leyenda de la imagen (opcional)
+	\addimageboxed{#1}{#2}{0}{#3}
+}
+
+\newcommand{\addimageboxed}[4]{
+	% Añade una imagen a un env 'image' con borde
+	%	#1	Dirección de la imagen
+	%	#2	Parámetros de la imagen
+	%	#3	Ancho de la línea (en pt)
+	%	#4	Leyenda de la imagen (opcional)
+	\begingroup
+		\setlength{\fboxsep}{0 pt}
+		\setlength{\fboxrule}{#3 pt}
+		\subfloat[#4]{
+			\fbox{\includegraphics[#2]{#1}}
+		}
+		\hspace{0.1cm}
+	\endgroup
+}
+
 \newcommand{\insertimage}[4][]{
 	% Insertar una imagen
 	% 	#1	Label (opcional)
@@ -65,10 +89,12 @@
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
 		\subfloat[#4]{
-			\includegraphics[#3]{#2}}
-		\hspace{0.2cm}
+			\includegraphics[#3]{#2}
+		}
+		\hspace{0.1cm}
 		\subfloat[#7]{
-			\includegraphics[#6]{#5}}
+			\includegraphics[#6]{#5}
+		}
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz#8\hfuzz
 			\vspace{\captionlessmarginimage cm}
@@ -112,13 +138,16 @@
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
 		\subfloat[]{
-			\includegraphics[#3]{#2}}
+			\includegraphics[#3]{#2}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#5]{#4}}
+			\includegraphics[#5]{#4}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#7]{#6}}
+			\includegraphics[#7]{#6}
+		}
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz#8\hfuzz
 			\vspace{\captionlessmarginimage cm}
@@ -159,16 +188,20 @@
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
 		\subfloat[]{
-			\includegraphics[#6]{#2}}
+			\includegraphics[#6]{#2}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#6]{#3}}
+			\includegraphics[#6]{#3}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#6]{#4}}
+			\includegraphics[#6]{#4}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#6]{#5}}
+			\includegraphics[#6]{#5}
+		}
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz#7\hfuzz
 			\vspace{\captionlessmarginimage cm}
@@ -200,19 +233,24 @@
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
 		\subfloat[]{
-			\includegraphics[#7]{#2}}
+			\includegraphics[#7]{#2}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#7]{#3}}
+			\includegraphics[#7]{#3}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#7]{#4}}
+			\includegraphics[#7]{#4}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#7]{#5}}
+			\includegraphics[#7]{#5}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#7]{#6}}
+			\includegraphics[#7]{#6}
+		}
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz#8\hfuzz
 			\vspace{\captionlessmarginimage cm}
@@ -246,22 +284,28 @@
 	\captionsetup{margin=0.45cm}
 	\begin{figure}[H] \centering
 		\subfloat[]{
-			\includegraphics[#8]{#2}}
+			\includegraphics[#8]{#2}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#8]{#3}}
+			\includegraphics[#8]{#3}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#8]{#4}}
+			\includegraphics[#8]{#4}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#8]{#5}}
+			\includegraphics[#8]{#5}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#8]{#6}}
+			\includegraphics[#8]{#6}
+		}
 		\hspace{0.1cm}
 		\subfloat[]{
-			\includegraphics[#8]{#7}}
+			\includegraphics[#8]{#7}
+		}
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz#9\hfuzz
 			\vspace{\captionlessmarginimage cm}
