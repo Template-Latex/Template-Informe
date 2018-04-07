@@ -76,6 +76,20 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\rightlinenumbers}{
 	}
+	\ifthenelse{\equal{#2}{c}}{}{
+	\ifthenelse{\equal{#2}{c++}}{}{
+	\ifthenelse{\equal{#2}{docker}}{}{
+	\ifthenelse{\equal{#2}{java}}{}{
+	\ifthenelse{\equal{#2}{js}}{}{
+	\ifthenelse{\equal{#2}{matlab}}{}{
+	\ifthenelse{\equal{#2}{perl}}{}{
+	\ifthenelse{\equal{#2}{php}}{}{
+	\ifthenelse{\equal{#2}{python}}{}{
+	\ifthenelse{\equal{#2}{ruby}}{}{
+	\ifthenelse{\equal{#2}{sql}}{}{
+		\def\sourcecodestyle {#2}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,c++,docker,java,js,matlab,perl,php,python,ruby,sql}
+	}}}}}}}}}}}
 	\ifthenelse{\equal{\codecaptiontop}{true}}{
 		\ifx\hfuzz#3\hfuzz
 			\lstset{
