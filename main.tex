@@ -65,32 +65,28 @@
 \input{lib/config}
 
 % IMPORTACIÓN DE LIBRERÍAS
-\input{lib/imports}
+\input{lib/env/imports}
 
 % IMPORTACIÓN DE FUNCIONES
-\input{lib/function/core}
-\input{lib/function/elements}
-\input{lib/function/equation}
-\input{lib/function/image}
-\input{lib/function/title}
+\input{lib/cmd/all}
 
 % IMPORTACIÓN DE ENTORNOS
-\input{lib/environments}
+\input{lib/env/environments}
 
 % IMPORTACIÓN DE ESTILOS
-\input{lib/styles}
+\input{lib/style/all}
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
-\input{lib/initconf}
+\input{lib/cfg/init}
 
 % INICIO DE LAS PÁGINAS
 \begin{document}
 
 % PORTADA
-\input{lib/portrait}
+\input{lib/page/portrait}
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
-\input{lib/pageconf}
+\input{lib/cfg/page}
 
 % RESUMEN O ABSTRACT
 \begin{resumen}
@@ -98,14 +94,14 @@
 \end{resumen}
 
 % TABLA DE CONTENIDOS - ÍNDICE
-\input{lib/index} % Índice, se puede borrar
+\input{lib/page/index} % Índice, se puede borrar
 
 % CONFIGURACIONES FINALES
-\input{lib/finalconf}
+\input{lib/cfg/final}
 
 % ======================= INICIO DEL DOCUMENTO =======================
 
-\input{lib/example.tex} % Ejemplo, se puede borrar
+\input{lib/etc/example} % Ejemplo, se puede borrar
 
 % FIN DEL DOCUMENTO
 \end{document}
