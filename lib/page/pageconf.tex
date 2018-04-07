@@ -1,0 +1,135 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Configuración de página
+% Versión:      4.7.6 (06/04/2018)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Manual template: [http://latex.ppizarror.com/Template-Informe/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
+
+% Numeración de páginas
+\newpage
+\ifthenelse{\equal{\romanpageuppercase}{true}}{
+	\pagenumbering{Roman}
+}{
+	\pagenumbering{roman}
+}
+\setcounter{page}{1}
+\setcounter{footnote}{1}
+
+% Márgenes de páginas y tablas
+\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+\def\arraystretch {\tablepadding} % Se ajusta el padding de las tablas
+\def\pagewidth {0.995\linewidth} % Define ancho de la página en cm
+
+% Se define el punto decimal
+\ifthenelse{\equal{\pointdecimal}{true}}{
+	\decimalpoint}{
+}
+
+% Definición de nombres de objetos
+\renewcommand{\appendixname}{\nomltappendixsection} % Nombre del anexo (título)
+\renewcommand{\appendixpagename}{\nameappendixsection} % Nombre del anexo en índice
+\renewcommand{\appendixtocname}{\nameappendixsection} % Nombre del anexo en índice
+\renewcommand{\contentsname}{\nomltcont}  % Nombre del índice
+\renewcommand{\figurename}{\nomltwfigure} % Nombre de la leyenda de las fig.
+\renewcommand{\listfigurename}{\nomltfigure} % Nombre del índice de figuras
+\renewcommand{\listtablename}{\nomlttable} % Nombre del índice de tablas
+\renewcommand{\lstlistingname}{\nomltwsrc} % Nombre leyenda del código fuente
+\renewcommand{\lstlistlistingname}{\nomltsrc} % Nombre índice código fuente
+\renewcommand{\refname}{\namereferences} % Nombre de las referencias
+\renewcommand{\tablename}{\nomltwtable} % Nombre de la leyenda de tablas
+
+% Estilo de títulos
+\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
+\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
+\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
+
+% Se crean los header-footer
+\ifthenelse{\equal{\hfstyle}{style1}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+	\fancyhead[R]{\small \rm \thepage}
+	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
+	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+}{
+\ifthenelse{\equal{\hfstyle}{style2}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+	\fancyhead[R]{\small \rm \thepage}
+	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
+	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+}{
+\ifthenelse{\equal{\hfstyle}{style3}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{
+		\small \rm \textit{\codigodelcurso \nombredelcurso}
+		\vspace{0.04cm}
+	}
+	\fancyhead[R]{
+		\includegraphics[width=1.2cm]{departamentos/fcfm2}
+		\vspace{-0.10cm}
+	}
+	\fancyfoot[C]{\thepage}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0pt}
+}{
+\ifthenelse{\equal{\hfstyle}{style4}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+	\fancyhead[R]{}
+	\fancyfoot[C]{\small \rm \thepage}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+}{
+\ifthenelse{\equal{\hfstyle}{style5}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{\codigodelcurso \nombredelcurso}
+	\fancyhead[R]{\nouppercase{\rightmark}}
+	\fancyfoot[L]{\departamentouniversidad, \nombreuniversidad}
+	\fancyfoot[R]{\small \rm \thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+}{
+\ifthenelse{\equal{\hfstyle}{style6}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyfoot[L]{\departamentouniversidad}
+	\fancyfoot[C]{\thepage}
+	\fancyfoot[R]{\nombreuniversidad}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\setlength{\headheight}{49pt}
+}{
+\ifthenelse{\equal{\hfstyle}{style7}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyfoot[C]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\setlength{\headheight}{49pt}
+}{
+\ifthenelse{\equal{\hfstyle}{style8}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyfoot[R]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\setlength{\headheight}{49pt}
+}{
+	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style8}}}}}}}}
+}
+
+% Muestra los números de línea
+\ifthenelse{\equal{\showlinenumbers}{true}}{
+	\linenumbers}{
+}

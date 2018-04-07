@@ -1,0 +1,68 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Configuraciones finales
+% Versión:      4.7.6 (06/04/2018)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Manual template: [http://latex.ppizarror.com/Template-Informe/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
+
+% Se reestablecen headers y footers
+\markboth{}{}
+\newpage
+\ifthenelse{\equal{\hfstyle}{style1}}{
+	\fancyhead[L]{\nouppercase{\leftmark}}}{
+}
+\ifthenelse{\equal{\hfstyle}{style2}}{
+	\fancyhead[L]{\nouppercase{\leftmark}}}{
+}
+\ifthenelse{\equal{\hfstyle}{style4}}{
+	\fancyhead[L]{\nouppercase{\leftmark}}}{
+}
+\ifthenelse{\equal{\hfstyle}{style5}}{
+	\fancyhead[R]{\nouppercase{\leftmark}}}{
+}
+
+% Estilo de títulos
+\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
+\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
+\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
+
+% Numeración de objetos
+\ifthenelse{\equal{\showsectioncaption}{none}}{
+}{
+\ifthenelse{\equal{\showsectioncaption}{sec}}{
+	\counterwithin{equation}{section}
+	\counterwithin{figure}{section}
+	\counterwithin{lstlisting}{section}
+	\counterwithin{table}{section}
+}{
+\ifthenelse{\equal{\showsectioncaption}{ssec}}{
+	\counterwithin{equation}{subsection}
+	\counterwithin{figure}{subsection}
+	\counterwithin{lstlisting}{subsection}
+	\counterwithin{table}{subsection}
+}{
+\ifthenelse{\equal{\showsectioncaption}{sssec}}{
+	\counterwithin{equation}{subsubsection}
+	\counterwithin{figure}{subsubsection}
+	\counterwithin{lstlisting}{subsubsection}
+	\counterwithin{table}{subsubsection}
+}{
+\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}
+}}}}
+
+% Se reestablecen números de página y secciones
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+\setcounter{section}{0}
+\setcounter{footnote}{0}
+
+% Muestra los números de línea
+\ifthenelse{\equal{\showlinenumbers}{true}}{
+	\linenumbers}{
+}

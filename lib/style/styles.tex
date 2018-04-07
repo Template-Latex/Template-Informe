@@ -1,0 +1,194 @@
+% Template:     Informe/Reporte LaTeX
+% Documento:    Definición de estilos y colores
+% Versión:      4.7.6 (06/04/2018)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Manual template: [http://latex.ppizarror.com/Template-Informe/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
+
+% Definición de colores
+\definecolor{backcolour}{rgb}{0.95, 0.95, 0.92}
+\definecolor{codegray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{codegreen}{rgb}{0, 0.6, 0}
+\definecolor{codepurple}{rgb}{0.58, 0, 0.82}
+\definecolor{dgray}{rgb}{0.35, 0.35, 0.35}
+\definecolor{dkgreen}{rgb}{0, 0.6, 0}
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{lbrown}{RGB}{255, 252, 249}
+\definecolor{lgray}{RGB}{180, 180, 180}
+\definecolor{lyellow}{rgb}{1.0, 1.0, 0.88}
+\definecolor{mauve}{rgb}{0.58, 0, 0.82}
+\definecolor{mygray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{mygreen}{rgb}{0, 0.6, 0}
+\definecolor{mylilas}{RGB}{170, 55, 241}
+\definecolor{ocre}{RGB}{243, 102, 25}
+
+% Estilo de código fuente, lenguaje C
+\lstdefinestyle{C}{
+	language=C,
+	aboveskip=3mm,
+	backgroundcolor=\color{backcolour},
+	basicstyle={\small\ttfamily},
+	belowskip=3mm,
+	breakatwhitespace=false,
+	breaklines=true,
+	columns=flexible,
+	commentstyle=\color{mygreen},
+	keepspaces=true,
+	keywordstyle=\color{magenta},
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{mygray},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	stepnumber=1,
+	stringstyle=\color{mauve},
+	tabsize=3
+}
+
+% Estilo de código fuente, lenguaje Java
+\lstdefinestyle{Java}{
+	language=Java,
+	aboveskip=3mm,
+	backgroundcolor=\color{backcolour},
+	basicstyle={\small\ttfamily},
+	belowskip=3mm,
+	breakatwhitespace=true,
+	breaklines=true,
+	columns=flexible,
+	commentstyle=\color{dkgreen},
+	keepspaces=true,
+	keywordstyle=\color{blue},
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{gray},
+	showstringspaces=false,
+	stepnumber=1,
+	stringstyle=\color{mauve},
+	tabsize=3
+}
+
+% Estilo de código fuente, lenguaje Matlab
+\lstdefinestyle{Matlab}{
+	language=Matlab,
+	aboveskip=3mm,
+	backgroundcolor=\color{backcolour},
+	basicstyle={\small\ttfamily},
+	belowskip=3mm,
+	breaklines=true,
+	breaklines=true,
+	columns=flexible,
+	commentstyle=\color{mygreen},
+	emph=[1]{for,end,break},emphstyle=[1]\color{red},
+	identifierstyle=\color{black},
+	keepspaces=true,
+	keywordstyle=\color{blue},
+	morekeywords={matlab2tikz},
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{gray},
+	showstringspaces=false,
+	stepnumber=1,
+	stringstyle=\color{mylilas},
+	tabsize=3
+}
+
+% Estilo de código fuente, lenguaje Python
+\lstdefinestyle{Python}{
+	language=Python,
+	aboveskip=3mm,
+	backgroundcolor=\color{backcolour},
+	basicstyle={\small\ttfamily},
+	belowskip=3mm,
+	breakatwhitespace=false,
+	breaklines=true,
+	columns=flexible,
+	commentstyle=\color{codegreen},
+	keepspaces=true,
+	keywordstyle=\color{magenta},
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{codegray},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	stepnumber=1,
+	stringstyle=\color{codepurple},
+	tabsize=3
+}
+
+% Estilo de enumeración en griego
+\RequirePackage{enumitem}
+\makeatletter
+\def\greek#1{\expandafter\@greek\csname c@#1\endcsname}
+\def\Greek#1{\expandafter\@Greek\csname c@#1\endcsname}
+\def\@greek#1{
+	\ifcase#1
+		\or $\alpha$
+		\or $\beta$
+		\or $\gamma$
+		\or $\delta$
+		\or $\epsilon$
+		\or $\zeta$
+		\or $\eta$
+		\or $\theta$
+		\or $\iota$
+		\or $\kappa$
+		\or $\lambda$
+		\or $\mu$
+		\or $\nu$
+		\or $\xi$
+		\or $o$
+		\or $\pi$
+		\or $\rho$
+		\or $\sigma$
+		\or $\tau$
+		\or $\upsilon$
+		\or $\phi$
+		\or $\chi$
+		\or $\psi$
+		\or $\omega$
+	\fi
+}
+\def\@Greek#1{
+	\ifcase#1
+		\or $\mathrm{A}$
+		\or $\mathrm{B}$
+		\or $\Gamma$
+		\or $\Delta$
+		\or $\mathrm{E}$
+		\or $\mathrm{Z}$
+		\or $\mathrm{H}$
+		\or $\Theta$
+		\or $\mathrm{I}$
+		\or $\mathrm{K}$
+		\or $\Lambda$
+		\or $\mathrm{M}$
+		\or $\mathrm{N}$
+		\or $\Xi$
+		\or $\mathrm{O}$
+		\or $\Pi$
+		\or $\mathrm{P}$
+		\or $\Sigma$
+		\or $\mathrm{T}$
+		\or $\mathrm{Y}$
+		\or $\Phi$
+		\or $\mathrm{X}$
+		\or $\Psi$
+		\or $\Omega$
+	\fi
+}
+\makeatother
+\AddEnumerateCounter{\greek}{\@greek}{24}
+\AddEnumerateCounter{\Greek}{\@Greek}{12}
+
+% Columna centrada en tablas
+\newcolumntype{P}[1]{
+	>{\centering\arraybackslash}p{#1}
+}
