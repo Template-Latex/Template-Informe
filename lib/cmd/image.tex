@@ -28,10 +28,10 @@
 	\begingroup
 		\setlength{\fboxsep}{0 pt}
 		\setlength{\fboxrule}{#3 pt}
+		\hspace{\marginrightmultimage cm}
 		\subfloat[#4]{
 			\fbox{\includegraphics[#2]{#1}}
 		}
-		\hspace{\marginrightmultimage cm}
 	\endgroup
 }
 
@@ -55,7 +55,7 @@
 	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}
 	\vspace{\margintopimages cm}
-	\begin{figure}[\imagedefaultplacement]
+	\begin{figure}[H]
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
 			\setlength{\fboxrule}{#4 pt}
@@ -87,7 +87,7 @@
 	\emptyvarerr{\insertdoubleimage}{#6}{Parametros de la imagen 2 no definidos}
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
-	\begin{figure}[\imagedefaultplacement] \centering
+	\begin{figure}[H] \centering
 		\subfloat[#4]{
 			\includegraphics[#3]{#2}
 		}
@@ -136,7 +136,7 @@
 	\emptyvarerr{\inserttripleimage}{#7}{Parametros de la imagen 3 no definidos}
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
-	\begin{figure}[\imagedefaultplacement] \centering
+	\begin{figure}[H] \centering
 		\subfloat[]{
 			\includegraphics[#3]{#2}
 		}
@@ -186,7 +186,7 @@
 	\emptyvarerr{\insertquadimage}{#6}{Propiedades de las imagenes no definidos}
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm cm}
-	\begin{figure}[\imagedefaultplacement] \centering
+	\begin{figure}[H] \centering
 		\subfloat[]{
 			\includegraphics[#6]{#2}
 		}
@@ -231,7 +231,7 @@
 	\emptyvarerr{\insertpentaimage}{#7}{Propiedades de las imagenes no definidas}
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm cm}
-	\begin{figure}[\imagedefaultplacement] \centering
+	\begin{figure}[H] \centering
 		\subfloat[]{
 			\includegraphics[#7]{#2}
 		}
@@ -282,7 +282,7 @@
 	\emptyvarerr{\inserthexaimage}{#8}{Propiedades de las imagenes no definidas}
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
-	\begin{figure}[\imagedefaultplacement] \centering
+	\begin{figure}[H] \centering
 		\subfloat[]{
 			\includegraphics[#8]{#2}
 		}
