@@ -14,8 +14,13 @@
 % LIBRERÍAS IMPORTANTES
 \usepackage[spanish,es-nosectiondot,es-lcroman]{babel} % Define el idioma
 \usepackage[T1]{fontenc} % Caracteres acentuados
-\usepackage{\fontdocument} % Tipografía del documento
 \usepackage{ifthen} % Manejo de condicionales
+\ifthenelse{\equal{\fontdocument}{arial}}{ % Tipografía del documento
+	\usepackage{helvet}
+	\renewcommand{\familydefault}{\sfdefault}
+}{
+	\usepackage{\fontdocument}
+}
 \ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
