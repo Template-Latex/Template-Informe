@@ -77,6 +77,7 @@
 		\rightlinenumbers}{
 	}
 	\ifthenelse{\equal{#2}{c}}{}{
+	\ifthenelse{\equal{#2}{csharp}}{}{
 	\ifthenelse{\equal{#2}{c++}}{}{
 	\ifthenelse{\equal{#2}{docker}}{}{
 	\ifthenelse{\equal{#2}{html5}}{}{
@@ -89,8 +90,8 @@
 	\ifthenelse{\equal{#2}{ruby}}{}{
 	\ifthenelse{\equal{#2}{sql}}{}{
 		\def\sourcecodestyle {#2}
-		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,c++,docker,html5,java,js,matlab,perl,php,python,ruby,sql}
-	}}}}}}}}}}}}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,csharp,c++,docker,html5,java,js,matlab,perl,php,python,ruby,sql}
+	}}}}}}}}}}}}}
 	\ifthenelse{\equal{\codecaptiontop}{true}}{
 		\ifx\hfuzz#3\hfuzz
 			\lstset{
