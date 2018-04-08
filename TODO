@@ -1,7 +1,8 @@
 v5:
-- Entorno multifigure
-- Añadir departamento y otros metadata a pdfinfo
-- Configuraciones punto en índice sección y subsección
-	[https://tex.stackexchange.com/questions/240633/how-to-format-the-leading-dots-of-section-page-number-and-subsection-page-number]
 - Cambiar manual configuraciones por div dinámico en vez de td/tr
 - Añadir portada con imagen central
+
+DONE:
+- Entorno multifigure [OK]
+- Añadir departamento y otros metadata a pdfinfo [OK]
+- Configuraciones punto en índice sección y subsección [OK]
