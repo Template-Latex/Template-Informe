@@ -85,10 +85,10 @@
 
 % CSS, añade más etiquetas
 \lstdefinelanguage{CSS}{
+	morecomment=[s]{/*}{*/},
 	morekeywords={accelerator,azimuth,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-collapse,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-spacing,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,caption-side,clear,clip,color,content,counter-increment,counter-reset,cue,cue-after,cue-before,cursor,direction,display,elevation,empty-cells,filter,float,font,font-family,font-size,font-size-adjust,font-stretch,font-style,font-variant,font-weight,height,ime-mode,include-source,layer-background-color,layer-background-image,layout-flow,layout-grid,layout-grid-char,layout-grid-char-spacing,layout-grid-line,layout-grid-mode,layout-grid-type,left,letter-spacing,line-break,line-height,list-style,list-style-image,list-style-position,list-style-type,margin,margin-bottom,margin-left,margin-right,margin-top,marker-offset,marks,max-height,max-width,min-height,min-width,-moz-binding,-moz-border-radius,-moz-border-radius-topleft,-moz-border-radius-topright,-moz-border-radius-bottomright,-moz-border-radius-bottomleft,-moz-border-top-colors,-moz-border-right-colors,-moz-border-bottom-colors,-moz-border-left-colors,-moz-opacity,-moz-outline,-moz-outline-color,-moz-outline-style,-moz-outline-width,-moz-user-focus,-moz-user-input,-moz-user-modify,-moz-user-select,orphans,outline,outline-color,outline-style,outline-width,overflow,overflow-X,overflow-Y,padding,padding-bottom,padding-left,padding-right,padding-top,page,page-break-after,page-break-before,page-break-inside,pause,pause-after,pause-before,pitch,pitch-range,play-during,position,quotes,-replace,richness,right,ruby-align,ruby-overhang,ruby-position,-set-link-source,size,speak,speak-header,speak-numeral,speak-punctuation,speech-rate,stress,scrollbar-arrow-color,scrollbar-base-color,scrollbar-dark-shadow-color,scrollbar-face-color,scrollbar-highlight-color,scrollbar-shadow-color,scrollbar-3d-light-color,scrollbar-track-color,table-layout,text-align,text-align-last,text-decoration,text-indent,text-justify,text-overflow,text-shadow,text-transform,text-autospace,text-kashida-space,text-underline-position,top,unicode-bidi,-use-link-source,vertical-align,visibility,voice-family,volume,white-space,widows,width,word-break,word-spacing,word-wrap,writing-mode,z-index,zoom},
 	morestring=[s]{:}{;},
-	sensitive,
-	morecomment=[s]{/*}{*/}
+	sensitive
 }
 
 % Docker
@@ -121,11 +121,11 @@
 % HTML5
 \lstdefinelanguage{HTML5}{
 	language=html,
-	sensitive=true,
 	alsoletter={<>=-},
-	otherkeywords={<html>,<head>,<title>,</title>,<meta,/>,</head>,<body>,<canvas,</canvas>,<script>,</script>,</body>,</html>,<!,html>,<style>,</style>,><},
-	ndkeywords={=,charset=,id=,width=,height=,border:,transform:,-moz-transform:,transition-duration:,transition-property:,transition-timing-function:},
 	morecomment=[s]{<!--}{-->},
+	ndkeywords={=,charset=,id=,width=,height=,border:,transform:,-moz-transform:,transition-duration:,transition-property:,transition-timing-function:},
+	otherkeywords={<html>,<head>,<title>,</title>,<meta,/>,</head>,<body>,<canvas,</canvas>,<script>,</script>,</body>,</html>,<!,html>,<style>,</style>,><},
+	sensitive=true,
 	tag=[s]
 }
 \lstdefinestyle{html5}{
@@ -221,7 +221,7 @@
 	numberstyle=\tiny\color{gray},
 	showstringspaces=false,
 	stepnumber=1,
-	tabsize=3
+	tabsize=2
 }
 
 % Lenguaje Matlab
@@ -244,7 +244,7 @@
 	numberstyle=\tiny\color{gray},
 	showstringspaces=false,
 	stepnumber=1,
-	stringstyle=\color{mylilas},
+	stringstyle=\color{mauve},
 	tabsize=3
 }
 
@@ -340,7 +340,7 @@
 	numbers=left,
 	numbersep=5pt,
 	numberstyle=\tiny\color{codegray},
-	sensitive = true,
+	sensitive=true,
 	showstringspaces=false,
 	stringstyle=\color{mauve},
 	tabsize=3
@@ -362,4 +362,29 @@
 	numberstyle=\tiny\color{codegray},
 	showspaces=false,
 	tabsize=3
+}
+
+% Syntax XML
+\lstdefinelanguage{XML}{
+	identifierstyle=\color{dkblue},
+	keywordstyle=\color{cyan},
+	morecomment=[s]{<?}{?>},
+	morekeywords={xmlns,version,type,encoding},
+	morestring=[b]",
+	morestring=[s]{>}{<},
+	stringstyle=\color{black}
+}
+\lstdefinestyle{xml}{
+	language=XML,
+	aboveskip=3mm,
+	backgroundcolor=\color{backcolour},
+	basicstyle={\small\ttfamily},
+	belowskip=3mm,
+	commentstyle=\color{gray}\upshape,
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{codegray},
+	columns=fullflexible,
+	showstringspaces=false,
+	tabsize=2
 }

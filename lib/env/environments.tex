@@ -90,9 +90,10 @@
 	\ifthenelse{\equal{#2}{python}}{}{
 	\ifthenelse{\equal{#2}{ruby}}{}{
 	\ifthenelse{\equal{#2}{sql}}{}{
+	\ifthenelse{\equal{#2}{xml}}{}{
 		\def\sourcecodestyle {#2}
-		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,csharp,c++,docker,html5,java,js,json,matlab,perl,php,python,ruby,sql}
-	}}}}}}}}}}}}}}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,csharp,c++,docker,html5,java,js,json,matlab,perl,php,python,ruby,sql,xml}
+	}}}}}}}}}}}}}}}
 	\ifthenelse{\equal{\codecaptiontop}{true}}{
 		\ifx\hfuzz#3\hfuzz
 			\lstset{

@@ -1,0 +1,153 @@
+\begin{sourcecode}[]{c}{Codigo en c}
+#include <stdio.h>
+int main(){
+	int i, j, rows;
+	
+	printf("Enter number of rows: ");
+	scanf("%d",&rows);
+	
+	for(i=1; i<=rows; ++i){
+		for(j=1; j<=i; ++j){
+			printf("* ");
+		}
+		printf("\n");
+	}
+	return 0;
+}
+\end{sourcecode}
+
+\begin{sourcecode}[]{csharp}{Codigo en C\#}
+/*
+* C# Program to Get a Number and Display the Sum of the Digits 
+*/
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Program
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			int num, sum = 0, r;
+			Console.WriteLine("Enter a Number : ");
+			num = int.Parse(Console.ReadLine());
+			while (num != 0)
+			{
+				r = num % 10;
+				num = num / 10;
+				sum = sum + r;
+			}
+			Console.WriteLine("Sum of Digits of the Number : "+sum);
+			Console.ReadLine();
+			
+		}
+	}
+}
+\end{sourcecode}
+
+\newpage
+\begin{sourcecode}{c++}{}
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n, sum = 0;
+	
+	cout << "Enter a positive integer: ";
+	cin >> n;
+	
+	for (int i = 1; i <= n; ++i) {
+		sum += i;
+	}
+	
+	cout << "Sum = " << sum;
+	return 0;
+}
+\end{sourcecode}
+
+\begin{sourcecode}{docker}{DOCC}
+version: '2'
+services:
+web:
+build: .
+ports:
+- "5000:5000"
+volumes:
+- .:/code
+- logvolume01:/var/log
+links:
+- redis
+redis:
+image: redis
+volumes:
+logvolume01: {}
+\end{sourcecode}
+
+\begin{sourcecode}[\label{codigo-matlab}]{matlab}{Ejemplo en Matlab.}
+% Se crea gráfico
+f = figure(1);
+hold on;
+movegui(f, 'center');
+xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
+title('Espectro de pulso de desplazamiento');
+
+for j = 1:length(BETA)
+	fad = ones(1, NDATOS); % Arreglo para el FAD, uno para cada r
+	for i = 1:NDATOS
+		[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
+		fad(i) = max(abs(u_t)) / uf0;
+	end
+mx = find(fad == max(fad(:)));
+fprintf('BETA=%.2f, MAX: FAD=%.3f, TD/TN=%.3f\n', BETA(j), fad(mx), tdtn(mx));
+plot(tdtn, fad, 'DisplayName', strcat('\beta=', sprintf('%.2f', BETA(j))));
+end	
+\end{sourcecode}
+
+\begin{sourcecode}[]{xml}{Ejemplo xml.}
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="points">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="point">
+					<xs:complexType>
+						<xs:attribute name="x" type="xs:unsignedShort" use="required" />
+						<xs:attribute name="y" type="xs:unsignedShort" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+\end{sourcecode}
+
+\begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
+import numpy as np
+
+def incmatrix(genl1, genl2):
+m = len(genl1)
+n = len(genl2)
+M = None # Comentario 1
+VT = np.zeros((n*m, 1), int) # Comentario 2
+\end{sourcecode}
+
+\begin{sourcecode}[\label{codigo-java}]{java}{Ejemplo en Java.}
+import java.io.IOException; 
+import javax.servlet.*;
+
+// Hola mundo
+public class Hola extends GenericServlet {
+	public void service(ServletRequest request, ServletResponse response)
+	throws ServletException, IOException{
+		response.setContentType("text/html");
+		PrintWriter pw = response.getWriter();
+		pw.println("Hola, mundo!");
+		pw.close();
+	}
+}
+\end{sourcecode}
