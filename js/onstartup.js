@@ -29,7 +29,7 @@ var total_downloads = 0;
 var total_downloads_l30 = 0;
 var version_entries = [];
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
     // Escribe el acerca-de
     printAboutInfo();
@@ -44,7 +44,8 @@ jQuery(document).ready(function($) {
         wallpaper_db.color = '#000000';
         acolor = shadeColor2(wallpaper_db.color, 0.3);
         console.log('Error crítico al obtener el color del wallpaper (wallpaper.db)');
-    } finally {}
+    } finally {
+    }
     backgroundmaincolor = shadeColor2(wallpaper_db.color, 0.98);
     bgprecolor = shadeColor2(wallpaper_db.color, 0.9);
     codebarcolor = shadeColor2(wallpaper_db.color, 0.4);
@@ -60,7 +61,7 @@ jQuery(document).ready(function($) {
     $head.append(String.format('<meta name="apple-mobile-web-app-status-bar-style" content="{0}">', backgroundmaincolor));
 
     // Se añaden las descargas del template base
-    var jsonquery = $.getJSON(href_json_releases, function(json) {
+    var jsonquery = $.getJSON(href_json_releases, function (json) {
 
         // Se cargan los datos del json
         total_downloads = 0;
@@ -131,7 +132,7 @@ jQuery(document).ready(function($) {
             $('#download-button-1file').append(String.format(' <font id="buttonfilectext">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
             $('#download-button').attr('href', normal_link);
             $('#download-button').append(String.format(' <font id="buttonfile1text">(v{0}) <img src="{1}/zip.png" class="iconbutton" /></font>', last_version, href_resources_folder));
-            $('#download-button-1file').click(function() {
+            $('#download-button-1file').click(function () {
                 if (total_downloads != nan_value) {
                     total_downloads += 1;
                     total_downloads_l30 += 1;
@@ -182,7 +183,7 @@ jQuery(document).ready(function($) {
     });
 
     // Se activa error de json
-    jsonquery.fail(function() {
+    jsonquery.fail(function () {
         throwError(errors.cantLoadJson);
     });
 
@@ -241,7 +242,7 @@ jQuery(document).ready(function($) {
         try {
             var back_img = new Image();
             console.log(String.format('Cargando fondo {0} - ID {1} (wallpaper.db)', wallpaper_db.image, wallpaper_db.index));
-            back_img.onload = function() {
+            back_img.onload = function () {
                 $('#background-page-header').css({
                     'background': wallpaper_db.color + ' url(' + wallpaper_db.image + ') ' + wallpaper_db.position + ' no-repeat fixed',
                     'background-attachment': 'fixed',
@@ -258,7 +259,8 @@ jQuery(document).ready(function($) {
             back_img.src = wallpaper_db.image;
         } catch (e) {
             console.log('Error crítico al obtener la imagen del wallpaper (wallpaper.db)');
-        } finally {}
+        } finally {
+        }
     }
 
     // Se cambia el color de pace
@@ -270,15 +272,15 @@ jQuery(document).ready(function($) {
     }
 
     // Se añade un evento al cambiar tamaño página web
-    $(window).resize(function() {
+    $(window).resize(function () {
         $('#background-page-header').css('width', $(window).width() + 20);
     });
 
     // Se actualiza la cantidad de descargas al hacer click
-    $('total-download-counter').each(function() {
+    $('total-download-counter').each(function () {
         this.id.innerHTML = total_downloads;
     });
-    $('#download-button').click(function() {
+    $('#download-button').click(function () {
         if (total_downloads != nan_value) {
             total_downloads += 1;
             total_downloads_l30 += 1;
@@ -288,7 +290,7 @@ jQuery(document).ready(function($) {
 
     // Muestra un botón para subir al hacer scroll
     var amountScrolled = 600;
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         location.pathname.replace(/^\//, '');
         if ($(window).scrollTop() > amountScrolled) {
             $('a.back-to-top').fadeIn('slow');
@@ -298,7 +300,7 @@ jQuery(document).ready(function($) {
     });
 
     // Smooth scrolling al clickear un anchor
-    $('a[href*="#"]:not([href="#"])').click(function() {
+    $('a[href*="#"]:not([href="#"])').click(function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -316,10 +318,10 @@ jQuery(document).ready(function($) {
 
     // Se actualiza el total de descargas cada n-segundos
     if (update_downloads_version) {
-        setInterval(function() {
+        setInterval(function () {
             update_downloads = 0;
             update_last_version = '';
-            jsonquery = $.getJSON(href_json_releases, function(json) {
+            jsonquery = $.getJSON(href_json_releases, function (json) {
                 for (i = 0; i < json.length; i++) {
                     try {
                         for (j = 0; j < json[i].assets.length; j++) {
@@ -349,6 +351,11 @@ jQuery(document).ready(function($) {
             });
         }, seconds_update_downloadCounter * 1000);
     }
+
+    // Se crea un listener para cada elemento de código latex, evento copiar el texto
+    $('.highlight-text-tex').each(function () {
+        selectAllText(this);
+    });
 
     // Se llama a la función de cada template después de cargar
     afterDocumentReady();

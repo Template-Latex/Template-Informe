@@ -26,6 +26,34 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Selecciona el texto de un div
+function selectAllText(elem) {
+    $(elem).on('mouseup', function () {
+        var sel, range;
+        var el = $(this)[0];
+        if (window.getSelection && document.createRange) { //Browser compatibility
+            sel = window.getSelection();
+            if (sel.toString() === '') { //no text selection
+                window.setTimeout(function () {
+                    range = document.createRange(); //range object
+                    range.selectNodeContents(el); //sets Range
+                    sel.removeAllRanges(); //remove all ranges from selection
+                    sel.addRange(range);//add Range to a Selection.
+                }, 1);
+            }
+        } else if (document.selection) { //older ie
+            sel = document.selection.createRange();
+            if (sel.text === '') { //no text selection
+                // noinspection JSUnresolvedFunction
+                range = document.body.createTextRange();//Creates TextRange object
+                // noinspection JSUnresolvedFunction
+                range.moveToElementText(el);//sets Range
+                range.select(); //make selection.
+            }
+        }
+    });
+}
+
 // Función para transformar colores, oscurece y aclarece
 function shadeColor2(color, percent) {
     var f = parseInt(color.slice(1), 16),
@@ -38,7 +66,7 @@ function shadeColor2(color, percent) {
 }
 
 // Selecciona el texto de un elemento
-jQuery.fn.selText = function() {
+jQuery.fn.selText = function () {
     var obj = this[0];
     if ($.browser.msie) {
         var range = obj.offsetParent.createTextRange();
@@ -55,7 +83,7 @@ jQuery.fn.selText = function() {
         selection.setBaseAndExtent(obj, 0, obj, 1);
     }
     return this;
-}
+};
 
 // Función que transforma colores y los mezcla
 function blendColors(c0, c1, p) {
@@ -72,10 +100,10 @@ function blendColors(c0, c1, p) {
 
 // Función String.format(...)
 if (!String.format) {
-    String.format = function(format) {
+    String.format = function (format) {
         var args = Array.prototype.slice.call(arguments, 1);
-        return format.replace(/{(\d+)}/g, function(match, number) {
-            return typeof args[number] != 'undefined' ?
+        return format.replace(/{(\d+)}/g, function (match, number) {
+            return typeof args[number] !== 'undefined' ?
                 args[number] :
                 match;
         });
@@ -110,8 +138,8 @@ function update_download_banner(total_downloads) {
 function doBounce(element, times, distance, speed) {
     for (i = 0; i < times; i++) {
         element.animate({
-                marginTop: '-=' + distance
-            }, speed)
+            marginTop: '-=' + distance
+        }, speed)
             .animate({
                 marginTop: '+=' + distance
             }, speed);
@@ -131,18 +159,18 @@ function throwError(error) {
     $('#main-content-section').html(String.format(html_error_div, error.msg, error.moreinfo, href_resources_folder));
     backheight = $(window).height() - $('.page-header').innerHeight();
     $('#main-content-section').css('height', backheight);
-    $(window).resize(function() {
+    $(window).resize(function () {
         backheight = $(window).height() - $('.page-header').innerHeight();
         $('#main-content-section').css('height', backheight);
     });
 }
 
 // Obtiene parámetros de la url
-$.urlParam = function(name) {
+$.urlParam = function (name) {
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results == null) {
         return null;
     } else {
         return decodeURI(results[1]) || 0;
     }
-}
+};
