@@ -58,3 +58,6 @@ subreleases/*
 
 # Logs
 log.txt
+
+# Distribución
+dist/
