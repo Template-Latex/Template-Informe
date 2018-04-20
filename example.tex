@@ -1,9 +1,9 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      4.7.6 (06/04/2018)
+% Versión:      5.0.0 (20/04/2018)
 % Codificación: UTF-8
 %
-% Autor: Pablo Pizarro R.
+% Autor: Pablo Pizarro R. @ppizarror
 %        Facultad de Ciencias Físicas y Matemáticas
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
@@ -117,7 +117,7 @@
 		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{sourcecode}:
 		
 % Se define el lenguaje del código. Cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
-\begin{sourcecode}[\label{codigo-python}]{Python}{Ejemplo en Python.}
+\begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
 import numpy as np
 
 def incmatrix(genl1, genl2):
@@ -127,7 +127,7 @@ def incmatrix(genl1, genl2):
 	VT = np.zeros((n*m, 1), int) # Comentario 2
 \end{sourcecode}
 
-\begin{sourcecode}[\label{codigo-java}]{Java}{Ejemplo en Java.}
+\begin{sourcecode}[\label{codigo-java}]{java}{Ejemplo en Java.}
 import java.io.IOException; 
 import javax.servlet.*;
 
@@ -143,7 +143,7 @@ public class Hola extends GenericServlet {
 }
 \end{sourcecode}
 
-\begin{sourcecode}[\label{codigo-matlab}]{Matlab}{Ejemplo en Matlab.}
+\begin{sourcecode}[\label{codigo-matlab}]{matlab}{Ejemplo en Matlab.}
 % Se crea gráfico
 f = figure(1);
 hold on;
@@ -225,9 +225,31 @@ end
 	% Inserta un subtítulo sin número
 	\subsectionanum{Otros}
 		
-		Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{http://latex.ppizarror.com/Template-Informe/}.
-		
-		\newp Si necesitas una ayuda muy específica sobre el template, o si tienes alguna sugerencia, me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
+		Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{http://latex.ppizarror.com/Template-Informe/}. Si necesitas una ayuda muy específica sobre el template, o si tienes alguna sugerencia, me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
+
+% REFERENCIAS (ESTILO BIBTEX)
+\newpage % Salto de página
+\begin{references}
+	\bibitem{ref1}
+	Template Informe en \LaTeX.
+	\textit{¡Revisa el manual online de este template!} \\
+	\url{http://latex.ppizarror.com/Template-Informe/}
+	
+	\bibitem{ref2}
+	Excel2Latex.
+	\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
+	\url{https://www.ctan.org/tex-archive/support/excel2latex/}
+	
+	\bibitem{ref3}
+	Overleaf.
+	\textit{Un aclamado editor online \LaTeX.} \\
+	\href{https://www.overleaf.com/signup?ref=4d3bd09b7e78}{\texttt{https://www.overleaf.com/}}
+	
+	\bibitem{ref4}
+	ShareLatex.
+	\textit{Uno de los mejores editores online para \LaTeX.} \\
+	\href{https://www.sharelatex.com/?r=298b935f&rm=d&rs=b}{\texttt{https://www.sharelatex.com/}}
+\end{references}
 
 % ANEXO
 \newpage
@@ -281,27 +303,3 @@ end
 			\label{tab:anexo-2}
 		\end{table}
 \end{anexo}
-
-% REFERENCIAS (ESTILO BIBTEX)
-\newpage % Salto de página
-\begin{references}
-	\bibitem{ref1}
-	Template Informe en \LaTeX.
-	\textit{¡Revisa el manual online de este template!} \\
-	\url{http://latex.ppizarror.com/Template-Informe/}
-	
-	\bibitem{ref2}
-	Excel2Latex.
-	\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
-	\url{https://www.ctan.org/tex-archive/support/excel2latex/}
-	
-	\bibitem{ref3}
-	Overleaf.
-	\textit{Un aclamado editor online \LaTeX.} \\
-	\href{https://www.overleaf.com/signup?ref=4d3bd09b7e78}{\texttt{https://www.overleaf.com/}}
-	
-	\bibitem{ref4}
-	ShareLatex.
-	\textit{Uno de los mejores editores online para \LaTeX.} \\
-	\href{https://www.sharelatex.com/?r=298b935f&rm=d&rs=b}{\texttt{https://www.sharelatex.com/}}
-\end{references}
