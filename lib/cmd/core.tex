@@ -137,7 +137,7 @@
 \newcommand{\checkonlyonenvimage}{
 	% Chequea que las funciones sólo puedan usarse en el entorno images
 	\ifthenelse{\equal{\envimagesinitialized}{true}}{}{
-		\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\image}
+		\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}
 		\stop
 	}
 }
@@ -145,7 +145,12 @@
 \newcommand{\checkoutsideenvimage}{
 	% Chequea que las funciones sólo puedan usarse fuera del entorno images
 	\ifthenelse{\equal{\envimagesinitialized}{true}}{
-		\throwwarning{Esta funcion solo puede usarse fuera del entorno image}
+		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}
 		\stop
 	}{}
+}
+
+\newcommand{\alertdeprecatedcmdimage}[1]{
+	% Alerta función de inserción de imagen deprecada, utilizar entorno images
+	\throwwarning{Funcion \noexpand#1 deprecada, se recomienda utilizar el entorno \noexpand\images en su lugar}
 }

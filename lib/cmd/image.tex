@@ -52,10 +52,10 @@
 	%	#3	Parámetros de la imagen
 	%	#4	Ancho de la línea (en pt)
 	%	#5	Leyenda de la imagen (opcional)
-	\checkoutsideenvimage
 	\emptyvarerr{\insertimageboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}
+	\checkoutsideenvimage
 	\vspace{\margintopimages cm}
 	\begin{figure}[H]
 		\begingroup
@@ -83,11 +83,12 @@
 	%	#6	Parámetros de la imagen 2
 	%	#7	Leyenda de la imagen 2
 	%	#8	Leyenda de la imagen doble (opcional)
-	\checkoutsideenvimage
 	\emptyvarerr{\insertdoubleimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\insertdoubleimage}{#3}{Parametros de la imagen 1 no definidos}
 	\emptyvarerr{\insertdoubleimage}{#5}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\insertdoubleimage}{#6}{Parametros de la imagen 2 no definidos}
+	\checkoutsideenvimage
+	\alertdeprecatedcmdimage
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
 	\begin{figure}[H] \centering
@@ -131,13 +132,14 @@
 	%	#6	Dirección de la imagen 3
 	%	#7	Parámetros de la imagen 3
 	%	#8	Leyenda de la imagen triple (opcional)
-	\checkoutsideenvimage
 	\emptyvarerr{\inserttripleimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\inserttripleimage}{#3}{Parametros de la imagen 1 no definidos}
 	\emptyvarerr{\inserttripleimage}{#4}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\inserttripleimage}{#5}{Parametros de la imagen 2 no definidos}
 	\emptyvarerr{\inserttripleimage}{#6}{Direccion de la imagen 3 no definida}
 	\emptyvarerr{\inserttripleimage}{#7}{Parametros de la imagen 3 no definidos}
+	\checkoutsideenvimage
+	\alertdeprecatedcmdimage
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
 	\begin{figure}[H] \centering
@@ -183,12 +185,13 @@
 	%	#5	Dirección de la imagen 4
 	%	#6	Propiedades de las imágenes
 	%	#7	Leyenda de la imagen cuádruple (opcional)
-	\checkoutsideenvimage
 	\emptyvarerr{\insertquadimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\insertquadimage}{#3}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\insertquadimage}{#4}{Direccion de la imagen 3 no definida}
 	\emptyvarerr{\insertquadimage}{#5}{Direccion de la imagen 4 no definida}
 	\emptyvarerr{\insertquadimage}{#6}{Propiedades de las imagenes no definidos}
+	\checkoutsideenvimage
+	\alertdeprecatedcmdimage
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm cm}
 	\begin{figure}[H] \centering
@@ -228,13 +231,14 @@
 	%	#6	Dirección de la imagen 5
 	%	#7	Propiedades de las imágenes
 	%	#8	Leyenda de la imagen quíntuple (opcional)
-	\checkoutsideenvimage
 	\emptyvarerr{\insertpentaimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\insertpentaimage}{#3}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\insertpentaimage}{#4}{Direccion de la imagen 3 no definida}
 	\emptyvarerr{\insertpentaimage}{#5}{Direccion de la imagen 4 no definida}
 	\emptyvarerr{\insertpentaimage}{#6}{Direccion de la imagen 5 no definida}
 	\emptyvarerr{\insertpentaimage}{#7}{Propiedades de las imagenes no definidas}
+	\checkoutsideenvimage
+	\alertdeprecatedcmdimage
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm cm}
 	\begin{figure}[H] \centering
@@ -279,7 +283,6 @@
 	%	#7	Dirección de la imagen 6
 	%	#8	Propiedades de las imágenes
 	%	#9	Leyenda de la imagen global (opcional)
-	\checkoutsideenvimage
 	\emptyvarerr{\inserthexaimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\inserthexaimage}{#3}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\inserthexaimage}{#4}{Direccion de la imagen 3 no definida}
@@ -287,6 +290,8 @@
 	\emptyvarerr{\inserthexaimage}{#6}{Direccion de la imagen 5 no definida}
 	\emptyvarerr{\inserthexaimage}{#7}{Direccion de la imagen 6 no definida}
 	\emptyvarerr{\inserthexaimage}{#8}{Propiedades de las imagenes no definidas}
+	\checkoutsideenvimage
+	\alertdeprecatedcmdimage
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
 	\begin{figure}[H] \centering
@@ -340,10 +345,10 @@
 	%	#3	Ancho de la imagen (en textwidth)
 	%	#4	Ancho de la línea (en pt)
 	%	#5	Leyenda de la imagen (opcional)
-	\checkoutsideenvimage
 	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
+	\checkoutsideenvimage
 	\begin{wrapfigure}{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -382,11 +387,11 @@
 	%	#4	Altura en líneas de la imagen
 	%	#5	Ancho de la línea (en pt)
 	%	#6	Leyenda de la imagen (opcional)
-	\checkoutsideenvimage
 	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftlineboxed}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
 	\emptyvarerr{\insertimageleftlineboxed}{#5}{Ancho de la linea no definido}
+	\checkoutsideenvimage
 	\begin{wrapfigure}[#4]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -422,10 +427,10 @@
 	%	#3	Ancho de la imagen (en textwidth)
 	%	#4	Ancho de la línea (en pt)
 	%	#5	Leyenda de la imagen (opcional)
-	\checkoutsideenvimage
 	\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}
+	\checkoutsideenvimage
 	\begin{wrapfigure}{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -463,11 +468,11 @@
 	%	#4	Altura en líneas de la imagen
 	%	#5	Ancho de la línea (en pt)
 	%	#6	Leyenda de la imagen (opcional)
-	\checkoutsideenvimage
 	\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimagerightlineboxed}{#4}{Altura en lineas de la imagen flotante derecha no definida}
 	\emptyvarerr{\insertimagerightlineboxed}{#5}{Ancho de la linea no definido}
+	\checkoutsideenvimage
 	\begin{wrapfigure}[#4]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
