@@ -110,7 +110,7 @@
 			\lipsum[1]
 			
 		\end{multicols}
-		
+	
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
 		
@@ -162,6 +162,27 @@ for j = 1:length(BETA)
 	plot(tdtn, fad, 'DisplayName', strcat('\beta=', sprintf('%.2f', BETA(j))));
 end	
 \end{sourcecode}
+	
+	% SUB-SECCIÓN
+	\subsection{Añadir múltiples imágenes}
+	
+	A partir de la versión 5.0.0 existe el entorno \texttt{\textbackslash images} que permite insertar múltiples imágenes de una manera muy sencilla, reemplazando así a las funciones \texttt{\textbackslash insertdoubleimage}, etc. Para crear imágenes múltiples se deben usar instrucciones como:
+	
+\begin{sourcecode}{latex}{}
+\begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
+	\addimage{ejemplos/test-image}{width=7cm}{Ciudad}
+	\addimage{ejemplos/test-image-wrap}{width=6cm}{Apolo}
+	\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
+\end{images}
+\end{sourcecode}
+
+	Obteniendo así:
+	
+	\begin{images}{Ejemplo de imagen múltiple.}
+		\addimage{ejemplos/test-image}{width=7cm}{Ciudad}
+		\addimage{ejemplos/test-image-wrap}{width=6cm}{Apolo}
+		\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
+	\end{images}
 
 % NUEVA SECCIÓN
 % Inserta una sección sin número

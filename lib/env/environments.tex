@@ -85,6 +85,7 @@
 	\ifthenelse{\equal{#2}{js}}{}{
 	\ifthenelse{\equal{#2}{json}}{}{
 	\ifthenelse{\equal{#2}{matlab}}{}{
+	\ifthenelse{\equal{#2}{latex}}{}{
 	\ifthenelse{\equal{#2}{perl}}{}{
 	\ifthenelse{\equal{#2}{php}}{}{
 	\ifthenelse{\equal{#2}{python}}{}{
@@ -92,8 +93,8 @@
 	\ifthenelse{\equal{#2}{sql}}{}{
 	\ifthenelse{\equal{#2}{xml}}{}{
 		\def\sourcecodestyle {#2}
-		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,csharp,c++,docker,html5,java,js,json,matlab,perl,php,python,ruby,sql,xml}
-	}}}}}}}}}}}}}}}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,csharp,c++,docker,html5,java,js,json,matlab,latex,perl,php,python,ruby,sql,xml}
+	}}}}}}}}}}}}}}}}
 	\ifthenelse{\equal{\codecaptiontop}{true}}{
 		\ifx\hfuzz#3\hfuzz
 			\lstset{
@@ -153,8 +154,9 @@
 %	#1	Label (opcional)
 %	#2	Caption
 \newenvironment{images}[2][]{
-	\def\imageslabelvar {#1}
-	\def\imagescaptionvar {#2}
+	\def\envimageslabelvar {#1}
+	\def\envimagescaptionvar {#2}
+	\def\envimagesinitialized {true}
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
 	\begin{figure}[H] \centering
@@ -163,12 +165,14 @@
 		\vspace{-\marginrightmultimage cm}
 		}{
 		\setcaptionmargincm{\captionlrmargin}
-		\ifx\hfuzz\imagescaptionvar\hfuzz
+		\ifx\hfuzz\envimagescaptionvar\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
-			\caption{\imagescaptionvar\imageslabelvar}
+			\caption{\envimagescaptionvar\envimageslabelvar}
 		\fi
 	\end{figure}
 	\setcaptionmargincm{\captionlrmargin}
 	\vspace{\marginbottomimages cm}
+	\def\envimagesinitialized {false}
 }
+\def\envimagesinitialized {false}

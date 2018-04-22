@@ -25,6 +25,7 @@
 	%	#2	Parámetros de la imagen
 	%	#3	Ancho de la línea (en pt)
 	%	#4	Leyenda de la imagen (opcional)
+	\checkonlyonenvimage
 	\begingroup
 		\setlength{\fboxsep}{0 pt}
 		\setlength{\fboxrule}{#3 pt}
@@ -51,6 +52,7 @@
 	%	#3	Parámetros de la imagen
 	%	#4	Ancho de la línea (en pt)
 	%	#5	Leyenda de la imagen (opcional)
+	\checkoutsideenvimage
 	\emptyvarerr{\insertimageboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}
@@ -81,6 +83,7 @@
 	%	#6	Parámetros de la imagen 2
 	%	#7	Leyenda de la imagen 2
 	%	#8	Leyenda de la imagen doble (opcional)
+	\checkoutsideenvimage
 	\emptyvarerr{\insertdoubleimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\insertdoubleimage}{#3}{Parametros de la imagen 1 no definidos}
 	\emptyvarerr{\insertdoubleimage}{#5}{Direccion de la imagen 2 no definida}
@@ -128,6 +131,7 @@
 	%	#6	Dirección de la imagen 3
 	%	#7	Parámetros de la imagen 3
 	%	#8	Leyenda de la imagen triple (opcional)
+	\checkoutsideenvimage
 	\emptyvarerr{\inserttripleimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\inserttripleimage}{#3}{Parametros de la imagen 1 no definidos}
 	\emptyvarerr{\inserttripleimage}{#4}{Direccion de la imagen 2 no definida}
@@ -179,6 +183,7 @@
 	%	#5	Dirección de la imagen 4
 	%	#6	Propiedades de las imágenes
 	%	#7	Leyenda de la imagen cuádruple (opcional)
+	\checkoutsideenvimage
 	\emptyvarerr{\insertquadimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\insertquadimage}{#3}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\insertquadimage}{#4}{Direccion de la imagen 3 no definida}
@@ -223,6 +228,7 @@
 	%	#6	Dirección de la imagen 5
 	%	#7	Propiedades de las imágenes
 	%	#8	Leyenda de la imagen quíntuple (opcional)
+	\checkoutsideenvimage
 	\emptyvarerr{\insertpentaimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\insertpentaimage}{#3}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\insertpentaimage}{#4}{Direccion de la imagen 3 no definida}
@@ -273,6 +279,7 @@
 	%	#7	Dirección de la imagen 6
 	%	#8	Propiedades de las imágenes
 	%	#9	Leyenda de la imagen global (opcional)
+	\checkoutsideenvimage
 	\emptyvarerr{\inserthexaimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\inserthexaimage}{#3}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\inserthexaimage}{#4}{Direccion de la imagen 3 no definida}
@@ -333,6 +340,7 @@
 	%	#3	Ancho de la imagen (en textwidth)
 	%	#4	Ancho de la línea (en pt)
 	%	#5	Leyenda de la imagen (opcional)
+	\checkoutsideenvimage
 	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
@@ -374,6 +382,7 @@
 	%	#4	Altura en líneas de la imagen
 	%	#5	Ancho de la línea (en pt)
 	%	#6	Leyenda de la imagen (opcional)
+	\checkoutsideenvimage
 	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftlineboxed}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
@@ -413,6 +422,7 @@
 	%	#3	Ancho de la imagen (en textwidth)
 	%	#4	Ancho de la línea (en pt)
 	%	#5	Leyenda de la imagen (opcional)
+	\checkoutsideenvimage
 	\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}
@@ -453,6 +463,7 @@
 	%	#4	Altura en líneas de la imagen
 	%	#5	Ancho de la línea (en pt)
 	%	#6	Leyenda de la imagen (opcional)
+	\checkoutsideenvimage
 	\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimagerightlineboxed}{#4}{Altura en lineas de la imagen flotante derecha no definida}
