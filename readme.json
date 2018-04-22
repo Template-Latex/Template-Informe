@@ -28,12 +28,12 @@
             "ALT": "@ppizarror"
         },
         "1": {
-            "IMAGE": "http://latex.ppizarror.com/res/licenciamit.svg",
+            "IMAGE": "http://latex.ppizarror.com/res/badges/licenciamit.svg",
             "HREF": "https://opensource.org/licenses/MIT/",
             "ALT": "Licencia MIT"
         },
 		"2": {
-            "IMAGE": "http://latex.ppizarror.com/res/chat.svg",
+            "IMAGE": "http://latex.ppizarror.com/res/badges/chat.svg",
             "HREF": "https://gitter.im/Template-Latex/Template-Informe",
             "ALT": "Chat"
         },
