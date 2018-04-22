@@ -60,3 +60,6 @@ desktop.ini
 
 # Logs
 log.txt
+
+# Dist
+dist/
