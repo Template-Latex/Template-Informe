@@ -11,51 +11,51 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Lanza un mensaje de error
+% 	#1	Función del error
+%	#2	Mensaje
 \newcommand{\throwerror}[2]{
-	% Lanza un mensaje de error
-	% 	#1	Función del error
-	%	#2	Mensaje
 	\errmessage{LaTeX Error: \noexpand#1 #2 (linea \the\inputlineno)}
 	\stop
 }
 
+% Lanza un mensaje de advertencia
+%	#1	Mensaje
 \newcommand{\throwwarning}[1]{
-	% Lanza un mensaje de advertencia
-	%	#1	Mensaje
 	\errmessage{LaTeX Warning: #1 (linea \the\inputlineno)}
 }
 
-\newcommand{\throwbadconfig}[3]{
 	% Lanza un mensaje de error indicando mala configuración
-	%	#1	Mensaje de error
-	% 	#2	Configuración usada
-	%	#3	Valores esperados
+%	#1	Mensaje de error
+% 	#2	Configuración usada
+%	#3	Valores esperados
+\newcommand{\throwbadconfig}[3]{
 	\errmessage{LaTeX Warning: #1 \noexpand #2=#2. Valores esperados: #3}
 	\stop
 }
 
+% Lanza un mensaje de error indicando mala configuración dentro de begin{document}
+%	#1	Mensaje de error
+% 	#2	Configuración usada
+%	#3	Valores esperados
 \newcommand{\throwbadconfigondoc}[3]{
-	% Lanza un mensaje de error indicando mala configuración dentro de begin{document}
-	%	#1	Mensaje de error
-	% 	#2	Configuración usada
-	%	#3	Valores esperados
 	\errmessage{#1 \noexpand #2=#2. Valores esperados: #3}
 	\stop
 }
 
+% Comprueba si una variable está definida
+%	#1	Variable
 \newcommand{\checkvardefined}[1]{
-	% Comprueba si una variable está definida
-	%	#1	Variable
 	\ifthenelse{\isundefined{#1}}{
 		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}
 		\stop
 	}{}
 }
 
+% Comprueba si una variable está definida
+%	#1	Variable
+%	#2	Mensaje
 \newcommand{\checkextravarexist}[2]{
-	% Comprueba si una variable está definida
-	%	#1	Variable
-	%	#2	Mensaje
 	\ifthenelse{\isundefined{#1}}{
 		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}
 		\ifx\hfuzz#2\hfuzz
@@ -66,43 +66,43 @@
 	}{}
 }
 
+% Lanza un mensaje de error si una variable no ha sido definida
+% 	#1	Función del error
+%	#2	Variable
+%	#3	Mensaje
 \newcommand{\emptyvarerr}[3]{
-	% Lanza un mensaje de error si una variable no ha sido definida
-	% 	#1	Función del error
-	%	#2	Variable
-	%	#3	Mensaje
 	\ifx\hfuzz#2\hfuzz
 		\errmessage{LaTeX Warning: \noexpand#1 #3 (linea \the\inputlineno)}
 	\fi
 }
 
+% Cambiar el margen de los caption
+% 	#1	Margen en centímetros
 \newcommand{\setcaptionmargincm}[1]{
-	% Cambiar el margen de los caption
-	% 	#1	Margen en centímetros
 	\captionsetup{margin=#1cm}
 }
 
+% Cambia márgenes de las páginas [cm]
+% 	#1	Margen izquierdo
+%	#2	Margen superior
+%	#3	Margen derecho
+%	#4	Margen inferior
 \newcommand{\setpagemargincm}[4]{
-	% Cambia márgenes de las páginas [cm]
-	% 	#1	Margen izquierdo
-	%	#2	Margen superior
-	%	#3	Margen derecho
-	%	#4	Margen inferior
 	\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}
 }
 
+% Cambia los márgenes del documento
+%	#1 Margen izquierdo
+%	#2 Margen derecho
 \newcommand{\changemargin}[2]{
-	% Cambia los márgenes del documento
-	%	#1 Margen izquierdo
-	%	#2 Margen derecho
 	\emptyvarerr{\changemargin}{#1}{Margen izquierdo no definido}
 	\emptyvarerr{\changemargin}{#2}{Margen derecho no definido}
 	\list{}{\rightmargin#2\leftmargin#1}\item[]
 }
 \let\endchangemargin=\endlist
 
+% Imagen de prueba tikz
 \newcommand{\bgtemplatetestimg}{
-	% Imagen de prueba tikz
 	\definecolor{c040302}{RGB}{4, 3, 2}
 	\definecolor{cb26929}{RGB}{178,105, 41}
 	\definecolor{cfa943c}{RGB}{250, 148, 60}
@@ -114,43 +114,43 @@
 }
 \def\bgtemplatetestcode {d0g3}
 
+% Se importa la librería tikz
 \newcommand{\importtikzlib}{
-	% Se importa la librería tikz
 	\ifthenelse{\equal{\importtikzlib}{false}}{
 		\usepackage{tikz}
 	}{}
 }
 
+% Inicia el modo de página horizontal
 \def\beginplandscape {
-	% Inicia el modo de página horizontal
 	\newgeometry{landscape,left=\pagemarginleft cm,top=\pagemargintop cm,right=\pagemarginright cm,bottom=\pagemarginbottom cm}
 	\headwidth=\textwidth
 }
 
+% Termina el modo de página horizontal
 \def\endplandscape {
-	% Termina el modo de página horizontal
 	\restoregeometry
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\headwidth=\textwidth
 }
 
+% Chequea que las funciones sólo puedan usarse en el entorno images
 \newcommand{\checkonlyonenvimage}{
-	% Chequea que las funciones sólo puedan usarse en el entorno images
 	\ifthenelse{\equal{\envimagesinitialized}{true}}{}{
 		\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}
 		\stop
 	}
 }
 
+% Chequea que las funciones sólo puedan usarse fuera del entorno images
 \newcommand{\checkoutsideenvimage}{
-	% Chequea que las funciones sólo puedan usarse fuera del entorno images
 	\ifthenelse{\equal{\envimagesinitialized}{true}}{
 		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}
 		\stop
 	}{}
 }
 
+% Alerta función de inserción de imagen deprecada, utilizar entorno images
 \newcommand{\alertdeprecatedcmdimage}[1]{
-	% Alerta función de inserción de imagen deprecada, utilizar entorno images
 	\throwwarning{Funcion \noexpand#1 deprecada, se recomienda utilizar el entorno \noexpand\images en su lugar}
 }

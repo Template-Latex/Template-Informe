@@ -11,20 +11,20 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Añade una imagen a un env 'image' con borde
+%	#1	Dirección de la imagen
+%	#2	Parámetros de la imagen
+%	#3	Leyenda de la imagen (opcional)
 \newcommand{\addimage}[3]{
-	% Añade una imagen a un env 'image' con borde
-	%	#1	Dirección de la imagen
-	%	#2	Parámetros de la imagen
-	%	#3	Leyenda de la imagen (opcional)
 	\addimageboxed{#1}{#2}{0}{#3}
 }
 
+% Añade una imagen a un env 'image' con borde
+%	#1	Dirección de la imagen
+%	#2	Parámetros de la imagen
+%	#3	Ancho de la línea (en pt)
+%	#4	Leyenda de la imagen (opcional)
 \newcommand{\addimageboxed}[4]{
-	% Añade una imagen a un env 'image' con borde
-	%	#1	Dirección de la imagen
-	%	#2	Parámetros de la imagen
-	%	#3	Ancho de la línea (en pt)
-	%	#4	Leyenda de la imagen (opcional)
 	\checkonlyonenvimage
 	\begingroup
 		\setlength{\fboxsep}{0 pt}
@@ -36,22 +36,22 @@
 	\endgroup
 }
 
+% Insertar una imagen
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Leyenda de la imagen (opcional)
 \newcommand{\insertimage}[4][]{
-	% Insertar una imagen
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Parámetros de la imagen
-	%	#4	Leyenda de la imagen (opcional)
 	\insertimageboxed[#1]{#2}{#3}{0}{#4}
 }
 
+% Insertar una imagen con recuadro
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Ancho de la línea (en pt)
+%	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageboxed}[5][]{
-	% Insertar una imagen con recuadro
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Parámetros de la imagen
-	%	#4	Ancho de la línea (en pt)
-	%	#5	Leyenda de la imagen (opcional)
 	\emptyvarerr{\insertimageboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}
@@ -73,16 +73,17 @@
 	\vspace{\marginbottomimages cm}
 }
 
+% Insertar una imagen doble
+% [DEPRECADA]
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen 1
+%	#3	Parámetros de la imagen 1
+%	#4	Leyenda de la imagen 1
+%	#5	Dirección de la imagen 2
+%	#6	Parámetros de la imagen 2
+%	#7	Leyenda de la imagen 2
+%	#8	Leyenda de la imagen doble (opcional)
 \newcommand{\insertdoubleimage}[8][]{
-	% Insertar una imagen doble
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen 1
-	%	#3	Parámetros de la imagen 1
-	%	#4	Leyenda de la imagen 1
-	%	#5	Dirección de la imagen 2
-	%	#6	Parámetros de la imagen 2
-	%	#7	Leyenda de la imagen 2
-	%	#8	Leyenda de la imagen doble (opcional)
 	\emptyvarerr{\insertdoubleimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\insertdoubleimage}{#3}{Parametros de la imagen 1 no definidos}
 	\emptyvarerr{\insertdoubleimage}{#5}{Direccion de la imagen 2 no definida}
@@ -110,28 +111,30 @@
 	\vspace{\marginbottomimages cm}
 }
 
+% Insertar una imagen doble, igual propiedades
+% [DEPRECADA]
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen 1
+%	#3	Leyenda de la imagen 1
+%	#4	Dirección de la imagen 2
+%	#5	Leyenda de la imagen 2
+%	#6	Propiedades de las imágenes
+%	#7 	Leyenda de la imagen doble (opcional)
 \newcommand{\insertdoubleeqimage}[7][]{
-	% Insertar una imagen doble, igual propiedades
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen 1
-	%	#3	Leyenda de la imagen 1
-	%	#4	Dirección de la imagen 2
-	%	#5	Leyenda de la imagen 2
-	%	#6	Propiedades de las imágenes
-	%	#7 	Leyenda de la imagen doble (opcional)
 	\insertdoubleimage[#1]{#2}{#6}{#3}{#4}{#6}{#5}{#7}
 }
 
+% Insertar una imagen triple
+% [DEPRECADA]
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen 1
+%	#3	Parámetros de la imagen 1
+%	#4	Dirección de la imagen 2
+%	#5	Parámetros de la imagen 2
+%	#6	Dirección de la imagen 3
+%	#7	Parámetros de la imagen 3
+%	#8	Leyenda de la imagen triple (opcional)
 \newcommand{\inserttripleimage}[8][]{
-	% Insertar una imagen triple
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen 1
-	%	#3	Parámetros de la imagen 1
-	%	#4	Dirección de la imagen 2
-	%	#5	Parámetros de la imagen 2
-	%	#6	Dirección de la imagen 3
-	%	#7	Parámetros de la imagen 3
-	%	#8	Leyenda de la imagen triple (opcional)
 	\emptyvarerr{\inserttripleimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\inserttripleimage}{#3}{Parametros de la imagen 1 no definidos}
 	\emptyvarerr{\inserttripleimage}{#4}{Direccion de la imagen 2 no definida}
@@ -165,26 +168,28 @@
 	\vspace{\marginbottomimages cm}
 }
 
+% Insertar una imagen triple, igual propiedades
+% [DEPRECADA]
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen 1
+%	#3	Dirección de la imagen 2
+%	#4	Dirección de la imagen 3
+%	#5	Propiedades de las imágenes
+%	#6	Leyenda de la imagen triple (opcional)
 \newcommand{\inserttripleeqimage}[6][]{
-	% Insertar una imagen triple, igual propiedades
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen 1
-	%	#3	Dirección de la imagen 2
-	%	#4	Dirección de la imagen 3
-	%	#5	Propiedades de las imágenes
-	%	#6	Leyenda de la imagen triple (opcional)
 	\inserttripleimage[#1]{#2}{#5}{#3}{#5}{#4}{#5}{#6}
 }
 
+% Insertar una imagen cuádruple, igual propiedades
+% [DEPRECADA]
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen 1
+%	#3	Dirección de la imagen 2
+%	#4	Dirección de la imagen 3
+%	#5	Dirección de la imagen 4
+%	#6	Propiedades de las imágenes
+%	#7	Leyenda de la imagen cuádruple (opcional)
 \newcommand{\insertquadimage}[7][]{
-	% Insertar una imagen cuádruple, igual propiedades
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen 1
-	%	#3	Dirección de la imagen 2
-	%	#4	Dirección de la imagen 3
-	%	#5	Dirección de la imagen 4
-	%	#6	Propiedades de las imágenes
-	%	#7	Leyenda de la imagen cuádruple (opcional)
 	\emptyvarerr{\insertquadimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\insertquadimage}{#3}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\insertquadimage}{#4}{Direccion de la imagen 3 no definida}
@@ -221,16 +226,17 @@
 	\vspace{\marginbottomimages cm}
 }
 
+% Insertar una imagen quíntuple, igual propiedades
+% [DEPRECADA]
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen 1
+%	#3	Dirección de la imagen 2
+%	#4	Dirección de la imagen 3
+%	#5	Dirección de la imagen 4
+%	#6	Dirección de la imagen 5
+%	#7	Propiedades de las imágenes
+%	#8	Leyenda de la imagen quíntuple (opcional)
 \newcommand{\insertpentaimage}[8][]{
-	% Insertar una imagen quíntuple, igual propiedades
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen 1
-	%	#3	Dirección de la imagen 2
-	%	#4	Dirección de la imagen 3
-	%	#5	Dirección de la imagen 4
-	%	#6	Dirección de la imagen 5
-	%	#7	Propiedades de las imágenes
-	%	#8	Leyenda de la imagen quíntuple (opcional)
 	\emptyvarerr{\insertpentaimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\insertpentaimage}{#3}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\insertpentaimage}{#4}{Direccion de la imagen 3 no definida}
@@ -272,17 +278,18 @@
 	\vspace{\marginbottomimages cm}
 }
 
+% Insertar una imagen con 6 imágenes, igual propiedades
+% [DEPRECADA]
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen 1
+%	#3	Dirección de la imagen 2
+%	#4	Dirección de la imagen 3
+%	#5	Dirección de la imagen 4
+%	#6	Dirección de la imagen 5
+%	#7	Dirección de la imagen 6
+%	#8	Propiedades de las imágenes
+%	#9	Leyenda de la imagen global (opcional)
 \newcommand{\inserthexaimage}[9][]{
-	% Insertar una imagen con 6 imágenes, igual propiedades
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen 1
-	%	#3	Dirección de la imagen 2
-	%	#4	Dirección de la imagen 3
-	%	#5	Dirección de la imagen 4
-	%	#6	Dirección de la imagen 5
-	%	#7	Dirección de la imagen 6
-	%	#8	Propiedades de las imágenes
-	%	#9	Leyenda de la imagen global (opcional)
 	\emptyvarerr{\inserthexaimage}{#2}{Direccion de la imagen 1 no definida}
 	\emptyvarerr{\inserthexaimage}{#3}{Direccion de la imagen 2 no definida}
 	\emptyvarerr{\inserthexaimage}{#4}{Direccion de la imagen 3 no definida}
@@ -329,22 +336,22 @@
 	\vspace{\marginbottomimages cm}
 }
 
+% Insertar una imagen a la izquierda
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Ancho de la imagen (en textwidth)
+%	#4	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleft}[4][]{
-	% Insertar una imagen a la izquierda
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Ancho de la imagen (en textwidth)
-	%	#4	Leyenda de la imagen (opcional)
 	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}
 }
 
+% Insertar una imagen a la izquierda
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Ancho de la imagen (en textwidth)
+%	#4	Ancho de la línea (en pt)
+%	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftboxed}[5][]{
-	% Insertar una imagen a la izquierda
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Ancho de la imagen (en textwidth)
-	%	#4	Ancho de la línea (en pt)
-	%	#5	Leyenda de la imagen (opcional)
 	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
@@ -368,25 +375,24 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 
-
+% Insertar una imagen a la izquierda
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Ancho de la imagen (en textwidth)
+%	#4	Altura en líneas de la imagen
+%	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftline}[5][]{
-	% Insertar una imagen a la izquierda
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Ancho de la imagen (en textwidth)
-	%	#4	Altura en líneas de la imagen
-	%	#5	Leyenda de la imagen (opcional)
 	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}
 }
 
+% Insertar una imagen a la izquierda
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Ancho de la imagen (en textwidth)
+%	#4	Altura en líneas de la imagen
+%	#5	Ancho de la línea (en pt)
+%	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftlineboxed}[6][]{
-	% Insertar una imagen a la izquierda
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Ancho de la imagen (en textwidth)
-	%	#4	Altura en líneas de la imagen
-	%	#5	Ancho de la línea (en pt)
-	%	#6	Leyenda de la imagen (opcional)
 	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}
 	\emptyvarerr{\insertimageleftlineboxed}{#4}{Altura en lineas de la imagen flotante izquierda no definida}
@@ -411,22 +417,22 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 
+% Insertar una imagen a la derecha
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Ancho de la imagen (en textwidth)
+%	#4	Leyenda de la imagen (opcional)
 \newcommand{\insertimageright}[4][]{
-	% Insertar una imagen a la derecha
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Ancho de la imagen (en textwidth)
-	%	#4	Leyenda de la imagen (opcional)
 	\insertimagerightboxed[#1]{#2}{#3}{0}{#4}
 }
 
+% Insertar una imagen a la derecha
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Ancho de la imagen (en textwidth)
+%	#4	Ancho de la línea (en pt)
+%	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightboxed}[5][]{
-	% Insertar una imagen a la derecha
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Ancho de la imagen (en textwidth)
-	%	#4	Ancho de la línea (en pt)
-	%	#5	Leyenda de la imagen (opcional)
 	\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}
@@ -450,24 +456,24 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 
+% Insertar una imagen a la derecha
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Ancho de la imagen (en textwidth)
+%	#4	Altura en líneas de la imagen
+%	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightline}[5][]{
-	% Insertar una imagen a la derecha
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Ancho de la imagen (en textwidth)
-	%	#4	Altura en líneas de la imagen
-	%	#5	Leyenda de la imagen (opcional)
 	\insertimagerightlineboxed[#1]{#2}{#3}{#4}{0}{#5}
 }
 
+% Insertar una imagen a la derecha
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Ancho de la imagen (en textwidth)
+%	#4	Altura en líneas de la imagen
+%	#5	Ancho de la línea (en pt)
+%	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightlineboxed}[6][]{
-	% Insertar una imagen a la derecha
-	% 	#1	Label (opcional)
-	%	#2	Dirección de la imagen
-	%	#3	Ancho de la imagen (en textwidth)
-	%	#4	Altura en líneas de la imagen
-	%	#5	Ancho de la línea (en pt)
-	%	#6	Leyenda de la imagen (opcional)
 	\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}
 	\emptyvarerr{\insertimagerightlineboxed}{#4}{Altura en lineas de la imagen flotante derecha no definida}

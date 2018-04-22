@@ -11,9 +11,9 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Insertar un título sin número
+% 	#1	Título
 \newcommand{\sectionanum}[1]{
-	% Insertar un título sin número
-	% 	#1	Título
 	\emptyvarerr{\sectionanum}{#1}{Titulo no definido}
 	\phantomsection
 	\needspace{3\baselineskip}
@@ -23,9 +23,9 @@
 	\markboth{#1}{}
 }
 
+% Insertar un título sin número y sin indexar
+% 	#1	Título
 \newcommand{\sectionanumnoi}[1]{
-	% Insertar un título sin número y sin indexar
-	% 	#1	Título
 	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
 	\phantomsection
 	\needspace{3\baselineskip}
@@ -34,61 +34,61 @@
 	\markboth{#1}{}
 }
 
+% Insertar un título sin número sin cambiar el título del header
+% 	#1	Título
 \newcommand{\sectionanumheadless}[1]{
-	% Insertar un título sin número sin cambiar el título del header
-	% 	#1	Título
 	\emptyvarerr{\sectionanumnoheadless}{#1}{Titulo no definido}
 	\section*{#1}
 	\addcontentsline{toc}{section}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 }
 
+% Insertar un título sin número, sin indexar y sin cambiar el título del header
+% 	#1	Título
 \newcommand{\sectionanumnoiheadless}[1]{
-	% Insertar un título sin número, sin indexar y sin cambiar el título del header
-	% 	#1	Título
 	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
 	\section*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 }
 
+% Insertar un subtítulo sin número
+% 	#1	Subtítulo
 \newcommand{\subsectionanum}[1]{
-	% Insertar un subtítulo sin número
-	% 	#1	Subtítulo
 	\emptyvarerr{\subsectionanum}{#1}{Subtitulo no definido}
 	\subsection*{#1}
 	\addcontentsline{toc}{subsection}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}
 }
 
+% Insertar un subtítulo sin número y sin indexar
+% 	#1	Subtítulo
 \newcommand{\subsectionanumnoi}[1]{
-	% Insertar un subtítulo sin número y sin indexar
-	% 	#1	Subtítulo
 	\emptyvarerr{\subsectionanumnoi}{#1}{Subtitulo no definido}
 	\subsection*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}
 }
 
+% Insertar un sub-subtítulo sin número
+% 	#1	Sub-subtítulo
 \newcommand{\subsubsectionanum}[1]{
-	% Insertar un sub-subtítulo sin número
-	% 	#1	Sub-subtítulo
 	\emptyvarerr{\subsubsectionanum}{#1}{Sub-subtitulo no definido}
 	\subsubsection*{#1}
 	\addcontentsline{toc}{subsubsection}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}
 }
 
+% Insertar un sub-subtítulo sin número y sin indexar
+% 	#1	Sub-subtítulo
 \newcommand{\subsubsectionanumnoi}[1]{
-	% Insertar un sub-subtítulo sin número y sin indexar
-	% 	#1	Sub-subtítulo
 	\emptyvarerr{\subsubsectionanumnoi}{#1}{Sub-subtitulo no definido}
 	\subsubsection*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}
 }
 
+% Insertar un título en un índice
+%	#1	Título
+%	#2	Margen superior en pt. (opcional), 10pt por defecto
 \newcommand{\insertindextitle}[2]{
-	% Insertar un título en un índice
-	%	#1	Título
-	%	#2	Margen superior en pt. (opcional), 10pt por defecto
 	\emptyvarerr{\insertindextitle}{#1}{Titulo no definido}
 	\ifx\hfuzz#2\hfuzz
 		\addtocontents{toc}{\protect\addvspace{\indextitlemargin pt}}
@@ -98,9 +98,9 @@
 	\addtocontents{toc}{\noindent\hyperref[swpn]{\textbf{#1}}}
 }
 
+% Crear un capítulo como una sección
+%	#1	Título
 \newcommand{\newchapter}[1]{
-	% Crear un capítulo como una sección
-	%	#1	Título
 	\emptyvarerr{\newchapter}{#1}{Titulo no definido}
 	\newpage
 	\stepcounter{section}

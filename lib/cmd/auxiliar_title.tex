@@ -11,9 +11,9 @@
 % Sitio web del proyecto: [http://ppizarror.com/Template-Auxiliares/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
+% Insertar un título sin número
+% 	#1	Título
 \newcommand{\sectionanum}[1]{
-	% Insertar un título sin número
-	% 	#1	Título
 	\emptyvarerr{\sectionanum}{#1}{Titulo no definido}
 	\phantomsection
 	\needspace{3\baselineskip}
@@ -22,18 +22,18 @@
 	\stepcounter{section}
 }
 
+% Insertar un subtítulo sin número
+% 	#1	Subtítulo
 \newcommand{\subsectionanum}[1]{
-	% Insertar un subtítulo sin número
-	% 	#1	Subtítulo
 	\emptyvarerr{\subsectionanum}{#1}{Subtitulo no definido}
 	\subsection*{#1}
 	\addcontentsline{toc}{subsection}{#1}
 	\stepcounter{subsection}
 }
 
+% Insertar un sub-subtítulo sin número
+% 	#1	Sub-subtítulo
 \newcommand{\subsubsectionanum}[1]{
-	% Insertar un sub-subtítulo sin número
-	% 	#1	Sub-subtítulo
 	\emptyvarerr{\subsubsectionanum}{#1}{Sub-subtitulo no definido}
 	\subsubsection*{#1}
 	\addcontentsline{toc}{subsubsection}{#1}

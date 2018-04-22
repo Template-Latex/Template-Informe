@@ -11,23 +11,23 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Insertar sub-índice, a_b
+% 	#1	Elemento inferior (a)
+%	#2	Elemento superior (b)
 \newcommand{\lpow}[2]{
-	% Insertar sub-índice, a_b
-	% 	#1	Elemento inferior (a)
-	%	#2	Elemento superior (b)
 	\ensuremath{{#1}_{#2}}
 }
 
+% Insertar elevado, a^b
+% 	#1	Elemento inferior (a)
+%	#2	Elemento superior (b)
 \newcommand{\pow}[2]{
-	% Insertar elevado, a^b
-	% 	#1	Elemento inferior (a)
-	%	#2	Elemento superior (b)
 	\ensuremath{{#1}^{#2}}
 }
 
+% Inserta inverso función seno, sin^-1
+%	#1	Elemento
 \newcommand{\aasin}[1][]{
-	% Inserta inverso función seno, sin^-1
-	%	#1	Elemento
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\sin^{-1}#1}
 	\else
@@ -35,9 +35,9 @@
 	\fi
 }
 
+% Inserta inverso función coseno, cos^-1
+%	#1	Elemento
 \newcommand{\aacos}[1][]{
-	% Inserta inverso función coseno, cos^-1
-	%	#1	Elemento
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\cos^{-1}#1}
 	\else
@@ -45,9 +45,9 @@
 	\fi
 }
 
+% Inserta inverso función tangente, tan^-1
+%	#1	Elemento
 \newcommand{\aatan}[1][]{
-	% Inserta inverso función tangente, tan^-1
-	%	#1	Elemento
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\tan^{-1}#1}
 	\else
@@ -55,9 +55,9 @@
 	\fi
 }
 
+% Inserta inverso función cosecante, csc^-1
+%	#1	Elemento
 \newcommand{\aacsc}[1][]{
-	% Inserta inverso función cosecante, csc^-1
-	%	#1	Elemento
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\csc^{-1}#1}
 	\else
@@ -65,9 +65,9 @@
 	\fi
 }
 
+% Inserta inverso función secante, sec^-1
+%	#1	Elemento
 \newcommand{\aasec}[1][]{
-	% Inserta inverso función secante, sec^-1
-	%	#1	Elemento
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\sec^{-1}#1}
 	\else
@@ -75,9 +75,9 @@
 	\fi
 }
 
+% Inserta inverso función cotangente, cot^-1
+%	#1	Elemento
 \newcommand{\aacot}[1][]{
-	% Inserta inverso función cotangente, cot^-1
-	%	#1	Elemento
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\cot^{-1}#1}
 	\else
@@ -85,74 +85,74 @@
 	\fi
 }
 
+% Fracción de derivadas parciales af/ax
+% 	#1	Función a derivar (f)
+%	#2	Variable a derivar (x)
 \newcommand{\fracpartial}[2]{
-	% Fracción de derivadas parciales af/ax
-	% 	#1	Función a derivar (f)
-	%	#2	Variable a derivar (x)
 	\ensuremath{\pdv{#1}{#2}}
 }
 
+% Fracción de derivadas parciales dobles a^2f/ax^2
+% 	#1	Función a derivar (f)
+%	#2	Variable a derivar (x)
 \newcommand{\fracdpartial}[2]{
-	% Fracción de derivadas parciales dobles a^2f/ax^2
-	% 	#1	Función a derivar (f)
-	%	#2	Variable a derivar (x)
 	\ensuremath{\pdv[2]{#1}{#2}}
 }
 
+% Fracción de derivadas parciales en n, a^nf/ax^n
+% 	#1	Función a derivar (f)
+%	#2	Variable a derivar (x)
+%	#3	Orden (n)
 \newcommand{\fracnpartial}[3]{
-	% Fracción de derivadas parciales en n, a^nf/ax^n
-	% 	#1	Función a derivar (f)
-	%	#2	Variable a derivar (x)
-	%	#3	Orden (n)
 	\ensuremath{\pdv[#3]{#1}{#2}}
 }
 
+% Fracción de derivadas df/dx
+% 	#1	Función a derivar (f)
+%	#2	Variable a derivar (x)
 \newcommand{\fracderivat}[2]{
-	% Fracción de derivadas df/dx
-	% 	#1	Función a derivar (f)
-	%	#2	Variable a derivar (x)
 	\ensuremath{\dv{#1}{#2}}
 }
 
+% Fracción de derivadas dobles d^2/dx^2
+% 	#1	Función a derivar (f)
+%	#2	Variable a derivar (x)
 \newcommand{\fracdderivat}[2]{
-	% Fracción de derivadas dobles d^2/dx^2
-	% 	#1	Función a derivar (f)
-	%	#2	Variable a derivar (x)
 	\ensuremath{\dv[2]{#1}{#2}}
 }
 
+% Fracción de derivadas en n d^nf/dx^n
+% 	#1	Función a derivar (f)
+%	#2	Variable a derivar (x)
+%	#3	Orden de la derivada (n)
 \newcommand{\fracnderivat}[3]{
-	% Fracción de derivadas en n d^nf/dx^n
-	% 	#1	Función a derivar (f)
-	%	#2	Variable a derivar (x)
-	%	#3	Orden de la derivada (n)
 	\ensuremath{\dv[#3]{#1}{#2}}
 }
 
+% Llave superior de equivalencia
+% 	#1	Elemento a igualar
+%	#2	Igualdad
 \newcommand{\topequal}[2]{
-	% Llave superior de equivalencia
-	% 	#1	Elemento a igualar
-	%	#2	Igualdad
 	\ensuremath{\overbrace{#1}^{\mathclap{#2}}}
 }
 
+% Llave inferior de equivalencia
+% 	#1	Elemento a igualar
+%	#2	Igualdad
 \newcommand{\underequal}[2]{
-	% Llave inferior de equivalencia
-	% 	#1	Elemento a igualar
-	%	#2	Igualdad
 	\ensuremath{\underbrace{#1}_{\mathclap{#2}}}
 }
 
+% Rectángulo superior de equivalencia
+% 	#1	Elemento a igualar
+%	#2	Igualdad
 \newcommand{\topsequal}[2]{
-	% Rectángulo superior de equivalencia
-	% 	#1	Elemento a igualar
-	%	#2	Igualdad
 	\ensuremath{\overbracket{#1}^{\mathclap{#2}}}
 }
 
+% Rectángulo inferior de equivalencia
+% 	#1	Elemento a igualar
+%	#2	Igualdad
 \newcommand{\undersequal}[2]{
-	% Rectángulo inferior de equivalencia
-	% 	#1	Elemento a igualar
-	%	#2	Igualdad
 	\ensuremath{\underbracket{#1}_{\mathclap{#2}}}
 }

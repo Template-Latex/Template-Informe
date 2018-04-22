@@ -11,34 +11,34 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Insertar párrafo
 \newcommand{\newp}{
-	% Insertar párrafo
 	\hbadness=10000 \vspace{\defaultnewlinesize pt} \par
 }
 
+% Insertar párrafo
+% 	#1	Párrafo
 \newcommand{\newpar}[1]{
-	% Insertar párrafo
-	% 	#1	Párrafo
 	\hbadness=10000 #1 \newp
 }
 
+% Insertar párrafo sin nueva línea al final
+% 	#1	Párrafo
 \newcommand{\newparnl}[1]{
-	% Insertar párrafo sin nueva línea al final
-	% 	#1	Párrafo
 	#1 \par
 }
 
+% Redimensiona un ítem en textwidth
+% 	#1	Tamaño del nuevo objeto (En textwidth)
+%	#2	Objeto a redimensionar
 \newcommand{\itemresize}[2]{
-	% Redimensiona un ítem en textwidth
-	% 	#1	Tamaño del nuevo objeto (En textwidth)
-	%	#2	Objeto a redimensionar
 	\emptyvarerr{\itemresize}{#1}{Tamano del nuevo objeto no definido}
 	\emptyvarerr{\itemresize}{#2}{Objeto a redimensionar no definido}
 	\resizebox{#1\textwidth}{!}{#2}
 }
 
+% Crea una página vacía
 \newcommand{\insertemptypage}{
-	% Crea una página vacía
 	\newpage
 	\setcounter{templatepagecounter}{\thepage}
 	\pagenumbering{gobble}
