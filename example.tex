@@ -21,18 +21,18 @@
 		
 		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
 		
-		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda
+		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda opcional
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
 		
 		A continuación \footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
 		
-		% Se inserta una ecuación, el primer parámetro entre corchetes es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos peso
+		% Se inserta una ecuación, el primer parámetro entre [] es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos $
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 		
-		% Se añade parrafo de prueba, notar que no se requiere añadir un salto de línea después de insertar una ecuación
+		% Se añade parrafo de prueba. Notar que no se requiere añadir un salto de línea después de insertar una ecuación
 		\lipsum[75]
 		
-		% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar errores y warnings por parte del compilador
+		% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar errores y warnings por parte del compilador de LaTeX
 		\newp Este es un nuevo párrafo insertado con el comando \texttt{\textbackslash newp}. Si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales acompañado de \texttt{\textbackslash par}. Además puedes editar las funciones, definidas en el archivo \texttt{lib/functions.tex}.
 		
 	% SUB-SECCIÓN
@@ -40,7 +40,7 @@
 		
 		También puedes usar tablas, insertarlas es muy fácil, puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{ref2} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{ref3}.
 		
-		% Tabla generada con Excel2Latex
+		% Tabla generada con el plugin Excel2Latex
 		\begin{table}[htbp]
 			\centering
 			\caption{Ejemplo de tablas.}
@@ -113,8 +113,10 @@
 	
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
+	
+		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: C, C++, C++, docker, HTML5, Java, Javascript, JSON, Matlab, LaTeX, perl, PHP, Python, Ruby, SQL y XML. Para insertar código fuente se debe usar el entorno \texttt{sourcecode}. \newp
 		
-		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}) utilizando el entorno \texttt{sourcecode}:
+		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}):
 		
 % Se define el lenguaje del código. Cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
 \begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
@@ -145,33 +147,29 @@ public class Hola extends GenericServlet {
 
 \begin{sourcecode}[\label{codigo-matlab}]{matlab}{Ejemplo en Matlab.}
 % Se crea gráfico
-f = figure(1);
-hold on;
+f = figure(1); hold on;
 movegui(f, 'center');
 xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
 title('Espectro de pulso de desplazamiento');
 
 for j = 1:length(BETA)
-	fad = ones(1, NDATOS); % Arreglo para el FAD, uno para cada r
+	fad = ones(1, NDATOS); % Arreglo para el FAD
 	for i = 1:NDATOS
 		[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
 		fad(i) = max(abs(u_t)) / uf0;
 	end
-	mx = find(fad == max(fad(:)));
-	fprintf('BETA=%.2f, MAX: FAD=%.3f, TD/TN=%.3f\n', BETA(j), fad(mx), tdtn(mx));
-	plot(tdtn, fad, 'DisplayName', strcat('\beta=', sprintf('%.2f', BETA(j))));
 end	
 \end{sourcecode}
 	
 	% SUB-SECCIÓN
 	\subsection{Añadir múltiples imágenes}
 	
-	A partir de la versión 5.0.0 existe el entorno \texttt{\textbackslash images} que permite insertar múltiples imágenes de una manera muy sencilla, reemplazando así a las funciones \texttt{\textbackslash insertdoubleimage}, etc. Para crear imágenes múltiples se deben usar instrucciones como:
+	A partir de la versión 5.0.0 existe el entorno \texttt{images} que permite insertar múltiples imágenes de una manera muy sencilla, reemplazando así \footnote{Al usar cualquiera de estas funciones el template lanzará una alerta, se recomienda su desuso ya que en el futuro estas funciones podrían eliminarse del template.} a las funciones \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash inserttripleimage}, etc. Para crear imágenes múltiples se deben usar instrucciones como:
 	
-\begin{sourcecode}{latex}{}
+\begin{sourcecode}{latex}{Código para insertar una imagen múltiple mediante el entorno \texttt{images}, tanto el \texttt{label} como la leyenda son opcionales.}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
-	\addimage{ejemplos/test-image}{width=7cm}{Ciudad}
-	\addimage{ejemplos/test-image-wrap}{width=6cm}{Apolo}
+	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
+	\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
 	\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
 \end{images}
 \end{sourcecode}
@@ -179,8 +177,8 @@ end
 	Obteniendo así:
 	
 	\begin{images}{Ejemplo de imagen múltiple.}
-		\addimage{ejemplos/test-image}{width=7cm}{Ciudad}
-		\addimage{ejemplos/test-image-wrap}{width=6cm}{Apolo}
+		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
+		\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
 		\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
 	\end{images}
 
