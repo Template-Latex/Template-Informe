@@ -60,8 +60,3 @@ subreleases/*
 log.txt
 
 # Distribución
-dist/
-
-# Archivos gitkeep
-*.gitkeep
-*/*.gitkeep
