@@ -114,13 +114,6 @@
 }
 \def\bgtemplatetestcode {d0g3}
 
-% Se importa la librería tikz
-\newcommand{\importtikzlib}{
-	\ifthenelse{\equal{\importtikzlib}{false}}{
-		\usepackage{tikz}
-	}{}
-}
-
 % Inicia el modo de página horizontal
 \def\beginplandscape {
 	\newgeometry{landscape,left=\pagemarginleft cm,top=\pagemargintop cm,right=\pagemarginright cm,bottom=\pagemarginbottom cm}
@@ -153,4 +146,11 @@
 % Alerta función de inserción de imagen deprecada, utilizar entorno images
 \newcommand{\alertdeprecatedcmdimage}[1]{
 	\throwwarning{Funcion \noexpand#1 deprecada, se recomienda utilizar el entorno \noexpand\images en su lugar}
+}
+
+% Se importa la librería tikz
+\newcommand{\coreimporttikz}{
+	\ifthenelse{\equal{\importtikz}{false}}{
+		\usepackage{tikz}
+	}{}
 }

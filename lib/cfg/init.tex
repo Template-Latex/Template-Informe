@@ -306,8 +306,8 @@
 \urlstyle{tt}
 
 % Se revisa si se importa tikz
-\ifthenelse{\equal{\portraitstyle}{style16}}{\importtikzlib}{}
-\ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{\importtikzlib}{}
+\ifthenelse{\equal{\portraitstyle}{style16}}{\coreimporttikz}{}
+\ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{\coreimporttikz}{}
 
 % Se define la versión menor a compilar
 \pdfminorversion=\pdfcompileversion
