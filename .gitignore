@@ -12,7 +12,6 @@
 *.blg
 
 # Releases.
-.releases/*
 *.zip
 
 # Archivos de testeo.
