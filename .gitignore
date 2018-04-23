@@ -33,14 +33,6 @@ main.pdf
 # Ignora informe.pdf
 informe.pdf
 
-# Ignora accesos directos
-*.url
-
-# Ignora elementos web
-*.html
-js/
-stylesheets/
-
 # Logs
 log.txt
 
