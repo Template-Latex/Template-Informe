@@ -41,16 +41,6 @@ informe.pdf
 js/
 stylesheets/
 
-# Estadísticas
-stats/Auxiliares/*.png
-stats/Informe/*.png
-stats/Tareas/*.png
-stats/Controles/*.png
-stats/Tesis/*.png
-
-# Subreleases
-subreleases/*
-
 # Logs
 log.txt
 
