@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar imágenes
-% Versión:      5.0.0 (23/04/2018)
+% Versión:      5.0.1 (24/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -375,17 +375,17 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 
-% Insertar una imagen a la izquierda
+% Insertar una imagen a la izquierda, ajustada en un número de líneas
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Ancho de la imagen (en textwidth)
 %	#4	Altura en líneas de la imagen
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftline}[5][]{
-	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}
+	\insertimageleftlineboxed[#1]{#2}{#3}{#4}{0}{#5}
 }
 
-% Insertar una imagen a la izquierda
+% Insertar una imagen recuadrada a la izquierda, ajustada en un número de líneas
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Ancho de la imagen (en textwidth)
@@ -426,7 +426,7 @@
 	\insertimagerightboxed[#1]{#2}{#3}{0}{#4}
 }
 
-% Insertar una imagen a la derecha
+% Insertar una imagen recuadrada a la derecha
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Ancho de la imagen (en textwidth)
@@ -456,7 +456,7 @@
 	\setcaptionmargincm{\captionlrmargin}
 }
 
-% Insertar una imagen a la derecha
+% Insertar una imagen a la derecha, ajustada en un número de líneas
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Ancho de la imagen (en textwidth)
@@ -466,7 +466,7 @@
 	\insertimagerightlineboxed[#1]{#2}{#3}{#4}{0}{#5}
 }
 
-% Insertar una imagen a la derecha
+% Insertar una imagen recuadrada a la derecha, ajustada en un número de líneas
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Ancho de la imagen (en textwidth)
