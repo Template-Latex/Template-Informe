@@ -1,4 +1,4 @@
-\begin{sourcecode}[]{c}{Codigo en c}
+\begin{sourcecode}[]{c}{Codigo en c.}
 #include <stdio.h>
 int main(){
 	int i, j, rows;
@@ -16,7 +16,7 @@ int main(){
 }
 \end{sourcecode}
 
-\begin{sourcecode}[]{csharp}{Codigo en C\#}
+\begin{sourcecode}[]{csharp}{Ejemplo en C\#.}
 /*
 * C# Program to Get a Number and Display the Sum of the Digits 
 */
@@ -49,7 +49,7 @@ namespace Program
 \end{sourcecode}
 
 \newpage
-\begin{sourcecode}{c++}{}
+\begin{sourcecode}{cpp}{Suma en C++.}
 #include <iostream>
 using namespace std;
 
@@ -69,7 +69,7 @@ int main()
 }
 \end{sourcecode}
 
-\begin{sourcecode}{docker}{DOCC}
+\begin{sourcecode}{docker}{Docker.}
 version: '2'
 services:
 web:
@@ -85,6 +85,23 @@ redis:
 image: redis
 volumes:
 logvolume01: {}
+\end{sourcecode}
+
+\begin{sourcecode}[\label{codigo-html5}]{html5}{Ejemplo en HTML5.}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Página</title>
+</head>
+<body>
+	<style>
+		.titulo {
+			color: #ff0000;
+		}
+	</style>
+	<div class=".titulo">Hola</div>
+</body>
+</html>
 \end{sourcecode}
 
 \begin{sourcecode}[\label{codigo-matlab}]{matlab}{Ejemplo en Matlab.}
@@ -150,4 +167,141 @@ public class Hola extends GenericServlet {
 		pw.close();
 	}
 }
+\end{sourcecode}
+
+\begin{sourcecode}{js}{Ejemplo en Javascript.}
+$.urlParam = function (name) {
+	let results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	if (results == null) {
+		return null;
+	} else {
+		return decodeURI(results[1]) || 0;
+	}
+};
+\end{sourcecode}
+
+\begin{sourcecode}{json}{Un arreglo en JSON.}
+{"menu": {
+	"id": "file",
+	"value": "File",
+	"popup": {
+		"menuitem": [
+		{"value": "New", "onclick": "CreateNewDoc()"},
+		{"value": "Open", "onclick": "OpenDoc()"},
+		{"value": "Close", "onclick": "CloseDoc()"}
+		]
+	}
+}}
+\end{sourcecode}
+
+\begin{sourcecode}{latex}{Imágenes múltiples.}
+\begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
+	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
+	\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
+	\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
+\end{images}
+\end{sourcecode}
+
+\newpage
+\begin{sourcecode}[\label{ejemplito-perl}]{perl}{Algo de perl.}
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# first, create your message
+use Email::MIME;
+my $message = Email::MIME->create(
+  header_str => [
+    From    => 'you@example.com',
+    To      => 'friend@example.com',
+    Subject => 'Happy birthday!',
+  ],
+  attributes => {
+    encoding => 'quoted-printable',
+    charset  => 'ISO-8859-1',
+  },
+  body_str => "Happy birthday to you!\n",
+);
+
+# send the message
+use Email::Sender::Simple qw(sendmail);
+sendmail($message);
+\end{sourcecode}
+
+\newpage
+\begin{sourcecode}{php}{Ejemplo php.}
+<?php
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}
+?>
+\end{sourcecode}
+
+\newpage
+\begin{sourcecode}[]{ruby}{Ejemplo con ruby.}
+class DataFile < ActiveRecord::Base
+    attr_accessor :upload
+
+  def self.save_file(upload)   
+
+    file_name = upload['datafile'].original_filename  if  (upload['datafile'] !='')    
+    file = upload['datafile'].read    
+
+    file_type = file_name.split('.').last
+    new_name_file = Time.now.to_i
+    name_folder = new_name_file
+    new_file_name_with_type = "#{new_name_file}." + file_type
+
+    image_root = "#{RAILS_CAR_IMAGES}"
+
+
+    Dir.mkdir(image_root + "#{name_folder}");
+      File.open(image_root + "#{name_folder}/" + new_file_name_with_type, "wb")  do |f|  
+        f.write(file) 
+      end
+
+  end
+end
+\end{sourcecode}
+
+\newpage
+\begin{sourcecode}{sql}{Merge two tables.}
+SELECT ChargeNum, CategoryID, SUM(Hours)
+FROM KnownHours
+GROUP BY ChargeNum, CategoryID
+UNION ALL
+SELECT ChargeNum, 'Unknown' AS CategoryID, SUM(Hours)
+FROM UnknownHours
+GROUP BY ChargeNum
+\end{sourcecode}
+
+\begin{sourcecode}{xml}{Ejemplos con xml.}
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="points">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="point">
+          <xs:complexType>
+            <xs:attribute name="x" type="xs:unsignedShort" use="required" />
+            <xs:attribute name="y" type="xs:unsignedShort" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
 \end{sourcecode}
