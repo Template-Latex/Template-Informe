@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      5.0.1 (24/04/2018)
+% Versión:      5.0.2 (24/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -48,8 +48,8 @@
 \newcommand{\checkvardefined}[1]{
 	\ifthenelse{\isundefined{#1}}{
 		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}
-		\stop
-	}{}
+		\stop}{
+	}
 }
 
 % Comprueba si una variable está definida
@@ -62,8 +62,8 @@
 			\errmessage{LaTeX Warning: Defina la variable en el bloque de INFORMACION DEL DOCUMENTO al comienzo del archivo principal del Template}
 		\else
 			\errmessage{LaTeX Warning: #2}
-		\fi
-	}{}
+		\fi}{
+	}
 }
 
 % Lanza un mensaje de error si una variable no ha sido definida
@@ -139,8 +139,8 @@
 \newcommand{\checkoutsideenvimage}{
 	\ifthenelse{\equal{\envimagesinitialized}{true}}{
 		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}
-		\stop
-	}{}
+		\stop}{
+	}
 }
 
 % Alerta función de inserción de imagen deprecada, utilizar entorno images
@@ -151,6 +151,6 @@
 % Se importa la librería tikz
 \newcommand{\coreimporttikz}{
 	\ifthenelse{\equal{\importtikz}{false}}{
-		\usepackage{tikz}
-	}{}
+		\usepackage{tikz}}{
+	}
 }

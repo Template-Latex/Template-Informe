@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      5.0.1 (24/04/2018)
+% Versión:      5.0.2 (24/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -101,8 +101,8 @@
 	\usepackage{appendix}
 }
 \ifthenelse{\equal{\importtikz}{true}}{ % Importa la librería tikz
-	\usepackage{tikz}
-}{}
+	\usepackage{tikz}}{
+}
 
 % LIBRERÍAS DEPENDIENTES
 \usepackage{bookmark}      % Administración de marcadores en pdf
