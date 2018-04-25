@@ -78,8 +78,8 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={5.0.2-N},
-		Template.Version.Hash={5F56FEFEC928D5C9704A72707282AECD},
+		Template.Version.Dev={5.0.2-1-N},
+		Template.Version.Hash={DCCE2058A453504F9602F6D534985BF1},
 		Template.Version.Release={5.0.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Informe/},
@@ -262,7 +262,7 @@
 \ifthenelse{\equal{\showsectioncaption}{sssec}}{
 	\def\cftdefautllistingnumwidth {4.0em}
 }{
-\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}
+	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}
 }}}}
 \begingroup
 	\makeatletter
