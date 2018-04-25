@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar imágenes
-% Versión:      5.0.3 (25/04/2018)
+% Versión:      5.0.4 (25/04/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -358,7 +358,7 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	
+	\par
 	\begin{wrapfigure}{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -404,7 +404,7 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	
+	\par
 	\begin{wrapfigure}[#5]{l}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -446,7 +446,7 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	
+	\par
 	\begin{wrapfigure}{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -492,7 +492,7 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	
+	\par
 	\begin{wrapfigure}[#5]{r}{#3\textwidth}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -522,7 +522,7 @@
 \newcommand{\insertimageleftp}[5][]{
 	\xspace~\\
 	\vspace{-2\baselineskip}
-	
+	\par
 	\insertimageleftboxedp[#1]{#2}{#3}{#4}{0}{#5}
 }
 
@@ -541,7 +541,7 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	
+	\par
 	\begin{wrapfigure}{l}{#3}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -590,7 +590,7 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	
+	\par
 	\begin{wrapfigure}[#6]{l}{#3}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -620,7 +620,7 @@
 \newcommand{\insertimagerightp}[5][]{
 	\xspace~\\
 	\vspace{-2\baselineskip}
-	
+	\par
 	\insertimagerightboxedp[#1]{#2}{#3}{#4}{0}{#5}
 }
 
@@ -639,7 +639,7 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	
+	\par
 	\begin{wrapfigure}{r}{#3}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -688,7 +688,7 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	
+	\par
 	\begin{wrapfigure}[#6]{r}{#3}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
