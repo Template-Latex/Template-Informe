@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      5.1.0 (02/05/2018)
+% Versión:      5.1.1 (02/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -64,49 +64,6 @@
 	\end{appendices}
 	\bookmarksetupnext{level=0}
 	\endgroup
-}
-
-% Inserta código fuente
-%	#1	Label (opcional)
-%	#2	Estilo de código
-%	#3	Caption
-\lstnewenvironment{sourcecodex}[3][]{
-	\emptyvarerr{\equationresize}{#2}{Estilo no definido}
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\rightlinenumbers}{
-	}
-	\checkvalidsourcecodestyle{#2}
-	\ifthenelse{\equal{\codecaptiontop}{true}}{
-		\ifx\hfuzz#3\hfuzz
-			\lstset{
-				style=#2,
-				captionpos=t
-			}
-		\else
-			\lstset{
-				style=#2,
-				caption={#3 #1},
-				captionpos=t
-			}
-		\fi
-	}{
-		\ifx\hfuzz#3\hfuzz
-			\lstset{
-				style=#2,
-				captionpos=b
-			}
-		\else
-			\lstset{
-				style=#2,
-				caption={#3 #1},
-				captionpos=b
-			}
-		\fi
-	}
-}{
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
 }
 
 % Inserta código fuente con parámetros
