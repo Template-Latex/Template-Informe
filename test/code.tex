@@ -1,4 +1,4 @@
-\begin{sourcecode}[]{c}{Codigo en c.}
+\begin{sourcecode}[]{c}{}
 #include <stdio.h>
 int main(){
 	int i, j, rows;
@@ -15,6 +15,26 @@ int main(){
 	return 0;
 }
 \end{sourcecode}
+
+\begin{sourcecode}[]{c}{Codigo en c.}
+	#include <stdio.h>
+	int main(){
+		int i, j, rows;
+		
+		printf("Enter number of rows: ");
+		scanf("%d",&rows);
+		
+		for(i=1; i<=rows; ++i){
+			for(j=1; j<=i; ++j){
+				printf("* ");
+			}
+			printf("\n");
+		}
+		return 0;
+	}
+\end{sourcecode}
+
+\newpage
 
 \begin{sourcecode}[]{csharp}{Ejemplo en C\#.}
 /*
@@ -85,6 +105,51 @@ redis:
 image: redis
 volumes:
 logvolume01: {}
+\end{sourcecode}
+
+\begin{sourcecode}{plaintext}{Texto plano}
+TEFAME - Toolbox para Elemento Finitos y Analisis
+Matricial de Estructuras en MATLAB
+
+Propiedades de entrada modelo:
+
+Nodos: 
+Numero de nodos: 4 
+Coordenadas nodo N1: 0 0
+Coordenadas nodo N2: 800 0
+Coordenadas nodo N3: 400 400
+Coordenadas nodo N4: 400 800
+
+Elementos: 
+Numero de elementos: 6 
+Elemento E1:	Largo: 800         Area: 20        Eo: 200000    
+Elemento E2:	Largo: 565.6854    Area: 20        Eo: 200000    
+Elemento E3:	Largo: 565.6854    Area: 20        Eo: 200000    
+Elemento E4:	Largo: 894.4272    Area: 20        Eo: 200000    
+Elemento E5:	Largo: 400         Area: 20        Eo: 200000    
+Elemento E6:	Largo: 894.4272    Area: 20        Eo: 200000    
+
+Resultados del analisis:
+
+Desplazamientos nodos: 
+Desplazamientos nodo N1: 0 0
+Desplazamientos nodo N2: 0.016 0
+Desplazamientos nodo N3: 0.008 -0.013
+Desplazamientos nodo N4: 0.053 -0.016
+
+Reacciones: 
+Reacciones nodo N1: -80 -20
+Reacciones nodo N2: 0 140
+Reacciones nodo N3: 0 0
+Reacciones nodo N4: 0 0
+
+Esfuerzos Elementos: 
+Elemento E1: -78.4273       TRACCION
+Elemento E2: 23.836         COMPRESION
+Elemento E3: 23.836         COMPRESION
+Elemento E4: -41.2047       TRACCION
+Elemento E5: 33.7093        COMPRESION
+Elemento E6: 137.6807       COMPRESION
 \end{sourcecode}
 
 \begin{sourcecode}[\label{codigo-html5}]{html5}{Ejemplo en HTML5.}
@@ -287,7 +352,7 @@ FROM UnknownHours
 GROUP BY ChargeNum
 \end{sourcecode}
 
-\begin{sourcecode}{xml}{Ejemplos con xml.}
+\begin{sourcecodep}{xml}{firstnumber=100}{}
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
    xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -304,4 +369,4 @@ GROUP BY ChargeNum
     </xs:complexType>
   </xs:element>
 </xs:schema>
-\end{sourcecode}
+\end{sourcecodep}

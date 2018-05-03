@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Estilos de código fuente
-% Versión:      5.0.5 (25/04/2018)
+% Versión:      5.1.0 (02/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -49,6 +49,7 @@
 \lstdefinestyle{csharp}{
 	language=csh,
 	breaklines=true,
+	columns=fullflexible,
 	commentstyle=\color{mygreen},
 	keywordstyle=\color{cyan},
 	morecomment=[l]{//},
@@ -135,7 +136,6 @@
 % Lenguaje Javascript
 \lstdefinelanguage{JavaScript}{
 	breaklines=true,
-	columns=flexible,
 	comment=[l]{//},
 	commentstyle=\color{mygreen},
 	identifierstyle=\color{black},
@@ -154,11 +154,13 @@
 	tabsize=3
 }
 \lstdefinestyle{js}{
-	language=JavaScript
+	language=JavaScript,
+	columns=fullflexible
 }
 
 % Estilo JSON
 \lstdefinestyle{json}{
+	columns=fullflexible,
 	literate=*{0}{{{\color{numb}0}}}{1}{1}{{{\color{numb}1}}}{1}{2}{{{\color{numb}2}}}{1}{3}{{{\color{numb}3}}}{1}{4}{{{\color{numb}4}}}{1}{5}{{{\color{numb}5}}}{1}{6}{{{\color{numb}6}}}{1}{7}{{{\color{numb}7}}}{1}{8}{{{\color{numb}8}}}{1}{9}{{{\color{numb}9}}}{1}{:}{{{\color{punct}{:}}}}{1}{,}{{{\color{punct}{,}}}}{1}{\{}{{{\color{delim}{\{}}}}{1}{\}}{{{\color{delim}{\}}}}}{1}{[}{{{\color{delim}{[}}}}{1}{]}{{{\color{delim}{]}}}}{1},
 	showstringspaces=false,
 	stepnumber=1,
@@ -186,10 +188,12 @@
 % Estilo LaTeX
 \lstdefinestyle{latex}{
 	language=TeX,
+	columns=fullflexible,
 	commentstyle=\color{gray},
 	keywordstyle=\color{blue}\bfseries,
 	morekeywords={align,begin,label,section,subsection,lipsum,insertimage,insertequation,addimage,addimageboxed,newpage,newp,inserteqimage,insertdoubleqimage,insertequationcaptioned,insertimageleft,insertimageright,insertgathered,insertgather,insertalign,insertaligned},
-	showstringspaces=false
+	showstringspaces=false,
+	tabsize=3
 }
 
 % Lenguaje Perl
@@ -214,6 +218,7 @@
 % Lenguaje PHP
 \lstdefinestyle{php}{
 	language=php,
+	columns=fullflexible,
 	commentstyle=\color{gray},
 	emph=[1]{php},
 	emph=[2]{if,and,or,else},
@@ -231,6 +236,15 @@
 	stringstyle=\color{red},
 	tabsize=3,
 	upquote=true
+}
+
+% Texto plano
+\lstdefinestyle{plaintext}{
+	language={},
+	breakatwhitespace=false,
+	breaklines=true,
+	columns=fullflexible,
+	tabsize=3
 }
 
 % Lenguaje Python
@@ -308,4 +322,28 @@
 	numbers=left,
 	numbersep=5pt,
 	numberstyle=\tiny\color{codegray}
+}
+
+% Chequeo de estilos, cualquier nuevo estilo añadirlo a esta lista
+\newcommand{\checkvalidsourcecodestyle}[1]{
+	\ifthenelse{\equal{#1}{c}}{}{
+	\ifthenelse{\equal{#1}{cpp}}{}{
+	\ifthenelse{\equal{#1}{csharp}}{}{
+	\ifthenelse{\equal{#1}{docker}}{}{
+	\ifthenelse{\equal{#1}{html5}}{}{
+	\ifthenelse{\equal{#1}{java}}{}{
+	\ifthenelse{\equal{#1}{js}}{}{
+	\ifthenelse{\equal{#1}{json}}{}{
+	\ifthenelse{\equal{#1}{matlab}}{}{
+	\ifthenelse{\equal{#1}{latex}}{}{
+	\ifthenelse{\equal{#1}{perl}}{}{
+	\ifthenelse{\equal{#1}{php}}{}{
+	\ifthenelse{\equal{#1}{plaintext}}{}{
+	\ifthenelse{\equal{#1}{python}}{}{
+	\ifthenelse{\equal{#1}{ruby}}{}{
+	\ifthenelse{\equal{#1}{sql}}{}{
+	\ifthenelse{\equal{#1}{xml}}{}{
+		\def\sourcecodestyle {#1}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,cpp,csharp,docker,html5,java,js,json,matlab,latex,perl,php,plaintext,python,ruby,sql,xml}
+	}}}}}}}}}}}}}}}}}
 }

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar títulos
-% Versión:      5.0.5 (25/04/2018)
+% Versión:      5.1.0 (02/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -20,7 +20,7 @@
 	\section*{#1}
 	\addcontentsline{toc}{section}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
-	\markboth{#1}{}
+	\changeheadertitle{#1}
 }
 
 % Insertar un título sin número y sin indexar
@@ -31,7 +31,7 @@
 	\needspace{3\baselineskip}
 	\section*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
-	\markboth{#1}{}
+	\changeheadertitle{#1}
 }
 
 % Insertar un título sin número sin cambiar el título del header
@@ -83,6 +83,13 @@
 	\emptyvarerr{\subsubsectionanumnoi}{#1}{Sub-subtitulo no definido}
 	\subsubsection*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}
+}
+
+% Cambia el título del header
+%	#1	Título
+\newcommand{\changeheadertitle}[1]{
+	\emptyvarerr{\changeheadertitle}{#1}{Titulo no definido}
+	\markboth{#1}{}
 }
 
 % Insertar un título en un índice
