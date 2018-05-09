@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      5.1.1 (02/05/2018)
+% Versión:      5.1.2 (09/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -24,6 +24,10 @@
 \ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
+
+% PARCHES DE LIBRERÍAS
+\let\counterwithout\relax
+\let\counterwithin\relax
 
 % LIBRERÍAS INDEPENDIENTES
 \usepackage{amsmath}       % Librerías matemáticas
