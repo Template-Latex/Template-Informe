@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      5.1.2 (09/05/2018)
+% Versión:      5.1.3 (15/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -126,7 +126,27 @@
 	\renewcommand{\footrulewidth}{0pt}
 	\setlength{\headheight}{49pt}
 }{
-	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style8}}}}}}}}
+\ifthenelse{\equal{\hfstyle}{style9}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+	\fancyhead[R]{}
+	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
+	\fancyfoot[R]{\small \rm \thepage}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+}{
+\ifthenelse{\equal{\hfstyle}{style10}}{
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+	\fancyhead[R]{\small \rm \textit{\titulodelinforme}}
+	\fancyfoot[L]{}
+	\fancyfoot[R]{\small \rm \thepage}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+}{
+	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style10}}}}}}}}}}
 }
 
 % Muestra los números de línea
