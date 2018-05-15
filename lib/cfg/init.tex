@@ -74,6 +74,7 @@
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
 		Template.Fecha={15/05/2018},
+		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
@@ -249,31 +250,14 @@
 % Configuración anexo
 \patchcmd{\appendices}{\quad}{\sectionappendixlastchar\quad}{}{}
 
-% Se añade listings a tocloft
-\ifthenelse{\equal{\showsectioncaption}{none}}{
-	\def\cftdefautllistingnumwidth {2.5em}
-}{
-\ifthenelse{\equal{\showsectioncaption}{sec}}{
-	\def\cftdefautllistingnumwidth {3.0em}
-}{
-\ifthenelse{\equal{\showsectioncaption}{ssec}}{
-	\def\cftdefautllistingnumwidth {3.5em}
-}{
-\ifthenelse{\equal{\showsectioncaption}{sssec}}{
-	\def\cftdefautllistingnumwidth {4.0em}
-}{
-	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}
-}}}}
+% Se añade listings (código fuente) a tocloft
 \begingroup
 	\makeatletter
 	\let\newcounter\@gobble\let\setcounter\@gobbletwo
 	\globaldefs\@ne\let\c@loldepth\@ne
 	\newlistof{listings}{lol}{\lstlistlistingname}
 	\newlistentry{lstlisting}{lol}{0}
-	\def\cftlstlistingindent {1.5em}
-	\def\cftlstlistingnumwidth {\cftdefautllistingnumwidth}
-	\def\l@figure{\@dottedtocline{1}{1.5em}{\cftdefautllistingnumwidth}}
-	\def\l@table{\@dottedtocline{1}{1.5em}{\cftdefautllistingnumwidth}}
+	\def\cftlstlistingindent {1.5em} % Identado de los números margen izq
 	\makeatother
 \endgroup
 

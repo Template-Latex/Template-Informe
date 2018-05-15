@@ -32,15 +32,35 @@
 	}
 
 	% Configuración del punto en número de objetos
-	\def\cftfigaftersnum {\charafterobjectindex}
-	\def\cfttabaftersnum {\charafterobjectindex}
-	\def\cftsubfigaftersnum {\charafterobjectindex}
-	\def\cftlstlistingaftersnum {\charafterobjectindex}
-
-	% Configuración punto entre objeto y número de página
-	\ifthenelse{\equal{\showdotpagenumindex}{true}}{}{
-		\renewcommand{\cftdot}{}
+	\def\cftfigaftersnum {\charafterobjectindex\enspace}
+	\def\cftsubfigaftersnum {\charafterobjectindex\enspace}
+	\def\cfttabaftersnum {\charafterobjectindex\enspace}
+	\def\cftlstlistingaftersnum {\charafterobjectindex\enspace}
+	
+	% Calcula tamaño del identado en objetos del índice dependiendo de la configuración
+	\ifthenelse{\equal{\showsectioncaption}{none}}{
+		\def\cftdefautllistingnumwidth {2.3em}
+	}{
+	\ifthenelse{\equal{\showsectioncaption}{sec}}{
+		\def\cftdefautllistingnumwidth {3.0em}
+	}{
+	\ifthenelse{\equal{\showsectioncaption}{ssec}}{
+		\def\cftdefautllistingnumwidth {3.5em}
+	}{
+	\ifthenelse{\equal{\showsectioncaption}{sssec}}{
+		\def\cftdefautllistingnumwidth {4.0em}
+	}{
+		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}}}}
 	}
+	
+	% Configuración identado de títulos de objetos después del número
+	\def\cftfignumwidth {\cftdefautllistingnumwidth}
+	\def\cftsubfignumwidth {\cftdefautllistingnumwidth}
+	\def\cfttabnumwidth {\cftdefautllistingnumwidth}
+	\def\cftlstlistingnumwidth {\cftdefautllistingnumwidth}
+
+	% Configuración carácter número de página
+	\renewcommand{\cftdot}{\charnumpageindex}
 
 	% Desactiva los números de línea
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
