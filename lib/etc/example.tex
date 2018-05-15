@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      5.1.3 (15/05/2018)
+% Versión:      5.1.4 (15/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -19,12 +19,12 @@
 	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin número se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
 	\subsection{Una breve introducción}
 		
-		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
+		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \href{http://latex.ppizarror.com/informe.html#hlp-imagen}{\texttt{\textbackslash insertimage}}:
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda opcional
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}}
 		
-		A continuación \footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
+		A continuación \footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{http://latex.ppizarror.com/informe.html#hlp-formulae}{\texttt{\textbackslash insertequation}}:
 		
 		% Se inserta una ecuación, el primer parámetro entre [] es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos $
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
@@ -33,17 +33,17 @@
 		\lipsum[75]
 		
 		% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar errores y warnings por parte del compilador de LaTeX
-		\newp Este es un nuevo párrafo insertado con el comando \texttt{\textbackslash newp}. Si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales acompañado de \texttt{\textbackslash par}. Además puedes editar las funciones, definidas en el archivo \texttt{lib/functions.tex}.
+		\newp Este es un nuevo párrafo insertado con el comando \href{http://latex.ppizarror.com/informe.html#hlp-parrafo}{\texttt{\textbackslash newp}}. Si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales acompañado de \texttt{\textbackslash par}.
 		
 	% SUB-SECCIÓN
 	\subsection{Añadiendo tablas}
 		
-		También puedes usar tablas, insertarlas es muy fácil, puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{ref2} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{ref3}.
+		También puedes usar tablas, ¡insertarlas es muy fácil!. Puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{ref2} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{ref3}.
 		
 		% Tabla generada con el plugin Excel2Latex
 		\begin{table}[htbp]
 			\centering
-			\caption{Ejemplo de tablas.}
+			\caption{Ejemplo de tablas}
 			\begin{tabular}{ccc}
 				\hline
 				\textbf{Columna 1} & \textbf{Columna 2} & \textbf{Columna 3} \bigstrut\\
@@ -116,13 +116,11 @@
 	
 		% A continuación se crea una función auxiliar, esta es una herramienta extremadamente importante y muy útil.
 		% Esta función toma dos parámetros, uno es el lenguaje del código fuente, el segundo el identificador en el manual
-		\newcommand{\insertsrcmanual}[2]{
-			\href{http://latex.ppizarror.com/informe.html\#hlp-srccode\&srctype=#1}{#2}
-		}
+		\newcommand{\insertsrcmanual}[2]{\href{http://latex.ppizarror.com/informe.html\#hlp-srccode\&srctype=#1}{#2}}
 	
-		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{c}{C}, C\#, C++, DOCKER, HTML5, Java, Javascript, JSON, Matlab, LaTeX, Perl, PHP, Python, Ruby, SQL y XML. Para insertar código fuente se debe usar el entorno \texttt{sourcecode}. \newp
+		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{c}{C}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{python}{Python}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{sql}{SQL} y \insertsrcmanual{xml}{XML}. Para insertar código fuente se debe usar el entorno \texttt{sourcecode} o el entorno \texttt{sourcecodep} si es que se quieren pasar parámetros adicionales. \newp
 		
-		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}):
+		A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}):
 		
 % Se define el lenguaje del código. Cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
 \begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python}
@@ -170,10 +168,10 @@ end
 	% SUB-SECCIÓN
 	\subsection{Añadir múltiples imágenes}
 	
-	A partir de la versión 5.0.0 existe el entorno \texttt{images} que permite insertar múltiples imágenes de una manera muy sencilla, reemplazando así \footnote{Al usar cualquiera de estas funciones el template lanzará una alerta, se recomienda su desuso ya que en el futuro estas funciones podrían eliminarse del template.} a las funciones \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash inserttripleimage}, etc. Para crear imágenes múltiples se deben usar instrucciones como:
+	A partir de la versión 5.0.0 existe el entorno \href{http://latex.ppizarror.com/informe.html#hlp-images}{\texttt{images}} que permite insertar múltiples imágenes de una manera muy sencilla, reemplazando así \footnote{Al usar cualquiera de estas funciones el template lanzará una alerta, se recomienda su desuso ya que en el futuro estas funciones podrían eliminarse del template.} a las funciones \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash inserttripleimage}, etc. Para crear imágenes múltiples se deben usar instrucciones como:
 	
 \begin{sourcecode}{latex}{}
-\begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
+\begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple}
 	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
 	\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
 	\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
@@ -182,7 +180,7 @@ end
 
 	Obteniendo así:
 	
-	\begin{images}{Ejemplo de imagen múltiple.}
+	\begin{images}{Ejemplo de imagen múltiple}
 		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
 		\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
 		\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
@@ -267,12 +265,11 @@ end
 	
 	\bibitem{ref3}
 	Overleaf.
-	\textit{Un aclamado editor online \LaTeX.} \\
+	\textit{Uno de los mejores editores online para \LaTeX, renovado con su versión 2.0.} \\
 	\href{https://www.overleaf.com/signup?ref=4d3bd09b7e78}{\texttt{https://www.overleaf.com/}}
 	
 	\bibitem{ref4}
-	ShareLatex.
-	\textit{Uno de los mejores editores online para \LaTeX.} \\
+	ShareLatex. \\
 	\href{https://www.sharelatex.com/?r=298b935f&rm=d&rs=b}{\texttt{https://www.sharelatex.com/}}
 \end{references}
 
@@ -285,7 +282,7 @@ end
 			\lipsum[1]
 			
 			% Imagen, se numerará automáticamente con la letra del anexo
-			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.25}{Imagen en anexo.}
+			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.25}{Imagen en anexo}
 		
 		\subsection{Resultados}
 			\lipsum[10]
@@ -293,7 +290,7 @@ end
 			% Tablas
 			\begin{table}[htbp]
 				\centering
-				\caption{Tabla de cálculo.}
+				\caption{Tabla de cálculo}
 				\begin{tabular}{ccc}
 					\hline
 					\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
@@ -317,7 +314,7 @@ end
 		% Tabla de encuestas
 		\begin{table}[htbp]
 			\centering
-			\caption{Resultados encuesta.}
+			\caption{Resultados encuesta}
 			\begin{tabular}{ccc}
 				\hline
 				\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
