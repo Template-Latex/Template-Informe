@@ -22,7 +22,7 @@
 		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \texttt{\textbackslash insertimage}:
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda opcional
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
+		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}}
 		
 		A continuación \footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \texttt{\textbackslash insertequation}:
 		
@@ -64,7 +64,7 @@
 	\subsection{Haciendo informes como un profesional}
 		
 		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala (un 30% del ancho de página) y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
-		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
+		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda}
 		
 		\lipsum[1]
 
@@ -114,12 +114,18 @@
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
 	
-		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: C, C\#, C++, DOCKER, HTML5, Java, Javascript, JSON, Matlab, LaTeX, Perl, PHP, Python, Ruby, SQL y XML. Para insertar código fuente se debe usar el entorno \texttt{sourcecode}. \newp
+		% A continuación se crea una función auxiliar, esta es una herramienta extremadamente importante y muy útil.
+		% Esta función toma dos parámetros, uno es el lenguaje del código fuente, el segundo el identificador en el manual
+		\newcommand{\insertsrcmanual}[2]{
+			\href{http://latex.ppizarror.com/informe.html\#hlp-srccode\&srctype=#1}{#2}
+		}
+	
+		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{c}{C}, C\#, C++, DOCKER, HTML5, Java, Javascript, JSON, Matlab, LaTeX, Perl, PHP, Python, Ruby, SQL y XML. Para insertar código fuente se debe usar el entorno \texttt{sourcecode}. \newp
 		
 		A continuación se presenta un ejemplo de inserción de código fuente en Python \footnote{El mejor lenguaje de programación del mundo.} (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}):
 		
 % Se define el lenguaje del código. Cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
-\begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
+\begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python}
 import numpy as np
 
 def incmatrix(genl1, genl2):
@@ -129,7 +135,7 @@ def incmatrix(genl1, genl2):
 	VT = np.zeros((n*m, 1), int) # Comentario 2
 \end{sourcecode}
 
-\begin{sourcecode}[\label{codigo-java}]{java}{Ejemplo en Java.}
+\begin{sourcecode}[\label{codigo-java}]{java}{Ejemplo en Java}
 import java.io.IOException; 
 import javax.servlet.*;
 
@@ -145,7 +151,7 @@ public class Hola extends GenericServlet {
 }
 \end{sourcecode}
 
-\begin{sourcecode}[\label{codigo-matlab}]{matlab}{Ejemplo en Matlab.}
+\begin{sourcecode}[\label{codigo-matlab}]{matlab}{Ejemplo en Matlab}
 % Se crea gráfico
 f = figure(1); hold on;
 movegui(f, 'center');
