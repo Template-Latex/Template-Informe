@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      5.2.0 (21/05/2018)
+% Versión:      5.2.1 (21/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -77,6 +77,9 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\rightlinenumbers}{
 	}
+	\lstset{
+		backgroundcolor=\color{\sourcecodebgcolor}
+	}
 	\ifthenelse{\equal{\codecaptiontop}{true}}{
 		\ifx\hfuzz#4\hfuzz
 			\ifx\hfuzz#3\hfuzz
@@ -149,6 +152,9 @@
 	\checkvalidsourcecodestyle{#2}
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\rightlinenumbers}{
+	}
+	\lstset{
+		backgroundcolor=\color{\sourcecodebgcolor}
 	}
 	\ifthenelse{\equal{\codecaptiontop}{true}}{
 		\ifx\hfuzz#3\hfuzz

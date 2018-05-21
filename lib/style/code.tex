@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Estilos de código fuente
-% Versión:      5.2.0 (21/05/2018)
+% Versión:      5.2.1 (21/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -10,6 +10,24 @@
 %
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
+
+% Estilo de algoritmo
+\lstdefinestyle{algorithm}{
+	language=Matlab,
+	backgroundcolor=\color{white},
+	breakatwhitespace=false,
+	breaklines=true,
+	columns=flexible,
+	frame=tB,
+	keepspaces=true,
+	keywords={input,output,return,datatype,function,in,if,else, foreach,while,begin,end,do,and,or,xor},
+	keywordstyle=\color{black}\bfseries\em,
+	mathescape=true,
+	showstringspaces=false,
+	showtabs=false,
+	stepnumber=1,
+	tabsize=3
+}
 
 % Lenguaje C
 \lstdefinestyle{c}{
@@ -54,10 +72,10 @@
 	keywordstyle=\color{cyan},
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/},
-	morekeywords={abstract,event,new,struct,as,explicit,null,switch,base,extern,object,this,bool,false,operator,throw,break,finally,out,true,byte,fixed,override,try,case,float,params,typeof,catch,for,private,uint,char,foreach,protected,ulong,checked,goto,public,unchecked,class,if,readonly,unsafe,const,implicit,ref,ushort,continue,in,return,using,decimal,int,sbyte,virtual,default,interface,sealed,volatile,delegate,internal,short,void,do,is,sizeof,while,double,lock,stackalloc,else,long,static,enum,namespace,string},
+	morekeywords={abstract,as,base,bool,break,byte,case,catch,char,checked,class,const,continue,decimal,default,delegate,do,double,else,enum,event,explicit,extern,false,finally,fixed,float,for,foreach,goto,if,implicit,in,int,interface,internal,is,lock,long,namespace,new,null,object,operator,out,override,params,private,protected,public,readonly,ref,return,sbyte,sealed,short,sizeof,stackalloc,static,string,struct,switch,this,throw,true,try,typeof,uint,ulong,unchecked,unsafe,ushort,using,virtual,void,volatile,while},
 	showspaces=false,
-	showtabs=false,
 	showstringspaces=false,
+	showtabs=false,
 	stringstyle=\color{blue}\ttfamily,
 	tabsize=3
 }
@@ -65,7 +83,7 @@
 % CSS, añade más etiquetas
 \lstdefinelanguage{CSS}{
 	morecomment=[s]{/*}{*/},
-	morekeywords={accelerator,azimuth,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-collapse,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-spacing,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,caption-side,clear,clip,color,content,counter-increment,counter-reset,cue,cue-after,cue-before,cursor,direction,display,elevation,empty-cells,filter,float,font,font-family,font-size,font-size-adjust,font-stretch,font-style,font-variant,font-weight,height,ime-mode,include-source,layer-background-color,layer-background-image,layout-flow,layout-grid,layout-grid-char,layout-grid-char-spacing,layout-grid-line,layout-grid-mode,layout-grid-type,left,letter-spacing,line-break,line-height,list-style,list-style-image,list-style-position,list-style-type,margin,margin-bottom,margin-left,margin-right,margin-top,marker-offset,marks,max-height,max-width,min-height,min-width,-moz-binding,-moz-border-radius,-moz-border-radius-topleft,-moz-border-radius-topright,-moz-border-radius-bottomright,-moz-border-radius-bottomleft,-moz-border-top-colors,-moz-border-right-colors,-moz-border-bottom-colors,-moz-border-left-colors,-moz-opacity,-moz-outline,-moz-outline-color,-moz-outline-style,-moz-outline-width,-moz-user-focus,-moz-user-input,-moz-user-modify,-moz-user-select,orphans,outline,outline-color,outline-style,outline-width,overflow,overflow-X,overflow-Y,padding,padding-bottom,padding-left,padding-right,padding-top,page,page-break-after,page-break-before,page-break-inside,pause,pause-after,pause-before,pitch,pitch-range,play-during,position,quotes,-replace,richness,right,ruby-align,ruby-overhang,ruby-position,-set-link-source,size,speak,speak-header,speak-numeral,speak-punctuation,speech-rate,stress,scrollbar-arrow-color,scrollbar-base-color,scrollbar-dark-shadow-color,scrollbar-face-color,scrollbar-highlight-color,scrollbar-shadow-color,scrollbar-3d-light-color,scrollbar-track-color,table-layout,text-align,text-align-last,text-decoration,text-indent,text-justify,text-overflow,text-shadow,text-transform,text-autospace,text-kashida-space,text-underline-position,top,unicode-bidi,-use-link-source,vertical-align,visibility,voice-family,volume,white-space,widows,width,word-break,word-spacing,word-wrap,writing-mode,z-index,zoom},
+	morekeywords={-moz-binding,-moz-border-bottom-colors,-moz-border-left-colors,-moz-border-radius,-moz-border-radius-bottomleft,-moz-border-radius-bottomright,-moz-border-radius-topleft,-moz-border-radius-topright,-moz-border-right-colors,-moz-border-top-colors,-moz-opacity,-moz-outline,-moz-outline-color,-moz-outline-style,-moz-outline-width,-moz-user-focus,-moz-user-input,-moz-user-modify,-moz-user-select,-replace,-set-link-source,-use-link-source,accelerator,azimuth,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-collapse,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-spacing,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,caption-side,clear,clip,color,content,counter-increment,counter-reset,cue,cue-after,cue-before,cursor,direction,display,elevation,empty-cells,filter,float,font,font-family,font-size,font-size-adjust,font-stretch,font-style,font-variant,font-weight,height,ime-mode,include-source,layer-background-color,layer-background-image,layout-flow,layout-grid,layout-grid-char,layout-grid-char-spacing,layout-grid-line,layout-grid-mode,layout-grid-type,left,letter-spacing,line-break,line-height,list-style,list-style-image,list-style-position,list-style-type,margin,margin-bottom,margin-left,margin-right,margin-top,marker-offset,marks,max-height,max-width,min-height,min-width,orphans,outline,outline-color,outline-style,outline-width,overflow,overflow-X,overflow-Y,padding,padding-bottom,padding-left,padding-right,padding-top,page,page-break-after,page-break-before,page-break-inside,pause,pause-after,pause-before,pitch,pitch-range,play-during,position,quotes,richness,right,ruby-align,ruby-overhang,ruby-position,scrollbar-3d-light-color,scrollbar-arrow-color,scrollbar-base-color,scrollbar-dark-shadow-color,scrollbar-face-color,scrollbar-highlight-color,scrollbar-shadow-color,scrollbar-track-color,size,speak,speak-header,speak-numeral,speak-punctuation,speech-rate,stress,table-layout,text-align,text-align-last,text-autospace,text-decoration,text-indent,text-justify,text-kashida-space,text-overflow,text-shadow,text-transform,text-underline-position,top,unicode-bidi,vertical-align,visibility,voice-family,volume,white-space,widows,width,word-break,word-spacing,word-wrap,writing-mode,z-index,zoom},
 	morestring=[s]{:}{;},
 	sensitive=true
 }
@@ -73,7 +91,7 @@
 % Docker
 \lstdefinelanguage{docker}{
 	comment=[l]{\#},
-	keywords={FROM,RUN,COPY,ADD,ENTRYPOINT,CMD,ENV,WORKDIR,EXPOSE,LABEL,USER,VOLUME,STOPSIGNAL,ONBUILD,MAINTAINER},
+	keywords={ADD,CMD,COPY,ENTRYPOINT,ENV,EXPOSE,FROM,LABEL,MAINTAINER,ONBUILD,RUN,STOPSIGNAL,USER,VOLUME,WORKDIR},
 	morestring=[b]',
 	morestring=[b]"
 }
@@ -95,8 +113,7 @@
 	language=html,
 	alsoletter={<>=-},
 	morecomment=[s]{<!--}{-->},
-	ndkeywords={=,charset=,id=,width=,height=,border:,transform:,-moz-transform:,transition-duration:,transition-property:,transition-timing-function:},
-	otherkeywords={<html>,<head>,<title>,</title>,<meta,/>,</head>,<body>,<canvas,</canvas>,<script>,</script>,</body>,</html>,<!,html>,<style>,</style>,><},
+	ndkeywords={-moz-transform:,<!,<body>,<canvas,</body>,</canvas>,</head>,</html>,</script>,</style>,</title>,<head>,<meta,<script>,<style>,<title>,=,><,border:,charset=,/>,height=,html>,id=,otherkeywords={<html>,transform:,transition-duration:,transition-property:,transition-timing-function:},width=},
 	sensitive=true,
 	tag=[s]
 }
@@ -105,16 +122,17 @@
 	alsodigit={.:;},
 	alsolanguage=JavaScript,
 	breaklines=true,
+	columns=fullflexible,
 	commentstyle=\color{darkgray}\ttfamily,
 	firstnumber=1,
 	keywordstyle=\color{blue}\bfseries,
-	ndkeywordstyle=\color{editorGreen}\bfseries,
+	ndkeywordstyle=\color{dkgreen}\bfseries,
 	numberfirstline=true,
 	showspaces=false,
 	showstringspaces=false,
 	showtabs=false,
 	stepnumber=1,
-	stringstyle=\color{editorOcher},
+	stringstyle=\color{ocher},
 	tabsize=3
 }
 
@@ -140,12 +158,12 @@
 	commentstyle=\color{mygreen},
 	identifierstyle=\color{black},
 	keepspaces=true,
-	keywords={typeof,new,true,false,catch,function,return,null,catch,switch,var,if,in,while,do,else,case,break},
+	keywords={async,await,break,case,catch,catch,do,else,false,function,if,in,new,null,return,switch,true,typeof,var,while},
 	keywordstyle=\color{blue},
 	morecomment=[s]{/*}{*/},
 	morestring=[b]',
 	morestring=[b]",
-	ndkeywords={class,export,boolean,throw,implements,import,this},
+	ndkeywords={boolean,class,export,implements,import,this,throw},
 	ndkeywordstyle=\color{darkgray}\bfseries,
 	sensitive=false,
 	showstringspaces=false,
@@ -170,7 +188,6 @@
 % Lenguaje Matlab
 \lstdefinestyle{matlab}{
 	language=Matlab,
-	backgroundcolor=\color{backcolour},
 	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{mygreen},
@@ -191,7 +208,7 @@
 	columns=fullflexible,
 	commentstyle=\color{gray},
 	keywordstyle=\color{blue}\bfseries,
-	morekeywords={align,begin,label,section,subsection,lipsum,insertimage,insertequation,addimage,addimageboxed,newpage,newp,inserteqimage,insertdoubleqimage,insertequationcaptioned,insertimageleft,insertimageright,insertgathered,insertgather,insertalign,insertaligned},
+	morekeywords={addimage,addimageboxed,align,begin,insertalign,insertaligned,insertdoubleqimage,inserteqimage,insertequation,insertequationcaptioned,insertgather,insertgathered,insertimage,insertimageleft,insertimageright,label,lipsum,newp,newpage,section,sourcecode,sourcecodep,subsection},
 	showstringspaces=false,
 	tabsize=3
 }
@@ -222,11 +239,11 @@
 	commentstyle=\color{gray},
 	emph=[1]{php},
 	emph=[2]{if,and,or,else},
-	emph=[3]{var,const,abstract,protected,private,public,static,final,extends,implements,global,if,else,foreach,for,endforeach,endif,endfor,elseif,as},
+	emph=[3]{abstract,as,const,else,elseif,endfor,endforeach,endif,extends,final,for,foreach,global,if,implements,private,protected,public,static,var},
 	emphstyle=[1]\color{black},
 	emphstyle=[2]\color{dkyellow},
 	identifierstyle=\color{dkgreen},
-	keywords={__halt_compiler,abstract,and,array,as,break,callable,case,catch,class,clone,const,continue,declare,default,die,do,echo,else,elseif,empty,enddeclare,endfor,endforeach,endif,endswitch,endwhile,eval,exit,extends,final,finally,for,foreach,function,global,goto,if,implements,include,include_once,instanceof,insteadof,interface,isset,list,namespace,new,or,print,private,protected,public,require,require_once,return,static,switch,throw,trait,try,unset,use,var,while,xor,yield},
+	keywords={abstract,and,array,as,break,callable,case,catch,class,clone,const,continue,declare,default,die,do,echo,else,elseif,empty,enddeclare,endfor,endforeach,endif,endswitch,endwhile,eval,exit,extends,final,finally,for,foreach,function,global,goto,if,implements,include,include_once,instanceof,insteadof,interface,isset,list,namespace,new,or,print,private,protected,public,require,require_once,return,static,switch,throw,trait,try,unset,use,var,while,xor,yield,__halt_compiler},
 	keywordstyle=\color{dkblue},
 	showlines=true,
 	showspaces=false,
@@ -252,7 +269,7 @@
 	language=Python,
 	breakatwhitespace=false,
 	breaklines=true,
-	columns=flexible,
+	columns=fullflexible,
 	commentstyle=\color{codegreen},
 	keepspaces=true,
 	keywordstyle=\color{magenta},
@@ -269,7 +286,7 @@
 	language=Ruby,
 	breakatwhitespace=true,
 	breaklines=true,
-	columns=flexible,
+	columns=fullflexible,
 	commentstyle=\color{dkgreen},
 	keywordstyle=\color{blue},
 	morestring=[s][]{\#\{}{\}},
@@ -297,7 +314,7 @@
 	identifierstyle=\color{dkblue},
 	keywordstyle=\color{cyan},
 	morecomment=[s]{<?}{?>},
-	morekeywords={xmlns,version,type,encoding},
+	morekeywords={encoding,type,version,xmlns},
 	morestring=[b]",
 	morestring=[s]{>}{<},
 	stringstyle=\color{black}
@@ -313,7 +330,6 @@
 % Configuración de códigos fuente
 \lstset{
 	aboveskip=3mm,
-	backgroundcolor=\color{backcolour},
 	basicstyle={\small\ttfamily},
 	belowskip=3mm,
 	extendedchars=true,
@@ -326,6 +342,7 @@
 
 % Chequeo de estilos, cualquier nuevo estilo añadirlo a esta lista
 \newcommand{\checkvalidsourcecodestyle}[1]{
+	\ifthenelse{\equal{#1}{algorithm}}{}{
 	\ifthenelse{\equal{#1}{c}}{}{
 	\ifthenelse{\equal{#1}{cpp}}{}{
 	\ifthenelse{\equal{#1}{csharp}}{}{
@@ -334,8 +351,8 @@
 	\ifthenelse{\equal{#1}{java}}{}{
 	\ifthenelse{\equal{#1}{js}}{}{
 	\ifthenelse{\equal{#1}{json}}{}{
-	\ifthenelse{\equal{#1}{matlab}}{}{
 	\ifthenelse{\equal{#1}{latex}}{}{
+	\ifthenelse{\equal{#1}{matlab}}{}{
 	\ifthenelse{\equal{#1}{perl}}{}{
 	\ifthenelse{\equal{#1}{php}}{}{
 	\ifthenelse{\equal{#1}{plaintext}}{}{
@@ -344,6 +361,6 @@
 	\ifthenelse{\equal{#1}{sql}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
-		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,cpp,csharp,docker,html5,java,js,json,matlab,latex,perl,php,plaintext,python,ruby,sql,xml}
-	}}}}}}}}}}}}}}}}}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{algorithm,c,cpp,csharp,docker,html5,java,js,json,latex,matlab,perl,php,plaintext,python,ruby,sql,xml}
+	}}}}}}}}}}}}}}}}}}
 }

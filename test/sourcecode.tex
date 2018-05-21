@@ -164,7 +164,7 @@ Elemento E6: 137.6807       COMPRESION
 			color: #ff0000;
 		}
 	</style>
-	<div class=".titulo">Hola</div>
+	<div class="titulo">Hola</div>
 </body>
 </html>
 \end{sourcecode}
@@ -370,3 +370,17 @@ GROUP BY ChargeNum
   </xs:element>
 </xs:schema>
 \end{sourcecodep}
+
+\newpage
+\begin{sourcecode}{algorithm}{Algoritmo extraño.}
+input: int N, int D
+output: int
+begin
+	res $\gets$ 0
+	while N $\geq$ D 
+		N $\gets$ N - D
+		res $\gets$ res + 1      
+	end
+	return res
+end    
+\end{sourcecode}
