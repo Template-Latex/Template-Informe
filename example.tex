@@ -29,7 +29,7 @@
 		% Se inserta una ecuación, el primer parámetro entre [] es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos $
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 		
-		% Se añade parrafo de prueba. Notar que no se requiere añadir un salto de línea después de insertar una ecuación
+		% Se añade párrafo de prueba. Notar que no se requiere añadir un salto de línea después de insertar una ecuación
 		\lipsum[75]
 		
 		% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar errores y warnings por parte del compilador de LaTeX
@@ -38,7 +38,7 @@
 	% SUB-SECCIÓN
 	\subsection{Añadiendo tablas}
 		
-		También puedes usar tablas, ¡insertarlas es muy fácil!. Puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{ref2} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{ref3}.
+		También puedes usar tablas, ¡Crearlas es muy fácil!. Puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{ref2} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{ref3}.
 		
 		% Tabla generada con el plugin Excel2Latex
 		\begin{table}[htbp]
@@ -68,7 +68,7 @@
 		
 		\lipsum[1]
 
-		% Párrafos con \newp, lipsum por defecto no añade un párrafo nuevo
+		% Párrafos de ejemplo
 		\newp \lipsum[115]
 		\newp \lipsum[2]
 		
@@ -78,13 +78,12 @@
 		% Aquí no es necesario usar \newp dado que todas las funciones \insert... añaden un párrafo nuevo por defecto
 		\lipsum[115]
 		
-		% Párrafos con \newp, lipsum por defecto no añade un párrafo nuevo
 		\newp \lipsum[4]
 		
 	% Inserta un subtítulo sin número
 	\subsection{Otros párrafos más normales}
 	
-		% Párrafos con lipsum
+		% Párrafos
 		\lipsum[7]
 		\newp \lipsum[2]
 		
@@ -97,7 +96,7 @@
 		% Nuevo párrafo
 		\lipsum[4]
 		
-		% Se inserta un multicols, con esto se pueden escribir en varias columnas
+		% Se inserta un multicols, con esto se pueden escribir párrafos en varias columnas
 		\begin{multicols}{2}
 			
 			% Párrafo 1
@@ -114,11 +113,10 @@
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
 	
-		% A continuación se crea una función auxiliar, esta es una herramienta extremadamente importante y muy útil.
-		% Esta función toma dos parámetros, uno es el lenguaje del código fuente, el segundo el identificador en el manual
+		% A continuación se crea una función auxiliar, esta es una herramienta extremadamente importante y muy útil. Esta función de ejemplo toma dos parámetros, uno es el lenguaje del código fuente, el segundo el identificador en el manual
 		\newcommand{\insertsrcmanual}[2]{\href{http://latex.ppizarror.com/informe.html\#hlp-srccode\&srctype=#1}{#2}}
 	
-		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{c}{C}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{python}{Python}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{sql}{SQL} y \insertsrcmanual{xml}{XML}. Para insertar código fuente se debe usar el entorno \texttt{sourcecode} o el entorno \texttt{sourcecodep} si es que se quieren pasar parámetros adicionales. \newp
+		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{c}{C}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{sql}{SQL} y \insertsrcmanual{xml}{XML}. Para insertar un código fuente se debe usar el entorno \texttt{sourcecode} o el entorno \texttt{sourcecodep} si es que se quieren utilizar parámetros adicionales. \newp
 		
 		A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}):
 		
@@ -250,7 +248,7 @@ end
 		
 		Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{http://latex.ppizarror.com/Template-Informe/}. Si necesitas una ayuda muy específica sobre el template, o si tienes alguna sugerencia, me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
 
-% REFERENCIAS (ESTILO BIBTEX)
+% REFERENCIAS (ESTILO BIBTEX), revisar configuración \stylecitereferences
 \newpage % Salto de página
 \begin{references}
 	\bibitem{ref1}
@@ -281,7 +279,7 @@ end
 		\subsection{Metodología}
 			\lipsum[1]
 			
-			% Imagen, se numerará automáticamente con la letra del anexo
+			% Imagen, se numerará automáticamente con la letra del anexo según la configuración \appendixindepobjnum
 			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.25}{Imagen en anexo}
 		
 		\subsection{Resultados}
