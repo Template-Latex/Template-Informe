@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de portadas
-% Versión:      5.1.6 (21/05/2018)
+% Versión:      5.1.7 (21/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -22,6 +22,7 @@
 \ifthenelse{\equal{\portraitstyle}{style1}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
+	
 	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad ~ \\
@@ -53,6 +54,7 @@
 \ifthenelse{\equal{\portraitstyle}{style2}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
+	
 	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad ~ \\
@@ -86,6 +88,7 @@
 \ifthenelse{\equal{\portraitstyle}{style3}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
+	
 	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad ~ \\
@@ -121,6 +124,7 @@
 \ifthenelse{\equal{\portraitstyle}{style4}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
+	
 	\vspace*{-1.5cm}
 	\noindent \includegraphics[width=1.75cm]{departamentos/uchile2}
 	\hspace*{-0.15cm}
@@ -150,6 +154,7 @@
 \ifthenelse{\equal{\portraitstyle}{style5}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
+	
 	\includegraphics[width=1.5cm]{departamentos/uchile3} 
 	\hspace{-0.2cm}
 	\begin{tabular}{l}
@@ -179,6 +184,7 @@
 \ifthenelse{\equal{\portraitstyle}{style6}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
+	
 	\begin{wrapfigure}{l}{0.3\textwidth}
 		\vspace{-0.69cm}
 		\noindent \hspace{-1.10cm} \includegraphics[scale=1.35]{departamentos/fcfm2}
@@ -214,6 +220,7 @@
 \ifthenelse{\equal{\portraitstyle}{style7}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
+	
 	\begin{center}
 		\vspace*{-1.5cm}
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
@@ -246,6 +253,7 @@
 \ifthenelse{\equal{\portraitstyle}{style8}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
+	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\begin{tabular}{c}
@@ -275,6 +283,7 @@
 \ifthenelse{\equal{\portraitstyle}{style9}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
+	
 	\noindent \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	\vfill
 	\begin{center}
@@ -333,6 +342,7 @@
 \ifthenelse{\equal{\portraitstyle}{style11}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
+	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\scshape{\nombreuniversidad} ~ \\
@@ -354,6 +364,7 @@
 \ifthenelse{\equal{\portraitstyle}{style12}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
+	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
@@ -384,6 +395,7 @@
 \ifthenelse{\equal{\portraitstyle}{style13}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
+	
 	\noindent
 	\vspace*{-1.5cm}
 	\begin{flushleft}
@@ -424,6 +436,7 @@
 \ifthenelse{\equal{\portraitstyle}{style14}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
+	
 	\noindent
 	\begin{flushleft}
 		\vspace*{-1.0cm}
@@ -443,9 +456,8 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
-	% Se chequean variables propias de la portada
-	\checkextravarexist{\imagenextraportadaA}{}
-	\checkextravarexist{\imagenextraportadaescalaA}{}
+	\checkextravarexist{\headerimageA}{Defina la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\headerimagescaleA}{Defina la escala de la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	
 	\vspace*{-1.5cm}
 	\noindent \begin{minipage}{0.8\textwidth}
@@ -466,9 +478,9 @@
 	\end{minipage}
 	\noindent \begin{minipage}{0.2\textwidth}
 		\begin{flushright}
-			\ifthenelse{\isundefined{\imagenextraportadaA}}{}{
-				\ifthenelse{\isundefined{\imagenextraportadaescalaA}}{}{
-					\noindent \includegraphics[scale=\imagenextraportadaescalaA]{\imagenextraportadaA} \\
+			\ifthenelse{\isundefined{\headerimageA}}{}{
+				\ifthenelse{\isundefined{\headerimagescaleA}}{}{
+					\noindent \includegraphics[scale=\headerimagescaleA]{\headerimageA} \\
 				}
 			}
 		\end{flushright}
@@ -488,14 +500,14 @@
 \ifthenelse{\equal{\portraitstyle}{style16}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	
-	\checkextravarexist{\imagenfondoportadaB}{Defina el fondo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque . Por defecto se uso la portada ubicada en ejemplos}
-	\checkextravarexist{\colorbloqueportadaB}{Defina el color del bloque del titulo de la portada en el bloque INFORMACION DEL DOCUMENTO. Por defecto se uso el color ocre}
+	\checkextravarexist{\portraitbackgroundimageB}{Defina el fondo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitbackgroundcolorB}{Defina el color del bloque del titulo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	
 	\begingroup
 	\thispagestyle{empty}
 	\begin{tikzpicture}[remember picture,overlay]
-		\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\imagenfondoportadaB}};
-		\draw (current page.center) node [fill=\colorbloqueportadaB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
+		\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\portraitbackgroundimageB}};
+		\draw (current page.center) node [fill=\portraitbackgroundcolorB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
 				\centering \textcolor{\portraittitlecolor}{\titulodelinforme} \\ [10pt]
 				{\Large \temaatratar} \\ [25pt]
 				{\huge \autordeldocumento}}};
@@ -503,40 +515,15 @@
 	\vfill
 	\endgroup
 }{
-\ifthenelse{\equal{\portraitstyle}{style1}}{
+\ifthenelse{\equal{\portraitstyle}{style17}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
-	\fancyhf{}
-	\fancyhead[L]{
-		\nombreuniversidad ~ \\
-		\nombrefacultad ~ \\
-		\departamentouniversidad ~ \\
-		\vspace{-0.43cm}
-	}
-	\fancyhead[R]{
-		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
-	}
 	
-	~ \\
-	\vfill
-	\begin{center}
-		\textcolor{\portraittitlecolor}{
-			{\noindent \Huge{\titulodelinforme} \vspace{0.5cm}} ~ \\
-			{\noindent \large{\temaatratar}}
-		}
-	\end{center}
+	\checkextravarexist{\portraitimageC}{[portrait-style17] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimageboxedC}{Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimageboxedwidthC}{Defina el grosor del recuadro de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimagewidthC}{Defina los parametros de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	
-	\vfill
-	\noindent
-	\begin{minipage}{1.0\textwidth}
-		\begin{flushright}
-			\tablaintegrantes
-		\end{flushright}
-	\end{minipage}
-}{
-\ifthenelse{\equal{\portraitstyle}{style1}}{
-	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\pagestyle{fancy}
 	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad ~ \\
@@ -557,9 +544,58 @@
 		}
 	\end{center}
 
-	\insertimage{imagefile}{keyvals}{caption}
-	
+	~ \\
+	\ifthenelse{\equal{\portraitimageboxedC}{true}}{
+		\insertimageboxed{\portraitimageC}{width=\portraitimagewidthC}{\portraitimageboxedwidthC}{}
+	}{
+		\insertimage{\portraitimageC}{width=\portraitimagewidthC}{}
+	}
+	~ \\
 	\vfill
+	
+	\noindent
+	\begin{minipage}{1.0\textwidth}
+		\begin{flushright}
+			\tablaintegrantes
+		\end{flushright}
+	\end{minipage}
+}{
+\ifthenelse{\equal{\portraitstyle}{style18}}{
+	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\pagestyle{fancy}
+	
+	\checkextravarexist{\portraitimageD}{[portrait-style17] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimageboxedD}{Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimageboxedwidthD}{Defina el grosor del recuadro de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimagewidthD}{Defina los parametros de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	
+	\fancyhf{}
+	\fancyhead[L]{
+		\nombreuniversidad ~ \\
+		\nombrefacultad ~ \\
+		\departamentouniversidad ~ \\
+		\vspace{-0.43cm}
+	}
+	\fancyhead[R]{
+		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+	}
+
+	~ \\
+	\ifthenelse{\equal{\portraitimageboxedD}{true}}{
+		\insertimageboxed{\portraitimageD}{width=\portraitimagewidthD}{\portraitimageboxedwidthD}{}
+	}{
+		\insertimage{\portraitimageD}{width=\portraitimagewidthD}{}
+	}
+
+	\vfill
+	\begin{center}
+		\textcolor{\portraittitlecolor}{
+			{\noindent \Huge{\titulodelinforme} \vspace{0.5cm}} ~ \\
+			{\noindent \large{\temaatratar}}
+		}
+	\end{center}
+	\vfill
+	
 	\noindent
 	\begin{minipage}{1.0\textwidth}
 		\begin{flushright}
