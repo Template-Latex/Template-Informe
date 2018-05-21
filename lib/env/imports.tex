@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      5.3.0 (21/05/2018)
+% Versión:      5.3.5 (21/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -22,7 +22,6 @@
 
 % LIBRERÍAS IMPORTANTES
 \usepackage[spanish,es-nosectiondot,es-lcroman]{babel} % Define el idioma
-\usepackage[T1]{fontenc} % Caracteres acentuados
 \usepackage{ifthen} % Manejo de condicionales
 
 % Tipografía del documento
@@ -33,6 +32,13 @@
 	\usepackage{helvet}
 	\renewcommand{\familydefault}{\sfdefault}
 }{
+\ifthenelse{\equal{\fontdocument}{accantis}}{
+	\usepackage{accanthis}
+}{
+\ifthenelse{\equal{\fontdocument}{alegreya}}{
+	\usepackage{Alegreya}
+	\renewcommand*\oldstylenums[1]{{\AlegreyaOsF #1}}
+}{
 \ifthenelse{\equal{\fontdocument}{alegreyasans}}{
 	\usepackage[sfdefault]{AlegreyaSans}
 	\renewcommand*\oldstylenums[1]{{\AlegreyaSansOsF #1}}
@@ -42,6 +48,24 @@
 }{
 \ifthenelse{\equal{\fontdocument}{antiqua}}{
 	\usepackage{antiqua}
+}{
+\ifthenelse{\equal{\fontdocument}{antpolt}}{
+	\usepackage{antpolt}
+}{
+\ifthenelse{\equal{\fontdocument}{antpoltlight}}{
+	\usepackage[light]{antpolt}
+}{
+\ifthenelse{\equal{\fontdocument}{anttor}}{
+	\usepackage[math]{anttor}
+}{
+\ifthenelse{\equal{\fontdocument}{anttorcondensed}}{
+	\usepackage[condensed,math]{anttor}
+}{
+\ifthenelse{\equal{\fontdocument}{anttorlight}}{
+	\usepackage[light,math]{anttor}
+}{
+\ifthenelse{\equal{\fontdocument}{anttorlightcondensed}}{
+	\usepackage[light,condensed,math]{anttor}
 }{
 \ifthenelse{\equal{\fontdocument}{arev}}{
 	\usepackage{arev}
@@ -55,9 +79,15 @@
 \ifthenelse{\equal{\fontdocument}{avant}}{
 	\usepackage{avant}
 }{
+\ifthenelse{\equal{\fontdocument}{baskervald}}{
+	\usepackage{baskervald}
+}{
 \ifthenelse{\equal{\fontdocument}{berasans}}{
 	\usepackage[scaled]{berasans}
 	\renewcommand*\familydefault{\sfdefault}
+}{
+\ifthenelse{\equal{\fontdocument}{beraserif}}{
+	\usepackage{bera}
 }{
 \ifthenelse{\equal{\fontdocument}{biolinum}}{
 	\usepackage{libertine}
@@ -71,6 +101,9 @@
 }{
 \ifthenelse{\equal{\fontdocument}{cantarell}}{
 	\usepackage[default]{cantarell}
+}{
+\ifthenelse{\equal{\fontdocument}{caladea}}{
+	\usepackage{caladea}
 }{
 \ifthenelse{\equal{\fontdocument}{carlito}}{
 	\usepackage[sfdefault]{carlito}
@@ -259,8 +292,8 @@
 	\usepackage[lf]{venturis}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,helvet,alegreyasans,algolrevived,antiqua,arev,arimo,aurical,avant,berasans,biolinum,cabin,cabincondensed,cantarell,carlito,chivolight,chivoregular,clearsans,comfortaa,comicneue,comicneueangular,crimson,cyklop,dejavusans,dejavusanscondensed,droidsans,firasans,iwona,iwonacondensed,iwonalight,iwonalightcondensed,kurier,kuriercondensed,kurierlight,kurierlightcondensed,lato,libris,lxfonts,merriweather,merriweatherlight,mintspirit,montserratalternatesextralight,montserratalternatesregular,montserratalternatesthin,montserratextralight,montserratlight,montserratregular,montserratthin,nimbussans,noto,opensans,overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,sourcesanspro,uarial,ugq,universalis,universaliscondensed,urwclassico,venturis}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,helvet,accantis,alegreya,alegreyasans,algolrevived,antiqua,antpolt,antpoltlight,anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,aurical,avant,baskervald,berasans,beraserif,biolinum,cabin,cabincondensed,cantarell,caladea,carlito,chivolight,chivoregular,clearsans,comfortaa,comicneue,comicneueangular,crimson,cyklop,dejavusans,dejavusanscondensed,droidsans,firasans,iwona,iwonacondensed,iwonalight,iwonalightcondensed,kurier,kuriercondensed,kurierlight,kurierlightcondensed,lato,libris,lxfonts,merriweather,merriweatherlight,mintspirit,montserratalternatesextralight,montserratalternatesregular,montserratalternatesthin,montserratextralight,montserratlight,montserratregular,montserratthin,nimbussans,noto,opensans,overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,sourcesanspro,uarial,ugq,universalis,universaliscondensed,urwclassico,venturis}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % Tipografía typewriter
@@ -319,11 +352,12 @@
 }{
 \ifthenelse{\equal{\fonttypewriter}{texgyrecursor}}{
 	\usepackage{tgcursor}
-}{ % Fallback
+}{
 	\throwbadconfig{Fuente desconocida}{\fonttypewriter}{anonymouspro,ascii,beramono,cmpica,courier,dejavusansmono,firamono,gomono,inconsolata,kpmonospaced,lcmtt,newtxtt,nimbusmono,nimbusmononarrow,texgyrecursor,tmodern}
 	}}}}}}}}}}}}}}}}
 }
 
+\usepackage[T1]{fontenc} % Caracteres acentuados
 \ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
