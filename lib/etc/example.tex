@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      5.2.2 (21/05/2018)
+% Versión:      5.2.3 (21/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -204,11 +204,11 @@ end
 		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph} \footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.}, números romanos con \texttt{\textbackslash roman} \footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek} \footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}:
 		
 		\begin{multicols}{3}
-			\begin{enumerate}[label=\alph*) ,font=\bfseries] % Fuente en negrita
+			\begin{enumeratebf}[label=\alph*) ] % Fuente en negrita
 				\item Peras
 				\item Manzanas
 				\item Naranjas
-			\end{enumerate}
+			\end{enumeratebf}
 			
 			\begin{enumerate}[label=\greek*) ]
 				\item Matemáticas
