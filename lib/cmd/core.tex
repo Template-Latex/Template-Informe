@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      5.2.3 (21/05/2018)
+% Versión:      5.2.5 (21/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -23,15 +23,6 @@
 %	#1	Mensaje
 \newcommand{\throwwarning}[1]{
 	\errmessage{LaTeX Warning: #1 (linea \the\inputlineno)}
-}
-
-	% Lanza un mensaje de error indicando mala configuración
-%	#1	Mensaje de error
-% 	#2	Configuración usada
-%	#3	Valores esperados
-\newcommand{\throwbadconfig}[3]{
-	\errmessage{LaTeX Warning: #1 \noexpand #2=#2. Valores esperados: #3}
-	\stop
 }
 
 % Lanza un mensaje de error indicando mala configuración dentro de begin{document}
