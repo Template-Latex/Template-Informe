@@ -11,9 +11,12 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Importa las configuraciones
+\input{lib/page/portrait-config} % !FILE <STRIP,NL,DELCOM>
+
 % Se escribe el header de la portada
 \newpage
-\renewcommand{\thepage}{\nameportraitpage} % !NL
+\renewcommand{\thepage}{\nameportraitpage}
 
 % Estilos de portada
 \ifthenelse{\equal{\portraitstyle}{style1}}{
@@ -441,8 +444,8 @@
 	\thispagestyle{empty}
 	
 	% Se chequean variables propias de la portada
-	\checkextravarexist{\imagenextraportada}{}
-	\checkextravarexist{\imagenextraportadaescala}{}
+	\checkextravarexist{\imagenextraportadaA}{}
+	\checkextravarexist{\imagenextraportadaescalaA}{}
 	
 	\vspace*{-1.5cm}
 	\noindent \begin{minipage}{0.8\textwidth}
@@ -463,9 +466,9 @@
 	\end{minipage}
 	\noindent \begin{minipage}{0.2\textwidth}
 		\begin{flushright}
-			\ifthenelse{\isundefined{\imagenextraportada}}{}{
-				\ifthenelse{\isundefined{\imagenextraportadaescala}}{}{
-					\noindent \includegraphics[scale=\imagenextraportadaescala]{\imagenextraportada} \\
+			\ifthenelse{\isundefined{\imagenextraportadaA}}{}{
+				\ifthenelse{\isundefined{\imagenextraportadaescalaA}}{}{
+					\noindent \includegraphics[scale=\imagenextraportadaescalaA]{\imagenextraportadaA} \\
 				}
 			}
 		\end{flushright}
@@ -485,29 +488,84 @@
 \ifthenelse{\equal{\portraitstyle}{style16}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	
-	\checkextravarexist{\imagenfondoportada}{Defina el fondo de la portada en el bloque INFORMACION DEL DOCUMENTO. Por defecto se uso la portada ubicada en ejemplos}
-	\ifthenelse{\isundefined{\imagenfondoportada}}{
-		\def\imagenfondoportada {ejemplos/portada-1}
-	}{}
-	\checkextravarexist{\colorbloqueportada}{Defina el color del bloque del titulo de la portada en el bloque INFORMACION DEL DOCUMENTO. Por defecto se uso el color ocre}
-	\ifthenelse{\isundefined{\imagenfondoportada}}{
-		\def\imagenfondoportada {ejemplos/background-1}
-	}{}
-	\ifthenelse{\isundefined{\colorbloqueportada}}{
-		\def\colorbloqueportada {ocre}
-	}{}
+	\checkextravarexist{\imagenfondoportadaB}{Defina el fondo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque . Por defecto se uso la portada ubicada en ejemplos}
+	\checkextravarexist{\colorbloqueportadaB}{Defina el color del bloque del titulo de la portada en el bloque INFORMACION DEL DOCUMENTO. Por defecto se uso el color ocre}
 	
 	\begingroup
 	\thispagestyle{empty}
 	\begin{tikzpicture}[remember picture,overlay]
-		\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\imagenfondoportada}};
-		\draw (current page.center) node [fill=\colorbloqueportada!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
+		\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\imagenfondoportadaB}};
+		\draw (current page.center) node [fill=\colorbloqueportadaB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
 				\centering \textcolor{\portraittitlecolor}{\titulodelinforme} \\ [10pt]
 				{\Large \temaatratar} \\ [25pt]
 				{\huge \autordeldocumento}}};
 	\end{tikzpicture}
 	\vfill
 	\endgroup
+}{
+\ifthenelse{\equal{\portraitstyle}{style1}}{
+	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\pagestyle{fancy}
+	\fancyhf{}
+	\fancyhead[L]{
+		\nombreuniversidad ~ \\
+		\nombrefacultad ~ \\
+		\departamentouniversidad ~ \\
+		\vspace{-0.43cm}
+	}
+	\fancyhead[R]{
+		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+	}
+	
+	~ \\
+	\vfill
+	\begin{center}
+		\textcolor{\portraittitlecolor}{
+			{\noindent \Huge{\titulodelinforme} \vspace{0.5cm}} ~ \\
+			{\noindent \large{\temaatratar}}
+		}
+	\end{center}
+	
+	\vfill
+	\noindent
+	\begin{minipage}{1.0\textwidth}
+		\begin{flushright}
+			\tablaintegrantes
+		\end{flushright}
+	\end{minipage}
+}{
+\ifthenelse{\equal{\portraitstyle}{style1}}{
+	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\pagestyle{fancy}
+	\fancyhf{}
+	\fancyhead[L]{
+		\nombreuniversidad ~ \\
+		\nombrefacultad ~ \\
+		\departamentouniversidad ~ \\
+		\vspace{-0.43cm}
+	}
+	\fancyhead[R]{
+		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+	}
+	
+	~ \\
+	\vfill
+	\begin{center}
+		\textcolor{\portraittitlecolor}{
+			{\noindent \Huge{\titulodelinforme} \vspace{0.5cm}} ~ \\
+			{\noindent \large{\temaatratar}}
+		}
+	\end{center}
+
+	\insertimage{imagefile}{keyvals}{caption}
+	
+	\vfill
+	\noindent
+	\begin{minipage}{1.0\textwidth}
+		\begin{flushright}
+			\tablaintegrantes
+		\end{flushright}
+	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
@@ -539,7 +597,7 @@
 	\newpage
 	\pagecolor{white}
 }{
-	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style16}}}}}}}}}}}}}}}}}
+	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style18}}}}}}}}}}}}}}}}}}}
 }
 
 % Añade una página en blanco al imprimir por las dos caras
