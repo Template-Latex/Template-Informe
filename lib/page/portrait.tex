@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de portadas
-% Versión:      5.2.7 (21/05/2018)
+% Versión:      5.2.8 (21/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -23,6 +23,7 @@
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
 	
+	% Escribe el header
 	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad ~ \\
@@ -34,6 +35,7 @@
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	}
 	
+	% Título y tema a tratar
 	~ \\
 	\vfill
 	\begin{center}
@@ -43,6 +45,7 @@
 		}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\noindent
 	\begin{minipage}{1.0\textwidth}
@@ -55,6 +58,7 @@
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
 	
+	% Escribe el header
 	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad ~ \\
@@ -66,6 +70,7 @@
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	}
 	
+	% Nombre de curso y título
 	~ \\
 	\vfill
 	\begin{center}
@@ -77,6 +82,7 @@
 		}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\noindent
 	\begin{minipage}{1.0\textwidth}
@@ -89,6 +95,7 @@
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
 	
+	% Escribe el header
 	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad ~ \\
@@ -100,6 +107,7 @@
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	}
 
+	% Curso y código - título informe
 	~ \\
 	\vfill
 	\begin{center}
@@ -113,6 +121,7 @@
 		}
 	\end{center}
 
+	% Tabla de integrantes
 	\vfill
 	\noindent
 	\begin{minipage}{1.0\textwidth}
@@ -125,6 +134,7 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Escribe el header
 	\vspace*{-1.5cm}
 	\noindent \includegraphics[width=1.75cm]{departamentos/uchile2}
 	\hspace*{-0.15cm}
@@ -135,6 +145,7 @@
 		\vspace*{1.25cm}\mbox{}
 	\end{tabular}
 	
+	% Título portada - curso
 	\vfill
 	\begin{center}
 		{\fontsize{22pt}{10pt} \selectfont 
@@ -143,6 +154,7 @@
 		\vspace*{3cm}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\noindent
 	\begin{minipage}{1.0\textwidth}
@@ -155,6 +167,7 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Escribe el header
 	\includegraphics[width=1.5cm]{departamentos/uchile3} 
 	\hspace{-0.2cm}
 	\begin{tabular}{l}
@@ -164,6 +177,7 @@
 		\vspace*{1cm}\mbox{}
 	\end{tabular}
 	
+	% Título informe - tema
 	\vfill
 	\begin{center}
 		\fontsize{8mm}{9mm}\selectfont
@@ -176,6 +190,7 @@
 		\vspace*{1.4cm}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\begin{center}
 		\noindent \normalsize{\tablaintegrantes}
@@ -185,6 +200,7 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Escribe el header
 	\begin{wrapfigure}{l}{0.3\textwidth}
 		\vspace{-0.69cm}
 		\noindent \hspace{-1.10cm} \includegraphics[scale=1.35]{departamentos/fcfm2}
@@ -198,6 +214,7 @@
 	\hspace*{0.3cm}
 	\noindent \textsc{\color{dgray} \hspace{-1.6cm} \codigodelcurso \nombredelcurso} ~ \\
 	
+	% Título informe - tema
 	\vfill
 	\begin{center}
 		\vspace*{0.5cm}
@@ -210,6 +227,7 @@
 		~
 	\end{minipage}
 	
+	% Tabla de integrantes
 	\vfill
 	\begin{minipage}{1.0\textwidth}
 		\begin{flushright}
@@ -221,6 +239,7 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Escribe el header
 	\begin{center}
 		\vspace*{-1.5cm}
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
@@ -234,6 +253,7 @@
 		\end{tabular}
 	\end{center}
 	
+	% Título informe - tema
 	\vfill
 	\begin{center}
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.3cm}
@@ -242,6 +262,7 @@
 		{\large \textcolor{\portraittitlecolor}{\temaatratar} ~ \\}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\noindent
 	\begin{minipage}{1.0\textwidth}
@@ -254,6 +275,7 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Escribe el header
 	\begin{center}
 		\vspace*{-1.0cm}
 		\begin{tabular}{c}
@@ -264,6 +286,7 @@
 		\end{tabular}
 	\end{center}
 	
+	% Título informe - tema
 	\vfill
 	\begin{center}
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.3cm}
@@ -272,6 +295,7 @@
 		{\large \textcolor{\portraittitlecolor}{\temaatratar} ~ \\}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\noindent
 	\begin{minipage}{1.0\textwidth}
@@ -284,6 +308,7 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Título del informe
 	\noindent \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	\vfill
 	\begin{center}
@@ -293,6 +318,7 @@
 		{\large \textcolor{\portraittitlecolor}{\temaatratar} \\}
 	\end{center}
 	
+	% Nombre universidad - departamento
 	\vfill
 	\begin{center}
 		\begin{tabular}{c}
@@ -302,6 +328,7 @@
 		\end{tabular}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\begin{center}
 		\indent \scshape{\tablaintegrantes}
@@ -311,6 +338,7 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Header
 	~ \\
 	\vfill
 	\begin{center}
@@ -322,6 +350,7 @@
 		\vspace{1.0cm}
 	\end{center}
 	
+	% Título informe
 	\vfill
 	\begin{center}
 		\noindent {\large \scshape{\nombredelcurso}} \vspace{0.5cm} ~ \\
@@ -331,11 +360,11 @@
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{2.5cm}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\begin{center}
 		\indent \tablaintegrantes
 	\end{center}
-	
 	\vfill
 	~ \\
 }{
@@ -343,6 +372,7 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Header
 	\begin{center}
 		\vspace*{-1.0cm}
 		\scshape{\nombreuniversidad} ~ \\
@@ -350,12 +380,14 @@
 		\scshape{\departamentouniversidad}
 	\end{center}
 	
+	% Título informe
 	\vfill
 	\begin{center}
 		{\setstretch{1.2} \fontsize{21pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\titulodelinforme}} \vspace{0.5cm}} ~ \\
 		{\fontsize{13pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\temaatratar}}}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\begin{center}
 		\indent \tablaintegrantes
@@ -365,22 +397,26 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Imagen departamento
 	\begin{center}
 		\vspace*{-1.0cm}
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	\end{center}
 
+	% Título informe
 	\vfill
 	\begin{center}
 		{\bf \Huge \scshape{\textcolor{\portraittitlecolor}{\titulodelinforme}} \vspace{0.3cm}} \\
 		{\bf \Large \textcolor{\portraittitlecolor}{\temaatratar}}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\begin{flushright}
 		\noindent \tablaintegrantes
 	\end{flushright}
 
+	% Footer
 	\vspace{0.5cm}
 	\noindent \rule{\textwidth}{0.4mm}
 	\begin{center}
@@ -396,6 +432,7 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Header
 	\noindent
 	\vspace*{-1.5cm}
 	\begin{flushleft}
@@ -416,6 +453,7 @@
 		\end{minipage}
 	\end{flushright}
 	
+	% Título informe
 	\vfill
 	\begin{center}
 		\begin{minipage}{0.9\textwidth}
@@ -428,6 +466,7 @@
 		\end{minipage}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\begin{flushright}
 		\noindent \textsf{\tablaintegrantes}
@@ -437,16 +476,19 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
+	% Header
 	\noindent
 	\begin{flushleft}
 		\vspace*{-1.0cm}
 		\noindent \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \\
 	\end{flushleft}
 	
+	% Título del informe
 	\vfill
 	{\bf \huge \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\titulodelinforme}} \vspace*{0.05cm}}} \\
 	{\bf \large \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\temaatratar}}}} \\
 	
+	% Tabla de integrantes
 	\vfill
 	\begin{flushright}
 		\noindent \textsf{\tablaintegrantes}
@@ -455,10 +497,10 @@
 \ifthenelse{\equal{\portraitstyle}{style15}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	
 	\checkextravarexist{\headerimageA}{Defina la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\headerimagescaleA}{Defina la escala de la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	
+	% Header
 	\vspace*{-1.5cm}
 	\noindent \begin{minipage}{0.8\textwidth}
 		\noindent \begin{minipage}{0.22\textwidth}
@@ -486,12 +528,14 @@
 		\end{flushright}
 	\end{minipage}
 	
+	% Título informe
 	\vfill
 	\begin{center}
 		{\fontsize{25pt}{15pt} \selectfont \textcolor{\portraittitlecolor}{\textbf{\titulodelinforme}} \vspace{0.7cm}} \\
 		{\Large \textcolor{\portraittitlecolor}{\temaatratar}}
 	\end{center}
 	
+	% Tabla de integrantes
 	\vfill
 	\begin{center}
 		\noindent \tablaintegrantes
@@ -499,31 +543,31 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style16}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	
 	\checkextravarexist{\portraitbackgroundimageB}{Defina el fondo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\portraitbackgroundcolorB}{Defina el color del bloque del titulo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	
+	% Imagen fondo, título informe
 	\begingroup
-	\thispagestyle{empty}
-	\begin{tikzpicture}[remember picture,overlay]
-		\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\portraitbackgroundimageB}};
-		\draw (current page.center) node [fill=\portraitbackgroundcolorB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
-				\centering \textcolor{\portraittitlecolor}{\titulodelinforme} \\ [10pt]
-				{\Large \temaatratar} \\ [25pt]
-				{\huge \autordeldocumento}}};
-	\end{tikzpicture}
-	\vfill
+		\thispagestyle{empty}
+		\begin{tikzpicture}[remember picture,overlay]
+			\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\portraitbackgroundimageB}};
+			\draw (current page.center) node [fill=\portraitbackgroundcolorB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
+					\centering \textcolor{\portraittitlecolor}{\titulodelinforme} \\ [10pt]
+					{\Large \temaatratar} \\ [25pt]
+					{\huge \autordeldocumento}}};
+		\end{tikzpicture}
+		\vfill
 	\endgroup
 }{
 \ifthenelse{\equal{\portraitstyle}{style17}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
-	
 	\checkextravarexist{\portraitimageC}{[portrait-style17] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\portraitimageboxedC}{Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\portraitimageboxedwidthC}{Defina el grosor del recuadro de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\portraitimagewidthC}{Defina los parametros de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	
+	% Header
 	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad ~ \\
@@ -535,6 +579,7 @@
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	}
 	
+	% Título del informe
 	~ \\
 	\vfill
 	\begin{center}
@@ -544,6 +589,7 @@
 		}
 	\end{center}
 
+	% Imagen de la portada
 	~ \\
 	\ifthenelse{\equal{\portraitimageboxedC}{true}}{
 		\insertimageboxed{\portraitimageC}{width=\portraitimagewidthC}{\portraitimageboxedwidthC}{}
@@ -553,6 +599,7 @@
 	~ \\
 	\vfill
 	
+	% Tabla de integrantes
 	\noindent
 	\begin{minipage}{1.0\textwidth}
 		\begin{flushright}
@@ -563,12 +610,12 @@
 \ifthenelse{\equal{\portraitstyle}{style18}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
-	
 	\checkextravarexist{\portraitimageD}{[portrait-style17] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\portraitimageboxedD}{Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\portraitimageboxedwidthD}{Defina el grosor del recuadro de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\portraitimagewidthD}{Defina los parametros de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	
+	% Header
 	\fancyhf{}
 	\fancyhead[L]{
 		\nombreuniversidad ~ \\
@@ -580,6 +627,7 @@
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 	}
 
+	% Imagen de la portada
 	~ \\
 	\ifthenelse{\equal{\portraitimageboxedD}{true}}{
 		\insertimageboxed{\portraitimageD}{width=\portraitimagewidthD}{\portraitimageboxedwidthD}{}
@@ -587,6 +635,7 @@
 		\insertimage{\portraitimageD}{width=\portraitimagewidthD}{}
 	}
 
+	% Título del informe
 	\vfill
 	\begin{center}
 		\textcolor{\portraittitlecolor}{
@@ -596,6 +645,7 @@
 	\end{center}
 	\vfill
 	
+	% Tabla de integrantes
 	\noindent
 	\begin{minipage}{1.0\textwidth}
 		\begin{flushright}
@@ -607,25 +657,21 @@
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{empty}
 	\pagecolor{lbrown}
-	
 	\begin{center}
 		\vspace*{-1.0cm}
 		\scshape{\nombreuniversidad} ~ \\
 		\scshape{\nombrefacultad} ~ \\
 		\scshape{\departamentouniversidad}
 	\end{center}
-	
 	~ \\
 	\begin{center}
 		\bgtemplatetestimg
 	\end{center}
-
 	\begin{center}
 		\vspace*{-6cm}
 		{\setstretch{1.2} \fontsize{25pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\titulodelinforme}} \vspace{0.5cm}} \\
 		{\fontsize{15pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\temaatratar}}}
 	\end{center}
-
 	\vfill
 	\begin{flushright}
 		\noindent \tablaintegrantes
