@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      5.3.5 (21/05/2018)
+% Versión:      5.3.6 (21/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -72,6 +72,7 @@
 }{
 \ifthenelse{\equal{\fontdocument}{arimo}}{
 	\usepackage[sfdefault]{arimo}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{aurical}}{
 	\usepackage{aurical}
@@ -95,9 +96,11 @@
 }{
 \ifthenelse{\equal{\fontdocument}{cabin}}{
 	\usepackage[sfdefault]{cabin}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{cabincondensed}}{
 	\usepackage[sfdefault,condensed]{cabin}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{cantarell}}{
 	\usepackage[default]{cantarell}
@@ -107,6 +110,7 @@
 }{
 \ifthenelse{\equal{\fontdocument}{carlito}}{
 	\usepackage[sfdefault]{carlito}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{chivolight}}{
 	\usepackage[familydefault,light]{Chivo}
@@ -116,6 +120,7 @@
 }{
 \ifthenelse{\equal{\fontdocument}{clearsans}}{
 	\usepackage[sfdefault]{ClearSans}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{comfortaa}}{
 	\usepackage[default]{comfortaa}
@@ -144,11 +149,13 @@
 	\usepackage[defaultsans]{droidsans}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-\ifthenelse{\equal{\fontdocument}{fetamont}}{
+\ifthenelse{\equal{\fontdocument}{fetamont}}{ % Falta implementar aún
 	\usepackage{fetamont}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{firasans}}{
 	\usepackage[sfdefault]{FiraSans}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{iwona}}{
 	\usepackage[math]{iwona}
@@ -227,12 +234,14 @@
 }{
 \ifthenelse{\equal{\fontdocument}{noto}}{
 	\usepackage[sfdefault]{noto}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{opensans}}{
 	\usepackage[default,osfigures,scale=0.95]{opensans}
 }{
 \ifthenelse{\equal{\fontdocument}{overlock}}{
 	\usepackage[sfdefault]{overlock}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{paratype}}{
 	\usepackage{paratype}
@@ -275,9 +284,11 @@
 }{
 \ifthenelse{\equal{\fontdocument}{uarial}}{
 	\usepackage{uarial}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{ugq}}{
 	\renewcommand*\sfdefault{ugq}
+	\renewcommand*\familydefault{\sfdefault}
 }{
 \ifthenelse{\equal{\fontdocument}{universalis}}{
 	\usepackage[sfdefault]{universalis}
@@ -285,15 +296,12 @@
 \ifthenelse{\equal{\fontdocument}{universaliscondensed}}{
 	\usepackage[condensed,sfdefault]{universalis}
 }{
-\ifthenelse{\equal{\fontdocument}{urwclassico}}{
-	\usepackage[sfdefault]{classico}
-}{
 \ifthenelse{\equal{\fontdocument}{venturis}}{
 	\usepackage[lf]{venturis}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,helvet,accantis,alegreya,alegreyasans,algolrevived,antiqua,antpolt,antpoltlight,anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,aurical,avant,baskervald,berasans,beraserif,biolinum,cabin,cabincondensed,cantarell,caladea,carlito,chivolight,chivoregular,clearsans,comfortaa,comicneue,comicneueangular,crimson,cyklop,dejavusans,dejavusanscondensed,droidsans,firasans,iwona,iwonacondensed,iwonalight,iwonalightcondensed,kurier,kuriercondensed,kurierlight,kurierlightcondensed,lato,libris,lxfonts,merriweather,merriweatherlight,mintspirit,montserratalternatesextralight,montserratalternatesregular,montserratalternatesthin,montserratextralight,montserratlight,montserratregular,montserratthin,nimbussans,noto,opensans,overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,sourcesanspro,uarial,ugq,universalis,universaliscondensed,urwclassico,venturis}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,helvet,accantis,alegreya,alegreyasans,algolrevived,antiqua,antpolt,antpoltlight,anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,aurical,avant,baskervald,berasans,beraserif,biolinum,cabin,cabincondensed,cantarell,caladea,carlito,chivolight,chivoregular,clearsans,comfortaa,comicneue,comicneueangular,crimson,cyklop,dejavusans,dejavusanscondensed,droidsans,firasans,iwona,iwonacondensed,iwonalight,iwonalightcondensed,kurier,kuriercondensed,kurierlight,kurierlightcondensed,lato,libris,lxfonts,merriweather,merriweatherlight,mintspirit,montserratalternatesextralight,montserratalternatesregular,montserratalternatesthin,montserratextralight,montserratlight,montserratregular,montserratthin,nimbussans,noto,opensans,overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,sourcesanspro,uarial,ugq,universalis,universaliscondensed,venturis}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % Tipografía typewriter
