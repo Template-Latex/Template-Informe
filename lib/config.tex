@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      5.4.0 (21/05/2018)
+% Versión:      5.4.1 (27/05/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -13,6 +13,7 @@
 
 % CONFIGURACIONES GENERALES
 \def\addemptypagetwosides {false}  % Añade pag en blanco al imprimir a 2 caras
+\def\columnhspace {-0.4}           % Margen horizontal entre objetos \createcolumn
 \def\columnsepwidth {2.1}          % Separación entre columnas [em]
 \def\defaultinterline {1.0}        % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11}       % Tamaño del salto de línea [pt]
@@ -24,7 +25,8 @@
 \def\pointdecimal {false}          % N° decimales con punto en vez de coma
 \def\romanpageuppercase {false}    % Páginas en número romano en mayúsculas
 \def\showlinenumbers {false}       % Muestra los n° de línea del documento
-\def\tablepadding {1.0}            % Espaciado de celda de las tablas
+\def\tablepaddingh {1.0}           % Espaciado horizontal de celda de las tablas
+\def\tablepaddingv {1.0}           % Espaciado vertical de celda de las tablas
 
 % ESTILO PORTADA Y HEADER-FOOTER
 \def\hfstyle {style1}              % Estilo header-footer (10 estilos disp.)

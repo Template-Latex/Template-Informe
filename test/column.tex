@@ -1,0 +1,160 @@
+\subsectionanum{tres columnas idénticas}
+\createthirdcolumn{
+
+\begin{tabular}{|ccc|}
+	&  & \\ \hline
+	& 3 & \\ \hline 
+	& x & \\ \hline
+	& 2 & \\ \hline
+\end{tabular}
+
+}{
+\begin{tabular}{|ccc|}
+	&  & \\ \hline
+	& 3 & \\ \hline 
+	& x & \\ \hline
+	& 2 & \\ \hline
+\end{tabular}
+
+}{
+
+\begin{tabular}{|ccc|}
+	&  & \\ \hline
+	& 3 & \\ \hline 
+	& x & \\ \hline
+	& 2 & \\ \hline
+\end{tabular}
+
+}
+
+\subsectionanum{dos columnas idénticas}
+\createhalfcolumnc{
+	
+	\insertequation{a+b}
+	
+}{
+	
+	\begin{tabular}{|ccc|}
+		&  & \\ \hline
+		& 3 & \\ \hline 
+		& x & \\ \hline
+		& 2 & \\ \hline
+	\end{tabular}
+	
+}
+
+\subsectionanum{tres columnas idénticas centradas}
+\createthirdcolumnc{
+	
+	\insertequation{a+b}
+	
+}{
+	
+	\begin{tabular}{|ccc|}
+		&  & \\ \hline
+		& 3 & \\ \hline 
+		& x & \\ \hline
+		& 2 & \\ \hline
+	\end{tabular}
+	
+}{
+
+	\insertequation{a+o}
+
+}
+
+\createthirdcolumn{\lipsum[1]}{\lipsum[1]}{\lipsum[1]}
+
+\subsectionanum{dos columnas 30-70 centradas}
+\createtwocolumn{0.3}{0.7}{0cm}{
+
+\lipsum[1]
+
+}{
+
+\insertimage{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}}
+
+}
+
+\subsectionanum{dos columnas 30-70 centradas}
+hola
+
+\subsectionanum{dos columnas 30-30 separadas por 3cm}
+\createtwocolumn{0.3}{0.3}{3cm}{
+	
+	\lipsum[1]
+	
+}{
+
+	\lipsum[1]
+		
+	\insertimage{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}}
+	
+}
+
+\createhalfcolumn{\lipsum[1]}{\lipsum[2]}
+
+\begin{tabular}{|ccc|}
+	&  & \\ \hline
+	& 3 & \\ \hline 
+	& x & \\ \hline
+	& 2 & \\ \hline
+\end{tabular}
+
+\newpage
+
+\lipsum[1]
+
+\createhalfcolumn{\lipsum[1]}{\lipsum[2]}
+
+\createhalfcolumn{\lipsum[1]}{\lipsum[2]}
+
+\createhalfcolumn{
+
+\begin{tabular}{|ccc|}
+	&  & \\ \hline
+	& 3 & \\ \hline 
+	& x & \\ \hline
+	& 2 & \\ \hline
+\end{tabular}
+
+}{
+
+\begin{tabular}{|ccc|}
+	&  & \\ \hline
+	& 3 & \\ \hline 
+	& x & \\ \hline
+	& 2 & \\ \hline
+\end{tabular}
+
+}
+
+\createhalfcolumnc{
+	
+	\begin{tabular}{|ccc|}
+		&  & \\ \hline
+		& 3 & \\ \hline 
+		& x & \\ \hline
+		& 2 & \\ \hline
+	\end{tabular}
+	
+}{
+	
+	\begin{tabular}{|ccc|}
+		&  & \\ \hline
+		& 3 & \\ \hline 
+		& x & \\ \hline
+		& 2 & \\ \hline
+	\end{tabular}
+	
+}
+
+\createtwocolumnl{0.3}{0.7}{0cm}{
+	
+	\lipsum[1]
+	
+}{
+	
+	\insertimage{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}}
+	
+}{1cm}
