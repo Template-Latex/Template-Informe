@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Índice
-% Versión:      5.4.3 (11/06/2018)
+% Versión:      5.4.4 (11/06/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -15,6 +15,7 @@
 	
 	% Crea nueva página y establece estilo de títulos
 	\newpage
+	\begingroup
 	\sectionfont{\color{\indextitlecolor} \fontsizetitlei \styletitlei \selectfont}
 	
 	% Añade la entrada del índice a los marcadores del pdf
@@ -44,31 +45,42 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\nolinenumbers}{
 	}
+
+	% Cambia tabulación índice de objetos para alinear con contenidos
+	\ifthenelse{\equal{\objectindexindent}{true}}{
+		\def\cftlstlistingindent {1.495em}
+	}{
+		\setlength{\cfttabindent}{0in}
+		\setlength{\cftfigindent}{0in}
+		\setlength{\cftsubfigindent}{0in}
+		\setlength{\cftfigindent}{0in}
+		\def\cftlstlistingindent {0.01em}
+	}
 	
 	% Iguala tamaño del margen en números de objetos
 	\ifthenelse{\equal{\equalmarginnumobject}{true}}{
 		
 		% Calcula tamaño del margen de los números en objetos del índice dependiendo de la configuración
 		\ifthenelse{\equal{\showsectioncaption}{none}}{
-			\def\cftdefautllistingnumwidth {2.3em}
+			\def\cftdefautnumwidth {2.3em}
 		}{
 		\ifthenelse{\equal{\showsectioncaption}{sec}}{
-			\def\cftdefautllistingnumwidth {3.0em}
+			\def\cftdefautnumwidth {3.0em}
 		}{
 		\ifthenelse{\equal{\showsectioncaption}{ssec}}{
-			\def\cftdefautllistingnumwidth {3.8em}
+			\def\cftdefautnumwidth {3.8em}
 		}{
 		\ifthenelse{\equal{\showsectioncaption}{sssec}}{
-			\def\cftdefautllistingnumwidth {4.3em}
+			\def\cftdefautnumwidth {4.3em}
 		}{
 			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}}}}
 		}
 		
 		% Configuración identado de títulos de objetos después del número
-		\def\cftfignumwidth {\cftdefautllistingnumwidth}
-		\def\cftsubfignumwidth {\cftdefautllistingnumwidth}
-		\def\cfttabnumwidth {\cftdefautllistingnumwidth}
-		\def\cftlstlistingnumwidth {\cftdefautllistingnumwidth}}{
+		\def\cftfignumwidth {\cftdefautnumwidth}
+		\def\cftsubfignumwidth {\cftdefautnumwidth}
+		\def\cfttabnumwidth {\cftdefautnumwidth}
+		\def\cftlstlistingnumwidth {\cftdefautnumwidth}}{
 	}
 
 	% Índice de Contenidos
@@ -88,6 +100,9 @@
 	\iftotallstlistings
 		\ifthenelse{\equal{\showindexofcode}{true}}{\lstlistoflistings}{}
 	\fi
+	
+	% Termina el bloque de índice
+	\endgroup
 	
 	% Se añade una página en blanco
 	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
