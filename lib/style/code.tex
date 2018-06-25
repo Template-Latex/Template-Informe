@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Estilos de código fuente
-% Versión:      5.4.6 (14/06/2018)
+% Versión:      5.4.7 (25/06/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -244,7 +244,7 @@
 	columns=fullflexible,
 	keepspaces=true,
 	literate={\ \ }{{\ }}1,
-	tabsize=4,
+	tabsize=4
 }
 
 % Pseudocódigo
@@ -254,11 +254,17 @@
 	breakatwhitespace=false,
 	breaklines=true,
 	columns=flexible,
+	commentstyle=\color{gray},
 	frame=tB,
 	keepspaces=true,
-	keywords={input,output,return,datatype,function,in,if,else, foreach,while,begin,end,do,and,or,xor},
+	keywords={and,be,begin,datatype,do,elif,else,end,for,foreach,fun,function,if,in,input,let,null,or,output,pop,procedure,push,repeat,return,swap,until,while,xor},
 	keywordstyle=\color{black}\bfseries\em,
 	mathescape=true,
+	morecomment=[l]{//},
+	morecomment=[l]{\#},
+	morecomment=[s]{/*}{*/},
+	morecomment=[s]{/**}{*/},
+	sensitive=false,
 	showstringspaces=false,
 	showtabs=false,
 	stepnumber=1,
