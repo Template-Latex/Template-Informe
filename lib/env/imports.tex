@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      5.4.7 (25/06/2018)
+% Versión:      5.4.8 (23/08/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -451,6 +451,20 @@
 }
 \ifthenelse{\equal{\importtikz}{true}}{ % Importa la librería tikz
 	\usepackage{tikz}}{
+}
+
+% Estilo portada
+\ifthenelse{\equal{\hfstyle}{style11}}{
+	\usepackage{lastpage}}{
+}
+\ifthenelse{\equal{\hfstyle}{style12}}{
+	\usepackage{lastpage}}{
+}
+\ifthenelse{\equal{\hfstyle}{style13}}{
+	\usepackage{lastpage}}{
+}
+\ifthenelse{\equal{\hfstyle}{style14}}{
+	\usepackage{lastpage}}{
 }
 
 % LIBRERÍAS DEPENDIENTES

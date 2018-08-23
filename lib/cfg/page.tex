@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      5.4.7 (25/06/2018)
+% Versión:      5.4.8 (23/08/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -78,7 +78,7 @@
 		\vspace{0.04cm}
 	}
 	\fancyhead[R]{
-		\includegraphics[width=1.2cm]{departamentos/fcfm2}
+		\includegraphics[width=1.2cm]{\imagendepartamento}
 		\vspace{-0.10cm}
 	}
 	\fancyfoot[C]{\thepage}
@@ -147,7 +147,49 @@
 	\renewcommand{\footrulewidth}{0.5pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 }{
-	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style10}}}}}}}}}}
+\ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+	\fancyhead[R]{\small \rm \thepage \nomnpageof \pageref{LastPage}}
+	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
+	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+}{
+\ifthenelse{\equal{\hfstyle}{style12}}{ % Similar a 6
+	\pagestyle{fancy} \fancyhf{}
+	\fancyfoot[L]{\departamentouniversidad}
+	\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
+	\fancyfoot[R]{\nombreuniversidad}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\setlength{\headheight}{49pt}
+}{
+\ifthenelse{\equal{\hfstyle}{style13}}{ % Similar a 3
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{
+		\small \rm \textit{\codigodelcurso \nombredelcurso}
+		\vspace{0.04cm}
+	}
+	\fancyhead[R]{
+		\includegraphics[width=1.2cm]{\imagendepartamento}
+		\vspace{-0.10cm}
+	}
+	\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0pt}
+}{
+\ifthenelse{\equal{\hfstyle}{style14}}{ % Similar a 4
+	\pagestyle{fancy} \fancyhf{}
+	\fancyhead[L]{\nouppercase{\rightmark}}
+	\fancyhead[R]{}
+	\fancyfoot[C]{\small \rm \thepage \nomnpageof \pageref{LastPage}}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+}{
+	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style14}}}}}}}}}}}}}}
 }
 
 % Muestra los números de línea
