@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Índice
-% Versión:      5.4.8 (24/08/2018)
+% Versión:      5.4.9 (01/09/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -88,17 +88,26 @@
 	
 	% Lista de Figuras
 	\iftotalfigures
-		\ifthenelse{\equal{\showindexoffigures}{true}}{\listoffigures}{}
+		\ifthenelse{\equal{\showindexoffigures}{true}}{
+			\ifthenelse{\equal{\indexforcenewpage}{true}}{\newpage}{}
+			\listoffigures
+		}{}
 	\fi
 	
 	% Lista de Tablas
 	\iftotaltables
-		\ifthenelse{\equal{\showindexoftables}{true}}{\listoftables}{}
+		\ifthenelse{\equal{\showindexoftables}{true}}{
+			\ifthenelse{\equal{\indexforcenewpage}{true}}{\newpage}{}
+			\listoftables
+		}{}
 	\fi
 	
 	% Lista del Código Fuente
 	\iftotallstlistings
-		\ifthenelse{\equal{\showindexofcode}{true}}{\lstlistoflistings}{}
+		\ifthenelse{\equal{\showindexofcode}{true}}{
+			\ifthenelse{\equal{\indexforcenewpage}{true}}{\newpage}{}
+			\lstlistoflistings
+		}{}
 	\fi
 	
 	% Termina el bloque de índice
