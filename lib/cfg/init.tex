@@ -297,5 +297,40 @@
 % Se define la versión menor a compilar
 \pdfminorversion=\pdfcompileversion
 
+% Profundidad de las secciones
+\setcounter{secnumdepth}{4}
+
+% Crea las subsubsubsecciones
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+% Crea contador subsubsubsección
+\newcounter{subsubsubsection}[subsubsection]
+
+% Establece el número de las subsubsubsecciones
+\ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega punto tras el número
+	\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}.}
+	\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}.}
+}{
+	\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+	\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}}
+}
+
+\makeatletter
+	\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+		{3.25ex \@plus1ex \@minus.2ex}%
+		{-1em}%
+		{\normalfont\normalsize\bfseries}}
+	\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+		{3.25ex \@plus1ex \@minus .2ex}%
+		{-1em}%
+		{\normalfont\normalsize\bfseries}}
+	\def\toclevel@subsubsubsection{4}
+	\def\toclevel@paragraph{5}
+	\def\toclevel@paragraph{6}
+	\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+	\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+	\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
 % Profundidad del índice y bookmarks pdf
 \setcounter{tocdepth}{\indexdepth}
