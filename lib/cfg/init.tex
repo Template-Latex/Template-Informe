@@ -315,14 +315,15 @@
 	\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}}
 }
 
+% Agrega compatibilidad de subsubsubsecciones al TOC
 \makeatletter
-	\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
-		{3.25ex \@plus1ex \@minus.2ex}%
-		{-1em}%
+	\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}
+		{3.25ex \@plus1ex \@minus.2ex}
+		{-1em}
 		{\normalfont\normalsize\bfseries}}
-	\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
-		{3.25ex \@plus1ex \@minus .2ex}%
-		{-1em}%
+	\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}
+		{3.25ex \@plus1ex \@minus .2ex}
+		{-1em}
 		{\normalfont\normalsize\bfseries}}
 	\def\toclevel@subsubsubsection{4}
 	\def\toclevel@paragraph{5}

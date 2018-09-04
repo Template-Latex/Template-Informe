@@ -85,6 +85,23 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}
 }
 
+% Insertar un sub-sub-subtítulo sin número
+% 	#1	Sub-subtítulo
+\newcommand{\subsubsubsectionanum}[1]{
+	\emptyvarerr{\subsubsubsectionanum}{#1}{Sub-sub-subtitulo no definido}
+	\subsubsubsection*{#1}
+	\addcontentsline{toc}{subsubsubsection}{#1}
+	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsubsection}}{}
+}
+
+% Insertar un sub-sub-subtítulo sin número y sin indexar
+% 	#1	Sub-subtítulo
+\newcommand{\subsubsubsectionanumnoi}[1]{
+	\emptyvarerr{\subsubsubsectionanumnoi}{#1}{Sub-sub-subtitulo no definido}
+	\subsubsection*{#1}
+	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsubsection}}{}
+}
+
 % Cambia el título del header
 %	#1	Título
 \newcommand{\changeheadertitle}[1]{
