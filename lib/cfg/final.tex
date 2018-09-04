@@ -61,14 +61,8 @@
 	\counterwithin{lstlisting}{subsubsection}
 	\counterwithin{table}{subsubsection}
 }{
-\ifthenelse{\equal{\showsectioncaption}{ssssec}}{
-	\counterwithin{equation}{subsubsubsection}
-	\counterwithin{figure}{subsubsubsection}
-	\counterwithin{lstlisting}{subsubsubsection}
-	\counterwithin{table}{subsubsubsection}
-}{
-	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec,sssec}
-}}}}}
+	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}
+}}}}
 
 % Se reestablecen números de página y secciones
 \renewcommand{\thepage}{\arabic{page}}
