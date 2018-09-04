@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      5.5.1 (04/09/2018)
+% Versión:      5.5.2 (04/09/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -22,7 +22,7 @@
 		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \href{http://latex.ppizarror.com/informe.html#hlp-imagen}{\texttt{\textbackslash insertimage}}:
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda opcional
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}}
+		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
 		
 		A continuación \footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{http://latex.ppizarror.com/informe.html#hlp-formulae}{\texttt{\textbackslash insertequation}}:
 		
@@ -43,7 +43,7 @@
 		% Tabla generada con el plugin Excel2Latex
 		\begin{table}[htbp]
 			\centering
-			\caption{Ejemplo de tablas}
+			\caption{Ejemplo de tablas.}
 			\begin{tabular}{ccc}
 				\hline
 				\textbf{Columna 1} & \textbf{Columna 2} & \textbf{Columna 3} \bigstrut\\
@@ -65,7 +65,7 @@
 	\subsection{Haciendo informes como un profesional}
 		
 		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala (un 30% del ancho de página) y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
-		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda}
+		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
 		
 		\lipsum[1]
 
@@ -117,12 +117,12 @@
 		% A continuación se crea una función auxiliar, esta es una herramienta extremadamente importante y muy útil. Esta función de ejemplo toma dos parámetros, uno es el lenguaje del código fuente, el segundo el identificador en el manual
 		\newcommand{\insertsrcmanual}[2]{\href{http://latex.ppizarror.com/informe.html\#hlp-srccode\&srctype=#1}{#2}}
 	
-		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{c}{C}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{sql}{SQL} y \insertsrcmanual{xml}{XML}. Para insertar un código fuente se debe usar el entorno \texttt{sourcecode} o el entorno \texttt{sourcecodep} si es que se quieren utilizar parámetros adicionales. \newp
+		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{c}{C}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{sql}{SQL} y \insertsrcmanual{xml}{XML}. Para insertar un código fuente se debe usar el entorno \texttt{sourcecode}, o el entorno \texttt{sourcecodep} si es que se quiere utilizar parámetros adicionales. \newp
 		
 		A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}):
 		
 % Se define el lenguaje del código. Cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
-\begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python}
+\begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
 import numpy as np
 
 def incmatrix(genl1, genl2):
@@ -132,7 +132,7 @@ def incmatrix(genl1, genl2):
 	VT = np.zeros((n*m, 1), int) # Comentario 2
 \end{sourcecode}
 
-\begin{sourcecode}[\label{codigo-java}]{java}{Ejemplo en Java}
+\begin{sourcecode}[\label{codigo-java}]{java}{Ejemplo en Java.}
 import java.io.IOException; 
 import javax.servlet.*;
 
@@ -148,7 +148,7 @@ public class Hola extends GenericServlet {
 }
 \end{sourcecode}
 
-\begin{sourcecode}[\label{codigo-matlab}]{matlab}{Ejemplo en Matlab}
+\begin{sourcecode}[\label{codigo-matlab}]{matlab}{Ejemplo en Matlab.}
 % Se crea gráfico
 f = figure(1); hold on;
 movegui(f, 'center');
@@ -170,19 +170,19 @@ end
 	A partir de la versión 5.0.0 existe el entorno \href{http://latex.ppizarror.com/informe.html#hlp-images}{\texttt{images}} que permite insertar múltiples imágenes de una manera muy sencilla, reemplazando así \footnote{Al usar cualquiera de estas funciones el template lanzará una alerta, se recomienda su desuso ya que en el futuro estas funciones podrían eliminarse del template.} a las funciones \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash inserttripleimage}, etc. Para crear imágenes múltiples se deben usar instrucciones como:
 	
 \begin{sourcecode}{latex}{}
-\begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple}
-	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
-	\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
-	\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
+\begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
+	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
+	\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo.}
+	\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande.}
 \end{images}
 \end{sourcecode}
 
 	Obteniendo así:
 	
-	\begin{images}{Ejemplo de imagen múltiple}
-		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
-		\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
-		\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
+	\begin{images}{Ejemplo de imagen múltiple.}
+		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
+		\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo.}
+		\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande.}
 	\end{images}
 
 
@@ -280,7 +280,7 @@ end
 			\lipsum[1]
 			
 			% Imagen, se numerará automáticamente con la letra del anexo según la configuración \appendixindepobjnum
-			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.25}{Imagen en anexo}
+			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.25}{Imagen en anexo.}
 		
 		\subsection{Resultados}
 			\lipsum[10]
@@ -288,7 +288,7 @@ end
 			% Tablas
 			\begin{table}[htbp]
 				\centering
-				\caption{Tabla de cálculo}
+				\caption{Tabla de cálculo.}
 				\begin{tabular}{ccc}
 					\hline
 					\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
@@ -312,7 +312,7 @@ end
 		% Tabla de encuestas
 		\begin{table}[htbp]
 			\centering
-			\caption{Resultados encuesta}
+			\caption{Resultados encuesta.}
 			\begin{tabular}{ccc}
 				\hline
 				\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
