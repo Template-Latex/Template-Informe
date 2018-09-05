@@ -54,7 +54,14 @@
 	keywordstyle=\color{cyan},
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/},
-	morekeywords={abstract,as,base,bool,break,byte,case,catch,char,checked,class,const,continue,decimal,default,delegate,do,double,else,enum,event,explicit,extern,false,finally,fixed,float,for,foreach,goto,if,implicit,in,int,interface,internal,is,lock,long,namespace,new,null,object,operator,out,override,params,private,protected,public,readonly,ref,return,sbyte,sealed,short,sizeof,stackalloc,static,string,struct,switch,this,throw,true,try,typeof,uint,ulong,unchecked,unsafe,ushort,using,virtual,void,volatile,while},
+	morekeywords={abstract,as,base,bool,break,byte,case,catch,char,checked,
+		class,const,continue,decimal,default,delegate,do,double,else,enum,event,
+		explicit,extern,false,finally,fixed,float,for,foreach,goto,if,implicit,
+		in,int,interface,internal,is,lock,long,namespace,new,null,object,
+		operator,out,override,params,private,protected,public,readonly,ref,
+		return,sbyte,sealed,short,sizeof,stackalloc,static,string,struct,switch,
+		this,throw,true,try,typeof,uint,ulong,unchecked,unsafe,ushort,using,
+		virtual,void,volatile,while},
 	showspaces=false,
 	showstringspaces=false,
 	showtabs=false,
@@ -65,7 +72,47 @@
 % CSS, añade más etiquetas
 \lstdefinelanguage{CSS}{
 	morecomment=[s]{/*}{*/},
-	morekeywords={-moz-binding,-moz-border-bottom-colors,-moz-border-left-colors,-moz-border-radius,-moz-border-radius-bottomleft,-moz-border-radius-bottomright,-moz-border-radius-topleft,-moz-border-radius-topright,-moz-border-right-colors,-moz-border-top-colors,-moz-opacity,-moz-outline,-moz-outline-color,-moz-outline-style,-moz-outline-width,-moz-user-focus,-moz-user-input,-moz-user-modify,-moz-user-select,-replace,-set-link-source,-use-link-source,accelerator,azimuth,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-collapse,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-spacing,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,caption-side,clear,clip,color,content,counter-increment,counter-reset,cue,cue-after,cue-before,cursor,direction,display,elevation,empty-cells,filter,float,font,font-family,font-size,font-size-adjust,font-stretch,font-style,font-variant,font-weight,height,ime-mode,include-source,layer-background-color,layer-background-image,layout-flow,layout-grid,layout-grid-char,layout-grid-char-spacing,layout-grid-line,layout-grid-mode,layout-grid-type,left,letter-spacing,line-break,line-height,list-style,list-style-image,list-style-position,list-style-type,margin,margin-bottom,margin-left,margin-right,margin-top,marker-offset,marks,max-height,max-width,min-height,min-width,orphans,outline,outline-color,outline-style,outline-width,overflow,overflow-X,overflow-Y,padding,padding-bottom,padding-left,padding-right,padding-top,page,page-break-after,page-break-before,page-break-inside,pause,pause-after,pause-before,pitch,pitch-range,play-during,position,quotes,richness,right,ruby-align,ruby-overhang,ruby-position,scrollbar-3d-light-color,scrollbar-arrow-color,scrollbar-base-color,scrollbar-dark-shadow-color,scrollbar-face-color,scrollbar-highlight-color,scrollbar-shadow-color,scrollbar-track-color,size,speak,speak-header,speak-numeral,speak-punctuation,speech-rate,stress,table-layout,text-align,text-align-last,text-autospace,text-decoration,text-indent,text-justify,text-kashida-space,text-overflow,text-shadow,text-transform,text-underline-position,top,unicode-bidi,vertical-align,visibility,voice-family,volume,white-space,widows,width,word-break,word-spacing,word-wrap,writing-mode,z-index,zoom},
+	morekeywords={-moz-binding,-moz-border-bottom-colors,
+		-moz-border-left-colors,-moz-border-radius,
+		-moz-border-radius-bottomleft,-moz-border-radius-bottomright,
+		-moz-border-radius-topleft,-moz-border-radius-topright,
+		-moz-border-right-colors,-moz-border-top-colors,-moz-opacity,
+		-moz-outline,-moz-outline-color,-moz-outline-style,-moz-outline-width,
+		-moz-user-focus,-moz-user-input,-moz-user-modify,-moz-user-select,
+		-replace,-set-link-source,-use-link-source,accelerator,azimuth,
+		background,background-attachment,background-color,background-image,
+		background-position,background-position-x,background-position-y,
+		background-repeat,behavior,border,border-bottom,border-bottom-color,
+		border-bottom-style,border-bottom-width,border-collapse,border-color,
+		border-left,border-left-color,border-left-style,border-left-width,
+		border-right,border-right-color,border-right-style,border-right-width,
+		border-spacing,border-style,border-top,border-top-color,
+		border-top-style,border-top-width,border-width,bottom,caption-side,
+		clear,clip,color,content,counter-increment,counter-reset,cue,cue-after,
+		cue-before,cursor,direction,display,elevation,empty-cells,filter,float,
+		font,font-family,font-size,font-size-adjust,font-stretch,font-style,
+		font-variant,font-weight,height,ime-mode,include-source,
+		layer-background-color,layer-background-image,layout-flow,layout-grid,
+		layout-grid-char,layout-grid-char-spacing,layout-grid-line,
+		layout-grid-mode,layout-grid-type,left,letter-spacing,line-break,
+		line-height,list-style,list-style-image,list-style-position,
+		list-style-type,margin,margin-bottom,margin-left,margin-right,
+		margin-top,marker-offset,marks,max-height,max-width,min-height,
+		min-width,orphans,outline,outline-color,outline-style,outline-width,
+		overflow,overflow-X,overflow-Y,padding,padding-bottom,padding-left,
+		padding-right,padding-top,page,page-break-after,page-break-before,
+		page-break-inside,pause,pause-after,pause-before,pitch,pitch-range,
+		play-during,position,quotes,richness,right,ruby-align,ruby-overhang,
+		ruby-position,scrollbar-3d-light-color,scrollbar-arrow-color,
+		scrollbar-base-color,scrollbar-dark-shadow-color,scrollbar-face-color,
+		scrollbar-highlight-color,scrollbar-shadow-color,scrollbar-track-color,
+		size,speak,speak-header,speak-numeral,speak-punctuation,speech-rate,
+		stress,table-layout,text-align,text-align-last,text-autospace,
+		text-decoration,text-indent,text-justify,text-kashida-space,
+		text-overflow,text-shadow,text-transform,text-underline-position,top,
+		unicode-bidi,vertical-align,visibility,voice-family,volume,white-space,
+		widows,width,word-break,word-spacing,word-wrap,writing-mode,z-index,
+		zoom},
 	morestring=[s]{:}{;},
 	sensitive=true
 }
@@ -73,7 +120,8 @@
 % Docker
 \lstdefinelanguage{docker}{
 	comment=[l]{\#},
-	keywords={ADD,CMD,COPY,ENTRYPOINT,ENV,EXPOSE,FROM,LABEL,MAINTAINER,ONBUILD,RUN,STOPSIGNAL,USER,VOLUME,WORKDIR},
+	keywords={ADD,CMD,COPY,ENTRYPOINT,ENV,EXPOSE,FROM,LABEL,MAINTAINER,ONBUILD,
+		RUN,STOPSIGNAL,USER,VOLUME,WORKDIR},
 	morestring=[b]',
 	morestring=[b]"
 }
@@ -95,7 +143,12 @@
 	language=html,
 	alsoletter={<>=-},
 	morecomment=[s]{<!--}{-->},
-	ndkeywords={-moz-transform:,<!,<body>,<canvas,</body>,</canvas>,</head>,</html>,</script>,</style>,</title>,<head>,<meta,<script>,<style>,<title>,=,><,border:,charset=,/>,height=,html>,id=,otherkeywords={<html>,transform:,transition-duration:,transition-property:,transition-timing-function:},width=},
+	ndkeywords={-moz-transform:,<!,<body>,<canvas,</body>,</canvas>,</head>,
+		</html>,</script>,</style>,</title>,<head>,<meta,<script>,<style>,
+		<title>,=,><,border:,charset=,/>,height=,html>,id=,
+		otherkeywords={<html>,transform:,transition-duration:,
+			transition-property:,transition-timing-function:
+		},width=},
 	sensitive=true,
 	tag=[s]
 }
@@ -140,7 +193,8 @@
 	commentstyle=\color{mygreen},
 	identifierstyle=\color{black},
 	keepspaces=true,
-	keywords={async,await,break,case,catch,catch,do,else,false,function,if,in,new,null,return,switch,true,typeof,var,while},
+	keywords={async,await,break,case,catch,catch,do,else,false,function,if,in,
+		new,null,return,switch,true,typeof,var,while},
 	keywordstyle=\color{blue},
 	morecomment=[s]{/*}{*/},
 	morestring=[b]',
@@ -161,7 +215,13 @@
 % Estilo JSON
 \lstdefinestyle{json}{
 	columns=fullflexible,
-	literate=*{0}{{{\color{numb}0}}}{1}{1}{{{\color{numb}1}}}{1}{2}{{{\color{numb}2}}}{1}{3}{{{\color{numb}3}}}{1}{4}{{{\color{numb}4}}}{1}{5}{{{\color{numb}5}}}{1}{6}{{{\color{numb}6}}}{1}{7}{{{\color{numb}7}}}{1}{8}{{{\color{numb}8}}}{1}{9}{{{\color{numb}9}}}{1}{:}{{{\color{punct}{:}}}}{1}{,}{{{\color{punct}{,}}}}{1}{\{}{{{\color{delim}{\{}}}}{1}{\}}{{{\color{delim}{\}}}}}{1}{[}{{{\color{delim}{[}}}}{1}{]}{{{\color{delim}{]}}}}{1},
+	literate=*{0}{{{\color{numb}0}}}{1}{1}{{{\color{numb}1}}}{1}{2}
+	{{{\color{numb}2}}}{1}{3}{{{\color{numb}3}}}{1}{4}{{{\color{numb}4}}}
+	{1}{5}{{{\color{numb}5}}}{1}{6}{{{\color{numb}6}}}{1}{7}{{{\color{numb}7}}}
+	{1}{8}{{{\color{numb}8}}}{1}{9}{{{\color{numb}9}}}{1}{:}
+	{{{\color{punct}{:}}}}{1}{,}{{{\color{punct}{,}}}}{1}{\{}
+	{{{\color{delim}{\{}}}}{1}{\}}{{{\color{delim}{\}}}}}
+	{1}{[}{{{\color{delim}{[}}}}{1}{]}{{{\color{delim}{]}}}}{1},
 	showstringspaces=false,
 	stepnumber=1,
 	tabsize=2
@@ -190,7 +250,11 @@
 	columns=fullflexible,
 	commentstyle=\color{gray},
 	keywordstyle=\color{blue}\bfseries,
-	morekeywords={addimage,addimageboxed,align,begin,insertalign,insertaligned,insertdoubleqimage,inserteqimage,insertequation,insertequationcaptioned,insertgather,insertgathered,insertimage,insertimageleft,insertimageright,label,lipsum,newp,newpage,section,sourcecode,sourcecodep,subsection},
+	morekeywords={addimage,addimageboxed,align,begin,insertalign,insertaligned,
+	insertdoubleqimage,inserteqimage,insertequation,insertequationcaptioned,
+	insertgather,insertgathered,insertimage,insertimageleft,insertimageright,
+	label,lipsum,newp,newpage,section,sourcecode,sourcecodep,subsection,
+	subsubsection,subsubsubsection},
 	showstringspaces=false,
 	tabsize=3
 }
@@ -221,11 +285,19 @@
 	commentstyle=\color{gray},
 	emph=[1]{php},
 	emph=[2]{if,and,or,else},
-	emph=[3]{abstract,as,const,else,elseif,endfor,endforeach,endif,extends,final,for,foreach,global,if,implements,private,protected,public,static,var},
+	emph=[3]{abstract,as,const,else,elseif,endfor,endforeach,endif,extends,
+		final,for,foreach,global,if,implements,private,protected,public,static,
+		var},
 	emphstyle=[1]\color{black},
 	emphstyle=[2]\color{dkyellow},
 	identifierstyle=\color{dkgreen},
-	keywords={abstract,and,array,as,break,callable,case,catch,class,clone,const,continue,declare,default,die,do,echo,else,elseif,empty,enddeclare,endfor,endforeach,endif,endswitch,endwhile,eval,exit,extends,final,finally,for,foreach,function,global,goto,if,implements,include,include_once,instanceof,insteadof,interface,isset,list,namespace,new,or,print,private,protected,public,require,require_once,return,static,switch,throw,trait,try,unset,use,var,while,xor,yield,__halt_compiler},
+	keywords={abstract,and,array,as,break,callable,case,catch,class,clone,const,
+		continue,declare,default,die,do,echo,else,elseif,empty,enddeclare,
+		endfor,endforeach,endif,endswitch,endwhile,eval,exit,extends,final,
+		finally,for,foreach,function,global,goto,if,implements,include,
+		include_once,instanceof,insteadof,interface,isset,list,namespace,new,or,
+		print,private,protected,public,require,require_once,return,static,
+		switch,throw,trait,try,unset,use,var,while,xor,yield,__halt_compiler},
 	keywordstyle=\color{dkblue},
 	showlines=true,
 	showspaces=false,
@@ -257,7 +329,9 @@
 	commentstyle=\color{gray},
 	frame=tB,
 	keepspaces=true,
-	keywords={and,be,begin,datatype,do,elif,else,end,for,foreach,fun,function,if,in,input,let,null,or,output,pop,procedure,push,repeat,return,swap,until,while,xor},
+	keywords={and,be,begin,datatype,do,elif,else,end,for,foreach,fun,function,
+		if,in,input,let,null,or,output,pop,procedure,push,repeat,return,swap,
+		until,while,xor},
 	keywordstyle=\color{black}\bfseries\em,
 	mathescape=true,
 	morecomment=[l]{//},
@@ -304,6 +378,29 @@
 	tabsize=3
 }
 
+% Lenguaje scala
+\lstdefinestyle{scala}{
+	language=scala,
+	breakatwhitespace=true,
+	breaklines=true,
+	columns=flexible,
+	commentstyle=\color{dkgreen},
+	keywordstyle=\color{blue},
+	morecomment=[l]{//},
+	morecomment=[n]{/*}{*/},
+	morekeywords={abstract,case,catch,class,def,do,else,extends,false,final,
+		finally,for,if,implicit,import,match,mixin,new,null,object,override,
+		package,private,protected,requires,return,sealed,super,this,throw,trait,
+		true,try,type,val,var,while,with,yield},
+	morestring=[b]',
+	morestring=[b]",
+	morestring=[b]""",
+	otherkeywords={=>,<-,<\%,<:,>:,\#,@},
+	showstringspaces=false,
+	stringstyle=\color{mauve},
+	tabsize=3
+}
+
 % Instrucciones SQL
 \lstdefinestyle{sql}{
 	language=SQL,
@@ -341,7 +438,17 @@
 	belowskip=3mm,
 	extendedchars=true,
 	keepspaces=true,
-	literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1 {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1 {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1 {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1 {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1 {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1 {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1 {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1 {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1 {€}{{\EUR}}1 {£}{{\pounds}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?``}}1 {¡}{{!``}}1,
+	literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+		{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1 {à}{{\`a}}1
+		{è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1 {À}{{\`A}}1 {È}{{\'E}}1
+		{Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1 {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1
+		{ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1
+		{Ü}{{\"U}}1 {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+		{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1 {œ}{{\oe}}1
+		{Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1 {ű}{{\H{u}}}1
+		{Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1 {ç}{{\c c}}1 {Ç}{{\c C}}1
+		{ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1 {€}{{\EUR}}1 {£}{{\pounds}}1
+		{ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?``}}1 {¡}{{!``}}1,
 	numbers=left,
 	numbersep=5pt,
 	numberstyle=\tiny\color{codegray}
@@ -365,9 +472,12 @@
 	\ifthenelse{\equal{#1}{pseudocode}}{}{
 	\ifthenelse{\equal{#1}{python}}{}{
 	\ifthenelse{\equal{#1}{ruby}}{}{
+	\ifthenelse{\equal{#1}{scala}}{}{
 	\ifthenelse{\equal{#1}{sql}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
-		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,cpp,csharp,docker,html5,java,js,json,latex,matlab,perl,php,plaintext,pseudocode,python,ruby,sql,xml}
-	}}}}}}}}}}}}}}}}}}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,cpp,
+		csharp,docker,html5,java,js,json,latex,matlab,perl,php,plaintext,
+		pseudocode,python,ruby,scala,sql,xml}
+	}}}}}}}}}}}}}}}}}}}
 }
