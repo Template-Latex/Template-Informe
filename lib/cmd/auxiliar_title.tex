@@ -39,3 +39,12 @@
 	\addcontentsline{toc}{subsubsection}{#1}
 	\stepcounter{subsubsection}
 }
+
+% Insertar un sub-sub-subtítulo sin número
+% 	#1	Sub-sub-subtítulo
+\newcommand{\subsubsubsectionanum}[1]{
+	\emptyvarerr{\subsubsubsectionanum}{#1}{Sub-sub-subtitulo no definido}
+	\subsubsubsection*{#1}
+	\addcontentsline{toc}{subsubsubsection}{#1}
+	\stepcounter{subsubsubsection}
+}

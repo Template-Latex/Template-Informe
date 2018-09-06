@@ -14,32 +14,32 @@
 % NUEVA SECCIÓN
 % Las secciones se inician con \section, si se quiere una sección sin número se pueden usar las funciones \sectionanum (sección sin número) o la función \sectionanumnoi para crear el mismo título sin numerar y sin aparecer en el índice
 \section{Informes con \LaTeX}
-	
+
 	% SUB-SECCIÓN
 	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin número se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
 	\subsection{Una breve introducción}
-		
+
 		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \href{http://latex.ppizarror.com/informe.html#hlp-imagen}{\texttt{\textbackslash insertimage}}:
-		
+
 		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda opcional
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
-		
+
 		A continuación \footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{http://latex.ppizarror.com/informe.html#hlp-formulae}{\texttt{\textbackslash insertequation}}:
-		
+
 		% Se inserta una ecuación, el primer parámetro entre [] es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos $
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
-		
+
 		% Se añade párrafo de prueba. Notar que no se requiere añadir un salto de línea después de insertar una ecuación
 		\lipsum[75]
-		
+
 		% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar errores y warnings por parte del compilador de LaTeX
 		\newp Este es un nuevo párrafo insertado con el comando \href{http://latex.ppizarror.com/informe.html#hlp-parrafo}{\texttt{\textbackslash newp}}. Si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales acompañado de \texttt{\textbackslash par}.
-		
+
 	% SUB-SECCIÓN
 	\subsection{Añadiendo tablas}
-		
+
 		También puedes usar tablas, ¡Crearlas es muy fácil!. Puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{ref2} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{ref3}.
-		
+
 		% Tabla generada con el plugin Excel2Latex
 		\begin{table}[htbp]
 			\centering
@@ -60,67 +60,67 @@
 % NUEVA SECCIÓN
 \newpage
 \section{Aquí un nuevo tema}
-	
+
 	% SUB-SECCIÓN
 	\subsection{Haciendo informes como un profesional}
-		
+
 		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala (un 30% del ancho de página) y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
 		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
-		
+
 		\lipsum[1]
 
 		% Párrafos de ejemplo
 		\newp \lipsum[115]
 		\newp \lipsum[2]
-		
+
 		% Agrega una ecuación con leyenda
 		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{(1+\Delta x)}}{Ecuación sin sentido.}
-		
+
 		% Aquí no es necesario usar \newp dado que todas las funciones \insert... añaden un párrafo nuevo por defecto
 		\lipsum[115]
-		
+
 		\newp \lipsum[4]
-		
+
 	% Inserta un subtítulo sin número
 	\subsection{Otros párrafos más normales}
-	
+
 		% Párrafos
 		\lipsum[7]
 		\newp \lipsum[2]
-		
+
 		% Se inserta una ecuación larga con el entorno gathered (1 solo número de ecuación)
 		\insertgathered[\label{eqn:eqn-larga}]{
 			\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \big( M - d\big)}{l \cdot W} \cdot \frac{\pow{\big(\lpow{Q}{e}- i\cdot Q\big)}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}\\
 			Q_e = 2.5Q \cdot \int_{0}^{e} V(x) \dd{x} + \aasin{ \bigg(1+\frac{1}{1-e}\bigg) }
 		}
-	
+
 		% Nuevo párrafo
 		\lipsum[4]
-		
+
 		% Se inserta un multicols, con esto se pueden escribir párrafos en varias columnas
 		\begin{multicols}{2}
-			
+
 			% Párrafo 1
 			\lipsum[4]
-			
+
 			% Ecuación encerrada en una caja
 			\insertequation[]{ \boxed{f(x) = \fracdpartial{u}{t}} }
-			
+
 			% Párrafo 2 del multicols
 			\lipsum[1]
-			
+
 		\end{multicols}
-	
+
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
-	
+
 		% A continuación se crea una función auxiliar, esta es una herramienta extremadamente importante y muy útil. Esta función de ejemplo toma dos parámetros, uno es el lenguaje del código fuente, el segundo el identificador en el manual
 		\newcommand{\insertsrcmanual}[2]{\href{http://latex.ppizarror.com/informe.html\#hlp-srccode\&srctype=#1}{#2}}
-	
+
 		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{c}{C}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{sql}{SQL} y \insertsrcmanual{xml}{XML}. Para insertar un código fuente se debe usar el entorno \texttt{sourcecode}, o el entorno \texttt{sourcecodep} si es que se quiere utilizar parámetros adicionales. \newp
-		
+
 		A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}):
-		
+
 % Se define el lenguaje del código. Cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
 \begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
 import numpy as np
@@ -133,7 +133,7 @@ def incmatrix(genl1, genl2):
 \end{sourcecode}
 
 \begin{sourcecode}[\label{codigo-java}]{java}{Ejemplo en Java.}
-import java.io.IOException; 
+import java.io.IOException;
 import javax.servlet.*;
 
 // Hola mundo
@@ -161,14 +161,14 @@ for j = 1:length(BETA)
 		[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
 		fad(i) = max(abs(u_t)) / uf0;
 	end
-end	
+end
 \end{sourcecode}
-	
+
 	% SUB-SECCIÓN
 	\subsection{Añadir múltiples imágenes}
-	
+
 	A partir de la versión 5.0.0 existe el entorno \href{http://latex.ppizarror.com/informe.html#hlp-images}{\texttt{images}} que permite insertar múltiples imágenes de una manera muy sencilla, reemplazando así \footnote{Al usar cualquiera de estas funciones el template lanzará una alerta, se recomienda su desuso ya que en el futuro estas funciones podrían eliminarse del template.} a las funciones \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash inserttripleimage}, etc. Para crear imágenes múltiples se deben usar instrucciones como:
-	
+
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
 	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
@@ -178,7 +178,7 @@ end
 \end{sourcecode}
 
 	Obteniendo así:
-	
+
 	\begin{images}{Ejemplo de imagen múltiple.}
 		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
 		\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo.}
@@ -189,65 +189,65 @@ end
 % NUEVA SECCIÓN
 % Inserta una sección sin número
 \sectionanum{Más ejemplos}
-	
+
 	% Inserta un subtítulo sin número
 	\subsectionanum{Listas y Enumeraciones}
-		
+
 		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template \footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.}, para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento comienza por \texttt{\textbackslash item}, resultando así:
-		
+
 		\begin{enumerate}
 			\item Ítem 1
 			\item Abracadabra
 			\item Manzanas
 		\end{enumerate}
-		
+
 		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph} \footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.}, números romanos con \texttt{\textbackslash roman} \footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek} \footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}:
-		
+
 		\begin{multicols}{3}
 			\begin{enumeratebf}[label=\alph*) ] % Fuente en negrita
 				\item Peras
 				\item Manzanas
 				\item Naranjas
 			\end{enumeratebf}
-			
+
 			\begin{enumerate}[label=\greek*) ]
 				\item Matemáticas
 				\item Lenguaje
 				\item Filosofía
 			\end{enumerate}
-		
+
 			\begin{enumerate}[label=\roman*) ]
 				\item Rojo
 				\item Café
 				\item Morado
 			\end{enumerate}
 		\end{multicols}
-		
+
 		Para hacer listas sin numerar con \LaTeX\ hay que usar el comando \texttt{\textbackslash begin\{itemize\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
-		
+
 		\begin{multicols}{3}
 			\begin{itemize}[label={--}]
 				\item Peras
 				\item Manzanas
 				\item Naranjas
 			\end{itemize}
-			
+
 			\begin{enumerate}[label={*}]
 				\item Rojo
 				\item Café
 				\item Morado
 			\end{enumerate}
-			
+
 			\begin{itemize}
 				\item Árboles
 				\item Pasto
 				\item Flores
 			\end{itemize}
 		\end{multicols}
-		
+
 	% Inserta un subtítulo sin número
 	\subsectionanum{Otros}
-		
+
 		Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{http://latex.ppizarror.com/Template-Informe/}. Si necesitas una ayuda muy específica sobre el template, o si tienes alguna sugerencia, me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
 
 
@@ -258,12 +258,12 @@ end
 	Template Informe en \LaTeX.
 	\textit{¡Revisa el manual online de este template!} \\
 	\url{http://latex.ppizarror.com/Template-Informe/}
-	
+
 	\bibitem{ref2}
 	Excel2Latex.
 	\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
 	\url{https://www.ctan.org/tex-archive/support/excel2latex/}
-	
+
 	\bibitem{ref3}
 	Overleaf.
 	\textit{Uno de los mejores editores online para \LaTeX, renovado con su versión 2.0.} \\
@@ -278,13 +278,13 @@ end
 
 		\subsection{Metodología}
 			\lipsum[1]
-			
+
 			% Imagen, se numerará automáticamente con la letra del anexo según la configuración \appendixindepobjnum
-			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.25}{Imagen en anexo.}
-		
+			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
+
 		\subsection{Resultados}
 			\lipsum[10]
-			
+
 			% Tablas
 			\begin{table}[htbp]
 				\centering
@@ -299,16 +299,16 @@ end
 					\end{tabular}
 				\label{tab:anexo-1}
 			\end{table}
-	
+
 	\newpage
 	\section{Más cálculos}
-	
+
 		% Párrafo
 		\lipsum[1]
-		
+
 		% Nuevo párrafo con identación
 		\newp \lipsum[4]
-		
+
 		% Tabla de encuestas
 		\begin{table}[htbp]
 			\centering
@@ -318,9 +318,9 @@ end
 				\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
 				\hline
 				\LaTeX & 100\% & Si $\checkmark$ \\
-				Microsoft Word \textsuperscript{\textregistered} & 0\%   & No $\frownie$\\
+				Microsoft Word \textsuperscript{\textregistered} & 0\% & No $\frownie$\\
 			\end{tabular}
 			\label{tab:anexo-2}
 		\end{table}
-	
+
 \end{anexo}
