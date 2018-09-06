@@ -227,6 +227,33 @@
 	tabsize=2
 }
 
+% Lenguaje kotlin
+\lstdefinestyle{kotlin}{
+	comment=[l]{//},
+	commentstyle=\color{gray}\ttfamily,
+	emph={delegate,filter,first,firstOrNull,forEach,lazy,map,mapNotNull,println,
+		return@},
+	emphstyle={\color{OrangeRed}},
+	identifierstyle=\color{black},
+	keywords={abstract,actual,as,as?,break,by,class,companion,continue,data,do,
+		dynamic,else,enum,expect,false,final,for,fun,get,if,import,in,interface,
+		internal,is,null,object,override,package,private,public,return,set,
+		super,suspend,this,throw,true,try,typealias,val,var,vararg,when,where,
+		while},
+	keywordstyle={\color{NavyBlue}\bfseries},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]",
+	morestring=[s]{"""*}{*"""},
+	ndkeywords={@Deprecated,@JvmField,@JvmName,@JvmOverloads,@JvmStatic,
+		@JvmSynthetic,Array,Byte,Double,Float,Int,Integer,Iterable,Long,
+		Runnable,Short,String},
+	ndkeywordstyle=\color{BurntOrange}\bfseries,
+	sensitive=true,
+	showstringspaces=false,
+	stringstyle=\color{ForestGreen}\ttfamily,
+	tabsize=3
+}
+
 % Lenguaje Matlab
 \lstdefinestyle{matlab}{
 	language=Matlab,
@@ -251,10 +278,10 @@
 	commentstyle=\color{gray},
 	keywordstyle=\color{blue}\bfseries,
 	morekeywords={addimage,addimageboxed,align,begin,insertalign,insertaligned,
-	insertdoubleqimage,inserteqimage,insertequation,insertequationcaptioned,
-	insertgather,insertgathered,insertimage,insertimageleft,insertimageright,
-	label,lipsum,newp,newpage,section,sourcecode,sourcecodep,subsection,
-	subsubsection,subsubsubsection},
+		insertdoubleqimage,inserteqimage,insertequation,insertequationcaptioned,
+		insertgather,insertgathered,insertimage,insertimageleft,
+		insertimageright,label,lipsum,newp,newpage,section,sourcecode,
+		sourcecodep,subsection,subsubsection,subsubsubsection},
 	showstringspaces=false,
 	tabsize=3
 }
@@ -464,6 +491,7 @@
 	\ifthenelse{\equal{#1}{java}}{}{
 	\ifthenelse{\equal{#1}{js}}{}{
 	\ifthenelse{\equal{#1}{json}}{}{
+	\ifthenelse{\equal{#1}{kotlin}}{}{
 	\ifthenelse{\equal{#1}{latex}}{}{
 	\ifthenelse{\equal{#1}{matlab}}{}{
 	\ifthenelse{\equal{#1}{perl}}{}{
@@ -477,7 +505,7 @@
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
 		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,cpp,
-		csharp,docker,html5,java,js,json,latex,matlab,perl,php,plaintext,
+		csharp,docker,html5,java,js,json,kotlin,latex,matlab,perl,php,plaintext,
 		pseudocode,python,ruby,scala,sql,xml}
-	}}}}}}}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}}
 }
