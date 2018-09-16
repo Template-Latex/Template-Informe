@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Importación de librerías
-% Versión:      5.5.3 (05/09/2018)
+% Versión:      5.5.4 (16/09/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -24,7 +24,11 @@
 \usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel} % Define el idioma
 \usepackage{ifthen} % Manejo de condicionales
 
-% Tipografía del documento
+% PARCHES DE LIBRERÍAS
+\let\counterwithout\relax
+\let\counterwithin\relax
+
+% TIPOGRAFÍA DEL DOCUMENTO
 \ifthenelse{\equal{\fontdocument}{lmodern}}{ % Default
 	\usepackage{lmodern}
 }{
@@ -383,10 +387,6 @@
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
 
-% PARCHES DE LIBRERÍAS
-\let\counterwithout\relax
-\let\counterwithin\relax
-
 % LIBRERÍAS INDEPENDIENTES
 \usepackage{amsmath}       % Librerías matemáticas
 \usepackage{amssymb}       % Librerías matemáticas
@@ -415,7 +415,6 @@
 \usepackage{mathtools}     % Permite utilizar notaciones matemáticas
 \usepackage{multicol}      % Múltiples columnas
 \usepackage{needspace}     % Maneja los espacios en página
-\usepackage{notoccite}     % Desactiva las citas en el índice
 \usepackage{pdfpages}      % Permite administrar páginas en pdf
 \usepackage{physics}       % Paquete de matemáticas
 \usepackage{rotating}      % Permite rotación de objetos
@@ -483,4 +482,5 @@
 \usepackage{float}         % Administrador de posiciones de objetos
 \usepackage{hyperxmp}      % Etiquetas opcionales para el pdf compilado
 \usepackage{multirow}      % Agrega nuevas opciones a las tablas
+\usepackage{notoccite}     % Desactiva las citas en el índice
 \usepackage{titlesec}      % Administración de títulos
