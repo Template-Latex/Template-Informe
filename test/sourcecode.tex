@@ -1,4 +1,42 @@
-\begin{sourcecode}[]{c}{}
+\begin{sourcecode}[]{bash}{Un poco de \textbf{bash}.}
+# Muestra toda la información de la batería
+function battr-info {
+	wrks-scripts
+	data=$(ioreg -l -w0 |grep Capacity)
+	python2.7 battery_info.py $data
+	cd - >> config/.empty
+}
+
+function qtest-java {
+	if [ -z "${1}" ]; then
+	echo-err 'Nombre fuente no definido'
+	else
+	vim $1
+	javac -encoding ISO-8859-1 $1 $2 $3
+	blankspace=""
+	first=$1
+	first=${first/.java/$blankspace}
+	java $first
+	fi
+}
+
+PATH=$PATH:"/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+PATH=$PATH:"/Applications/Utilities/Lynxlet.app/Contents/Resources/lynx/bin"
+export PATH
+
+alias ga='git add '
+dig +short myip.opendns.com @resolver1.opendns.com
+gcc "$@" -o $first
+
+::claramente esto no funcionará::
+sudo x, call y
+rem esto es un comentario en windows
+history -c rm a, ls -d killall e mv | grep | awk python 'hola' vim uwu printf 'have you seen him' -z
+git doge ssh cp cd
+\end{sourcecode}
+
+\newpage
+\begin{sourcecode}[]{c}{Ejemplo en C.}
 #include <stdio.h>
 int main(){
 	int i, j, rows;
@@ -15,26 +53,6 @@ int main(){
 	return 0;
 }
 \end{sourcecode}
-
-\begin{sourcecode}[]{c}{Codigo en c.}
-	#include <stdio.h>
-	int main(){
-		int i, j, rows;
-		
-		printf("Enter number of rows: ");
-		scanf("%d",&rows);
-		
-		for(i=1; i<=rows; ++i){
-			for(j=1; j<=i; ++j){
-				printf("* ");
-			}
-			printf("\n");
-		}
-		return 0;
-	}
-\end{sourcecode}
-
-\newpage
 
 \begin{sourcecode}[]{csharp}{Ejemplo en C\#.}
 /*

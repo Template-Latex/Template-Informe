@@ -11,6 +11,25 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Bash
+\lstdefinestyle{bash}{
+	language=bash,
+	breakatwhitespace=false,
+	breaklines=true,
+	columns=flexible,
+	commentstyle=\color{mygreen},
+	keywordstyle=\color{blue}\ttfamily,
+	morecomment=[l]{rem},
+	morecomment=[s]{::}{::},
+	morekeywords={call,cp,dig,gcc,git,grep,ls,mv,python,rm,sudo,vim},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	stepnumber=1,
+	stringstyle=\color{mauve},
+	tabsize=3
+}
+
 % Lenguaje C
 \lstdefinestyle{c}{
 	language=C,
@@ -19,7 +38,7 @@
 	columns=flexible,
 	commentstyle=\color{mygreen},
 	keepspaces=true,
-	keywordstyle=\color{magenta},
+	keywordstyle=\color{blue}\ttfamily,
 	showspaces=false,
 	showstringspaces=false,
 	showtabs=false,
@@ -483,6 +502,7 @@
 
 % Chequeo de estilos, cualquier nuevo estilo añadirlo a esta lista
 \newcommand{\checkvalidsourcecodestyle}[1]{
+	\ifthenelse{\equal{#1}{bash}}{}{
 	\ifthenelse{\equal{#1}{c}}{}{
 	\ifthenelse{\equal{#1}{cpp}}{}{
 	\ifthenelse{\equal{#1}{csharp}}{}{
@@ -504,8 +524,8 @@
 	\ifthenelse{\equal{#1}{sql}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
-		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{c,cpp,
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash, c,cpp,
 		csharp,docker,html5,java,js,json,kotlin,latex,matlab,perl,php,plaintext,
 		pseudocode,python,ruby,scala,sql,xml}
-	}}}}}}}}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}}}
 }
