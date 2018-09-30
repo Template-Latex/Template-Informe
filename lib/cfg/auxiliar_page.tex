@@ -23,7 +23,8 @@
 
 % Márgenes de páginas y tablas
 \setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-\def\arraystretch{\tablepadding} % Se ajusta el padding de las tablas
+\def\arraystretch {\tablepaddingv} % Se ajusta el padding vertical de las tablas
+\setlength{\tabcolsep}{\tablepaddingh em} % Se ajusta el padding horizontal de las tablas
 
 % Se crean los header-footer
 \ifthenelse{\equal{\templatestyle}{style1}}{
