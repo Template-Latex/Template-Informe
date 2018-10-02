@@ -39,6 +39,8 @@
 	\section*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 	\changeheadertitle{#1}
+	\setcounter{subsection}{0}
+	\renewcommand{\thesubsection}{\arabic{subsection}}
 }
 
 % Insertar un título sin número sin cambiar el título del header
@@ -48,6 +50,8 @@
 	\section*{#1}
 	\addcontentsline{toc}{section}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
+	\setcounter{subsection}{0}
+	\renewcommand{\thesubsection}{\arabic{subsection}}
 }
 
 % Insertar un título sin número, sin indexar y sin cambiar el título del header
@@ -56,6 +60,8 @@
 	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
 	\section*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
+	\setcounter{subsection}{0}
+	\renewcommand{\thesubsection}{\arabic{subsection}}
 }
 
 % Insertar un subtítulo sin número
