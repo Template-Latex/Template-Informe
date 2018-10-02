@@ -11,7 +11,9 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% -----------------------------------------------------------------------------
 % Se reestablecen headers y footers
+% -----------------------------------------------------------------------------
 \markboth{}{}
 \newpage
 \ifthenelse{\equal{\hfstyle}{style1}}{
@@ -33,13 +35,16 @@
 	\fancyhead[L]{\nouppercase{\leftmark}}}{
 }
 
+% -----------------------------------------------------------------------------
 % Estilo de títulos - reestablece estilos por el índice
+% -----------------------------------------------------------------------------
 \sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
 \subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
 \subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
 \titleformat{\subsubsubsection}{\color{\ssstitlecolor} \normalfont \fontsizessstitle \stylessstitle}{\thesubsubsubsection}{1em}{}
 \titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
+% -----------------------------------------------------------------------------
 % Numeración de objetos
 \ifthenelse{\equal{\showsectioncaption}{none}}{
 }{
