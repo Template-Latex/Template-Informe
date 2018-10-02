@@ -14,19 +14,25 @@
 % COMPILACION
 % - Reemplaza cada bloque en lib/pageconfs.tex
 
+% -----------------------------------------------------------------------------
 % Numeración de páginas
+% -----------------------------------------------------------------------------
 \newpage
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
 \setcounter{section}{0}
 \setcounter{footnote}{0}
 
+% -----------------------------------------------------------------------------
 % Márgenes de páginas y tablas
+% -----------------------------------------------------------------------------
 \setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 \def\arraystretch {\tablepaddingv} % Se ajusta el padding vertical de las tablas
 \setlength{\tabcolsep}{\tablepaddingh em} % Se ajusta el padding horizontal de las tablas
 
+% -----------------------------------------------------------------------------
 % Se crean los header-footer
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\templatestyle}{style1}}{
 	\pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
 	\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
@@ -108,7 +114,9 @@
 	\throwbadconfigondoc{Estilo de template incorrecto}{\templatestyle}{style1,style2}}
 }
 
+% -----------------------------------------------------------------------------
 % Numeración de objetos
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\showsectiononcaption}{true}}{
 	\counterwithin{equation}{section}   % Añade número de sección a las ecuaciones
 	\counterwithin{figure}{section}     % Añade número de sección a las figuras
