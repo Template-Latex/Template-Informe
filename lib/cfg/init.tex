@@ -11,7 +11,9 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% -----------------------------------------------------------------------------
 % Se revisa si las variables no han sido borradas
+% -----------------------------------------------------------------------------
 \checkvardefined{\autordeldocumento}
 \checkvardefined{\codigodelcurso}
 \checkvardefined{\departamentouniversidad}
@@ -22,7 +24,9 @@
 \checkvardefined{\temaatratar}
 \checkvardefined{\titulodelinforme}
 
+% -----------------------------------------------------------------------------
 % Se añade \xspace a las variables
+% -----------------------------------------------------------------------------
 \makeatletter
 	\g@addto@macro\autordeldocumento\xspace
 	\g@addto@macro\codigodelcurso\xspace
@@ -35,18 +39,24 @@
 	\g@addto@macro\titulodelinforme\xspace
 \makeatother
 
+% -----------------------------------------------------------------------------
 % Se crean variables si se borraron
+% -----------------------------------------------------------------------------
 \ifthenelse{\isundefined{\tablaintegrantes}}{
 	\errmessage{LaTeX Warning: Se borro la variable \noexpand\tablaintegrantes, creando una vacia}
 	\def\tablaintegrantes {}}{
 }
 
+% -----------------------------------------------------------------------------
 % Se activan números en menú marcadores del pdf
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\cfgpdfsecnumbookmarks}{true}}{
 	\bookmarksetup{numbered}}{
 }
 
+% -----------------------------------------------------------------------------
 % Se define metadata del pdf
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\cfgshowbookmarkmenu}{true}}{
 	\def\cdfpagemodepdf {UseOutlines}
 	}{
@@ -103,10 +113,14 @@
 	pdfview={\cfgpdfpageview}
 }
 
+% -----------------------------------------------------------------------------
 % Establece la carpeta de imágenes por defecto
+% -----------------------------------------------------------------------------
 \graphicspath{{./\defaultimagefolder}}
 
+% -----------------------------------------------------------------------------
 % Definición de valores e dimensiones
+% -----------------------------------------------------------------------------
 \newcounter{templatepagecounter} % Administra números de páginas
 \renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
 \setlength{\headheight}{64 pt} % Tamaño de la cabecera sin fancyhdr
@@ -119,12 +133,16 @@
 	}{
 }
 
+% -----------------------------------------------------------------------------
 % Posición inicial de los objetos
+% -----------------------------------------------------------------------------
 \floatplacement{figure}{\imagedefaultplacement}
 \floatplacement{table}{\tabledefaultplacement}
 \floatplacement{tikz}{\tikzdefaultplacement}
 
+% -----------------------------------------------------------------------------
 % Configuración de los colores
+% -----------------------------------------------------------------------------
 \color{\maintextcolor} % Color principal
 \arrayrulecolor{\tablelinecolor} % Color de las líneas de las tablas
 \sethlcolor{\highlightcolor} % Color del subrayado por defecto
@@ -149,31 +167,47 @@
 	\pagecolor{\colorpage}
 }
 
+% -----------------------------------------------------------------------------
 % Configuración de las leyendas
-\setcaptionmargincm{\captionlrmargin} % Márgenes de las leyendas por defecto
+% -----------------------------------------------------------------------------
+
+% Márgenes de las leyendas por defecto
+\setcaptionmargincm{\captionlrmargin}
 \ifthenelse{\equal{\captiontextbold}{true}}{ % Texto en negrita en etiquetas
 	\renewcommand{\captiontextbold}{bf}}{
 	\renewcommand{\captiontextbold}{}
 }
-\captionsetup{ % Se configura el texto de los caption
+
+% Se configura el texto de los caption
+\captionsetup{
 	labelfont={color=\captioncolor, \captiontextbold},
 	textfont={color=\captiontextcolor},
 	singlelinecheck=on
 }
-\floatsetup[figure]{ % Configuración de márgenes en las figuras
+
+% Configuración de márgenes en las figuras
+\floatsetup[figure]{
 	captionskip=\captiontbmarginfigure pt
 }
-\floatsetup[table]{ % Configuración de márgenes en las tablas
+
+% Configuración de márgenes en las tablas
+\floatsetup[table]{
 	captionskip=\captiontbmargintable pt
 }
-\ifthenelse{\equal{\figurecaptiontop}{true}}{ % Caption superior en figuras
+
+% Caption superior en figuras
+\ifthenelse{\equal{\figurecaptiontop}{true}}{
 	\floatsetup[figure]{position=above}}{
 }
-\ifthenelse{\equal{\tablecaptiontop}{true}}{ % Caption superior en tablas
+
+% Caption superior en tablas
+\ifthenelse{\equal{\tablecaptiontop}{true}}{
 	\floatsetup[table]{position=top}
 	}{
 	\floatsetup[table]{position=bottom}
 }
+
+% Alineado de leyendas
 \ifthenelse{\equal{\captionalignment}{justified}}{ % Leyenda justificada
 	\captionsetup{
 		justification=justified,
@@ -200,7 +234,9 @@
 	\throwbadconfig{Posicion de leyendas desconocida}{\captionalignment}{justified,centered,left,right}}}}
 }
 
+% -----------------------------------------------------------------------------
 % Configuración de referencias y citas
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{
 	\bibliographystyle{apa}
 	\setlength{\bibsep}{\natbibrefsep pt}
@@ -247,10 +283,14 @@
 		\endlist\end{multicols}}}{}
 \makeatother
 
+% -----------------------------------------------------------------------------
 % Configuración anexo
+% -----------------------------------------------------------------------------
 \patchcmd{\appendices}{\quad}{\sectionappendixlastchar\quad}{}{}
 
+% -----------------------------------------------------------------------------
 % Se añade listings (código fuente) a tocloft
+% -----------------------------------------------------------------------------
 \begingroup
 	\makeatletter
 	\let\newcounter\@gobble\let\setcounter\@gobbletwo
@@ -260,7 +300,9 @@
 	\makeatother
 \endgroup
 
+% -----------------------------------------------------------------------------
 % Reconfiguración de tamaño de páginas
+% -----------------------------------------------------------------------------
 \makeatletter
 	\def\ifGm@preamble#1{\@firstofone}
 	\appto\restoregeometry{
@@ -271,40 +313,60 @@
 		\pdfpageheight=\paperheight}{}{}
 \makeatother
 
+% -----------------------------------------------------------------------------
 % Configuración de hbox y vbox
+% -----------------------------------------------------------------------------
 \hfuzz=200pt
 \vfuzz=200pt
 \hbadness=\maxdimen
 \vbadness=\maxdimen
 
+% -----------------------------------------------------------------------------
 % Se activa el modo estricto de revisión de números de página
+% -----------------------------------------------------------------------------
 \strictpagecheck
 
+% -----------------------------------------------------------------------------
 % Actualización márgen títulos
+% -----------------------------------------------------------------------------
 \titlespacing{\section}{0pt}{20pt}{10pt}
 \titlespacing{\subsection}{0pt}{15pt}{10pt}
 
+% -----------------------------------------------------------------------------
 % Se activa el word-wrap para textos con \texttt{}
+% -----------------------------------------------------------------------------
 \ttfamily \hyphenchar\the\font=`\-
 
+% -----------------------------------------------------------------------------
 % Se define el tipo de texto de los url
+% -----------------------------------------------------------------------------
 \urlstyle{tt}
 
+% -----------------------------------------------------------------------------
 % Se revisa si se importa tikz
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\portraitstyle}{style16}}{\coreimporttikz}{}
 \ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{\coreimporttikz}{}
 
+% -----------------------------------------------------------------------------
 % Se define la versión menor a compilar
+% -----------------------------------------------------------------------------
 \pdfminorversion=\pdfcompileversion
 
+% -----------------------------------------------------------------------------
 % Profundidad de las secciones
+% -----------------------------------------------------------------------------
 \setcounter{secnumdepth}{4} % Límite máximo subsubsubsección
 
+% -----------------------------------------------------------------------------
 % Crea las subsubsubsecciones
+% -----------------------------------------------------------------------------
 \newcounter{subsubsubsection}[subsubsection]
 \titleclass{\subsubsubsection}{straight}[\subsection]
 
+% -----------------------------------------------------------------------------
 % Establece el número de las subsubsubsecciones
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega punto tras el número
 	\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}.}
 	\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}.}
@@ -313,7 +375,9 @@
 	\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}}
 }
 
+% -----------------------------------------------------------------------------
 % Agrega compatibilidad de subsubsubsecciones al TOC
+% -----------------------------------------------------------------------------
 \makeatletter
 	\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}
 		{3.25ex \@plus1ex \@minus.2ex}
@@ -331,5 +395,9 @@
 	\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
 \makeatother
 
+% -----------------------------------------------------------------------------
 % Profundidad del índice y bookmarks pdf
+% -----------------------------------------------------------------------------
 \setcounter{tocdepth}{\indexdepth}
+
+% END

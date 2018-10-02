@@ -11,7 +11,9 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% -----------------------------------------------------------------------------
 % Numeración de páginas
+% -----------------------------------------------------------------------------
 \newpage
 \ifthenelse{\equal{\romanpageuppercase}{true}}{
 	\pagenumbering{Roman}
@@ -21,17 +23,23 @@
 \setcounter{page}{1}
 \setcounter{footnote}{1}
 
+% -----------------------------------------------------------------------------
 % Márgenes de páginas y tablas
+% -----------------------------------------------------------------------------
 \setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 \def\arraystretch {\tablepaddingv} % Se ajusta el padding vertical de las tablas
 \setlength{\tabcolsep}{\tablepaddingh em} % Se ajusta el padding horizontal de las tablas
 
+% -----------------------------------------------------------------------------
 % Se define el punto decimal
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\pointdecimal}{true}}{
 	\decimalpoint}{
 }
 
+% -----------------------------------------------------------------------------
 % Definición de nombres de objetos
+% -----------------------------------------------------------------------------
 \renewcommand{\appendixname}{\nomltappendixsection} % Nombre del anexo (título)
 \renewcommand{\appendixpagename}{\nameappendixsection} % Nombre del anexo en índice
 \renewcommand{\appendixtocname}{\nameappendixsection} % Nombre del anexo en índice
@@ -44,14 +52,18 @@
 \renewcommand{\refname}{\namereferences} % Nombre de las referencias
 \renewcommand{\tablename}{\nomltwtable} % Nombre de la leyenda de tablas
 
+% -----------------------------------------------------------------------------
 % Estilo de títulos
+% -----------------------------------------------------------------------------
 \sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
 \subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
 \subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
 \titleformat{\subsubsubsection}{\color{\ssstitlecolor} \normalfont \fontsizessstitle \stylessstitle}{\thesubsubsubsection}{1em}{}
 \titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
+% -----------------------------------------------------------------------------
 % Se crean los header-footer
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\hfstyle}{style1}}{
 	\pagestyle{fancy} \fancyhf{}
 	\fancyhead[L]{\nouppercase{\rightmark}}
@@ -193,7 +205,11 @@
 	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style14}}}}}}}}}}}}}}
 }
 
+% -----------------------------------------------------------------------------
 % Muestra los números de línea
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\showlinenumbers}{true}}{
 	\linenumbers}{
 }
+
+% END

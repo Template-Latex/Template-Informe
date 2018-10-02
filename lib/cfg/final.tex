@@ -46,6 +46,7 @@
 
 % -----------------------------------------------------------------------------
 % Numeración de objetos
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\showsectioncaption}{none}}{
 }{
 \ifthenelse{\equal{\showsectioncaption}{sec}}{
@@ -69,13 +70,19 @@
 	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}
 }}}}
 
+% -----------------------------------------------------------------------------
 % Se reestablecen números de página y secciones
+% -----------------------------------------------------------------------------
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
 \setcounter{section}{0}
 \setcounter{footnote}{0}
 
+% -----------------------------------------------------------------------------
 % Muestra los números de línea
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\showlinenumbers}{true}}{
 	\linenumbers}{
 }
+
+% END
