@@ -11,6 +11,11 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Parcha el formato de subsecciones
+\pretocmd{\section}{
+	\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+}{}{}
+
 % Insertar un título sin número
 % 	#1	Título
 \newcommand{\sectionanum}[1]{
@@ -21,6 +26,8 @@
 	\addcontentsline{toc}{section}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 	\changeheadertitle{#1}
+	\setcounter{subsection}{0}
+	\renewcommand{\thesubsection}{\arabic{subsection}}
 }
 
 % Insertar un título sin número y sin indexar
