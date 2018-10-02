@@ -12,27 +12,27 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % Se revisa si las variables no han sido borradas
-\checkvardefined{\titulodelinforme}
-\checkvardefined{\temaatratar}
 \checkvardefined{\autordeldocumento}
-\checkvardefined{\nombredelcurso}
 \checkvardefined{\codigodelcurso}
-\checkvardefined{\nombreuniversidad}
-\checkvardefined{\nombrefacultad}
 \checkvardefined{\departamentouniversidad}
 \checkvardefined{\localizacionuniversidad}
+\checkvardefined{\nombredelcurso}
+\checkvardefined{\nombrefacultad}
+\checkvardefined{\nombreuniversidad}
+\checkvardefined{\temaatratar}
+\checkvardefined{\titulodelinforme}
 
 % Se añade \xspace a las variables
 \makeatletter
-	\g@addto@macro\titulodelinforme\xspace
-	\g@addto@macro\temaatratar\xspace
 	\g@addto@macro\autordeldocumento\xspace
-	\g@addto@macro\nombredelcurso\xspace
 	\g@addto@macro\codigodelcurso\xspace
-	\g@addto@macro\nombreuniversidad\xspace
-	\g@addto@macro\nombrefacultad\xspace
 	\g@addto@macro\departamentouniversidad\xspace
 	\g@addto@macro\localizacionuniversidad\xspace
+	\g@addto@macro\nombredelcurso\xspace
+	\g@addto@macro\nombrefacultad\xspace
+	\g@addto@macro\nombreuniversidad\xspace
+	\g@addto@macro\temaatratar\xspace
+	\g@addto@macro\titulodelinforme\xspace
 \makeatother
 
 % Se crean variables si se borraron
@@ -138,9 +138,9 @@
 }{
 	% Color de links sin borde
 	\hypersetup{
-		hidelinks,
-		colorlinks=true,
 		citecolor=\numcitecolor,
+		colorlinks=true,
+		hidelinks,
 		linkcolor=\linkcolor,
 		urlcolor=\urlcolor
 	}
@@ -301,10 +301,8 @@
 \setcounter{secnumdepth}{4} % Límite máximo subsubsubsección
 
 % Crea las subsubsubsecciones
-\titleclass{\subsubsubsection}{straight}[\subsection]
-
-% Crea contador subsubsubsección
 \newcounter{subsubsubsection}[subsubsection]
+\titleclass{\subsubsubsection}{straight}[\subsection]
 
 % Establece el número de las subsubsubsecciones
 \ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega punto tras el número

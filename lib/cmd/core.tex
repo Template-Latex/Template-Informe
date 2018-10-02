@@ -11,6 +11,11 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% Definición de variables globales
+\def\GLOBALenvimageintialized {false}
+\def\GLOBALsectionanumenabled {false}
+\def\GLOBALsubsectionanumenabled {false}
+
 % Lanza un mensaje de error
 % 	#1	Función del error
 %	#2	Mensaje
@@ -120,7 +125,7 @@
 
 % Chequea que las funciones sólo puedan usarse en el entorno images
 \newcommand{\checkonlyonenvimage}{
-	\ifthenelse{\equal{\envimagesinitialized}{true}}{}{
+	\ifthenelse{\equal{\GLOBALenvimageintialized}{true}}{}{
 		\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}
 		\stop
 	}
@@ -128,7 +133,7 @@
 
 % Chequea que las funciones sólo puedan usarse fuera del entorno images
 \newcommand{\checkoutsideenvimage}{
-	\ifthenelse{\equal{\envimagesinitialized}{true}}{
+	\ifthenelse{\equal{\GLOBALenvimageintialized}{true}}{
 		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}
 		\stop}{
 	}

@@ -231,7 +231,7 @@
 \newenvironment{images}[2][]{
 	\def\envimageslabelvar {#1}
 	\def\envimagescaptionvar {#2}
-	\def\envimagesinitialized {true}
+	\def\GLOBALenvimageintialized {true}
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
 	\begin{figure}[H] \centering
@@ -248,6 +248,5 @@
 	\end{figure}
 	\setcaptionmargincm{\captionlrmargin}
 	\vspace{\marginbottomimages cm}
-	\def\envimagesinitialized {false}
+	\def\GLOBALenvimageintialized {false}
 }
-\def\envimagesinitialized {false}
