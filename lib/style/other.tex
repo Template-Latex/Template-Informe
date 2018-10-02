@@ -11,7 +11,9 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% -----------------------------------------------------------------------------
 % Estilo de enumeración en griego
+% -----------------------------------------------------------------------------
 \RequirePackage{enumitem}
 \makeatletter
 \def\greek#1{\expandafter\@greek\csname c@#1\endcsname}
@@ -76,7 +78,11 @@
 \AddEnumerateCounter{\greek}{\@greek}{24}
 \AddEnumerateCounter{\Greek}{\@Greek}{12}
 
+% -----------------------------------------------------------------------------
 % Columna centrada en tablas
+% -----------------------------------------------------------------------------
 \newcolumntype{P}[1]{
 	>{\centering\arraybackslash}p{#1}
 }
+
+% END
