@@ -11,9 +11,51 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
-% Parcha el formato de subsecciones
+% Variables de control
+\def\varSectionAnumEnabled{false}
+\def\varSubSectionAnumEnabled{false}
+
+% Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
+% de la sección
 \pretocmd{\section}{
 	\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+	\def\varSectionAnumEnabled{false}
+	\def\varSubSectionAnumEnabled{false}
+}{}{}
+
+% Comienza nueva subsección, si está dentro de una sectionanum entonces no dibuja el
+% número de sección, si no entonces dibuja el número de forma normal
+\pretocmd{\subsection}{
+	\ifthenelse{\equal{\varSectionAnumEnabled}{true}}{
+		\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+	}{
+		\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+	}
+	\def\varSubSectionAnumEnabled{false}
+}{}{}
+
+% Comienza nueva subsubsección, aquí hay varios casos:
+%	- si está dentro de una subsección sin número ignora la sección
+%	- si no, entonces puede estar dentro de una sección sin número o no, en ese caso
+%     debe evaluar ambas posibilidades
+\pretocmd{\subsubsection}{
+	\ifthenelse{\equal{\varSubSectionAnumEnabled}{true}}{
+		\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}
+	}{
+		\ifthenelse{\equal{\varSectionAnumEnabled}{true}}{
+			\ifthenelse{\equal{\showdotontitles}{true}}{
+				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
+			}{
+				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
+			}
+		}{
+			\ifthenelse{\equal{\showdotontitles}{true}}{
+				\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
+			}{
+				\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
+			}
+		}
+	}
 }{}{}
 
 % Insertar un título sin número
@@ -28,6 +70,7 @@
 	\changeheadertitle{#1}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
+	\def\varSectionAnumEnabled{true}
 }
 
 % Insertar un título sin número y sin indexar
@@ -41,6 +84,7 @@
 	\changeheadertitle{#1}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
+	\def\varSectionAnumEnabled{true}
 }
 
 % Insertar un título sin número sin cambiar el título del header
@@ -52,6 +96,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
+	\def\varSectionAnumEnabled{true}
 }
 
 % Insertar un título sin número, sin indexar y sin cambiar el título del header
@@ -62,6 +107,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
+	\def\varSectionAnumEnabled{true}
 }
 
 % Insertar un subtítulo sin número
@@ -71,6 +117,9 @@
 	\subsection*{#1}
 	\addcontentsline{toc}{subsection}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}
+	\setcounter{subsubsection}{0}
+	\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+	\def\varSubSectionAnumEnabled{true}
 }
 
 % Insertar un subtítulo sin número y sin indexar
@@ -79,6 +128,9 @@
 	\emptyvarerr{\subsectionanumnoi}{#1}{Subtitulo no definido}
 	\subsection*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}
+	\setcounter{subsubsection}{0}
+	\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+	\def\varSubSectionAnumEnabled{true}
 }
 
 % Insertar un sub-subtítulo sin número
@@ -88,6 +140,12 @@
 	\subsubsection*{#1}
 	\addcontentsline{toc}{subsubsection}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}
+	\setcounter{subsubsubsection}{0}
+	\ifthenelse{\equal{\showdotontitles}{true}}{
+		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}.}
+	}{
+		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}
+	}
 }
 
 % Insertar un sub-subtítulo sin número y sin indexar
@@ -96,6 +154,12 @@
 	\emptyvarerr{\subsubsectionanumnoi}{#1}{Sub-subtitulo no definido}
 	\subsubsection*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}
+	\setcounter{subsubsubsection}{0}
+	\ifthenelse{\equal{\showdotontitles}{true}}{
+		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}.}
+	}{
+		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}
+	}
 }
 
 % Insertar un sub-sub-subtítulo sin número
