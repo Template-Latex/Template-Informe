@@ -11,14 +11,20 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% -----------------------------------------------------------------------------
 % Importa las configuraciones
+% -----------------------------------------------------------------------------
 \input{lib/page/portrait-config} % !FILE <NL,NODIST>
 
+% -----------------------------------------------------------------------------
 % Se escribe el header de la portada
+% -----------------------------------------------------------------------------
 \newpage
 \renewcommand{\thepage}{\nameportraitpage} % !NL
 
+% -----------------------------------------------------------------------------
 % Estilos de portada
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\portraitstyle}{style1}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
@@ -682,7 +688,9 @@
 	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style18}}}}}}}}}}}}}}}}}}}
 }
 
+% -----------------------------------------------------------------------------
 % Añade una página en blanco al imprimir por las dos caras
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\addemptypagetwosides}{true}}{
 	\newpage
 	\null
@@ -690,3 +698,5 @@
 	\renewcommand{\thepage}{}
 	\newpage}{
 }
+
+% END
