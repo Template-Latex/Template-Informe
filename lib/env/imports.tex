@@ -20,15 +20,21 @@
 	\stop
 }
 
+% -----------------------------------------------------------------------------
 % LIBRERÍAS IMPORTANTES
+% -----------------------------------------------------------------------------
 \usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel} % Define el idioma
 \usepackage{ifthen} % Manejo de condicionales
 
+% -----------------------------------------------------------------------------
 % PARCHES DE LIBRERÍAS
+% -----------------------------------------------------------------------------
 \let\counterwithout\relax
 \let\counterwithin\relax
 
+% -----------------------------------------------------------------------------
 % TIPOGRAFÍA DEL DOCUMENTO
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\fontdocument}{lmodern}}{ % Default
 	\usepackage{lmodern}
 }{
@@ -321,7 +327,9 @@
 	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
-% Tipografía typewriter
+% -----------------------------------------------------------------------------
+% TIPOGRAFÍA TYPEWRITER
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\fonttypewriter}{tmodern}}{ % Default
 	\renewcommand*\ttdefault{lmvtt}
 }{
@@ -381,13 +389,14 @@
 	\throwbadconfig{Fuente desconocida}{\fonttypewriter}{anonymouspro,ascii,beramono,cmpica,courier,dejavusansmono,firamono,gomono,inconsolata,kpmonospaced,lcmtt,newtxtt,nimbusmono,nimbusmononarrow,texgyrecursor,tmodern}
 	}}}}}}}}}}}}}}}}
 }
-
 \usepackage[T1]{fontenc} % Caracteres acentuados
 \ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
 
+% -----------------------------------------------------------------------------
 % LIBRERÍAS INDEPENDIENTES
+% -----------------------------------------------------------------------------
 \usepackage{amsmath}       % Librerías matemáticas
 \usepackage{amssymb}       % Librerías matemáticas
 \usepackage{array}         % Nuevas características a las tablas
@@ -430,7 +439,9 @@
 \usepackage{wrapfig}       % Permite comprimir imágenes
 \usepackage{xspace}        % Adminsitra espacios en párrafos y líneas
 
+% -----------------------------------------------------------------------------
 % LIBRERÍAS CON PARÁMETROS
+% -----------------------------------------------------------------------------
 \usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
 \usepackage[inline]{enumitem} % Permite enumerar ítems
 \usepackage[bottom,norule,hang]{footmisc} % Estilo pie de página
@@ -440,7 +451,9 @@
 \usepackage[normalem]{ulem} % Permite tachar y subrayar
 \usepackage[usenames,dvipsnames]{xcolor} % Paquete de colores avanzado
 
+% -----------------------------------------------------------------------------
 % LIBRERÍAS CONDICIONALES
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega punto a títulos/subtítulos
 	\usepackage{secdot}
 	\sectiondot{subsection}
@@ -465,7 +478,9 @@
 	\usepackage{tikz}}{
 }
 
-% Estilo portada
+% -----------------------------------------------------------------------------
+% ESTILO PORTADA
+% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\hfstyle}{style11}}{
 	\usepackage{lastpage}}{}
 \ifthenelse{\equal{\hfstyle}{style12}}{
@@ -476,7 +491,9 @@
 	\usepackage{lastpage}}{
 }
 
+% -----------------------------------------------------------------------------
 % LIBRERÍAS DEPENDIENTES
+% -----------------------------------------------------------------------------
 \usepackage{bookmark}      % Administración de marcadores en pdf
 \usepackage{fancyhdr}      % Encabezados y pie de páginas
 \usepackage{float}         % Administrador de posiciones de objetos
@@ -484,3 +501,5 @@
 \usepackage{multirow}      % Agrega nuevas opciones a las tablas
 \usepackage{notoccite}     % Desactiva las citas en el índice
 \usepackage{titlesec}      % Administración de títulos
+
+% END
