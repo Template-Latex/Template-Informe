@@ -13,11 +13,13 @@
 
 % Crea una sección de referencias solo para bibtex
 \newenvironment{references}{
+	% Verifica configuraciones
 	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	}{
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
 	\begingroup
+	
 	% Se configura las referencias como una sección
 	\ifthenelse{\equal{\donumrefsection}{true}}{
 		\section{\namereferences}
@@ -25,21 +27,28 @@
 		\sectionanum{\namereferences}
 	}
 	\renewcommand{\section}[2]{}
+	
+	% Inicia la bibliografía
 	\begin{thebibliography}{99}
 	}
 	{
 	\end{thebibliography}
+
+	% Termina el grupo
 	\endgroup
 }
 
 % Crea una sección de anexos
 \newenvironment{anexo}{
+	% Inicia el grupo en nueva página y sección
 	\begingroup
 	\clearpage
 	\phantomsection
 	\ifthenelse{\equal{\showappendixsectitle}{true}}{
 		\appendixpage}{
 	}
+
+	% Añade al índice marcadores
 	\appendixtitleon
 	\appendicestocpagenum
 	\appendixtitletocon
@@ -47,6 +56,8 @@
 		numbered,
 		openlevel=0
 	}
+
+	% Crea la sección
 	\begin{appendices}
 		\bookmarksetupnext{level=part}
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
@@ -62,6 +73,8 @@
 		}
 	}{
 	\end{appendices}
+
+	% Reestablece índice marcador
 	\bookmarksetupnext{level=0}
 	\endgroup
 }
@@ -229,11 +242,16 @@
 %	#1	Label (opcional)
 %	#2	Caption
 \newenvironment{images}[2][]{
+	% Modifica globales
 	\def\envimageslabelvar {#1}
 	\def\envimagescaptionvar {#2}
 	\def\GLOBALenvimageintialized {true}
+	
+	% Configura caption y márgenes
 	\vspace{\margintopimages cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
+	
+	% Inicia la figura
 	\begin{figure}[H] \centering
 		\vspace{-\marginrightmultimage cm}
 		\vspace{-\marginrightmultimage cm}
@@ -246,8 +264,12 @@
 			\caption{\envimagescaptionvar\envimageslabelvar}
 		\fi
 	\end{figure}
+
+	% Reestablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}
 	\vspace{\marginbottomimages cm}
+	
+	% Reestablece globales
 	\def\GLOBALenvimageintialized {false}
 }
 
