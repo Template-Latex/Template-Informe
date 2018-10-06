@@ -33,7 +33,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje C
+% C
 % -----------------------------------------------------------------------------
 \lstdefinestyle{c}{
 	language=C,
@@ -52,7 +52,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje C++
+% C++
 % -----------------------------------------------------------------------------
 \lstdefinestyle{cpp}{
 	language=C++,
@@ -71,7 +71,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje C#
+% C#
 % -----------------------------------------------------------------------------
 \lstdefinestyle{csharp}{
 	language=csh,
@@ -97,7 +97,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% CSS, añade más etiquetas
+% CSS
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{CSS}{
 	morecomment=[s]{/*}{*/},
@@ -147,7 +147,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Docker
+% DOCKER
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{docker}{
 	comment=[l]{\#},
@@ -205,7 +205,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje Java
+% Java
 % -----------------------------------------------------------------------------
 \lstdefinestyle{java}{
 	language=Java,
@@ -222,7 +222,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje Javascript
+% Javascript
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{JavaScript}{
 	breaklines=true,
@@ -250,7 +250,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Estilo JSON
+% JSON
 % -----------------------------------------------------------------------------
 \lstdefinestyle{json}{
 	columns=fullflexible,
@@ -267,7 +267,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje kotlin
+% Kotlin
 % -----------------------------------------------------------------------------
 \lstdefinestyle{kotlin}{
 	comment=[l]{//},
@@ -296,7 +296,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje Matlab
+% Matlab
 % -----------------------------------------------------------------------------
 \lstdefinestyle{matlab}{
 	language=Matlab,
@@ -315,7 +315,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Estilo LaTeX
+% LaTeX
 % -----------------------------------------------------------------------------
 \lstdefinestyle{latex}{
 	language=TeX,
@@ -323,16 +323,15 @@
 	commentstyle=\color{gray},
 	keywordstyle=\color{blue}\bfseries,
 	morekeywords={addimage,addimageboxed,align,begin,insertalign,insertaligned,
-		insertdoubleqimage,inserteqimage,insertequation,insertequationcaptioned,
-		insertgather,insertgathered,insertimage,insertimageleft,
-		insertimageright,label,lipsum,newp,newpage,section,sourcecode,
-		sourcecodep,subsection,subsubsection,subsubsubsection},
+		inserteqimage,insertequation,insertequationcaptioned,insertgather,insertgathered,
+		insertimage,insertimageleft,insertimageright,label,lipsum,newp,newpage,section,
+		sourcecode,sourcecodep,subsection,subsubsection,subsubsubsection},
 	showstringspaces=false,
 	tabsize=3
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje Perl
+% Perl
 % -----------------------------------------------------------------------------
 \lstdefinestyle{perl}{
 	language=Perl,
@@ -353,7 +352,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje PHP
+% PHP
 % -----------------------------------------------------------------------------
 \lstdefinestyle{php}{
 	language=php,
@@ -426,7 +425,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje Python
+% Python
 % -----------------------------------------------------------------------------
 \lstdefinestyle{python}{
 	language=Python,
@@ -445,7 +444,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje Ruby
+% Ruby
 % -----------------------------------------------------------------------------
 \lstdefinestyle{ruby} {
 	language=Ruby,
@@ -463,7 +462,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Lenguaje Scala
+% Scala
 % -----------------------------------------------------------------------------
 \lstdefinestyle{scala}{
 	language=scala,
@@ -488,7 +487,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Instrucciones SQL
+% SQL
 % -----------------------------------------------------------------------------
 \lstdefinestyle{sql}{
 	language=SQL,
@@ -502,7 +501,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Syntax XML
+% XML
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{XML}{
 	identifierstyle=\color{dkblue},
@@ -572,7 +571,7 @@
 	\ifthenelse{\equal{#1}{sql}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
-		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash, c,cpp,
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,cpp,
 		csharp,docker,html5,java,js,json,kotlin,latex,matlab,perl,php,plaintext,
 		pseudocode,python,ruby,scala,sql,xml}
 	}}}}}}}}}}}}}}}}}}}}}
