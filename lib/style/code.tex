@@ -17,7 +17,6 @@
 \lstdefinestyle{bash}{
 	language=bash,
 	breakatwhitespace=false,
-	columns=flexible,
 	commentstyle=\color{mygreen},
 	keywordstyle=\color{blue}\ttfamily,
 	morecomment=[l]{rem},
@@ -37,7 +36,6 @@
 \lstdefinestyle{c}{
 	language=C,
 	breakatwhitespace=false,
-	columns=flexible,
 	commentstyle=\color{mygreen},
 	keepspaces=true,
 	keywordstyle=\color{blue}\ttfamily,
@@ -55,7 +53,6 @@
 \lstdefinestyle{cpp}{
 	language=C++,
 	breakatwhitespace=false,
-	columns=flexible,
 	commentstyle=\color{mygreen},
 	keywordstyle=\color{blue}\ttfamily,
 	morecomment=[l][\color{magenta}]{\#},
@@ -72,7 +69,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{csharp}{
 	language=csh,
-	columns=fullflexible,
 	commentstyle=\color{mygreen},
 	keywordstyle=\color{cyan},
 	morecomment=[l]{//},
@@ -155,7 +151,6 @@
 \lstdefinestyle{docker}{
 	language=docker,
 	breakatwhitespace=true,
-	columns=flexible,
 	commentstyle=\color{dkgreen}\ttfamily,
 	identifierstyle=\color{black},
 	keywordstyle=\color{blue}\bfseries,
@@ -223,7 +218,6 @@
 }
 \lstdefinestyle{glsl}{
 	language=GLSL,
-	columns=fullflexible,
 	commentstyle=\color{mygreen},
 	identifierstyle=\ttfamily,
 	keywordstyle=[3]\color{blue}\ttfamily,
@@ -258,7 +252,6 @@
 	language=HTML5,
 	alsodigit={.:;},
 	alsolanguage=JavaScript,
-	columns=fullflexible,
 	commentstyle=\color{darkgray}\ttfamily,
 	firstnumber=1,
 	keywordstyle=\color{blue}\bfseries,
@@ -278,7 +271,6 @@
 \lstdefinestyle{java}{
 	language=Java,
 	breakatwhitespace=true,
-	columns=flexible,
 	commentstyle=\color{dkgreen},
 	keepspaces=true,
 	keywordstyle=\color{blue},
@@ -311,15 +303,13 @@
 	tabsize=3
 }
 \lstdefinestyle{js}{
-	language=JavaScript,
-	columns=fullflexible
+	language=JavaScript
 }
 
 % -----------------------------------------------------------------------------
 % JSON
 % -----------------------------------------------------------------------------
 \lstdefinestyle{json}{
-	columns=fullflexible,
 	literate=*{0}{{{\color{numb}0}}}{1}{1}{{{\color{numb}1}}}{1}{2}
 	{{{\color{numb}2}}}{1}{3}{{{\color{numb}3}}}{1}{4}{{{\color{numb}4}}}
 	{1}{5}{{{\color{numb}5}}}{1}{6}{{{\color{numb}6}}}{1}{7}{{{\color{numb}7}}}
@@ -336,7 +326,6 @@
 % Kotlin
 % -----------------------------------------------------------------------------
 \lstdefinestyle{kotlin}{
-	columns=fullflexible,
 	comment=[l]{//},
 	commentstyle=\color{gray}\ttfamily,
 	emph={delegate,filter,first,firstOrNull,forEach,lazy,map,mapNotNull,println,
@@ -367,7 +356,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{matlab}{
 	language=Matlab,
-	columns=flexible,
 	commentstyle=\color{mygreen},
 	emph=[1]{for,end,break},emphstyle=[1]\color{red},
 	identifierstyle=\color{black},
@@ -385,7 +373,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{latex}{
 	language=TeX,
-	columns=fullflexible,
 	commentstyle=\color{gray},
 	keywordstyle=\color{blue}\bfseries,
 	morekeywords={addimage,addimageboxed,align,bibliography,begin,cite,fullcite,
@@ -404,7 +391,6 @@
 	language=Perl,
 	alsoletter={\%},
 	breakatwhitespace=false,
-	columns=flexible,
 	commentstyle=\color{purple!40!black},
 	identifierstyle=\color{blue},
 	keepspaces=true,
@@ -422,7 +408,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{php}{
 	language=php,
-	columns=fullflexible,
 	commentstyle=\color{gray},
 	emph=[1]{php},
 	emph=[2]{if,and,or,else},
@@ -455,7 +440,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{plaintext}{
 	language={},
-	columns=fullflexible,
 	keepspaces=true,
 	literate={\ \ }{{\ }}1,
 	tabsize=4
@@ -468,7 +452,6 @@
 	language=Matlab,
 	backgroundcolor=\color{white},
 	breakatwhitespace=false,
-	columns=flexible,
 	commentstyle=\color{gray},
 	frame=tB,
 	keepspaces=true,
@@ -494,7 +477,6 @@
 \lstdefinestyle{python}{
 	language=Python,
 	breakatwhitespace=false,
-	columns=fullflexible,
 	commentstyle=\color{codegreen},
 	keepspaces=true,
 	keywordstyle=\color{magenta},
@@ -512,7 +494,6 @@
 \lstdefinestyle{ruby} {
 	language=Ruby,
 	breakatwhitespace=true,
-	columns=fullflexible,
 	commentstyle=\color{dkgreen},
 	keywordstyle=\color{blue},
 	morestring=[s][]{\#\{}{\}},
@@ -529,7 +510,6 @@
 \lstdefinestyle{scala}{
 	language=scala,
 	breakatwhitespace=true,
-	columns=flexible,
 	commentstyle=\color{dkgreen},
 	keywordstyle=\color{blue},
 	morecomment=[l]{//},
@@ -553,7 +533,6 @@
 \lstdefinestyle{sql}{
 	language=SQL,
 	breakatwhitespace=true,
-	columns=flexible,
 	commentstyle=\color{gray},
 	keywordstyle=\color{blue},
 	showspaces=false,
@@ -575,7 +554,6 @@
 \lstdefinestyle{xml}{
 	language=XML,
 	commentstyle=\color{gray}\upshape,
-	columns=fullflexible,
 	showstringspaces=false,
 	tabsize=2
 }
@@ -588,6 +566,7 @@
 	basicstyle={\small\ttfamily},
 	belowskip=3mm,
 	breaklines=true,
+	columns=fullflexible,
 	extendedchars=true,
 	keepspaces=true,
 	literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
