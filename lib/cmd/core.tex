@@ -12,6 +12,7 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % Definición de variables globales
+\def\GLOBALcoretikzimported {false}
 \def\GLOBALenvimageintialized {false}
 \def\GLOBALsectionanumenabled {false}
 \def\GLOBALsubsectionanumenabled {false}
@@ -146,8 +147,12 @@
 
 % Se importa la librería tikz
 \newcommand{\coreimporttikz}{
-	\ifthenelse{\equal{\importtikz}{false}}{
-		\usepackage{tikz}}{
+	\ifthenelse{\equal{\GLOBALcoretikzimported}{false}}{
+		\ifthenelse{\equal{\importtikz}{false}}{
+			\usepackage{tikz}}{
+		}
+		\def\GLOBALcoretikzimported{true}
+		}{
 	}
 }
 

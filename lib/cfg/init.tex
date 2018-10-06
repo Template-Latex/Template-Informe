@@ -147,15 +147,13 @@
 \arrayrulecolor{\tablelinecolor} % Color de las líneas de las tablas
 \sethlcolor{\highlightcolor} % Color del subrayado por defecto
 \ifthenelse{\equal{\showborderonlinks}{true}}{
-	% Color de links con borde
-	\hypersetup{
+	\hypersetup{ % Color de links con borde
 		citebordercolor=\numcitecolor,
 		linkbordercolor=\linkcolor,
 		urlbordercolor=\urlcolor
 	}
 }{
-	% Color de links sin borde
-	\hypersetup{
+	\hypersetup{ % Color de links sin borde
 		citecolor=\numcitecolor,
 		colorlinks=true,
 		hidelinks,
@@ -210,8 +208,8 @@
 % Alineado de leyendas
 \ifthenelse{\equal{\captionalignment}{justified}}{ % Leyenda justificada
 	\captionsetup{
-		justification=justified,
-		format=plain
+		format=plain,
+		justification=justified
 	}
 }{
 \ifthenelse{\equal{\captionalignment}{centered}}{ % Leyenda centrada
@@ -368,11 +366,11 @@
 % Establece el número de las subsubsubsecciones
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega punto tras el número
-	\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}.}
-	\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}.}
+	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
+	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}.}
 }{
-	\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
-	\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}}
+	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
+	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}}
 }
 
 % -----------------------------------------------------------------------------
@@ -380,11 +378,11 @@
 % -----------------------------------------------------------------------------
 \makeatletter
 	\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}
-		{3.25ex \@plus1ex \@minus.2ex}
+		{3.25ex \@plus 1ex \@minus .2ex}
 		{-1em}
 		{\normalfont\normalsize\bfseries}}
 	\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}
-		{3.25ex \@plus1ex \@minus .2ex}
+		{3.25ex \@plus 1ex \@minus .2ex}
 		{-1em}
 		{\normalfont\normalsize\bfseries}}
 	\def\toclevel@subsubsubsection{4}
