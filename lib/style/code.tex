@@ -170,6 +170,81 @@
 }
 
 % -----------------------------------------------------------------------------
+% GLSL - Shaders
+% -----------------------------------------------------------------------------
+\lstdefinelanguage{GLSL}{
+	alsoletter={\#},
+	morekeywords=[1]{
+		attribute,bool,break,bvec2,bvec3,bvec4,case,centroid,const,continue,
+		default,discard,do,else,false,flat,float,for,highp,if,in,inout,int,
+		invariant,isampler1D,isampler1DArray,isampler2D,isampler2DArray,
+		isampler2DMS,isampler2DMSArray,isampler2DRect,isampler3D,isamplerBuffer,
+		isamplerCube,ivec2,ivec3,ivec4,layout,lowp,mat2,mat2x2,mat2x3,mat2x4,
+		mat3,mat3x2,mat3x3,mat3x4,mat4,mat4x2,mat4x3,mat4x4,mediump,
+		noperspective,out,precision,return,sampler1D,sampler1DArray,
+		sampler1DArrayShadow,sampler1DShadow,sampler2D,sampler2DArray,
+		sampler2DArrayShadow,sampler2DMS,sampler2DMSArray,sampler2DRect,
+		sampler2DRectShadow,sampler2DShadow,sampler3D,samplerBuffer,
+		samplerCube,samplerCubeShadow,smooth,struct,switch,true,uint,uniform,
+		usampler1D,usampler1DArray,usampler2D,usampler2DArray,usampler2DMS,
+		usampler2DMSArray,usampler2DRect,usampler3D,usamplerBuffer,usamplerCube,
+		uvec2,uvec3,uvec4,varying,vec2,vec3,vec4,void,while
+	},
+	morekeywords=[2]{
+		abs,acos,acosh,all,any,asin,asinh,atan,atan,atanh,ceil,clamp,cos,cosh,
+		cross,degrees,determinant,dFdx,dFdy,distance,dot,EmitVertex,EndPrimitive,
+		equal,exp,exp2,faceforward,floatBitsToInt,floatBitsToUint,floor,fract,
+		fwidth,greaterThan,greaterThanEqual,intBitsToFloat,inverse,inversesqrt,
+		isinf,isnan,length,lessThan,lessThanEqual,log,log2,matrixCompMult,max,
+		min,mix,mod,modf,noise1,noise2,noise3,noise4,normalize,not,notEqual,
+		outerProduct,pow,radians,reflect,refract,round,roundEven,shadow1D,
+		shadow1DLod,shadow1DProj,shadow1DProjLod,shadow2D,shadow2DLod,
+		shadow2DProj,shadow2DProjLod,sign,sin,sinh,smoothstep,sqrt,step,tan,tanh,
+		texelFetch,texelFetchOffset,texture,texture1D,texture1DProj,
+		texture1DProjLod,texture2D,texture2DLod,texture2DProj,texture2DProjLod,
+		texture3D,texture3DLod,texture3DProj,texture3DProjLod,textureCube,
+		textureCubeLod,textureGrad,textureGradOffset,textureLod,textureLodOffset,
+		textureOffset,textureProj,textureProjGrad,textureProjGradOffset,
+		textureProjLod,textureProjLodOffset,textureProjOffset,textureSize,
+		transpose,trunc,uintBitsToFloat
+	},
+	morekeywords=[3]{
+		\#version,core,gl_ClipDistance,gl_ClipDistance,gl_ClipVertex,gl_DepthRange,
+		gl_FragColor,gl_FragCoord,gl_FragData,gl_FragDepth,gl_FrontFacing,
+		gl_InstanceID,gl_Layer,gl_MaxClipDistances,gl_MaxCombinedTextureImageUnits,
+		gl_MaxDrawBuffers,gl_MaxDrawBuffers,gl_MaxFragmentInputComponents,
+		gl_MaxFragmentUniformComponents,gl_MaxGeometryInputComponents,
+		gl_MaxGeometryOutputComponents,gl_MaxGeometryOutputVertices,
+		gl_MaxGeometryOutputVertices,gl_MaxGeometryTextureImageUnits,
+		gl_MaxGeometryTotalOutputComponents,gl_MaxGeometryUniformComponents,
+		gl_MaxGeometryVaryingComponents,gl_MaxTextureImageUnits,
+		gl_MaxVaryingComponents,gl_MaxVaryingFloats,gl_MaxVertexAttribs,
+		gl_MaxVertexOutputComponents,gl_MaxVertexTextureImageUnits,
+		gl_MaxVertexUniformComponents,gl_PerVertex,gl_PointCoord,gl_PointSize,
+		gl_Position,gl_PrimitiveID,gl_VertexID
+	},
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+}
+\lstdefinestyle{glsl}{
+	language=GLSL,
+	breaklines=true,
+	columns=fullflexible,
+	commentstyle=\color{mygreen},
+	identifierstyle=\ttfamily,
+	keywordstyle=[3]\color{blue}\ttfamily,
+	keywordstyle=\color{red},
+	prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	sensitive=true,
+	showspaces=false,
+	showstringspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=3,
+	upquote=true
+}
+
+% -----------------------------------------------------------------------------
 % HTML5
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{HTML5}{
@@ -270,6 +345,7 @@
 % Kotlin
 % -----------------------------------------------------------------------------
 \lstdefinestyle{kotlin}{
+	columns=fullflexible,
 	comment=[l]{//},
 	commentstyle=\color{gray}\ttfamily,
 	emph={delegate,filter,first,firstOrNull,forEach,lazy,map,mapNotNull,println,
@@ -554,6 +630,7 @@
 	\ifthenelse{\equal{#1}{cpp}}{}{
 	\ifthenelse{\equal{#1}{csharp}}{}{
 	\ifthenelse{\equal{#1}{docker}}{}{
+	\ifthenelse{\equal{#1}{glsl}}{}{
 	\ifthenelse{\equal{#1}{html5}}{}{
 	\ifthenelse{\equal{#1}{java}}{}{
 	\ifthenelse{\equal{#1}{js}}{}{
@@ -572,9 +649,9 @@
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
 		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,cpp,
-		csharp,docker,html5,java,js,json,kotlin,latex,matlab,perl,php,plaintext,
+		csharp,docker,glsl,html5,java,js,json,kotlin,latex,matlab,perl,php,plaintext,
 		pseudocode,python,ruby,scala,sql,xml}
-	}}}}}}}}}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END
