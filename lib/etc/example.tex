@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      5.6.3 (02/10/2018)
+% Versión:      5.7.1 (06/10/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -11,28 +11,42 @@
 % Manual template: [http://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
+% ------------------------------------------------------------------------------
 % NUEVA SECCIÓN
-% Las secciones se inician con \section, si se quiere una sección sin número se pueden usar las funciones \sectionanum (sección sin número) o la función \sectionanumnoi para crear el mismo título sin numerar y sin aparecer en el índice
+% ------------------------------------------------------------------------------
+% Las secciones se inician con \section, si se quiere una sección sin número se
+% pueden usar las funciones \sectionanum (sección sin número) o la función
+% \sectionanumnoi para crear el mismo título sin numerar y sin aparecer en el índice.
 \section{Informes con \LaTeX}
 
 	% SUB-SECCIÓN
-	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin número se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin aparecer en el índice
+	% Las sub-secciones se inician con \subsection, si se quiere una sub-sección sin
+	% número se pueden usar las funciones \subsectionanum (nuevo subtítulo sin numeración)
+	% o la función \subsectionanumnoi para crear el mismo subtítulo sin numerar y sin
+	% aparecer en el índice
 	\subsection{Una breve introducción}
-
+		
 		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \href{http://latex.ppizarror.com/informe.html#hlp-imagen}{\texttt{\textbackslash insertimage}}:
 
-		% Para insertar una imagen se puede usar la función \insertimage la cual toma un primer parámetro opcional para definir una etiqueta (dentro de los corchetes), luego toma la dirección de la imagen, sus parámetros (en este caso se definió la escala de 0.15) y una leyenda opcional
+		% Para insertar una imagen se puede usar la función \insertimage la cual
+		% toma un primer parámetro opcional para definir una etiqueta (dentro de
+		% los corchetes), luego toma la dirección de la imagen, sus parámetros
+		% (en este caso se definió la escala de 0.15) y una leyenda opcional.
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
 
 		A continuación \footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{http://latex.ppizarror.com/informe.html#hlp-formulae}{\texttt{\textbackslash insertequation}}:
 
-		% Se inserta una ecuación, el primer parámetro entre [] es opcional (permite identificar con una etiqueta para poder referenciarlo después con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos $
+		% Se inserta una ecuación, el primer parámetro entre [] es opcional
+		% (permite identificar con una etiqueta para poder referenciarlo después
+		% con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos $.
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 
-		% Se añade párrafo de prueba. Notar que no se requiere añadir un salto de línea después de insertar una ecuación
+		% Se añade párrafo de prueba. Notar que no se requiere añadir un salto
+		% de línea después de insertar una ecuación.
 		\lipsum[75]
 
-		% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar errores y warnings por parte del compilador de LaTeX
+		% Los párrafos se pueden añadir con \newp, esta función se hizo para
+		% evitar errores y warnings por parte del compilador de LaTeX.
 		\newp Este es un nuevo párrafo insertado con el comando \href{http://latex.ppizarror.com/informe.html#hlp-parrafo}{\texttt{\textbackslash newp}}. Si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales acompañado de \texttt{\textbackslash par}.
 
 	% SUB-SECCIÓN
@@ -57,14 +71,21 @@
 		\end{table}
 
 
+% ------------------------------------------------------------------------------
 % NUEVA SECCIÓN
+% ------------------------------------------------------------------------------
 \newpage
 \section{Aquí un nuevo tema}
 
 	% SUB-SECCIÓN
 	\subsection{Haciendo informes como un profesional}
 
-		% Se inserta una imagen flotante en la izquierda del documento con \insertimageleft, al igual que las demás funciones, el primer parámetro es opcional, luego viene la ubicación de la imagen, seguido de la escala (un 30% del ancho de página) y por último su leyenda. Para insertar una imagen flotante en la derecha se utiliza \insertimageright usando los mismos parámetros
+		% Se inserta una imagen flotante en la izquierda del documento con
+		% \insertimageleft, al igual que las demás funciones, el primer parámetro
+		% es opcional, luego viene la ubicación de la imagen, seguido de la escala
+		% (un 30% del ancho de página) y por último su leyenda. Para insertar una
+		% imagen flotante en la derecha se utiliza \insertimageright usando los
+		% mismos parámetros.
 		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
 
 		\lipsum[1]
@@ -114,7 +135,10 @@
 	% SUB-SECCIÓN
 	\subsection{Ejemplos de inserción de código fuente}
 
-		% A continuación se crea una función auxiliar, esta es una herramienta extremadamente importante y muy útil. Esta función de ejemplo toma dos parámetros, uno es el lenguaje del código fuente, el segundo el identificador en el manual
+		% A continuación se crea una función auxiliar, esta es una herramienta
+		% extremadamente importante y muy útil. Esta función de ejemplo toma dos
+		% parámetros, uno es el lenguaje del código fuente, el segundo el
+		% identificador en el manual.
 		\newcommand{\insertsrcmanual}[2]{\href{http://latex.ppizarror.com/informe.html\#hlp-srccode\&srctype=#1}{#2}}
 
 		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{bash}{bash}, \insertsrcmanual{c}{C}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{kotlin}{Kotlin}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{scala}{Scala}, \insertsrcmanual{sql}{SQL} y \insertsrcmanual{xml}{XML}. Para insertar un código fuente se debe usar el entorno \texttt{sourcecode}, o el entorno \texttt{sourcecodep} si es que se quiere utilizar parámetros adicionales. \newp
@@ -167,7 +191,7 @@ end
 	% SUB-SECCIÓN
 	\subsection{Añadir múltiples imágenes}
 
-	A partir de la versión 5.0.0 existe el entorno \href{http://latex.ppizarror.com/informe.html#hlp-images}{\texttt{images}} que permite insertar múltiples imágenes de una manera muy sencilla, reemplazando así \footnote{Al usar cualquiera de estas funciones el template lanzará una alerta, se recomienda su desuso ya que en el futuro estas funciones podrían eliminarse del template.} a las funciones \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash inserttripleimage}, etc. Para crear imágenes múltiples se deben usar instrucciones como:
+	El template ofrece el entorno \href{http://latex.ppizarror.com/informe.html#hlp-images}{\texttt{images}} que permite insertar múltiples imágenes de una manera muy sencilla \footnote{Desde la versión \texttt{6.0.0} no se da soporte a las funciones de inserción de imágenes múltiples \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash insertdoubleeqimage},\texttt{\textbackslash inserttripleimage}, \texttt{\textbackslash inserttripleeqimage}, \texttt{\textbackslash insertquadimage}, \texttt{\textbackslash insertpentaimage} y \texttt{\textbackslash inserthexaimage}.}. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
 
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
@@ -186,7 +210,9 @@ end
 	\end{images}
 
 
+% ------------------------------------------------------------------------------
 % NUEVA SECCIÓN
+% ------------------------------------------------------------------------------
 % Inserta una sección sin número
 \sectionanum{Más ejemplos}
 
@@ -251,7 +277,9 @@ end
 		Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{http://latex.ppizarror.com/Template-Informe/}. Si necesitas una ayuda muy específica sobre el template, o si tienes alguna sugerencia, me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
 
 
+% ------------------------------------------------------------------------------
 % REFERENCIAS (ESTILO BIBTEX), revisar configuración \stylecitereferences
+% ------------------------------------------------------------------------------
 \newpage % Salto de página
 \begin{references}
 	\bibitem{ref1}
@@ -271,7 +299,9 @@ end
 \end{references}
 
 
+% ------------------------------------------------------------------------------
 % ANEXO
+% ------------------------------------------------------------------------------
 \newpage
 \begin{anexo}
 	\section{Cálculos realizados}
@@ -279,7 +309,8 @@ end
 		\subsection{Metodología}
 			\lipsum[1]
 
-			% Imagen, se numerará automáticamente con la letra del anexo según la configuración \appendixindepobjnum
+			% Imagen, se numerará automáticamente con la letra del anexo según
+			% la configuración \appendixindepobjnum
 			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
 
 		\subsection{Resultados}
