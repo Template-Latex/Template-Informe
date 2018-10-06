@@ -79,12 +79,12 @@
 	\endgroup
 }
 
-% Inserta código fuente con parámetros
+% Inicia código fuente con parámetros
 %	#1	Label (opcional)
 %	#2	Estilo de código
 %	#3	Parámetros
 %	#4	Caption
-\lstnewenvironment{sourcecodep}[4][]{
+\newcommand{\coreinitsourcecodep}[4]{
 	\emptyvarerr{sourcecodep}{#2}{Estilo no definido}
 	\checkvalidsourcecodestyle{#2}
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
@@ -150,17 +150,26 @@
 			\fi
 		\fi	
 	}
+}
+
+% Inserta código fuente con parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Parámetros
+%	#4	Caption
+\lstnewenvironment{sourcecodep}[4][]{
+	\coreinitsourcecodep{#1}{#2}{#3}{#4}
 }{
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{
 	}
 }
 
-% Inserta código fuente sin parámetros
+% Inicia código fuente sin parámetros
 %	#1	Label (opcional)
 %	#2	Estilo de código
 %	#3	Caption
-\lstnewenvironment{sourcecode}[3][]{
+\newcommand{\coreinitsourcecode}[3]{
 	\emptyvarerr{\equationresize}{#2}{Estilo no definido}
 	\checkvalidsourcecodestyle{#2}
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
@@ -194,6 +203,14 @@
 			}
 		\fi
 	}
+}
+
+% Inserta código fuente sin parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Caption
+\lstnewenvironment{sourcecode}[3][]{
+	\coreinitsourcecode{#1}{#2}{#3}
 }{
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{
