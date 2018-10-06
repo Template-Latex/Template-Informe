@@ -17,7 +17,6 @@
 \lstdefinestyle{bash}{
 	language=bash,
 	breakatwhitespace=false,
-	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{mygreen},
 	keywordstyle=\color{blue}\ttfamily,
@@ -38,7 +37,6 @@
 \lstdefinestyle{c}{
 	language=C,
 	breakatwhitespace=false,
-	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{mygreen},
 	keepspaces=true,
@@ -57,7 +55,6 @@
 \lstdefinestyle{cpp}{
 	language=C++,
 	breakatwhitespace=false,
-	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{mygreen},
 	keywordstyle=\color{blue}\ttfamily,
@@ -75,7 +72,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{csharp}{
 	language=csh,
-	breaklines=true,
 	columns=fullflexible,
 	commentstyle=\color{mygreen},
 	keywordstyle=\color{cyan},
@@ -159,7 +155,6 @@
 \lstdefinestyle{docker}{
 	language=docker,
 	breakatwhitespace=true,
-	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{dkgreen}\ttfamily,
 	identifierstyle=\color{black},
@@ -228,7 +223,6 @@
 }
 \lstdefinestyle{glsl}{
 	language=GLSL,
-	breaklines=true,
 	columns=fullflexible,
 	commentstyle=\color{mygreen},
 	identifierstyle=\ttfamily,
@@ -264,7 +258,6 @@
 	language=HTML5,
 	alsodigit={.:;},
 	alsolanguage=JavaScript,
-	breaklines=true,
 	columns=fullflexible,
 	commentstyle=\color{darkgray}\ttfamily,
 	firstnumber=1,
@@ -285,7 +278,6 @@
 \lstdefinestyle{java}{
 	language=Java,
 	breakatwhitespace=true,
-	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{dkgreen},
 	keepspaces=true,
@@ -300,7 +292,6 @@
 % Javascript
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{JavaScript}{
-	breaklines=true,
 	comment=[l]{//},
 	commentstyle=\color{mygreen},
 	identifierstyle=\color{black},
@@ -376,7 +367,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{matlab}{
 	language=Matlab,
-	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{mygreen},
 	emph=[1]{for,end,break},emphstyle=[1]\color{red},
@@ -398,10 +388,11 @@
 	columns=fullflexible,
 	commentstyle=\color{gray},
 	keywordstyle=\color{blue}\bfseries,
-	morekeywords={addimage,addimageboxed,align,begin,insertalign,insertaligned,
-		inserteqimage,insertequation,insertequationcaptioned,insertgather,insertgathered,
-		insertimage,insertimageleft,insertimageright,label,lipsum,newp,newpage,section,
-		sourcecode,sourcecodep,subsection,subsubsection,subsubsubsection},
+	morekeywords={addimage,addimageboxed,align,bibliography,begin,cite,fullcite,
+		insertalign,insertaligned,inserteqimage,insertequation,insertequationcaptioned,
+		insertgather,insertgathered,insertimage,insertimageleft,insertimageright,label,
+		lipsum,newp,newpage,section,shortcite,sourcecode,sourcecodep,subsection,
+		subsubsection,subsubsubsection},
 	showstringspaces=false,
 	tabsize=3
 }
@@ -413,7 +404,6 @@
 	language=Perl,
 	alsoletter={\%},
 	breakatwhitespace=false,
-	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{purple!40!black},
 	identifierstyle=\color{blue},
@@ -465,7 +455,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{plaintext}{
 	language={},
-	breaklines=true,
 	columns=fullflexible,
 	keepspaces=true,
 	literate={\ \ }{{\ }}1,
@@ -479,7 +468,6 @@
 	language=Matlab,
 	backgroundcolor=\color{white},
 	breakatwhitespace=false,
-	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{gray},
 	frame=tB,
@@ -506,7 +494,6 @@
 \lstdefinestyle{python}{
 	language=Python,
 	breakatwhitespace=false,
-	breaklines=true,
 	columns=fullflexible,
 	commentstyle=\color{codegreen},
 	keepspaces=true,
@@ -525,7 +512,6 @@
 \lstdefinestyle{ruby} {
 	language=Ruby,
 	breakatwhitespace=true,
-	breaklines=true,
 	columns=fullflexible,
 	commentstyle=\color{dkgreen},
 	keywordstyle=\color{blue},
@@ -543,7 +529,6 @@
 \lstdefinestyle{scala}{
 	language=scala,
 	breakatwhitespace=true,
-	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{dkgreen},
 	keywordstyle=\color{blue},
@@ -568,7 +553,6 @@
 \lstdefinestyle{sql}{
 	language=SQL,
 	breakatwhitespace=true,
-	breaklines=true,
 	columns=flexible,
 	commentstyle=\color{gray},
 	keywordstyle=\color{blue},
@@ -603,6 +587,7 @@
 	aboveskip=3mm,
 	basicstyle={\small\ttfamily},
 	belowskip=3mm,
+	breaklines=true,
 	extendedchars=true,
 	keepspaces=true,
 	literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
@@ -618,7 +603,8 @@
 		{ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?``}}1 {¡}{{!``}}1,
 	numbers=left,
 	numbersep=5pt,
-	numberstyle=\tiny\color{codegray}
+	numberstyle=\tiny\color{codegray},
+	postbreak=\mbox{\textcolor{black}{$\hookrightarrow$}\space}
 }
 
 % -----------------------------------------------------------------------------
