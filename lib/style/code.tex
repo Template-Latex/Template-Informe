@@ -20,8 +20,7 @@
 	morecomment=[l]{rem},
 	morecomment=[s]{::}{::},
 	morekeywords={call,cp,dig,gcc,git,grep,ls,mv,python,rm,sudo,vim},
-	showspaces=false,
-	showtabs=false
+	sensitive=false
 }
 
 % -----------------------------------------------------------------------------
@@ -30,9 +29,7 @@
 \lstdefinestyle{c}{
 	language=C,
 	breakatwhitespace=false,
-	keepspaces=true,
-	showspaces=false,
-	showtabs=false
+	keepspaces=true
 }
 
 % -----------------------------------------------------------------------------
@@ -41,9 +38,7 @@
 \lstdefinestyle{cpp}{
 	language=C++,
 	breakatwhitespace=false,
-	morecomment=[l][\color{magenta}]{\#},
-	showspaces=false,
-	showtabs=false
+	morecomment=[l][\color{magenta}]{\#}
 }
 
 % -----------------------------------------------------------------------------
@@ -60,9 +55,7 @@
 		operator,out,override,params,private,protected,public,readonly,ref,
 		return,sbyte,sealed,short,sizeof,stackalloc,static,string,struct,switch,
 		this,throw,true,try,typeof,uint,ulong,unchecked,unsafe,ushort,using,
-		virtual,void,volatile,while},
-	showspaces=false,
-	showtabs=false
+		virtual,void,volatile,while}
 }
 
 % -----------------------------------------------------------------------------
@@ -123,11 +116,9 @@
 	breakatwhitespace=false,
 	emph={cudaFree,cudaMalloc,__device__,__global__,__host__,__shared__,
 		__syncthreads},
-	emphstyle=\color{blue}\ttfamily,
+	emphstyle=\color{dkcyan}\ttfamily,
 	morecomment=[l][\color{magenta}]{\#},
-	moredelim=[s][\ttfamily]{<<<}{>>>},
-	showspaces=false,
-	showtabs=false
+	moredelim=[s][\ttfamily]{<<<}{>>>}
 }
 
 % -----------------------------------------------------------------------------
@@ -142,8 +133,7 @@
 }
 \lstdefinestyle{docker}{
 	language=docker,
-	breakatwhitespace=true,
-	identifierstyle=\color{black}
+	breakatwhitespace=true
 }
 
 % -----------------------------------------------------------------------------
@@ -201,16 +191,13 @@
 		gl_Position,gl_PrimitiveID,gl_VertexID
 	},
 	morecomment=[l]{//},
-	morecomment=[s]{/*}{*/},
+	morecomment=[s]{/*}{*/}
 }
 \lstdefinestyle{glsl}{
 	language=GLSL,
-	identifierstyle=\ttfamily,
-	keywordstyle=[3]\color{blue}\ttfamily,
+	keywordstyle=[3]\color{dkcyan}\ttfamily,
 	prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
 	sensitive=true,
-	showspaces=false,
-	showtabs=false,
 	upquote=true
 }
 
@@ -236,9 +223,7 @@
 	alsolanguage=JavaScript,
 	firstnumber=1,
 	ndkeywordstyle=\color{dkgreen}\bfseries,
-	numberfirstline=true,
-	showspaces=false,
-	showtabs=false
+	numberfirstline=true
 }
 
 % -----------------------------------------------------------------------------
@@ -255,7 +240,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{JavaScript}{
 	comment=[l]{//},
-	identifierstyle=\color{black},
 	keepspaces=true,
 	keywords={async,await,break,case,catch,catch,do,else,false,function,if,in,
 		new,null,return,switch,true,typeof,var,while},
@@ -292,7 +276,6 @@
 	emph={delegate,filter,first,firstOrNull,forEach,lazy,map,mapNotNull,println,
 		return@},
 	emphstyle={\color{OrangeRed}},
-	identifierstyle=\color{black},
 	keywords={abstract,actual,as,as?,break,by,class,companion,continue,data,do,
 		dynamic,else,enum,expect,false,final,for,fun,get,if,import,in,interface,
 		internal,is,null,object,override,package,private,public,return,set,
@@ -313,8 +296,8 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{matlab}{
 	language=Matlab,
-	emph=[1]{for,end,break},emphstyle=[1]\color{red},
-	identifierstyle=\color{black},
+	emph=[1]{break,end,for,if},
+	emphstyle=[1]\color{dkcyan},
 	keepspaces=true,
 	morekeywords={matlab2tikz}
 }
@@ -350,10 +333,7 @@
 	language=Perl,
 	alsoletter={\%},
 	breakatwhitespace=false,
-	identifierstyle=\color{blue},
-	keepspaces=true,
-	showspaces=false,
-	showtabs=false
+	keepspaces=true
 }
 
 % -----------------------------------------------------------------------------
@@ -368,7 +348,6 @@
 		var},
 	emphstyle=[1]\color{black},
 	emphstyle=[2]\color{dkyellow},
-	identifierstyle=\color{dkgreen},
 	keywords={abstract,and,array,as,break,callable,case,catch,class,clone,const,
 		continue,declare,default,die,do,echo,else,elseif,empty,enddeclare,
 		endfor,endforeach,endif,endswitch,endwhile,eval,exit,extends,final,
@@ -377,8 +356,6 @@
 		print,private,protected,public,require,require_once,return,static,
 		switch,throw,trait,try,unset,use,var,while,xor,yield,__halt_compiler},
 	showlines=true,
-	showspaces=false,
-	showtabs=false
 	upquote=true
 }
 
@@ -405,13 +382,13 @@
 	keywords={and,be,begin,datatype,do,elif,else,end,for,foreach,fun,function,
 		if,in,input,let,null,or,output,pop,procedure,push,repeat,return,swap,
 		until,while,xor},
+	keywordstyle=\color{black}\bfseries\em,
 	mathescape=true,
 	morecomment=[l]{//},
 	morecomment=[l]{\#},
 	morecomment=[s]{/*}{*/},
 	morecomment=[s]{/**}{*/},
-	sensitive=false,
-	showtabs=false,
+	sensitive=false
 }
 
 % -----------------------------------------------------------------------------
@@ -420,9 +397,7 @@
 \lstdefinestyle{python}{
 	language=Python,
 	breakatwhitespace=false,
-	keepspaces=true,
-	showspaces=false,
-	showtabs=false
+	keepspaces=true
 }
 
 % -----------------------------------------------------------------------------
@@ -459,15 +434,13 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{sql}{
 	language=SQL,
-	breakatwhitespace=true,
-	showspaces=false
+	breakatwhitespace=true
 }
 
 % -----------------------------------------------------------------------------
 % XML
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{XML}{
-	identifierstyle=\color{dkblue},
 	morecomment=[s]{<?}{?>},
 	morekeywords={encoding,type,version,xmlns},
 	morestring=[b]",
@@ -486,14 +459,13 @@
 	aboveskip=3mm,
 	basicstyle={\small\ttfamily},
 	belowskip=3mm,
-	keywordstyle=\color{blue},
 	breaklines=true,
-	showstringspaces=false,
-	stringstyle=\color{mauve},
 	columns=fullflexible,
 	commentstyle=\color{dkgreen}\ttfamily\upshape,
 	extendedchars=true,
+	identifierstyle=\color{black},
 	keepspaces=true,
+	keywordstyle=\color{blue},
 	literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
 		{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1 {à}{{\`a}}1
 		{è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1 {À}{{\`A}}1 {È}{{\'E}}1
@@ -509,7 +481,11 @@
 	numbersep=5pt,
 	numberstyle=\tiny\color{codegray},
 	postbreak=\mbox{$\hookrightarrow$\space},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
 	stepnumber=1,
+	stringstyle=\color{mauve},
 	tabsize=3
 }
 

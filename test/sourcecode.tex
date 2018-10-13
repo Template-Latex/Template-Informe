@@ -422,9 +422,11 @@ private class MyClass<out T : Iterable<T>>(var prop1 : Int) {
 		dyn.dynamicProp = 5
 	}
 	
-	val test = """hello
-	world
-	kotlin"""
+	val test = """
+		hello
+		world
+		kotlin
+	"""
 	override fun hashCode(): Int {
 		return super.hashCode() * 31
 	}
