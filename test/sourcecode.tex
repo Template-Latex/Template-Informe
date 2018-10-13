@@ -1,3 +1,15 @@
+\begin{sourcecode}[]{cuda}{Un poco de cuda.}
+__global__ void foo(){
+}
+
+__global__ void addKernel(int *c, const int *a, const int *b){
+	int i = threadIdx.x;
+	c[i] = a[i] + b[i];
+}
+
+foo<<<n,m>>>();
+\end{sourcecode}
+
 \begin{sourcecode}[]{bash}{Un poco de bash.}
 # Muestra toda la información de la batería
 function battr-info {
@@ -523,7 +535,7 @@ void main() {
 }
 \end{sourcecode}
 
-\newpage
-\importsourcecode{latex}{test/general.tex}{Carga código fuente archivo LaTeX.}
-\importsourcecode{latex}{lib/etc/example.tex}{Carga código fuente ejemplo LaTeX.}
-\importsourcecode{latex}{lib/cfg/init.tex}{Carga código fuente init LaTeX.}
+% \newpage
+% \importsourcecode{latex}{test/general.tex}{Carga código fuente archivo LaTeX.}
+% \importsourcecode{latex}{lib/etc/example.tex}{Carga código fuente ejemplo LaTeX.}
+% \importsourcecode{latex}{lib/cfg/init.tex}{Carga código fuente init LaTeX.}

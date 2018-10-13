@@ -55,7 +55,7 @@
 	showspaces=false,
 	showstringspaces=false,
 	showtabs=false,
-	stringstyle=\color{red}\ttfamily
+	stringstyle=\color{mauve}\ttfamily
 }
 
 % -----------------------------------------------------------------------------
@@ -129,6 +129,25 @@
 		zoom},
 	morestring=[s]{:}{;},
 	sensitive=true
+}
+
+% -----------------------------------------------------------------------------
+% CUDA
+% -----------------------------------------------------------------------------
+\lstdefinestyle{cuda}{
+	language=C++,
+	breakatwhitespace=false,
+	commentstyle=\color{mygreen},
+	emph={cudaFree,cudaMalloc,__device__,__global__,__host__,__shared__,
+		__syncthreads},
+	emphstyle=\color{blue}\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	morecomment=[l][\color{magenta}]{\#},
+	moredelim=[s][\ttfamily]{<<<}{>>>},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	stringstyle=\color{red}\ttfamily
 }
 
 % -----------------------------------------------------------------------------
@@ -338,7 +357,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{matlab}{
 	language=Matlab,
-	commentstyle=\color{mygreen},
 	emph=[1]{for,end,break},emphstyle=[1]\color{red},
 	identifierstyle=\color{black},
 	keepspaces=true,
@@ -576,6 +594,7 @@
 	\ifthenelse{\equal{#1}{c}}{}{
 	\ifthenelse{\equal{#1}{cpp}}{}{
 	\ifthenelse{\equal{#1}{csharp}}{}{
+	\ifthenelse{\equal{#1}{cuda}}{}{
 	\ifthenelse{\equal{#1}{docker}}{}{
 	\ifthenelse{\equal{#1}{glsl}}{}{
 	\ifthenelse{\equal{#1}{html5}}{}{
@@ -596,9 +615,9 @@
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
 		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,cpp,
-		csharp,docker,glsl,html5,java,js,json,kotlin,latex,matlab,perl,php,plaintext,
-		pseudocode,python,ruby,scala,sql,xml}
-	}}}}}}}}}}}}}}}}}}}}}}
+		csharp,cuda,docker,glsl,html5,java,js,json,kotlin,latex,matlab,perl,php,
+		plaintext,pseudocode,python,ruby,scala,sql,xml}
+	}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END
