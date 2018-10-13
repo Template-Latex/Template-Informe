@@ -48,6 +48,9 @@
 		\appendixpage}{
 	}
 
+	% Modifica formato de secciones con sección alph
+	\def\GLOBALsectionalph{true}
+
 	% Añade al índice marcadores
 	\appendixtitleon
 	\appendicestocpagenum
@@ -63,8 +66,8 @@
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
 			\belowpdfbookmark{\nameappendixsection}{contents}
 		}
-		\setcounter{secnumdepth}{3}
-		\setcounter{tocdepth}{3}
+		\setcounter{secnumdepth}{4}
+		\setcounter{tocdepth}{4}
 		\ifthenelse{\equal{\appendixindepobjnum}{true}}{
 			\counterwithin{equation}{section}
 			\counterwithin{figure}{section}
@@ -73,6 +76,9 @@
 		}
 	}{
 	\end{appendices}
+
+	% Desactiva formato de secciones con sección alph
+	\def\GLOBALsectionalph{false}
 
 	% Reestablece índice marcador
 	\bookmarksetupnext{level=0}

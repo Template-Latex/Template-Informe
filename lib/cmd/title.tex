@@ -14,7 +14,11 @@
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
 % de la sección
 \pretocmd{\section}{
-	\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+	\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+		\renewcommand{\thesubsection}{\Alph{section}.\arabic{subsection}}
+	}{
+		\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+	}
 	\def\GLOBALsectionanumenabled{false}
 	\def\GLOBALsubsectionanumenabled{false}
 }{}{}
@@ -25,7 +29,11 @@
 	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
 		\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
 	}{
-		\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+			\renewcommand{\thesubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}}
+		}{
+			\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+		}
 	}
 	\def\GLOBALsubsectionanumenabled{false}
 }{}{}
@@ -39,16 +47,26 @@
 		\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}
 	}{
 		\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
+			% Se ocultan las secciones
 			\ifthenelse{\equal{\showdotontitles}{true}}{
 				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
 			}{
 				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
 			}
 		}{
+			% Se muestra la ruta completa
 			\ifthenelse{\equal{\showdotontitles}{true}}{
-				\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
+				\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+					\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}	
+				}{
+					\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
+				}
 			}{
-				\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
+				\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+					\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
+				}{
+					\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
+				}
 			}
 		}
 	}
