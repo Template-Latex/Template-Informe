@@ -1,0 +1,35 @@
+\lipsum[1]
+
+\begin{landscape}
+	\lipsum[4]
+\end{landscape}
+
+\lipsum[8]
+
+\begin{landscape}
+	\lipsum[16]
+\end{landscape}
+
+\lipsum[66]
+
+\newgeometry{landscape,left=\pagemarginleft cm,top=\pagemargintop cm,right=\pagemarginright cm,bottom=\pagemarginbottom cm}
+\headwidth=\textwidth
+\lipsum[2]
+\restoregeometry
+\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+\headwidth=\textwidth
+
+\lipsum[3]
+
+\newgeometry{landscape,left=\pagemarginleft cm,top=\pagemargintop cm,right=\pagemarginright cm,bottom=\pagemarginbottom cm}
+\headwidth=\textwidth
+\lipsum[4]
+\restoregeometry
+\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+\headwidth=\textwidth
+
+\lipsum[5]
+
+\begin{landscape}
+	...
+\end{landscape}

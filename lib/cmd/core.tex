@@ -99,19 +99,6 @@
 }
 \let\endchangemargin=\endlist
 
-% Inicia el modo de página horizontal
-\def\beginplandscape {
-	\newgeometry{landscape,left=\pagemarginleft cm,top=\pagemargintop cm,right=\pagemarginright cm,bottom=\pagemarginbottom cm}
-	\headwidth=\textwidth
-}
-
-% Termina el modo de página horizontal
-\def\endplandscape {
-	\restoregeometry
-	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\headwidth=\textwidth
-}
-
 % Chequea que las funciones sólo puedan usarse en el entorno images
 \newcommand{\checkonlyonenvimage}{
 	\ifthenelse{\equal{\GLOBALenvimageintialized}{true}}{}{

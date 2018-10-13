@@ -147,16 +147,18 @@
 \arrayrulecolor{\tablelinecolor} % Color de las líneas de las tablas
 \sethlcolor{\highlightcolor} % Color del subrayado por defecto
 \ifthenelse{\equal{\showborderonlinks}{true}}{
-	\hypersetup{ % Color de links con borde
+	% Color de links con borde
+	\hypersetup{
 		citebordercolor=\numcitecolor,
 		linkbordercolor=\linkcolor,
 		urlbordercolor=\urlcolor
 	}
 }{
-	\hypersetup{ % Color de links sin borde
-		citecolor=\numcitecolor,
-		colorlinks=true,
+	% Color de links sin borde
+	\hypersetup{ % No reorganizar
 		hidelinks,
+		colorlinks=true,
+		citecolor=\numcitecolor,
 		linkcolor=\linkcolor,
 		urlcolor=\urlcolor
 	}
