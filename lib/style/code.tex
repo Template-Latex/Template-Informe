@@ -17,15 +17,11 @@
 \lstdefinestyle{bash}{
 	language=bash,
 	breakatwhitespace=false,
-	commentstyle=\color{mygreen},
-	keywordstyle=\color{blue}\ttfamily,
 	morecomment=[l]{rem},
 	morecomment=[s]{::}{::},
 	morekeywords={call,cp,dig,gcc,git,grep,ls,mv,python,rm,sudo,vim},
 	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stringstyle=\color{mauve}
+	showtabs=false
 }
 
 % -----------------------------------------------------------------------------
@@ -34,13 +30,9 @@
 \lstdefinestyle{c}{
 	language=C,
 	breakatwhitespace=false,
-	commentstyle=\color{mygreen},
 	keepspaces=true,
-	keywordstyle=\color{blue}\ttfamily,
 	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stringstyle=\color{mauve}
+	showtabs=false
 }
 
 % -----------------------------------------------------------------------------
@@ -49,13 +41,9 @@
 \lstdefinestyle{cpp}{
 	language=C++,
 	breakatwhitespace=false,
-	commentstyle=\color{mygreen},
-	keywordstyle=\color{blue}\ttfamily,
 	morecomment=[l][\color{magenta}]{\#},
 	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stringstyle=\color{mauve}\ttfamily
+	showtabs=false
 }
 
 % -----------------------------------------------------------------------------
@@ -63,8 +51,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{csharp}{
 	language=csh,
-	commentstyle=\color{mygreen},
-	keywordstyle=\color{cyan},
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/},
 	morekeywords={abstract,as,base,bool,break,byte,case,catch,char,checked,
@@ -76,9 +62,7 @@
 		this,throw,true,try,typeof,uint,ulong,unchecked,unsafe,ushort,using,
 		virtual,void,volatile,while},
 	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stringstyle=\color{blue}\ttfamily
+	showtabs=false
 }
 
 % -----------------------------------------------------------------------------
@@ -137,17 +121,13 @@
 \lstdefinestyle{cuda}{
 	language=C++,
 	breakatwhitespace=false,
-	commentstyle=\color{mygreen},
 	emph={cudaFree,cudaMalloc,__device__,__global__,__host__,__shared__,
 		__syncthreads},
 	emphstyle=\color{blue}\ttfamily,
-	keywordstyle=\color{blue}\ttfamily,
 	morecomment=[l][\color{magenta}]{\#},
 	moredelim=[s][\ttfamily]{<<<}{>>>},
 	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stringstyle=\color{red}\ttfamily
+	showtabs=false
 }
 
 % -----------------------------------------------------------------------------
@@ -163,10 +143,7 @@
 \lstdefinestyle{docker}{
 	language=docker,
 	breakatwhitespace=true,
-	commentstyle=\color{dkgreen}\ttfamily,
-	identifierstyle=\color{black},
-	keywordstyle=\color{blue}\bfseries,
-	stringstyle=\color{red}\ttfamily
+	identifierstyle=\color{black}
 }
 
 % -----------------------------------------------------------------------------
@@ -228,15 +205,11 @@
 }
 \lstdefinestyle{glsl}{
 	language=GLSL,
-	commentstyle=\color{mygreen},
 	identifierstyle=\ttfamily,
 	keywordstyle=[3]\color{blue}\ttfamily,
-	keywordstyle=\color{red},
 	prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
 	sensitive=true,
 	showspaces=false,
-	showstringspaces=false,
-	showstringspaces=false,
 	showtabs=false,
 	upquote=true
 }
@@ -261,15 +234,11 @@
 	language=HTML5,
 	alsodigit={.:;},
 	alsolanguage=JavaScript,
-	commentstyle=\color{darkgray}\ttfamily,
 	firstnumber=1,
-	keywordstyle=\color{blue}\bfseries,
 	ndkeywordstyle=\color{dkgreen}\bfseries,
 	numberfirstline=true,
 	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stringstyle=\color{ocher}
+	showtabs=false
 }
 
 % -----------------------------------------------------------------------------
@@ -278,11 +247,7 @@
 \lstdefinestyle{java}{
 	language=Java,
 	breakatwhitespace=true,
-	commentstyle=\color{dkgreen},
-	keepspaces=true,
-	keywordstyle=\color{blue},
-	showstringspaces=false,
-	stringstyle=\color{mauve}
+	keepspaces=true
 }
 
 % -----------------------------------------------------------------------------
@@ -290,20 +255,16 @@
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{JavaScript}{
 	comment=[l]{//},
-	commentstyle=\color{mygreen},
 	identifierstyle=\color{black},
 	keepspaces=true,
 	keywords={async,await,break,case,catch,catch,do,else,false,function,if,in,
 		new,null,return,switch,true,typeof,var,while},
-	keywordstyle=\color{blue},
 	morecomment=[s]{/*}{*/},
 	morestring=[b]',
 	morestring=[b]",
 	ndkeywords={boolean,class,export,implements,import,this,throw},
 	ndkeywordstyle=\color{darkgray}\bfseries,
-	sensitive=false,
-	showstringspaces=false,
-	stringstyle=\color{red}\ttfamily
+	sensitive=false
 }
 \lstdefinestyle{js}{
 	language=JavaScript
@@ -320,7 +281,6 @@
 	{{{\color{punct}{:}}}}{1}{,}{{{\color{punct}{,}}}}{1}{\{}
 	{{{\color{delim}{\{}}}}{1}{\}}{{{\color{delim}{\}}}}}
 	{1}{[}{{{\color{delim}{[}}}}{1}{]}{{{\color{delim}{]}}}}{1},
-	showstringspaces=false,
 	tabsize=2
 }
 
@@ -329,7 +289,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{kotlin}{
 	comment=[l]{//},
-	commentstyle=\color{gray}\ttfamily,
 	emph={delegate,filter,first,firstOrNull,forEach,lazy,map,mapNotNull,println,
 		return@},
 	emphstyle={\color{OrangeRed}},
@@ -339,7 +298,6 @@
 		internal,is,null,object,override,package,private,public,return,set,
 		super,suspend,this,throw,true,try,typealias,val,var,vararg,when,where,
 		while},
-	keywordstyle={\color{NavyBlue}\bfseries},
 	morecomment=[s]{/*}{*/},
 	morestring=[b]",
 	morestring=[s]{"""*}{*"""},
@@ -347,9 +305,7 @@
 		@JvmSynthetic,Array,Byte,Double,Float,Int,Integer,Iterable,Long,
 		Runnable,Short,String},
 	ndkeywordstyle=\color{BurntOrange}\bfseries,
-	sensitive=true,
-	showstringspaces=false,
-	stringstyle=\color{ForestGreen}\ttfamily
+	sensitive=true
 }
 
 % -----------------------------------------------------------------------------
@@ -360,10 +316,7 @@
 	emph=[1]{for,end,break},emphstyle=[1]\color{red},
 	identifierstyle=\color{black},
 	keepspaces=true,
-	keywordstyle=\color{blue},
-	morekeywords={matlab2tikz},
-	showstringspaces=false,
-	stringstyle=\color{mauve}
+	morekeywords={matlab2tikz}
 }
 
 % -----------------------------------------------------------------------------
@@ -371,8 +324,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{latex}{
 	language=TeX,
-	commentstyle=\color{gray},
-	keywordstyle=\color{blue}\bfseries,
 	morekeywords={aacos,aasin,aatan,acos,addimage,addimageboxed,align,asin,atan,
 		begin,bibitem,bibliography,bigstrut,boldmath,bookmarksetup,boxed,cancelto,
 		caption,checkmark,checkvardefined,cite,dd,degree,eqref,equal,frac,
@@ -389,8 +340,7 @@
 		sectionanum,setcounter,setlength,shortcite,sourcecode,sourcecodep,subsection,
 		subsectionanum,subsubsection,subsubsectionanum,subsubsubsection,
 		subsubsubsection,subsubsubsectionanum,textbf,textit,textregistered,
-		textsuperscript,texttt,throwbadconfig,unboldmath,url,xspace},
-	showstringspaces=false
+		textsuperscript,texttt,throwbadconfig,unboldmath,url,xspace}
 }
 
 % -----------------------------------------------------------------------------
@@ -400,14 +350,10 @@
 	language=Perl,
 	alsoletter={\%},
 	breakatwhitespace=false,
-	commentstyle=\color{purple!40!black},
 	identifierstyle=\color{blue},
 	keepspaces=true,
-	keywordstyle=\bfseries\color{green!40!black},
 	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stringstyle=\color{codepurple}
+	showtabs=false
 }
 
 % -----------------------------------------------------------------------------
@@ -415,7 +361,6 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{php}{
 	language=php,
-	commentstyle=\color{gray},
 	emph=[1]{php},
 	emph=[2]{if,and,or,else},
 	emph=[3]{abstract,as,const,else,elseif,endfor,endforeach,endif,extends,
@@ -431,12 +376,9 @@
 		include_once,instanceof,insteadof,interface,isset,list,namespace,new,or,
 		print,private,protected,public,require,require_once,return,static,
 		switch,throw,trait,try,unset,use,var,while,xor,yield,__halt_compiler},
-	keywordstyle=\color{dkblue},
 	showlines=true,
 	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stringstyle=\color{red},
+	showtabs=false
 	upquote=true
 }
 
@@ -457,20 +399,18 @@
 	language=Matlab,
 	backgroundcolor=\color{white},
 	breakatwhitespace=false,
-	commentstyle=\color{gray},
+	commentstyle=\color{gray}\upshape,
 	frame=tB,
 	keepspaces=true,
 	keywords={and,be,begin,datatype,do,elif,else,end,for,foreach,fun,function,
 		if,in,input,let,null,or,output,pop,procedure,push,repeat,return,swap,
 		until,while,xor},
-	keywordstyle=\color{black}\bfseries\em,
 	mathescape=true,
 	morecomment=[l]{//},
 	morecomment=[l]{\#},
 	morecomment=[s]{/*}{*/},
 	morecomment=[s]{/**}{*/},
 	sensitive=false,
-	showstringspaces=false,
 	showtabs=false,
 }
 
@@ -480,13 +420,9 @@
 \lstdefinestyle{python}{
 	language=Python,
 	breakatwhitespace=false,
-	commentstyle=\color{codegreen},
 	keepspaces=true,
-	keywordstyle=\color{magenta},
 	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	stringstyle=\color{codepurple}
+	showtabs=false
 }
 
 % -----------------------------------------------------------------------------
@@ -495,13 +431,9 @@
 \lstdefinestyle{ruby} {
 	language=Ruby,
 	breakatwhitespace=true,
-	commentstyle=\color{dkgreen},
-	keywordstyle=\color{blue},
 	morestring=[s][]{\#\{}{\}},
 	morestring=*[d]{"},
-	sensitive=true,
-	showstringspaces=false,
-	stringstyle=\color{mauve}
+	sensitive=true
 }
 
 % -----------------------------------------------------------------------------
@@ -510,8 +442,6 @@
 \lstdefinestyle{scala}{
 	language=scala,
 	breakatwhitespace=true,
-	commentstyle=\color{dkgreen},
-	keywordstyle=\color{blue},
 	morecomment=[l]{//},
 	morecomment=[n]{/*}{*/},
 	morekeywords={abstract,case,catch,class,def,do,else,extends,false,final,
@@ -521,9 +451,7 @@
 	morestring=[b]',
 	morestring=[b]",
 	morestring=[b]""",
-	otherkeywords={=>,<-,<\%,<:,>:,\#,@},
-	showstringspaces=false,
-	stringstyle=\color{mauve}
+	otherkeywords={=>,<-,<\%,<:,>:,\#,@}
 }
 
 % -----------------------------------------------------------------------------
@@ -532,8 +460,6 @@
 \lstdefinestyle{sql}{
 	language=SQL,
 	breakatwhitespace=true,
-	commentstyle=\color{gray},
-	keywordstyle=\color{blue},
 	showspaces=false
 }
 
@@ -542,17 +468,13 @@
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{XML}{
 	identifierstyle=\color{dkblue},
-	keywordstyle=\color{cyan},
 	morecomment=[s]{<?}{?>},
 	morekeywords={encoding,type,version,xmlns},
 	morestring=[b]",
-	morestring=[s]{>}{<},
-	stringstyle=\color{black}
+	morestring=[s]{>}{<}
 }
 \lstdefinestyle{xml}{
 	language=XML,
-	commentstyle=\color{gray}\upshape,
-	showstringspaces=false,
 	tabsize=2
 }
 
@@ -560,11 +482,16 @@
 % Configuración de códigos fuente
 % -----------------------------------------------------------------------------
 \lstset{
+	% \mbox{\textcolor{black}{$\hookrightarrow$}\space}
 	aboveskip=3mm,
 	basicstyle={\small\ttfamily},
 	belowskip=3mm,
+	keywordstyle=\color{blue},
 	breaklines=true,
+	showstringspaces=false,
+	stringstyle=\color{mauve},
 	columns=fullflexible,
+	commentstyle=\color{dkgreen}\ttfamily\upshape,
 	extendedchars=true,
 	keepspaces=true,
 	literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
@@ -581,7 +508,7 @@
 	numbers=left,
 	numbersep=5pt,
 	numberstyle=\tiny\color{codegray},
-	postbreak=\mbox{$\hookrightarrow$\space}, % \mbox{\textcolor{black}{$\hookrightarrow$}\space}
+	postbreak=\mbox{$\hookrightarrow$\space},
 	stepnumber=1,
 	tabsize=3
 }
