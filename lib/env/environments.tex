@@ -13,55 +13,41 @@
 
 % Crea una sección de referencias solo para bibtex
 \newenvironment{references}{
-	% Verifica configuraciones
-	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Verifica configuraciones
 	}{
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
 	\begingroup
-	
-	% Se configura las referencias como una sección
-	\ifthenelse{\equal{\donumrefsection}{true}}{
+	\ifthenelse{\equal{\donumrefsection}{true}}{ % Se configura las referencias como una sección
 		\section{\namereferences}
 	}{
 		\sectionanum{\namereferences}
 	}
 	\renewcommand{\section}[2]{}
-	
-	% Inicia la bibliografía
-	\begin{thebibliography}{99}
+	\begin{thebibliography}{99} % Inicia la bibliografía
 	}
 	{
 	\end{thebibliography}
-
-	% Termina el grupo
-	\endgroup
+	\endgroup % Termina el grupo
 }
 
 % Crea una sección de anexos
 \newenvironment{anexo}{
-	% Inicia el grupo en nueva página y sección
-	\begingroup
+	\begingroup % Inicia el grupo en nueva página y sección
 	\clearpage
 	\phantomsection
 	\ifthenelse{\equal{\showappendixsectitle}{true}}{
 		\appendixpage}{
 	}
-
-	% Modifica formato de secciones con sección alph
-	\def\GLOBALsectionalph{true}
-
-	% Añade al índice marcadores
-	\appendixtitleon
+	\def\GLOBALsectionalph{true} % Modifica formato de secciones con sección alph
+	\appendixtitleon % Añade al índice marcadores
 	\appendicestocpagenum
 	\appendixtitletocon
 	\bookmarksetup{
 		numbered,
 		openlevel=0
 	}
-
-	% Crea la sección
-	\begin{appendices}
+	\begin{appendices} % Crea la sección
 		\bookmarksetupnext{level=part}
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
 			\belowpdfbookmark{\nameappendixsection}{contents}
@@ -76,12 +62,8 @@
 		}
 	}{
 	\end{appendices}
-
-	% Desactiva formato de secciones con sección alph
-	\def\GLOBALsectionalph{false}
-
-	% Reestablece índice marcador
-	\bookmarksetupnext{level=0}
+	\def\GLOBALsectionalph{false} % Desactiva formato de secciones con sección alph
+	\bookmarksetupnext{level=0} % Reestablece índice marcador
 	\endgroup
 }
 
@@ -237,7 +219,7 @@
 	}
 }
 
-% Importa código fuente desde un archivo con parámetros
+% Importa código fuente desde un archivo sin parámetros
 %	#1	Label (opcional)
 %	#2	Estilo de código
 %	#3	Archivo de código fuente
