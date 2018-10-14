@@ -39,6 +39,7 @@
 	}
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+		\hspace{-0.255cm}
 	}
 
 	% Título y tema a tratar
@@ -74,6 +75,7 @@
 	}
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+		\hspace{-0.255cm}
 	}
 
 	% Nombre de curso y título
@@ -111,6 +113,7 @@
 	}
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+		\hspace{-0.255cm}
 	}
 
 	% Curso y código - título informe
@@ -214,17 +217,17 @@
 	\hspace*{0.3cm}
 	\noindent \textsc{\color{red} \hspace{-2.2cm} \departamentouniversidad} ~ \\
 	\hspace*{0.3cm}
-	\noindent \textsc{\color{dgray} \hspace{-1.6cm} \nombrefacultad} ~ \\
+	\noindent \textsc{\color{dkgray} \hspace{-1.6cm} \nombrefacultad} ~ \\
 	\hspace*{0.3cm}
-	\noindent \textsc{\color{dgray} \hspace{-1.6cm} \nombreuniversidad} ~ \\
+	\noindent \textsc{\color{dkgray} \hspace{-1.6cm} \nombreuniversidad} ~ \\
 	\hspace*{0.3cm}
-	\noindent \textsc{\color{dgray} \hspace{-1.6cm} \codigodelcurso \nombredelcurso} ~ \\
+	\noindent \textsc{\color{dkgray} \hspace{-1.6cm} \codigodelcurso \nombredelcurso} ~ \\
 
 	% Título informe - tema
 	\vfill
 	\begin{center}
 		\vspace*{0.5cm}
-		{\color{dgray} \Large \textbf{\MakeUppercase{\temaatratar}}} ~ \\
+		{\color{dkgray} \Large \textbf{\MakeUppercase{\temaatratar}}} ~ \\
 		\noindent \rule{\linewidth}{0.3mm} ~ \\
 		\Huge \textup \bfseries \textsc{\textcolor{\portraittitlecolor}{\titulodelinforme}} ~ \\
 		\noindent \rule{\linewidth}{0.3mm} ~ \\
@@ -449,7 +452,7 @@
 				{\fontsize{3.5mm}{0.5mm} \selectfont \noindent \textsf{\nombreuniversidad, \nombrefacultad}} ~ \\
 			}
 			\noindent {\fontsize{3.0mm}{0.5mm} \selectfont \textsf{\departamentouniversidad} \vspace{-0.2cm}} ~ \\
-			\noindent \textcolor{lgray}{\rule{\textwidth}{0.3mm}}
+			\noindent \textcolor{gray}{\rule{\textwidth}{0.3mm}}
 		\end{minipage}
 	\end{flushleft}
 	\vspace*{-2.15cm}
@@ -549,8 +552,8 @@
 }{
 \ifthenelse{\equal{\portraitstyle}{style16}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\checkextravarexist{\portraitbackgroundimageB}{Defina el fondo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-	\checkextravarexist{\portraitbackgroundcolorB}{Defina el color del bloque del titulo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitbackgroundimageB}{[portrait-style16] Defina el fondo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitbackgroundcolorB}{[portrait-style16] Defina el color del bloque del titulo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 
 	% Imagen fondo, título informe
 	\begingroup
@@ -569,9 +572,9 @@
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
 	\checkextravarexist{\portraitimageC}{[portrait-style17] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-	\checkextravarexist{\portraitimageboxedC}{Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-	\checkextravarexist{\portraitimageboxedwidthC}{Defina el grosor del recuadro de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-	\checkextravarexist{\portraitimagewidthC}{Defina los parametros de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimageboxedC}{[portrait-style17] Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimageboxedwidthC}{[portrait-style17] Defina el grosor del recuadro de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimagewidthC}{[portrait-style17] Defina los parametros de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 
 	% Header
 	\fancyhf{}
@@ -583,6 +586,7 @@
 	}
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+		\hspace{-0.255cm}
 	}
 
 	% Título del informe
@@ -616,10 +620,10 @@
 \ifthenelse{\equal{\portraitstyle}{style18}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
-	\checkextravarexist{\portraitimageD}{[portrait-style17] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-	\checkextravarexist{\portraitimageboxedD}{Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-	\checkextravarexist{\portraitimageboxedwidthD}{Defina el grosor del recuadro de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-	\checkextravarexist{\portraitimagewidthD}{Defina los parametros de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimageD}{[portrait-style18] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimageboxedD}{[portrait-style18] Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimageboxedwidthD}{[portrait-style18] Defina el grosor del recuadro de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitimagewidthD}{[portrait-style18] Defina los parametros de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 
 	% Header
 	\fancyhf{}
@@ -631,6 +635,7 @@
 	}
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+		\hspace{-0.255cm}
 	}
 
 	% Imagen de la portada
