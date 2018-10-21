@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.0.0 (13/10/2018)
+% Versión:      6.0.1 (21/10/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -83,15 +83,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={http://ppizarror.com/},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={13/10/2018},
+		Template.Fecha={21/10/2018},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.0.0-2-N},
-		Template.Version.Hash={5951F303B108DAD1B4F4ACEAD824F7DD},
-		Template.Version.Release={6.0.0},
+		Template.Version.Dev={6.0.1-N},
+		Template.Version.Hash={BD043B56E0F6EBED0302C5B9122B4669},
+		Template.Version.Release={6.0.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={http://latex.ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -103,7 +103,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Informe v6.0.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v6.0.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -238,8 +238,8 @@
 % Configuración de referencias y citas
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{
-	\bibliographystyle{apa}
-	\setlength{\bibsep}{\natbibrefsep pt}
+	\bibliographystyle{\natbibrefstyle}
+	% \setlength{\bibsep}{\natbibrefsep pt}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\bibliographystyle{apacite}
