@@ -16,23 +16,32 @@
 % -----------------------------------------------------------------------------
 \markboth{}{}
 \newpage
-\ifthenelse{\equal{\hfstyle}{style1}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{
-}
-\ifthenelse{\equal{\hfstyle}{style2}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{
-}
-\ifthenelse{\equal{\hfstyle}{style4}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{
-}
-\ifthenelse{\equal{\hfstyle}{style5}}{
-	\fancyhead[R]{\nouppercase{\leftmark}}}{
-}
-\ifthenelse{\equal{\hfstyle}{style9}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{
-}
-\ifthenelse{\equal{\hfstyle}{style10}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{
+\ifthenelse{\equal{\disablehfrightmark}{false}}{
+	\ifthenelse{\equal{\hfstyle}{style1}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style2}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style4}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style5}}{
+		\fancyhead[R]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style9}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style10}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style14}}{ % Similar a 4
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	}{
 }
 
 % -----------------------------------------------------------------------------
