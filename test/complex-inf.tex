@@ -1,0 +1,333 @@
+\section{Pregunta 1}
+
+\textbf{Implemente las ecuaciones de propagación unidimensional de onda de corte para un medio elástico en condición permanente y grafique el desplazamiento de partícula en profundidad en forma animada. Siga el ejemplo del software Quake visto en clases (disponible en material docente de u-cursos).} \\
+
+\subsectionanum{Teoría}
+Para estudiar la propagación unidimensional de onda de corte para un medio elástico se realiza equilibrio de fuerzas en un elemento infinitesimal sometido a corte dentro del medio, tal como se observa en la Figura \ref{p1corte}, en donde $\rho$ es la densidad del medio, $G$ el módulo de corte y $H$ la altura del medio elástico.
+
+\insertimage[\label{p1corte}]{test/img/p1corte}{width=8cm}{Elemento infinitesimal sometido a corte.}
+
+Al realizar equilibrio dinámico de fuerzas en el eje $u$ se tiene que:
+
+\insertequation{\underequal{\bigg(\cancel{\tau }+ \fracpartial{\tau}{z}\cancel{\dd z}\bigg)\cancel{\dd x \dd y} - \cancel{\tau \dd x \dd y}}{\textit{Eq. fuerzas}} = \underequal{\rho \cancel{\dd x \dd y} \cancel{\dd z}}{\textit{Masa}} \cdot \underequal{\fracdpartial{u}{t}}{\textit{Aceleración}}}
+
+\insertequation[\label{p1tauz}]{\fracpartial{\tau}{z} = \rho \cdot \fracdpartial{u}{t}}
+
+Para un material elástico se tiene que el corte es directamente proporcional a la deformación angular, con constante de proporción el módulo de corte o cizalle $G$:
+
+\insertequation[\label{leycorte}]{\tau = G \cdot \gamma = G \cdot \fracpartial{u}{z}}
+
+Al utilizar \eqref{leycorte} en \eqref{p1tauz} se obtiene finalmente:
+
+\insertequation[\label{p1gonda}]{G\cdot\fracdpartial{u}{z} = \rho\cdot\fracdpartial{u}{t}}
+
+La forma de la ecuación anterior \eqref{p1gonda} es similar a la ecuación de onda $\fracdpartial{\xi}{t} = \nu^2 \cdot \fracdpartial{\xi}{x}$, conocida también como la ecuación de D'Alembert, en donde describe una onda de velocidad $\nu$ relacionando tanto espacio como tiempo. \\
+
+Considerando luego que $V_s^2=\frac{\rho}{G}$ corresponde a la velocidad de la onda de corte, se puede utilizar la solución característica de la ecuación de onda como solución del problema de propagación unidimensional de onda de corte para un medio elástico:
+
+\insertequation{u(t,z)=A \cdot e^{i\big(\omega t + k z\big)}}
+
+Cuyas derivadas corresponden a:
+
+\insertequation[\label{p1udervs}]{\begin{array}{ccc}
+	\fracpartial{u}{t} = Ai\omega \cdot e^{i\omega t} \cdot e^{ikz} & & \fracdpartial{u}{t} = - A \omega^2  \cdot e^{i\omega t} \cdot e^{ikz} \\
+	&& \\
+	\fracpartial{u}{z} = Aik \cdot e^{i\omega t} \cdot e^{ikz} & &  \fracdpartial{u}{z} = -A k^2 \cdot e^{i\omega t} \cdot e^{ikz}
+	\end{array}
+}\\
+
+Reemplazando \eqref{p1udervs} en \eqref{p1gonda} se obtiene la siguiente relación:
+
+\insertequationanum{-G A k^2 \cdot e^{i\omega t} \cdot e^{ikz} = -\rho A \omega^2  \cdot e^{i\omega t} \cdot e^{ikz}}
+\insertequation[\label{Grhovs}]{\frac{G}{\rho} = \bigg(\frac{\omega}{k}\bigg)^2 = {V_s}^2}
+
+En donde $k$ corresponde al número de onda, $k = \frac{2\pi}{\lambda}$, $\lambda$ la longitud de la onda. Finalmente, suponiendo que $-z$ también es solución de la ecuación se obtiene la solución final:
+
+\insertequation{\boxed{u(z,t)=A\cdot e^{i\omega \big(t+\frac{z}{V_s}\big)} + B\cdot e^{i\omega \big(t-\frac{z}{V_s}\big)}}}
+
+Para resolver el problema de un estrato sobre roca es necesario identificar las condiciones de borde del problema:
+
+\begin{itemize}
+	\item \textbf{Condición natural de borde en superficie, no transmite corte} \\
+	En este caso se tiene que $\tau(z=0)=0$, por lo tanto $\fracpartial{u}{z} \big|_{z=0}=0$:
+	
+	\insertequationanum{\fracpartial{u}{z} = A \cdot \frac{i\omega}{V_s} \cdot e^{i\omega t}\cdot e^{i\omega \frac{z}{V_s}}-B\cdot \frac{i\omega}{V_s} \cdot e^{i\omega t}\cdot e^{i\omega \frac{z}{V_s}} = 0 \longmapsto A=B}
+	
+	Así la solución se reduce a $u(z,t)=A\cdot e^{i\omega t} \bigg(e^{i\omega \frac{z}{V_s}}+e^{i\omega \frac{-z}{V_s}}\bigg) = 2A e^{i\omega t}\cos\big(\frac{\omega z}{V_s}\big)$
+	
+	\item \textbf{En el basamiento se tiene igual desplazamiento que en roca} \\
+	
+	Para este caso se tiene que $\norm{u(z,t=H)}=a_b = 2A\cdot\cancelto{1}{\norm{e^{i\omega t}}}\cos\big(\frac{\omega H}{V_s}\big) = 2A \cos\big(\frac{\omega z}{V_s}\big)$, en donde $a_b$ corresponde a la amplitud basal del movimiento en la base $a_b$, así:
+	
+	\insertequation{A = \frac{a_b}{2\cos\big(\frac{\omega H}{V_s}\big)}}
+\end{itemize}
+
+Por tanto, con ambas condiciones de borde se obtiene la solución para el problema:
+
+\insertequation[\label{p1solfinal}]{\boxed{u(z,t) = \frac{a_b}{\cos\big(\frac{\omega H}{V_s}\big)}e^{i\omega t}\cos \big(\frac{\omega z}{V_s}\big)}}
+
+\subsectionanum{Implementación en Matlab}
+
+Con el fin de poder implementar y graficar el desplazamiento de partícula en profundidad en forma animada se desarrolló la ecuación \eqref{p1solfinal} en matlab (ver archivo \texttt{u\_elt.m}). En dicha función se pide como parámetro $T$ período, $H$ la altura del estrato, $V_s$ velocidad de corte y $a_b$ amplitud basal. \\
+
+Dicha función retorna otra función que pide tanto $z$ como $t$ para entregar el desplazamiento, esto se desarrolló así para hacer el análogo a $u(z,t)$, en otras palabras:
+
+\insertequationanum{u\_elt(V_s,H,a_b,T) \mapsto u(z,t)}
+
+\begin{sourcecodep}{matlab}{firstnumber=27}{Código más importante de \texttt{u\_elt.m}.}
+%% Calcula la frecuencia
+w = 2 * pi / T;
+cosval = cos(w*H/Vs);
+if cosval == 0
+	error('El periodo de la onda genera resonancia');
+elseif abs(cosval) < 1e-15
+	warning('El periodo de la onda está cerca de la resonancia, posible inestabilidad numérica');
+end
+
+%% Retorna la funcion de desplazamiento
+u = @(z, t) (ab / cosval) * exp(1i*w*t) * cos(w*z/Vs);
+\end{sourcecodep}
+
+\newp Al tener $u(z,t)$ la generación del gráfico animado es trivial, ya que se mantiene un ciclo \textit{for} en donde se calcula la posición para un arreglo de $z$ en un determinado $t_i$, al finalizar la instancia del ciclo se actualiza el tiempo $t_{i+1} = t_{i} + \dd t$. Para mantener la velocidad de la animación se hace uso de la instrucción \textit{pause(t)} el cual permite pausar la ejecución del programa en un determinado tiempo $t$. La función que se encarga de graficar la animación corresponde a \texttt{quake\_elt}.
+
+\subsectionanum{Validación de la metodología}
+
+A modo de testear que el código sea consistente se crearon dos tests, uno tiene por objetivo contrastar el resultado obtenido de forma analítica, y en otro caso se prueba el código en el estado de resonancia.
+
+\subsubsectionanum{Test analítico}
+
+Sea un estrato de $H$=20 metros de profundidad, con una velocidad de corte de $V_s$=150 metros por segundo. En este caso, para cualquier valor de amplitud basal $a_b$, sea $a_b$=10 metros, evaluado en un período de $T=$1.8 segundos, se tiene:
+
+\insertequationanum{\omega = \frac{2\pi}{T} = 3.4907\ Hz \quad \quad u(z,t)=\frac{10}{\cos\big(\frac{3.4907 \cdot 20}{150}\big)}e^{i3.4907 t}\cos \big(\frac{3.4907 z}{150}\big)}
+\insertequationanum{u(z,t)=11.1907e^{i3.4907 t}\cos \big(0.0233\cdot z\big)}
+
+Algunos puntos de prueba:
+
+\begin{table}[H]
+	\centering
+	\caption{Casos de prueba función y resultados analíticos}
+	\begin{tabular}{ccc}
+		\hline
+		u (m) & t (s) & u(z,t) \bigstrut\\
+		\hline
+		0     & 0     & 11.1903 \bigstrut[t]\\
+		20    & 0     & 10.0000 \\
+		10    & 5     & 1.8908 \\
+	\end{tabular}
+\end{table}
+
+Por otra parte, teóricamente el factor de amplificación corresponde a $FA=\frac{1}{\cos\bigg(\frac{\omega H}{V_s}\bigg)} = 1.1191$.
+
+El script programado en \texttt{test\_p1\_analitico.m} retornó los siguientes gráficos:
+
+\begin{images}{Resultado caso analítico.}
+	\addimage{test/img/p1fa}{width=7cm}{Gráfico factor de amplificación.}
+	\addimage{test/img/p1uzt}{width=7cm}{Quake.}
+\end{images}
+
+Y lo siguiente por la salida estándar en consola:
+
+\begin{sourcecode}{plaintext}{Salida del script test, caso p1 analítico.}
+>> test_p1_analitico
+P1 Analitico, frecuencia: 3.4907
+P1 Analitico, u(0,0): 11.1903
+P1 Analitico, u(H,0): 10.0000
+P1 Analitico, u(H/2,5): 1.8908
+P1 Analitico, FT: 1.119028
+P1 Analitico, periodo resonante: 0.533333
+\end{sourcecode}
+
+Tal como se puede observar el programa retornó los mismos resultados.
+
+\newpage
+\subsubsectionanum{Test resonancia}
+
+En este test se busca llegar a la resonancia. Para ello se utilizó el mismo suelo, pero evaluado en $T=\frac{4H}{V_s}$, valor del período para el cual el coseno del denominador de la expresión se indefine, logrando teóricamente un factor de amplificación infinito.
+
+\insertimage{test/img/p1resonancia}{width=7cm}{Evaluación del caso en resonancia.}
+
+Tal como se puede observar en la figura anterior, se obtuvo un FA muy alto, numéricamente inestable. Esto indica claramente que la solución es correcta, ya que amplifica en el período teóricamente resonante.
+
+\newpage
+\section{Pregunta 2}
+
+\textbf{Implemente las ecuaciones de propagación unidimensional de ondas de corte para un medio visco-elástico compuesto por capas en condición permanente y grafique el desplazamiento de partícula en profundidad en forma animada. Considere un depósito compuesto por tres capas.} \\
+
+\subsectionanum{Teoría}
+
+Considérese un depósito de suelo conformado por capas perfectamente horizontales y de extensión infinita, tal como se indica en la Figura \ref{p2capasteoria}:
+
+\insertimage[\label{p2capasteoria}]{test/img/p2capasteoria}{width=8cm}{Depósito de sueos conformado por capas horizontales.}
+
+Al igual que el caso anterior, al realizar equilibrio dinámico sobre un elemento diferencial sometido a corte se obtiene nuevamente la siguiente ecuación de equilibrio:
+
+\insertequation{\fracpartial{\tau}{z} = \rho \cdot \fracdpartial{u}{t}}
+
+Considerando un modelo constitutivo visco-elástico de tipo Kelvin-Voigt \footnote{El cual considera un sistema en paralelo de disipador y resorte.}:
+
+\insertequation{\tau = G \gamma + c \cdot \dot{\gamma}}
+\insertequation{\begin{array}{ccc}
+		\fracpartial{\tau}{z} = G \fracpartial{\gamma}{z} + c \frac{\partial^2 \gamma}{\partial t \partial z} & & \fracpartial{\tau}{z} = G \fracdpartial{u}{z} + c \frac{\partial^3 u}{\partial t \partial z^2}
+	\end{array}
+}
+
+Se concluye que $\rho \fracdpartial{u}{t} = G \fracdpartial{u}{z} + c \frac{\partial^3 u}{\partial t \partial z^2}$, luego suponiendo una solución general del tipo $u(z,t)=U(z)e^{i\omega t}$:
+
+\insertequationanum{-\rho \cdot U(z)\omega^2 e^{i\omega t} = G \cdot\fracdpartial{U}{z} e^{i\omega t} + i \omega c \cdot\fracdpartial{U}{z} e^{i\omega t}}
+
+\insertequation[\label{p2uedp}]{-\rho U(z)\cdot \omega^2 = (G+i\omega c)\cdot \fracdpartial{U}{z}}
+
+La ecuación \eqref{p2uedp} es análoga a la que se obtiene para un suelo elástico. Definiendo luego el módulo de corte complejo como:
+
+\insertequation{G^* = G + i\omega c}
+
+Se tiene la misma forma que la ecuación de onda elástica:
+
+\insertequation{G^* \fracdpartial{U}{z} = -\rho U(z) \cdot \omega^2}
+
+Si se escoge $c = \frac{2GD}{\omega}$, en donde $D$ corresponde al coeficiente de \textit{Damping} del suelo, se tiene que:
+
+\insertequation{G^{*} = G \cdot \bigg(1+2iD\bigg)}
+
+En el caso particular de esta tarea se utilizó el valor de la velocidad de onda de corte para cada capa de suelo (dado que es un valor más intuitivo y cercano a la práctica profesional que el valor de G), por tanto, utilizando la relación \eqref{Grhovs} entre la densidad, velocidad y módulo de cizalle, se tiene:
+
+\insertequation{\text{Velocidad de onda compleja:}\quad V_s^* = \sqrt{\frac{G^*}{\rho}} = V_s \cdot \sqrt{1+2iD}}
+
+\insertequation{\text{Número de onda complejo:}\quad k^* = \frac{\omega}{V_s} = \frac{\omega}{V_s \cdot \sqrt{1+2iD}}}
+
+Una solución de la ecuación de movimiento que considera el modelo viscoelástico es:
+
+\insertequation{u(z,t) = E\cdot e^{i\big(\omega t + k^*z\big)}+F\cdot e^{i\big(\omega t +- k^*z\big)}}
+
+La ecuación para cada j-capa:
+
+\insertequation[\label{p2eqcapa}]{\boxed{u_j(z_j,t) = E_j\cdot e^{i\big(\omega t + k_j^*z\big)}+F_j\cdot e^{i\big(\omega t +- k_j^*z\big)}}}
+
+En el contacto entre la capa $j$ y $j+1$ se debe satisfacer:
+
+\begin{enumeratebf}
+	\item \textbf{Compatibilidad de desplazamientos:} $u_j(z_j=H_j) = u_{j+1}(z_{j+1}=0)$
+	\item \textbf{Compatibilidad de esfuerzos:} $\tau_j(z_j=H_j) = \tau_{j+1}(z_{j+1}=0)$
+\end{enumeratebf}
+
+Lo que se traduce en:
+
+\begin{enumeratebf}
+	\item $E_j\cdot e^{\big(\omega t + k_j^* H_j\big)} + F_j\cdot e^{\big(\omega t - k_j^* H_j\big)} = E_{j+1}\cdot e^{i\omega t} + F_{j+1}\cdot e^{i\omega t}$
+	\insertequation[\label{p2rel1}]{E_j\cdot e^{ik_j^*H_j}+F_j\cdot e^{-ik_j^*H_j} = E_{j+1}+F_{j+1}}
+	
+	\item $\tau_j = G_j\bigg(\fracpartial{u_j}{z_j}\bigg)+c_j\bigg(\frac{\partial^2 u_j}{\partial t \partial z}\bigg)$ \\
+	$\fracpartial{u_j}{z_j} = E_j \cdot i \cdot k_j^* \cdot e^{i\big(\omega t  + k_j^* z_j\big)} - F_j \cdot i \cdot k_j^* \cdot e^{i\big(\omega t - k_j^*z_j\big)}$ \\
+	$\frac{\partial}{\partial t}\bigg(\fracpartial{u_j}{z_j}\bigg) = -E_j \cdot k_j^* \cdot \omega \cdot e^{i\big(\omega t + k_j^* z_j\big)}+F_j \cdot k_j^* \cdot \omega \cdot e^{i\big(\omega t - k_j^* z_j\big)}$ \\
+	
+	Así: \\
+	$\tau_j = G_j \cdot \bigg[E_j \cdot i \cdot k_j^* \cdot e^{i\big(\omega t  + k_j^* z_j\big)} - F_j \cdot i \cdot k_j^* \cdot e^{i\big(\omega t - k_j^*z_j\big)}\bigg] + c_j \cdot \bigg[-E_j \cdot k_j^* \cdot \omega \cdot e^{i\big(\omega t + k_j^* z_j\big)}+F_j \cdot k_j^* \cdot \omega \cdot e^{i\big(\omega t - k_j^* z_j\big)}\bigg]$ \\
+	
+	Finalmente: \\
+	$\tau_j = \big(G_j + i \cdot c_j \cdot \omega \big) \cdot \big(E_j \cdot e^{i k_j^* z_j}-F_j \cdot e^{-i k_j^* z_j}\big) \cdot i \cdot k_j^* \cdot e^{i\omega t}$
+\end{enumeratebf}
+
+Por lo tanto, la compatibilidad de esfuerzos se traduce en:
+
+\insertequation{\big(G_j + i \cdot c_j \cdot \omega \big) \cdot \big(E_j \cdot e^{i k_j^* z_j}-F_j \cdot e^{-i k_j^* z_j}\big) \cdot k_j^* = \big(G_{j+1} + i \cdot c_{j+1} \cdot \omega \big) \cdot \big(E_{j+1} - F_{j+1}\big)\cdot k_{j+1}^*}
+
+\insertequation[\label{p2rel2}]{\Rightarrow E_{j+1} - F_{j+1} = \big(E_j \cdot e^{i k_j^* z_j}-F_j \cdot e^{-i k_j^* z_j}\big) \cdot \frac{\big(G_j + i \cdot c_j \cdot \omega \big)}{\big(G_{j+1} + i \cdot c_{j+1} \cdot \omega \big)} \cdot \frac{k_{j}^*}{k_{j+1}^*}}
+
+Se define la impedancia compleja como:
+
+\insertequation{\Delta_j =  \frac{\big(G_j + i \cdot c_j \cdot \omega \big)}{\big(G_{j+1} + i \cdot c_{j+1} \cdot \omega \big)} \cdot \frac{k_{j}^*}{k_{j+1}^*} = \frac{\rho_j \cdot Vs_j}{\rho_{j+1} \cdot Vs_{j+1}} \cdot \sqrt{\frac{1+2iD_j}{1+2iD_{j+1}}}}
+
+Luego, utilizando las relaciones \eqref{p2rel1} y \eqref{p2rel2} se tiene que:
+
+\insertequation{\begin{array}{c}
+		E_{j+1} = \frac{1}{2} \bigg[E_j \big(1+\Delta_j\big)\cdot e^{i k_j^* H_j} + F_j \big(1-\Delta_j\big) \cdot e^{-ik_j^*H_j}\bigg] \\
+		F_{j+1} = \frac{1}{2} \bigg[E_j \big(1-\Delta_j\big)\cdot e^{i k_j^* H_j} + F_j \big(1+\Delta_j\big) \cdot e^{-ik_j^*H_j}\bigg]
+	\end{array}
+}
+
+Al igual que la pregunta 1, al aplicar la condición de superficie libre se tiene que, en $z_1=0 \rightarrow \tau=0$, por tanto, al derivar \eqref{p2eqcapa} en la primera capa, e igual a cero, se obtiene que $E_1 = F_j$.
+
+\subsectionanum{Implementación en Matlab}
+
+Para resolver el problema se creó, al igual que para la primera pregunta, una función que, al recibir los parámetros del suelo para cada capa (densidad, velocidad de corte, altura de capa), el período de la onda y un valor inicial para $E_1$ retorna una función $u(z,t)$ que permite evaluar el desplazamiento en cualquier punto. \\
+
+A continuación se muestra el extracto de código más importante de la implementación:
+
+\newpage
+\begin{sourcecodep}{matlab}{firstnumber=52}{Código más importante de \texttt{u\_velt.m}.}
+	%% Calcula propiedades N capas (Kelvin-Voigt)
+	nVs = Vs .* sqrt(1+2*1i*D); % Velocidad onda de corte compleja (si D!=0)
+	nG = nVs .* nVs .* rho; %#ok<NASGU> % Modulo de corte complejo (si D!=0)
+	w = 2 * pi / T; % Frecuencia
+	k = w ./ nVs; % Numero de onda complejo (si D!=0)
+	
+	%% Calcula el vector de impedancias
+	imp = zeros(n-1, 1);
+	for i = 1:(n - 1)
+	imp(i) = (rho(i) * nVs(i)) / (rho(i+1) * nVs(i+1));
+	end
+	
+	%% Calcula los coeficientes E, F
+	E = zeros(n, 1);
+	F = zeros(n, 1);
+	E(1) = E1;
+	F(1) = E1; % Por condicion de superficie libre
+	for j = 1:(n - 1)
+	E(j+1) = 0.5 * (E(j) * (1 + imp(j)) * exp(1i*k(j)*H(j)) + F(j) * (1 - imp(j)) * exp(-1i*k(j)*H(j)));
+	F(j+1) = 0.5 * (E(j) * (1 - imp(j)) * exp(1i*k(j)*H(j)) + F(j) * (1 + imp(j)) * exp(-1i*k(j)*H(j)));
+	end
+	
+	%% Calcula las alturas acumuladas
+	Hacum = zeros(n-1, 1);
+	Hacum(1) = H(1);
+	for j = 2:(n - 1)
+	Hacum(j) = Hacum(j-1) + H(j);
+	end
+	
+	%% Retorna la funcion de desplazamiento
+	u = @(z, t) u_zt_nc_velt(z, t, n, Hacum, E, F, k, w);
+\end{sourcecodep}
+
+Al evaluar $u(z,t)$ se llama a la función privada \texttt{u\_zt\_nc\_velt} la cual comprobará a qué capa pertenece un $z$ variable, utiliza luego los $E_j$ y $F_j$ de dicha capa (considerando siempre $z_j$ como la altura con respecto a la capa, para ello se calculan las alturas acumuladas) retornará el desplazamiento.
+
+\subsectionanum{Validación de la metodología}
+
+Para validar la metodología se realizaron dos pruebas, en una de ellas se prueba un sistema de 4 capas, en donde existe un gran contraste de impedancias (ello es que se utiliza una capa superficial muy blanda). En la otra prueba se utilizó un sistema de 5 capas todas idénticas. \\
+
+El resultado esperado es que, para el primer caso, debe existir una amplificación notable del desplazamiento en superficie dado el fuerte contraste de impedancias. Por otro lado, en el segundo caso debe cumplirse que la onda debe ser contínua, sin cambio de pendiente en profundidad, ya que el caso es análogo al de una sola capa con las mismas propiedades.
+
+\subsubsectionanum{Primer caso}
+
+Se utilizó un sistema de 5 capas, con un perfil de velocidad de corte creciente en profundidad:
+
+\begin{table}[H]
+	\centering
+	\caption{Sistema de capas inventado para este caso.}
+	\begin{tabular}{ccccc}
+		\hline
+		\textbf{Capa} & \textbf{Vs (m/s)} & \boldmath{}\textbf{$\rho$ kN/m3}\unboldmath{} & \textbf{D} & \textbf{H (m)} \bigstrut\\
+		\hline
+		1     & 150   & 15    & 0.01  & 10 \bigstrut[t]\\
+		2     & 700   & 17    & 0.03  & 5 \\
+		3     & 750   & 17    & 0.02  & 15 \\
+		4     & 900   & 20    & 0.01  & 10 \\
+		-     & 1500  & 27    & 0.005 & - \bigstrut[b]\\
+		\hline
+	\end{tabular}
+\end{table}
+
+Obteniendo luego el siguiente resultado:
+
+\insertimage{test/img/p2caso1impedancias}{width=10cm}{Registro $u(z,t)$ del sistema.}
+
+Como es posible observar en la figura anterior existe un incremento importante en los desplazamientos en superficie fruto del fuerte contraste de impedancias, además, en roca, no se observa mayor cambio dado que las velocidades de corte son similares.
+
+\newpage
+\subsubsectionanum{Segundo caso}
+
+Se modeló un sistema de 5 capas y una capa con una velocidad de corte $V_s$=250 m/s y una altura total de 50 metros. En ambos casos se obtuvo la misma solución, lo cual es consistente.
+
+\begin{images}[\label{p2segundocaso}]{Registro de la onda en el segundo caso, tanto el sistema multicapa como el de una capa retorna el mismo resultado.}
+	\addimage{test/img/p2caso25capa}{width=7cm}{Caso 5 capas.}
+	\addimage{test/img/p2caso21capa}{width=7cm}{Caso una capa.}
+\end{images}
