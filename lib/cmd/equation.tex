@@ -44,11 +44,11 @@
 %	#1	Ecuación
 \newcommand{\insertequationanum}[1]{
 	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}
-	\vspace{-0.1cm}
+	\vspace{\marginequationtop cm}
 	\begin{equation*}
 		\ensuremath{#1}
 	\end{equation*}
-	\vspace{-0.26cm}
+	\vspace{\marginequationbottom cm}
 }
 
 % Insertar una ecuación con leyenda
@@ -61,16 +61,16 @@
 		\insertequation[#1]{#2}
 	\else
 		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{-0.10cm}
+			\vspace{\marginequationtop cm}
 			\begin{equation}
 				\text{#1} #2
 			\end{equation}
-			\vspace{-0.65cm}
+			\vspace{\marginequationcaptiontop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#3}
-				\vspace{0.05cm}
+				\vspace{\marginequationcaptionbottom cm}
 			\end{changemargin}
-			\vspace{0.05cm}
+			\vspace{\marginequationcaptionbottom cm}
 		}{
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -89,16 +89,16 @@
 	\ifx\hfuzz#2\hfuzz
 		\insertequationanum{#1}
 	\else
-		\vspace{-0.10cm}
+		\vspace{\marginequationtop cm}
 		\begin{equation*}
 			\ensuremath{#1}
 		\end{equation*}
-		\vspace{-0.65cm}
+		\vspace{\marginequationcaptiontop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{0.05cm}
+			\vspace{\marginequationcaptionbottom cm}
 		\end{changemargin}
-		\vspace{0.05cm}
+		\vspace{\marginequationcaptionbottom cm}
 	\fi
 }
 
@@ -107,11 +107,11 @@
 \newcommand{\insertgather}[1]{
 	\emptyvarerr{\insertgather}{#1}{Ecuacion no definida}
 	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{-0.4cm}
+		\vspace{\margingathertop cm}
 		\begin{gather}
 			\ensuremath{#1}
 		\end{gather}
-		\vspace{-0.4cm}
+		\vspace{\margingatherbottom cm}
 	}{
 		\insertgatheranum{#1}
 	}
@@ -121,11 +121,11 @@
 %	#1	Ecuación
 \newcommand{\insertgatheranum}[1]{
 	\emptyvarerr{\insertgatheranum}{#1}{Ecuacion no definida}
-	\vspace{-0.4cm}
+	\vspace{\margingathertop cm}
 	\begin{gather*}
 		\ensuremath{#1}
 	\end{gather*}
-	\vspace{-0.4cm}
+	\vspace{\margingatherbottom cm}
 }
 
 % Insertar una ecuación (gather) con leyenda
@@ -137,16 +137,16 @@
 		\insertgather{#1}
 	\else
 		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{-0.45cm}
+			\vspace{\margingathertop cm}
 			\begin{gather}
 				\ensuremath{#1}
 			\end{gather}
-			\vspace{-0.77cm}
+			\vspace{\margingathercaptiontop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#2}
-				\vspace{0.05cm}
+				\vspace{\margingathercaptionbottom cm}
 			\end{changemargin}
-			\vspace{0cm}
+			\vspace{\margingathercaptionbottom cm}
 		}{
 			\insertgathercaptionedanum{#1}{#2}
 		}
@@ -161,16 +161,16 @@
 	\ifx\hfuzz#2\hfuzz
 		\insertgatheranum{#1}
 	\else
-		\vspace{-0.45cm}
+		\vspace{\margingathertop cm}
 		\begin{gather*}
 			\ensuremath{#1}
 		\end{gather*}
-		\vspace{-0.77cm}
+		\vspace{\margingathercaptiontop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{0.05cm}
+			\vspace{\margingathercaptionbottom cm}
 		\end{changemargin}
-		\vspace{0cm}
+		\vspace{\margingathercaptionbottom cm}
 	\fi
 }
 
@@ -180,13 +180,13 @@
 \newcommand{\insertgathered}[2][]{
 	\emptyvarerr{\insertgathered}{#2}{Ecuacion no definida}
 	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{-0.1cm}
+		\vspace{\marginequationtop cm}
 		\begin{equation}
 			\begin{gathered}
 				\text{#1} \ensuremath{#2}
 			\end{gathered}
 		\end{equation}
-		\vspace{-0.05cm}
+		\vspace{\margingatherbottom cm}
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else
@@ -200,11 +200,11 @@
 %	#1	Ecuación
 \newcommand{\insertgatheredanum}[1]{
 	\emptyvarerr{\insertgatheredanum}{#1}{Ecuacion no definida}
-	\vspace{-0.4cm}
+	\vspace{\margingathertop cm}
 	\begin{gather*}
 		\ensuremath{#1}
 	\end{gather*}
-	\vspace{-0.4cm}
+	\vspace{\margingatherbottom cm}
 }
 
 % Insertar una ecuación (gathered) con leyenda
@@ -217,18 +217,18 @@
 		\insertgathered[#1]{#2}
 	\else
 		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{0cm}
+			\vspace{\marginequationtop cm}
 			\begin{equation}
 				\begin{gathered}
 					\text{#1} \ensuremath{#2}
 				\end{gathered}
 			\end{equation}
-			\vspace{-0.65cm}
+			\vspace{\margingathercaptiontop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#3}
-				\vspace{0.05cm}
+				\vspace{\margingathercaptionbottom cm}
 			\end{changemargin}
-			\vspace{0cm}
+			\vspace{\margingathercaptionbottom cm}
 		}{
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -247,16 +247,16 @@
 	\ifx\hfuzz#2\hfuzz
 		\insertgatheredanum{#1}
 	\else
-		\vspace{-0.45cm}
+		\vspace{\margingathertop cm}
 		\begin{gather*}
 			\ensuremath{#1}
 		\end{gather*}
-		\vspace{-0.7cm}
+		\vspace{\margingathercaptiontop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{0.05cm}
+			\vspace{\margingathercaptionbottom cm}
 		\end{changemargin}
-		\vspace{0cm}
+		\vspace{\margingathercaptionbottom cm}
 	\fi
 }
 
@@ -265,11 +265,11 @@
 \newcommand{\insertalign}[1]{
 	\emptyvarerr{\insertalign}{#1}{Ecuacion no definida}
 	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{-0.45cm}
+		\vspace{\marginaligntop cm}
 		\begin{align}
 			\ensuremath{#1}
 		\end{align}
-		\vspace{-0.4cm}
+		\vspace{\marginalignbottom cm}
 	}{
 		\insertalignanum{#1}
 	}
@@ -279,11 +279,11 @@
 %	#1	Ecuación
 \newcommand{\insertalignanum}[1]{
 	\emptyvarerr{\insertalignanum}{#1}{Ecuacion no definida}
-	\vspace{-0.45cm}
+	\vspace{\marginaligntop cm}
 	\begin{align*}
 		\ensuremath{#1}
 	\end{align*}
-	\vspace{-0.4cm}
+	\vspace{\marginalignbottom cm}
 }
 
 % Insertar una ecuación (align) con leyenda
@@ -295,16 +295,16 @@
 		\insertalign{#1}
 	\else
 		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{-0.45cm}
+			\vspace{\marginaligntop cm}
 			\begin{align}
 				\ensuremath{#1}
 			\end{align}
-			\vspace{-0.77cm}
+			\vspace{\marginaligncaptiontop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#2}
-				\vspace{0.05cm}
+				\vspace{\marginaligncaptionbottom cm}
 			\end{changemargin}
-			\vspace{0cm}
+			\vspace{\marginaligncaptionbottom cm}
 		}{
 			\insertaligncaptionedanum{#1}{#2}
 		}
@@ -319,16 +319,16 @@
 	\ifx\hfuzz#2\hfuzz
 		\insertalignanum{#1}
 	\else
-		\vspace{-0.45cm}
+		\vspace{\marginaligntop cm}
 		\begin{align*}
 			\ensuremath{#1}
 		\end{align*}
-		\vspace{-0.77cm}
+		\vspace{\marginaligncaptiontop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{0.05cm}
+			\vspace{\marginaligncaptionbottom cm}
 		\end{changemargin}
-		\vspace{0cm}
+		\vspace{\marginaligncaptionbottom cm}
 	\fi
 }
 
@@ -338,13 +338,13 @@
 \newcommand{\insertaligned}[2][]{
 	\emptyvarerr{\insertaligned}{#2}{Ecuacion no definida}
 	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{-0.1cm}
+		\vspace{\marginequationtop cm}
 		\begin{equation}
 			\begin{aligned}
 				\text{#1} \ensuremath{#2}
 			\end{aligned}
 		\end{equation}
-		\vspace{-0.05cm}
+		\vspace{\marginalignbottom cm}
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else
@@ -358,11 +358,11 @@
 %	#1	Ecuación
 \newcommand{\insertalignedanum}[1]{
 	\emptyvarerr{\insertalignedanum}{#1}{Ecuacion no definida}
-	\vspace{-0.45cm}
+	\vspace{\marginaligntop cm}
 	\begin{align*}
 		\ensuremath{#1}
 	\end{align*}
-	\vspace{-0.4cm}
+	\vspace{\marginalignbottom cm}
 }
 
 % Insertar una ecuación (aligned) con leyenda
@@ -375,18 +375,18 @@
 		\insertaligned[#1]{#2}
 	\else
 		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{0cm}
+			\vspace{\marginequationtop cm}
 			\begin{equation}
 				\begin{aligned}
 					\text{#1} \ensuremath{#2}
 				\end{aligned}
 			\end{equation}
-			\vspace{-0.65cm}
+			\vspace{\marginaligncaptiontop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#3}
-				\vspace{0.05cm}
+				\vspace{\marginaligncaptionbottom cm}
 			\end{changemargin}
-			\vspace{0cm}
+			\vspace{\marginaligncaptionbottom cm}
 		}{
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -405,18 +405,18 @@
 	\ifx\hfuzz#2\hfuzz
 		\insertalignedanum{#1}
 	\else
-		\vspace{0cm}
+		\vspace{\marginequationtop cm}
 		\begin{equation}
 			\begin{aligned}
 				\ensuremath{#1}
 			\end{aligned}
 		\end{equation}
-		\vspace{-0.65cm}
+		\vspace{\marginaligncaptiontop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{0.05cm}
+			\vspace{\marginaligncaptionbottom cm}
 		\end{changemargin}
-		\vspace{0cm}
+		\vspace{\marginaligncaptionbottom cm}
 	\fi
 }
 

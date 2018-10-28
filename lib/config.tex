@@ -13,8 +13,6 @@
 
 % CONFIGURACIONES GENERALES
 \def\addemptypagetwosides {false}  % Añade pag en blanco al imprimir a 2 caras
-\def\columnhspace {-0.4}           % Margen horizontal entre obj. \createcolumn
-\def\columnsepwidth {2.1}          % Separación entre columnas [em]
 \def\defaultinterline {1.0}        % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11}       % Tamaño del salto de línea [pt]
 \def\documentlang {es-CL}          % Define el idioma del documento
@@ -25,19 +23,21 @@
 \def\pointdecimal {false}          % N° decimales con punto en vez de coma
 \def\romanpageuppercase {false}    % Páginas en número romano en mayúsculas
 \def\showlinenumbers {false}       % Muestra los n° de línea del documento
-\def\tablepaddingh {1.0}           % Espaciado horizontal de celda de las tablas
-\def\tablepaddingv {1.0}           % Espaciado vertical de celda de las tablas
 
 % ESTILO PORTADA Y HEADER-FOOTER
 \def\hfstyle {style1}              % Estilo header-footer (14 estilos disp.)
 \def\portraitstyle {style1}        % Estilo portada (18 estilos disp.)
 
-% POSICIÓN POR DEFECTO DE OBJETOS
-\def\imagedefaultplacement {H}     % Posición por defecto de las imágenes
-\def\tabledefaultplacement {H}     % Posición por defecto de las tablas
-\def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
+% CONFIGURACIONES DE OBJETOS
+\def\columnhspace {-0.4}           % Margen horizontal entre obj. \createcolumn
+\def\columnsepwidth {2.1}          % Separación entre columnas [em]
 \def\defaultimagefolder {img/}     % Carpeta raíz de las imágenes
-\def\objectmarginstyle {normal}    % Estilo margen objetos (small,normal,large)
+\def\imagedefaultplacement {H}     % Posición por defecto de las imágenes
+\def\objectmarginstyle {large}    % Estilo margen objetos (small,normal,large)
+\def\tabledefaultplacement {H}     % Posición por defecto de las tablas
+\def\tablepaddingh {1.0}           % Espaciado horizontal de celda de las tablas
+\def\tablepaddingv {1.0}           % Espaciado vertical de celda de las tablas
+\def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
 \def\captionalignment {justified}  % Pos. ley. (centered,justified,left,right)
