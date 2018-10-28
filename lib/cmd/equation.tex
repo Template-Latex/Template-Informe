@@ -26,11 +26,11 @@
 \newcommand{\insertequation}[2][]{
 	\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}
 	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{-0.1cm}
+		\vspace{\marginequationtop cm}
 		\begin{equation}
 			\text{#1} #2
 		\end{equation}
-		\vspace{-0.26cm}
+		\vspace{\marginequationbottom cm}
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else

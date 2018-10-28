@@ -134,6 +134,20 @@
 }
 
 % -----------------------------------------------------------------------------
+% Definicion de anchos por estilo
+% -----------------------------------------------------------------------------
+\ifthenelse{\equal{\objectmarginstyle}{normal}}{
+	\def\marginbottomimages {-0.2}     % Margen inferior figura [cm]
+	\def\marginfloatimages {-13.0}     % Mrg. sup. fig \insertimageleft/right [pt]
+	\def\marginrightmultimage {0.1}    % Margen derecho imágenes múltiples [cm]
+	\def\margintopimages {0.0}         % Margen superior figura [cm]
+	\def\marginequationtop {-0.1}      % Margen superior ecuaciones [cm]
+	\def\marginequationbottom {-0.1}
+}{
+	
+}
+
+% -----------------------------------------------------------------------------
 % Posición inicial de los objetos
 % -----------------------------------------------------------------------------
 \floatplacement{figure}{\imagedefaultplacement}
