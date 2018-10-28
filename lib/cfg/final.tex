@@ -81,8 +81,12 @@
 % -----------------------------------------------------------------------------
 % Se reestablecen números de página y secciones
 % -----------------------------------------------------------------------------
-\renewcommand{\thepage}{\arabic{page}}
-\setcounter{page}{1}
+\ifthenelse{\equal{\predocuseromannumber}{true}}{
+	\renewcommand{\thepage}{\arabic{page}}}{
+}
+\ifthenelse{\equal{\resetpagnumafterindex}{true}}{
+	\setcounter{page}{1}}{
+}
 \setcounter{section}{0}
 \setcounter{footnote}{0}
 

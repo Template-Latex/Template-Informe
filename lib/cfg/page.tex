@@ -15,10 +15,13 @@
 % Numeración de páginas
 % -----------------------------------------------------------------------------
 \newpage
-\ifthenelse{\equal{\romanpageuppercase}{true}}{
-	\pagenumbering{Roman}
-}{
-	\pagenumbering{roman}
+\ifthenelse{\equal{\predocuseromannumber}{true}}{
+	\ifthenelse{\equal{\romanpageuppercase}{true}}{
+		\pagenumbering{Roman}
+	}{
+		\pagenumbering{roman}
+	}}{
+	\pagenumbering{arabic}
 }
 \setcounter{page}{1}
 \setcounter{footnote}{1}
