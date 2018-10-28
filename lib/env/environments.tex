@@ -255,19 +255,6 @@
 	
 	% Inserta un título sin número, sin cabecera y sin aparecer en el índice, para que aparezca en el índice utilizar la función \sectionanumheadless
 	\sectionanumnoiheadless{\nameabstract}}{
-	
-	% Salta de página si está imprimiendo por ambas caras
-	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
-		\checkoddpage
-		\ifoddpage
-			\newpage
-			\null
-			\thispagestyle{empty}
-			\newpage
-			\addtocounter{page}{-1}
-		\else
-		\fi}{
-	}
 }
 
 % Crea una sección de imágenes múltiples
