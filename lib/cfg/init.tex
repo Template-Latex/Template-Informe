@@ -460,4 +460,24 @@
 % -----------------------------------------------------------------------------
 \setcounter{tocdepth}{\indexdepth}
 
+% -----------------------------------------------------------------------------
+% Restauración número footnote
+% -----------------------------------------------------------------------------
+\ifthenelse{\equal{\footnoterestart}{none}}{
+}{
+\ifthenelse{\equal{\footnoterestart}{section}}{
+	\counterwithin*{footnote}{section}
+}{
+\ifthenelse{\equal{\footnoterestart}{subsection}}{
+	\counterwithin*{footnote}{subsection}
+}{
+\ifthenelse{\equal{\footnoterestart}{subsubsection}}{
+	\counterwithin*{footnote}{subsubsection}
+}{
+\ifthenelse{\equal{\footnoterestart}{subsubsubsection}}{
+	\counterwithin*{footnote}{subsubsubsection}
+}{
+	\throwbadconfig{Formato numero footnote desconocido}{\footnoterestart}{none,section,subsection,subsubsection,subsubsubsection}}}}}
+}
+
 % END

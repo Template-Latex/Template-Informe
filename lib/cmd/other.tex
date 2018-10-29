@@ -49,10 +49,27 @@
 	\setcounter{page}{\thetemplatepagecounter}
 }
 
+% Añade un archivo pdf con el header
+%	#1	Parámetros (opcional)
+%	#2	Nombre del archivo pdf
+\newcommand{\includehfpdf}[2][]{
+	\includepdf[pagecommand={\pagestyle{fancy}},#1]{#2}
+}
+
+% Añade un archivo pdf con el header
+%	#1	Parámetros (opcional)
+%	#2	Nombre del archivo pdf
+\newcommand{\includefullhfpdf}[2][]{
+	\includepdf[pages=-,pagecommand={\pagestyle{fancy}},#1]{#2}
+}
+
 % Inserta un texto entre comillas
 \newcommand{\quotes}[1]{\enquote*{#1}}
 
 % Inserta un email con un link cliqueable
 \newcommand{\insertemail}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+% Inserta un teléfono celular
+\newcommand{\insertphone}[1]{\href{tel:#1}{\texttt{#1}}}
 
 % END
