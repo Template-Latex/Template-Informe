@@ -465,6 +465,9 @@
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\footnoterestart}{none}}{
 }{
+\ifthenelse{\equal{\footnoterestart}{page}}{
+	\counterwithin*{footnote}{page}
+}{
 \ifthenelse{\equal{\footnoterestart}{section}}{
 	\counterwithin*{footnote}{section}
 }{
@@ -477,7 +480,7 @@
 \ifthenelse{\equal{\footnoterestart}{subsubsubsection}}{
 	\counterwithin*{footnote}{subsubsubsection}
 }{
-	\throwbadconfig{Formato numero footnote desconocido}{\footnoterestart}{none,section,subsection,subsubsection,subsubsubsection}}}}}
+	\throwbadconfig{Formato numero footnote desconocido}{\footnoterestart}{none,page,section,subsection,subsubsection,subsubsubsection}}}}}}
 }
 
 % END
