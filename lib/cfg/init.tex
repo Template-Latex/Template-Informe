@@ -468,19 +468,19 @@
 \ifthenelse{\equal{\footnoterestart}{page}}{
 	\counterwithin*{footnote}{page}
 }{
-\ifthenelse{\equal{\footnoterestart}{section}}{
+\ifthenelse{\equal{\footnoterestart}{sec}}{
 	\counterwithin*{footnote}{section}
 }{
-\ifthenelse{\equal{\footnoterestart}{subsection}}{
+\ifthenelse{\equal{\footnoterestart}{ssec}}{
 	\counterwithin*{footnote}{subsection}
 }{
-\ifthenelse{\equal{\footnoterestart}{subsubsection}}{
+\ifthenelse{\equal{\footnoterestart}{sssec}}{
 	\counterwithin*{footnote}{subsubsection}
 }{
-\ifthenelse{\equal{\footnoterestart}{subsubsubsection}}{
+\ifthenelse{\equal{\footnoterestart}{ssssec}}{
 	\counterwithin*{footnote}{subsubsubsection}
 }{
-	\throwbadconfig{Formato numero footnote desconocido}{\footnoterestart}{none,page,section,subsection,subsubsection,subsubsubsection}}}}}}
+	\throwbadconfig{Formato numero footnote desconocido}{\footnoterestart}{none,page,sec (section),ssec (subsection),sssec (subsubsection),ssssec (subsubsubsection)}}}}}}
 }
 
 % END

@@ -101,12 +101,15 @@
 			\def\cftdefautnumwidth {3.0em}
 		}{
 		\ifthenelse{\equal{\showsectioncaption}{ssec}}{
-			\def\cftdefautnumwidth {3.8em}
+			\def\cftdefautnumwidth {3.7em}
 		}{
 		\ifthenelse{\equal{\showsectioncaption}{sssec}}{
-			\def\cftdefautnumwidth {4.3em}
+			\def\cftdefautnumwidth {4.4em}
 		}{
-			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}}}}
+		\ifthenelse{\equal{\showsectioncaption}{ssssec}}{
+			\def\cftdefautnumwidth {5.1em}
+		}{
+			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec,ssssec}}}}}
 		}
 		
 		% Configuración identado de títulos de objetos después del número

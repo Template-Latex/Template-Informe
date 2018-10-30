@@ -76,8 +76,14 @@
 	\counterwithin{lstlisting}{subsubsection}
 	\counterwithin{table}{subsubsection}
 }{
-	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec}
-}}}}
+\ifthenelse{\equal{\showsectioncaption}{ssssec}}{
+	\counterwithin{equation}{subsubsubsection}
+	\counterwithin{figure}{subsubsubsection}
+	\counterwithin{lstlisting}{subsubsubsection}
+	\counterwithin{table}{subsubsubsection}
+}{
+	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec,ssssec}
+}}}}}
 
 % -----------------------------------------------------------------------------
 % Se reestablecen números de página y secciones
