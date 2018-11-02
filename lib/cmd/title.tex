@@ -200,17 +200,38 @@
 	\markboth{#1}{}
 }
 
-% Insertar un título en un índice
-%	#1	Título
-%	#2	Margen superior en pt. (opcional), 10pt por defecto
-\newcommand{\insertindextitle}[2]{
-	\emptyvarerr{\insertindextitle}{#1}{Titulo no definido}
-	\ifx\hfuzz#2\hfuzz
+% Insertar un título en un índice, sin número de página
+%	#1	Margen superior en pt. (opcional)
+%	#2	Título
+\newcommand{\insertindextitle}[2][]{
+	\emptyvarerr{\insertindextitle}{#2}{Titulo no definido}
+	\ifx\hfuzz#1\hfuzz
 		\addtocontents{toc}{\protect\addvspace{\indextitlemargin pt}}
 	\else
-		\addtocontents{toc}{\protect\addvspace{#2 pt}}
+		\addtocontents{toc}{\protect\addvspace{#1 pt}}
 	\fi
-	\addtocontents{toc}{\noindent\hyperref[swpn]{\textbf{#1}}}
+	\addtocontents{toc}{\noindent\hyperref[swpn]{\textbf{#2}}}
+}
+
+% Insertar un título en un índice, con número de página
+%	#1	Margen superior en pt. (opcional)
+%	#2	Título
+\newcommand{\insertindextitlepage}[2][]{
+	\emptyvarerr{\insertindextitlepage}{#2}{Titulo no definido}
+	\ifx\hfuzz#1\hfuzz
+		\addtocontents{toc}{\protect\addvspace{\indextitlemargin pt}}
+	\else
+		\addtocontents{toc}{\protect\addvspace{#1 pt}}
+	\fi
+	\addcontentsline{toc}{section}{#2}
+}
+
+% Crea una sección en el índice y en el header
+%	#1	Margen superior en pt. (opcional)
+%	#2	Título
+\newcommand{\createhiddensection}[2][]{
+	\changeheadertitle{#2}
+	\insertindextitlepage[#1]{#2}
 }
 
 % Crear un capítulo como una sección
