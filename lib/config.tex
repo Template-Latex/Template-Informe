@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones del template
-% Versión:      6.0.6 (30/10/2018)
+% Versión:      6.0.7 (02/11/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -16,10 +16,10 @@
 \def\defaultinterline {1.0}        % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11}       % Tamaño del salto de línea [pt]
 \def\documentlang {es-CL}          % Define el idioma del documento
-\def\equationrestart {sec}         % N° ecuación (none,page,sec,ssec,sssec,ssssec)
+\def\equationrestart {sec}         % N° ecuación {none,page,(s/ss/sss/ssss)ec}
 \def\fontdocument {lmodern}        % Tipografía base, ver soportadas en manual
 \def\fonttypewriter {tmodern}      % Tipografía de \texttt, ver manual
-\def\footnoterestart {none}        % N° footnote (none,page,sec,ssec,sssec,ssssec)
+\def\footnoterestart {none}        % N° footnote {none,page,(s/ss/sss/ssss)ec}
 \def\importtikz {false}            % Utilizar la librería tikz
 \def\numberedequation {true}       % Ecuaciones con \insert... numeradas
 \def\pointdecimal {false}          % N° decimales con punto en vez de coma
@@ -43,7 +43,7 @@
 \def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
-\def\captionalignment {justified}  % Pos. ley. (centered,justified,left,right)
+\def\captionalignment {justified}  % Pos. ley. {centered,justified,left,right}
 \def\captionlessmarginimage {0.1}  % Marg. sup/inf de fig. si no hay ley. [cm]
 \def\captionlrmargin {2.0}         % Márgenes izq/der de la leyenda [cm]
 \def\captionmarginmultimg {0.45}   % Margen izq/der leyendas múltiple img [cm]
@@ -52,7 +52,7 @@
 \def\captiontextbold {false}       % Etiqueta (código,figura,tabla) en negrita
 \def\codecaptiontop {true}         % Leyenda arriba del código fuente
 \def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
-\def\showsectioncaption {none}     % N° sec. en objeto (none,sec,ssec,sssec,ssssec)
+\def\showsectioncaption {none}     % N° sec. en objeto {none, (s/ss/sss/ssss)ec}
 \def\tablecaptiontop {true}        % Leyenda arriba de las tablas
 
 % ANEXO, CITAS, REFERENCIAS
@@ -61,11 +61,11 @@
 \def\bibtexrefsep {9}              % Separación entre refs. {bibtex} [pt]
 \def\donumrefsection {false}       % Sección de referencias numerada
 \def\natbibrefsep {5}              % Separación entre referencia {natbib} [pt]
-\def\natbibrefstyle {ieeetr}       % Formato de ref. natbib (apa,ieeetr,etc..)
+\def\natbibrefstyle {ieeetr}       % Formato de ref. natbib {apa,ieeetr,etc..}
 \def\sectionappendixlastchar {.}   % Carácter entre n° de sec. anexo y título
 \def\showappendixsecindex {false}  % Título de la sec. de anexos en el índice
 \def\showappendixsectitle {false}  % Título de la sec. de anexo en el informe
-\def\stylecitereferences {bibtex}  % Estilo cita/ref. (apacite,bibtex,natbib)
+\def\stylecitereferences {bibtex}  % Estilo cita/ref. {apacite,bibtex,natbib}
 \def\twocolumnreferences {false}   % Referencias en dos columnas
 
 % CONFIGURACIÓN DEL ÍNDICE
@@ -111,7 +111,7 @@
 \def\fontsizesubtitle {\Large}     % Tamaño subtítulos
 \def\fontsizetitle {\huge}         % Tamaño títulos
 \def\fontsizetitlei {\huge}        % Tamaño títulos en el índice
-\def\showdotontitles {true}        % Punto al final de n° (ti/sub/subsub)título
+\def\showdotontitles {true}        % Punto al final de n° (s/ss/sss/ssss)ection
 \def\stylessstitle {\bfseries}     % Estilo sub-sub-subtítulos
 \def\stylesubsubtitle {\bfseries}  % Estilo sub-subtítulos
 \def\stylesubtitle {\bfseries}     % Estilo subtítulos
@@ -134,8 +134,8 @@
 \def\cfgpdfdisplaydoctitle {true}  % Muestra título del informe en visor
 \def\cfgpdffitwindow {false}       % Ajusta la ventana del lector tamaño pdf
 \def\cfgpdfmenubar {true}          % Muestra el menú del lector
-\def\cfgpdfpagemode {OneColumn}    % Modo de página (OneColumn,SinglePage)
-\def\cfgpdfpageview {FitH}         % Fit,FitH,FitV,FitR,FitB,FitBH,FitBV
+\def\cfgpdfpagemode {OneColumn}    % Modo de página {OneColumn,SinglePage}
+\def\cfgpdfpageview {FitH}         % {Fit,FitH,FitV,FitR,FitB,FitBH,FitBV}
 \def\cfgpdfsecnumbookmarks {true}  % Número de la sec. en marcadores del pdf
 \def\cfgpdftoolbar {true}          % Muestra barra de herramientas lector pdf
 \def\cfgshowbookmarkmenu {false}   % Muestra menú marcadores al abrir el pdf
