@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      6.0.7 (02/11/2018)
+% Versión:      6.0.8 (02/11/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -265,6 +265,7 @@
 	\def\envimageslabelvar {#1}
 	\def\envimagescaptionvar {#2}
 	\def\GLOBALenvimageintialized {true}
+	\def\GLOBALenvimageadded {false}
 	
 	% Configura caption y márgenes
 	\vspace{\margintopimages cm}
@@ -272,9 +273,7 @@
 	
 	% Inicia la figura
 	\begin{figure}[H] \centering
-		\vspace{-\marginrightmultimage cm}
-		\vspace{-\marginrightmultimage cm}
-		\vspace{-\marginrightmultimage cm}
+		\vspace{\margintopmultimages cm}
 		}{
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz\envimagescaptionvar\hfuzz

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      6.0.7 (02/11/2018)
+% Versión:      6.0.8 (02/11/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -89,9 +89,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT/},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={6.0.7-N},
-		Template.Version.Hash={A9149B253264CEC0BD187E96FE2DBD8C},
-		Template.Version.Release={6.0.7},
+		Template.Version.Dev={6.0.8-N},
+		Template.Version.Hash={E25FAEE4C13F75E36533C3B0BC936036},
+		Template.Version.Release={6.0.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={https://latex.ppizarror.com/Template-Informe/},
 		Universidad.Departamento={\departamentouniversidad},
@@ -103,7 +103,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdfpagemode},
 	pdfpagemode={\cdfpagemodepdf},
-	pdfproducer={Template-Informe v6.0.7 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v6.0.8 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -151,8 +151,9 @@
 	\def\margingathercaptionbottom {0} % Margen inferior caption ecuación [cm]
 	\def\margingathercaptiontop {-0.77} % Margen superior caption ecuación [cm]
 	\def\margingathertop {-0.6} % Margen superior ecuaciones [cm]
-	\def\marginrightmultimage {0.1} % Margen derecho imágenes múltiples [cm]
+	\def\marginrightmultimage {-0.6} % Margen derecho imágenes múltiples [cm]
 	\def\margintopimages {-0.2} % Margen superior figura [cm]
+	\def\margintopmultimages {-0.5} % Margen superior imágenes múltiples [cm]
 }{
 \ifthenelse{\equal{\objectmarginstyle}{normal}}{
 	\def\marginalignbottom {-0.4} % Margen inferior ecuaciones [cm]
@@ -169,8 +170,9 @@
 	\def\margingathercaptionbottom {0.05} % Margen inferior caption ecuación [cm]
 	\def\margingathercaptiontop {-0.77} % Margen superior caption ecuación [cm]
 	\def\margingathertop {-0.4} % Margen superior ecuaciones [cm]
-	\def\marginrightmultimage {0.1} % Margen derecho imágenes múltiples [cm]
+	\def\marginrightmultimage {-1.0} % Margen derecho imágenes múltiples [cm]
 	\def\margintopimages {0.0} % Margen superior figura [cm]
+	\def\margintopmultimages {-0.3} % Margen superior imágenes múltiples [cm]
 }{
 \ifthenelse{\equal{\objectmarginstyle}{large}}{
 	\def\marginalignbottom {-0.25} % Margen inferior ecuaciones [cm]
@@ -188,7 +190,8 @@
 	\def\margingathercaptiontop {-0.55} % Margen superior caption ecuación [cm]
 	\def\margingathertop {-0.25} % Margen superior ecuaciones [cm]
 	\def\marginrightmultimage {0.1} % Margen derecho imágenes múltiples [cm]
-	\def\margintopimages {0.2} % Margen superior figura [cm]	
+	\def\margintopimages {0.2} % Margen superior figura [cm]
+	\def\margintopmultimages {0.0} % Margen superior imágenes múltiples [cm]
 }{
 	\throwbadconfig{Estilo margen objeto desconocido}{\objectmarginstyle}{small,normal,large}}}
 }
