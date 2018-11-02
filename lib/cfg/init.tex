@@ -465,9 +465,6 @@
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\footnoterestart}{none}}{
 }{
-\ifthenelse{\equal{\footnoterestart}{page}}{
-	\counterwithin*{footnote}{page}
-}{
 \ifthenelse{\equal{\footnoterestart}{sec}}{
 	\counterwithin*{footnote}{section}
 }{
@@ -480,7 +477,33 @@
 \ifthenelse{\equal{\footnoterestart}{ssssec}}{
 	\counterwithin*{footnote}{subsubsubsection}
 }{
-	\throwbadconfig{Formato numero footnote desconocido}{\footnoterestart}{none,page,sec,ssec,sssec,ssssec}}}}}}
+\ifthenelse{\equal{\footnoterestart}{page}}{
+	\counterwithin*{footnote}{page}
+}{
+	\throwbadconfig{Formato reinicio numero footnote desconocido}{\footnoterestart}{none,page,sec,ssec,sssec,ssssec}}}}}}
+}
+
+% -----------------------------------------------------------------------------
+% Restauración número ecuación
+% -----------------------------------------------------------------------------
+\ifthenelse{\equal{\equationrestart}{none}}{
+}{
+\ifthenelse{\equal{\equationrestart}{sec}}{
+	\counterwithin*{equation}{section}
+}{
+\ifthenelse{\equal{\equationrestart}{ssec}}{
+	\counterwithin*{equation}{subsection}
+}{
+\ifthenelse{\equal{\equationrestart}{sssec}}{
+	\counterwithin*{equation}{subsubsection}
+}{
+\ifthenelse{\equal{\equationrestart}{ssssec}}{
+	\counterwithin*{equation}{subsubsubsection}
+}{
+\ifthenelse{\equal{\equationrestart}{page}}{
+	\counterwithin*{equation}{page}
+}{
+	\throwbadconfig{Formato reinicio numero ecuacion desconocido}{\footnoterestart}{none,page,sec,ssec,sssec,ssssec}}}}}}
 }
 
 % END
