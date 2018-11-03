@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones del núcleo del template
-% Versión:      6.0.9 (02/11/2018)
+% Versión:      6.0.9 (03/11/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -125,12 +125,7 @@
 \def\bgtemplatetestcode {d0g3}
 
 % Chequea que las funciones sólo puedan usarse en el entorno images
-\newcommand{\checkonlyonenvimage}{
-	\ifthenelse{\equal{\GLOBALenvimageintialized}{true}}{}{
-		\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}
-		\stop
-	}
-}
+\newcommand{\checkonlyonenvimage}{\ifthenelse{\equal{\GLOBALenvimageintialized}{true}}{}{\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}\stop}}
 
 % Chequea que las funciones sólo puedan usarse fuera del entorno images
 \newcommand{\checkoutsideenvimage}{

@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Funciones para insertar imágenes
-% Versión:      6.0.9 (02/11/2018)
+% Versión:      6.0.9 (03/11/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -15,35 +15,17 @@
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 %	#3	Leyenda de la imagen (opcional)
-\newcommand{\addimage}[3]{
-	\addimageboxed{#1}{#2}{0}{#3}
-}
+\newcommand{\addimage}[3]{\addimageboxed{#1}{#2}{0}{#3}}
 
 % Añade una imagen a un env 'image' con borde
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
 %	#4	Leyenda de la imagen (opcional)
-\newcommand{\addimageboxed}[4]{
-	\checkonlyonenvimage
-	\emptyvarerr{\addimageboxed}{#1}{Direccion de la imagen no definida}
-	\emptyvarerr{\addimageboxed}{#2}{Parametros de la imagen no definidos}
-	\emptyvarerr{\addimageboxed}{#3}{Ancho de la linea no definido}
-	\begingroup % Agrega la imagen
-		\setlength{\fboxsep}{0 pt}
-		\setlength{\fboxrule}{#3 pt}
-		\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{
-			\hspace{\marginrightmultimage cm}
-		}{}
-		\subfloat[#4]{
-			\fbox{\includegraphics[#2]{#1}}
-		}
-	\endgroup
-	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{
-	}{
-		\def\GLOBALenvimageadded {true}
-	}
-}
+\newcommand{\addimageboxed}[4]{\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginrightmultimage cm}\hspace{-0.125cm}}{}\subfloat[#4]{\fbox{\includegraphics[#2]{#1}}}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}}
+
+% Añade un salto de línea en las imágenes
+\newcommand{\addimagenewline}{\def\GLOBALenvimageadded {false}\\\hspace{0.25cm}}
 
 % Insertar una imagen
 % 	#1	Label (opcional)
