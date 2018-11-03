@@ -124,11 +124,11 @@
 \newcounter{templatepagecounter} % Administra números de páginas
 \renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
 \setlength{\headheight}{64 pt} % Tamaño de la cabecera sin fancyhdr
-\setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
-\setlength{\footnotemargin}{4 mm} % Margen del footnote
+% \setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
+\setlength{\footnotemargin}{\marginfootnote pt} % Margen del footnote
 \setlength{\columnsep}{\columnsepwidth em} % Separación entre columnas
 \ifthenelse{\equal{\showlinenumbers}{true}}{
-	\setlength{\linenumbersep}{0.22cm}
+	\setlength{\linenumbersep}{0.50cm}
 	\renewcommand\linenumberfont{\normalfont\tiny\color{\linenumbercolor}}
 	}{
 }
