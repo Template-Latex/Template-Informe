@@ -25,7 +25,7 @@
 \newcommand{\addimageboxed}[4]{\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginrightmultimage cm}\hspace{-0.125cm}}{}\subfloat[#4]{\fbox{\includegraphics[#2]{#1}}}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}}
 
 % Añade un salto de línea en las imágenes
-\newcommand{\addimagenewline}{\def\GLOBALenvimageadded {false}\\\hspace{0.25cm}}
+\newcommand{\addimagenewline}{\def\GLOBALenvimageadded {false}\\\hspace{\GLOBALenvimagenewlinemarg cm}}
 
 % Insertar una imagen
 % 	#1	Label (opcional)
