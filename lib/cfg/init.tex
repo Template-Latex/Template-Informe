@@ -134,69 +134,6 @@
 }
 
 % -----------------------------------------------------------------------------
-% Definicion de anchos por estilo
-% -----------------------------------------------------------------------------
-\ifthenelse{\equal{\objectmarginstyle}{small}}{
-	\def\marginalignbottom {-0.6} % Margen inferior ecuaciones [cm]
-	\def\marginaligncaptionbottom {0} % Margen inferior caption ecuación [cm]
-	\def\marginaligncaptiontop {-0.6} % Margen superior caption ecuación [cm]
-	\def\marginaligntop {-0.6} % Margen superior ecuaciones [cm]
-	\def\marginbottomimages {-0.3} % Margen inferior figura [cm]
-	\def\marginequationbottom {-0.4} % Margen inferior ecuaciones [cm]
-	\def\marginequationcaptionbottom {0.05} % Margen inferior caption ecuación [cm]
-	\def\marginequationcaptiontop {-0.65} % Margen superior caption ecuación [cm]
-	\def\marginequationtop {-0.25} % Margen superior ecuaciones [cm]
-	\def\marginfloatimages {-13.0} % Mrg. sup. fig \insertimageleft/right [pt]
-	\def\margingatherbottom {-0.6} % Margen inferior ecuaciones [cm]
-	\def\margingathercaptionbottom {0} % Margen inferior caption ecuación [cm]
-	\def\margingathercaptiontop {-0.77} % Margen superior caption ecuación [cm]
-	\def\margingathertop {-0.6} % Margen superior ecuaciones [cm]
-	\def\marginrightmultimage {-0.6} % Margen derecho imágenes múltiples [cm]
-	\def\margintopimages {-0.2} % Margen superior figura [cm]
-	\def\margintopmultimages {-0.5} % Margen superior imágenes múltiples [cm]
-}{
-\ifthenelse{\equal{\objectmarginstyle}{normal}}{
-	\def\marginalignbottom {-0.4} % Margen inferior ecuaciones [cm]
-	\def\marginaligncaptionbottom {0.05} % Margen inferior caption ecuación [cm]
-	\def\marginaligncaptiontop {-0.6} % Margen superior caption ecuación [cm]
-	\def\marginaligntop {-0.4} % Margen superior ecuaciones [cm]
-	\def\marginbottomimages {-0.2} % Margen inferior figura [cm]
-	\def\marginequationbottom {-0.26} % Margen inferior ecuaciones [cm]
-	\def\marginequationcaptionbottom {0.0} % Margen inferior caption ecuación [cm]
-	\def\marginequationcaptiontop {-0.65} % Margen superior caption ecuación [cm]
-	\def\marginequationtop {-0.1} % Margen superior ecuaciones [cm]
-	\def\marginfloatimages {-13.0} % Mrg. sup. fig \insertimageleft/right [pt]
-	\def\margingatherbottom {-0.25} % Margen inferior ecuaciones [cm]
-	\def\margingathercaptionbottom {0.05} % Margen inferior caption ecuación [cm]
-	\def\margingathercaptiontop {-0.77} % Margen superior caption ecuación [cm]
-	\def\margingathertop {-0.4} % Margen superior ecuaciones [cm]
-	\def\marginrightmultimage {-1.0} % Margen derecho imágenes múltiples [cm]
-	\def\margintopimages {0.0} % Margen superior figura [cm]
-	\def\margintopmultimages {-0.3} % Margen superior imágenes múltiples [cm]
-}{
-\ifthenelse{\equal{\objectmarginstyle}{large}}{
-	\def\marginalignbottom {-0.25} % Margen inferior ecuaciones [cm]
-	\def\marginaligncaptionbottom {0.05} % Margen inferior caption ecuación [cm]
-	\def\marginaligncaptiontop {-0.55} % Margen superior caption ecuación [cm]
-	\def\marginaligntop {-0.25} % Margen superior ecuaciones [cm]
-	\def\marginbottomimages {-0.05} % Margen inferior figura [cm]
-	\def\marginequationbottom {-0.10} % Margen inferior ecuaciones [cm]
-	\def\marginequationcaptionbottom {0.05} % Margen inferior caption ecuación [cm]
-	\def\marginequationcaptiontop {-0.55} % Margen superior caption ecuación [cm]
-	\def\marginequationtop {0.0} % Margen superior ecuaciones [cm]
-	\def\marginfloatimages {-13.0} % Mrg. sup. fig \insertimageleft/right [pt]
-	\def\margingatherbottom {-0.25} % Margen inferior ecuaciones [cm]
-	\def\margingathercaptionbottom {0.05} % Margen inferior caption ecuación [cm]
-	\def\margingathercaptiontop {-0.55} % Margen superior caption ecuación [cm]
-	\def\margingathertop {-0.25} % Margen superior ecuaciones [cm]
-	\def\marginrightmultimage {0.1} % Margen derecho imágenes múltiples [cm]
-	\def\margintopimages {0.2} % Margen superior figura [cm]
-	\def\margintopmultimages {0.0} % Margen superior imágenes múltiples [cm]
-}{
-	\throwbadconfig{Estilo margen objeto desconocido}{\objectmarginstyle}{small,normal,large}}}
-}
-
-% -----------------------------------------------------------------------------
 % Posición inicial de los objetos
 % -----------------------------------------------------------------------------
 \floatplacement{figure}{\imagedefaultplacement}
