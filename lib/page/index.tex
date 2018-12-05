@@ -48,10 +48,20 @@
 	% Configuración del punto en índice
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\showdotontitles}{true}}{
+		
+		% Agrega los puntos
 		\def\cftsecaftersnum {.}
 		\def\cftsubsecaftersnum {.}
 		\def\cftsubsubsecaftersnum {.}
 		\def\cftsubsubsubsecaftersnum {.}
+		
+		% Modifica los márgenes
+		\def\cftsecnumwidth {1.9em}
+		\def\cftsubsecnumwidth {2.57em} % Incremento 0.67
+		\renewcommand\cftsubsubsecnumwidth{3.35em} % Incremento 0.78
+		
+		\setlength{\cftsubsecindent}{1.91em}
+		\setlength{\cftsubsubsecindent}{4.48em} % Incremento 2.57
 		}{
 	}
 

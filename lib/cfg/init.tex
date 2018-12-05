@@ -109,8 +109,7 @@
 	pdfstartview={\cfgpdfpageview},
 	pdfsubject={\temaatratar},
 	pdftitle={\titulodelinforme},
-	pdftoolbar={\cfgpdftoolbar},
-	pdfview={\cfgpdfpageview}
+	pdftoolbar={\cfgpdftoolbar}
 }
 
 % -----------------------------------------------------------------------------
@@ -379,6 +378,9 @@
 % Agrega compatibilidad de subsubsubsecciones al TOC
 % -----------------------------------------------------------------------------
 \makeatletter
+	\def\toclevel@subsubsubsection{4}
+	\def\toclevel@paragraph{5}
+	\def\toclevel@subparagraph{6}
 	\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}
 		{3.25ex \@plus 1ex \@minus .2ex}
 		{-1em}
@@ -387,12 +389,15 @@
 		{3.25ex \@plus 1ex \@minus .2ex}
 		{-1em}
 		{\normalfont\normalsize\bfseries}}
-	\def\toclevel@subsubsubsection{4}
-	\def\toclevel@paragraph{5}
-	\def\toclevel@paragraph{6}
-	\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
-	\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
-	\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+	\ifthenelse{\equal{\showdotontitles}{true}}{
+		\def\l@subsubsubsection{\@dottedtocline{4}{7.83em}{4.15em}} % Incremento 0.77+3.35 a 3.35
+		\def\l@paragraph{\@dottedtocline{5}{11.98em}{4.92em}}
+		\def\l@subparagraph{\@dottedtocline{6}{14.65em}{5.69em}}
+	}{
+		\def\l@subsubsubsection{\@dottedtocline{4}{6.97em}{4em}}
+		\def\l@paragraph{\@dottedtocline{5}{10.97em}{5em}}
+		\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+	}
 \makeatother
 
 % -----------------------------------------------------------------------------
