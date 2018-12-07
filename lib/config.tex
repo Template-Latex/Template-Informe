@@ -22,7 +22,7 @@
 \def\footnoterestart {none}        % N° footnote {none,page,(s/ss/sss/ssss)ec}
 \def\importtikz {false}            % Utilizar la librería tikz
 \def\numberedequation {true}       % Ecuaciones con \insert... numeradas
-\def\pointdecimal {false}          % N° decimales con punto en vez de coma
+\def\pointdecimal {true}           % N° decimales con punto en vez de coma
 \def\predocuseromannumber {true}   % Pág. con número romano previo a inicio doc.
 \def\romanpageuppercase {false}    % Páginas en número romano en mayúsculas
 \def\showlinenumbers {false}       % Muestra los n° de línea del documento
@@ -30,6 +30,81 @@
 % ESTILO PORTADA Y HEADER-FOOTER
 \def\hfstyle {style1}              % Estilo header-footer (14 estilos disp.)
 \def\portraitstyle {style1}        % Estilo portada (18 estilos disp.)
+
+% CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
+\def\captionalignment {justified}  % Pos. ley. {centered,justified,left,right}
+\def\captionlessmarginimage {0.1}  % Marg. sup/inf de fig. si no hay ley. [cm]
+\def\captionlrmargin {2.0}         % Márgenes izq/der de la leyenda [cm]
+\def\captionmarginmultimg {0.45}   % Margen izq/der leyendas múltiple img [cm]
+\def\captiontbmarginfigure {9.35}  % Margen sup/inf de la leyenda en fig. [pt]
+\def\captiontbmargintable {7.0}    % Margen sup/inf de la leyenda en tab. [pt]
+\def\captiontextbold {false}       % Etiqueta (código,figura,tabla) en negrita
+\def\codecaptiontop {true}         % Leyenda arriba del código fuente
+\def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
+\def\showsectioncaption {none}     % N° sec. en objeto {none, (s/ss/sss/ssss)ec}
+\def\tablecaptiontop {true}        % Leyenda arriba de las tablas
+
+% CONFIGURACIÓN DEL ÍNDICE
+\def\charafterobjectindex {.}      % Carácter después de n° figura,tabla,código
+\def\charnumpageindex {.}          % Carácter número de página en índice
+\def\equalmarginnumobject {true}   % Iguala el margen de los números de objetos
+\def\indexdepth {4}                % Profundidad máxima del índice
+\def\indexforcenewpage {false}     % Fuerza cada índice en una página nueva
+\def\indextitlemargin {11.4}       % Margen título índice \insertindextitle [pt]
+\def\objectindexindent {true}      % Indenta la lista de objetos
+\def\resetpagnumafterindex {true}  % Resetea número de la pag. tras el índice
+\def\showindex {true}              % Muestra el índice
+\def\showindexofcode {true}        % Muestra la lista de códigos fuente
+\def\showindexofcontents {true}    % Muestra la lista de contenidos
+\def\showindexoffigures {true}     % Muestra la lista de figuras
+\def\showindexoftables {true}      % Muestra la lista de tablas
+
+% CONFIGURACIÓN DE LOS TÍTULOS
+\def\anumsecaddtocounter {false}   % Insertar títulos 'anum' aumenta n° de sec
+\def\disablehfrightmark {false}    % Desactiva el rightmark del header-footer
+\def\fontsizessstitle{\normalsize} % Tamaño sub-sub-subtítulos
+\def\fontsizesubsubtitle {\large}  % Tamaño sub-subtítulos
+\def\fontsizesubtitle {\Large}     % Tamaño subtítulos
+\def\fontsizetitle {\huge}         % Tamaño títulos
+\def\fontsizetitlei {\huge}        % Tamaño títulos en el índice
+\def\showdotontitles {true}        % Punto al final de n° (s/ss/sss/ssss)ection
+\def\stylessstitle {\bfseries}     % Estilo sub-sub-subtítulos
+\def\stylesubsubtitle {\bfseries}  % Estilo sub-subtítulos
+\def\stylesubtitle {\bfseries}     % Estilo subtítulos
+\def\styletitle {\bfseries}        % Estilo títulos
+\def\styletitlei {\bfseries}       % Estilo títulos en el índice
+
+% CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
+\def\captioncolor {black}          % Color de la ley. (código,figura,tabla)
+\def\captiontextcolor {black}      % Color de la leyenda
+\def\colorpage {white}             % Color de la página
+\def\highlightcolor {yellow}       % Color del subrayado con \hl
+\def\indextitlecolor {black}       % Color de los títulos del índice
+\def\linenumbercolor {gray}        % Color del n° de línea (\showlinenumbers)
+\def\linkcolor {black}             % Color de los links del doc.
+\def\maintextcolor {black}         % Color principal del texto
+\def\numcitecolor {black}          % Color del n° de las referencias o citas
+\def\portraittitlecolor {black}    % Color de los títulos de la portada
+\def\showborderonlinks {false}     % Color de un link por un recuadro de color
+\def\sourcecodebgcolor {lgray}     % Color de fondo del código fuente
+\def\ssstitlecolor {black}         % Color de los sub-sub-subtítulos
+\def\subsubtitlecolor {black}      % Color de los sub-subtítulos
+\def\subtitlecolor {black}         % Color de los subtítulos
+\def\tablelinecolor {black}        % Color de las líneas de las tablas
+\def\titlecolor {black}            % Color de los títulos
+\def\urlcolor {magenta}            % Color de los enlaces web (\url,\href)
+
+% ANEXO, CITAS, REFERENCIAS
+\def\apaciterefsep {9}             % Separación entre refs. {apacite} [pt]
+\def\appendixindepobjnum {true}    % Anexo usa n° objetos independientes
+\def\bibtexrefsep {9}              % Separación entre refs. {bibtex} [pt]
+\def\natbibrefsep {5}              % Separación entre referencia {natbib} [pt]
+\def\natbibrefstyle {ieeetr}       % Formato de ref. natbib {apa,ieeetr,etc..}
+\def\sectionappendixlastchar {.}   % Carácter entre n° de sec. anexo y título
+\def\sectionrefenv {false}         % Las referencias se consideran como sección
+\def\showappendixsecindex {false}  % Título de la sec. de anexos en el índice
+\def\stylecitereferences {bibtex}  % Estilo cita/ref. {apacite,bibtex,natbib}
+\def\twocolumnreferences {false}   % Referencias en dos columnas
 
 % CONFIGURACIONES DE OBJETOS
 \def\columnhspace {-0.4}           % Margen horizontal entre obj. \createcolumn
@@ -58,81 +133,6 @@
 \def\tablepaddingh {1.0}           % Espaciado horizontal de celda de las tablas
 \def\tablepaddingv {1.0}           % Espaciado vertical de celda de las tablas
 \def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
-
-% CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
-\def\captionalignment {justified}  % Pos. ley. {centered,justified,left,right}
-\def\captionlessmarginimage {0.1}  % Marg. sup/inf de fig. si no hay ley. [cm]
-\def\captionlrmargin {2.0}         % Márgenes izq/der de la leyenda [cm]
-\def\captionmarginmultimg {0.45}   % Margen izq/der leyendas múltiple img [cm]
-\def\captiontbmarginfigure {9.35}  % Margen sup/inf de la leyenda en fig. [pt]
-\def\captiontbmargintable {7.0}    % Margen sup/inf de la leyenda en tab. [pt]
-\def\captiontextbold {false}       % Etiqueta (código,figura,tabla) en negrita
-\def\codecaptiontop {true}         % Leyenda arriba del código fuente
-\def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
-\def\showsectioncaption {none}     % N° sec. en objeto {none, (s/ss/sss/ssss)ec}
-\def\tablecaptiontop {true}        % Leyenda arriba de las tablas
-
-% ANEXO, CITAS, REFERENCIAS
-\def\apaciterefsep {9}             % Separación entre refs. {apacite} [pt]
-\def\appendixindepobjnum {true}    % Anexo usa n° objetos independientes
-\def\bibtexrefsep {9}              % Separación entre refs. {bibtex} [pt]
-\def\natbibrefsep {5}              % Separación entre referencia {natbib} [pt]
-\def\natbibrefstyle {ieeetr}       % Formato de ref. natbib {apa,ieeetr,etc..}
-\def\sectionappendixlastchar {.}   % Carácter entre n° de sec. anexo y título
-\def\sectionrefenv {false}         % Las referencias se consideran como sección
-\def\showappendixsecindex {false}  % Título de la sec. de anexos en el índice
-\def\stylecitereferences {bibtex}  % Estilo cita/ref. {apacite,bibtex,natbib}
-\def\twocolumnreferences {false}   % Referencias en dos columnas
-
-% CONFIGURACIÓN DEL ÍNDICE
-\def\charafterobjectindex {.}      % Carácter después de n° figura,tabla,código
-\def\charnumpageindex {.}          % Carácter número de página en índice
-\def\equalmarginnumobject {true}   % Iguala el margen de los números de objetos
-\def\indexdepth {4}                % Profundidad máxima del índice
-\def\indexforcenewpage {false}     % Fuerza cada índice en una página nueva
-\def\indextitlemargin {11.4}       % Margen título índice \insertindextitle [pt]
-\def\objectindexindent {true}      % Indenta la lista de objetos
-\def\resetpagnumafterindex {true}  % Resetea número de la pag. tras el índice
-\def\showindex {true}              % Muestra el índice
-\def\showindexofcode {true}        % Muestra la lista de códigos fuente
-\def\showindexofcontents {true}    % Muestra la lista de contenidos
-\def\showindexoffigures {true}     % Muestra la lista de figuras
-\def\showindexoftables {true}      % Muestra la lista de tablas
-
-% CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
-\def\captioncolor {black}          % Color de la ley. (código,figura,tabla)
-\def\captiontextcolor {black}      % Color de la leyenda
-\def\colorpage {white}             % Color de la página
-\def\highlightcolor {yellow}       % Color del subrayado con \hl
-\def\indextitlecolor {black}       % Color de los títulos del índice
-\def\linenumbercolor {gray}        % Color del n° de línea (\showlinenumbers)
-\def\linkcolor {black}             % Color de los links del doc.
-\def\maintextcolor {black}         % Color principal del texto
-\def\numcitecolor {black}          % Color del n° de las referencias o citas
-\def\portraittitlecolor {black}    % Color de los títulos de la portada
-\def\showborderonlinks {false}     % Color de un link por un recuadro de color
-\def\sourcecodebgcolor {lgray}     % Color de fondo del código fuente
-\def\ssstitlecolor {black}         % Color de los sub-sub-subtítulos
-\def\subsubtitlecolor {black}      % Color de los sub-subtítulos
-\def\subtitlecolor {black}         % Color de los subtítulos
-\def\tablelinecolor {black}        % Color de las líneas de las tablas
-\def\titlecolor {black}            % Color de los títulos
-\def\urlcolor {magenta}            % Color de los enlaces web (\url,\href)
-
-% CONFIGURACIÓN DE LOS TÍTULOS
-\def\anumsecaddtocounter {false}   % Insertar títulos 'anum' aumenta n° de sec
-\def\disablehfrightmark {false}    % Desactiva el rightmark del header-footer
-\def\fontsizessstitle{\normalsize} % Tamaño sub-sub-subtítulos
-\def\fontsizesubsubtitle {\large}  % Tamaño sub-subtítulos
-\def\fontsizesubtitle {\Large}     % Tamaño subtítulos
-\def\fontsizetitle {\huge}         % Tamaño títulos
-\def\fontsizetitlei {\huge}        % Tamaño títulos en el índice
-\def\showdotontitles {true}        % Punto al final de n° (s/ss/sss/ssss)ection
-\def\stylessstitle {\bfseries}     % Estilo sub-sub-subtítulos
-\def\stylesubsubtitle {\bfseries}  % Estilo sub-subtítulos
-\def\stylesubtitle {\bfseries}     % Estilo subtítulos
-\def\styletitle {\bfseries}        % Estilo títulos
-\def\styletitlei {\bfseries}       % Estilo títulos en el índice
 
 % MÁRGENES DE PÁGINA
 \def\firstpagemargintop {3.8}      % Margen superior página portada [cm]
