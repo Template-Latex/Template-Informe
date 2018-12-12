@@ -16,24 +16,21 @@
 \def\defaultinterline {1.0}        % Interlineado por defecto [pt]
 \def\defaultnewlinesize {11}       % Tamaño del salto de línea [pt]
 \def\documentlang {es-CL}          % Define el idioma del documento
-\def\equationrestart {sec}         % N° ecuación {none,page,(s/ss/sss/ssss)ec}
 \def\fontdocument {lmodern}        % Tipografía base, ver soportadas en manual
 \def\fonttypewriter {tmodern}      % Tipografía de \texttt, ver manual
-\def\footnoterestart {none}        % N° footnote {none,page,(s/ss/sss/ssss)ec}
 \def\importtikz {false}            % Utilizar la librería tikz
-\def\numberedequation {true}       % Ecuaciones con \insert... numeradas
 \def\pointdecimal {true}           % N° decimales con punto en vez de coma
 \def\predocuseromannumber {true}   % Pág. con número romano previo a inicio doc.
 \def\romanpageuppercase {false}    % Páginas en número romano en mayúsculas
 \def\showlinenumbers {false}       % Muestra los n° de línea del documento
 
 % ESTILO PORTADA Y HEADER-FOOTER
-\def\hfstyle {style1}              % Estilo header-footer (14 estilos disp.)
-\def\portraitstyle {style1}        % Estilo portada (18 estilos disp.)
+\def\hfstyle {style1}              % Estilo header-footer (14 estilos)
+\def\portraitstyle {style1}        % Estilo portada (18 estilos)
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
-\def\captionalignment {justified}  % Pos. ley. {centered,justified,left,right}
-\def\captionlessmarginimage {0.1}  % Marg. sup/inf de fig. si no hay ley. [cm]
+\def\captionalignment {justified}  % Posición {centered,justified,left,right}
+\def\captionlessmarginimage {0.1}  % Margen sup/inf de fig. si no hay ley. [cm]
 \def\captionlrmargin {2.0}         % Márgenes izq/der de la leyenda [cm]
 \def\captionmarginmultimg {0.45}   % Margen izq/der leyendas múltiple img [cm]
 \def\captiontbmarginfigure {9.35}  % Margen sup/inf de la leyenda en fig. [pt]
@@ -58,6 +55,49 @@
 \def\showindexofcontents {true}    % Muestra la lista de contenidos
 \def\showindexoffigures {true}     % Muestra la lista de figuras
 \def\showindexoftables {true}      % Muestra la lista de tablas
+
+% ANEXO, CITAS, REFERENCIAS
+\def\apaciterefsep {9}             % Separación entre refs. {apacite} [pt]
+\def\appendixindepobjnum {true}    % Anexo usa n° objetos independientes
+\def\bibtexrefsep {9}              % Separación entre refs. {bibtex} [pt]
+\def\natbibrefsep {5}              % Separación entre referencia {natbib} [pt]
+\def\natbibrefstyle {ieeetr}       % Formato de ref. natbib {apa,ieeetr,etc..}
+\def\sectionappendixlastchar {.}   % Carácter entre n° de sec. anexo y título
+\def\sectionrefenv {false}         % Las referencias se consideran como sección
+\def\showappendixsecindex {false}  % Título de la sec. de anexos en el índice
+\def\stylecitereferences {bibtex}  % Estilo cita/ref. {apacite,bibtex,natbib}
+\def\twocolumnreferences {false}   % Referencias en dos columnas
+
+% CONFIGURACIONES DE OBJETOS
+\def\columnhspace {-0.4}           % Margen horizontal entre obj. \createcolumn
+\def\columnsepwidth {2.1}          % Separación entre columnas [em]
+\def\defaultimagefolder {img/}     % Carpeta raíz de las imágenes
+\def\equationrestart {sec}         % N° ecuación {none,page,(s/ss/sss/ssss)ec}
+\def\footnoterestart {none}        % N° footnote {none,page,(s/ss/sss/ssss)ec}
+\def\imagedefaultplacement {H}     % Posición por defecto de las imágenes
+\def\marginalignbottom {-0.40}     % Margen inferior ecuaciones [cm]
+\def\marginaligncaptbottom {0.05}  % Margen inferior caption ecuación [cm]
+\def\marginaligncapttop {-0.60}    % Margen superior caption ecuación [cm]
+\def\marginaligntop {-0.40}        % Margen superior ecuaciones [cm]
+\def\margineqncaptionbottom {0.0}  % Margen inferior caption ecuación [cm]
+\def\margineqncaptiontop {-0.65}   % Margen superior caption ecuación [cm]
+\def\marginequationbottom {-0.05}  % Margen inferior ecuaciones [cm]
+\def\marginequationtop {-0.05}     % Margen superior ecuaciones [cm]
+\def\marginfloatimages {-13.0}     % Mrg. sup. fig \insertimageleft/right [pt]
+\def\marginfootnote {10.0}         % Margen derecho footnote [pt]
+\def\margingatherbottom {-0.25}    % Margen inferior ecuaciones [cm]
+\def\margingathercaptbottom {0.05} % Margen inferior caption ecuación [cm]
+\def\margingathercapttop {-0.77}   % Margen superior caption ecuación [cm]
+\def\margingathertop {-0.40}       % Margen superior ecuaciones [cm]
+\def\marginimagebottom {-0.10}     % Margen inferior figura [cm]
+\def\marginimagemulttop {-0.30}    % Margen superior imágenes múltiples [cm]
+\def\marginimagetop {0.0}          % Margen superior figuras [cm]
+\def\marginrightmultimage {0.50}   % Margen derecho imágenes múltiples [cm]
+\def\numberedequation {true}       % Ecuaciones con \insert... numeradas
+\def\tabledefaultplacement {H}     % Posición por defecto de las tablas
+\def\tablepaddingh {1.0}           % Espaciado horizontal de celda de las tablas
+\def\tablepaddingv {1.0}           % Espaciado vertical de celda de las tablas
+\def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
 
 % CONFIGURACIÓN DE LOS TÍTULOS
 \def\anumsecaddtocounter {false}   % Insertar títulos 'anum' aumenta n° de sec
@@ -93,46 +133,6 @@
 \def\tablelinecolor {black}        % Color de las líneas de las tablas
 \def\titlecolor {black}            % Color de los títulos
 \def\urlcolor {magenta}            % Color de los enlaces web (\url,\href)
-
-% ANEXO, CITAS, REFERENCIAS
-\def\apaciterefsep {9}             % Separación entre refs. {apacite} [pt]
-\def\appendixindepobjnum {true}    % Anexo usa n° objetos independientes
-\def\bibtexrefsep {9}              % Separación entre refs. {bibtex} [pt]
-\def\natbibrefsep {5}              % Separación entre referencia {natbib} [pt]
-\def\natbibrefstyle {ieeetr}       % Formato de ref. natbib {apa,ieeetr,etc..}
-\def\sectionappendixlastchar {.}   % Carácter entre n° de sec. anexo y título
-\def\sectionrefenv {false}         % Las referencias se consideran como sección
-\def\showappendixsecindex {false}  % Título de la sec. de anexos en el índice
-\def\stylecitereferences {bibtex}  % Estilo cita/ref. {apacite,bibtex,natbib}
-\def\twocolumnreferences {false}   % Referencias en dos columnas
-
-% CONFIGURACIONES DE OBJETOS
-\def\columnhspace {-0.4}           % Margen horizontal entre obj. \createcolumn
-\def\columnsepwidth {2.1}          % Separación entre columnas [em]
-\def\defaultimagefolder {img/}     % Carpeta raíz de las imágenes
-\def\imagedefaultplacement {H}     % Posición por defecto de las imágenes
-\def\marginalignbottom {-0.4}      % Margen inferior ecuaciones [cm]
-\def\marginaligncaptbottom {0.05}  % Margen inferior caption ecuación [cm]
-\def\marginaligncapttop {-0.6}     % Margen superior caption ecuación [cm]
-\def\marginaligntop {-0.4}         % Margen superior ecuaciones [cm]
-\def\marginbottomimages {-0.2}     % Margen inferior figura [cm]
-\def\margineqncaptionbottom {0.0}  % Margen inferior caption ecuación [cm]
-\def\margineqncaptiontop {-0.65}   % Margen superior caption ecuación [cm]
-\def\marginequationbottom {-0.26}  % Margen inferior ecuaciones [cm]
-\def\marginequationtop {-0.1}      % Margen superior ecuaciones [cm]
-\def\marginfloatimages {-13.0}     % Mrg. sup. fig \insertimageleft/right [pt]
-\def\marginfootnote {10.0}         % Margen derecho footnote [pt]
-\def\margingatherbottom {-0.25}    % Margen inferior ecuaciones [cm]
-\def\margingathercaptbottom {0.05} % Margen inferior caption ecuación [cm]
-\def\margingathercapttop {-0.77}   % Margen superior caption ecuación [cm]
-\def\margingathertop {-0.4}        % Margen superior ecuaciones [cm]
-\def\marginrightmultimage {0.5}    % Margen derecho imágenes múltiples [cm]
-\def\margintopimages {0.0}         % Margen superior figuras [cm]
-\def\margintopmultimages {-0.3}    % Margen superior imágenes múltiples [cm]
-\def\tabledefaultplacement {H}     % Posición por defecto de las tablas
-\def\tablepaddingh {1.0}           % Espaciado horizontal de celda de las tablas
-\def\tablepaddingv {1.0}           % Espaciado vertical de celda de las tablas
-\def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
 
 % MÁRGENES DE PÁGINA
 \def\firstpagemargintop {3.8}      % Margen superior página portada [cm]

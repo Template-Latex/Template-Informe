@@ -41,12 +41,12 @@
 	\def\GLOBALenvimageadded {false}
 	
 	% Configura caption y márgenes
-	\vspace{\margintopimages cm}
+	\vspace{\marginimagetop cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
 	
 	% Inicia la figura
 	\begin{figure}[H] \centering
-		\vspace{\margintopmultimages cm}
+		\vspace{\marginimagemulttop cm}
 	}{
 		\setcaptionmargincm{\captionlrmargin}
 		\ifx\hfuzz\envimagescaptionvar\hfuzz
@@ -58,7 +58,7 @@
 	
 	% Reestablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}
-	\vspace{\marginbottomimages cm}
+	\vspace{\marginimagebottom cm}
 	
 	% Reestablece globales
 	\def\GLOBALenvimageinitialized {false}
