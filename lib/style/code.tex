@@ -292,17 +292,6 @@
 }
 
 % -----------------------------------------------------------------------------
-% Matlab
-% -----------------------------------------------------------------------------
-\lstdefinestyle{matlab}{
-	language=Matlab,
-	emph=[1]{break,end,for,if},
-	emphstyle=[1]\color{dkcyan},
-	keepspaces=true,
-	morekeywords={matlab2tikz,warning}
-}
-
-% -----------------------------------------------------------------------------
 % LaTeX
 % -----------------------------------------------------------------------------
 \lstdefinestyle{latex}{
@@ -328,6 +317,54 @@
 		subsubsubsection,subsubsubsection,subsubsubsectionanum,textbf,textit,
 		textregistered,textsuperscript,texttt,throwbadconfig,unboldmath,url,
 		xspace}
+}
+
+% -----------------------------------------------------------------------------
+% Matlab
+% -----------------------------------------------------------------------------
+\lstdefinestyle{matlab}{
+	language=Matlab,
+	emph=[1]{break,end,for,if},
+	emphstyle=[1]\color{dkcyan},
+	keepspaces=true,
+	morekeywords={matlab2tikz,warning}
+}
+
+% -----------------------------------------------------------------------------
+% OpenCL
+% -----------------------------------------------------------------------------
+\lstdefinestyle{opencl}{
+	language=C++,
+	breakatwhitespace=false,
+	morecomment=[l][\color{magenta}]{\#},
+	morekeywords={bool3,bool4,bool8,bool16,char2,char3,char4,char8,char16,
+		complex,constant,event_t,bool2,float2,float3,float4,float8,float16,
+		global,half2,half3,half4,half8,half16,image2d_t,image3d_t,imaginary,
+		int2,int3,int4,int8,int16,kernel,local,long2,long3,long4,long8,long16,
+		private,quad,quad2,quad3,quad4,quad8,quad16,sampler_t,short2,short3,
+		short4,short8,short16,uchar2,uchar3,uchar4,uchar8,uchar16,uint2,uint3,
+		uint4,uint8,uint16,ulong2,ulong3,ulong4,ulong8,ulong16,ushort2,ushort3,
+		ushort4,ushort8,ushort16,__constant,__global,__kernel,__local,__private},
+}
+
+% -----------------------------------------------------------------------------
+% OpenSees
+% -----------------------------------------------------------------------------
+\lstdefinestyle{opensees}{
+	language=tcl,
+	breakatwhitespace=false,
+	emph=[1]{-dof,-ele,-eleRange,-file,-iNode,-jNode,-kNode,-ndf,-ndm,-node,
+		-nodeRange,-region,-time},
+	emphstyle=[1]\color{black}\bfseries\em,
+	keepspaces=true,
+	morecomment=[l]{\#},
+	ndkeywords={Aggregator,algorithm,analysis,analyze,BasicBuilder,constraints,
+		deformation,disp,DisplayModel2D,DisplayModel3D,Elastic,element,equalDOF,fix,
+		fixX,fixY,fixZ,geomTransf,integrator,Linear,loadConst,LoadControl,mass,
+		model,Node,node,nonlinearBeamColumn,numberer,pattern,Plain,printA,
+		rayleigh,reaction,recorder,region,section,Steel01,system,test,truss,
+		uniaxialMaterial,wipe},
+	ndkeywordstyle=\color{dkcyan}\ttfamily
 }
 
 % -----------------------------------------------------------------------------
@@ -443,6 +480,16 @@
 }
 
 % -----------------------------------------------------------------------------
+% TCL
+% -----------------------------------------------------------------------------
+\lstdefinestyle{tcl}{
+	language=tcl,
+	breakatwhitespace=false,
+	keepspaces=true,
+	morecomment=[l]{\#}
+}
+
+% -----------------------------------------------------------------------------
 % XML
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{XML}{
@@ -512,6 +559,8 @@
 	\ifthenelse{\equal{#1}{kotlin}}{}{
 	\ifthenelse{\equal{#1}{latex}}{}{
 	\ifthenelse{\equal{#1}{matlab}}{}{
+	\ifthenelse{\equal{#1}{opencl}}{}{
+	\ifthenelse{\equal{#1}{opensees}}{}{
 	\ifthenelse{\equal{#1}{perl}}{}{
 	\ifthenelse{\equal{#1}{php}}{}{
 	\ifthenelse{\equal{#1}{plaintext}}{}{
@@ -520,12 +569,13 @@
 	\ifthenelse{\equal{#1}{ruby}}{}{
 	\ifthenelse{\equal{#1}{scala}}{}{
 	\ifthenelse{\equal{#1}{sql}}{}{
+	\ifthenelse{\equal{#1}{tcl}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
 		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,cpp,
-		csharp,cuda,docker,glsl,html5,java,js,json,kotlin,latex,matlab,perl,php,
-		plaintext,pseudocode,python,ruby,scala,sql,xml}
-	}}}}}}}}}}}}}}}}}}}}}}}
+		csharp,cuda,docker,glsl,html5,java,js,json,kotlin,latex,matlab,opencl,
+		opensees,perl,php,plaintext,pseudocode,python,ruby,scala,sql,tcl,xml}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END
