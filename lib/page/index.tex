@@ -131,39 +131,44 @@
 	}
 
 	% -------------------------------------------------------------------------
-	% Índice de Contenidos
+	% Genera las funciones para los índices
+	% -------------------------------------------------------------------------
+	\newcommand{\coregeneratefigureindex}{
+		\iftotalfigures
+			\ifthenelse{\equal{\showindexoffigures}{true}}{
+				\ifthenelse{\equal{\indexnewpagef}{true}}{\newpage}{}
+				\listoffigures
+			}{}
+		\fi
+	}
+	\newcommand{\coregeneratetableindex}{
+		\iftotaltables
+			\ifthenelse{\equal{\showindexoftables}{true}}{
+				\ifthenelse{\equal{\indexnewpaget}{true}}{\newpage}{}
+				\listoftables
+			}{}
+		\fi
+	}
+	\newcommand{\coregeneratecodeindex}{
+		\iftotallstlistings
+			\ifthenelse{\equal{\showindexofcode}{true}}{
+				\ifthenelse{\equal{\indexnewpagec}{true}}{\newpage}{}
+				\lstlistoflistings
+			}{}
+		\fi
+	}
+
+	% -------------------------------------------------------------------------
+	% Índice de contenidos
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}
 	
 	% -------------------------------------------------------------------------
-	% Lista de Figuras
+	% Índice de objetos
 	% -------------------------------------------------------------------------
-	\iftotalfigures
-		\ifthenelse{\equal{\showindexoffigures}{true}}{
-			\ifthenelse{\equal{\indexforcenewpage}{true}}{\newpage}{}
-			\listoffigures
-		}{}
-	\fi
-	
-	% -------------------------------------------------------------------------
-	% Lista de Tablas
-	% -------------------------------------------------------------------------
-	\iftotaltables
-		\ifthenelse{\equal{\showindexoftables}{true}}{
-			\ifthenelse{\equal{\indexforcenewpage}{true}}{\newpage}{}
-			\listoftables
-		}{}
-	\fi
-	
-	% -------------------------------------------------------------------------
-	% Lista del Código Fuente
-	% -------------------------------------------------------------------------
-	\iftotallstlistings
-		\ifthenelse{\equal{\showindexofcode}{true}}{
-			\ifthenelse{\equal{\indexforcenewpage}{true}}{\newpage}{}
-			\lstlistoflistings
-		}{}
-	\fi
+	\coregeneratefigureindex
+	\coregeneratetableindex
+	\coregeneratecodeindex
 
 	% -------------------------------------------------------------------------
 	% Termina el bloque de índice
