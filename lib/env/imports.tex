@@ -42,6 +42,9 @@
 	\usepackage{helvet}
 	\renewcommand{\familydefault}{\sfdefault}
 }{
+\ifthenelse{\equal{\fontdocument}{arial2}}{
+	\usepackage{arial}
+}{
 \ifthenelse{\equal{\fontdocument}{accantis}}{
 	\usepackage{accanthis}
 }{
@@ -310,7 +313,7 @@
 	\usepackage[lf]{venturis}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,helvet,
+	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,arial2,helvet,
 	accantis,alegreya,alegreyasans,algolrevived,antiqua,antpolt,antpoltlight,
 	anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,aurical,
 	avant,baskervald,berasans,beraserif,biolinum,cabin,cabincondensed,cantarell,
@@ -324,7 +327,7 @@
 	overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,
 	raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,
 	sourcesanspro,uarial,ugq,universalis,universaliscondensed,venturis}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % -----------------------------------------------------------------------------
