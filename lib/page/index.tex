@@ -135,33 +135,29 @@
 	% -------------------------------------------------------------------------
 	\newcommand{\coregeneratefigureindex}{
 		\iftotalfigures
-			\ifthenelse{\equal{\showindexoffigures}{true}}{
-				\ifthenelse{\equal{\indexnewpagef}{true}}{\newpage}{}
-				\listoffigures
-			}{}
+			\ifthenelse{\equal{\indexnewpagef}{true}}{\newpage}{}
+			\listoffigures
 		\fi
 	}
 	\newcommand{\coregeneratetableindex}{
 		\iftotaltables
-			\ifthenelse{\equal{\showindexoftables}{true}}{
-				\ifthenelse{\equal{\indexnewpaget}{true}}{\newpage}{}
-				\listoftables
-			}{}
+			\ifthenelse{\equal{\indexnewpaget}{true}}{\newpage}{}
+			\listoftables
 		\fi
 	}
 	\newcommand{\coregeneratecodeindex}{
 		\iftotallstlistings
-			\ifthenelse{\equal{\showindexofcode}{true}}{
-				\ifthenelse{\equal{\indexnewpagec}{true}}{\newpage}{}
-				\lstlistoflistings
-			}{}
+			\ifthenelse{\equal{\indexnewpagec}{true}}{\newpage}{}
+			\lstlistoflistings
 		\fi
 	}
 
 	% -------------------------------------------------------------------------
 	% Índice de contenidos
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\showindexofcontents}{true}}{\tableofcontents}{}
+	\ifthenelse{\equal{\showindexofcontents}{true}}{
+		\tableofcontents
+	}{}
 	
 	% -------------------------------------------------------------------------
 	% Índice de objetos
