@@ -63,7 +63,12 @@
 		\setlength{\cftsubsubsecindent}{4.48em} % Incremento 2.57
 		}{
 	}
-
+	
+	% -------------------------------------------------------------------------
+	% Configuración carácter número de página
+	% -------------------------------------------------------------------------
+	\renewcommand{\cftdot}{\charnumpageindex}
+	
 	% -------------------------------------------------------------------------
 	% Configuración del punto en número de objetos
 	% -------------------------------------------------------------------------
@@ -71,11 +76,6 @@
 	\def\cftsubfigaftersnum {\charafterobjectindex\enspace}
 	\def\cfttabaftersnum {\charafterobjectindex\enspace}
 	\def\cftlstlistingaftersnum {\charafterobjectindex\enspace}
-	
-	% -------------------------------------------------------------------------
-	% Configuración carácter número de página
-	% -------------------------------------------------------------------------
-	\renewcommand{\cftdot}{\charnumpageindex}
 	
 	% -------------------------------------------------------------------------
 	% Desactiva los números de línea
