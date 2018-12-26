@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      6.1.7 (25/12/2018)
+% Versión:      6.2.0 (26/12/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -31,8 +31,8 @@
 		% Para insertar una imagen se puede usar la función \insertimage la cual
 		% toma un primer parámetro opcional para definir una etiqueta (dentro de
 		% los corchetes), luego toma la dirección de la imagen, sus parámetros
-		% (en este caso se definió la escala de 0.15) y una leyenda opcional.
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
+		% (en este caso se definió la escala de 0.16) y una leyenda opcional.
+		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.16}{Where are you? de \quotes{Internet}.}
 
 		A continuación\footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{https://latex.ppizarror.com/informe.html#hlp-formulae}{\texttt{\textbackslash insertequation}}:
 
@@ -190,13 +190,13 @@ end
 	% SUB-SECCIÓN
 	\subsection{Añadir múltiples imágenes}
 
-	El template ofrece el entorno \href{https://latex.ppizarror.com/informe.html#hlp-images}{\texttt{images}} que permite insertar múltiples imágenes de una manera muy sencilla \footnote{Desde la versión \texttt{6.0.0} no se da soporte a las funciones de inserción de imágenes múltiples \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash insertdoubleeqimage},\texttt{\textbackslash inserttripleimage}, \texttt{\textbackslash inserttripleeqimage}, \texttt{\textbackslash insertquadimage}, \texttt{\textbackslash insertpentaimage} y \texttt{\textbackslash inserthexaimage}.}. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
+	El template ofrece el entorno \href{https://latex.ppizarror.com/informe.html#hlp-images}{\texttt{images}} que permite insertar múltiples imágenes de una manera muy sencilla\footnote{Desde la versión \texttt{6.0.0} no se da soporte a las funciones de inserción de imágenes múltiples \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash insertdoubleeqimage},\texttt{\textbackslash inserttripleimage}, \texttt{\textbackslash inserttripleeqimage}, \texttt{\textbackslash insertquadimage}, \texttt{\textbackslash insertpentaimage} y \texttt{\textbackslash inserthexaimage}.}. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
 
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
 	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
 	\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo.}
-	\addimagenewline
+	\imagesnewline
 	\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande.}
 \end{images}
 \end{sourcecode}
@@ -206,7 +206,7 @@ end
 	\begin{images}{Ejemplo de imagen múltiple.}
 		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
 		\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo.}
-		\addimagenewline
+		\imagesnewline
 		\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande.}
 	\end{images}
 
