@@ -366,7 +366,7 @@
 % -----------------------------------------------------------------------------
 % Establece el número de las subsubsubsecciones
 % -----------------------------------------------------------------------------
-\ifthenelse{\equal{\showdotontitles}{true}}{ % Agrega punto tras el número
+\ifthenelse{\equal{\showdotaftersnum}{true}}{ % Agrega punto tras el número
 	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
 	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}.}
 }{
@@ -389,7 +389,7 @@
 		{3.25ex \@plus 1ex \@minus .2ex}
 		{-1em}
 		{\normalfont\normalsize\bfseries}}
-	\ifthenelse{\equal{\showdotontitles}{true}}{
+	\ifthenelse{\equal{\showdotaftersnum}{true}}{
 		\def\l@subsubsubsection{\@dottedtocline{4}{7.83em}{4.15em}} % Incremento 0.77+3.35 a 3.35
 		\def\l@paragraph{\@dottedtocline{5}{11.98em}{4.92em}}
 		\def\l@subparagraph{\@dottedtocline{6}{14.65em}{5.69em}}
