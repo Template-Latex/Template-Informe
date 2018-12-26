@@ -186,13 +186,13 @@
 				\text{#1} \ensuremath{#2}
 			\end{gathered}
 		\end{equation}
-		\vspace{\margingatherbottom cm}
+		\vspace{\margingatheredbottom cm}
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else
 			\throwwarning{Label invalido en ecuacion (gathered) sin numero}
 		\fi
-		\insertgatheredanum{#2}
+		\insertgatherededanum{#2}
 	}
 }
 
@@ -200,11 +200,11 @@
 %	#1	Ecuación
 \newcommand{\insertgatheredanum}[1]{
 	\emptyvarerr{\insertgatheredanum}{#1}{Ecuacion no definida}
-	\vspace{\margingathertop cm}
+	\vspace{\margingatheredtop cm}
 	\begin{gather*}
 		\ensuremath{#1}
 	\end{gather*}
-	\vspace{\margingatherbottom cm}
+	\vspace{\margingatheredbottom cm}
 }
 
 % Insertar una ecuación (gathered) con leyenda
@@ -223,12 +223,12 @@
 					\text{#1} \ensuremath{#2}
 				\end{gathered}
 			\end{equation}
-			\vspace{\margingathercapttop cm}
+			\vspace{\margingatheredcapttop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#3}
-				\vspace{\margingathercaptbottom cm}
+				\vspace{\margingatheredcaptbottom cm}
 			\end{changemargin}
-			\vspace{\margingathercaptbottom cm}
+			\vspace{\margingatheredcaptbottom cm}
 		}{
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -247,14 +247,14 @@
 	\ifx\hfuzz#2\hfuzz
 		\insertgatheredanum{#1}
 	\else
-		\vspace{\margingathertop cm}
+		\vspace{\margingatheredtop cm}
 		\begin{gather*}
 			\ensuremath{#1}
 		\end{gather*}
-		\vspace{\margingathercapttop cm}
+		\vspace{\margingatheredcapttop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{\margingathercaptbottom cm}
+			\vspace{\margingatheredcaptbottom cm}
 		\end{changemargin}
 		\vspace{\margingathercaptbottom cm}
 	\fi
@@ -344,7 +344,7 @@
 				\text{#1} \ensuremath{#2}
 			\end{aligned}
 		\end{equation}
-		\vspace{\marginalignbottom cm}
+		\vspace{\marginalignedbottom cm}
 	}{
 		\ifx\hfuzz#1\hfuzz
 		\else
@@ -358,11 +358,11 @@
 %	#1	Ecuación
 \newcommand{\insertalignedanum}[1]{
 	\emptyvarerr{\insertalignedanum}{#1}{Ecuacion no definida}
-	\vspace{\marginaligntop cm}
+	\vspace{\marginalignedtop cm}
 	\begin{align*}
 		\ensuremath{#1}
 	\end{align*}
-	\vspace{\marginalignbottom cm}
+	\vspace{\marginalignedbottom cm}
 }
 
 % Insertar una ecuación (aligned) con leyenda
@@ -381,12 +381,12 @@
 					\text{#1} \ensuremath{#2}
 				\end{aligned}
 			\end{equation}
-			\vspace{\marginaligncapttop cm}
+			\vspace{\marginalignedcapttop cm}
 			\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 				\centering \textcolor{\captiontextcolor}{#3}
-				\vspace{\marginaligncaptbottom cm}
+				\vspace{\marginalignedcaptbottom cm}
 			\end{changemargin}
-			\vspace{\marginaligncaptbottom cm}
+			\vspace{\marginalignedcaptbottom cm}
 		}{
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -411,12 +411,12 @@
 				\ensuremath{#1}
 			\end{aligned}
 		\end{equation}
-		\vspace{\marginaligncapttop cm}
+		\vspace{\marginalignedcapttop cm}
 		\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
 			\centering \textcolor{\captiontextcolor}{#2}
-			\vspace{\marginaligncaptbottom cm}
+			\vspace{\marginalignedcaptbottom cm}
 		\end{changemargin}
-		\vspace{\marginaligncaptbottom cm}
+		\vspace{\marginalignedcaptbottom cm}
 	\fi
 }
 
