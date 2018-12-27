@@ -85,6 +85,101 @@
 	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec,ssssec}
 }}}}}
 
+% Figuras
+\ifthenelse{\equal{\captionnumfigure}{arabic}}{
+	\renewcommand{\thefigure}{\arabic{figure}}
+}{
+\ifthenelse{\equal{\captionnumfigure}{alph}}{
+	\renewcommand{\thefigure}{\alph{figure}}
+}{
+\ifthenelse{\equal{\captionnumfigure}{Alph}}{
+	\renewcommand{\thefigure}{\Alph{figure}}
+}{
+\ifthenelse{\equal{\captionnumfigure}{roman}}{
+	\renewcommand{\thefigure}{\roman{figure}}
+}{
+\ifthenelse{\equal{\captionnumfigure}{Roman}}{
+	\renewcommand{\thefigure}{\Roman{figure}}
+}{
+	\throwbadconfig{Tipo numero figura desconocido}{\captionnumfigure}{arabic,alph,Alph,roman,Roman}}}}}
+}
+
+% Subfiguras
+\ifthenelse{\equal{\captionnumsubfigure}{arabic}}{
+	\renewcommand{\thesubfigure}{\arabic{subfigure}}
+}{
+\ifthenelse{\equal{\captionnumsubfigure}{alph}}{
+	\renewcommand{\thesubfigure}{\alph{subfigure}}
+}{
+\ifthenelse{\equal{\captionnumsubfigure}{Alph}}{
+	\renewcommand{\thesubfigure}{\Alph{subfigure}}
+}{
+\ifthenelse{\equal{\captionnumsubfigure}{roman}}{
+	\renewcommand{\thesubfigure}{\roman{subfigure}}
+}{
+\ifthenelse{\equal{\captionnumsubfigure}{Roman}}{
+	\renewcommand{\thesubfigure}{\Roman{subfigure}}
+}{
+	\throwbadconfig{Tipo numero subfigura desconocido}{\captionnumsubfigure}{arabic,alph,Alph,roman,Roman}}}}}
+}
+
+% Tablas
+\ifthenelse{\equal{\captionnumtable}{arabic}}{
+	\renewcommand{\thetable}{\arabic{table}}
+}{
+\ifthenelse{\equal{\captionnumtable}{alph}}{
+	\renewcommand{\thetable}{\alph{table}}
+}{
+\ifthenelse{\equal{\captionnumtable}{Alph}}{
+	\renewcommand{\thetable}{\Alph{table}}
+}{
+\ifthenelse{\equal{\captionnumtable}{roman}}{
+	\renewcommand{\thetable}{\roman{table}}
+}{
+\ifthenelse{\equal{\captionnumtable}{Roman}}{
+	\renewcommand{\thetable}{\Roman{table}}
+}{
+	\throwbadconfig{Tipo numero tabla desconocido}{\captionnumtable}{arabic,alph,Alph,roman,Roman}}}}}
+}
+
+% Subtablas
+\ifthenelse{\equal{\captionnumsubtable}{arabic}}{
+	\renewcommand{\thesubtable}{\arabic{subtable}}
+}{
+\ifthenelse{\equal{\captionnumsubtable}{alph}}{
+	\renewcommand{\thesubtable}{\alph{subtable}}
+}{
+\ifthenelse{\equal{\captionnumsubtable}{Alph}}{
+	\renewcommand{\thesubtable}{\Alph{subtable}}
+}{
+\ifthenelse{\equal{\captionnumsubtable}{roman}}{
+	\renewcommand{\thesubtable}{\roman{subtable}}
+}{
+\ifthenelse{\equal{\captionnumsubtable}{Roman}}{
+	\renewcommand{\thesubtable}{\Roman{subtable}}
+}{
+	\throwbadconfig{Tipo numero subtabla desconocido}{\captionnumsubtable}{arabic,alph,Alph,roman,Roman}}}}}
+}
+
+% Código fuente
+\ifthenelse{\equal{\captionnumcode}{arabic}}{
+	\renewcommand{\thelstlisting}{\arabic{lstlisting}}
+}{
+\ifthenelse{\equal{\captionnumcode}{alph}}{
+	\renewcommand{\thelstlisting}{\alph{lstlisting}}
+}{
+\ifthenelse{\equal{\captionnumcode}{Alph}}{
+	\renewcommand{\thelstlisting}{\Alph{lstlisting}}
+}{
+\ifthenelse{\equal{\captionnumcode}{roman}}{
+	\renewcommand{\thelstlisting}{\roman{lstlisting}}
+}{
+\ifthenelse{\equal{\captionnumcode}{Roman}}{
+	\renewcommand{\thelstlisting}{\Roman{lstlisting}}
+}{
+	\throwbadconfig{Tipo numero codigo fuente desconocido}{\captionnumcode}{arabic,alph,Alph,roman,Roman}}}}}
+}
+
 % -----------------------------------------------------------------------------
 % Se reestablecen números de página y secciones
 % -----------------------------------------------------------------------------

@@ -180,6 +180,24 @@
 % Se configura el texto de los caption
 \captionsetup{
 	labelfont={color=\captioncolor, \captiontextbold},
+	labelformat={\captionlabelformat},
+	labelsep={\captionlabelsep},
+	textfont={color=\captiontextcolor},
+	singlelinecheck=on
+}
+
+% Configura texto de los subcaption
+\captionsetup[subfigure]{
+	labelfont={color=\captioncolor, \captiontextbold},
+	labelformat={\subcaptionlabelformat},
+	labelsep={\subcaptionlabelsep},
+	textfont={color=\captiontextcolor},
+	singlelinecheck=on
+}
+\captionsetup[subtable]{
+	labelfont={color=\captioncolor, \captiontextbold},
+	labelformat={\subcaptionlabelformat},
+	labelsep={\subcaptionlabelsep},
 	textfont={color=\captiontextcolor},
 	singlelinecheck=on
 }
