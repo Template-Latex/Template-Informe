@@ -48,14 +48,14 @@
 	}{
 		\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
 			% Se ocultan las secciones
-			\ifthenelse{\equal{\showdotontitles}{true}}{
+			\ifthenelse{\equal{\showdotaftersnum}{true}}{
 				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
 			}{
 				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
 			}
 		}{
 			% Se muestra la ruta completa
-			\ifthenelse{\equal{\showdotontitles}{true}}{
+			\ifthenelse{\equal{\showdotaftersnum}{true}}{
 				\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
 					\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}	
 				}{
@@ -155,7 +155,7 @@
 	\addcontentsline{toc}{subsubsection}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}
 	\setcounter{subsubsubsection}{0}
-	\ifthenelse{\equal{\showdotontitles}{true}}{
+	\ifthenelse{\equal{\showdotaftersnum}{true}}{
 		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}.}
 	}{
 		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}
@@ -169,7 +169,7 @@
 	\subsubsection*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}
 	\setcounter{subsubsubsection}{0}
-	\ifthenelse{\equal{\showdotontitles}{true}}{
+	\ifthenelse{\equal{\showdotaftersnum}{true}}{
 		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}.}
 	}{
 		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}
