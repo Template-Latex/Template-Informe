@@ -193,11 +193,16 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsubsection}}{}
 }
 
-% Cambia el título del header
+% Cambia el título del encabezado (header)
 %	#1	Título
 \newcommand{\changeheadertitle}[1]{
 	\emptyvarerr{\changeheadertitle}{#1}{Titulo no definido}
 	\markboth{#1}{}
+}
+
+% Elimina el título del encabezado (header)
+\newcommand{\clearheadertitle}{
+	\markboth{}{}
 }
 
 % Insertar un título en un índice, sin número de página
