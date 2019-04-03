@@ -14,17 +14,14 @@
 % CREACIÓN DEL DOCUMENTO
 \documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, 11pt
 \usepackage[utf8]{inputenc} % Codificación UTF-8
-% !NL
 
 % INFORMACIÓN DEL DOCUMENTO
 \def\titulodelinforme {Título del informe}
 \def\temaatratar {Tema a tratar}
-% !NL
 
 \def\autordeldocumento {Nombre del autor}
 \def\nombredelcurso {Curso}
 \def\codigodelcurso {CO-1234}
-% !NL
 
 \def\nombreuniversidad {Universidad de Chile}
 \def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}
@@ -32,7 +29,6 @@
 \def\imagendepartamento {departamentos/fcfm}
 \def\imagendepartamentoescala {0.2}
 \def\localizacionuniversidad {Santiago, Chile}
-% !NL
 
 % INTEGRANTES, PROFESORES Y FECHAS
 \def\tablaintegrantes {
@@ -62,59 +58,45 @@
 	\multicolumn{2}{l}{\localizacionuniversidad}
 \end{tabular}}{
 }
-% !NL
 
 % CONFIGURACIONES
 \input{lib/config}
-% !NL
 
 % IMPORTACIÓN DE LIBRERÍAS
 \input{lib/env/imports}
-% !NL
 
 % IMPORTACIÓN DE FUNCIONES Y ENTORNOS
 \input{lib/cmd/all}
-% !NL
 
 % IMPORTACIÓN DE ESTILOS
 \input{lib/style/all}
-% !NL
 
 % CONFIGURACIÓN INICIAL DEL DOCUMENTO
 \input{lib/cfg/init}
-% !NL
 
 % INICIO DE LAS PÁGINAS
 \begin{document}
-% !NL
 	
 % PORTADA
 \input{lib/page/portrait} % Se puede borrar
-% !NL
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \input{lib/cfg/page}
-% !NL
 
 % RESUMEN O ABSTRACT
 \begin{resumen}
 	\lipsum[1] % Párrafo ejemplo, se puede borrar
 \end{resumen}
-% !NL
 
 % TABLA DE CONTENIDOS - ÍNDICE
 \input{lib/page/index} % Se puede borrar
-% !NL
 
 % CONFIGURACIONES FINALES
 \input{lib/cfg/final}
-% !NL
 
 % ======================= INICIO DEL DOCUMENTO =======================
-% !NL
 
 \input{lib/etc/example} % Ejemplo, se puede borrar
-% !NL
 	
 % FIN DEL DOCUMENTO
 \end{document}
