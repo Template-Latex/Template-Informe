@@ -810,3 +810,208 @@ void main() {
 % \importsourcecode{latex}{test/general.tex}{Carga código fuente archivo LaTeX.}
 % \importsourcecode{latex}{lib/etc/example.tex}{Carga código fuente ejemplo LaTeX.}
 % \importsourcecode{latex}{lib/cfg/init.tex}{Carga código fuente init LaTeX.}
+
+\begin{sourcecode}{python}{Hola.}
+from . import mlp_model as model
+from . import data as data
+import tensorflow as tf
+import numpy as np
+import os
+
+
+# noinspection PyUnresolvedReferences
+class MLP:
+    def __init__(self, params):
+        # reading configuration file
+        self.device = params['device']
+        self.modeldir = params['model_dir']
+        self.datadir = params['data_dir']
+        self.learning_rate = params['learning_rate']
+        self.number_of_classes = params['number_of_classes']
+        self.number_of_iterations = params['number_of_iterations']
+        self.batch_size = params['batch_size']
+        self.data_size = params['data_size']
+        self.number_of_batches = np.round(self.data_size / self.batch_size)
+        self.number_of_epochs = np.round(self.number_of_iterations / self.number_of_batches)
+
+        # loading mean and metadata
+        filename_mean = os.path.join(self.datadir, "mean.dat")
+        metadata_file = os.path.join(self.datadir, "metadata.dat")
+        # reading metadata
+        self.input_size = np.fromfile(metadata_file, dtype=np.int32)[0]
+        # load mean
+        self.mean_vector = np.fromfile(filename_mean, dtype=np.float32)
+        print("mean_vector {}".format(self.mean_vector.shape))
+        # defining files for training and test
+        self.filename_train = os.path.join(self.datadir, "train.tfrecords")
+        self.filename_test = os.path.join(self.datadir, "test.tfrecords")
+        # print(" mean {}".format(self.mean_img.shape))
+        self.input_params = {'batch_size': self.batch_size,
+                             'number_of_batches': self.number_of_batches,
+                             'number_of_epochs': self.number_of_epochs,
+                             'input_size': self.input_size,
+                             'number_of_classes': self.number_of_classes,
+                             }
+
+        self.estimator_params = {'learning_rate': self.learning_rate,
+                                 'number_of_classes': self.number_of_classes,
+                                 'model_dir': self.modeldir,
+                                 'input_size': self.input_size}
+
+    def train(self):
+        print('Training with activator {0}'.format(model.ACTIVATOR))
+        """training"""
+        # -using device gpu or cpu
+        with tf.device(self.device):
+            estimator_config = tf.estimator.RunConfig(model_dir=self.modeldir,
+                                                      save_checkpoints_steps=1000,
+                                                      keep_checkpoint_max=10,
+                                                      save_summary_steps=10)
+
+            classifier = tf.estimator.Estimator(model_fn=model.model_fn,
+                                                config=estimator_config,
+                                                params=self.estimator_params)
+            #
+            tf.logging.set_verbosity(tf.logging.INFO)  # Just to have some logs to display for demonstration
+            # training
+
+            train_spec = tf.estimator.TrainSpec(
+                input_fn=lambda: data.input_fn(self.filename_train, self.input_params, self.mean_vector, True),
+                max_steps=self.number_of_iterations)
+            # max_steps is not useful when inherited checkspoint is used
+            eval_spec = tf.estimator.EvalSpec(
+                input_fn=lambda: data.input_fn(self.filename_test, self.input_params, self.mean_vector, False),
+                throttle_secs=20)
+            #
+            tf.estimator.train_and_evaluate(classifier, train_spec, eval_spec)
+
+    def test(self):
+        """test checkpoint exist """
+        assert os.path.exists(os.path.join(self.modeldir, "checkpoint")), "Checkpoint file does not exist in {}".format(
+            self.modeldir)
+        """testing"""
+        with tf.device(self.device):
+            tf.logging.set_verbosity(tf.logging.INFO)
+            estimator_config = tf.estimator.RunConfig(model_dir=self.modeldir)
+
+            classifier = tf.estimator.Estimator(model_fn=model.model_fn,
+                                                config=estimator_config,
+                                                params=self.estimator_params)
+
+            result = classifier.evaluate(
+                input_fn=lambda: data.input_fn(self.filename_test, self.input_params, self.mean_vector, True))
+            print(result)
+
+    def save_model(self):
+        assert os.path.exists(os.path.join(self.modeldir, "checkpoint")), "Checkpoint file does not exist in {}".format(
+            self.modeldir)
+
+        classifier = tf.estimator.Estimator(model_fn=model.model_fn,
+                                            model_dir=self.modeldir,
+                                            params=self.estimator_params)
+
+        #
+        def serving_input_receiver_fn():
+            feat_spec = tf.placeholder(dtype=tf.float32, shape=[None, self.input_size])
+            return tf.estimator.export.TensorServingInputReceiver(feat_spec, feat_spec)
+
+        str_model = classifier.export_saved_model(self.modeldir, serving_input_receiver_fn)
+        final_str_model = os.path.join(self.datadir, "mlp-model")
+        os.rename(str_model, final_str_model)
+        print("The models was successfully saved at {}".format(final_str_model))
+
+import os
+import tensorflow as tf
+import sys
+
+# Obtiene los argumentos
+if len(sys.argv) != 2:
+    raise Exception('Numero de parametros incorrecto')
+modelo = sys.argv[1].replace('--', '')
+
+# Obtiene el ultimo activador usado
+activador = ''
+optimizador = ''
+f = open('tf-MLP/mlp/mlp_model.py', 'r')
+for i in f:
+    if 'ACTIVATOR' in i and activador == '':
+        activador = i.strip().split(' = ')[1].replace("'", '').split('#')[0].strip()
+    if 'OPTIMIZER' in i and optimizador == '':
+        optimizador = i.strip().split(' = ')[1].replace("'", '').split('#')[0].strip()
+f.close()
+if activador == '':
+    raise Exception('No se encontro el activador')
+if optimizador == '':
+    raise Exception('No se encuentra el optimizador')
+
+# Genera los path
+dir_path = os.path.dirname(os.path.realpath(__file__)) + '\\'
+
+
+# Genera un archivo
+def genloss(f, o):
+    d = os.listdir(f)
+    efile = ''
+    for i in d:
+        if 'events.out.tfevents' in i and '.PPIZARRORPC' in i:
+            efile = f + i
+            break
+    if efile == '':
+        raise Exception('Archivo de eventos no encontrado en {0}'.format(f))
+    # Carga el accuracy
+    d = os.listdir(f + 'eval/')
+    accfile = ''
+    for i in d:
+        if 'events.out.tfevents' in i and '.PPIZARRORPC' in i:
+            accfile = f + 'eval/' + i
+            break
+    
+    # Obtiene el accuracy
+    accuracy = 0
+    for e in tf.train.summary_iterator(accfile):
+        for v in e.summary.value:
+            if v.tag == 'loss':
+                loss = v.simple_value
+            if v.tag == 'accuracy':
+                accuracy = v.simple_value
+
+    of = open(o, 'w')
+    for e in tf.train.summary_iterator(efile):
+        loss = 0
+        # accuracy = 0
+        for v in e.summary.value:
+            if v.tag == 'loss':
+                loss = v.simple_value
+            #if v.tag == 'accu':
+            #    accuracy = v.simple_value
+        if loss != 0 and accuracy != 0:
+            of.write('{0}\t{1}\t{2}\n'.format(e.step, loss, accuracy))
+
+
+# Obtiene el learning rate
+def getlearning(p, m):
+    f = p + 'tf-MLP/tools/'
+    if m == 'mnist':
+        f += 'train_mnist.py'
+    else:
+        f += 'train_quickdraw.py'
+    of = open(f, 'r')
+    for i in of:
+        if 'learning_rate' in i:
+            j = i.split(':')[1].split(',')[0].strip()
+            return j
+
+lr = getlearning(dir_path, modelo)
+
+# Genera el archivo
+lossfile = 'loss-{0}-{1}-{2}-{3}.txt'.format(modelo, optimizador, activador, lr)
+
+# Tipo de modelo
+if modelo == 'mnist':
+    genloss(dir_path + 'MNIST-5000/model/', lossfile)
+elif modelo == 'quick':
+    genloss(dir_path + 'QuickDraw-Animals/model/', lossfile)
+else:
+    raise Exception('Modelo incorrecto')
+
+\end{sourcecode}
