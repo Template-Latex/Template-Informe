@@ -26,7 +26,7 @@
 	% aparecer en el índice
 	\subsection{Una breve introducción}
 		
-		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} a fórmulas como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes o figuras (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\texttt{\textbackslash insertimage}}:
+		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\texttt{\textbackslash insertimage}}:
 
 		% Para insertar una imagen se puede usar la función \insertimage la cual
 		% toma un primer parámetro opcional para definir una etiqueta (dentro de
@@ -41,9 +41,9 @@
 		% con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos $.
 		\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 
-		% Se añade párrafo de prueba. Notar que no se requiere añadir un salto
-		% de línea después de insertar una ecuación.
-		\lipsum[75]
+		% Notar que no se requiere añadir un salto de línea después de insertar una
+		% imagen.
+		Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online \cite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para evitar cualquier tipo de \textit{warnings} en la consola.
 
 		% Los párrafos se pueden añadir con \newp, esta función se hizo para
 		% evitar errores y warnings por parte del compilador de LaTeX.
@@ -52,7 +52,7 @@
 	% SUB-SECCIÓN
 	\subsection{Añadiendo tablas}
 
-		También puedes usar tablas, ¡Crearlas es muy fácil!. Puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{ref2} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{ref3}.
+		También puedes usar tablas, ¡Crearlas es muy fácil!. Puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{excel2latex} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{tablesgenerator}.
 
 		% Tabla generada con el plugin Excel2Latex
 		\begin{table}[htbp]
@@ -228,7 +228,7 @@ end
 			\item Manzanas
 		\end{enumerate}
 
-		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph} \footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.}, números romanos con \texttt{\textbackslash roman} \footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek}\footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}:
+		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph}\footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.}, números romanos con \texttt{\textbackslash roman}\footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek}\footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}:
 
 		\begin{multicols}{3}
 			\begin{enumeratebf}[label=\alph*) ] % Fuente en negrita
@@ -275,7 +275,7 @@ end
 	% Inserta un subtítulo sin número
 	\subsectionanum{Otros}
 
-		Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{https://latex.ppizarror.com/Template-Informe/}. Si necesitas una ayuda muy específica sobre el template, o si tienes alguna sugerencia, me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
+		Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{https://latex.ppizarror.com/Template-Informe/} \cite{templateinforme}. Si necesitas una ayuda muy específica sobre el template, o si tienes alguna sugerencia, me puedes enviar un correo a \insertemail{pablo.pizarro@ing.uchile.cl}.
 
 
 % ------------------------------------------------------------------------------
@@ -283,20 +283,25 @@ end
 % ------------------------------------------------------------------------------
 \newpage % Salto de página
 \begin{references}
-	\bibitem{ref1}
+	\bibitem{templateinforme}
 	Template Informe en \LaTeX.
 	\textit{¡Revisa el manual online de este template!} \\
 	\url{https://latex.ppizarror.com/Template-Informe/}
 
-	\bibitem{ref2}
+	\bibitem{excel2latex}
 	Excel2Latex.
 	\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
 	\url{https://www.ctan.org/tex-archive/support/excel2latex/}
 
-	\bibitem{ref3}
+	\bibitem{overleaf}
 	Overleaf.
 	\textit{Uno de los mejores editores online para \LaTeX, renovado con su versión 2.0.} \\
 	\href{https://es.overleaf.com}{\texttt{https://es.overleaf.com/}}
+	
+	\bibitem{tablesgenerator}
+	Tables Generator.
+	\textit{Creador de tablas online para \LaTeX.}\\
+	\url{https://www.tablesgenerator.com}
 \end{references}
 
 
