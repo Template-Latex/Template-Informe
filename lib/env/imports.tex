@@ -87,7 +87,6 @@
 % -----------------------------------------------------------------------------
 \usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
 \usepackage[inline]{enumitem} % Permite enumerar ítems
-\usepackage[bottom,norule,hang]{footmisc} % Estilo pie de página
 \usepackage[subfigure,titles]{tocloft} % Maneja entradas en el índice
 \usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
 \usepackage[figure,table,lstlisting]{totalcount} % Contador de objetos
@@ -97,6 +96,11 @@
 % -----------------------------------------------------------------------------
 % LIBRERÍAS CONDICIONALES
 % -----------------------------------------------------------------------------
+\ifthenelse{\equal{\footnotepagetoprule}{true}}{ % Regla superior
+	\usepackage[bottom,hang]{footmisc} % Estilo pie de página
+}{
+	\usepackage[bottom,norule,hang]{footmisc}
+}
 \ifthenelse{\equal{\showdotaftersnum}{true}}{ % Agrega punto a títulos/subtítulos
 	\usepackage{secdot}
 	\sectiondot{subsection}
