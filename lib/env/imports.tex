@@ -165,10 +165,13 @@
 \usepackage{multirow}      % Agrega nuevas opciones a las tablas
 \usepackage{notoccite}     % Desactiva las citas en el índice
 \usepackage{titlesec}      % Administración de títulos
+% \usepackage{matlab-prettifier}
 
 % -----------------------------------------------------------------------------
 % TIPOGRAFÍA DEL DOCUMENTO
 % -----------------------------------------------------------------------------
+
+% Tipografías clásicas
 \ifthenelse{\equal{\fontdocument}{lmodern}}{ % Default
 	\usepackage{lmodern}
 }{
@@ -179,6 +182,14 @@
 \ifthenelse{\equal{\fontdocument}{arial2}}{
 	\usepackage{arial}
 }{
+\ifthenelse{\equal{\fontdocument}{times}}{
+	\usepackage{mathptmx}
+}{
+\ifthenelse{\equal{\fontdocument}{helvet}}{
+	\usepackage{helvet}
+}{
+
+% Otros
 \ifthenelse{\equal{\fontdocument}{accantis}}{
 	\usepackage{accanthis}
 }{
@@ -447,7 +458,7 @@
 	\usepackage[lf]{venturis}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,arial2,helvet,
+	\throwbadconfig{Fuente desconocida}{\fontdocument}{lmodern,arial,arial2,helvet,times,
 	accantis,alegreya,alegreyasans,algolrevived,antiqua,antpolt,antpoltlight,
 	anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,aurical,
 	avant,baskervald,berasans,beraserif,biolinum,cabin,cabincondensed,cantarell,
@@ -461,7 +472,7 @@
 	overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,
 	raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,
 	sourcesanspro,uarial,ugq,universalis,universaliscondensed,venturis}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % -----------------------------------------------------------------------------
@@ -523,12 +534,19 @@
 \ifthenelse{\equal{\fonttypewriter}{texgyrecursor}}{
 	\usepackage{tgcursor}
 }{
-	\throwbadconfig{Fuente desconocida}{\fonttypewriter}{anonymouspro,ascii,beramono,cmpica,courier,dejavusansmono,firamono,gomono,inconsolata,kpmonospaced,lcmtt,newtxtt,nimbusmono,nimbusmononarrow,texgyrecursor,tmodern}
+	\throwbadconfig{Fuente desconocida}{\fonttypewriter}{anonymouspro,ascii,beramono,cmpica,courier,
+		dejavusansmono,firamono,gomono,inconsolata,kpmonospaced,lcmtt,newtxtt,
+		nimbusmono,nimbusmononarrow,texgyrecursor,tmodern}
 	}}}}}}}}}}}}}}}}
 }
+
+% -----------------------------------------------------------------------------
+% FINALES
+% -----------------------------------------------------------------------------
 \usepackage[T1]{fontenc} % Caracteres acentuados
 \ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
+\inputencoding{utf8}
 
 % END
