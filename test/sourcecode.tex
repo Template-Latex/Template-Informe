@@ -827,6 +827,185 @@ plot(tdtn, fad, 'DisplayName', strcat('\beta=', sprintf('%.2f', BETA(j))));
 end	
 \end{sourcecode}
 
+\begin{sourcecode}{r}{Ejemplo en r.}
+#
+# Genera una correlacion de los generos con todas sus variables
+#
+corr_data_genre <- function(data, genre) {
+	num_genre <- data[data$genre == genre, -c(1:4)]
+	corr_genre <- cor(num_genre)
+	corrplot(corr_genre, type = "lower", order = "hclust", tl.col = "black", tl.srt = 30, main = toupper(genre), tl.cex = 0.7, mar=c(0,0,1,0))
+}
+
+#
+# Crea matriz de generos
+#
+create_track_genre_df <- function(df, title) {
+	# Obtiene la lista de generos ordenados
+	genre <- data.frame(genre=unique(df$genre))
+	track_ids <- unique(df$track_id)
+	df_genre <- df[, -c(2:3, 5:15)]
+	df_genre <- df_genre[order(df_genre$track_id), ]
+	track_genres <- data.frame(track_id=track_ids)
+	
+	# Crea un data frame indicando para cada tema si tiene cada genero o no
+	df_full <- data.frame(track_id=df_genre$track_id,
+	'_'=df_genre$genre==genre[1, 1],
+	'Opera'=df_genre$genre==genre[1, 1],
+	'A_Capella'=df_genre$genre==genre[2, 1],
+	'Alternative'=df_genre$genre==genre[3, 1],
+	'Blues'=df_genre$genre==genre[4, 1],
+	'Dance'=df_genre$genre==genre[5, 1],
+	'Pop'=df_genre$genre==genre[6, 1],
+	'Electronic'=df_genre$genre==genre[7, 1],
+	'RyB'=df_genre$genre==genre[8, 1],
+	'Children_Music'=df_genre$genre==genre[9, 1],
+	'Folk'=df_genre$genre==genre[10, 1],
+	'Anime'=df_genre$genre==genre[11, 1],
+	'Rap'=df_genre$genre==genre[12, 1],
+	'Classical'=df_genre$genre==genre[13, 1],
+	'Reggae'=df_genre$genre==genre[14, 1],
+	'Hip_Hop'=df_genre$genre==genre[15, 1],
+	'Comedy'=df_genre$genre==genre[16, 1],
+	'Country'=df_genre$genre==genre[17, 1],
+	'Reggaeton'=df_genre$genre==genre[18, 1],
+	'Ska'=df_genre$genre==genre[19, 1],
+	'Indie'=df_genre$genre==genre[20, 1],
+	'Rock'=df_genre$genre==genre[21, 1],
+	'Soul'=df_genre$genre==genre[22, 1],
+	'Soundtrack'=df_genre$genre==genre[23, 1],
+	'Jazz'=df_genre$genre==genre[24, 1],
+	'World'=df_genre$genre==genre[25, 1],
+	'Movie'=df_genre$genre==genre[26, 1])
+	cols <- sapply(df_full, is.logical)
+	df_full[,cols] <- lapply(df_full[,cols], as.numeric)
+	
+	# Fusiona
+	track_genres_df <- aggregate(.~track_id, df_full[,-c(2, 27)], sum)
+	
+	# Crea un grafico de correlacion
+	track_genres_df_noid <- track_genres_df[, -c(1)]
+	corr_genre <- cor(track_genres_df_noid)
+	corrplot(corr_genre, type = "lower", order = "hclust", tl.col = "black", tl.srt = 30, main = title, tl.cex = 0.7, mar=c(0,0,1,0))
+	
+	return(track_genres_df)
+}
+
+# Crea histograma con todas las variables del dataset
+create_hist_plot <- function(df, probability) {
+	select_plot <- function(data, tag){
+		hist(data,
+		col="#00AFBB",
+		border="#015f66",
+		ylab=NULL,
+		xlab=NULL,
+		prob=probability,
+		main=toupper(tag),
+		breaks=50
+		)
+	}
+	par(mfrow=c(3,4))
+	select_plot(df$popularity, "popularity")
+	select_plot(df$acousticness, "acousticness")
+	select_plot(datos_num$danceability, "danceability")
+	select_plot(datos_num$duration_ms, "duration_ms")
+	select_plot(datos_num$energy, "energy")
+	if (probability){
+		title(ylab="Probability")
+	}else{
+		title(ylab="Frequence") 
+	}
+	select_plot(datos_num$instrumentalness, "instrumentalness")
+	select_plot(datos_num$liveness, "liveness")
+	select_plot(datos_num$loudness, "loudness")
+	select_plot(datos_num$speechiness, "speechiness")
+	select_plot(datos_num$tempo, "tempo")
+	select_plot(datos_num$valence, "valence")
+}
+
+#
+# Genera un histograma de varios generos con una variable
+#
+create_hist_genre <- function(df, genres, var){
+	gi <- 0
+	colors <- c()
+	genr <- c()
+	for (g in genres) {
+		df_g <- df[df$genre == g, var] # elige el data
+		color <- rgb(runif(1), runif(1), runif(1), 0.5)
+		if (gi == 0) {
+			hist(df_g[[1]], col=color, xlab="", ylab="", main="", border=color, breaks=50)
+		} else {
+			hist(df_g[[1]], col=color, border=color, breaks=50, add=T, xlab=var)
+		}
+		colors <- c(colors, color)
+		gi <- gi + 1
+		genr <- c(genr, g)
+	}
+	title(main=toupper(var), sub="", xlab=var, ylab="Frecuency")
+	op <- par(cex = 0.75)
+	legend('topleft', genr, fill = colors, ncol=2)
+}
+
+#
+# Genera un histograma de varios generos con una variable
+#
+create_prob_genre <- function(df, genres, var, pos, ncols, fsize){
+	if (pos == "l") {
+		legp <- "topleft"
+	} else if(pos == "c") {
+		legp <- "top"
+	} else if(pos == "r") {
+		legp <- "topright"
+	} else if (pos == "bl") {
+		legp <- "bottomleft"
+	} else if(pos == "bc") {
+		legp <- "bottom"
+	} else if(pos == "br") {
+		legp <- "bottomright"
+	} else {
+		legp <- "center"
+	}
+	gi <- 0
+	tranp <- rgb(0, 0, 0, 0) # color transparente
+	colors <- c()
+	genr <- c()
+	for (g in genres) {
+		df_g <- df[df$genre == g, var] # elige el data
+		color <- rgb(runif(1), runif(1), runif(1), 1)
+		if (gi == 0) {
+			hist(df_g[[1]], col=tranp, xlab="", ylab="", main="", border=tranp, prob = TRUE, breaks=50)
+			lines(density(df_g[[1]]), col=color, xlab="", ylab="", main="", lw=2)
+		} else {
+			hist(df_g[[1]], col=tranp, border=tranp, breaks=50, prob = TRUE, add=T, xlab=var)
+			lines(density(df_g[[1]]), col=color, lw=2)
+		}
+		colors <- c(colors, color)
+		gi <- gi + 1
+		genr <- c(genr, g)
+	}
+	title(main=toupper(var), sub="", xlab=var, ylab="Density")
+	grid()
+	op <- par(cex = fsize)
+	legend(legp, genr, fill = colors, ncol=ncols)
+}
+
+# Tamaño normal
+create_prob_genre_normal <- function(df, genres, var, pos) {
+	create_prob_genre(df, genres, var, pos, 2, 0.75)
+}
+
+# Tamaño pequeño
+create_prob_genre_small <- function(df, genres, var, pos) {
+	create_prob_genre(df, genres, var, pos, 4, 0.6)
+}
+
+# Tamaño grande
+create_prob_genre_large <- function(df, genres, var, pos) {
+	create_prob_genre(df, genres, var, pos, 1, 1)
+}
+\end{sourcecode}
+
 % \newpage
 % \importsourcecode{latex}{test/general.tex}{Carga código fuente archivo LaTeX.}
 % \importsourcecode{latex}{lib/etc/example.tex}{Carga código fuente ejemplo LaTeX.}

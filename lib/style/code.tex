@@ -452,6 +452,20 @@
 }
 
 % -----------------------------------------------------------------------------
+% R
+% -----------------------------------------------------------------------------
+\lstdefinestyle{r}{
+	language=R,
+	alsoletter={.<-},
+	alsoother={._$},
+	deletekeywords={df,data,frame,length,as,character},
+	morecomment=[l]\#,
+	morestring=[d]',
+	morestring=[d]",
+	otherkeywords={!,!=,~,$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-,_,/}
+}
+
+% -----------------------------------------------------------------------------
 % Ruby
 % -----------------------------------------------------------------------------
 \lstdefinestyle{ruby} {
@@ -524,6 +538,7 @@
 	columns=fullflexible,
 	commentstyle=\color{dkgreen}\ttfamily\upshape,
 	extendedchars=true,
+	% fancyvrb=false,
 	identifierstyle=\color{black},
 	keepspaces=true,
 	keywordstyle=\color{blue},
@@ -575,6 +590,7 @@
 	\ifthenelse{\equal{#1}{plaintext}}{}{
 	\ifthenelse{\equal{#1}{pseudocode}}{}{
 	\ifthenelse{\equal{#1}{python}}{}{
+	\ifthenelse{\equal{#1}{r}}{}{
 	\ifthenelse{\equal{#1}{ruby}}{}{
 	\ifthenelse{\equal{#1}{scala}}{}{
 	\ifthenelse{\equal{#1}{sql}}{}{
@@ -583,8 +599,8 @@
 		\def\sourcecodestyle {#1}
 		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,cpp,
 		csharp,cuda,docker,glsl,html5,java,js,json,kotlin,latex,matlab,opencl,
-		opensees,perl,php,plaintext,pseudocode,python,ruby,scala,sql,tcl,xml}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}
+		opensees,perl,php,plaintext,pseudocode,python,r,ruby,scala,sql,tcl,xml}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END
