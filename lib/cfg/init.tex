@@ -366,9 +366,20 @@
 \ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{\coreimporttikz}{}
 
 % -----------------------------------------------------------------------------
-% Se define la versión menor a compilar
+% Configuraciones del motor de compilación
 % -----------------------------------------------------------------------------
+
+% Nivel de compresión
+\pdfcompresslevel=\pdfcompilecompression
+
+% Inclusión de PDF
+\pdfinclusionerrorlevel=0
+
+% Versión
 \pdfminorversion=\pdfcompileversion
+
+% Compresión de objetos
+\pdfobjcompresslevel=\pdfcompileobjcompression
 
 % -----------------------------------------------------------------------------
 % Profundidad de las secciones
