@@ -324,11 +324,15 @@
 % Matlab
 % -----------------------------------------------------------------------------
 \lstdefinestyle{matlab}{
+	flexiblecolumns=true,
 	language=Matlab,
 	keepspaces=true,
-	morekeywords={addOptional,box,break,catch,cell,continue,end,for,if,isa,
-		ltitr,matlab2tikz,methods,movegui,ones,parse,properties,repmat,strcat,
-		try,warning,xlim,ylim}
+	morecomment=[l]\%,
+	morecomment=[n]{\%\{\^^M}{\%\}\^^M},
+	morekeywords={addOptional,alpha,box,break,catch,cell,continue,end,
+		factorial,for,if,isa,ltitr,matlab2tikz,methods,movegui,normcdf,
+		normpdf,ones,parse,poissrnd,properties,repmat,strcat,try,var,
+		warning,xlim,ylim}
 }
 
 % -----------------------------------------------------------------------------
