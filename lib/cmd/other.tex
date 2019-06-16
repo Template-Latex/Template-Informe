@@ -80,30 +80,63 @@
 \newcommand{\resetcaptionmargin}{\setcaptionmargincm{\captionlrmargin}}
 
 % Modifica el color de las tablas
-%	#1	Color impar
-%	#2 	Color par
-\newcommand{\tablerowcolors}[2]{
-	\rowcolors{2}{#1}{#2}
-}
-
-% Activa el color de las filas de las tablas
-\newcommand{\enabletablerowcolor}{
-	\ifthenelse{\equal{\tablerowfirst}{none}}{
-		\ifthenelse{\equal{\tablerowsecond}{none}}{
-			\tablerowcolors{}{}
+%	#1	Posicion inicial del inicio de colores
+\newcommand{\settablerowcolors}[1]{
+	\emptyvarerr{\settablerowcolors}{#1}{Posicion de fila no definida}
+	
+	% Usa colores normales
+	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{
+		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{#1}{}{}
+			}{
+				\rowcolors{#1}{\tablerowsecondcolor}{}
+			}
 		}{
-			\tablerowcolors{\tablerowsecond}{}
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{#1}{}{\tablerowfirstcolor}
+			}{
+				\rowcolors{#1}{\tablerowsecondcolor}{\tablerowfirstcolor}
+			}
 		}
+	% Usa colores alternados
 	}{
-		\ifthenelse{\equal{\tablerowsecond}{none}}{
-			\rowcolors{2}{}{\tablerowfirst}
+		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{#1}{}{}
+			}{
+				\rowcolors{#1}{}{\tablerowsecondcolor}
+			}
 		}{
-			\rowcolors{2}{\tablerowsecond}{\tablerowfirst}
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{#1}{\tablerowfirstcolor}{}
+			}{
+				\rowcolors{#1}{\tablerowfirstcolor}{\tablerowsecondcolor}
+			}
 		}
 	}
 }
 
+% Activa el color de las filas de las tablas
+%	#1	Posicion inicial del inicio de colores
+\newcommand{\enabletablerowcolor}[1][]{
+	\ifx\hfuzz#1\hfuzz
+		\settablerowcolors{2}
+	\else
+		\settablerowcolors{#1}
+	\fi
+}
+
 % Desactiva el color de las filas de las tablas
-\newcommand{\disabletablerowcolor}{\tablerowcolors{}{}}
+\newcommand{\disabletablerowcolor}{\rowcolors{2}{}{}}
+
+% Alterna los colores de las filas de las tablas
+\newcommand{\switchtablerowcolors}{
+	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{
+		\def\GLOBALtablerowcolorswitch{true}
+	}{
+		\def\GLOBALtablerowcolorswitch{false}
+	}
+}
 
 % END
