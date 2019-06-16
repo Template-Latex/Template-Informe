@@ -73,8 +73,20 @@
 		\fancyhead[L]{\nouppercase{\rightmark}}
 	}{}
 	\fancyhead[R]{\small \rm \thepage}
-	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
-	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
+	\fancyfoot[L]{
+		\begin{minipage}[t]{\hftitlewidth\linewidth}
+			\begin{flushleft}
+				\small \rm \textit{\titulodelinforme}
+			\end{flushleft}
+		\end{minipage}
+	}
+	\fancyfoot[R]{
+		\begin{minipage}[t]{\hfcoursewidth\linewidth}
+			\begin{flushright}
+				\small \rm \textit{\codigodelcurso \nombredelcurso}
+			\end{flushright}
+		\end{minipage}
+	}
 	\renewcommand{\headrulewidth}{0.5pt}
 	\renewcommand{\footrulewidth}{0.5pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
@@ -85,8 +97,20 @@
 		\fancyhead[L]{\nouppercase{\rightmark}}
 	}{}
 	\fancyhead[R]{\small \rm \thepage}
-	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
-	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
+	\fancyfoot[L]{
+		\begin{minipage}[t]{\hftitlewidth\linewidth}
+			\begin{flushleft}
+				\small \rm \textit{\titulodelinforme}
+			\end{flushleft}
+		\end{minipage}
+	}
+	\fancyfoot[R]{
+		\begin{minipage}[t]{\hfcoursewidth\linewidth}
+			\begin{flushright}
+				\small \rm \textit{\codigodelcurso \nombredelcurso}
+			\end{flushright}
+		\end{minipage}
+	}
 	\renewcommand{\headrulewidth}{0.5pt}
 	\renewcommand{\footrulewidth}{0pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
@@ -94,12 +118,15 @@
 \ifthenelse{\equal{\hfstyle}{style3}}{
 	\pagestyle{fancy} \fancyhf{}
 	\fancyhead[L]{
-		\small \rm \textit{\codigodelcurso \nombredelcurso}
-		\vspace{0.04cm}
+		\begin{minipage}[t]{\hftitlewidth\linewidth}
+			\begin{flushleft}
+				\small \rm \textit{\codigodelcurso \nombredelcurso}
+			\end{flushleft}
+		\end{minipage}
 	}
 	\fancyhead[R]{
 		\includegraphics[width=1.2cm]{\imagendepartamento}
-		\vspace{-0.10cm}
+		\vspace{-0.15cm}
 	}
 	\fancyfoot[C]{\thepage}
 	\renewcommand{\headrulewidth}{0.5pt}
@@ -118,9 +145,21 @@
 }{
 \ifthenelse{\equal{\hfstyle}{style5}}{
 	\pagestyle{fancy} \fancyhf{}
-	\fancyhead[L]{\codigodelcurso \nombredelcurso}
+	\fancyhead[L]{
+		\begin{minipage}[t]{\hfcoursewidth\linewidth}
+			\begin{flushleft}
+				\codigodelcurso \nombredelcurso
+			\end{flushleft}
+		\end{minipage}
+	}
 	\ifthenelse{\equal{\disablehfrightmark}{false}}{
-		\fancyhead[R]{\nouppercase{\rightmark}}
+		\fancyhead[R]{
+			\begin{minipage}[t]{\hftitlewidth\linewidth}
+				\begin{flushright}
+					\nouppercase{\rightmark}
+				\end{flushright}
+			\end{minipage}
+		}
 	}{}
 	\fancyfoot[L]{\departamentouniversidad, \nombreuniversidad}
 	\fancyfoot[R]{\small \rm \thepage}
@@ -166,9 +205,21 @@
 \ifthenelse{\equal{\hfstyle}{style10}}{
 	\pagestyle{fancy} \fancyhf{}
 	\ifthenelse{\equal{\disablehfrightmark}{false}}{
-		\fancyhead[L]{\nouppercase{\rightmark}}
+		\fancyhead[L]{
+			\begin{minipage}[t]{\hftitlewidth\linewidth}
+				\begin{flushleft}
+					\nouppercase{\rightmark}
+				\end{flushleft}
+			\end{minipage}
+		}
 	}{}
-	\fancyhead[R]{\small \rm \textit{\titulodelinforme}}
+	\fancyhead[R]{
+		\begin{minipage}[t]{\hfcoursewidth\linewidth}
+			\begin{flushright}
+				\small \rm \textit{\titulodelinforme}
+			\end{flushright}
+		\end{minipage}
+	}
 	\fancyfoot[L]{}
 	\fancyfoot[R]{\small \rm \thepage}
 	\renewcommand{\headrulewidth}{0.5pt}
@@ -181,8 +232,20 @@
 		\fancyhead[L]{\nouppercase{\rightmark}}
 	}{}
 	\fancyhead[R]{\small \rm \thepage \nomnpageof \pageref{LastPage}}
-	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
-	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
+	\fancyfoot[L]{
+		\begin{minipage}[t]{\hftitlewidth\linewidth}
+			\begin{flushleft}
+				\small \rm \textit{\titulodelinforme}
+			\end{flushleft}
+		\end{minipage}
+	}
+	\fancyfoot[R]{
+		\begin{minipage}[t]{\hfcoursewidth\linewidth}
+			\begin{flushright}
+				\small \rm \textit{\codigodelcurso \nombredelcurso}
+			\end{flushright}
+		\end{minipage}
+	}
 	\renewcommand{\headrulewidth}{0.5pt}
 	\renewcommand{\footrulewidth}{0.5pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
@@ -199,12 +262,15 @@
 \ifthenelse{\equal{\hfstyle}{style13}}{ % Similar a 3
 	\pagestyle{fancy} \fancyhf{}
 	\fancyhead[L]{
-		\small \rm \textit{\codigodelcurso \nombredelcurso}
-		\vspace{0.04cm}
+		\begin{minipage}[t]{\hftitlewidth\linewidth}
+			\begin{flushleft}
+				\small \rm \textit{\codigodelcurso \nombredelcurso}
+			\end{flushleft}
+		\end{minipage}
 	}
 	\fancyhead[R]{
 		\includegraphics[width=1.2cm]{\imagendepartamento}
-		\vspace{-0.10cm}
+		\vspace{-0.15cm}
 	}
 	\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
 	\renewcommand{\headrulewidth}{0.5pt}

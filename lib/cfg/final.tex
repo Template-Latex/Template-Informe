@@ -28,13 +28,25 @@
 		\fancyhead[L]{\nouppercase{\leftmark}}}{
 	}
 	\ifthenelse{\equal{\hfstyle}{style5}}{
-		\fancyhead[R]{\nouppercase{\leftmark}}}{
+		\fancyhead[R]{
+		\begin{minipage}[t]{\hftitlewidth\linewidth}
+			\begin{flushright}
+				\nouppercase{\leftmark}
+			\end{flushright}
+		\end{minipage}
+		}}{
 	}
 	\ifthenelse{\equal{\hfstyle}{style9}}{
 		\fancyhead[L]{\nouppercase{\leftmark}}}{
 	}
 	\ifthenelse{\equal{\hfstyle}{style10}}{
-		\fancyhead[L]{\nouppercase{\leftmark}}}{
+		\fancyhead[L]{
+			\begin{minipage}[t]{\hftitlewidth\linewidth}
+				\begin{flushleft}
+					\nouppercase{\leftmark}
+				\end{flushleft}
+			\end{minipage}
+		}}{
 	}
 	\ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
 		\fancyhead[L]{\nouppercase{\leftmark}}}{
