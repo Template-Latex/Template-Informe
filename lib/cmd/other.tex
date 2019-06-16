@@ -12,21 +12,15 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % Insertar párrafo
-\newcommand{\newp}{
-	\hbadness=10000 \vspace{\defaultnewlinesize pt} \par
-}
+\newcommand{\newp}{\hbadness=10000 \vspace{\defaultnewlinesize pt} \par}
 
 % Insertar párrafo
 % 	#1	Párrafo
-\newcommand{\newpar}[1]{
-	\hbadness=10000 #1 \newp
-}
+\newcommand{\newpar}[1]{\hbadness=10000 #1 \newp}
 
 % Insertar párrafo sin nueva línea al final
 % 	#1	Párrafo
-\newcommand{\newparnl}[1]{
-	#1 \par
-}
+\newcommand{\newparnl}[1]{#1 \par}
 
 % Redimensiona un ítem
 % 	#1	Tamaño del nuevo objeto (En textwidth)
@@ -64,7 +58,11 @@
 }
 
 % Inserta un texto entre comillas
+%	#1 	Texto
 \newcommand{\quotes}[1]{\enquote*{#1}}
+
+% Inserta una cita con texto elevado
+\newcommand{\scite}[1]{\textsuperscript{\cite{#1}}}
 
 % Inserta un email con un link cliqueable
 \newcommand{\insertemail}[1]{\href{mailto:#1}{\texttt{#1}}}
@@ -80,5 +78,6 @@
 
 % Reinicia el margen de las leyendas
 \newcommand{\resetcaptionmargin}{\setcaptionmargincm{\captionlrmargin}}
+
 
 % END
