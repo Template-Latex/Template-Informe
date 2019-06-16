@@ -192,8 +192,9 @@
 		\fontsize{8mm}{9mm}\selectfont
 		\textcolor{\portraittitlecolor}{
 			\noindent \titulodelinforme ~ \\
-			\noindent \temaatratar ~ \\
 		}
+		\vspace*{0.5cm}
+		\Large{\noindent \temaatratar} ~ \\
 		\vspace*{1cm}
 		\footnotesize{\codigodelcurso\ - \nombredelcurso} ~ \\
 		\vspace*{1.4cm}
@@ -664,6 +665,62 @@
 		\end{flushright}
 	\end{minipage}
 }{
+\ifthenelse{\equal{\portraitstyle}{style19}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\thispagestyle{empty}
+	
+	% Título informe
+	\vspace*{0cm}
+	\begin{center}
+		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.3cm}
+		{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
+		\noindent \rule{\textwidth}{0.4mm}
+	\end{center}
+
+	% Nombre universidad
+	~ \\
+	\begin{center}
+		\noindent {\large \scshape{\codigodelcurso} \large \scshape{\nombredelcurso}} \vspace{0.5cm} ~ \\
+		\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{
+			\noindent {\large \textsc{\departamentouniversidad}}
+		}{
+			\noindent {\large \textsc{\nombreuniversidad, \departamentouniversidad}}
+		}
+		\vspace{1.0cm}
+	\end{center}
+	
+	% Tabla de integrantes
+	\vfill
+	\begin{center}
+		\indent \tablaintegrantes
+	\end{center}
+	~ \\
+}{
+\ifthenelse{\equal{\portraitstyle}{style20}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	\thispagestyle{empty}
+	
+	{\raggedleft	
+	\rule{1pt}{\textheight}
+	\hspace{0.05\textwidth}
+	\parbox[b]{0.75\textwidth}{
+		
+		{\Huge\bfseries \titulodelinforme}\\[2\baselineskip]
+		{\large\textit{\temaatratar}}\\[4\baselineskip]
+		\vspace*{2cm}
+		{\textsc{
+		\begin{flushleft}
+			\noindent\tablaintegrantes
+		\end{flushleft}
+		}}
+		
+		\vspace*{\portraitverticalspaceE}
+		
+		{\noindent \nombreuniversidad ~\\
+		\nombrefacultad ~\\
+		\departamentouniversidad}\\[\baselineskip]
+	}}
+}{
 \ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{empty}
@@ -690,7 +747,7 @@
 	\newpage
 	\pagecolor{white}
 }{
-	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style18}}}}}}}}}}}}}}}}}}}
+	\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style20}}}}}}}}}}}}}}}}}}}}}
 }
 
 % -----------------------------------------------------------------------------
