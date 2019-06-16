@@ -8,14 +8,14 @@
 %% 
 %%
 %% Source File: `colortbl.dtx'.
-%% Copyright 1996 1998 1999 2012 David Carlisle
+%% Copyright 1996 1998 1999 2012 2018 David Carlisle
 %%
 %% This file may be distributed under the terms of the LPPL.
 %% See readme for details.
 %%
 \NeedsTeXFormat{LaTeX2e}[1995/06/01]
 \ProvidesPackage{colortbl}
-          [2012/02/13 v1.0a Color table columns (DPC) new array fix]
+          [2018/12/12 v1.0d Color table columns (DPC)]
 \edef\@tempa{%
   \noexpand\AtEndOfPackage{%
     \catcode`\noexpand\^^A\the\catcode`\^^A\relax}}
@@ -25,6 +25,7 @@
 \DeclareOption*{\PassOptionsToPackage\CurrentOption{color}}
 \ProcessOptions
 \RequirePackage{array,color}
+\ifx\do@row@strut\@undefined\let\do@row@strut\relax\fi
 \def\@classz{\@classx
    \@tempcnta \count@
    \prepnext@tok
@@ -39,10 +40,18 @@
       \d@llarend\do@row@strut\hskip\stretch{.5}\or
       \d@llarbegin \insert@column \d@llarend\do@row@strut \hfill \or
       \hfill\kern\z@ \d@llarbegin \insert@column \d@llarend\do@row@strut \or
-   $\vcenter
-   \@startpbox{\@nextchar}\insert@column \@endpbox $\or
-   \vtop \@startpbox{\@nextchar}\insert@column \@endpbox \or
-   \vbox \@startpbox{\@nextchar}\insert@column \@endpbox
+      \ifx\ar@align@mcell\@undefined
+        $\vcenter
+         \@startpbox{\@nextchar}\insert@column \@endpbox $
+      \else
+        \setbox\ar@mcellbox\vbox
+          \@startpbox{\@nextchar}\insert@column \@endpbox
+        \ar@align@mcell
+        \do@row@strut
+      \fi
+   \or
+   \vtop \@startpbox{\@nextchar}\insert@column \@endpbox\do@row@strut \or
+   \vbox \@startpbox{\@nextchar}\insert@column \@endpbox\do@row@strut
   \fi
  \egroup\egroup
 \begingroup
@@ -118,7 +127,8 @@
 \AtBeginDocument{%
   \expandafter\def\expandafter\@tabarray\expandafter{%
     \expandafter\CT@start\@tabarray}}
-\def\endarray{\crcr \egroup \egroup \gdef\@preamble{}\CT@end}
+\def\endarray{%
+  \crcr \egroup \egroup \@arrayright\gdef\@preamble{}\CT@end}
 \long\def\multicolumn#1#2#3{%
    \multispan{#1}\begingroup
    \def\@addamp{\if@firstamp \@firstampfalse \else
@@ -183,16 +193,16 @@
   \noalign{\vskip-\arrayrulewidth}}
 \newlength\minrowclearance
 \minrowclearance=0pt
-\expandafter\def\expandafter\@mkpream\expandafter#\expandafter1%
-  \expandafter{%
-    \expandafter\let\expandafter\CT@setup\expandafter\relax
-    \expandafter\let\expandafter\CT@color\expandafter\relax
-    \expandafter\let\expandafter\CT@do@color\expandafter\relax
-    \expandafter\let\expandafter\color\expandafter\relax
-    \expandafter\let\expandafter\CT@column@color\expandafter\relax
-    \expandafter\let\expandafter\CT@row@color\expandafter\relax
-    \expandafter\let\expandafter\CT@cell@color\expandafter\relax
-    \@mkpream{#1}}
+\let\@mkpreamarray\@mkpream
+\def\@mkpream{%
+     \let\CT@setup\relax
+     \let\CT@color\relax
+     \let\CT@do@color\relax
+     \let\color\relax
+     \let\CT@column@color\relax
+     \let\CT@row@color\relax
+     \let\CT@cell@color\relax
+     \@mkpreamarray}
 \let\CT@do@color\relax
 \def\rowcolor{%
   \noalign{\ifnum0=`}\fi
