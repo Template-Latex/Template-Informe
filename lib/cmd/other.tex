@@ -115,6 +115,43 @@
 			}
 		}
 	}
+	\def\GLOBALtablerowcolorindex{#1} % Actualiza la definición
+}
+
+% Modifica el color de las tablas
+%	#1	Posicion inicial del inicio de colores
+\newcommand{\settablerowcolorslast}{
+	% Usa colores normales
+	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{
+		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{\GLOBALtablerowcolorindex}{}{}
+			}{
+				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowsecondcolor}{}
+			}
+		}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{\GLOBALtablerowcolorindex}{}{\tablerowfirstcolor}
+			}{
+				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowsecondcolor}{\tablerowfirstcolor}
+			}
+		}
+	% Usa colores alternados
+	}{
+		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{\GLOBALtablerowcolorindex}{}{}
+			}{
+				\rowcolors{\GLOBALtablerowcolorindex}{}{\tablerowsecondcolor}
+			}
+		}{
+			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{
+				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowfirstcolor}{}
+			}{
+				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowfirstcolor}{\tablerowsecondcolor}
+			}
+		}
+	}
 }
 
 % Activa el color de las filas de las tablas
@@ -137,6 +174,7 @@
 	}{
 		\def\GLOBALtablerowcolorswitch{false}
 	}
+	\settablerowcolorslast
 }
 
 % END
