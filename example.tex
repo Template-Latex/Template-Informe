@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      6.3.0 (09/06/2019)
+% Versión:      6.3.1 (16/06/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -26,7 +26,7 @@
 	% aparecer en el índice
 	\subsection{Una breve introducción}
 		
-		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\texttt{\textbackslash insertimage}}:
+		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias \footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\texttt{\textbackslash insertimage}}:
 
 		% Para insertar una imagen se puede usar la función \insertimage la cual
 		% toma un primer parámetro opcional para definir una etiqueta (dentro de
@@ -34,7 +34,7 @@
 		% (en este caso se definió la escala de 0.16) y una leyenda opcional.
 		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.16}{Where are you? de \quotes{Internet}.}
 
-		A continuación\footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{https://latex.ppizarror.com/informe.html#hlp-formulae}{\texttt{\textbackslash insertequation}}:
+		A continuación \footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{https://latex.ppizarror.com/informe.html#hlp-formulae}{\texttt{\textbackslash insertequation}}:
 
 		% Se inserta una ecuación, el primer parámetro entre [] es opcional
 		% (permite identificar con una etiqueta para poder referenciarlo después
@@ -43,7 +43,7 @@
 
 		% Notar que no se requiere añadir un salto de línea después de insertar una
 		% imagen.
-		Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online \cite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}.
+		Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online \scite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}.
 
 		% Los párrafos se pueden añadir con \newp, esta función se hizo para
 		% evitar errores y warnings por parte del compilador de LaTeX.
@@ -141,7 +141,7 @@
 		% identificador en el manual.
 		\newcommand{\insertsrcmanual}[2]{\href{https://latex.ppizarror.com/informe.html\#hlp-srccode\&srctype=#1}{#2}}
 
-		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{bash}{bash}, \insertsrcmanual{c}{C}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{cuda}{cuda}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{kotlin}{Kotlin}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{opencl}{OpenCL}, \insertsrcmanual{opensees}{OpenSees}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{scala}{Scala}, \insertsrcmanual{sql}{SQL}, \insertsrcmanual{tcl}{TCL} y \insertsrcmanual{xml}{XML}. Para insertar un código fuente se debe usar el entorno \texttt{sourcecode}, o el entorno \texttt{sourcecodep} si es que se quiere utilizar parámetros adicionales. \newp
+		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{bash}{bash}, \insertsrcmanual{c}{C}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{cuda}{cuda}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{kotlin}{Kotlin}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{opencl}{OpenCL}, \insertsrcmanual{opensees}{OpenSees}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{r}{R}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{scala}{Scala}, \insertsrcmanual{sql}{SQL}, \insertsrcmanual{tcl}{TCL} y \insertsrcmanual{xml}{XML}. Para insertar un código fuente se debe usar el entorno \texttt{sourcecode}, o el entorno \texttt{sourcecodep} si es que se quiere utilizar parámetros adicionales. \newp
 
 		A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}):
 
@@ -191,7 +191,7 @@ end
 	% SUB-SECCIÓN
 	\subsection{Añadir múltiples imágenes}
 
-	El template ofrece el entorno \href{https://latex.ppizarror.com/informe.html#hlp-images}{\texttt{images}} que permite insertar múltiples imágenes de una manera muy sencilla\footnote{Desde la versión \texttt{6.0.0} no se da soporte a las funciones de inserción de imágenes múltiples \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash insertdoubleeqimage}, \texttt{\textbackslash inserttripleimage}, \texttt{\textbackslash inserttripleeqimage}, \texttt{\textbackslash insertquadimage}, \texttt{\textbackslash insertpentaimage} y \texttt{\textbackslash inserthexaimage}.}. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
+	El template ofrece el entorno \href{https://latex.ppizarror.com/informe.html#hlp-images}{\texttt{images}} que permite insertar múltiples imágenes de una manera muy sencilla \footnote{Desde la versión \texttt{6.0.0} no se da soporte a las funciones de inserción de imágenes múltiples \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash insertdoubleeqimage}, \texttt{\textbackslash inserttripleimage}, \texttt{\textbackslash inserttripleeqimage}, \texttt{\textbackslash insertquadimage}, \texttt{\textbackslash insertpentaimage} y \texttt{\textbackslash inserthexaimage}.}. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
 
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
@@ -221,7 +221,7 @@ end
 	% Inserta un subtítulo sin número
 	\subsectionanum{Listas y Enumeraciones}
 
-		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template\footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.}, para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento comienza por \texttt{\textbackslash item}, resultando así:
+		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template \footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.}, para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento comienza por \texttt{\textbackslash item}, resultando así:
 
 		\begin{enumerate}
 			\item Grecia
@@ -229,7 +229,7 @@ end
 			\item Manzanas
 		\end{enumerate}
 
-		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph}\footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.}, números romanos con \texttt{\textbackslash roman}\footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek}\footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}:
+		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph} \footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.}, números romanos con \texttt{\textbackslash roman} \footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek} \footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}:
 
 		\begin{multicols}{3}
 			\begin{enumeratebf}[label=\alph*) ] % Fuente en negrita
