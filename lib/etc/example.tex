@@ -324,6 +324,7 @@ end
 			\lipsum[10]
 
 			% Tablas
+			\enabletablerowcolor % Activa el color de celda
 			\begin{table}[htbp]
 				\centering
 				\caption{Tabla de cálculo.}
@@ -334,9 +335,13 @@ end
 					A     & 10    & 3,14$\pi$ \bigstrut[t]\\
 					B     & 20    & 6 \\
 					C     & 30    & 7 \\
+					D     & 150    & 10 \\
+					E     & 0    & 0 \\
+					\hline
 					\end{tabular}
 				\label{tab:anexo-1}
 			\end{table}
+			\disabletablerowcolor % Desactiva el color de celda
 
 	\newpage
 	\section{Más cálculos}

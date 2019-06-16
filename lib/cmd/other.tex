@@ -79,5 +79,31 @@
 % Reinicia el margen de las leyendas
 \newcommand{\resetcaptionmargin}{\setcaptionmargincm{\captionlrmargin}}
 
+% Modifica el color de las tablas
+%	#1	Color impar
+%	#2 	Color par
+\newcommand{\tablerowcolors}[2]{
+	\rowcolors{2}{#1}{#2}
+}
+
+% Activa el color de las filas de las tablas
+\newcommand{\enabletablerowcolor}{
+	\ifthenelse{\equal{\tablerowfirst}{none}}{
+		\ifthenelse{\equal{\tablerowsecond}{none}}{
+			\tablerowcolors{}{}
+		}{
+			\tablerowcolors{\tablerowsecond}{}
+		}
+	}{
+		\ifthenelse{\equal{\tablerowsecond}{none}}{
+			\rowcolors{2}{}{\tablerowfirst}
+		}{
+			\rowcolors{2}{\tablerowsecond}{\tablerowfirst}
+		}
+	}
+}
+
+% Desactiva el color de las filas de las tablas
+\newcommand{\disabletablerowcolor}{\tablerowcolors{}{}}
 
 % END

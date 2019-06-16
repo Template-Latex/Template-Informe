@@ -340,6 +340,16 @@
 \vbadness=\maxdimen
 
 % -----------------------------------------------------------------------------
+% Configuraciones de las tablas
+% -----------------------------------------------------------------------------
+
+% Reinicia el número de cada fila en todas las tablas
+\makeatletter
+\preto\tabular{\global\rownum=\z@}
+\preto\tabularx{\global\rownum=\z@}
+\makeatother
+
+% -----------------------------------------------------------------------------
 % Se activa el modo estricto de revisión de números de página
 % -----------------------------------------------------------------------------
 \strictpagecheck
