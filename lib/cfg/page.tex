@@ -287,7 +287,23 @@
 	\renewcommand{\footrulewidth}{0pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 }{
-	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style14}}}}}}}}}}}}}}
+\ifthenelse{\equal{\hfstyle}{style15}}{ % Similar a 1
+	\pagestyle{fancy} \fancyhf{}
+	\ifthenelse{\equal{\disablehfrightmark}{false}}{
+		\fancyhead[L]{\nouppercase{\rightmark}}
+	}{}
+	\fancyhead[R]{}
+	\fancyfoot[L]{
+		\small \rm \textit{\codigodelcurso \nombredelcurso}
+	}
+	\fancyfoot[R]{
+		\small \rm \thepage
+	}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+}{
+	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style15}}}}}}}}}}}}}}}
 }
 
 % -----------------------------------------------------------------------------
