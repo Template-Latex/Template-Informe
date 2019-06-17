@@ -62,12 +62,15 @@
 \newcommand{\quotes}[1]{\enquote*{#1}}
 
 % Inserta una cita con texto elevado
+%	#1	Cita
 \newcommand{\scite}[1]{\textsuperscript{\cite{#1}}}
 
 % Inserta un email con un link cliqueable
+%	#1 	Dirección email
 \newcommand{\insertemail}[1]{\href{mailto:#1}{\texttt{#1}}}
 
 % Inserta un teléfono celular
+%	#1	Teléfono celular
 \newcommand{\insertphone}[1]{\href{tel:#1}{\texttt{#1}}}
 
 % Reinicia el número de ecuaciones
@@ -80,7 +83,7 @@
 \newcommand{\resetcaptionmargin}{\setcaptionmargincm{\captionlrmargin}}
 
 % Modifica el color de las tablas
-%	#1	Posicion inicial del inicio de colores
+%	#1	Posición inicial del inicio de colores
 \newcommand{\settablerowcolors}[1]{
 	\emptyvarerr{\settablerowcolors}{#1}{Posicion de fila no definida}
 	
@@ -115,11 +118,13 @@
 			}
 		}
 	}
-	\def\GLOBALtablerowcolorindex{#1} % Actualiza la definición
+
+	% Actualiza el índice previo
+	\def\GLOBALtablerowcolorindex{#1}
 }
 
 % Modifica el color de las tablas
-%	#1	Posicion inicial del inicio de colores
+%	#1	Posición inicial del inicio de colores
 \newcommand{\settablerowcolorslast}{
 	% Usa colores normales
 	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{
@@ -155,7 +160,7 @@
 }
 
 % Activa el color de las filas de las tablas
-%	#1	Posicion inicial del inicio de colores
+%	#1	Posición inicial del inicio de colores
 \newcommand{\enabletablerowcolor}[1][]{
 	\ifx\hfuzz#1\hfuzz
 		\settablerowcolors{2}

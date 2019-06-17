@@ -54,7 +54,7 @@
 \usepackage{csquotes}      % Citas y comillas
 \usepackage{datetime}      % Fechas
 \usepackage{floatpag}      % Maneja números de páginas
-\usepackage{floatrow}      % Permite adminisrar posiciones en los caption
+\usepackage{floatrow}      % Permite administrar posiciones en los caption
 \usepackage{framed}        % Permite creación de recuadros
 \usepackage{gensymb}       % Simbología común
 \usepackage{geometry}      % Dimensiones y geometría del documento
@@ -73,13 +73,12 @@
 \usepackage{sectsty}       % Cambia el estilo de los títulos
 \usepackage{selinput}      % Compatibilidad con acentos
 \usepackage{setspace}      % Cambia el espacio entre líneas
-\usepackage{siunitx}       % Unidades del sistema internacional
 \usepackage{soul}          % Permite subrayar texto
 \usepackage{subfig}        % Permite agrupar imágenes
 \usepackage{textcomp}      % Simbología común
 \usepackage{url}           % Permite añadir enlaces
 \usepackage{wasysym}       % Contiene caracteres misceláneos
-\usepackage{wrapfig}       % Permite comprimir imágenes
+\usepackage{wrapfig}       % Posición de imágenes
 \usepackage{xspace}        % Adminsitra espacios en párrafos y líneas
 
 % -----------------------------------------------------------------------------
@@ -538,9 +537,9 @@
 \ifthenelse{\equal{\fonttypewriter}{texgyrecursor}}{
 	\usepackage{tgcursor}
 }{
-	\throwbadconfig{Fuente desconocida}{\fonttypewriter}{anonymouspro,ascii,beramono,cmpica,courier,
-		dejavusansmono,firamono,gomono,inconsolata,kpmonospaced,lcmtt,newtxtt,
-		nimbusmono,nimbusmononarrow,texgyrecursor,tmodern}
+	\throwbadconfig{Fuente desconocida}{\fonttypewriter}{anonymouspro,ascii,beramono,
+		cmpica,courier,dejavusansmono,firamono,gomono,inconsolata,kpmonospaced,lcmtt,
+		newtxtt,nimbusmono,nimbusmononarrow,texgyrecursor,tmodern}
 	}}}}}}}}}}}}}}}}
 }
 
