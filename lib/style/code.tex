@@ -141,6 +141,14 @@
 }
 
 % -----------------------------------------------------------------------------
+% Fortran-95
+% -----------------------------------------------------------------------------
+\lstdefinestyle{fortran}{
+	language=[95]Fortran,
+	breakatwhitespace=false
+}
+
+% -----------------------------------------------------------------------------
 % GLSL - Shaders
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{GLSL}{
@@ -345,6 +353,17 @@
 		factorial,for,if,isa,ltitr,matlab2tikz,methods,movegui,normcdf,
 		normpdf,ones,parse,poissrnd,properties,repmat,strcat,try,var,
 		warning,xlim,ylim}
+}
+
+% -----------------------------------------------------------------------------
+% Octave
+% -----------------------------------------------------------------------------
+\lstdefinestyle{octave}{
+	language=Octave,
+	flexiblecolumns=true,
+	keepspaces=true,
+	morecomment=[l]\%,
+	morecomment=[n]{\%\{\^^M}{\%\}\^^M}
 }
 
 % -----------------------------------------------------------------------------
@@ -598,6 +617,7 @@
 	\ifthenelse{\equal{#1}{css}}{}{
 	\ifthenelse{\equal{#1}{cuda}}{}{
 	\ifthenelse{\equal{#1}{docker}}{}{
+	\ifthenelse{\equal{#1}{fortran}}{}{
 	\ifthenelse{\equal{#1}{glsl}}{}{
 	\ifthenelse{\equal{#1}{haskell}}{}{
 	\ifthenelse{\equal{#1}{html5}}{}{
@@ -607,6 +627,7 @@
 	\ifthenelse{\equal{#1}{kotlin}}{}{
 	\ifthenelse{\equal{#1}{latex}}{}{
 	\ifthenelse{\equal{#1}{matlab}}{}{
+	\ifthenelse{\equal{#1}{octave}}{}{
 	\ifthenelse{\equal{#1}{opencl}}{}{
 	\ifthenelse{\equal{#1}{opensees}}{}{
 	\ifthenelse{\equal{#1}{pascal}}{}{
@@ -623,9 +644,10 @@
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
 		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,cpp,
-		csharp,css,cuda,docker,glsl,haskell,html5,java,js,json,kotlin,latex,matlab,
-		opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,sql,tcl,xml}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+		csharp,css,cuda,docker,fortran,glsl,haskell,html5,java,js,json,kotlin,latex,matlab,
+		octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,sql,
+		tcl,xml}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END

@@ -1110,6 +1110,62 @@ Readln
 end.
 \end{sourcecode}
 
+\begin{sourcecode}{fortran}{Ejemplo en Fortran.}
+REGRESION LINEAL.FORTRANS
+APLICACION
+     DIMENSION TIEMPO(1000),PROD(1000)
+        OPEN(1,FILE='HISTORIA.txt')
+        I=0
+ 10     READ(1,*,END=80)T,P
+        I=I+1
+        TIEMPO(.l.)=T
+        PROD(I)=P
+        GO TO 10
+ 80     NDATOS=I
+        CALL AJULIN(TIEMPO,PROD,NDATOS,A,B)
+        WRITE(*,90)A,B
+ 90     FORMAT('LA ECUACION ES:Y=',F10.2,'+',F10.2,'X')
+ 20     FORMAT(20F10.0)
+        END
+
+
+        SUBROUTINE AJULIN(X,Y,N,A,B)
+         DIMENSION X(1),Y(1)
+          SUMX=0.
+          SUMY=0.
+          SUMX2=0.
+          SUMY2=0
+          SUMXY=0
+        DO 20 I=1,N
+         SUMX=SUMX+X(.l.)
+         SUMY=SUMY+Y(.l.)
+         SUMX2=SUMX2+(X(I)*X(.l.))
+         SUMY2=SUMY2+Y(I)**2
+         SUMXY=SUMXY+(X(I)*Y(I))
+ 20    CONTINUE
+        PROD=SUMX*SUMY
+        B=(SUMXY-PROD/N)/(SUMX2-SUMX**2/N)
+        A=(SUMY/N-B*SUMX/N)
+       RETURN
+       END
+\end{sourcecode}
+
+\begin{sourcecode}{octave}{Ejemplo en Octave.}
+function out = invar_table(n,m,N)
+if n>m, error('first number must be smaller than the second'), endif
+
+t = cputime;
+out = zeros(m-n+1,2);
+
+for i=n:m
+  out(i+1-n,1) = i;
+  out(i+1-n,2) = invar(braidmatrix(i),N);
+end
+
+printf('Total CPU time: %f seconds\n', cputime-t);
+end
+\end{sourcecode}
+
 % \newpage
 % \importsourcecode{latex}{test/general.tex}{Carga código fuente archivo LaTeX.}
 % \importsourcecode{latex}{lib/etc/example.tex}{Carga código fuente ejemplo LaTeX.}
