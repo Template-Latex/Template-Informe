@@ -141,7 +141,9 @@
 		% identificador en el manual.
 		\newcommand{\insertsrcmanual}[2]{\href{https://latex.ppizarror.com/informe.html\#hlp-srccode\&srctype=#1}{#2}}
 
-		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{bash}{Bash}, \insertsrcmanual{c}{C}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{css}{CSS}, \insertsrcmanual{cuda}{CUDA}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{fortran}{Fortran}, \insertsrcmanual{glsl}{GLSL}, \insertsrcmanual{haskell}{Haskell}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{kotlin}{Kotlin}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{octave}{Octave}, \insertsrcmanual{opencl}{OpenCL}, \insertsrcmanual{opensees}{OpenSees}, \insertsrcmanual{pascal}{Pascal}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{r}{R}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{scala}{Scala}, \insertsrcmanual{sql}{SQL}, \insertsrcmanual{tcl}{TCL} y \insertsrcmanual{xml}{XML}. Para insertar un código fuente se debe usar el entorno \texttt{sourcecode}, o el entorno \texttt{sourcecodep} si es que se quiere utilizar parámetros adicionales. A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}), Java (Código \ref{codigo-java}) y Matlab (Código \ref{codigo-matlab}):
+		El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{bash}{Bash}, \insertsrcmanual{c}{C}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{css}{CSS}, \insertsrcmanual{cuda}{CUDA}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{fortran}{Fortran}, \insertsrcmanual{glsl}{GLSL}, \insertsrcmanual{haskell}{Haskell}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{kotlin}{Kotlin}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{octave}{Octave}, \insertsrcmanual{opencl}{OpenCL}, \insertsrcmanual{opensees}{OpenSees}, \insertsrcmanual{pascal}{Pascal}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{r}{R}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{scala}{Scala}, \insertsrcmanual{sql}{SQL}, \insertsrcmanual{tcl}{TCL}, \insertsrcmanual{vbscript}{VBScript} y \insertsrcmanual{xml}{XML}. \\
+		
+		Para insertar un código fuente se debe usar el entorno \texttt{sourcecode}, o el entorno \texttt{sourcecodep} si es que se quiere utilizar parámetros adicionales. A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}), Java y Matlab:
 
 % Se define el lenguaje del código. Cuidado: Los códigos en LaTeX son sensibles a las tabulaciones y espacios en blanco
 \begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
@@ -154,7 +156,7 @@ def incmatrix(genl1, genl2):
 	VT = np.zeros((n*m, 1), int) # Comentario 2
 \end{sourcecode}
 
-\begin{sourcecode}[\label{codigo-java}]{java}{Ejemplo en Java.}
+\begin{sourcecode}[]{java}{Ejemplo en Java.}
 import java.io.IOException;
 import javax.servlet.*;
 
@@ -165,15 +167,13 @@ public class Hola extends GenericServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		pw.println("Hola, mundo!");
-		pw.close();
 	}
 }
 \end{sourcecode}
 
-\begin{sourcecode}[\label{codigo-matlab}]{matlab}{Ejemplo en Matlab.}
+\begin{sourcecode}{matlab}{Ejemplo en Matlab.}
 % Se crea gráfico
-f = figure(1); hold on;
-movegui(f, 'center');
+f = figure(1); hold on; movegui(f, 'center');
 xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
 title('Espectro de pulso de desplazamiento');
 

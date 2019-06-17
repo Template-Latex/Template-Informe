@@ -1166,6 +1166,43 @@ printf('Total CPU time: %f seconds\n', cputime-t);
 end
 \end{sourcecode}
 
+\newpage
+\begin{sourcecode}{vbscript}{Ejemplo en Visual Basic.}
+Option Explicit
+
+Sub Signal(strSignalfolge As String, Optional lngTakt As Long = 100)
+'Prozedur erzeugt eine Serie von Warntönen.
+'Die optionale Variable lngTakt gibt den Takt in Millisekunden vor (Standard: 100 ms)
+'Das Muster kann über die String-Variable strSignalfolge beeinflusst werden:
+' Stern (*)     -> 1 Warnton
+' Ziffern 1..9  -> 1..9 Takte Pause
+' Leerzeichen   -> 1 Sekunde Pause
+' Minus (-)     -> 1.5 Sekunden Pause
+    Dim i As Integer
+    Dim b As String
+    For i = 1 To Len(strSignalfolge)
+        b = Mid(strSignalfolge, i, 1)
+        Select Case b
+            Case "*": beep
+            Case 1 To 9: DELAY CInt(b) * lngTakt
+            Case " ": DELAY 1000
+            Case "-": DELAY 1500
+        End Select
+        DELAY lngTakt
+    Next i
+
+End Sub
+
+Public Function strParse(Data As String, Trenn As String, Nr As Integer)
+'Funktion trennt die Zeichenkette <Data>
+    On Error Resume Next
+    Dim MainData() As String, SplitData() As String
+    MainData = Split(Data, Trenn)
+    SplitData = Split(MainData(Nr - 1), Trenn)
+    strParse = SplitData(0)
+End Function
+\end{sourcecode}
+
 % \newpage
 % \importsourcecode{latex}{test/general.tex}{Carga código fuente archivo LaTeX.}
 % \importsourcecode{latex}{lib/etc/example.tex}{Carga código fuente ejemplo LaTeX.}

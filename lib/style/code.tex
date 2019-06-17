@@ -553,6 +553,14 @@
 }
 
 % -----------------------------------------------------------------------------
+% Visual Basic
+% -----------------------------------------------------------------------------
+\lstdefinestyle{vbscript}{
+	language=[Visual]Basic,
+	extendedchars=true,
+}
+
+% -----------------------------------------------------------------------------
 % XML
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{XML}{
@@ -641,13 +649,14 @@
 	\ifthenelse{\equal{#1}{scala}}{}{
 	\ifthenelse{\equal{#1}{sql}}{}{
 	\ifthenelse{\equal{#1}{tcl}}{}{
+	\ifthenelse{\equal{#1}{vbscript}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
 		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,cpp,
 		csharp,css,cuda,docker,fortran,glsl,haskell,html5,java,js,json,kotlin,latex,matlab,
 		octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,sql,
-		tcl,xml}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+		tcl,vbscript,xml}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END
