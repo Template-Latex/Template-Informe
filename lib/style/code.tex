@@ -107,6 +107,10 @@
 	morestring=[s]{:}{;},
 	sensitive=true
 }
+\lstdefinestyle{css}{
+	language=CSS,
+	breakatwhitespace=true
+}
 
 % -----------------------------------------------------------------------------
 % CUDA
@@ -573,6 +577,7 @@
 	\ifthenelse{\equal{#1}{c}}{}{
 	\ifthenelse{\equal{#1}{cpp}}{}{
 	\ifthenelse{\equal{#1}{csharp}}{}{
+	\ifthenelse{\equal{#1}{css}}{}{
 	\ifthenelse{\equal{#1}{cuda}}{}{
 	\ifthenelse{\equal{#1}{docker}}{}{
 	\ifthenelse{\equal{#1}{glsl}}{}{
@@ -598,9 +603,9 @@
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
 		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,cpp,
-		csharp,cuda,docker,glsl,html5,java,js,json,kotlin,latex,matlab,opencl,
+		csharp,css,cuda,docker,glsl,html5,java,js,json,kotlin,latex,matlab,opencl,
 		opensees,perl,php,plaintext,pseudocode,python,r,ruby,scala,sql,tcl,xml}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END
