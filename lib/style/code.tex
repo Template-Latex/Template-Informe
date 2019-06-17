@@ -206,6 +206,14 @@
 }
 
 % -----------------------------------------------------------------------------
+% Haskell
+% -----------------------------------------------------------------------------
+\lstdefinestyle{haskell}{
+	language=haskell,
+	morecomment=[l]\%
+}
+
+% -----------------------------------------------------------------------------
 % HTML5
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{HTML5}{
@@ -375,6 +383,15 @@
 		rayleigh,reaction,recorder,region,section,Steel01,system,test,truss,
 		uniaxialMaterial,wipe},
 	ndkeywordstyle=\color{dkcyan}\ttfamily
+}
+
+% -----------------------------------------------------------------------------
+% Pascal
+% -----------------------------------------------------------------------------
+\lstdefinestyle{pascal}{
+	language=Pascal,
+	morecomment=[l]{//},
+	sensitive=false
 }
 
 % -----------------------------------------------------------------------------
@@ -556,7 +573,8 @@
 		{Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1 {ű}{{\H{u}}}1
 		{Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1 {ç}{{\c c}}1 {Ç}{{\c C}}1
 		{ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1 {€}{{\EUR}}1 {£}{{\pounds}}1
-		{ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?``}}1 {¡}{{!``}}1,
+		{ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?``}}1 {¡}{{!``}}1 {«}{{\guillemotleft}}1
+		{»}{{\guillemotright}}1,
 	numbers=left,
 	numbersep=5pt,
 	numberstyle=\tiny\color{dkgray},
@@ -581,6 +599,7 @@
 	\ifthenelse{\equal{#1}{cuda}}{}{
 	\ifthenelse{\equal{#1}{docker}}{}{
 	\ifthenelse{\equal{#1}{glsl}}{}{
+	\ifthenelse{\equal{#1}{haskell}}{}{
 	\ifthenelse{\equal{#1}{html5}}{}{
 	\ifthenelse{\equal{#1}{java}}{}{
 	\ifthenelse{\equal{#1}{js}}{}{
@@ -590,6 +609,7 @@
 	\ifthenelse{\equal{#1}{matlab}}{}{
 	\ifthenelse{\equal{#1}{opencl}}{}{
 	\ifthenelse{\equal{#1}{opensees}}{}{
+	\ifthenelse{\equal{#1}{pascal}}{}{
 	\ifthenelse{\equal{#1}{perl}}{}{
 	\ifthenelse{\equal{#1}{php}}{}{
 	\ifthenelse{\equal{#1}{plaintext}}{}{
@@ -603,9 +623,9 @@
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
 		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,cpp,
-		csharp,css,cuda,docker,glsl,html5,java,js,json,kotlin,latex,matlab,opencl,
-		opensees,perl,php,plaintext,pseudocode,python,r,ruby,scala,sql,tcl,xml}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+		csharp,css,cuda,docker,glsl,haskell,html5,java,js,json,kotlin,latex,matlab,
+		opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,sql,tcl,xml}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END

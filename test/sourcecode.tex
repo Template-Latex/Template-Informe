@@ -1054,6 +1054,62 @@ create_prob_genre_large <- function(df, genres, var, pos) {
 }
 \end{sourcecode}
 
+\begin{sourcecode}{haskell}{Ejemplo en Haskell.}
+-- Type annotation (optional)
+fib :: Int -> Integer
+
+-- With self-referencing data
+fib n = fibs !! n
+where fibs = 0 : scanl (+) 1 fibs
+-- 0,1,1,2,3,5,...
+
+-- Same, coded directly
+fib n = fibs !! n
+where fibs = 0 : 1 : next fibs
+next (a : t@(b:_)) = (a+b) : next t
+
+-- Similar idea, using zipWith
+fib n = fibs !! n
+where fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
+
+-- Using a generator function
+fib n = fibs (0,1) !! n
+where fibs (a,b) = a : fibs (b,a+b)
+\end{sourcecode}
+
+\begin{sourcecode}{pascal}{Ejemplo pascal.}
+PROGRAM NotasDeAlumnos;
+uses crt;
+Type
+vecalumnos = array [1..40] of string;
+var
+Nombre, Apellido: vecalumnos;
+Nota: array [1..40] of real;
+Begin
+clrscr; /*Limpia pantalla*/
+For i:= 1 to 40 do
+	begin
+		write('Ingrese Nombre: ');
+		readln(Nombre[i]);
+		write('Ingrese Apellido: ');
+		readln(Apellido[i]);
+		write('Ingrese Nota: ');
+		readln(Nota[i]);
+	end;
+For i:= 1 to 40 do
+	begin
+		write(Nombre[i], ' ',Apellido[i]);
+		if (Nota[i] >=7) then
+			writeln(' aprobó')
+		else
+			writeln(' no aprobó');
+	end;
+writeln('');
+Write ('Pulse [Intro] para finalizar...');
+Readln
+end.
+\end{sourcecode}
+
 % \newpage
 % \importsourcecode{latex}{test/general.tex}{Carga código fuente archivo LaTeX.}
 % \importsourcecode{latex}{lib/etc/example.tex}{Carga código fuente ejemplo LaTeX.}
