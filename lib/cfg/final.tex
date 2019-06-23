@@ -28,24 +28,32 @@
 		\fancyhead[L]{\nouppercase{\leftmark}}}{
 	}
 	\ifthenelse{\equal{\hfstyle}{style5}}{
-		\fancyhead[R]{
-		\begin{minipage}[t]{\hftitlewidth\linewidth}
-			\begin{flushright}
-				\nouppercase{\leftmark}
-			\end{flushright}
-		\end{minipage}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\fancyhead[R]{
+				\begin{minipage}[t]{\hfwidthtitle\linewidth}
+					\begin{flushright}
+						\nouppercase{\leftmark}
+					\end{flushright}
+				\end{minipage}
+			}
+		}{
+			\fancyhead[R]{\nouppercase{\leftmark}}
 		}}{
 	}
 	\ifthenelse{\equal{\hfstyle}{style9}}{
 		\fancyhead[L]{\nouppercase{\leftmark}}}{
 	}
 	\ifthenelse{\equal{\hfstyle}{style10}}{
-		\fancyhead[L]{
-			\begin{minipage}[t]{\hftitlewidth\linewidth}
-				\begin{flushleft}
-					\nouppercase{\leftmark}
-				\end{flushleft}
-			\end{minipage}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\fancyhead[L]{
+				\begin{minipage}[t]{\hfwidthtitle\linewidth}
+					\begin{flushleft}
+						\nouppercase{\leftmark}
+					\end{flushleft}
+				\end{minipage}
+			}
+		}{
+			\fancyhead[L]{\nouppercase{\leftmark}}
 		}}{
 	}
 	\ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
