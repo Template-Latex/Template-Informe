@@ -349,21 +349,6 @@
 }
 
 % -----------------------------------------------------------------------------
-% Matlab
-% -----------------------------------------------------------------------------
-\lstdefinestyle{matlab}{
-	language=Matlab,
-	flexiblecolumns=true,
-	keepspaces=true,
-	morecomment=[l]\%,
-	morecomment=[n]{\%\{\^^M}{\%\}\^^M},
-	morekeywords={addOptional,alpha,box,break,catch,cell,continue,end,
-		factorial,for,if,isa,ltitr,matlab2tikz,methods,movegui,normcdf,
-		normpdf,ones,parse,poissrnd,properties,repmat,strcat,try,var,
-		warning,xlim,ylim}
-}
-
-% -----------------------------------------------------------------------------
 % Maple
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{Maple}{
@@ -379,6 +364,21 @@
 } 
 \lstdefinestyle{maple}{
 	language=Maple
+}
+
+% -----------------------------------------------------------------------------
+% Matlab
+% -----------------------------------------------------------------------------
+\lstdefinestyle{matlab}{
+	language=Matlab,
+	flexiblecolumns=true,
+	keepspaces=true,
+	morecomment=[l]\%,
+	morecomment=[n]{\%\{\^^M}{\%\}\^^M},
+	morekeywords={addOptional,alpha,box,break,catch,cell,continue,end,
+		factorial,for,if,isa,ltitr,matlab2tikz,methods,movegui,normcdf,
+		normpdf,ones,parse,poissrnd,properties,repmat,strcat,try,var,
+		warning,xlim,ylim}
 }
 
 % -----------------------------------------------------------------------------
@@ -675,8 +675,8 @@
 	\ifthenelse{\equal{#1}{kotlin}}{}{
 	\ifthenelse{\equal{#1}{latex}}{}{
 	\ifthenelse{\equal{#1}{lisp}}{}{
-	\ifthenelse{\equal{#1}{matlab}}{}{
 	\ifthenelse{\equal{#1}{maple}}{}{
+	\ifthenelse{\equal{#1}{matlab}}{}{
 	\ifthenelse{\equal{#1}{octave}}{}{
 	\ifthenelse{\equal{#1}{opencl}}{}{
 	\ifthenelse{\equal{#1}{opensees}}{}{
@@ -697,7 +697,7 @@
 		\def\sourcecodestyle {#1}
 		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{bash,c,
 			cpp,csharp,css,cuda,docker,fortran,glsl,haskell,html5,java,js,json,
-			kotlin,latex,lisp,matlab,maple,octave,opencl,opensees,pascal,perl,
+			kotlin,latex,lisp,maple,matlab,octave,opencl,opensees,pascal,perl,
 			php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,
 			xml}
 	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
