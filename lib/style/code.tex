@@ -371,6 +371,7 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{matlab}{
 	language=Matlab,
+	deletekeywords={fft},
 	flexiblecolumns=true,
 	keepspaces=true,
 	morecomment=[l]\%,
@@ -620,12 +621,13 @@
 \lstset{
 	% \mbox{\textcolor{black}{$\hookrightarrow$}\space}
 	aboveskip=0.75em,
-	basicstyle={\small\ttfamily},
+	basicstyle={\sourcecodefonts\sourcecodefontf},
 	belowskip=1em,
 	breaklines=true,
-	columns=fullflexible,
-	commentstyle=\color{dkgreen}\ttfamily\upshape,
+	columns=flexible,
+	commentstyle=\color{dkgreen}\upshape,
 	extendedchars=true,
+	fontadjust=true,
 	% fancyvrb=false,
 	identifierstyle=\color{black},
 	keepspaces=true,
@@ -643,7 +645,7 @@
 		{ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?``}}1 {¡}{{!``}}1 {«}{{\guillemotleft}}1
 		{»}{{\guillemotright}}1,
 	numbers=left,
-	numbersep=5pt,
+	numbersep={\sourcecodenumbersep},
 	numberstyle=\tiny\color{dkgray},
 	postbreak=\mbox{$\hookrightarrow$\space},
 	showspaces=false,
@@ -651,7 +653,7 @@
 	showtabs=false,
 	stepnumber=1,
 	stringstyle=\color{mauve},
-	tabsize=3
+	tabsize={\sourcecodetabsize}
 }
 
 % -----------------------------------------------------------------------------
