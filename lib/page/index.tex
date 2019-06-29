@@ -88,13 +88,17 @@
 	% Cambia tabulación índice de objetos para alinear con contenidos
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\objectindexindent}{true}}{
-		\def\cftlstlistingindent {1.495em}
+		\setlength{\cfttabindent}{1.9em}
+		\setlength{\cftfigindent}{1.9em}
+		\setlength{\cftsubfigindent}{1.9em}
+		\setlength{\cftfigindent}{1.9em}
+		\def\cftlstlistingindent {1.9em}
 	}{
-		\setlength{\cfttabindent}{0in}
-		\setlength{\cftfigindent}{0in}
-		\setlength{\cftsubfigindent}{0in}
-		\setlength{\cftfigindent}{0in}
-		\def\cftlstlistingindent {0.01em}
+		\setlength{\cfttabindent}{0em}
+		\setlength{\cftfigindent}{0em}
+		\setlength{\cftsubfigindent}{0em}
+		\setlength{\cftfigindent}{0em}
+		\def\cftlstlistingindent {0em}
 	}
 	
 	% -------------------------------------------------------------------------
@@ -104,29 +108,65 @@
 		
 		% Calcula tamaño del margen de los números en objetos del índice dependiendo de la configuración
 		\ifthenelse{\equal{\showsectioncaption}{none}}{
-			\def\cftdefautnumwidth {2.3em}
-		}{
-		\ifthenelse{\equal{\showsectioncaption}{sec}}{
 			\def\cftdefautnumwidth {3.0em}
 		}{
-		\ifthenelse{\equal{\showsectioncaption}{ssec}}{
+		\ifthenelse{\equal{\showsectioncaption}{sec}}{
 			\def\cftdefautnumwidth {3.7em}
 		}{
-		\ifthenelse{\equal{\showsectioncaption}{sssec}}{
+		\ifthenelse{\equal{\showsectioncaption}{ssec}}{
 			\def\cftdefautnumwidth {4.4em}
 		}{
-		\ifthenelse{\equal{\showsectioncaption}{ssssec}}{
+		\ifthenelse{\equal{\showsectioncaption}{sssec}}{
 			\def\cftdefautnumwidth {5.1em}
+		}{
+		\ifthenelse{\equal{\showsectioncaption}{ssssec}}{
+			\def\cftdefautnumwidth {5.8em}
 		}{
 			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec,ssssec}}}}}
 		}
 		
 		% Configuración identado de títulos de objetos después del número
 		\def\cftfignumwidth {\cftdefautnumwidth}
-		\def\cftsubfignumwidth {\cftdefautnumwidth}
+		% \def\cftsubfignumwidth {\cftdefautnumwidth}
 		\def\cfttabnumwidth {\cftdefautnumwidth}
 		\def\cftlstlistingnumwidth {\cftdefautnumwidth}}{
 		
+	}
+
+	% Configura el margen si hay números romanos
+	\def\cftdefaultnumwidthroman {5.25em}
+	
+	% Figuras
+	\ifthenelse{\equal{\captionnumfigure}{arabic}}{ % No hace nada (default)
+	}{
+		\ifthenelse{\equal{\captionnumfigure}{roman}}{
+			\def\cftfignumwidth {\cftdefaultnumwidthroman}
+		}{
+			\ifthenelse{\equal{\captionnumfigure}{Roman}}{
+				\def\cftfignumwidth {\cftdefaultnumwidthroman}
+			}{}}
+	}
+
+	% Tablas
+	\ifthenelse{\equal{\captionnumtable}{arabic}}{ % No hace nada (default)
+	}{
+		\ifthenelse{\equal{\captionnumtable}{roman}}{
+			\def\cfttabnumwidth {\cftdefaultnumwidthroman}
+		}{
+			\ifthenelse{\equal{\captionnumtable}{Roman}}{
+				\def\cfttabnumwidth {\cftdefaultnumwidthroman}
+			}{}}
+	}
+	
+	% Código fuente
+	\ifthenelse{\equal{\captionnumcode}{arabic}}{ % No hace nada (default)
+	}{
+		\ifthenelse{\equal{\captionnumcode}{roman}}{
+			\def\cftlstlistingnumwidth {\cftdefaultnumwidthroman}
+		}{
+		\ifthenelse{\equal{\captionnumcode}{Roman}}{
+			\def\cftlstlistingnumwidth {\cftdefaultnumwidthroman}
+		}{}}
 	}
 
 	% -------------------------------------------------------------------------
