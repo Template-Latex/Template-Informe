@@ -23,10 +23,15 @@
 % -----------------------------------------------------------------------------
 % LIBRERÍAS IMPORTANTES
 % -----------------------------------------------------------------------------
-\usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel} % Define el idioma
-\usepackage{ifthen} % Manejo de condicionales
 
-\ifthenelse{\equal{\equationleftalign}{true}}{ % Librerías matemáticas
+% Define el idioma
+\usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel}
+
+% Manejo de condicionales
+\usepackage{ifthen}
+
+% Librerías matemáticas
+\ifthenelse{\equal{\equationleftalign}{true}}{
 	\usepackage[fleqn]{amsmath}
 }{
 	\usepackage{amsmath}
@@ -39,6 +44,12 @@
 \let\counterwithin\relax
 
 % -----------------------------------------------------------------------------
+% SE GUARDAN VARIABLES ANTES DE CARGAR LIBRERÍAS
+% -----------------------------------------------------------------------------
+\let\RE\Re
+\let\IM\Im
+
+% -----------------------------------------------------------------------------
 % LIBRERÍAS INDEPENDIENTES
 % -----------------------------------------------------------------------------
 \usepackage{amssymb}       % Librerías matemáticas
@@ -47,7 +58,6 @@
 \usepackage{bm}            % Caracteres en negrita en ecuaciones
 \usepackage{booktabs}      % Permite manejar elementos visuales en tablas
 \usepackage{caption}       % Leyendas
-\usepackage{cellspace}     % Tamaños en celdas de tablas
 \usepackage{changepage}    % Condicionales para administrar páginas
 \usepackage{chngcntr}      % Añade números a las leyendas
 \usepackage{color}         % Colores
@@ -81,6 +91,17 @@
 \usepackage{wrapfig}       % Posición de imágenes
 \usepackage{xspace}        % Adminsitra espacios en párrafos y líneas
 
+% En 6.3.7 se desactiva cellspace
+% \usepackage{cellspace}     % Tamaños en celdas de tablas
+
+% \usepackage{colortbl}, xcolor al cargar table ya importa colortbl (v6.3.3)
+% El paquete colortbl queda obsoleto con array+xcolor si la versión es inferior
+% a 1.0c, se recomienda actualizar o ocurren errores asociados a @parbox
+
+% Se prefiere no utilizar matlab-prettifier ya que es muy pesada para lo que
+% la librería ofrece
+% \usepackage{matlab-prettifier}
+
 % -----------------------------------------------------------------------------
 % LIBRERÍAS CON PARÁMETROS
 % -----------------------------------------------------------------------------
@@ -90,10 +111,6 @@
 \usepackage[figure,table,lstlisting]{totalcount} % Contador de objetos
 \usepackage[normalem]{ulem} % Permite tachar y subrayar
 \usepackage[dvipsnames,table,usenames]{xcolor} % Paquete de colores avanzado
-
-% \usepackage{colortbl}, xcolor al cargar table ya importa colortbl (v6.3.3)
-% El paquete colortbl queda obsoleto con array+xcolor si la versión es inferior
-% a 1.0c, se recomienda actualizar o ocurren errores asociados a @parbox
 
 % -----------------------------------------------------------------------------
 % LIBRERÍAS CONDICIONALES
@@ -168,7 +185,6 @@
 \usepackage{multirow}      % Agrega nuevas opciones a las tablas
 \usepackage{notoccite}     % Desactiva las citas en el índice
 \usepackage{titlesec}      % Administración de títulos
-% \usepackage{matlab-prettifier}
 
 % -----------------------------------------------------------------------------
 % TIPOGRAFÍA DEL DOCUMENTO
