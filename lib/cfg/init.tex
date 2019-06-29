@@ -177,6 +177,10 @@
 	\renewcommand{\captiontextbold}{bf}}{
 	\renewcommand{\captiontextbold}{}
 }
+\ifthenelse{\equal{\captiontextsubnumbold}{true}}{ % Número en negritas
+	\renewcommand{\captiontextsubnumbold}{bf}}{
+	\renewcommand{\captiontextsubnumbold}{}
+}
 
 % Se configura el texto de los caption
 \captionsetup{
@@ -189,14 +193,14 @@
 
 % Configura texto de los subcaption
 \captionsetup*[subfigure]{
-	labelfont={color=\captioncolor, \captiontextbold},
+	labelfont={color=\captioncolor, \captiontextsubnumbold},
 	labelformat={\subcaptionlabelformat},
 	labelsep={\subcaptionlabelsep},
 	textfont={color=\captiontextcolor},
 	singlelinecheck=on
 }
 \captionsetup*[subtable]{
-	labelfont={color=\captioncolor, \captiontextbold},
+	labelfont={color=\captioncolor, \captiontextsubnumbold},
 	labelformat={\subcaptionlabelformat},
 	labelsep={\subcaptionlabelsep},
 	textfont={color=\captiontextcolor},
