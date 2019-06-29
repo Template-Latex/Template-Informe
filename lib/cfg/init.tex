@@ -401,15 +401,11 @@
 % -----------------------------------------------------------------------------
 \setcounter{secnumdepth}{4} % Límite máximo subsubsubsección
 
-% -----------------------------------------------------------------------------
 % Crea las subsubsubsecciones
-% -----------------------------------------------------------------------------
 \newcounter{subsubsubsection}[subsubsection]
 \titleclass{\subsubsubsection}{straight}[\subsection]
 
-% -----------------------------------------------------------------------------
 % Establece el número de las subsubsubsecciones
-% -----------------------------------------------------------------------------
 \ifthenelse{\equal{\showdotaftersnum}{true}}{ % Agrega punto tras el número
 	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
 	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}.}
@@ -494,5 +490,12 @@
 }{
 	\throwbadconfig{Formato reinicio numero ecuacion desconocido}{\footnoterestart}{none,page,sec,ssec,sssec,ssssec}}}}}}
 }
+
+% -----------------------------------------------------------------------------
+% Configuraciones del idioma
+% -----------------------------------------------------------------------------
+
+% Desactiva carácteres acentuados
+\unaccentedoperators
 
 % END
