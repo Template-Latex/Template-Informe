@@ -274,11 +274,11 @@
 		\vspace{\marginimagemulttop cm}
 		}{
 		\setcaptionmargincm{\captionlrmargin}
-		\ifx\hfuzz\envimagescaptionvar\hfuzz
+		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\vspace{\captionlessmarginimage cm}
-		\else
+		}{
 			\caption{\envimagescaptionvar\envimageslabelvar}
-		\fi
+		}
 	\end{figure}
 
 	% Reestablece caption y márgenes
