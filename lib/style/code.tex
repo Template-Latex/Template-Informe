@@ -370,6 +370,13 @@
 }
 
 % -----------------------------------------------------------------------------
+% Lua
+% -----------------------------------------------------------------------------
+\lstdefinestyle{lua}{
+	language={[5.2]Lua}
+}
+
+% -----------------------------------------------------------------------------
 % Maple
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{Maple}{
@@ -726,6 +733,7 @@
 	\ifthenelse{\equal{#1}{kotlin}}{}{
 	\ifthenelse{\equal{#1}{latex}}{}{
 	\ifthenelse{\equal{#1}{lisp}}{}{
+	\ifthenelse{\equal{#1}{lua}}{}{
 	\ifthenelse{\equal{#1}{maple}}{}{
 	\ifthenelse{\equal{#1}{matlab}}{}{
 	\ifthenelse{\equal{#1}{octave}}{}{
@@ -748,8 +756,8 @@
 	\ifthenelse{\equal{#1}{vhdl}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
-		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{assemblerx64,assemblerx86,bash,c,cpp,csharp,css,cuda,docker,fortran,glsl,haskell,html5,java,js,json,kotlin,latex,lisp,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+		\throwbadconfig{Estilo de codigo desconocido}{\sourcecodestyle}{assemblerx64,assemblerx86,bash,c,cpp,csharp,css,cuda,docker,fortran,glsl,haskell,html5,java,js,json,kotlin,latex,lisp,lua,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END
