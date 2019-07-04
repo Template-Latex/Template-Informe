@@ -1643,6 +1643,108 @@ end % for k
 end % PSD function
 \end{sourcecode}
 
+\begin{sourcecode}{verilog}{Ejemplo en Verilog.}
+module Mixing {
+	///////// ADC /////////
+	inout              ADC_CS_N,
+	output             ADC_DIN,
+	input              ADC_DOUT,
+	output             ADC_SCLK,
+	
+	///////// ADC /////////
+	input              AUD_ADCDAT,
+	inout              AUD_ADCLRCK,
+	inout              AUD_BCLK,
+	output             AUD_DACDAT,
+	inout              AUD_DACLRCK,
+	output             AUD_XCK,
+	
+	///////// clocks /////////
+	input              clock2_50,
+	input              clock3_50,
+	input              clock4_50,
+	input              clock_50,
+	
+	///////// HEX /////////
+	output      [6:0]  HEX0,
+	output      [6:0]  HEX1,
+	output      [6:0]  HEX2,
+	output      [6:0]  HEX3,
+	output      [6:0]  HEX4,
+	output      [6:0]  HEX5,
+	
+	///////// FOO /////////
+	output      [2]    FOO,
+}
+\end{sourcecode}
+
+\begin{sourcecode}{vhdl}{Ejemplo en VHDL.}
+-- (this is a VHDL comment)
+
+-- import std_logic from the IEEE library
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+-- this is the entity
+entity ANDGATE is
+	port (
+		I1 : in std_logic;
+		I2 : in std_logic;
+		O  : out std_logic);
+end entity ANDGATE;
+
+-- this is the architecture
+architecture RTL of ANDGATE is
+begin
+	O <= I1 and I2;
+end architecture RTL;
+\end{sourcecode}
+
+\begin{sourcecode}{assemblerx64}{Assembler x64.}
+cdqe 1, r8
+push 1
+add rsp, 4
+push 1
+\end{sourcecode}
+
+\begin{sourcecode}{assemblerx86}{Assembler x86.}
+; ---------------------------------------------
+; Programa que imprime un string en la pantalla
+; ---------------------------------------------
+	.model small              ; modelo de memoria
+
+	.stack                    ; segmento del stack
+
+	.data                     ; segmento de datos
+	Cadena1 DB 'Hola Mundo.$' ; string a imprimir (finalizado en $)
+
+	.code                     ; segmento del código
+
+; ---------------------------------------------
+; Inicio del programa
+; ---------------------------------------------
+	programa:
+		; ------------------------------------
+		; inicia el segmento de datos
+		; ------------------------------------
+		MOV AX, @data          ; carga en AX la dirección del segmento de datos
+		MOV DS, AX             ; mueve la dirección al registro de segmento por medio de AX
+		
+		; ------------------------------------
+		; Imprime un string en pantalla
+		; ------------------------------------
+		MOV DX, offset Cadena1 ; mueve a DX la dirección del string a imprimir
+		MOV AH, 9              ; AH = código para indicar al MS DOS que imprima en la pantalla, el string en DS:DX
+		INT 21h                ; llamada al MS DOS para ejecutar la función (en este caso especificada en AH)
+		
+		; ------------------------------------
+		; Finaliza el programa
+		; ------------------------------------
+		INT 20h                ; llamada al MS DOS para finalizar el programa
+
+	end programa
+\end{sourcecode}
+
 % \newpage
 % \importsourcecode{latex}{test/general.tex}{Carga código fuente archivo LaTeX.}
 % \importsourcecode{latex}{lib/etc/example.tex}{Carga código fuente ejemplo LaTeX.}
