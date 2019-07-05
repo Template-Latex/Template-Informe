@@ -78,57 +78,71 @@
 \titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 % -----------------------------------------------------------------------------
-% Numeración de objetos
+% Crea funciones para numerar objetos
 % -----------------------------------------------------------------------------
-\ifthenelse{\equal{\showsectioncaption}{none}}{
+
+% Numeración de la sección en los objetos CÓDIGO FUENTE
+\ifthenelse{\equal{\showsectioncaptioncode}{none}}{
+	\def\sectionobjectnumcode {}
 }{
-\ifthenelse{\equal{\showsectioncaption}{sec}}{
-	\counterwithin{equation}{section}
-	\counterwithin{figure}{section}
-	\counterwithin{lstlisting}{section}
-	\counterwithin{table}{section}
+\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{
+	\def\sectionobjectnumcode {\thesection\sectioncaptiondelimiter}
 }{
-\ifthenelse{\equal{\showsectioncaption}{ssec}}{
-	\counterwithin{equation}{subsection}
-	\counterwithin{figure}{subsection}
-	\counterwithin{lstlisting}{subsection}
-	\counterwithin{table}{subsection}
+\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{
+	\def\sectionobjectnumcode {\thesubsection\sectioncaptiondelimiter}
 }{
-\ifthenelse{\equal{\showsectioncaption}{sssec}}{
-	\counterwithin{equation}{subsubsection}
-	\counterwithin{figure}{subsubsection}
-	\counterwithin{lstlisting}{subsubsection}
-	\counterwithin{table}{subsubsection}
+\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{
+	\def\sectionobjectnumcode {\thesubsubsection\sectioncaptiondelimiter}
 }{
-\ifthenelse{\equal{\showsectioncaption}{ssssec}}{
-	\counterwithin{equation}{subsubsubsection}
-	\counterwithin{figure}{subsubsubsection}
-	\counterwithin{lstlisting}{subsubsubsection}
-	\counterwithin{table}{subsubsubsection}
+\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{
+	\def\sectionobjectnumcode {\thesubsubsubsection\sectioncaptiondelimiter}
 }{
-	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec,ssssec}
+	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,sec,ssec,sssec,ssssec}
 }}}}}
 
-% Figuras
+% -----------------------------------------------------------------------------
+% Modifica numeración de objetos
+% -----------------------------------------------------------------------------
+
+% Figuras, INCLUIR SECCIÓN
+\ifthenelse{\equal{\captionnumequation}{arabic}}{
+	\renewcommand{\theequation}{\sectionobjectnum\arabic{figure}}
+}{
+\ifthenelse{\equal{\captionnumequation}{alph}}{
+	\renewcommand{\theequation}{\sectionobjectnum\alph{figure}}
+}{
+\ifthenelse{\equal{\captionnumequation}{Alph}}{
+	\renewcommand{\theequation}{\sectionobjectnum\Alph{figure}}
+}{
+\ifthenelse{\equal{\captionnumequation}{roman}}{
+	\renewcommand{\theequation}{\sectionobjectnum\roman{figure}}
+}{
+\ifthenelse{\equal{\captionnumequation}{Roman}}{
+	\renewcommand{\theequation}{\sectionobjectnum\Roman{figure}}
+}{
+	\throwbadconfig{Tipo numero ecuacion desconocido}{\captionnumequation}{arabic,alph,Alph,roman,Roman}}}}}
+}
+
+% Figuras, INCLUIR SECCIÓN
 \ifthenelse{\equal{\captionnumfigure}{arabic}}{
-	\renewcommand{\thefigure}{\arabic{figure}}
+	\renewcommand{\thefigure}{\sectionobjectnum\arabic{figure}}
 }{
 \ifthenelse{\equal{\captionnumfigure}{alph}}{
-	\renewcommand{\thefigure}{\alph{figure}}
+	\renewcommand{\thefigure}{\sectionobjectnum\alph{figure}}
 }{
 \ifthenelse{\equal{\captionnumfigure}{Alph}}{
-	\renewcommand{\thefigure}{\Alph{figure}}
+	\renewcommand{\thefigure}{\sectionobjectnum\Alph{figure}}
 }{
 \ifthenelse{\equal{\captionnumfigure}{roman}}{
-	\renewcommand{\thefigure}{\roman{figure}}
+	\renewcommand{\thefigure}{\sectionobjectnum\roman{figure}}
 }{
 \ifthenelse{\equal{\captionnumfigure}{Roman}}{
-	\renewcommand{\thefigure}{\Roman{figure}}
+	\renewcommand{\thefigure}{\sectionobjectnum\Roman{figure}}
 }{
 	\throwbadconfig{Tipo numero figura desconocido}{\captionnumfigure}{arabic,alph,Alph,roman,Roman}}}}}
 }
 
-% Subfiguras
+% Subfiguras, NO USAR SECCIONES YA QUE SON HIJAS DE FIGURA
 \ifthenelse{\equal{\captionnumsubfigure}{arabic}}{
 	\renewcommand{\thesubfigure}{\arabic{subfigure}}
 }{
@@ -147,26 +161,26 @@
 	\throwbadconfig{Tipo numero subfigura desconocido}{\captionnumsubfigure}{arabic,alph,Alph,roman,Roman}}}}}
 }
 
-% Tablas
+% Tablas, INCLUIR SECCIÓN
 \ifthenelse{\equal{\captionnumtable}{arabic}}{
-	\renewcommand{\thetable}{\arabic{table}}
+	\renewcommand{\thetable}{\sectionobjectnum\arabic{table}}
 }{
 \ifthenelse{\equal{\captionnumtable}{alph}}{
-	\renewcommand{\thetable}{\alph{table}}
+	\renewcommand{\thetable}{\sectionobjectnum\alph{table}}
 }{
 \ifthenelse{\equal{\captionnumtable}{Alph}}{
-	\renewcommand{\thetable}{\Alph{table}}
+	\renewcommand{\thetable}{\sectionobjectnum\Alph{table}}
 }{
 \ifthenelse{\equal{\captionnumtable}{roman}}{
-	\renewcommand{\thetable}{\roman{table}}
+	\renewcommand{\thetable}{\sectionobjectnum\roman{table}}
 }{
 \ifthenelse{\equal{\captionnumtable}{Roman}}{
-	\renewcommand{\thetable}{\Roman{table}}
+	\renewcommand{\thetable}{\sectionobjectnum\Roman{table}}
 }{
 	\throwbadconfig{Tipo numero tabla desconocido}{\captionnumtable}{arabic,alph,Alph,roman,Roman}}}}}
 }
 
-% Subtablas
+% Subtablas, NO INCLUIR SECCIÓN YA QUE SON HIJAS DE LAS TABLAS
 \ifthenelse{\equal{\captionnumsubtable}{arabic}}{
 	\renewcommand{\thesubtable}{\arabic{subtable}}
 }{
@@ -185,21 +199,21 @@
 	\throwbadconfig{Tipo numero subtabla desconocido}{\captionnumsubtable}{arabic,alph,Alph,roman,Roman}}}}}
 }
 
-% Código fuente
+% Código fuente, INCLUIR SECCIÓN
 \ifthenelse{\equal{\captionnumcode}{arabic}}{
-	\renewcommand{\thelstlisting}{\arabic{lstlisting}}
+	\renewcommand{\thelstlisting}{\sectionobjectnum\arabic{lstlisting}}
 }{
 \ifthenelse{\equal{\captionnumcode}{alph}}{
-	\renewcommand{\thelstlisting}{\alph{lstlisting}}
+	\renewcommand{\thelstlisting}{\sectionobjectnum\alph{lstlisting}}
 }{
 \ifthenelse{\equal{\captionnumcode}{Alph}}{
-	\renewcommand{\thelstlisting}{\Alph{lstlisting}}
+	\renewcommand{\thelstlisting}{\sectionobjectnum\Alph{lstlisting}}
 }{
 \ifthenelse{\equal{\captionnumcode}{roman}}{
-	\renewcommand{\thelstlisting}{\roman{lstlisting}}
+	\renewcommand{\thelstlisting}{\sectionobjectnum\roman{lstlisting}}
 }{
 \ifthenelse{\equal{\captionnumcode}{Roman}}{
-	\renewcommand{\thelstlisting}{\Roman{lstlisting}}
+	\renewcommand{\thelstlisting}{\sectionobjectnum\Roman{lstlisting}}
 }{
 	\throwbadconfig{Tipo numero codigo fuente desconocido}{\captionnumcode}{arabic,alph,Alph,roman,Roman}}}}}
 }
