@@ -107,22 +107,62 @@
 	\ifthenelse{\equal{\equalmarginnumobject}{true}}{
 		
 		% Calcula tamaño del margen de los números en objetos del índice dependiendo de la configuración
-		\ifthenelse{\equal{\showsectioncaption}{none}}{
-			\def\cftdefautnumwidth {3.0em}
+		
+		% Código fuente
+		\ifthenelse{\equal{\showsectioncaptioncode}{none}}{
+			\def\cftdefautnumwidthcode {3.0em}
 		}{
-		\ifthenelse{\equal{\showsectioncaption}{sec}}{
-			\def\cftdefautnumwidth {3.7em}
+		\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{
+			\def\cftdefautnumwidthcode {3.7em}
 		}{
-		\ifthenelse{\equal{\showsectioncaption}{ssec}}{
-			\def\cftdefautnumwidth {4.4em}
+		\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{
+			\def\cftdefautnumwidthcode {4.4em}
 		}{
-		\ifthenelse{\equal{\showsectioncaption}{sssec}}{
-			\def\cftdefautnumwidth {5.1em}
+		\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{
+			\def\cftdefautnumwidthcode {5.1em}
 		}{
-		\ifthenelse{\equal{\showsectioncaption}{ssssec}}{
-			\def\cftdefautnumwidth {5.8em}
+		\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{
+			\def\cftdefautnumwidthcode {5.8em}
 		}{
-			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaption}{none,sec,ssec,sssec,ssssec}}}}}
+			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,sec,ssec,sssec,ssssec}}}}}
+		}
+		
+		% Figuras
+		\ifthenelse{\equal{\showsectioncaptionfig}{none}}{
+			\def\cftdefautnumwidthfig {3.0em}
+		}{
+		\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{
+			\def\cftdefautnumwidthfig {3.7em}
+		}{
+		\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{
+			\def\cftdefautnumwidthfig {4.4em}
+		}{
+		\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{
+			\def\cftdefautnumwidthfig {5.1em}
+		}{
+		\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{
+			\def\cftdefautnumwidthfig {5.8em}
+		}{
+			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionfig}{none,sec,ssec,sssec,ssssec}}}}}
+		}
+		
+		% Tablas
+		\ifthenelse{\equal{\showsectioncaptiontab}{none}}{
+			\def\cftdefautnumwidthtab {3.0em}
+		}{
+		\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{
+			\def\cftdefautnumwidthtab {3.7em}
+		}{
+		\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{
+			\def\cftdefautnumwidthtab {4.4em}
+		}{
+		\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{
+			\def\cftdefautnumwidthtab {5.1em}
+		}{
+		\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{
+			\def\cftdefautnumwidthtab {5.8em}
+		}{
+			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptiontab}{none,sec,ssec,sssec,ssssec}}}}}
 		}
 		
 		% Configuración identado de títulos de objetos después del número
@@ -136,37 +176,46 @@
 	% Configura el margen si hay números romanos
 	\def\cftdefaultnumwidthroman {5.25em}
 	
-	% Figuras
-	\ifthenelse{\equal{\captionnumfigure}{arabic}}{ % No hace nada (default)
-	}{
-		\ifthenelse{\equal{\captionnumfigure}{roman}}{
-			\def\cftfignumwidth {\cftdefaultnumwidthroman}
-		}{
-			\ifthenelse{\equal{\captionnumfigure}{Roman}}{
-				\def\cftfignumwidth {\cftdefaultnumwidthroman}
-			}{}}
-	}
-
-	% Tablas
-	\ifthenelse{\equal{\captionnumtable}{arabic}}{ % No hace nada (default)
-	}{
-		\ifthenelse{\equal{\captionnumtable}{roman}}{
-			\def\cfttabnumwidth {\cftdefaultnumwidthroman}
-		}{
-			\ifthenelse{\equal{\captionnumtable}{Roman}}{
-				\def\cfttabnumwidth {\cftdefaultnumwidthroman}
-			}{}}
-	}
-	
 	% Código fuente
 	\ifthenelse{\equal{\captionnumcode}{arabic}}{ % No hace nada (default)
+		\def\cftlstlistingnumwidth {\cftdefautnumwidthcode}
 	}{
 		\ifthenelse{\equal{\captionnumcode}{roman}}{
 			\def\cftlstlistingnumwidth {\cftdefaultnumwidthroman}
 		}{
 		\ifthenelse{\equal{\captionnumcode}{Roman}}{
 			\def\cftlstlistingnumwidth {\cftdefaultnumwidthroman}
-		}{}}
+		}{
+			\def\cftlstlistingnumwidth {\cftdefautnumwidthcode}
+		}}
+	}
+	
+	% Figuras
+	\ifthenelse{\equal{\captionnumfigure}{arabic}}{ % No hace nada (default)
+		\def\cftfignumwidth {\cftdefautnumwidthfig}
+	}{
+		\ifthenelse{\equal{\captionnumfigure}{roman}}{
+			\def\cftfignumwidth {\cftdefaultnumwidthroman}
+		}{
+			\ifthenelse{\equal{\captionnumfigure}{Roman}}{
+				\def\cftfignumwidth {\cftdefaultnumwidthroman}
+			}{
+				\def\cftfignumwidth {\cftdefautnumwidthfig}
+			}}
+	}
+
+	% Tablas
+	\ifthenelse{\equal{\captionnumtable}{arabic}}{ % No hace nada (default)
+		\def\cfttabnumwidth {\cftdefautnumwidthtab}
+	}{
+		\ifthenelse{\equal{\captionnumtable}{roman}}{
+			\def\cfttabnumwidth {\cftdefaultnumwidthroman}
+		}{
+			\ifthenelse{\equal{\captionnumtable}{Roman}}{
+				\def\cfttabnumwidth {\cftdefaultnumwidthroman}
+			}{
+				\def\cfttabnumwidth {\cftdefautnumwidthtab}
+			}}
 	}
 
 	% -------------------------------------------------------------------------
