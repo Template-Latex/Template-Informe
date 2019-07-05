@@ -102,89 +102,96 @@
 	}
 	
 	% -------------------------------------------------------------------------
-	% Iguala tamaño del margen en números de objetos
+	% Calcula tamaño del margen de los números en objetos del índice
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\equalmarginnumobject}{true}}{
-		
-		% Calcula tamaño del margen de los números en objetos del índice dependiendo de la configuración
-		
-		% Código fuente
-		\ifthenelse{\equal{\showsectioncaptioncode}{none}}{
-			\def\cftdefautnumwidthcode {3.0em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{
-			\def\cftdefautnumwidthcode {3.7em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{
-			\def\cftdefautnumwidthcode {4.4em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{
-			\def\cftdefautnumwidthcode {5.1em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{
-			\def\cftdefautnumwidthcode {5.8em}
-		}{
-			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,sec,ssec,sssec,ssssec}}}}}
-		}
-		
-		% Figuras
-		\ifthenelse{\equal{\showsectioncaptionfig}{none}}{
-			\def\cftdefautnumwidthfig {3.0em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{
-			\def\cftdefautnumwidthfig {3.7em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{
-			\def\cftdefautnumwidthfig {4.4em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{
-			\def\cftdefautnumwidthfig {5.1em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{
-			\def\cftdefautnumwidthfig {5.8em}
-		}{
-			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionfig}{none,sec,ssec,sssec,ssssec}}}}}
-		}
-		
-		% Tablas
-		\ifthenelse{\equal{\showsectioncaptiontab}{none}}{
-			\def\cftdefautnumwidthtab {3.0em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{
-			\def\cftdefautnumwidthtab {3.7em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{
-			\def\cftdefautnumwidthtab {4.4em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{
-			\def\cftdefautnumwidthtab {5.1em}
-		}{
-		\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{
-			\def\cftdefautnumwidthtab {5.8em}
-		}{
-			\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptiontab}{none,sec,ssec,sssec,ssssec}}}}}
-		}
-		
-		% Configuración identado de títulos de objetos después del número
-		\def\cftfignumwidth {\cftdefautnumwidth}
-		% \def\cftsubfignumwidth {\cftdefautnumwidth}
-		\def\cfttabnumwidth {\cftdefautnumwidth}
-		\def\cftlstlistingnumwidth {\cftdefautnumwidth}}{
-		
+	
+	% Código fuente
+	\ifthenelse{\equal{\showsectioncaptioncode}{none}}{
+		\def\cftdefautnumwidthcode {3.0em} % Añade +0.7em
+		\def\cftdefaultnumwidthromancode {5.25em} % Añade +0.5em para no overflow
+	}{
+	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{
+		\def\cftdefautnumwidthcode {3.7em}
+		\def\cftdefaultnumwidthromancode {5.75em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{
+		\def\cftdefautnumwidthcode {4.4em}
+		\def\cftdefaultnumwidthromancode {6.25em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{
+		\def\cftdefautnumwidthcode {5.1em}
+		\def\cftdefaultnumwidthromancode {6.75em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{
+		\def\cftdefautnumwidthcode {5.8em}
+		\def\cftdefaultnumwidthromancode {7.25em}
+	}{
+		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,sec,ssec,sssec,ssssec}}}}}
 	}
-
-	% Configura el margen si hay números romanos
-	\def\cftdefaultnumwidthroman {5.25em}
+	
+	% Figuras
+	\ifthenelse{\equal{\showsectioncaptionfig}{none}}{
+		\def\cftdefautnumwidthfig {3.0em} % Añade +0.7em
+		\def\cftdefaultnumwidthromanfig {5.25em} % Añade +0.5em
+	}{
+	\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{
+		\def\cftdefautnumwidthfig {3.7em}
+		\def\cftdefaultnumwidthromanfig {5.75em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{
+		\def\cftdefautnumwidthfig {4.4em}
+		\def\cftdefaultnumwidthromanfig {6.25em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{
+		\def\cftdefautnumwidthfig {5.1em}
+		\def\cftdefaultnumwidthromanfig {6.75em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{
+		\def\cftdefautnumwidthfig {5.8em}
+		\def\cftdefaultnumwidthromanfig {7.25em}
+	}{
+		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionfig}{none,sec,ssec,sssec,ssssec}}}}}
+	}
+	
+	% Tablas
+	\ifthenelse{\equal{\showsectioncaptiontab}{none}}{
+		\def\cftdefautnumwidthtab {3.0em} % Añade +0.7em
+		\def\cftdefaultnumwidthromantab {5.25em} % Añade +0.5em
+	}{
+	\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{
+		\def\cftdefautnumwidthtab {3.7em}
+		\def\cftdefaultnumwidthromantab {5.75em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{
+		\def\cftdefautnumwidthtab {4.4em}
+		\def\cftdefaultnumwidthromantab {6.25em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{
+		\def\cftdefautnumwidthtab {5.1em}
+		\def\cftdefaultnumwidthromantab {6.75em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{
+		\def\cftdefautnumwidthtab {5.8em}
+		\def\cftdefaultnumwidthromantab {7.25em}
+	}{
+		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptiontab}{none,sec,ssec,sssec,ssssec}}}}}
+	}
+	
+	% Configuración identado de títulos de objetos después del número
+	\def\cftfignumwidth {\cftdefautnumwidth}
+	% \def\cftsubfignumwidth {\cftdefautnumwidth}
+	\def\cfttabnumwidth {\cftdefautnumwidth}
+	\def\cftlstlistingnumwidth {\cftdefautnumwidth}
 	
 	% Código fuente
 	\ifthenelse{\equal{\captionnumcode}{arabic}}{ % No hace nada (default)
 		\def\cftlstlistingnumwidth {\cftdefautnumwidthcode}
 	}{
 		\ifthenelse{\equal{\captionnumcode}{roman}}{
-			\def\cftlstlistingnumwidth {\cftdefaultnumwidthroman}
+			\def\cftlstlistingnumwidth {\cftdefaultnumwidthromancode}
 		}{
 		\ifthenelse{\equal{\captionnumcode}{Roman}}{
-			\def\cftlstlistingnumwidth {\cftdefaultnumwidthroman}
+			\def\cftlstlistingnumwidth {\cftdefaultnumwidthromancode}
 		}{
 			\def\cftlstlistingnumwidth {\cftdefautnumwidthcode}
 		}}
@@ -195,10 +202,10 @@
 		\def\cftfignumwidth {\cftdefautnumwidthfig}
 	}{
 		\ifthenelse{\equal{\captionnumfigure}{roman}}{
-			\def\cftfignumwidth {\cftdefaultnumwidthroman}
+			\def\cftfignumwidth {\cftdefaultnumwidthromanfig}
 		}{
 			\ifthenelse{\equal{\captionnumfigure}{Roman}}{
-				\def\cftfignumwidth {\cftdefaultnumwidthroman}
+				\def\cftfignumwidth {\cftdefaultnumwidthromanfig}
 			}{
 				\def\cftfignumwidth {\cftdefautnumwidthfig}
 			}}
@@ -209,10 +216,10 @@
 		\def\cfttabnumwidth {\cftdefautnumwidthtab}
 	}{
 		\ifthenelse{\equal{\captionnumtable}{roman}}{
-			\def\cfttabnumwidth {\cftdefaultnumwidthroman}
+			\def\cfttabnumwidth {\cftdefaultnumwidthromantab}
 		}{
 			\ifthenelse{\equal{\captionnumtable}{Roman}}{
-				\def\cfttabnumwidth {\cftdefaultnumwidthroman}
+				\def\cfttabnumwidth {\cftdefaultnumwidthromantab}
 			}{
 				\def\cfttabnumwidth {\cftdefautnumwidthtab}
 			}}
