@@ -182,19 +182,19 @@
 
 % Ecuaciones, INCLUIR SECCIÓN
 \ifthenelse{\equal{\captionnumequation}{arabic}}{
-	\renewcommand{\theequation}{\sectionobjectnumeqn\arabic{figure}}
+	\renewcommand{\theequation}{\sectionobjectnumeqn\arabic{equation}}
 }{
 \ifthenelse{\equal{\captionnumequation}{alph}}{
-	\renewcommand{\theequation}{\sectionobjectnumeqn\alph{figure}}
+	\renewcommand{\theequation}{\sectionobjectnumeqn\alph{equation}}
 }{
 \ifthenelse{\equal{\captionnumequation}{Alph}}{
-	\renewcommand{\theequation}{\sectionobjectnumeqn\Alph{figure}}
+	\renewcommand{\theequation}{\sectionobjectnumeqn\Alph{equation}}
 }{
 \ifthenelse{\equal{\captionnumequation}{roman}}{
-	\renewcommand{\theequation}{\sectionobjectnumeqn\roman{figure}}
+	\renewcommand{\theequation}{\sectionobjectnumeqn\roman{equation}}
 }{
 \ifthenelse{\equal{\captionnumequation}{Roman}}{
-	\renewcommand{\theequation}{\sectionobjectnumeqn\Roman{figure}}
+	\renewcommand{\theequation}{\sectionobjectnumeqn\Roman{equation}}
 }{
 	\throwbadconfig{Tipo numero ecuacion desconocido}{\captionnumequation}{arabic,alph,Alph,roman,Roman}}}}}
 }
