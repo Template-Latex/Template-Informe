@@ -34,13 +34,13 @@
 % Crea una página vacía
 \newcommand{\insertemptypage}{
 	\newpage
-	\setcounter{templatepagecounter}{\thepage}
+	\setcounter{templatePageCounter}{\thepage}
 	\pagenumbering{gobble}
 	\null
 	\thispagestyle{empty}
 	\newpage
 	\pagenumbering{arabic}
-	\setcounter{page}{\thetemplatepagecounter}
+	\setcounter{page}{\thetemplatePageCounter}
 }
 
 % Añade un archivo pdf con el header
