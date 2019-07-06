@@ -11,6 +11,149 @@
 % Sitio web del proyecto: [https://ppizarror.com/Template-Auxiliares/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
+% Parcha las secciones para resetear numeraciones
+\pretocmd{\section}{
+	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{ % Reinicia código fuente
+		\addtocounter{templateListings}{\value{lstlisting}}
+		\setcounter{lstlisting}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptioneqn}{sec}}{ % Reinicia ecuaciones
+		\addtocounter{templateEquations}{\value{equation}}
+		\setcounter{equation}{0}
+	}{}
+	\ifthenelse{\equal{\equationrestart}{sec}}{ % Reinicia ecuaciones
+		\addtocounter{templateEquations}{\value{equation}}
+		\setcounter{equation}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{ % Reinicia figuras
+		\addtocounter{templateFigures}{\value{figure}}
+		\setcounter{figure}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{ % Reinicia tablas
+		\addtocounter{templateTables}{\value{table}}
+		\setcounter{table}{0}
+	}{}
+	\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+		\renewcommand{\thesubsection}{\Alph{section}.\arabic{subsection}}
+	}{
+		\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+	}
+	\def\GLOBALsectionanumenabled{false}
+	\def\GLOBALsubsectionanumenabled{false}
+}{}{}
+
+% Comienza nueva subsección, si está dentro de una sectionanum entonces no dibuja el
+% número de sección, si no entonces dibuja el número de forma normal
+\pretocmd{\subsection}{
+	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{ % Reinicia código fuente
+		\addtocounter{templateListings}{\value{lstlisting}}
+		\setcounter{lstlisting}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptioneqn}{ssec}}{ % Reinicia ecuaciones
+		\addtocounter{templateEquations}{\value{equation}}
+		\setcounter{equation}{0}
+	}{}
+	\ifthenelse{\equal{\equationrestart}{ssec}}{ % Reinicia ecuaciones
+		\addtocounter{templateEquations}{\value{equation}}
+		\setcounter{equation}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{ % Reinicia figuras
+		\addtocounter{templateFigures}{\value{figure}}
+		\setcounter{figure}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{ % Reinicia tablas
+		\addtocounter{templateTables}{\value{table}}
+		\setcounter{table}{0}
+	}{}
+	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
+		\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+	}{
+		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+			\renewcommand{\thesubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}}
+		}{
+			\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+		}
+	}
+	\def\GLOBALsubsectionanumenabled{false}
+}{}{}
+
+% Comienza nueva subsubsección, aquí hay varios casos:
+%	- si está dentro de una subsección sin número ignora la sección
+%	- si no, entonces puede estar dentro de una sección sin número o no, en ese caso
+%     debe evaluar ambas posibilidades
+\pretocmd{\subsubsection}{
+	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{ % Reinicia código fuente
+		\addtocounter{templateListings}{\value{lstlisting}}
+		\setcounter{lstlisting}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptioneqn}{sssec}}{ % Reinicia ecuaciones
+		\addtocounter{templateEquations}{\value{equation}}
+		\setcounter{equation}{0}
+	}{}
+	\ifthenelse{\equal{\equationrestart}{sssec}}{ % Reinicia ecuaciones
+		\addtocounter{templateEquations}{\value{equation}}
+		\setcounter{equation}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{ % Reinicia figuras
+		\addtocounter{templateFigures}{\value{figure}}
+		\setcounter{figure}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{ % Reinicia tablas
+		\addtocounter{templateTables}{\value{table}}
+		\setcounter{table}{0}
+	}{}
+	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
+		\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}
+	}{
+		\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
+			% Se ocultan las secciones
+			\ifthenelse{\equal{\showdotaftersnum}{true}}{
+				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
+			}{
+				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
+			}
+		}{
+			% Se muestra la ruta completa
+			\ifthenelse{\equal{\showdotaftersnum}{true}}{
+				\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+					\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}	
+				}{
+					\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
+				}
+			}{
+				\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+					\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
+				}{
+					\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
+				}
+			}
+		}
+	}
+}{}{}
+
+\pretocmd{\subsubsubsection}{
+	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{ % Reinicia código fuente
+		\addtocounter{templateListings}{\value{lstlisting}}
+		\setcounter{lstlisting}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{ % Reinicia ecuaciones
+		\addtocounter{templateEquations}{\value{equation}}
+		\setcounter{equation}{0}
+	}{}
+	\ifthenelse{\equal{\equationrestart}{ssssec}}{ % Reinicia ecuaciones
+		\addtocounter{templateEquations}{\value{equation}}
+		\setcounter{equation}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{ % Reinicia figuras
+		\addtocounter{templateFigures}{\value{figure}}
+		\setcounter{figure}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{ % Reinicia tablas
+		\addtocounter{templateTables}{\value{table}}
+		\setcounter{table}{0}
+	}{}
+}{}{}
+
 % Insertar un título sin número
 % 	#1	Título
 \newcommand{\sectionanum}[1]{
