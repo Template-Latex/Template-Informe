@@ -121,7 +121,6 @@
 % -----------------------------------------------------------------------------
 % Definición de valores e dimensiones
 % -----------------------------------------------------------------------------
-\newcounter{templatepagecounter} % Administra números de páginas
 \renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
 \setlength{\headheight}{64 pt} % Tamaño de la cabecera sin fancyhdr
 % \setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
@@ -474,26 +473,19 @@
 }
 
 % -----------------------------------------------------------------------------
-% Restauración número ecuación
+% Restauración número ecuación, NOTA: NO hace nada, sólo se modifica en title.tex
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\equationrestart}{none}}{
 }{
 \ifthenelse{\equal{\equationrestart}{sec}}{
-	\counterwithin*{equation}{section}
 }{
 \ifthenelse{\equal{\equationrestart}{ssec}}{
-	\counterwithin*{equation}{subsection}
 }{
 \ifthenelse{\equal{\equationrestart}{sssec}}{
-	\counterwithin*{equation}{subsubsection}
 }{
 \ifthenelse{\equal{\equationrestart}{ssssec}}{
-	\counterwithin*{equation}{subsubsubsection}
 }{
-\ifthenelse{\equal{\equationrestart}{page}}{
-	\counterwithin*{equation}{page}
-}{
-	\throwbadconfig{Formato reinicio numero ecuacion desconocido}{\footnoterestart}{none,page,sec,ssec,sssec,ssssec}}}}}}
+	\throwbadconfig{Formato reinicio numero ecuacion desconocido}{\equationrestart}{none,sec,ssec,sssec,ssssec}}}}}
 }
 
 % -----------------------------------------------------------------------------
@@ -502,5 +494,15 @@
 
 % Desactiva carácteres acentuados en operaciones matemáticas
 \unaccentedoperators
+
+% -----------------------------------------------------------------------------
+% Configura número de objetos en el final del documento
+% -----------------------------------------------------------------------------
+\AtEndDocument{
+	\setcounter{equation}{\value{templateEquations}}
+	\setcounter{figure}{\value{templateFigures}}
+	\setcounter{lstlisting}{\value{templateListings}}
+	\setcounter{table}{\value{templateTables}}
+}
 
 % END
