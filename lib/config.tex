@@ -21,7 +21,8 @@
 \def\fonturl {tt}                  % Tipo de fuente url {tt,sf,rm,same}
 \def\importtikz {false}            % Utilizar la librería tikz
 \def\pointdecimal {true}           % N° decimales con punto en vez de coma
-\def\predocuseromannumber {true}   % Pág. con número romano previo a inicio doc.
+\def\predocpageromannumber {true}  % Pág. con número romano previo a inicio doc.
+\def\predocresetpagenumber {true}  % Resetea número de la pag. tras el índice
 \def\romanpageuppercase {false}    % Páginas en número romano en mayúsculas
 \def\showlinenumbers {false}       % Muestra los números de línea del documento
 
@@ -71,7 +72,6 @@
 \def\indexstyle {ftc}              % Estilo índice {f:figura, t:tabla, c:código}
 \def\indextitlemargin {11.4}       % Margen título índice \insertindextitle [pt]
 \def\objectindexindent {false}     % Indenta la lista de objetos
-\def\resetpagnumafterindex {true}  % Resetea número de la pag. tras el índice
 \def\showindex {true}              % Muestra el índice
 \def\showindexofcontents {true}    % Muestra la lista de contenidos
 
@@ -92,7 +92,7 @@
 \def\columnsepwidth {2.1}          % Separación entre columnas [em]
 \def\defaultimagefolder {img/}     % Carpeta raíz de las imágenes
 \def\equationleftalign {false}     % Ecuaciones alineadas a la izquierda
-\def\equationrestart {sec}         % N° ecuación {none,page,(s/ss/sss/ssss)ec}
+\def\equationrestart {sec}         % Reinicio n° ecuac. {none,(s/ss/sss/ssss)ec}
 \def\footnotepagetoprule {false}   % Footnote en pag. tienen separador superior
 \def\footnoterestart {none}        % N° footnote {none,page,(s/ss/sss/ssss)ec}
 \def\imagedefaultplacement {H}     % Posición por defecto de las imágenes

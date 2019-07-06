@@ -278,10 +278,12 @@
 % -----------------------------------------------------------------------------
 % Se reestablecen números de página y secciones
 % -----------------------------------------------------------------------------
-\ifthenelse{\equal{\predocuseromannumber}{true}}{
+
+% Se usa número de páginas en arábigo si es que se tenía activado los númeos romanos
+\ifthenelse{\equal{\predocpageromannumber}{true}}{
 	\renewcommand{\thepage}{\arabic{page}}}{
 }
-\ifthenelse{\equal{\resetpagnumafterindex}{true}}{
+\ifthenelse{\equal{\predocpageromannumber}{true}}{
 	\setcounter{page}{1}}{
 }
 \setcounter{section}{0}

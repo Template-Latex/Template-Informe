@@ -15,7 +15,9 @@
 % Numeración de páginas
 % -----------------------------------------------------------------------------
 \newpage
-\ifthenelse{\equal{\predocuseromannumber}{true}}{
+
+% Si se usan números romanos en el predocumento
+\ifthenelse{\equal{\predocpageromannumber}{true}}{
 	\ifthenelse{\equal{\romanpageuppercase}{true}}{
 		\pagenumbering{Roman}
 	}{
