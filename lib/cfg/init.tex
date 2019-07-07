@@ -499,10 +499,10 @@
 % Configura número de objetos en el final del documento
 % -----------------------------------------------------------------------------
 \AtEndDocument{
-	\setcounter{equation}{\value{templateEquations}}
-	\setcounter{figure}{\value{templateFigures}}
-	\setcounter{lstlisting}{\value{templateListings}}
-	\setcounter{table}{\value{templateTables}}
+	\addtocounter{equation}{\value{templateEquations}}
+	\addtocounter{figure}{\value{templateFigures}}
+	\addtocounter{lstlisting}{\value{templateListings}}
+	\addtocounter{table}{\value{templateTables}}
 }
 
 % END
