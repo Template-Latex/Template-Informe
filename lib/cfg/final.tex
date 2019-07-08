@@ -283,7 +283,9 @@
 \ifthenelse{\equal{\predocpageromannumber}{true}}{
 	\renewcommand{\thepage}{\arabic{page}}}{
 }
-\ifthenelse{\equal{\predocpageromannumber}{true}}{
+
+% Reinicia número de página
+\ifthenelse{\equal{\predocresetpagenumber}{true}}{
 	\setcounter{page}{1}}{
 }
 \setcounter{section}{0}
