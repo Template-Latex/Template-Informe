@@ -192,7 +192,11 @@
 		\else
 			\throwwarning{Label invalido en ecuacion (gathered) sin numero}
 		\fi
-		\insertgatherededanum{#2}
+		\vspace{\margingatheredtop cm} % \insertgatheredanum{#2} tira warning
+		\begin{gather*}
+			\ensuremath{#2}
+		\end{gather*}
+		\vspace{\margingatheredbottom cm}
 	}
 }
 
