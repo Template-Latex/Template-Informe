@@ -194,7 +194,7 @@
 			\noindent \titulodelinforme ~ \\
 		}
 		\vspace*{0.5cm}
-		\Large{\noindent \temaatratar} ~ \\
+		\Large{\noindent \textcolor{\portraittitlecolor}{\temaatratar}} ~ \\
 		\vspace*{1cm}
 		\footnotesize{\codigodelcurso\ - \nombredelcurso} ~ \\
 		\vspace*{1.4cm}
@@ -563,7 +563,7 @@
 			\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\portraitbackgroundimageB}};
 			\draw (current page.center) node [fill=\portraitbackgroundcolorB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
 					\centering \textcolor{\portraittitlecolor}{\titulodelinforme} \\ [10pt]
-					{\Large \temaatratar} \\ [25pt]
+					{\Large \textcolor{\portraittitlecolor}{\temaatratar}} \\ [25pt]
 					{\huge \autordeldocumento}}};
 		\end{tikzpicture}
 		\vfill
@@ -705,8 +705,8 @@
 	\hspace{0.05\textwidth}
 	\parbox[b]{0.75\textwidth}{
 		
-		{\Huge\bfseries \titulodelinforme}\\[2\baselineskip]
-		{\large\textit{\temaatratar}}\\[4\baselineskip]
+		{\Huge\bfseries \textcolor{\portraittitlecolor}{\titulodelinforme}}\\[2\baselineskip]
+		{\large\textit{\textcolor{\portraittitlecolor}{\temaatratar}}}\\[4\baselineskip]
 		\vspace*{2cm}
 		{\textsc{
 		\begin{flushleft}
