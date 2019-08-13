@@ -51,6 +51,72 @@
 	\vspace{\marginequationbottom cm}
 }
 
+% Insertar una ecuación alineada a la izquierda
+% 	#1	Label (opcional)
+%	#2	Ecuación
+\newcommand{\insertequationleft}[2][]{
+	\emptyvarerr{\insertequationleft}{#2}{Ecuacion no definida}
+	\ifthenelse{\equal{\numberedequation}{true}}{
+		\vspace{\marginequationtop cm}
+		\vspace{-\baselineskip}
+		\begin{equation}
+			\hfilneg \text{#1} #2 \hspace{10000pt minus 1fil}
+		\end{equation}
+		\vspace{\marginequationbottom cm}
+	}{
+		\ifx\hfuzz#1\hfuzz
+		\else
+			\throwwarning{Label invalido en ecuacion sin numero}
+		\fi
+		\insertequationleftanum{#2}
+	}
+}
+
+% Insertar una ecuación sin número alineada a la izquierda
+%	#1	Ecuación
+\newcommand{\insertequationleftanum}[1]{
+	\emptyvarerr{\insertequationleftanum}{#1}{Ecuacion no definida}
+	\vspace{\marginequationtop cm}
+	\vspace{-\baselineskip}
+	\begin{equation*}
+		\hfilneg \ensuremath{#1} \hspace{10000pt minus 1fil}
+	\end{equation*}
+	\vspace{\marginequationbottom cm}
+}
+
+% Insertar una ecuación alineada a la derecha
+% 	#1	Label (opcional)
+%	#2	Ecuación
+\newcommand{\insertequationright}[2][]{
+	\emptyvarerr{\insertequationright}{#2}{Ecuacion no definida}
+	\ifthenelse{\equal{\numberedequation}{true}}{
+		\vspace{\marginequationtop cm}
+		\vspace{-\baselineskip}
+		\begin{equation}
+			\hspace{10000pt minus 1fil} \text{#1} #2 \hfilneg
+		\end{equation}
+		\vspace{\marginequationbottom cm}
+	}{
+		\ifx\hfuzz#1\hfuzz
+		\else
+			\throwwarning{Label invalido en ecuacion sin numero}
+		\fi
+		\insertequationrightanum{#2}
+	}
+}
+
+% Insertar una ecuación sin número alineada a la derecha
+%	#1	Ecuación
+\newcommand{\insertequationrightanum}[1]{
+	\emptyvarerr{\insertequationrightanum}{#1}{Ecuacion no definida}
+	\vspace{\marginequationtop cm}
+	\vspace{-\baselineskip}
+	\begin{equation*}
+		\hspace{10000pt minus 1fil} \ensuremath{#1} \hfilneg
+	\end{equation*}
+	\vspace{\marginequationbottom cm}
+}
+
 % Insertar una ecuación con leyenda
 % 	#1	Label (opcional)
 %	#2	Ecuación
