@@ -80,6 +80,11 @@
             "ALT": "Template-Informe"
         },
         "11": {
+            "IMAGE": "https://latex.ppizarror.com/res/badges/reporte.svg",
+            "HREF": "https://github.com/Template-Latex/Template-Reporte/",
+            "ALT": "Template-Reporte"
+        },
+        "12": {
             "IMAGE": "https://latex.ppizarror.com/res/badges/professionalcv.svg",
             "HREF": "https://github.com/Template-Latex/Professional-CV/",
             "ALT": "Professional-CV"
