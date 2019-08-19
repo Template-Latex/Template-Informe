@@ -1,0 +1,29 @@
+% -----------------------------------------------------------------------------
+% Operaciones especiales Template-Reporte
+% -----------------------------------------------------------------------------
+\title{\titulodelinforme}
+\author{\autordeldocumento}
+\def\predocpageromannumber{false}
+\def\predocresetpagenumber{false}
+\def\tablaintegrantes{}
+\makeatletter
+\def\inserttitle{
+	\null
+	\vskip 2em
+	\begin{center}
+		\let \footnote \thanks
+		{\LARGE \@title \par}
+		\vskip 1.5em
+		{\large
+			\lineskip .5em
+			\begin{tabular}[t]{c}
+				\@author
+			\end{tabular}\par}
+		\vskip 1em
+		{\large \@date}
+	\end{center}
+	\par
+	\vskip 1.5em}
+\makeatother
+
+% END
