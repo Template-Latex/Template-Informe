@@ -3,27 +3,32 @@
 % -----------------------------------------------------------------------------
 \title{\titulodelinforme}
 \author{\autordeldocumento}
+\date{\fechadeldeporte}
 \def\predocpageromannumber{false}
 \def\predocresetpagenumber{false}
 \def\tablaintegrantes{}
 \makeatletter
 \def\inserttitle{
 	\null
-	\vskip 2em
+	\vskip \titlesupmargin
 	\begin{center}
 		\let \footnote \thanks
-		{\LARGE \@title \par}
-		\vskip 1.5em
-		{\large
-			\lineskip .5em
-			\begin{tabular}[t]{c}
-				\@author
-			\end{tabular}\par}
-		\vskip 1em
-		{\large \@date}
+		{\titlefontsize \titlefontstyle \@title \par}
+		\ifthenelse{\equal{\titleshowauthor}{true}}{
+			\vskip \titlelinemargin
+			{\large
+				\lineskip 0.5em
+				\begin{tabular}[t]{c}
+					\@author
+				\end{tabular}\par}
+		}{}
+		\ifthenelse{\equal{\titleshowdate}{true}}{
+			\vskip 1em
+			{\large \@date}
+		}{}
 	\end{center}
 	\par
-	\vskip 1.5em}
+	\vskip \titlelinemargin}
 \makeatother
 
 % END
