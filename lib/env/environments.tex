@@ -45,13 +45,13 @@
 		numbered,
 		openlevel=0
 	}
+	\bookmarksetupnext{level=part}
 	\begin{appendices} % Crea la sección
-		\bookmarksetupnext{level=part}
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
 			\belowpdfbookmark{\nameappendixsection}{contents}
 		}
-		\setcounter{secnumdepth}{4}
-		\setcounter{tocdepth}{4}
+		% \setcounter{secnumdepth}{4}
+		% \setcounter{tocdepth}{4}
 		\ifthenelse{\equal{\appendixindepobjnum}{true}}{
 			\counterwithin{equation}{section}
 			\counterwithin{figure}{section}
