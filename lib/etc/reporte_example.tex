@@ -77,7 +77,7 @@
 \section{Aquí un nuevo tema}
 
 	% SUB-SECCIÓN
-	\subsection{Haciendo informes como un profesional}
+	\subsection{Haciendo reportes como un profesional}
 
 		% Se inserta una imagen flotante en la izquierda del documento con
 		% \insertimageleft, al igual que las demás funciones, el primer parámetro
@@ -179,7 +179,7 @@ title('Espectro de pulso de desplazamiento');
 	% SUB-SECCIÓN
 	\subsection{Añadir múltiples imágenes}
 
-	El template ofrece el entorno \href{https://latex.ppizarror.com/informe.html#hlp-images}{\hreftext{images}} que permite insertar múltiples imágenes de una manera muy sencilla\footnote{Desde la versión \texttt{6.0.0} no se da soporte a las funciones de inserción de imágenes múltiples \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash insertdoubleeqimage}, \texttt{\textbackslash inserttripleimage}, \texttt{\textbackslash inserttripleeqimage}, \texttt{\textbackslash insertquadimage}, \texttt{\textbackslash insertpentaimage} y \texttt{\textbackslash inserthexaimage}.}. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
+	El template ofrece el entorno \href{https://latex.ppizarror.com/informe.html#hlp-images}{\hreftext{images}} que permite insertar múltiples imágenes de una manera muy sencilla. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
 
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
@@ -299,60 +299,61 @@ title('Espectro de pulso de desplazamiento');
 % ------------------------------------------------------------------------------
 \newpage
 \begin{anexo}
-	\section{Cálculos realizados}
 
-		\subsection{Metodología}
-			\lipsum[1]
+\section{Cálculos realizados}
 
-			% Imagen, se numerará automáticamente con la letra del anexo según
-			% la configuración \appendixindepobjnum
-			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
-
-		\subsection{Resultados}
-			\lipsum[10]
-
-			% Tablas
-			\enabletablerowcolor[2] % Activa el color de celda
-			\begin{table}[htbp]
-				\centering
-				\caption{Tabla de cálculo.}
-				\begin{tabular}{ccc}
-					\hline
-					\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
-					\hline
-					A     & 10    & 3,14$\pi$ \bigstrut[t]\\
-					B     & 20    & 6 \\
-					C     & 30    & 7 \\
-					D     & 150    & 10 \\
-					E     & 0    & 0 \\
-					\hline
-					\end{tabular}
-				\label{tab:anexo-1}
-			\end{table}
-			\disabletablerowcolor % Desactiva el color de celda
-
-	\newpage
-	\section{Más cálculos}
-
-		% Párrafo
+	\subsection{Metodología}
 		\lipsum[1]
 
-		% Nuevo párrafo con identación
-		\newp \lipsum[4]
+		% Imagen, se numerará automáticamente con la letra del anexo según
+		% la configuración \appendixindepobjnum
+		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
 
-		% Tabla de encuestas
+	\subsection{Resultados}
+		\lipsum[10]
+
+		% Tablas
+		\enabletablerowcolor[2] % Activa el color de celda
 		\begin{table}[htbp]
 			\centering
-			\caption{Resultados encuesta.}
+			\caption{Tabla de cálculo.}
 			\begin{tabular}{ccc}
 				\hline
-				\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
+				\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
 				\hline
-				\LaTeX & 100\% & Si $\checkmark$ \\
-				Microsoft Word \textsuperscript{\textregistered} & 0\% & No $\frownie$\\
+				A     & 10    & 3,14$\pi$ \bigstrut[t]\\
+				B     & 20    & 6 \\
+				C     & 30    & 7 \\
+				D     & 150    & 10 \\
+				E     & 0    & 0 \\
 				\hline
-			\end{tabular}
-			\label{tab:anexo-2}
+				\end{tabular}
+			\label{tab:anexo-1}
 		\end{table}
+		\disabletablerowcolor % Desactiva el color de celda
+
+\newpage
+\section{Más cálculos}
+
+	% Párrafo
+	\lipsum[1]
+
+	% Nuevo párrafo con identación
+	\newp \lipsum[4]
+
+	% Tabla de encuestas
+	\begin{table}[htbp]
+		\centering
+		\caption{Resultados encuesta.}
+		\begin{tabular}{ccc}
+			\hline
+			\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
+			\hline
+			\LaTeX & 100\% & Si $\checkmark$ \\
+			Microsoft Word \textsuperscript{\textregistered} & 0\% & No $\frownie$\\
+			\hline
+		\end{tabular}
+		\label{tab:anexo-2}
+	\end{table}
 
 \end{anexo}
