@@ -11,6 +11,30 @@
 % Sitio web del proyecto: [https://ppizarror.com/Template-Auxiliares/]
 % Licencia: MIT           [https://opensource.org/licenses/MIT]
 
+% Parcha el formato de capítulos
+\pretocmd{\chapter}{
+	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
+		\addtocounter{templateListings}{\value{lstlisting}}
+		\setcounter{lstlisting}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptioneqn}{chap}}{ % Reinicia ecuaciones
+		\addtocounter{templateEquations}{\value{equation}}
+		\setcounter{equation}{0}
+	}{}
+	\ifthenelse{\equal{\equationrestart}{chap}}{ % Reinicia ecuaciones
+		\addtocounter{templateEquations}{\value{equation}}
+		\setcounter{equation}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptionfig}{chap}}{ % Reinicia figuras
+		\addtocounter{templateFigures}{\value{figure}}
+		\setcounter{figure}{0}
+	}{}
+	\ifthenelse{\equal{\showsectioncaptiontab}{chap}}{ % Reinicia tablas
+		\addtocounter{templateTables}{\value{table}}
+		\setcounter{table}{0}
+	}{}
+}{}{}
+
 % Parcha las secciones para resetear numeraciones
 \pretocmd{\section}{
 	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{ % Reinicia código fuente

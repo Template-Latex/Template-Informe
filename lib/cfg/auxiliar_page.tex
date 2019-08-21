@@ -41,8 +41,11 @@
 		\def\sectionobjectnumcode {\thesubsubsubsection\sectioncaptiondelimiter}
 	}
 }{
-	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,sec,ssec,sssec,ssssec}
-}}}}}
+\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{
+	\def\sectionobjectnumcode {\thechapter\sectioncaptiondelimiter}
+}{
+	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,chap,sec,ssec,sssec,ssssec}
+}}}}}}
 \ifthenelse{\equal{\showsectioncaptioneqn}{none}}{ % Numeración de la sección en los objetos ECUACIONES
 	\def\sectionobjectnumeqn {}
 }{
@@ -62,8 +65,11 @@
 		\def\sectionobjectnumeqn {\thesubsubsubsection\sectioncaptiondelimiter}
 	}
 }{
-	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioneqn}{none,sec,ssec,sssec,ssssec}
-}}}}}
+\ifthenelse{\equal{\showsectioncaptioneqn}{chap}}{
+	\def\sectionobjectnumeqn {\thechapter\sectioncaptiondelimiter}
+}{
+	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioneqn}{none,chap,sec,ssec,sssec,ssssec}
+}}}}}}
 \ifthenelse{\equal{\showsectioncaptionfig}{none}}{ % Numeración de la sección en los objetos FIGURAS
 	\def\sectionobjectnumfig {}
 }{
@@ -83,8 +89,11 @@
 		\def\sectionobjectnumfig {\thesubsubsubsection\sectioncaptiondelimiter}
 	}
 }{
-	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionfig}{none,sec,ssec,sssec,ssssec}
-}}}}}
+\ifthenelse{\equal{\showsectioncaptionfig}{chap}}{
+	\def\sectionobjectnumfig {\thechapter\sectioncaptiondelimiter}
+}{
+	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionfig}{none,chap,sec,ssec,sssec,ssssec}
+}}}}}}
 \ifthenelse{\equal{\showsectioncaptiontab}{none}}{ % Numeración de la sección en los objetos TABLAS
 	\def\sectionobjectnumtab {}
 }{
@@ -104,8 +113,11 @@
 		\def\sectionobjectnumtab {\thesubsubsubsection\sectioncaptiondelimiter}
 	}
 }{
-	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptiontab}{none,sec,ssec,sssec,ssssec}
-}}}}}
+\ifthenelse{\equal{\showsectioncaptiontab}{chap}}{
+	\def\sectionobjectnumtab {\thechapter\sectioncaptiondelimiter}
+}{
+	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptiontab}{none,chap,sec,ssec,sssec,ssssec}
+}}}}}}
 \ifthenelse{\equal{\captionnumcode}{arabic}}{ % Código fuente, INCLUIR SECCIÓN
 	\renewcommand{\thelstlisting}{\sectionobjectnumcode\arabic{lstlisting}}
 }{
