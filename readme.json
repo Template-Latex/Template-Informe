@@ -41,19 +41,19 @@
             "NEWLINE": true
         },
         "4": {
-            "IMAGE": "https://latex.ppizarror.com/res/tesis.svg",
+            "IMAGE": "https://latex.ppizarror.com/res/badges/tesis.svg",
             "HREF": "https://github.com/Template-Latex/Template-Tesis/",
             "ALT": "Template-Tesis",
-            "SHOW": false
+            "SHOW": true
         },
         "5": {
-            "IMAGE": "https://latex.ppizarror.com/res/apunte.svg",
+            "IMAGE": "https://latex.ppizarror.com/res/badges/apunte.svg",
             "HREF": "https://github.com/Template-Latex/Template-Apunte/",
             "ALT": "Template-Apunte",
             "SHOW": false
         },
         "6": {
-            "IMAGE": "https://latex.ppizarror.com/res/tareas.svg",
+            "IMAGE": "https://latex.ppizarror.com/res/badges/tareas.svg",
             "HREF": "https://github.com/Template-Latex/Template-Tareas/",
             "ALT": "Template-Tareas",
             "SHOW": false
