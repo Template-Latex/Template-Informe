@@ -1,0 +1,46 @@
+% Template:     Template-Tesis LaTeX
+% Documento:    Definición de portadas
+% Versión:      DEV
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R. @ppizarror
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/Template-Informe/]
+% Licencia MIT:    [https://opensource.org/licenses/MIT/]
+
+% Configura la página
+\newpage
+\renewcommand{\thepage}{\nameportraitpage}
+\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+
+\pagestyle{fancy} \fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Logo de la universidad
+\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+\hspace*{-0.15cm}
+\begin{tabular}{l}
+	\MakeUppercase \nombreuniversidad ~ \\
+	\MakeUppercase \nombrefacultad ~ \\
+	\MakeUppercase \departamentouniversidad
+	\vspace*{1.6cm}\mbox{}
+\end{tabular}
+
+\begin{center}
+	\textcolor{\portraittitlecolor}{\MakeUppercase{\textbf{\titulotesis}}} ~ \\
+	
+	\vspace{1.5cm}
+	\textcolor{\portraittitlecolor}{\MakeUppercase{\titulogrado}} ~ \\
+	
+	\vspace{2cm}
+	\textcolor{\portraittitlecolor}{\MakeUppercase{\textbf{\autortesis}}}
+	
+	\vfill
+	\tablacomision
+\end{center}
+
+\normalfont
