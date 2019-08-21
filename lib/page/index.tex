@@ -52,12 +52,10 @@
 		\def\cftsubsecaftersnum {.}
 		\def\cftsubsubsecaftersnum {.}
 		\def\cftsubsubsubsecaftersnum {.}
-		
 		% Modifica los márgenes
 		\def\cftsecnumwidth {1.9em}
 		\def\cftsubsecnumwidth {2.57em} % Incremento 0.67
 		\renewcommand\cftsubsubsecnumwidth{3.35em} % Incremento 0.78
-		
 		\setlength{\cftsubsecindent}{1.91em}
 		\setlength{\cftsubsubsecindent}{4.48em} % Incremento 2.57
 		}{
@@ -90,13 +88,11 @@
 		\setlength{\cfttabindent}{1.9em}
 		\setlength{\cftfigindent}{1.9em}
 		\setlength{\cftsubfigindent}{1.9em}
-		\setlength{\cftfigindent}{1.9em}
 		\def\cftlstlistingindent {1.9em}
 	}{
 		\setlength{\cfttabindent}{0em}
 		\setlength{\cftfigindent}{0em}
 		\setlength{\cftsubfigindent}{0em}
-		\setlength{\cftfigindent}{0em}
 		\def\cftlstlistingindent {0em}
 	}
 	
@@ -125,7 +121,11 @@
 		\def\cftdefautnumwidthcode {5.8em}
 		\def\cftdefaultnumwidthromancode {7.25em}
 	}{
-		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,sec,ssec,sssec,ssssec}}}}}
+	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{
+		\def\cftdefautnumwidthcode {3.0em}
+		\def\cftdefaultnumwidthromancode {5.25em}
+	}{
+		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 	}
 	
 	% Figuras
@@ -149,7 +149,11 @@
 		\def\cftdefautnumwidthfig {5.8em}
 		\def\cftdefaultnumwidthromanfig {7.25em}
 	}{
-		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionfig}{none,sec,ssec,sssec,ssssec}}}}}
+	\ifthenelse{\equal{\showsectioncaptionfig}{chap}}{
+		\def\cftdefautnumwidthfig {3.0em}
+		\def\cftdefaultnumwidthromanfig {5.25em}
+	}{
+		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionfig}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 	}
 	
 	% Tablas
@@ -173,7 +177,11 @@
 		\def\cftdefautnumwidthtab {5.8em}
 		\def\cftdefaultnumwidthromantab {7.25em}
 	}{
-		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptiontab}{none,sec,ssec,sssec,ssssec}}}}}
+	\ifthenelse{\equal{\showsectioncaptiontab}{chap}}{
+		\def\cftdefautnumwidthtab {3.0em}
+		\def\cftdefaultnumwidthromantab {5.25em}
+	}{
+		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptiontab}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 	}
 	
 	% Configuración identado de títulos de objetos después del número

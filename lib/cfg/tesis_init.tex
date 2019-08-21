@@ -1,5 +1,26 @@
 % Inicialización de variables
 \def\temaatratar{}
 \def\titulodelinforme{\titulotesis}
+\def\autordeldocumento{\autortesis}
+\def\codigodelcurso{}
+\def\nombredelcurso{}
+
+% Agrega compatibilidad de subsubsubsecciones al TOC
+\makeatletter
+	\def\toclevel@subsubsubsection{4}
+	\def\toclevel@paragraph{5}
+	\def\toclevel@subparagraph{6}
+	\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}
+		{3.25ex \@plus 1ex \@minus .2ex}
+		{-1em}
+		{\normalfont\normalsize\bfseries}}
+	\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}
+		{3.25ex \@plus 1ex \@minus .2ex}
+		{-1em}
+		{\normalfont\normalsize\bfseries}}
+	\def\l@subsubsubsection{\@dottedtocline{4}{11em}{5em}}
+	\def\l@paragraph{\@dottedtocline{5}{15em}{6em}}
+	\def\l@subparagraph{\@dottedtocline{6}{19em}{7em}}
+\makeatother
 
 % END
