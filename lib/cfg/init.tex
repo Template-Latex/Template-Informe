@@ -281,8 +281,9 @@
 }{
 	\throwbadconfig{Estilo citas desconocido}{\stylecitereferences}{bibtex,apacite,natbib}}}
 }
+% Referencias en 2 columnas
 \makeatletter
-\ifthenelse{\equal{\twocolumnreferences}{true}}{ % Referencias en 2 columnas
+\ifthenelse{\equal{\twocolumnreferences}{true}}{
 	\renewenvironment{thebibliography}[1]
 	{\begin{multicols}{2}[\section*{\refname}]
 		\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}

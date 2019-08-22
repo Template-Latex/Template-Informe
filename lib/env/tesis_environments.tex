@@ -1,0 +1,13 @@
+% Crea una sección de referencias solo para bibtex
+\newenvironment{references}{
+	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Verifica configuraciones
+	}{
+		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
+	}
+	\begin{thebibliography}{} % Inicia la bibliografía
+	}
+	{
+	\end{thebibliography}
+}
+
+% END
