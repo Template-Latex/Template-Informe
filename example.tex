@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      6.4.6 (20/08/2019)
+% Versión:      6.4.7 (23/08/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -286,7 +286,7 @@ end
 	\bibitem{templateinforme}
 	Template Informe en \LaTeX.
 	\textit{¡Revisa el manual online de este template!} \\
-	\url{https://latex.ppizarror.com/Template-Informe/}
+	\url{https://latex.ppizarror.com/informe}
 
 	\bibitem{excel2latex}
 	Excel2Latex.
@@ -310,60 +310,61 @@ end
 % ------------------------------------------------------------------------------
 \newpage
 \begin{anexo}
-	\section{Cálculos realizados}
 
-		\subsection{Metodología}
-			\lipsum[1]
+\section{Cálculos realizados}
 
-			% Imagen, se numerará automáticamente con la letra del anexo según
-			% la configuración \appendixindepobjnum
-			\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
-
-		\subsection{Resultados}
-			\lipsum[10]
-
-			% Tablas
-			\enabletablerowcolor[2] % Activa el color de celda
-			\begin{table}[htbp]
-				\centering
-				\caption{Tabla de cálculo.}
-				\begin{tabular}{ccc}
-					\hline
-					\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
-					\hline
-					A     & 10    & 3,14$\pi$ \bigstrut[t]\\
-					B     & 20    & 6 \\
-					C     & 30    & 7 \\
-					D     & 150    & 10 \\
-					E     & 0    & 0 \\
-					\hline
-					\end{tabular}
-				\label{tab:anexo-1}
-			\end{table}
-			\disabletablerowcolor % Desactiva el color de celda
-
-	\newpage
-	\section{Más cálculos}
-
-		% Párrafo
+	\subsection{Metodología}
 		\lipsum[1]
 
-		% Nuevo párrafo con identación
-		\newp \lipsum[4]
+		% Imagen, se numerará automáticamente con la letra del anexo según
+		% la configuración \appendixindepobjnum
+		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
 
-		% Tabla de encuestas
+	\subsection{Resultados}
+		\lipsum[10]
+
+		% Tablas
+		\enabletablerowcolor[2] % Activa el color de celda
 		\begin{table}[htbp]
 			\centering
-			\caption{Resultados encuesta.}
+			\caption{Tabla de cálculo.}
 			\begin{tabular}{ccc}
 				\hline
-				\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
+				\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
 				\hline
-				\LaTeX & 100\% & Si $\checkmark$ \\
-				Microsoft Word \textsuperscript{\textregistered} & 0\% & No $\frownie$\\
+				A     & 10    & 3,14$\pi$ \bigstrut[t]\\
+				B     & 20    & 6 \\
+				C     & 30    & 7 \\
+				D     & 150    & 10 \\
+				E     & 0    & 0 \\
 				\hline
-			\end{tabular}
-			\label{tab:anexo-2}
+				\end{tabular}
+			\label{tab:anexo-1}
 		\end{table}
+		\disabletablerowcolor % Desactiva el color de celda
+
+\newpage
+\section{Más cálculos}
+
+	% Párrafo
+	\lipsum[1]
+
+	% Nuevo párrafo con identación
+	\newp \lipsum[4]
+
+	% Tabla de encuestas
+	\begin{table}[htbp]
+		\centering
+		\caption{Resultados encuesta.}
+		\begin{tabular}{ccc}
+			\hline
+			\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
+			\hline
+			\LaTeX & 100\% & Si $\checkmark$ \\
+			Microsoft Word \textsuperscript{\textregistered} & 0\% & No $\frownie$\\
+			\hline
+		\end{tabular}
+		\label{tab:anexo-2}
+	\end{table}
 
 \end{anexo}
