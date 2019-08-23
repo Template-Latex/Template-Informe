@@ -42,7 +42,7 @@
 	\appendicestocpagenum
 	\appendixtitletocon
 	\bookmarksetup{
-		numbered,
+		numbered={true},
 		openlevel={\thetemplateBookmarksLevelPrev}
 	}
 	\bookmarksetupnext{level=part}
@@ -63,6 +63,7 @@
 	\def\GLOBALsectionalph{false} % Desactiva formato de secciones con sección alph
 	\bookmarksetupnext{level=0} % Reestablece índice marcador
 	\bookmarksetup{
+		numbered={\cfgpdfsecnumbookmarks},
 		openlevel={\cfgbookmarksopenlevel}
 	}
 	\endgroup

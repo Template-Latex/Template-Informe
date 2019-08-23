@@ -4,6 +4,8 @@
 	}{
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\namereferences}
 	\begin{thebibliography}{} % Inicia la bibliografía
 	}
 	{
@@ -24,6 +26,14 @@
 	\end{center} \newp
 	\vspace{-\baselineskip}
 	}{\vfill\null
+	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
+		\vfill
+		\checkoddpage
+		\ifoddpage
+			\insertblankpage
+		\else
+		\fi}{
+	}
 }
 
 % Crea una sección de dedicatoria
@@ -35,6 +45,14 @@
 	\end{flushright}
 	\vspace{\stretch{2}}
 	\null
+	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
+		\vfill
+		\checkoddpage
+		\ifoddpage
+			\insertblankpage
+		\else
+		\fi}{
+	}
 }
 
 % Crea una sección de agradecimientos
@@ -42,6 +60,14 @@
 	\chapter*{\nameagradec}
 	}{
 	\newpage
+	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
+		\vfill
+		\checkoddpage
+		\ifoddpage
+			\insertblankpage
+		\else
+		\fi}{
+	}
 }
 
 % END
