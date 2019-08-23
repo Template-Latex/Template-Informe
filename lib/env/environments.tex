@@ -38,17 +38,17 @@
 	\phantomsection
 	\changeheadertitle{\nomltappendixsection} % Cambia el nombre del header
 	\def\GLOBALsectionalph{true} % Modifica formato de secciones con sección alph
-	\appendixtitleon % Añade al índice marcadores
-	\appendicestocpagenum
-	\appendixtitletocon
 	\bookmarksetup{
 		numbered={true},
 		openlevel={\thetemplateBookmarksLevelPrev}
 	}
+	%\appendixtitleon
+	\appendixtitletocon
+	%\addappheadtotoc
 	\bookmarksetupnext{level=part}
 	\begin{appendices} % Crea la sección
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
-			\belowpdfbookmark{\nameappendixsection}{contents}
+			\pdfbookmark{\nameappendixsection}{contents} % Si false
 		}
 		% \setcounter{secnumdepth}{4}
 		% \setcounter{tocdepth}{4}
@@ -61,7 +61,7 @@
 	}{
 	\end{appendices}
 	\def\GLOBALsectionalph{false} % Desactiva formato de secciones con sección alph
-	\bookmarksetupnext{level=0} % Reestablece índice marcador
+	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Reestablece índice marcador
 	\bookmarksetup{
 		numbered={\cfgpdfsecnumbookmarks},
 		openlevel={\cfgbookmarksopenlevel}
