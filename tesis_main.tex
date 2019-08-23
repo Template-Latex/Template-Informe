@@ -1,0 +1,110 @@
+% Template:     Template Tesis LaTeX
+% Documento:    Archivo principal
+% Versión:      DEV
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R. @ppizarror
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo.pizarro@ing.uchile.cl, ppizarror.com
+%
+% Sitio web:    [https://latex.ppizarror.com/Template-Tesis/]
+% Licencia MIT: [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[letterpaper,12pt,oneside]{book} % Libro, tamaño carta
+\usepackage[utf8]{inputenc} % Codificación UTF-8
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\titulotesis {Título del trabajo}
+\def\titulogrado {
+	Tesis para optar al grado de magíster en ciencias de la ingeniería, mención área de la ingeniería
+	\bigbreak\vspace{0.3cm}
+	Memoria para optar al título de ingeniero
+}
+
+\def\nombreuniversidad {Universidad de Chile}
+\def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}
+\def\departamentouniversidad {Departamento de la Universidad}
+\def\imagendepartamento {departamentos/uchile2}
+\def\imagendepartamentoescala {0.7}
+\def\localizacionuniversidad {Santiago, Chile}
+
+% INTEGRANTES, PROFESORES Y FECHAS
+\def\autortesis {Nombre del autor}
+\def\fechatesis {\the\year}
+
+\def\tablacomision {
+\begin{tabular}{c}
+	PROFESOR GUÍA: \\
+	PROFESOR 1 \\
+	\vspace{0.5cm}
+	\\
+	MIEMBROS DE LA COMISIÓN: \\
+	PROFESOR 2 \\
+	PROFESOR 3 \\
+	\vspace{1.5cm}
+	\\
+	\MakeUppercase{\localizacionuniversidad} \\
+	\MakeUppercase{\fechatesis}
+\end{tabular}}{
+}
+\def\tablaresumen {
+\begin{tabular}{l}
+	RESUMEN DE LA MEMORIA PARA OPTAR \\
+	AL TÍTULO DE MAGÍSTER EN CIENCIAS \\
+	DE LA INGENIERÍA \\
+	POR: \MakeUppercase{\textbf{\autortesis}} \\
+	FECHA: \MakeUppercase{\fechatesis} \\
+	PROF. GUÍA: NOMBRE PROFESOR
+\end{tabular}}{
+}
+
+% CONFIGURACIONES
+\input{lib/config}
+
+% IMPORTACIÓN DE LIBRERÍAS
+\input{lib/env/imports}
+
+% IMPORTACIÓN DE FUNCIONES Y ENTORNOS
+\input{lib/cmd/all}
+
+% IMPORTACIÓN DE ESTILOS
+\input{lib/style/all}
+
+% CONFIGURACIÓN INICIAL DEL DOCUMENTO
+\input{lib/cfg/init}
+
+% INICIO DE LAS PÁGINAS
+\begin{document}
+	
+% PORTADA
+\input{lib/page/portrait} % Se puede borrar
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\input{lib/cfg/page}
+
+% RESUMEN O ABSTRACT
+\begin{resumen}
+	\lipsum[1]
+\end{resumen}
+
+% DEDICATORIA
+\begin{dedicatoria}
+	Una frase de agradecimiento, \\
+	o pueden ser dos líneas. \newp
+	\textbf{Saludos}
+\end{dedicatoria}
+
+% TABLA DE CONTENIDOS - ÍNDICE
+\input{lib/page/index} % Se puede borrar
+
+% CONFIGURACIONES FINALES
+\input{lib/cfg/final}
+
+% ======================= INICIO DEL DOCUMENTO =======================
+
+\input{lib/etc/example} % Ejemplo, se puede borrar
+
+% FIN DEL DOCUMENTO
+\end{document}

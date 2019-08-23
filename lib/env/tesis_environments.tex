@@ -10,4 +10,31 @@
 	\end{thebibliography}
 }
 
+% Crea una sección de resumen
+\newenvironment{resumen}{
+	% Inserta la tabla resumen
+	\begin{flushright}
+		\small
+		\tablaresumen
+	\end{flushright}
+	\vspace{\baselineskip}
+	% Título
+	\begin{center}
+		\textcolor{\titlecolor}{\MakeUppercase{\textbf{\titulotesis}}}
+	\end{center} \newp
+	\vspace{-\baselineskip}
+	}{\vfill\null
+}
+
+% Crea una sección de dedicatoria
+\newenvironment{dedicatoria}{
+	\cleardoublepage\null
+	\vspace{\stretch{1}}
+	\begin{flushright}
+		\itshape}{
+	\end{flushright}
+	\vspace{\stretch{2}}
+	\null
+}
+
 % END
