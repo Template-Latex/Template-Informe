@@ -16,6 +16,7 @@
 % -----------------------------------------------------------------------------
 \markboth{}{}
 \newpage
+
 \ifthenelse{\equal{\disablehfrightmark}{false}}{
 	\ifthenelse{\equal{\hfstyle}{style1}}{
 		\fancyhead[L]{\nouppercase{\leftmark}}}{
@@ -324,5 +325,10 @@
 \ifthenelse{\equal{\showlinenumbers}{true}}{
 	\linenumbers}{
 }
+
+% -----------------------------------------------------------------------------
+% Establece el estilo de las subsubsubsecciones
+% -----------------------------------------------------------------------------
+\titleclass{\subsubsubsection}{straight}[\subsection]
 
 % END
