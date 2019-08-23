@@ -14,6 +14,10 @@
 
 % Crea una sección de resumen
 \newenvironment{resumen}{
+	% Añade a los marcadores
+	\ifthenelse{\equal{\addabstracttobookmarks}{true}}{
+		\pdfbookmark{\nameabstract}{contents}}{
+	}
 	% Inserta la tabla resumen
 	\begin{flushright}
 		\small
@@ -39,6 +43,9 @@
 % Crea una sección de dedicatoria
 \newenvironment{dedicatoria}{
 	\cleardoublepage\null
+	% \ifthenelse{\equal{\adddedictobookmarks}{true}}{
+	% 	\belowpdfbookmark{\nameadedic}{contents}}{
+	% }
 	\vspace{\stretch{1}}
 	\begin{flushright}
 		\itshape}{
@@ -53,6 +60,9 @@
 % Crea una sección de agradecimientos
 \newenvironment{agradecimientos}{
 	\chapter*{\nameagradec}
+	\ifthenelse{\equal{\addagradectobookmarks}{true}}{
+		\belowpdfbookmark{\nameagradec}{contents}}{
+	}
 	}{
 	\newpage
 	\ifthenelse{\equal{\addemptypagespredoc}{true}}{

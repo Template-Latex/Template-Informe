@@ -56,7 +56,6 @@
 	
 	\newp \lipsum[11]
 
-% SUB-SECCIÓN
 \subsection{Añadiendo tablas}
 
 	También puedes usar tablas, ¡Crearlas es muy fácil!. Puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{excel2latex} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{tablesgenerator}.
@@ -100,7 +99,6 @@
 
 \section{Aquí una nueva sección}
 
-% SUB-SECCIÓN
 \subsection{Haciendo una tesis como un profesional}
 
 	% Se inserta una imagen flotante en la izquierda del documento con
@@ -151,8 +149,10 @@
 		\lipsum[2-3]
 
 	\end{multicols}
+	
+	% Último párrafo de ejemplo
+	\lipsum[115]
 
-% SUB-SECCIÓN
 \newpage
 \subsection{Ejemplos de inserción de código fuente}
 
@@ -214,10 +214,6 @@ Obteniendo así:
 	\addimage{ejemplos/test-image}{width=10cm}{Ciudad más grande.}
 \end{images}
 
-
-% ------------------------------------------------------------------------------
-% NUEVA SECCIÓN
-% ------------------------------------------------------------------------------
 % Inserta una sección sin número
 \sectionanum{Más ejemplos}
 
@@ -278,9 +274,16 @@ Obteniendo así:
 
 
 % ------------------------------------------------------------------------------
+% NUEVO CAPÍTULO
+% ------------------------------------------------------------------------------
+\chapter{Conclusiones}
+
+\lipsum[1-2]
+
+
+% ------------------------------------------------------------------------------
 % REFERENCIAS (ESTILO BIBTEX), revisar configuración \stylecitereferences
 % ------------------------------------------------------------------------------
-\newpage % Salto de página
 \begin{references}
 	\bibitem{templateinforme}
 	Template Informe en \LaTeX.
@@ -307,7 +310,6 @@ Obteniendo así:
 % ------------------------------------------------------------------------------
 % ANEXO
 % ------------------------------------------------------------------------------
-\newpage
 \begin{anexo}
 	
 \chapter{Cálculos realizados}
