@@ -31,7 +31,7 @@
 	\resizebox{#1\textwidth}{!}{#2}
 }
 
-% Crea una página vacía
+% Crea una página vacía sin header o footer
 \newcommand{\insertemptypage}{
 	\newpage
 	\setcounter{templatePageCounter}{\thepage}
@@ -41,6 +41,13 @@
 	\newpage
 	\pagenumbering{arabic}
 	\setcounter{page}{\thetemplatePageCounter}
+}
+
+% Inserta una página vacía, aunque conserva header, footer y numeración
+\newcommand{\insertblankpage}{
+	\newpage
+	\null
+	\newpage
 }
 
 % Añade un archivo pdf con el header
