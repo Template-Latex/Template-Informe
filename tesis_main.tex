@@ -84,20 +84,25 @@
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \input{lib/cfg/page}
 
+% DEDICATORIA
+\begin{dedicatoria}
+	Una frase de dedicatoria, \\
+	pueden ser dos líneas. \newp
+	\textbf{Saludos}
+\end{dedicatoria}
+
+% AGRADECIMIENTOS
+\begin{agradecimientos}
+	\lipsum[1]
+\end{agradecimientos}
+
+% TABLA DE CONTENIDOS - ÍNDICE
+\input{lib/page/index}
+
 % RESUMEN O ABSTRACT
 \begin{resumen}
 	\lipsum[1]
 \end{resumen}
-
-% DEDICATORIA
-\begin{dedicatoria}
-	Una frase de agradecimiento, \\
-	o pueden ser dos líneas. \newp
-	\textbf{Saludos}
-\end{dedicatoria}
-
-% TABLA DE CONTENIDOS - ÍNDICE
-\input{lib/page/index} % Se puede borrar
 
 % CONFIGURACIONES FINALES
 \input{lib/cfg/final}
