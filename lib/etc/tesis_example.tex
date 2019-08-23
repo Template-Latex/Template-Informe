@@ -35,8 +35,8 @@
 	% Para insertar una imagen se puede usar la función \insertimage la cual
 	% toma un primer parámetro opcional para definir una etiqueta (dentro de
 	% los corchetes), luego toma la dirección de la imagen, sus parámetros
-	% (en este caso se definió la escala de 0.14) y una leyenda opcional
-	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
+	% (en este caso se definió la escala de 0.12) y una leyenda opcional
+	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.12}{Where are you? de \quotes{Internet}.}
 
 	A continuación\footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{https://latex.ppizarror.com/informe.html#hlp-formulae}{\hreftext{\textbackslash insertequation}}:
 
@@ -115,7 +115,6 @@
 
 	% Párrafos de ejemplo
 	\newp \lipsum[115]
-	\newp \lipsum[2]
 
 	% Agrega una ecuación con leyenda
 	\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
