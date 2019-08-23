@@ -29,6 +29,11 @@
 \newcounter{templateTables}      % Tablas
 \newcounter{templateListings}    % Códigos fuente
 
+% Contador nivel de bookmarks marcadores
+\newcounter{templateBookmarksLevelPrev}
+\setcounter{templateBookmarksLevelPrev}{\cfgbookmarksopenlevel}
+\addtocounter{templateBookmarksLevelPrev}{-1}
+
 % Para la compatibilidad con template-tesis se define el capítulo
 \newcounter{chapter}
 

@@ -43,7 +43,7 @@
 	\appendixtitletocon
 	\bookmarksetup{
 		numbered,
-		openlevel=0
+		openlevel={\thetemplateBookmarksLevelPrev}
 	}
 	\bookmarksetupnext{level=part}
 	\begin{appendices} % Crea la sección
@@ -62,6 +62,9 @@
 	\end{appendices}
 	\def\GLOBALsectionalph{false} % Desactiva formato de secciones con sección alph
 	\bookmarksetupnext{level=0} % Reestablece índice marcador
+	\bookmarksetup{
+		openlevel={\cfgbookmarksopenlevel}
+	}
 	\endgroup
 }
 
