@@ -30,8 +30,8 @@
 		\vfill
 		\checkoddpage
 		\ifoddpage
-			\insertblankpage
 		\else
+			\insertblankpage
 		\fi}{
 	}
 }
@@ -46,12 +46,7 @@
 	\vspace{\stretch{2}}
 	\null
 	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
-		\vfill
-		\checkoddpage
-		\ifoddpage
-			\insertblankpage
-		\else
-		\fi}{
+		\insertblankpage}{
 	}
 }
 
@@ -61,12 +56,7 @@
 	}{
 	\newpage
 	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
-		\vfill
-		\checkoddpage
-		\ifoddpage
-			\insertblankpage
-		\else
-		\fi}{
+		\insertblankpage}{
 	}
 }
 
