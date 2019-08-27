@@ -184,11 +184,11 @@
 }{
 	\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
 		\usepackage{apacite}
+		\usepackage[nottoc,notlof,notlot]{tocbibind}
 	}{
 		\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
 		}{}
 	}
-	\usepackage[nottoc,notlof,notlot]{tocbibind}
 }
 \ifthenelse{\equal{\showappendixsecindex}{true}}{ % Anexos/Apéndices
 	\usepackage[toc]{appendix}
