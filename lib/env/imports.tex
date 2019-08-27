@@ -139,19 +139,48 @@
 }
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{ % Formato citas natbib
 	\ifthenelse{\equal{\natbibrefstyle}{apa}}{
-		\usepackage{natbib}
+		\ifthenelse{\equal{\natbibsquare}{true}}{
+			\usepackage[square]{natbib}
+		}{
+			\usepackage[round]{natbib}
+		}
 	}{
 	\ifthenelse{\equal{\natbibrefstyle}{ieeetr}}{
-		\usepackage[numbers]{natbib}
+		\ifthenelse{\equal{\natbibsquare}{true}}{
+			\usepackage[square,numbers]{natbib}
+		}{
+			\usepackage[round,numbers]{natbib}
+		}
 	}{
 	\ifthenelse{\equal{\natbibrefstyle}{unsrt}}{
-		\usepackage[numbers]{natbib}
+		\ifthenelse{\equal{\natbibsquare}{true}}{
+			\usepackage[square,numbers]{natbib}
+		}{
+			\usepackage[round,numbers]{natbib}
+		}
 	}{
 	\ifthenelse{\equal{\natbibrefstyle}{abbrvnat}}{
-		\usepackage[numbers]{natbib}
+		\ifthenelse{\equal{\natbibsquare}{true}}{
+			\usepackage[square,numbers]{natbib}
+		}{
+			\usepackage[round,numbers]{natbib}
+		}
 	}{
-		\usepackage{natbib}
+		\ifthenelse{\equal{\natbibnumbers}{true}}{
+			\ifthenelse{\equal{\natbibsquare}{true}}{
+				\usepackage[square,numbers]{natbib}
+			}{
+				\usepackage[round,numbers]{natbib}
+			}
+		}{
+			\ifthenelse{\equal{\natbibsquare}{true}}{
+				\usepackage[square]{natbib}
+			}{
+				\usepackage[round]{natbib}
+			}
+		}
 	}}}}
+	\usepackage[nottoc,notlof,notlot]{tocbibind}
 }{
 	\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
 		\usepackage{apacite}
@@ -159,6 +188,7 @@
 		\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
 		}{}
 	}
+	\usepackage[nottoc,notlof,notlot]{tocbibind}
 }
 \ifthenelse{\equal{\showappendixsecindex}{true}}{ % Anexos/Apéndices
 	\usepackage[toc]{appendix}
