@@ -87,24 +87,24 @@
 		% mismos parámetros
 		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
 
-		\slipsum[1]
+		~ \lipsum[1]
 
 		% Párrafos de ejemplo
-		\newp \slipsum[115]
-		\newp \slipsum[2]
+		\newp \lipsum[115]
+		\newp \lipsum[2]
 
 		% Agrega una ecuación con leyenda
 		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
 
 		% Aquí no es necesario usar \newp dado que todas las funciones \insert...
 		% añaden un párrafo nuevo por defecto
-		\slipsum[115]
+		\lipsum[115]
 
 	% Inserta un subtítulo sin número
 	\subsection{Otros párrafos más normales}
 
 		% Párrafos
-		\slipsum[7]
+		\lipsum[7]
 
 		% Se inserta una ecuación larga con el entorno gathered (1 solo número de ecuación)
 		\insertgathered[\label{eqn:eqn-larga}]{
@@ -113,19 +113,19 @@
 		}
 
 		% Nuevo párrafo
-		\slipsum[4]
+		\lipsum[4]
 
 		% Se inserta un multicols, con esto se pueden escribir párrafos en varias columnas
 		\begin{multicols}{2}
 
 			% Párrafo 1
-			\slipsum[4]
+			\lipsum[4]
 
 			% Ecuación encerrada en una caja
 			\insertequation[]{ \boxed{f(x) = \fracdpartial{u}{t}} }
 
 			% Párrafo 2 del multicols
-			\slipsum[2]
+			\lipsum[2]
 
 		\end{multicols}
 
@@ -305,14 +305,14 @@ title('Espectro de pulso de desplazamiento');
 \section{Cálculos realizados}
 
 	\subsection{Metodología}
-		\slipsum[1]
+		\lipsum[1]
 
 		% Imagen, se numerará automáticamente con la letra del anexo según
 		% la configuración \appendixindepobjnum
 		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
 
 	\subsection{Resultados}
-		\slipsum[10]
+		\lipsum[10]
 
 		% Tablas
 		\enabletablerowcolor[2] % Activa el color de celda
@@ -338,10 +338,10 @@ title('Espectro de pulso de desplazamiento');
 \section{Más cálculos}
 
 	% Párrafo
-	\slipsum[1]
+	\lipsum[1]
 
 	% Nuevo párrafo con identación
-	\newp \slipsum[4]
+	\newp \lipsum[4]
 
 	% Tabla de encuestas
 	\begin{table}[htbp]
