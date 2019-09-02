@@ -57,6 +57,7 @@
 \def\showsectioncaptioncode {none} % N° sec. código {none,chap,(s/ss/sss/ssss)ec}
 \def\showsectioncaptioneqn {none}  % N° sec. ecuación {none,chap,(s/ss/sss/ssss)ec}
 \def\showsectioncaptionfig {none}  % N° sec. figuras {none,chap,(s/ss/sss/ssss)ec}
+\def\showsectioncaptionmat {none}  % N° matemático {none,chap,(s/ss/sss/ssss)ec}
 \def\showsectioncaptiontab {none}  % N° sec. tablas {none,chap,(s/ss/sss/ssss)ec}
 \def\subcaptionlabelformat{parens} % Formato leyenda sub. {empty,simple,parens}
 \def\subcaptionlabelsep {space}    % Sep. {none,colon,period,space,quad,newline}
@@ -80,9 +81,9 @@
 % ANEXO, CITAS, REFERENCIAS
 \def\apaciterefsep {9}             % Separación entre refs. {apacite} [pt]
 \def\appendixindepobjnum {true}    % Anexo usa n° objetos independientes
-\def\bibtexrefsep {5}              % Separación entre refs. {bibtex} [pt]
+\def\bibtexrefsep {6}              % Separación entre refs. {bibtex} [pt]
 \def\natbibnumbers {true}          % Forza el uso de números en la bibliografía
-\def\natbibrefsep {5}              % Separación entre referencia {natbib} [pt]
+\def\natbibrefsep {6}              % Separación entre referencia {natbib} [pt]
 \def\natbibrefstyle {ieeetr}       % Formato de ref. natbib {apa,ieeetr,etc...}
 \def\natbibsquare {true}           % Usa [] o () en las numeraciones
 \def\sectionappendixlastchar {.}   % Carácter entre n° de sec. anexo y título
@@ -95,9 +96,9 @@
 \def\columnsepwidth {2.1}          % Separación entre columnas [em]
 \def\defaultimagefolder {img/}     % Carpeta raíz de las imágenes
 \def\equationleftalign {false}     % Ecuaciones alineadas a la izquierda
-\def\equationrestart {sec}         % Reinicio n° ecuac. {none,(s/ss/sss/ssss)ec}
+\def\equationrestart {none}        % Reinicio n° {none,chap,(s/ss/sss/ssss)ec}
 \def\footnotepagetoprule {false}   % Footnote en pag. tienen separador superior
-\def\footnoterestart {none}        % N° footnote {none,page,(s/ss/sss/ssss)ec}
+\def\footnoterestart {none}        % N° footnote {none,chap,page,(s/ss/sss/ssss)ec}
 \def\imagedefaultplacement {H}     % Posición por defecto de las imágenes
 \def\marginalignbottom {-0.30}     % Margen inferior entorno align [cm]
 \def\marginaligncaptbottom {0.05}  % Margen inferior entorno align caption[cm]
@@ -198,6 +199,13 @@
 % NOMBRE DE OBJETOS
 \def\nameabstract {Resumen}           % Nombre del resumen-abstract
 \def\nameappendixsection {Anexos}     % Nombre de la sec. de anexos/apéndices
+\def\namemathcol {Corolario}          % Nombre de los colorarios
+\def\namemathdefn {Definición}        % Nombre de las definiciones
+\def\namemathej {Ejemplo}             % Nombre de los ejemplos
+\def\namemathlem {Lema}               % Nombre de los lemas
+\def\namemathobs {Observación}        % Nombre de las observaciones
+\def\namemathprp {Proposición}        % Nombre de las proposiciones
+\def\namemaththeorem {Teorema}        % Nombre de los teoremas
 \def\nameportraitpage {Portada}       % Etiqueta página de la portada
 \def\namereferences {Referencias}     % Nombre de la sección de referencias
 \def\nomchapter {Capítulo}            % Nombre de los capítulos
