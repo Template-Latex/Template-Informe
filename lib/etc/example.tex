@@ -91,15 +91,15 @@
 
 		% Párrafos de ejemplo
 		\newp \slipsum[115]
-		
+
+		% Agrega una ecuación con leyenda
+		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
+
 		% Inserta una definición, compatibilidad con otros templates
 		\begin{defn}[ver \cite{templateinforme}]
 			Definición definitiva
 			$$\frac{d}{dx}\int_a^xf(y)dy=f(x).$$
 		\end{defn}
-
-		% Agrega una ecuación con leyenda
-		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
 
 		% Aquí no es necesario usar \newp dado que todas las funciones \insert...
 		% añaden un párrafo nuevo por defecto
