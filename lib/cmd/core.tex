@@ -117,9 +117,13 @@
 % Define el caption del índice
 % 	#1	Título del caption
 \newcommand{\setindexcaption}[1]{\def\GLOBALcaptiondefn{#1}}
+\newcommand{\setindexcaptionimages}[1]{\def\GLOBALcaptiondefnimages{#1}}
+\newcommand{\setindexcaptionsourcecode}[1]{\def\GLOBALcaptiondefnsrc{#1}}
 
 % Resetea los caption
 \newcommand{\resetindexcaption}{\def\GLOBALcaptiondefn{EMPTY-VAR}}
+\newcommand{\resetindexcaptionimages}{\def\GLOBALcaptiondefnimages{EMPTY-VAR}}
+\newcommand{\resetindexcaptionsourcecode}{\def\GLOBALcaptiondefnsrc{EMPTY-VAR}}
 
 % Cambia los márgenes del documento
 %	#1	Margen izquierdo
