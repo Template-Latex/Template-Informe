@@ -32,6 +32,13 @@
 	
 	Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\hreftext{\textbackslash insertimage}}:
 
+	% Esta instrucción, añadida en la v1.1.0 permite cambiar el título de cada
+	% objeto en el índice de cada objeto. Este título es solo válido hasta el
+	% primer objeto que lo llame, luego este se reestablecerá. Por mientras solo
+	% se ofrece compatibilidad para las funciones de imágenes. Los entornos como
+	% images o sourcecode aún no tienen compatibilidad
+	\setindexcaption{Título de la imagen en el índice.}
+		
 	% Para insertar una imagen se puede usar la función \insertimage la cual
 	% toma un primer parámetro opcional para definir una etiqueta (dentro de
 	% los corchetes), luego toma la dirección de la imagen, sus parámetros
