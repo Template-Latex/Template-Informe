@@ -97,17 +97,34 @@
 			\fi
 		\else
 			\ifx\hfuzz#3\hfuzz
-				\lstset{
-					caption={#4 #1},
-					captionpos=t,
-					style=#2
+				\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+					\lstset{
+						caption={#4 #1},
+						captionpos=t,
+						style=#2
+					}
+				}{
+					\lstset{
+						caption={[\GLOBALcaptiondefn]#4 #1},
+						captionpos=t,
+						style=#2
+					}
 				}
 			\else
-				\lstset{
-					caption={#4 #1},
-					captionpos=t,
-					style=#2,
-					#3
+				\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+					\lstset{
+						caption={#4 #1},
+						captionpos=t,
+						style=#2,
+						#3
+					}
+				}{
+					\lstset{
+						caption={[\GLOBALcaptiondefn]#4 #1},
+						captionpos=t,
+						style=#2,
+						#3
+					}
 				}
 			\fi
 		\fi
@@ -125,21 +142,39 @@
 			\fi
 		\else
 			\ifx\hfuzz#3\hfuzz
-				\lstset{
-					caption={#4 #1},
-					captionpos=b,
-					style=#2
+				\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+					\lstset{
+						caption={#4 #1},
+						captionpos=b,
+						style=#2
+					}
+				}{
+					\lstset{
+						caption={[\GLOBALcaptiondefn]#4 #1},
+						captionpos=b,
+						style=#2
+					}
 				}
 			\else
-				\lstset{
-					caption={#4 #1},
-					captionpos=b,
-					style=#2,
-					#3
+				\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+					\lstset{
+						caption={#4 #1},
+						captionpos=b,
+						style=#2,
+						#3
+					}
+				}{
+					\lstset{
+						caption={[\GLOBALcaptiondefn]#4 #1},
+						captionpos=b,
+						style=#2,
+						#3
+					}
 				}
 			\fi
 		\fi	
 	}
+	\def\GLOBALcaptiondefn{} % Elimina el caption
 }
 
 % Inserta código fuente con parámetros
@@ -188,10 +223,18 @@
 				style=#2
 			}
 		\else
-			\lstset{
-				style=#2,
-				caption={#3 #1},
-				captionpos=t
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+				\lstset{
+					style=#2,
+					caption={#3 #1},
+					captionpos=t
+				}
+			}{
+				\lstset{
+					style=#2,
+					caption={[\GLOBALcaptiondefn]#3 #1},
+					captionpos=t
+				}
 			}
 		\fi
 	}{
@@ -200,13 +243,22 @@
 				style=#2
 			}
 		\else
-			\lstset{
-				style=#2,
-				caption={#3 #1},
-				captionpos=b
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+				\lstset{
+					style=#2,
+					caption={#3 #1},
+					captionpos=b
+				}
+			}{
+				\lstset{
+					style=#2,
+					caption={[\GLOBALcaptiondefn]#3 #1},
+					captionpos=b
+				}
 			}
 		\fi
 	}
+	\def\GLOBALcaptiondefn{} % Elimina el caption
 }
 
 % Inserta código fuente sin parámetros
@@ -281,7 +333,11 @@
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\vspace{\captionlessmarginimage cm}
 		}{
-			\caption{\envimagescaptionvar\envimageslabelvar}
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+				\caption{\envimagescaptionvar\envimageslabelvar}
+			}{
+				\caption[\GLOBALcaptiondefn]{\envimagescaptionvar\envimageslabelvar}
+			}
 		}
 	\end{figure}
 
@@ -291,6 +347,7 @@
 	
 	% Reestablece globales
 	\def\GLOBALenvimageinitialized {false}
+	\def\GLOBALcaptiondefn{} % Elimina el caption
 }
 
 % END
