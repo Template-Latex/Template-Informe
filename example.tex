@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      6.5.3 (01/09/2019)
+% Versión:      6.5.4 (02/09/2019)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -28,6 +28,13 @@
 		
 		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\hreftext{\textbackslash insertimage}}:
 
+		% Esta instrucción, añadida en la v6.6.0 permite cambiar el título de cada
+		% objeto en el índice de cada objeto. Este título es solo válido hasta el
+		% primer objeto que lo llame, luego este se reestablecerá. Por mientras solo
+		% se ofrece compatibilidad para las funciones de imágenes. Los entornos como
+		% images o sourcecode aún no tienen compatibilidad
+		\setindexcaption{Título de la imagen en el índice.}
+		
 		% Para insertar una imagen se puede usar la función \insertimage la cual
 		% toma un primer parámetro opcional para definir una etiqueta (dentro de
 		% los corchetes), luego toma la dirección de la imagen, sus parámetros
@@ -91,15 +98,15 @@
 
 		% Párrafos de ejemplo
 		\newp \slipsum[115]
-		
+
+		% Agrega una ecuación con leyenda
+		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
+
 		% Inserta una definición, compatibilidad con otros templates
 		\begin{defn}[ver \cite{templateinforme}]
 			Definición definitiva
 			$$\frac{d}{dx}\int_a^xf(y)dy=f(x).$$
 		\end{defn}
-
-		% Agrega una ecuación con leyenda
-		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
 
 		% Aquí no es necesario usar \newp dado que todas las funciones \insert...
 		% añaden un párrafo nuevo por defecto
