@@ -469,13 +469,18 @@
 \ifthenelse{\equal{\footnoterestart}{page}}{
 	\counterwithin*{footnote}{page}
 }{
-	\throwbadconfig{Formato reinicio numero footnote desconocido}{\footnoterestart}{none,page,sec,ssec,sssec,ssssec}}}}}}
+\ifthenelse{\equal{\footnoterestart}{chap}}{
+	\counterwithin*{footnote}{chapter}
+}{
+	\throwbadconfig{Formato reinicio numero footnote desconocido}{\footnoterestart}{none,chap,page,sec,ssec,sssec,ssssec}}}}}}}
 }
 
 % -----------------------------------------------------------------------------
 % Restauración número ecuación, NOTA: NO hace nada, sólo se modifica en title.tex
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\equationrestart}{none}}{
+}{
+\ifthenelse{\equal{\equationrestart}{chap}}{
 }{
 \ifthenelse{\equal{\equationrestart}{sec}}{
 }{
@@ -485,8 +490,64 @@
 }{
 \ifthenelse{\equal{\equationrestart}{ssssec}}{
 }{
-	\throwbadconfig{Formato reinicio numero ecuacion desconocido}{\equationrestart}{none,sec,ssec,sssec,ssssec}}}}}
+	\throwbadconfig{Formato reinicio numero ecuacion desconocido}{\equationrestart}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 }
+
+% -----------------------------------------------------------------------------
+% Configuración elementos matemáticos
+% -----------------------------------------------------------------------------
+\newtheoremstyle{miestilo}{\baselineskip}{3pt}{\itshape}{}{\bfseries}{}{.5em}{}
+\newtheoremstyle{miobs}{\baselineskip}{3pt}{}{}{\bfseries}{}{.5em}{}
+\theoremstyle{miestilo}
+
+% Configura números
+\ifthenelse{\equal{\showsectioncaptionmat}{none}}{
+	\newtheorem{defn}{\namemathdefn}
+	\newtheorem{teo}{\namemaththeorem}
+	\newtheorem{cor}{\namemathcol}
+	\newtheorem{lema}{\namemathlem}
+	\newtheorem{prop}{\namemathprp}
+}{
+\ifthenelse{\equal{\showsectioncaptionmat}{chap}}{
+	\newtheorem{defn}{\namemathdefn}[chapter]
+	\newtheorem{teo}{\namemaththeorem}[chapter]
+	\newtheorem{cor}{\namemathcol}[chapter]
+	\newtheorem{lema}{\namemathlem}[chapter]
+	\newtheorem{prop}{\namemathprp}[chapter]
+}{
+\ifthenelse{\equal{\showsectioncaptionmat}{sec}}{
+	\newtheorem{defn}{\namemathdefn}[section]
+	\newtheorem{teo}{\namemaththeorem}[section]
+	\newtheorem{cor}{\namemathcol}[section]
+	\newtheorem{lema}{\namemathlem}[section]
+	\newtheorem{prop}{\namemathprp}[section]
+}{
+\ifthenelse{\equal{\showsectioncaptionmat}{ssec}}{
+	\newtheorem{defn}{\namemathdefn}[subsection]
+	\newtheorem{teo}{\namemaththeorem}[subsection]
+	\newtheorem{cor}{\namemathcol}[subsection]
+	\newtheorem{lema}{\namemathlem}[subsection]
+	\newtheorem{prop}{\namemathprp}[subsection]
+}{
+\ifthenelse{\equal{\showsectioncaptionmat}{sssec}}{
+	\newtheorem{defn}{\namemathdefn}[subsubsection]
+	\newtheorem{teo}{\namemaththeorem}[subsubsection]
+	\newtheorem{cor}{\namemathcol}[subsubsection]
+	\newtheorem{lema}{\namemathlem}[subsubsection]
+	\newtheorem{prop}{\namemathprp}[subsubsection]
+}{
+\ifthenelse{\equal{\showsectioncaptionmat}{ssssec}}{
+	\newtheorem{defn}{\namemathdefn}[subsubsubsection]
+	\newtheorem{teo}{\namemaththeorem}[subsubsubsection]
+	\newtheorem{cor}{\namemathcol}[subsubsubsection]
+	\newtheorem{lema}{\namemathlem}[subsubsubsection]
+	\newtheorem{prop}{\namemathprp}[subsubsubsection]
+}{
+	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionmat}{none,chap,sec,ssec,sssec,ssssec}}}}}}
+}
+\theoremstyle{miobs}
+\newtheorem*{ej}{\namemathej}
+\newtheorem*{obs}{\namemathobs}
 
 % -----------------------------------------------------------------------------
 % Configuraciones del idioma
