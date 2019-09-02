@@ -12,7 +12,9 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % Definición de variables globales
-\def\GLOBALcaptiondefn {}                % Definición del caption
+\def\GLOBALcaptiondefn {EMPTY-VAR}       % Definición del caption
+\def\GLOBALcaptiondefnimages {EMPTY-VAR} % Definición del caption en images
+\def\GLOBALcaptiondefnsrc {EMPTY-VAR}    % Definición del caption en sourcecode
 \def\GLOBALcoretikzimported {false}      % Indica que tikz se importó
 \def\GLOBALenvimageadded {false}         % Indica que una imagen ha sido añadida
 \def\GLOBALenvimageinitialized {false}   % Entorno images activo
@@ -115,6 +117,9 @@
 % Define el caption del índice
 % 	#1	Título del caption
 \newcommand{\setindexcaption}[1]{\def\GLOBALcaptiondefn{#1}}
+
+% Resetea los caption
+\newcommand{\resetindexcaption}{\def\GLOBALcaptiondefn{EMPTY-VAR}}
 
 % Cambia los márgenes del documento
 %	#1	Margen izquierdo

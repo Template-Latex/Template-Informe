@@ -36,6 +36,7 @@
 	\begingroup % Inicia el grupo en nueva página y sección
 	\clearpage
 	\phantomsection
+	\resetindexcaption
 	\changeheadertitle{\nomltappendixsection} % Cambia el nombre del header
 	\def\GLOBALsectionalph{true} % Modifica formato de secciones con sección alph
 	\bookmarksetup{
@@ -97,7 +98,7 @@
 			\fi
 		\else
 			\ifx\hfuzz#3\hfuzz
-				\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+				\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{
 					\lstset{
 						caption={#4 #1},
 						captionpos=t,
@@ -111,7 +112,7 @@
 					}
 				}
 			\else
-				\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+				\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{
 					\lstset{
 						caption={#4 #1},
 						captionpos=t,
@@ -142,7 +143,7 @@
 			\fi
 		\else
 			\ifx\hfuzz#3\hfuzz
-				\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+				\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{
 					\lstset{
 						caption={#4 #1},
 						captionpos=b,
@@ -156,7 +157,7 @@
 					}
 				}
 			\else
-				\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+				\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{
 					\lstset{
 						caption={#4 #1},
 						captionpos=b,
@@ -174,7 +175,7 @@
 			\fi
 		\fi	
 	}
-	\def\GLOBALcaptiondefn{} % Elimina el caption
+	\def\GLOBALcaptiondefn{EMPTY-VAR} % Elimina el caption
 }
 
 % Inserta código fuente con parámetros
@@ -217,13 +218,15 @@
 	\lstset{
 		backgroundcolor=\color{\sourcecodebgcolor}
 	}
+	\def\GLOBALcaptiondefnsrc{\GLOBALcaptiondefn}
+	\resetindexcaption
 	\ifthenelse{\equal{\codecaptiontop}{true}}{
 		\ifx\hfuzz#3\hfuzz
 			\lstset{
 				style=#2
 			}
 		\else
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{
 				\lstset{
 					style=#2,
 					caption={#3 #1},
@@ -243,7 +246,7 @@
 				style=#2
 			}
 		\else
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{
 				\lstset{
 					style=#2,
 					caption={#3 #1},
@@ -258,7 +261,6 @@
 			}
 		\fi
 	}
-	\def\GLOBALcaptiondefn{} % Elimina el caption
 }
 
 % Inserta código fuente sin parámetros
@@ -267,10 +269,12 @@
 %	#3	Caption
 \lstnewenvironment{sourcecode}[3][]{
 	\coreinitsourcecode{#1}{#2}{#3}
+	y
 }{
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{
 	}
+	\def\GLOBALcaptiondefn{EMPTY-VAR} % Elimina el caption
 }
 
 % Importa código fuente desde un archivo sin parámetros
@@ -325,6 +329,10 @@
 	\vspace{\marginimagetop cm}
 	\captionsetup{margin=\captionmarginmultimg cm}
 	
+	% Guarda el entorno
+	\def\GLOBALcaptiondefnimages {\GLOBALcaptiondefn}
+	\resetindexcaption
+	
 	% Inicia la figura
 	\begin{figure}[H] \centering
 		\vspace{\marginimagemulttop cm}
@@ -333,10 +341,10 @@
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\vspace{\captionlessmarginimage cm}
 		}{
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{}}{
+			\ifthenelse{\equal{\GLOBALcaptiondefnimages}{EMPTY-VAR}}{
 				\caption{\envimagescaptionvar\envimageslabelvar}
 			}{
-				\caption[\GLOBALcaptiondefn]{\envimagescaptionvar\envimageslabelvar}
+				\caption[\GLOBALcaptiondefnimages]{\envimagescaptionvar\envimageslabelvar}
 			}
 		}
 	\end{figure}
@@ -347,7 +355,7 @@
 	
 	% Reestablece globales
 	\def\GLOBALenvimageinitialized {false}
-	\def\GLOBALcaptiondefn{} % Elimina el caption
+	\def\GLOBALcaptiondefnimages{EMPTY-VAR} % Elimina el caption
 }
 
 % END

@@ -31,7 +31,7 @@
 		% Esta instrucción, añadida en la v6.6.0 permite cambiar el título de cada
 		% objeto en el índice de cada objeto. Este título es solo válido hasta el
 		% primer objeto que lo llame, luego este se reestablecerá
-		\setindexcaption{Título de la imagen en el índice}
+		\setindexcaption{Título de la imagen en el índice.}
 		
 		% Para insertar una imagen se puede usar la función \insertimage la cual
 		% toma un primer parámetro opcional para definir una etiqueta (dentro de
@@ -181,6 +181,8 @@ public class Hola extends GenericServlet {
 }
 \end{sourcecode}
 
+\setindexcaption{Título del código de Matlab en el índice.}
+\GLOBALcaptiondefn
 \begin{sourcecode}{matlab}{Ejemplo en Matlab.}
 % Se crea gráfico
 f = figure(1); hold on; movegui(f, 'center');
@@ -195,6 +197,8 @@ for j = 1:length(BETA)
 	end
 end
 \end{sourcecode}
+\GLOBALcaptiondefn
+\GLOBALcaptiondefn
 
 	% SUB-SECCIÓN
 	\subsection{Añadir múltiples imágenes}
