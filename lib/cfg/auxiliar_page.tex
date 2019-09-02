@@ -240,25 +240,39 @@
 	\fancypagestyle{styleportrait}{ % Estilo portada
 		\pagestyle{fancy}
 		\fancyhf{}
-		\fancyhead[L]{
-			\vspace*{2.5cm}
-			\nombreuniversidad ~ \\
-			\nombrefacultad ~ \\
-			\departamentouniversidad ~ \\
-			\codigodelcurso\ - \nombredelcurso
-		}
-		\fancyhead[R]{
-			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
-		}
-		\renewcommand{\headrulewidth}{0.5pt}
-		\setpagemargincm{\pagemarginleft}{2.0}{\pagemarginright}{\pagemarginbottom}
+		\renewcommand{\headrulewidth}{0pt}
+		%\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título
 		\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 		\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 	}
 	\thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
-	\begin{center}
-		\vspace*{2.0cm}
+	\begin{flushleft} % Crea el header
+		\hspace{0cm}
+		\begin{tabular}{c}
+			\hspace{-0.45cm}
+			\begin{minipage}[t]{0.6\linewidth}
+				\vspace{-4.65em}
+				\nombreuniversidad ~ \\
+				\nombrefacultad ~ \\
+				\departamentouniversidad ~ \\
+				\codigodelcurso\ - \nombredelcurso
+			\end{minipage}
+			%\hspace{\columnhspace cm}
+			\hspace{-0.25cm}
+			\begin{minipage}[t]{0.4\linewidth}
+				\begin{flushright}
+					\vspace{-4.96em}\nobreak~\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
+				\end{flushright}
+			\end{minipage}
+			\\
+		\end{tabular}
+		~
+	\end{flushleft}
+	\vspace*{-1.30cm}
+	\rule{1\linewidth}{0.5pt}
+	\begin{center} % Tabla de datos
+		\vspace*{0.75cm}
 		\huge {\tituloauxiliar} ~ \\
 		\vspace{0.2cm}
 		\large {\temaatratar} ~ \\
@@ -280,22 +294,31 @@
 	\fancypagestyle{styleportrait}{ % Estilo portada
 		\pagestyle{fancy}
 		\fancyhf{}
-		\fancyhead[L]{
-			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
-		}
-		\fancyhead[R]{
-			\vspace*{4.5cm}
-		}
 		\renewcommand{\headrulewidth}{0pt}
-		\setpagemargincm{\pagemarginleft}{2.0}{\pagemarginright}{\pagemarginbottom}
+		%\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\fancyfoot[L]{} % Footer izq
 		\fancyfoot[C]{\thepage} % Footer centro
 		\fancyfoot[R]{} % Footer der
 		\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
 	}
 	\thispagestyle{styleportrait} % Encabezado auxiliar (título e integrantes)
-	\begin{center}
-		\vspace*{2.0cm}
+	\begin{flushleft}
+		\hspace{0cm}
+		\begin{tabular}{c}
+			%\hspace{\columnhspace cm}
+			\hspace{-0.33cm}
+			\begin{minipage}[t]{1.0\linewidth}
+				\begin{flushright}
+					\vspace{-4.96em}\nobreak~\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0cm}
+				\end{flushright}
+			\end{minipage}
+			\\
+		\end{tabular}
+		~
+	\end{flushleft}
+	\vspace*{-1.30cm}
+	\begin{center} % Tabla de datos
+		\vspace*{0.75cm}
 		\LARGE {\textbf{\tituloauxiliar}} ~ \\
 		\vspace{0.3cm}
 		\Large {\codigodelcurso \nombredelcurso} ~ \\
