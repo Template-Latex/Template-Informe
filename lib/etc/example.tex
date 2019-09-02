@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      6.5.2 (27/08/2019)
+% Versión:      DEV
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -86,28 +86,32 @@
 		% imagen flotante en la derecha se utiliza \insertimageright usando los
 		% mismos parámetros
 		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
-
-		\lipsum[1]
+		
+		\slipsum[1]
 
 		% Párrafos de ejemplo
-		\newp \lipsum[115]
-		\newp \lipsum[2]
+		\newp \slipsum[115]
+		
+		% Inserta una definición, compatibilidad con otros templates
+		\begin{defn}[ver \cite{templateinforme}]
+			Definición definitiva
+			$$\frac{d}{dx}\int_a^xf(y)dy=f(x).$$
+		\end{defn}
 
 		% Agrega una ecuación con leyenda
 		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
 
 		% Aquí no es necesario usar \newp dado que todas las funciones \insert...
 		% añaden un párrafo nuevo por defecto
-		\lipsum[115]
-
-		\newp \lipsum[4]
+		\slipsum[115]
+		\newp \slipsum[116]
 
 	% Inserta un subtítulo sin número
 	\subsection{Otros párrafos más normales}
 
 		% Párrafos
-		\lipsum[7]
-		\newp \lipsum[2]
+		\slipsum[7]
+		\newp \slipsum[2]
 
 		% Se inserta una ecuación larga con el entorno gathered (1 solo número de ecuación)
 		\insertgathered[\label{eqn:eqn-larga}]{
@@ -116,19 +120,19 @@
 		}
 
 		% Nuevo párrafo
-		\lipsum[4]
+		\slipsum[4]
 
 		% Se inserta un multicols, con esto se pueden escribir párrafos en varias columnas
 		\begin{multicols}{2}
 
 			% Párrafo 1
-			\lipsum[4]
+			\slipsum[4]
 
 			% Ecuación encerrada en una caja
 			\insertequation[]{ \boxed{f(x) = \fracdpartial{u}{t}} }
 
 			% Párrafo 2 del multicols
-			\lipsum[1]
+			\slipsum[1]
 
 		\end{multicols}
 
@@ -314,14 +318,14 @@ end
 \section{Cálculos realizados}
 
 	\subsection{Metodología}
-		\lipsum[1]
+		\slipsum[1]
 
 		% Imagen, se numerará automáticamente con la letra del anexo según
 		% la configuración \appendixindepobjnum
 		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
 
 	\subsection{Resultados}
-		\lipsum[10]
+		\slipsum[10]
 
 		% Tablas
 		\enabletablerowcolor[2] % Activa el color de celda
@@ -347,10 +351,10 @@ end
 \section{Más cálculos}
 
 	% Párrafo
-	\lipsum[1]
+	\slipsum[1]
 
 	% Nuevo párrafo con identación
-	\newp \lipsum[4]
+	\newp \slipsum[4]
 
 	% Tabla de encuestas
 	\begin{table}[htbp]
