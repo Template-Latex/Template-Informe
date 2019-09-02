@@ -97,34 +97,17 @@
 			\fi
 		\else
 			\ifx\hfuzz#3\hfuzz
-				\ifthenelse{\equal{\GLOBALcaptiondefnsrc}{EMPTY-VAR}}{
-					\lstset{
-						caption={#4 #1},
-						captionpos=t,
-						style=#2
-					}
-				}{
-					\lstset{
-						caption={[\GLOBALcaptiondefnsrc]#4 #1},
-						captionpos=t,
-						style=#2
-					}
+				\lstset{
+					caption={#4 #1},
+					captionpos=t,
+					style=#2
 				}
 			\else
-				\ifthenelse{\equal{\GLOBALcaptiondefnsrc}{EMPTY-VAR}}{
-					\lstset{
-						caption={#4 #1},
-						captionpos=t,
-						style=#2,
-						#3
-					}
-				}{
-					\lstset{
-						caption={[\GLOBALcaptiondefnsrc]#4 #1},
-						captionpos=t,
-						style=#2,
-						#3
-					}
+				\lstset{
+					caption={#4 #1},
+					captionpos=t,
+					style=#2,
+					#3
 				}
 			\fi
 		\fi
@@ -142,34 +125,17 @@
 			\fi
 		\else
 			\ifx\hfuzz#3\hfuzz
-				\ifthenelse{\equal{\GLOBALcaptiondefnsrc}{EMPTY-VAR}}{
-					\lstset{
-						caption={#4 #1},
-						captionpos=b,
-						style=#2
-					}
-				}{
-					\lstset{
-						caption={[\GLOBALcaptiondefnsrc]#4 #1},
-						captionpos=b,
-						style=#2
-					}
+				\lstset{
+					caption={#4 #1},
+					captionpos=b,
+					style=#2
 				}
 			\else
-				\ifthenelse{\equal{\GLOBALcaptiondefnsrc}{EMPTY-VAR}}{
-					\lstset{
-						caption={#4 #1},
-						captionpos=b,
-						style=#2,
-						#3
-					}
-				}{
-					\lstset{
-						caption={[\GLOBALcaptiondefnsrc]#4 #1},
-						captionpos=b,
-						style=#2,
-						#3
-					}
+				\lstset{
+					caption={#4 #1},
+					captionpos=b,
+					style=#2,
+					#3
 				}
 			\fi
 		\fi	
@@ -187,7 +153,6 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{
 	}
-	\resetindexcaptionsourcecode
 }
 
 % Importa código fuente desde un archivo con parámetros
@@ -223,18 +188,10 @@
 				style=#2
 			}
 		\else
-			\ifthenelse{\equal{\GLOBALcaptiondefnsrc}{EMPTY-VAR}}{
-				\lstset{
-					style=#2,
-					caption={#3 #1},
-					captionpos=t
-				}
-			}{
-				\lstset{
-					style=#2,
-					caption={[\GLOBALcaptiondefnsrc]#3 #1},
-					captionpos=t
-				}
+			\lstset{
+				style=#2,
+				caption={#3 #1},
+				captionpos=t
 			}
 		\fi
 	}{
@@ -243,18 +200,10 @@
 				style=#2
 			}
 		\else
-			\ifthenelse{\equal{\GLOBALcaptiondefnsrc}{EMPTY-VAR}}{
-				\lstset{
-					style=#2,
-					caption={#3 #1},
-					captionpos=b
-				}
-			}{
-				\lstset{
-					style=#2,
-					caption={[\GLOBALcaptiondefnsrc]#3 #1},
-					captionpos=b
-				}
+			\lstset{
+				style=#2,
+				caption={#3 #1},
+				captionpos=b
 			}
 		\fi
 	}
@@ -270,7 +219,6 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{
 	}
-	\resetindexcaptionsourcecode
 }
 
 % Importa código fuente desde un archivo sin parámetros
@@ -333,11 +281,7 @@
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\vspace{\captionlessmarginimage cm}
 		}{
-			\ifthenelse{\equal{\GLOBALcaptiondefnimages}{EMPTY-VAR}}{
-				\caption{\envimagescaptionvar\envimageslabelvar}
-			}{
-				\caption[\GLOBALcaptiondefnimages]{\envimagescaptionvar\envimageslabelvar}
-			}
+			\caption{\envimagescaptionvar\envimageslabelvar}
 		}
 	\end{figure}
 
@@ -347,8 +291,6 @@
 	
 	% Reestablece globales
 	\def\GLOBALenvimageinitialized {false}
-	\resetindexcaptionimages
-
 }
 
 % END
