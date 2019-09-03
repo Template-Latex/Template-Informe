@@ -261,14 +261,18 @@
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{
 	\bibliographystyle{\natbibrefstyle}
 	\setlength{\bibsep}{\natbibrefsep pt}
-	\newcommand{\shortcite}[1]{\texttt{\textbackslash shortcite\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias natbib}}
-	\newcommand{\fullcite}[1]{\texttt{\textbackslash fullcite\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias natbib}}
+	%\newcommand{\shortcite}[1]{\texttt{\textbackslash shortcite\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias natbib}}
+	%\newcommand{\fullcite}[1]{\texttt{\textbackslash fullcite\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias natbib}}
+	\newcommand{\shortcite}[1]{\texttt{\textbackslash shortcite\{#1\}}}
+	\newcommand{\fullcite}[1]{\texttt{\textbackslash fullcite\{#1\}}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\bibliographystyle{apacite}
 	\setlength{\bibitemsep}{\apaciterefsep pt}
-	\newcommand{\citet}[1]{\texttt{\textbackslash citet\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias apacite}}
-	\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias apacite}}
+	%\newcommand{\citet}[1]{\texttt{\textbackslash citet\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias apacite}}
+	%\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias apacite}}
+	\newcommand{\citet}[1]{\texttt{\textbackslash citet\{#1\}}}
+	\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	\bibliographystyle{apa}

@@ -99,7 +99,22 @@
 	
 \section{Creando citas}
 
-El template por defecto está configurado para trabajar con citas de la librería \href{https://www.ctan.org/pkg/natbib}{natbib}, y se configuró al estilo plainnat. Puedes usar otros estilos cambiando la configuración \texttt{\textbackslash natbibrefstyle} si es que usas natbib. También se da soporte a la librería apacite, para ello puedes cambiar la configuración \texttt{\textbackslash stylecitereferences}. Una completa guía de estilos la puedes consultar en \url{http://homepage.stat.uiowa.edu/~rlenth/ALPHA/bibstylescompared.pdf}. Para citar puedes usar \citet{einstein}, \citep{latexcompanion}.
+El template por defecto está configurado para trabajar con citas de la librería \href{https://www.ctan.org/pkg/natbib}{natbib}, y se configuró al estilo plainnat. Puedes usar otros estilos cambiando la configuración \texttt{\textbackslash natbibrefstyle} si es que usas natbib. También se da soporte a la librería apacite, para ello puedes cambiar la configuración \texttt{\textbackslash stylecitereferences}. Una completa guía de estilos la puedes consultar en \url{http://homepage.stat.uiowa.edu/~rlenth/ALPHA/bibstylescompared.pdf}. \\
+
+Para citar usando la librería \textbf{natbib} puedes usar:
+
+\begin{itemize}
+	\item \citet{einstein}
+	\item \citep{einstein}
+\end{itemize}
+
+Para citar usando la librería \textbf{apacite} puedes usar:
+
+\begin{itemize}
+	\item \cite{einstein}
+	\item \shortcite{latexcompanion}
+	\item \fullcite{einstein}
+\end{itemize}
 
 
 % ------------------------------------------------------------------------------
