@@ -21,8 +21,6 @@
 
 \lipsum[1]
 
-\newp \lipsum[2]
-
 % SUB-SECCIÓN
 % Las sub-secciones se inician con \subsection, si se quiere una sub-sección
 % sin número se pueden usar las funciones \subsectionanum (nuevo subtítulo sin
@@ -77,6 +75,7 @@
 			\hline
 			$\omega$ & $\nu$ & $\delta$ \bigstrut[t]\\
 			$\Phi$ & $\Theta$ & $\varSigma$ \\
+			$\R$ & $\E$ & $\psi$ \\
 			\hline
 		\end{tabular}
 		\label{tab:tabla-1}
@@ -205,6 +204,21 @@ public class Hola extends GenericServlet { // Hola mundo
 }
 \end{sourcecode}
 
+\begin{sourcecode}{matlab}{Ejemplo en Matlab.}
+	% Se crea gráfico
+	f = figure(1); hold on; movegui(f, 'center');
+	xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
+	title('Espectro de pulso de desplazamiento');
+	
+	for j = 1:length(BETA)
+	fad = ones(1, NDATOS); % Arreglo para el FAD
+	for i = 1:NDATOS
+	[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
+	fad(i) = max(abs(u_t)) / uf0;
+	end
+	end
+\end{sourcecode}
+
 % SUB-SECCIÓN
 \subsection{Añadir múltiples imágenes}
 
@@ -215,7 +229,7 @@ El template ofrece el entorno \href{https://latex.ppizarror.com/informe.html#hlp
 	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
 	\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo.}
 	\imagesnewline
-	\addimage{ejemplos/test-image}{width=10cm}{Ciudad más grande.}
+	\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande.}
 \end{images}
 \end{sourcecode}
 
@@ -225,10 +239,11 @@ Obteniendo así:
 	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
 	\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo.}
 	\imagesnewline
-	\addimage{ejemplos/test-image}{width=10cm}{Ciudad más grande.}
+	\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande.}
 \end{images}
 
 % Inserta una sección sin número
+\newpage
 \sectionanum{Más ejemplos}
 
 	% Inserta un subtítulo sin número
@@ -292,7 +307,8 @@ Obteniendo así:
 % ------------------------------------------------------------------------------
 \chapter{Conclusiones}
 
-\lipsum[1-2]
+\lipsum[1]
+\newp \lipsum[2]
 
 
 % ------------------------------------------------------------------------------
