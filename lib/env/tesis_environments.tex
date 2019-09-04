@@ -15,7 +15,7 @@
 % Crea una sección de resumen
 \newenvironment{resumen}{
 	% Añade a los marcadores
-	\setpagemargincm{\pagemarginleft}{\pagemarginright}{\pagemarginright}{\pagemarginbottom}
+	% \setpagemargincm{\pagemarginleft}{\pagemarginright}{\pagemarginright}{\pagemarginbottom}
 	\ifthenelse{\equal{\addabstracttobookmarks}{true}}{
 		\pdfbookmark{\nameabstract}{contents}}{
 	}
@@ -39,7 +39,7 @@
 			\insertblankpage
 		\fi}{
 	}
-	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+	% \setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 }
 
 % Crea una sección de dedicatoria
