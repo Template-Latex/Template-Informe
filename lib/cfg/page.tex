@@ -201,6 +201,14 @@
 	\fancyfoot[R]{\nombreuniversidad}
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{0pt}
+	\fancypagestyle{plain}{ % Reescribe formato página como las de chapter [tesis]
+		\fancyhf{}
+		\fancyfoot[L]{\departamentouniversidad}
+		\fancyfoot[C]{\thepage}
+		\fancyfoot[R]{\nombreuniversidad}
+		\renewcommand{\headrulewidth}{0pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
 	\setlength{\headheight}{49pt}
 }{
 \ifthenelse{\equal{\hfstyle}{style7}}{
@@ -210,7 +218,7 @@
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{0pt}
 	\setlength{\headheight}{49pt}
-	\fancypagestyle{plain}{
+	\fancypagestyle{plain}{ % Reescribe formato página como las de chapter [tesis]
 		\fancyhf{}
 		\fancyfoot[C]{\thepage}
 		\renewcommand{\headrulewidth}{0pt}
@@ -224,7 +232,7 @@
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{0pt}
 	\setlength{\headheight}{49pt}
-	\fancypagestyle{plain}{
+	\fancypagestyle{plain}{ % Reescribe formato página como las de chapter [tesis]
 		\fancyhf{}
 		\fancyfoot[R]{\thepage}
 		\renewcommand{\headrulewidth}{0pt}
@@ -314,6 +322,14 @@
 	\fancyfoot[R]{\nombreuniversidad}
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{0pt}
+	\fancypagestyle{plain}{ % Reescribe formato página como las de chapter [tesis]
+		\fancyhf{}
+		\fancyfoot[L]{\departamentouniversidad}
+		\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
+		\fancyfoot[R]{\nombreuniversidad}
+		\renewcommand{\headrulewidth}{0pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
 	\setlength{\headheight}{49pt}
 }{
 \ifthenelse{\equal{\hfstyle}{style13}}{ % Similar a 3
