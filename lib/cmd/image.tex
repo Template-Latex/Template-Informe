@@ -78,6 +78,17 @@
 	\resetindexcaption
 }
 
+% Insertar una imagen dentro de una tabla
+%	#1	Dirección de la imagen
+%	#2	Parámetros de la imagen
+\newcommand{\inserttableimage}[2]{\inserttableimageboxed{#1}{#2}{0}}
+
+% Insertar una imagen dentro de una tabla con recuadro
+%	#1	Dirección de la imagen
+%	#2	Parámetros de la imagen
+%	#3	Ancho de la línea (en pt)
+\newcommand{\inserttableimageboxed}[3]{\emptyvarerr{\inserttableimageboxed}{#1}{Direccion de la imagen no definida}\emptyvarerr{\inserttableimageboxed}{#2}{Parametros de la imagen no definidos}\emptyvarerr{\inserttableimageboxed}{#3}{Ancho de la linea no definido}\checkoutsideenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\raisebox{-1\totalheight}{\fbox{\includegraphics[#2]{#1}}}\endgroup\resetindexcaption}
+
 % Insertar una imagen a la izquierda, escalada, ancho fijo
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
