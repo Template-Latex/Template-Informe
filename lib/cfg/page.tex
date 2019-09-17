@@ -69,139 +69,148 @@
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\hfstyle}{style1}}{
 	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\disablehfrightmark}{false}}{
-		\fancyhead[L]{\nouppercase{\rightmark}}
-	}{}
-	\fancyhead[R]{\small \thepage}
-	\ifthenelse{\equal{\hfwidthwrap}{true}}{
-		\fancyfoot[L]{
-			\begin{minipage}[t]{\hfwidthtitle\linewidth}
-				\begin{flushleft}
-					\small \textit{\titulodelinforme}
-				\end{flushleft}
-			\end{minipage}
-		}
-		\fancyfoot[R]{
-			\begin{minipage}[t]{\hfwidthcourse\linewidth}
-				\begin{flushright}
-					\small \textit{\codigodelcurso \nombredelcurso}
-				\end{flushright}
-			\end{minipage}
-		}
-	}{
-		\fancyfoot[L]{\small \textit{\titulodelinforme}}
-		\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
-	}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0.5pt}
-	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-}{
-\ifthenelse{\equal{\hfstyle}{style2}}{
-	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\disablehfrightmark}{false}}{
-		\fancyhead[L]{\nouppercase{\rightmark}}
-	}{}
-	\fancyhead[R]{\small \thepage}
-	\ifthenelse{\equal{\hfwidthwrap}{true}}{
-		\fancyfoot[L]{
-			\begin{minipage}[t]{\hfwidthtitle\linewidth}
-				\begin{flushleft}
-					\small \textit{\titulodelinforme}
-				\end{flushleft}
-			\end{minipage}
-		}
-		\fancyfoot[R]{
-			\begin{minipage}[t]{\hfwidthcourse\linewidth}
-				\begin{flushright}
-					\small \textit{\codigodelcurso \nombredelcurso}
-				\end{flushright}
-			\end{minipage}
-		}
-	}{
-		\fancyfoot[L]{\small \textit{\titulodelinforme}}
-		\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
-	}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0pt}
-	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-}{
-\ifthenelse{\equal{\hfstyle}{style3}}{
-	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\hfwidthwrap}{true}}{
-		\fancyhead[L]{
-			\begin{minipage}[t]{\hfwidthtitle\linewidth}
-				\begin{flushleft}
-					\small \textit{\codigodelcurso \nombredelcurso}
-				\end{flushleft}
-			\end{minipage}
-		}
-	}{
-		\fancyhead[L]{\small \textit{\codigodelcurso \nombredelcurso}}
-	}
-	\fancyhead[R]{
-		\includegraphics[width=1.2cm]{\imagendepartamento}
-		\vspace{-0.15cm}
-	}
-	\fancyfoot[C]{\thepage}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0pt}
-}{
-\ifthenelse{\equal{\hfstyle}{style4}}{
-	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\disablehfrightmark}{false}}{
-		\fancyhead[L]{\nouppercase{\rightmark}}
-	}{}
-	\fancyhead[R]{}
-	\fancyfoot[C]{\small \thepage}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0pt}
-	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-}{
-\ifthenelse{\equal{\hfstyle}{style5}}{
-	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\hfwidthwrap}{true}}{
-		\fancyhead[L]{
-			\begin{minipage}[t]{\hfwidthcourse\linewidth}
-				\begin{flushleft}
-					\codigodelcurso \nombredelcurso
-				\end{flushleft}
-			\end{minipage}
-		}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
 		\ifthenelse{\equal{\disablehfrightmark}{false}}{
-			\fancyhead[R]{
+			\fancyhead[L]{\nouppercase{\rightmark}}
+		}{}
+		\fancyhead[R]{\small \thepage}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\fancyfoot[L]{
 				\begin{minipage}[t]{\hfwidthtitle\linewidth}
+					\begin{flushleft}
+						\small \textit{\titulodelinforme}
+					\end{flushleft}
+				\end{minipage}
+			}
+			\fancyfoot[R]{
+				\begin{minipage}[t]{\hfwidthcourse\linewidth}
 					\begin{flushright}
-						\nouppercase{\rightmark}
+						\small \textit{\codigodelcurso \nombredelcurso}
 					\end{flushright}
 				\end{minipage}
 			}
-		}{}
-	}{
-		\fancyhead[L]{\codigodelcurso \nombredelcurso}
-		\ifthenelse{\equal{\disablehfrightmark}{false}}{
-			\fancyhead[R]{\nouppercase{\rightmark}}
-		}{}
+		}{
+			\fancyfoot[L]{\small \textit{\titulodelinforme}}
+			\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
+		}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0.5pt}
 	}
-	\fancyfoot[L]{\departamentouniversidad, \nombreuniversidad}
-	\fancyfoot[R]{\small \thepage}
-	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\COREstyledefinition
+}{
+\ifthenelse{\equal{\hfstyle}{style2}}{
+	\pagestyle{fancy}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
+		\ifthenelse{\equal{\disablehfrightmark}{false}}{
+			\fancyhead[L]{\nouppercase{\rightmark}}
+		}{}
+		\fancyhead[R]{\small \thepage}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\fancyfoot[L]{
+				\begin{minipage}[t]{\hfwidthtitle\linewidth}
+					\begin{flushleft}
+						\small \textit{\titulodelinforme}
+					\end{flushleft}
+				\end{minipage}
+			}
+			\fancyfoot[R]{
+				\begin{minipage}[t]{\hfwidthcourse\linewidth}
+					\begin{flushright}
+						\small \textit{\codigodelcurso \nombredelcurso}
+					\end{flushright}
+				\end{minipage}
+			}
+		}{
+			\fancyfoot[L]{\small \textit{\titulodelinforme}}
+			\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
+		}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\COREstyledefinition
+}{
+\ifthenelse{\equal{\hfstyle}{style3}}{
+	\pagestyle{fancy}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\fancyhead[L]{
+				\begin{minipage}[t]{\hfwidthtitle\linewidth}
+					\begin{flushleft}
+						\small \textit{\codigodelcurso \nombredelcurso}
+					\end{flushleft}
+				\end{minipage}
+			}
+		}{
+			\fancyhead[L]{\small \textit{\codigodelcurso \nombredelcurso}}
+		}
+		\fancyhead[R]{
+			\includegraphics[width=1.2cm]{\imagendepartamento}
+			\vspace{-0.15cm}
+		}
+		\fancyfoot[C]{\thepage}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
+	\COREstyledefinition
+}{
+\ifthenelse{\equal{\hfstyle}{style4}}{
+	\pagestyle{fancy}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
+		\ifthenelse{\equal{\disablehfrightmark}{false}}{
+			\fancyhead[L]{\nouppercase{\rightmark}}
+		}{}
+		\fancyhead[R]{}
+		\fancyfoot[C]{\small \thepage}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\COREstyledefinition
+}{
+\ifthenelse{\equal{\hfstyle}{style5}}{
+	\pagestyle{fancy}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\fancyhead[L]{
+				\begin{minipage}[t]{\hfwidthcourse\linewidth}
+					\begin{flushleft}
+						\codigodelcurso \nombredelcurso
+					\end{flushleft}
+				\end{minipage}
+			}
+			\ifthenelse{\equal{\disablehfrightmark}{false}}{
+				\fancyhead[R]{
+					\begin{minipage}[t]{\hfwidthtitle\linewidth}
+						\begin{flushright}
+							\nouppercase{\rightmark}
+						\end{flushright}
+					\end{minipage}
+				}
+			}{}
+		}{
+			\fancyhead[L]{\codigodelcurso \nombredelcurso}
+			\ifthenelse{\equal{\disablehfrightmark}{false}}{
+				\fancyhead[R]{\nouppercase{\rightmark}}
+			}{}
+		}
+		\fancyfoot[L]{\departamentouniversidad, \nombreuniversidad}
+		\fancyfoot[R]{\small \thepage}
+		\renewcommand{\headrulewidth}{0pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\COREstyledefinition
 }{
 \ifthenelse{\equal{\hfstyle}{style6}}{
 	\pagestyle{fancy}
-	\fancyhf{}
-	\fancyfoot[L]{\departamentouniversidad}
-	\fancyfoot[C]{\thepage}
-	\fancyfoot[R]{\nombreuniversidad}
-	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
-	\fancypagestyle{plain}{ % Reescribe formato página como las de chapter [tesis]
+	\newcommand{\COREstyledefinition}{
 		\fancyhf{}
 		\fancyfoot[L]{\departamentouniversidad}
 		\fancyfoot[C]{\thepage}
@@ -210,119 +219,117 @@
 		\renewcommand{\footrulewidth}{0pt}
 	}
 	\setlength{\headheight}{49pt}
+	\COREstyledefinition
 }{
 \ifthenelse{\equal{\hfstyle}{style7}}{
 	\pagestyle{fancy}
-	\fancyhf{}
-	\fancyfoot[C]{\thepage}
-	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
-	\setlength{\headheight}{49pt}
-	\fancypagestyle{plain}{ % Reescribe formato página como las de chapter [tesis]
+	\newcommand{\COREstyledefinition}{
 		\fancyhf{}
 		\fancyfoot[C]{\thepage}
 		\renewcommand{\headrulewidth}{0pt}
 		\renewcommand{\footrulewidth}{0pt}
 	}
+	\setlength{\headheight}{49pt}
+	\COREstyledefinition
 }{
 \ifthenelse{\equal{\hfstyle}{style8}}{
 	\pagestyle{fancy}
-	\fancyhf{}
-	\fancyfoot[R]{\thepage}
-	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
-	\setlength{\headheight}{49pt}
-	\fancypagestyle{plain}{ % Reescribe formato página como las de chapter [tesis]
+	\newcommand{\COREstyledefinition}{
 		\fancyhf{}
 		\fancyfoot[R]{\thepage}
 		\renewcommand{\headrulewidth}{0pt}
 		\renewcommand{\footrulewidth}{0pt}
 	}
+	\setlength{\headheight}{49pt}
+	\COREstyledefinition
 }{
 \ifthenelse{\equal{\hfstyle}{style9}}{
 	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\disablehfrightmark}{false}}{
-		\fancyhead[L]{\nouppercase{\rightmark}}
-	}{}
-	\fancyhead[R]{}
-	\fancyfoot[L]{\small \textit{\titulodelinforme}}
-	\fancyfoot[R]{\small \thepage}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0.5pt}
-	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-}{
-\ifthenelse{\equal{\hfstyle}{style10}}{
-	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\hfwidthwrap}{true}}{
-		\ifthenelse{\equal{\disablehfrightmark}{false}}{
-			\fancyhead[L]{
-				\begin{minipage}[t]{\hfwidthtitle\linewidth}
-					\begin{flushleft}
-						\nouppercase{\rightmark}
-					\end{flushleft}
-				\end{minipage}
-			}
-		}{}
-		\fancyhead[R]{
-			\begin{minipage}[t]{\hfwidthcourse\linewidth}
-				\begin{flushright}
-					\small \textit{\titulodelinforme}
-				\end{flushright}
-			\end{minipage}
-		}
-	}{
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
 		\ifthenelse{\equal{\disablehfrightmark}{false}}{
 			\fancyhead[L]{\nouppercase{\rightmark}}
 		}{}
-		\fancyhead[R]{\small \textit{\titulodelinforme}}
+		\fancyhead[R]{}
+		\fancyfoot[L]{\small \textit{\titulodelinforme}}
+		\fancyfoot[R]{\small \thepage}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0.5pt}
 	}
-	\fancyfoot[L]{}
-	\fancyfoot[R]{\small \thepage}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0.5pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\COREstyledefinition
+}{
+\ifthenelse{\equal{\hfstyle}{style10}}{
+	\pagestyle{fancy}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\ifthenelse{\equal{\disablehfrightmark}{false}}{
+				\fancyhead[L]{
+					\begin{minipage}[t]{\hfwidthtitle\linewidth}
+						\begin{flushleft}
+							\nouppercase{\rightmark}
+						\end{flushleft}
+					\end{minipage}
+				}
+			}{}
+			\fancyhead[R]{
+				\begin{minipage}[t]{\hfwidthcourse\linewidth}
+					\begin{flushright}
+						\small \textit{\titulodelinforme}
+					\end{flushright}
+				\end{minipage}
+			}
+		}{
+			\ifthenelse{\equal{\disablehfrightmark}{false}}{
+				\fancyhead[L]{\nouppercase{\rightmark}}
+			}{}
+			\fancyhead[R]{\small \textit{\titulodelinforme}}
+		}
+		\fancyfoot[L]{}
+		\fancyfoot[R]{\small \thepage}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0.5pt}
+	}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\COREstyledefinition
 }{
 \ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
 	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\disablehfrightmark}{false}}{
-		\fancyhead[L]{\nouppercase{\rightmark}}
-	}{}
-	\fancyhead[R]{\small \thepage \nomnpageof \pageref{LastPage}}
-	\ifthenelse{\equal{\hfwidthwrap}{true}}{
-		\fancyfoot[L]{
-			\begin{minipage}[t]{\hfwidthtitle\linewidth}
-				\begin{flushleft}
-					\small \textit{\titulodelinforme}
-				\end{flushleft}
-			\end{minipage}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
+		\ifthenelse{\equal{\disablehfrightmark}{false}}{
+			\fancyhead[L]{\nouppercase{\rightmark}}
+		}{}
+		\fancyhead[R]{\small \thepage \nomnpageof \pageref{LastPage}}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\fancyfoot[L]{
+				\begin{minipage}[t]{\hfwidthtitle\linewidth}
+					\begin{flushleft}
+						\small \textit{\titulodelinforme}
+					\end{flushleft}
+				\end{minipage}
+			}
+			\fancyfoot[R]{
+				\begin{minipage}[t]{\hfwidthcourse\linewidth}
+					\begin{flushright}
+						\small \textit{\codigodelcurso \nombredelcurso}
+					\end{flushright}
+				\end{minipage}
+			}
+		}{
+			\fancyfoot[L]{\small \textit{\titulodelinforme}}
+			\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
 		}
-		\fancyfoot[R]{
-			\begin{minipage}[t]{\hfwidthcourse\linewidth}
-				\begin{flushright}
-					\small \textit{\codigodelcurso \nombredelcurso}
-				\end{flushright}
-			\end{minipage}
-		}
-	}{
-		\fancyfoot[L]{\small \textit{\titulodelinforme}}
-		\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0.5pt}
 	}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0.5pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\COREstyledefinition
 }{
 \ifthenelse{\equal{\hfstyle}{style12}}{ % Similar a 6
 	\pagestyle{fancy}
-	\fancyhf{}
-	\fancyfoot[L]{\departamentouniversidad}
-	\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
-	\fancyfoot[R]{\nombreuniversidad}
-	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
-	\fancypagestyle{plain}{ % Reescribe formato página como las de chapter [tesis]
+	\newcommand{\COREstyledefinition}{
 		\fancyhf{}
 		\fancyfoot[L]{\departamentouniversidad}
 		\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
@@ -331,66 +338,82 @@
 		\renewcommand{\footrulewidth}{0pt}
 	}
 	\setlength{\headheight}{49pt}
+	\COREstyledefinition
 }{
 \ifthenelse{\equal{\hfstyle}{style13}}{ % Similar a 3
 	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\hfwidthwrap}{true}}{
-		\fancyhead[L]{
-			\begin{minipage}[t]{\hfwidthtitle\linewidth}
-				\begin{flushleft}
-					\small \textit{\codigodelcurso \nombredelcurso}
-				\end{flushleft}
-			\end{minipage}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\fancyhead[L]{
+				\begin{minipage}[t]{\hfwidthtitle\linewidth}
+					\begin{flushleft}
+						\small \textit{\codigodelcurso \nombredelcurso}
+					\end{flushleft}
+				\end{minipage}
+			}
+		}{
+			\fancyhead[L]{\small \textit{\codigodelcurso \nombredelcurso}}
 		}
-	}{
-		\fancyhead[L]{\small \textit{\codigodelcurso \nombredelcurso}}
+		\fancyhead[R]{
+			\includegraphics[width=1.2cm]{\imagendepartamento}
+			\vspace{-0.15cm}
+		}
+		\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0pt}
 	}
-	\fancyhead[R]{
-		\includegraphics[width=1.2cm]{\imagendepartamento}
-		\vspace{-0.15cm}
-	}
-	\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0pt}
+	\COREstyledefinition
 }{
 \ifthenelse{\equal{\hfstyle}{style14}}{ % Similar a 4
 	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\disablehfrightmark}{false}}{
-		\fancyhead[L]{\nouppercase{\rightmark}}
-	}{}
-	\fancyhead[R]{}
-	\fancyfoot[C]{\small \thepage \nomnpageof \pageref{LastPage}}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0pt}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
+		\ifthenelse{\equal{\disablehfrightmark}{false}}{
+			\fancyhead[L]{\nouppercase{\rightmark}}
+		}{}
+		\fancyhead[R]{}
+		\fancyfoot[C]{\small \thepage \nomnpageof \pageref{LastPage}}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\COREstyledefinition
 }{
 \ifthenelse{\equal{\hfstyle}{style15}}{ % Similar a 1
 	\pagestyle{fancy}
-	\fancyhf{}
-	\ifthenelse{\equal{\disablehfrightmark}{false}}{
-		\fancyhead[L]{\nouppercase{\rightmark}}
-	}{}
-	\fancyhead[R]{}
-	\fancyfoot[L]{
-		\small \codigodelcurso \nombredelcurso
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
+		\ifthenelse{\equal{\disablehfrightmark}{false}}{
+			\fancyhead[L]{\nouppercase{\rightmark}}
+		}{}
+		\fancyhead[R]{}
+		\fancyfoot[L]{
+			\small \codigodelcurso \nombredelcurso
+		}
+		\fancyfoot[R]{
+			\small \thepage
+		}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0.5pt}
 	}
-	\fancyfoot[R]{
-		\small \thepage
-	}
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0.5pt}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\COREstyledefinition
 }{
 \ifthenelse{\equal{\hfstyle}{style16}}{
 	\pagestyle{fancy}
-	\fancyhf{}
-	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{}
+		\renewcommand{\headrulewidth}{0pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\COREstyledefinition
 }{
 	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style16}}}}}}}}}}}}}}}}
+}
+\fancypagestyle{plain}{ % Reescribe formato página como las de chapter [tesis]
+	\COREstyledefinition
 }
 
 % -----------------------------------------------------------------------------
