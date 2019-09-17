@@ -231,12 +231,19 @@
 % -----------------------------------------------------------------------------
 % Se crean los header-footer
 % -----------------------------------------------------------------------------
+\fancyheadoffset{0pt}
 \ifthenelse{\equal{\templatestyle}{style1}}{
-	\pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
-	\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
-	\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
-	\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
-	\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
+	\pagestyle{fancy}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{} % Headers y footers
+		\fancyhead[L]{}
+		\fancyhead[R]{}
+		\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
+		\fancyfoot[L]{\small \rm \textit{\tituloauxiliar}} % Footer izq, título del informe
+		\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
+		\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
+	}
+	\COREstyledefinition
 	\fancypagestyle{styleportrait}{ % Estilo portada
 		\pagestyle{fancy}
 		\fancyhf{}
@@ -285,12 +292,18 @@
 	\end{center}
 }{
 \ifthenelse{\equal{\templatestyle}{style2}}{
-\pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
-	\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
-	\fancyfoot[L]{} % Footer izq
-	\fancyfoot[C]{\thepage} % Footer centro
-	\fancyfoot[R]{} % Footer der
-	\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
+	\pagestyle{fancy}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{} % Headers y footers
+		\fancyhead[L]{}
+		\fancyhead[R]{}
+		\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
+		\fancyfoot[L]{} % Footer izq
+		\fancyfoot[C]{\thepage} % Footer centro
+		\fancyfoot[R]{} % Footer der
+		\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
+	}
+	\COREstyledefinition
 	\fancypagestyle{styleportrait}{ % Estilo portada
 		\pagestyle{fancy}
 		\fancyhf{}
@@ -333,12 +346,18 @@
 	\end{center}
 }{
 \ifthenelse{\equal{\templatestyle}{style3}}{
-	\pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
-	\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
-	\fancyfoot[L]{} % Footer izq
-	\fancyfoot[C]{\thepage} % Footer centro
-	\fancyfoot[R]{} % Footer der
-	\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
+	\pagestyle{fancy}
+	\newcommand{\COREstyledefinition}{
+		\fancyhf{} % Headers y footers
+		\fancyhead[L]{}
+		\fancyhead[R]{}
+		\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
+		\fancyfoot[L]{} % Footer izq
+		\fancyfoot[C]{\thepage} % Footer centro
+		\fancyfoot[R]{} % Footer der
+		\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
+	}
+	\COREstyledefinition
 	\fancypagestyle{styleportrait}{ % Estilo portada
 		\pagestyle{fancy}
 		\fancyhf{}
@@ -382,6 +401,11 @@
 }{
 	\throwbadconfigondoc{Estilo de template incorrecto}{\templatestyle}{style1,style2,style3}}}
 }
+\fancypagestyle{plain}{
+	\fancyheadoffset{0pt}
+	\COREstyledefinition
+}
+
 % -----------------------------------------------------------------------------
 % Establece el estilo de las subsubsubsecciones
 % -----------------------------------------------------------------------------

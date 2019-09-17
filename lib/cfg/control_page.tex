@@ -17,11 +17,18 @@
 % -----------------------------------------------------------------------------
 % Se crean los header-footer
 % -----------------------------------------------------------------------------
-\pagestyle{fancy} \fancyhf{} \fancyhead[L]{} \fancyhead[R]{} % Headers y footers
-\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
-\fancyfoot[L]{\small \rm \textit{\tituloevaluacion}} % Footer izq, título
-\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
-\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
+\fancyheadoffset{0pt}
+\pagestyle{fancy}
+\newcommand{\COREstyledefinition}{
+	\fancyhf{} % Headers y footers
+	\fancyhead[L]{}
+	\fancyhead[R]{}
+	\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
+	\fancyfoot[L]{\small \rm \textit{\tituloevaluacion}} % Footer izq, título
+	\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
+	\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
+}
+\COREstyledefinition
 \fancypagestyle{styleportrait}{ % Estilo portada
 	\pagestyle{fancy}
 	\fancyhf{}
@@ -71,6 +78,11 @@
 		\large{\indicacionevaluacion}
 	\fi
 \end{center}
+\fancypagestyle{plain}{
+	\fancyheadoffset{0pt}
+	\COREstyledefinition
+}
+
 % -----------------------------------------------------------------------------
 % Establece el estilo de las subsubsubsecciones
 % -----------------------------------------------------------------------------
