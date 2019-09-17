@@ -67,6 +67,8 @@
 % -----------------------------------------------------------------------------
 % Se crean los header-footer
 % -----------------------------------------------------------------------------
+\fancyheadoffset{0pt} % Desactiva el offset de los header-footer
+\def{\hfheaderimagesizeA} {1.2} % Tamaño de las imágenes del encabezado estilo 3/13
 \ifthenelse{\equal{\hfstyle}{style1}}{
 	\pagestyle{fancy}
 	\newcommand{\COREstyledefinition}{
@@ -149,7 +151,7 @@
 			\fancyhead[L]{\small \textit{\codigodelcurso \nombredelcurso}}
 		}
 		\fancyhead[R]{
-			\includegraphics[width=1.2cm]{\imagendepartamento}
+			\includegraphics[width=\hfheaderimagesizeA cm]{\imagendepartamento}
 			\vspace{-0.15cm}
 		}
 		\fancyfoot[C]{\thepage}
@@ -356,7 +358,7 @@
 			\fancyhead[L]{\small \textit{\codigodelcurso \nombredelcurso}}
 		}
 		\fancyhead[R]{
-			\includegraphics[width=1.2cm]{\imagendepartamento}
+			\includegraphics[width=\hfheaderimagesizeA cm]{\imagendepartamento}
 			\vspace{-0.15cm}
 		}
 		\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
@@ -413,6 +415,7 @@
 	\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style16}}}}}}}}}}}}}}}}
 }
 \fancypagestyle{plain}{ % Reescribe formato página como las de chapter [tesis]
+	\fancyheadoffset{0pt}
 	\COREstyledefinition
 }
 
