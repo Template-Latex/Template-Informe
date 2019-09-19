@@ -25,6 +25,7 @@
 % -----------------------------------------------------------------------------
 % Estilos de portada
 % -----------------------------------------------------------------------------
+\newcommand{\COREwriteheaderitem}[1]{\ifthenelse{\equal{#1}{}}{}{#1 ~ \\}}
 \ifthenelse{\equal{\portraitstyle}{style1}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
@@ -32,9 +33,9 @@
 	% Escribe el header
 	\fancyhf{}
 	\fancyhead[L]{
-		\nombreuniversidad ~ \\
-		\nombrefacultad ~ \\
-		\departamentouniversidad ~ \\
+		\COREwriteheaderitem{\nombreuniversidad}
+		\COREwriteheaderitem{\nombrefacultad}
+		\COREwriteheaderitem{\departamentouniversidad}
 		\vspace{-0.43cm}
 	}
 	\fancyhead[R]{
@@ -68,9 +69,9 @@
 	% Escribe el header
 	\fancyhf{}
 	\fancyhead[L]{
-		\nombreuniversidad ~ \\
-		\nombrefacultad ~ \\
-		\departamentouniversidad ~ \\
+		\COREwriteheaderitem{\nombreuniversidad}
+		\COREwriteheaderitem{\nombrefacultad}
+		\COREwriteheaderitem{\departamentouniversidad}
 		\vspace{-0.43cm}
 	}
 	\fancyhead[R]{
