@@ -25,7 +25,8 @@
 % -----------------------------------------------------------------------------
 % Estilos de portada
 % -----------------------------------------------------------------------------
-\newcommand{\COREwriteheaderitem}[1]{\ifthenelse{\equal{#1}{}}{}{#1 ~ \\}}
+\newcommand{\COREwriteheaderitem}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{#2 ~ \\}}
+\newcommand{\COREwriteheaderitemsc}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{\small \scshape{\MakeUppercase{#2}} ~ \\}}
 \ifthenelse{\equal{\portraitstyle}{style1}}{
 	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
@@ -36,11 +37,12 @@
 		\COREwriteheaderitem{\nombreuniversidad}
 		\COREwriteheaderitem{\nombrefacultad}
 		\COREwriteheaderitem{\departamentouniversidad}
-		\vspace{-0.43cm}
+		\vspace{-\baselineskip}
 	}
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 		\hspace{-0.255cm}
+		\vspace{-0.20cm}
 	}
 
 	% Título y tema a tratar
@@ -72,11 +74,12 @@
 		\COREwriteheaderitem{\nombreuniversidad}
 		\COREwriteheaderitem{\nombrefacultad}
 		\COREwriteheaderitem{\departamentouniversidad}
-		\vspace{-0.43cm}
+		\vspace{-\baselineskip}
 	}
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 		\hspace{-0.255cm}
+		\vspace{-0.20cm}
 	}
 
 	% Nombre de curso y título
@@ -107,14 +110,15 @@
 	% Escribe el header
 	\fancyhf{}
 	\fancyhead[L]{
-		\nombreuniversidad ~ \\
-		\nombrefacultad ~ \\
-		\departamentouniversidad ~ \\
-		\vspace{-0.43cm}
+		\COREwriteheaderitem{\nombreuniversidad}
+		\COREwriteheaderitem{\nombrefacultad}
+		\COREwriteheaderitem{\departamentouniversidad}
+		\vspace{-\baselineskip}
 	}
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 		\hspace{-0.255cm}
+		\vspace{-0.20cm}
 	}
 
 	% Curso y código - título informe
@@ -149,9 +153,10 @@
 	\noindent \includegraphics[width=1.75cm]{uchile2}
 	\hspace*{-0.15cm}
 	\begin{tabular}{l}
-		\small \scshape{\MakeUppercase{\nombreuniversidad}} ~ \\
-		\small \scshape{\MakeUppercase{\nombrefacultad}} ~ \\
-		\small \scshape{\MakeUppercase{\departamentouniversidad}} ~ \\
+		% Inserta nuevas lineas independiente de si tiene texto o no
+		\COREwriteheaderitemsc[~\\]{\nombreuniversidad}
+		\COREwriteheaderitemsc[~\\]{\nombrefacultad}
+		\COREwriteheaderitemsc[~\\]{\departamentouniversidad}
 		\vspace*{1.25cm}\mbox{}
 	\end{tabular}
 
@@ -181,9 +186,10 @@
 	\includegraphics[width=1.5cm]{uchile3}
 	\hspace{-0.2cm}
 	\begin{tabular}{l}
-		\small \scshape{\MakeUppercase{\nombreuniversidad}} ~ \\
-		\small \scshape{\MakeUppercase{\nombrefacultad}} ~ \\
-		\small \scshape{\MakeUppercase{\departamentouniversidad}} ~ \\
+		% Inserta nuevas lineas independiente de si tiene texto o no
+		\COREwriteheaderitemsc[~\\]{\nombreuniversidad}
+		\COREwriteheaderitemsc[~\\]{\nombrefacultad}
+		\COREwriteheaderitemsc[~\\]{\departamentouniversidad}
 		\vspace*{1cm}\mbox{}
 	\end{tabular}
 
@@ -216,14 +222,27 @@
 		\vspace{-0.69cm}
 		\noindent \hspace{-1.10cm} \includegraphics[scale=1.35]{fcfm2}
 	\end{wrapfigure}
-	\hspace*{0.05cm}
-	\noindent \textsc{\color{red} \hspace{-2.2cm} \departamentouniversidad} ~ \\
-	\hspace*{0.05cm}
-	\noindent \textsc{\color{dkgray} \hspace{-1.6cm} \nombrefacultad} ~ \\
-	\hspace*{0.05cm}
-	\noindent \textsc{\color{dkgray} \hspace{-1.6cm} \nombreuniversidad} ~ \\
-	\hspace*{0.05cm}
-	\noindent \textsc{\color{dkgray} \hspace{-1.6cm} \codigodelcurso \nombredelcurso} ~ \\
+	\def\COREstylefirstmargin {-2.2cm}
+	\ifthenelse{\equal{\departamentouniversidad}{\xspace}}{}{
+		\hspace*{0.05cm}
+		\noindent \textsc{\color{red} \hspace{\COREstylefirstmargin} \departamentouniversidad} ~ \\
+		\def\COREstylefirstmargin {-1.6cm}
+	}
+	\ifthenelse{\equal{\nombrefacultad}{\xspace}}{}{
+		\hspace*{0.05cm}
+		\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \nombrefacultad} ~ \\
+		\def\COREstylefirstmargin {-1.6cm}
+	}
+	\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{}{
+		\hspace*{0.05cm}
+		\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \nombreuniversidad} ~ \\
+		\def\COREstylefirstmargin {-1.6cm}
+	}
+	\ifthenelse{\equal{\nombredelcurso}{\xspace}}{}{
+		\hspace*{0.05cm}
+		\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \codigodelcurso \nombredelcurso} ~ \\
+		\def\COREstylefirstmargin {-1.6cm}
+	}
 
 	% Título informe - tema
 	\vfill
@@ -257,9 +276,9 @@
 		\hspace*{-0.15cm}
 		\begin{tabular}{l}
 			\vspace*{0.26cm}\mbox{} ~ \\
-			\small \textsc{\MakeUppercase{\nombreuniversidad}} ~ \\
-			\small \textsc{\MakeUppercase{\nombrefacultad}} ~ \\
-			\small \textsc{\MakeUppercase{\departamentouniversidad}} ~ \\
+			\COREwriteheaderitemsc{\nombreuniversidad}
+			\COREwriteheaderitemsc{\nombrefacultad}
+			\COREwriteheaderitemsc{\departamentouniversidad}
 			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
 	\end{center}
@@ -291,9 +310,9 @@
 		\vspace*{-1.0cm}
 		\begin{tabular}{c}
 			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0.5cm} ~ \\
-			\small \scshape{\MakeUppercase{\nombreuniversidad}} ~ \\
-			\small \scshape{\MakeUppercase{\nombrefacultad}} ~ \\
-			\small \scshape{\MakeUppercase{\departamentouniversidad}}
+			\COREwriteheaderitemsc{\nombreuniversidad}
+			\COREwriteheaderitemsc{\nombrefacultad}
+			\COREwriteheaderitemsc{\departamentouniversidad}
 		\end{tabular}
 	\end{center}
 
@@ -333,9 +352,9 @@
 	\vfill
 	\begin{center}
 		\begin{tabular}{c}
-			\small \scshape{\MakeUppercase{\nombreuniversidad}} ~ \\
-			\small \scshape{\MakeUppercase{\nombrefacultad}} ~ \\
-			\small \scshape{\MakeUppercase{\departamentouniversidad}}
+			\COREwriteheaderitemsc{\nombreuniversidad}
+			\COREwriteheaderitemsc{\nombrefacultad}
+			\COREwriteheaderitemsc{\departamentouniversidad}
 		\end{tabular}
 	\end{center}
 
@@ -364,8 +383,12 @@
 	% Título informe
 	\vfill
 	\begin{center}
-		\noindent {\large \scshape{\nombredelcurso}} \vspace{0.5cm} ~ \\
-		\noindent {\large \scshape{\codigodelcurso}} \vspace{0.5cm} ~ \\
+		\ifthenelse{\equal{\nombredelcurso}{\xspace}}{}{
+			\noindent {\large \scshape{\nombredelcurso}} \vspace{0.5cm} ~ \\
+		}
+		\ifthenelse{\equal{\codigodelcurso}{\xspace}}{}{
+			\noindent {\large \scshape{\codigodelcurso}} \vspace{0.5cm} ~ \\
+		}
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{0.3cm}
 		{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
 		\noindent \rule{\textwidth}{0.4mm} \\ \vspace{2.5cm}
@@ -386,9 +409,15 @@
 	% Header
 	\begin{center}
 		\vspace*{-1.0cm}
-		\scshape{\nombreuniversidad} ~ \\
-		\scshape{\nombrefacultad} ~ \\
-		\scshape{\departamentouniversidad}
+		\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{}{
+			\scshape{\nombreuniversidad} ~ \\
+		}
+		\ifthenelse{\equal{\nombrefacultad}{\xspace}}{}{
+			\scshape{\nombrefacultad} ~ \\
+		}
+		\ifthenelse{\equal{\departamentouniversidad}{\xspace}}{}{
+			\scshape{\departamentouniversidad}
+		}
 	\end{center}
 
 	% Título informe
@@ -448,6 +477,7 @@
 	\vspace*{-1.5cm}
 	\begin{flushleft}
 		\begin{minipage}{0.65\textwidth}
+			% Aqui no se puede hacer nada con departamentouniversidad
 			\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{
 				{\fontsize{3.5mm}{0.5mm} \selectfont \noindent \textsf{\nombrefacultad}} ~ \\
 			}{
@@ -521,9 +551,15 @@
 			\begin{flushleft}
 				\textsc{
 				\begin{tabular}{l}
-					{\small \nombreuniversidad} ~ \\
-					{\small \nombrefacultad} ~ \\
-					{\small \departamentouniversidad}
+					\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{}{
+						{\small \nombreuniversidad} ~ \\
+					}
+					\ifthenelse{\equal{\nombrefacultad}{\xspace}}{}{
+						{\small \nombrefacultad} ~ \\
+					}
+					\ifthenelse{\equal{\departamentouniversidad}{\xspace}}{}{
+						{\small \departamentouniversidad}
+					}
 				\end{tabular}
 				}
 			\end{flushleft}
@@ -581,14 +617,15 @@
 	% Header
 	\fancyhf{}
 	\fancyhead[L]{
-		\nombreuniversidad ~ \\
-		\nombrefacultad ~ \\
-		\departamentouniversidad ~ \\
-		\vspace{-0.43cm}
+		\COREwriteheaderitem{\nombreuniversidad}
+		\COREwriteheaderitem{\nombrefacultad}
+		\COREwriteheaderitem{\departamentouniversidad}
+		\vspace{-\baselineskip}
 	}
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 		\hspace{-0.255cm}
+		\vspace{-0.20cm}
 	}
 
 	% Título del informe
@@ -630,14 +667,15 @@
 	% Header
 	\fancyhf{}
 	\fancyhead[L]{
-		\nombreuniversidad ~ \\
-		\nombrefacultad ~ \\
-		\departamentouniversidad ~ \\
-		\vspace{-0.43cm}
+		\COREwriteheaderitem{\nombreuniversidad}
+		\COREwriteheaderitem{\nombrefacultad}
+		\COREwriteheaderitem{\departamentouniversidad}
+		\vspace{-\baselineskip}
 	}
 	\fancyhead[R]{
 		\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
 		\hspace{-0.255cm}
+		\vspace{-0.20cm}
 	}
 
 	% Imagen de la portada
@@ -728,9 +766,15 @@
 	\pagecolor{lbrown}
 	\begin{center}
 		\vspace*{-1.0cm}
-		\scshape{\nombreuniversidad} ~ \\
-		\scshape{\nombrefacultad} ~ \\
-		\scshape{\departamentouniversidad}
+		\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{}{
+			\scshape{\nombreuniversidad} ~ \\
+		}
+		\ifthenelse{\equal{\nombrefacultad}{\xspace}}{}{
+			\scshape{\nombrefacultad} ~ \\
+		}
+		\ifthenelse{\equal{\departamentouniversidad}{\xspace}}{}{
+			\scshape{\departamentouniversidad}
+		}
 	\end{center}
 	~ \\
 	\begin{center}
