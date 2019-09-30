@@ -14,16 +14,10 @@
 % -----------------------------------------------------------------------------
 % Assembler
 % -----------------------------------------------------------------------------
-\lstdefinelanguage
-	[x64]{Assembler}
-	[x86masm]{Assembler}
-	{morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD,
-		POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS,
-		rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp,
-		r8,r8d,r8w,r8b,r9,r9d,r9w,r9b,
-		r10,r10d,r10w,r10b,r11,r11d,r11w,r11b,
-		r12,r12d,r12w,r12b,r13,r13d,r13w,r13b,
-		r14,r14d,r14w,r14b,r15,r15d,r15w,r15b}
+\lstdefinelanguage[x64]{Assembler}[x86masm]{Assembler}{
+	morekeywords={
+		CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD,POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS,rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp,r8,r8d,r8w,r8b,r9,r9d,r9w,r9b,r10,r10d,r10w,r10b,r11,r11d,r11w,r11b,r12,r12d,r12w,r12b,r13,r13d,r13w,r13b,r14,r14d,r14w,r14b,r15,r15d,r15w,r15b
+	}
 }
 \lstdefinestyle{assemblerx64}{
 	language=[x64]Assembler
@@ -40,7 +34,9 @@
 	breakatwhitespace=false,
 	morecomment=[l]{rem},
 	morecomment=[s]{::}{::},
-	morekeywords={call,cp,dig,gcc,git,grep,ls,mv,python,rm,sudo,vim},
+	morekeywords={
+		call,cp,dig,gcc,git,grep,ls,mv,python,rm,sudo,vim
+	},
 	sensitive=false
 }
 
@@ -69,14 +65,9 @@
 	language=csh,
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/},
-	morekeywords={abstract,as,base,bool,break,byte,case,catch,char,checked,
-		class,const,continue,decimal,default,delegate,do,double,else,enum,event,
-		explicit,extern,false,finally,fixed,float,for,foreach,goto,if,implicit,
-		in,int,interface,internal,is,lock,long,namespace,new,null,object,
-		operator,out,override,params,private,protected,public,readonly,ref,
-		return,sbyte,sealed,short,sizeof,stackalloc,static,string,struct,switch,
-		this,throw,true,try,typeof,uint,ulong,unchecked,unsafe,ushort,using,
-		virtual,void,volatile,while}
+	morekeywords={
+		abstract,as,base,bool,break,byte,case,catch,char,checked,class,const,continue,decimal,default,delegate,do,double,else,enum,event,explicit,extern,false,finally,fixed,float,for,foreach,goto,if,implicit,in,int,interface,internal,is,lock,long,namespace,new,null,object,operator,out,override,params,private,protected,public,readonly,ref,return,sbyte,sealed,short,sizeof,stackalloc,static,string,struct,switch,this,throw,true,try,typeof,uint,ulong,unchecked,unsafe,ushort,using,virtual,void,volatile,while
+	}
 }
 
 % -----------------------------------------------------------------------------
@@ -84,47 +75,9 @@
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{CSS}{
 	morecomment=[s]{/*}{*/},
-	morekeywords={-moz-binding,-moz-border-bottom-colors,
-		-moz-border-left-colors,-moz-border-radius,
-		-moz-border-radius-bottomleft,-moz-border-radius-bottomright,
-		-moz-border-radius-topleft,-moz-border-radius-topright,
-		-moz-border-right-colors,-moz-border-top-colors,-moz-opacity,
-		-moz-outline,-moz-outline-color,-moz-outline-style,-moz-outline-width,
-		-moz-user-focus,-moz-user-input,-moz-user-modify,-moz-user-select,
-		-replace,-set-link-source,-use-link-source,accelerator,azimuth,
-		background,background-attachment,background-color,background-image,
-		background-position,background-position-x,background-position-y,
-		background-repeat,behavior,border,border-bottom,border-bottom-color,
-		border-bottom-style,border-bottom-width,border-collapse,border-color,
-		border-left,border-left-color,border-left-style,border-left-width,
-		border-right,border-right-color,border-right-style,border-right-width,
-		border-spacing,border-style,border-top,border-top-color,
-		border-top-style,border-top-width,border-width,bottom,caption-side,
-		clear,clip,color,content,counter-increment,counter-reset,cue,cue-after,
-		cue-before,cursor,direction,display,elevation,empty-cells,filter,float,
-		font,font-family,font-size,font-size-adjust,font-stretch,font-style,
-		font-variant,font-weight,height,ime-mode,include-source,
-		layer-background-color,layer-background-image,layout-flow,layout-grid,
-		layout-grid-char,layout-grid-char-spacing,layout-grid-line,
-		layout-grid-mode,layout-grid-type,left,letter-spacing,line-break,
-		line-height,list-style,list-style-image,list-style-position,
-		list-style-type,margin,margin-bottom,margin-left,margin-right,
-		margin-top,marker-offset,marks,max-height,max-width,min-height,
-		min-width,orphans,outline,outline-color,outline-style,outline-width,
-		overflow,overflow-X,overflow-Y,padding,padding-bottom,padding-left,
-		padding-right,padding-top,page,page-break-after,page-break-before,
-		page-break-inside,pause,pause-after,pause-before,pitch,pitch-range,
-		play-during,position,quotes,richness,right,ruby-align,ruby-overhang,
-		ruby-position,scrollbar-3d-light-color,scrollbar-arrow-color,
-		scrollbar-base-color,scrollbar-dark-shadow-color,scrollbar-face-color,
-		scrollbar-highlight-color,scrollbar-shadow-color,scrollbar-track-color,
-		size,speak,speak-header,speak-numeral,speak-punctuation,speech-rate,
-		stress,table-layout,text-align,text-align-last,text-autospace,
-		text-decoration,text-indent,text-justify,text-kashida-space,
-		text-overflow,text-shadow,text-transform,text-underline-position,top,
-		unicode-bidi,vertical-align,visibility,voice-family,volume,white-space,
-		widows,width,word-break,word-spacing,word-wrap,writing-mode,z-index,
-		zoom},
+	morekeywords={
+		-moz-binding,-moz-border-bottom-colors,-moz-border-left-colors,-moz-border-radius,-moz-border-radius-bottomleft,-moz-border-radius-bottomright,-moz-border-radius-topleft,-moz-border-radius-topright,-moz-border-right-colors,-moz-border-top-colors,-moz-opacity,-moz-outline,-moz-outline-color,-moz-outline-style,-moz-outline-width,-moz-user-focus,-moz-user-input,-moz-user-modify,-moz-user-select,-replace,-set-link-source,-use-link-source,accelerator,azimuth,background,background-attachment,background-color,background-image,background-position,background-position-x,background-position-y,background-repeat,behavior,border,border-bottom,border-bottom-color,border-bottom-style,border-bottom-width,border-collapse,border-color,border-left,border-left-color,border-left-style,border-left-width,border-right,border-right-color,border-right-style,border-right-width,border-spacing,border-style,border-top,border-top-color,border-top-style,border-top-width,border-width,bottom,caption-side,clear,clip,color,content,counter-increment,counter-reset,cue,cue-after,cue-before,cursor,direction,display,elevation,empty-cells,filter,float,font,font-family,font-size,font-size-adjust,font-stretch,font-style,font-variant,font-weight,height,ime-mode,include-source,layer-background-color,layer-background-image,layout-flow,layout-grid,layout-grid-char,layout-grid-char-spacing,layout-grid-line,layout-grid-mode,layout-grid-type,left,letter-spacing,line-break,line-height,list-style,list-style-image,list-style-position,list-style-type,margin,margin-bottom,margin-left,margin-right,margin-top,marker-offset,marks,max-height,max-width,min-height,min-width,orphans,outline,outline-color,outline-style,outline-width,overflow,overflow-X,overflow-Y,padding,padding-bottom,padding-left,padding-right,padding-top,page,page-break-after,page-break-before,page-break-inside,pause,pause-after,pause-before,pitch,pitch-range,play-during,position,quotes,richness,right,ruby-align,ruby-overhang,ruby-position,scrollbar-3d-light-color,scrollbar-arrow-color,scrollbar-base-color,scrollbar-dark-shadow-color,scrollbar-face-color,scrollbar-highlight-color,scrollbar-shadow-color,scrollbar-track-color,size,speak,speak-header,speak-numeral,speak-punctuation,speech-rate,stress,table-layout,text-align,text-align-last,text-autospace,text-decoration,text-indent,text-justify,text-kashida-space,text-overflow,text-shadow,text-transform,text-underline-position,top,unicode-bidi,vertical-align,visibility,voice-family,volume,white-space,widows,width,word-break,word-spacing,word-wrap,writing-mode,z-index,zoom
+	},
 	morestring=[s]{:}{;},
 	sensitive=true
 }
@@ -139,8 +92,9 @@
 \lstdefinestyle{cuda}{
 	language=C++,
 	breakatwhitespace=false,
-	emph={cudaFree,cudaMalloc,__device__,__global__,__host__,__shared__,
-		__syncthreads},
+	emph={
+		cudaFree,cudaMalloc,__device__,__global__,__host__,__shared__,__syncthreads
+	},
 	emphstyle=\color{dkcyan}\ttfamily,
 	morecomment=[l][\color{magenta}]{\#},
 	moredelim=[s][\ttfamily]{<<<}{>>>}
@@ -151,8 +105,9 @@
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{docker}{
 	comment=[l]{\#},
-	keywords={ADD,CMD,COPY,ENTRYPOINT,ENV,EXPOSE,FROM,LABEL,MAINTAINER,ONBUILD,
-		RUN,STOPSIGNAL,USER,VOLUME,WORKDIR},
+	keywords={
+		ADD,CMD,COPY,ENTRYPOINT,ENV,EXPOSE,FROM,LABEL,MAINTAINER,ONBUILD,RUN,STOPSIGNAL,USER,VOLUME,WORKDIR
+	},
 	morestring=[b]',
 	morestring=[b]"
 }
@@ -175,53 +130,13 @@
 \lstdefinelanguage{GLSL}{
 	alsoletter={\#},
 	morekeywords=[1]{
-		attribute,bool,break,bvec2,bvec3,bvec4,case,centroid,const,continue,
-		default,discard,do,else,false,flat,float,for,highp,if,in,inout,int,
-		invariant,isampler1D,isampler1DArray,isampler2D,isampler2DArray,
-		isampler2DMS,isampler2DMSArray,isampler2DRect,isampler3D,isamplerBuffer,
-		isamplerCube,ivec2,ivec3,ivec4,layout,lowp,mat2,mat2x2,mat2x3,mat2x4,
-		mat3,mat3x2,mat3x3,mat3x4,mat4,mat4x2,mat4x3,mat4x4,mediump,
-		noperspective,out,precision,return,sampler1D,sampler1DArray,
-		sampler1DArrayShadow,sampler1DShadow,sampler2D,sampler2DArray,
-		sampler2DArrayShadow,sampler2DMS,sampler2DMSArray,sampler2DRect,
-		sampler2DRectShadow,sampler2DShadow,sampler3D,samplerBuffer,
-		samplerCube,samplerCubeShadow,smooth,struct,switch,true,uint,uniform,
-		usampler1D,usampler1DArray,usampler2D,usampler2DArray,usampler2DMS,
-		usampler2DMSArray,usampler2DRect,usampler3D,usamplerBuffer,usamplerCube,
-		uvec2,uvec3,uvec4,varying,vec2,vec3,vec4,void,while
+		attribute,bool,break,bvec2,bvec3,bvec4,case,centroid,const,continue,default,discard,do,else,false,flat,float,for,highp,if,in,inout,int,invariant,isampler1D,isampler1DArray,isampler2D,isampler2DArray,isampler2DMS,isampler2DMSArray,isampler2DRect,isampler3D,isamplerBuffer,isamplerCube,ivec2,ivec3,ivec4,layout,lowp,mat2,mat2x2,mat2x3,mat2x4,mat3,mat3x2,mat3x3,mat3x4,mat4,mat4x2,mat4x3,mat4x4,mediump,noperspective,out,precision,return,sampler1D,sampler1DArray,sampler1DArrayShadow,sampler1DShadow,sampler2D,sampler2DArray,sampler2DArrayShadow,sampler2DMS,sampler2DMSArray,sampler2DRect,sampler2DRectShadow,sampler2DShadow,sampler3D,samplerBuffer,samplerCube,samplerCubeShadow,smooth,struct,switch,true,uint,uniform,usampler1D,usampler1DArray,usampler2D,usampler2DArray,usampler2DMS,usampler2DMSArray,usampler2DRect,usampler3D,usamplerBuffer,usamplerCube,uvec2,uvec3,uvec4,varying,vec2,vec3,vec4,void,while
 	},
 	morekeywords=[2]{
-		abs,acos,acosh,all,any,asin,asinh,atan,atan,atanh,ceil,clamp,cos,cosh,
-		cross,degrees,determinant,dFdx,dFdy,distance,dot,EmitVertex,EndPrimitive,
-		equal,exp,exp2,faceforward,floatBitsToInt,floatBitsToUint,floor,fract,
-		fwidth,greaterThan,greaterThanEqual,intBitsToFloat,inverse,inversesqrt,
-		isinf,isnan,length,lessThan,lessThanEqual,log,log2,matrixCompMult,max,
-		min,mix,mod,modf,noise1,noise2,noise3,noise4,normalize,not,notEqual,
-		outerProduct,pow,radians,reflect,refract,round,roundEven,shadow1D,
-		shadow1DLod,shadow1DProj,shadow1DProjLod,shadow2D,shadow2DLod,
-		shadow2DProj,shadow2DProjLod,sign,sin,sinh,smoothstep,sqrt,step,tan,tanh,
-		texelFetch,texelFetchOffset,texture,texture1D,texture1DProj,
-		texture1DProjLod,texture2D,texture2DLod,texture2DProj,texture2DProjLod,
-		texture3D,texture3DLod,texture3DProj,texture3DProjLod,textureCube,
-		textureCubeLod,textureGrad,textureGradOffset,textureLod,textureLodOffset,
-		textureOffset,textureProj,textureProjGrad,textureProjGradOffset,
-		textureProjLod,textureProjLodOffset,textureProjOffset,textureSize,
-		transpose,trunc,uintBitsToFloat
+		abs,acos,acosh,all,any,asin,asinh,atan,atan,atanh,ceil,clamp,cos,cosh,cross,degrees,determinant,dFdx,dFdy,distance,dot,EmitVertex,EndPrimitive,equal,exp,exp2,faceforward,floatBitsToInt,floatBitsToUint,floor,fract,fwidth,greaterThan,greaterThanEqual,intBitsToFloat,inverse,inversesqrt,isinf,isnan,length,lessThan,lessThanEqual,log,log2,matrixCompMult,max,min,mix,mod,modf,noise1,noise2,noise3,noise4,normalize,not,notEqual,outerProduct,pow,radians,reflect,refract,round,roundEven,shadow1D,shadow1DLod,shadow1DProj,shadow1DProjLod,shadow2D,shadow2DLod,shadow2DProj,shadow2DProjLod,sign,sin,sinh,smoothstep,sqrt,step,tan,tanh,texelFetch,texelFetchOffset,texture,texture1D,texture1DProj,texture1DProjLod,texture2D,texture2DLod,texture2DProj,texture2DProjLod,texture3D,texture3DLod,texture3DProj,texture3DProjLod,textureCube,textureCubeLod,textureGrad,textureGradOffset,textureLod,textureLodOffset,textureOffset,textureProj,textureProjGrad,textureProjGradOffset,textureProjLod,textureProjLodOffset,textureProjOffset,textureSize,transpose,trunc,uintBitsToFloat
 	},
 	morekeywords=[3]{
-		\#version,core,gl_ClipDistance,gl_ClipDistance,gl_ClipVertex,gl_DepthRange,
-		gl_FragColor,gl_FragCoord,gl_FragData,gl_FragDepth,gl_FrontFacing,
-		gl_InstanceID,gl_Layer,gl_MaxClipDistances,gl_MaxCombinedTextureImageUnits,
-		gl_MaxDrawBuffers,gl_MaxDrawBuffers,gl_MaxFragmentInputComponents,
-		gl_MaxFragmentUniformComponents,gl_MaxGeometryInputComponents,
-		gl_MaxGeometryOutputComponents,gl_MaxGeometryOutputVertices,
-		gl_MaxGeometryOutputVertices,gl_MaxGeometryTextureImageUnits,
-		gl_MaxGeometryTotalOutputComponents,gl_MaxGeometryUniformComponents,
-		gl_MaxGeometryVaryingComponents,gl_MaxTextureImageUnits,
-		gl_MaxVaryingComponents,gl_MaxVaryingFloats,gl_MaxVertexAttribs,
-		gl_MaxVertexOutputComponents,gl_MaxVertexTextureImageUnits,
-		gl_MaxVertexUniformComponents,gl_PerVertex,gl_PointCoord,gl_PointSize,
-		gl_Position,gl_PrimitiveID,gl_VertexID
+		\#version,core,gl_ClipDistance,gl_ClipDistance,gl_ClipVertex,gl_DepthRange,gl_FragColor,gl_FragCoord,gl_FragData,gl_FragDepth,gl_FrontFacing,gl_InstanceID,gl_Layer,gl_MaxClipDistances,gl_MaxCombinedTextureImageUnits,gl_MaxDrawBuffers,gl_MaxDrawBuffers,gl_MaxFragmentInputComponents,gl_MaxFragmentUniformComponents,gl_MaxGeometryInputComponents,gl_MaxGeometryOutputComponents,gl_MaxGeometryOutputVertices,gl_MaxGeometryOutputVertices,gl_MaxGeometryTextureImageUnits,gl_MaxGeometryTotalOutputComponents,gl_MaxGeometryUniformComponents,gl_MaxGeometryVaryingComponents,gl_MaxTextureImageUnits,gl_MaxVaryingComponents,gl_MaxVaryingFloats,gl_MaxVertexAttribs,gl_MaxVertexOutputComponents,gl_MaxVertexTextureImageUnits,gl_MaxVertexUniformComponents,gl_PerVertex,gl_PointCoord,gl_PointSize,gl_Position,gl_PrimitiveID,gl_VertexID
 	},
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/}
@@ -249,12 +164,12 @@
 	language=html,
 	alsoletter={<>=-},
 	morecomment=[s]{<!--}{-->},
-	ndkeywords={-moz-transform:,<!,<body>,<canvas,</body>,</canvas>,</head>,
-		</html>,</script>,</style>,</title>,<head>,<meta,<script>,<style>,
-		<title>,=,><,border:,charset=,/>,height=,html>,id=,
-		otherkeywords={<html>,transform:,transition-duration:,
-			transition-property:,transition-timing-function:
-		},width=},
+	ndkeywords={
+		-moz-transform:,<!,<body>,<canvas,</body>,</canvas>,</head>,</html>,</script>,</style>,</title>,<head>,<meta,<script>,<style>,<title>,=,><,border:,charset=,/>,height=,html>,id=,width=
+	},
+	otherkeywords={
+		<html>,transform:,transition-duration:,transition-property:,transition-timing-function:
+	},
 	sensitive=true,
 	tag=[s]
 }
@@ -282,12 +197,15 @@
 \lstdefinelanguage{JavaScript}{
 	comment=[l]{//},
 	keepspaces=true,
-	keywords={async,await,break,case,catch,catch,do,else,false,function,if,in,
-		new,null,return,switch,true,typeof,var,while},
+	keywords={
+		async,await,break,case,catch,catch,do,else,false,function,if,in,new,null,return,switch,true,typeof,var,while
+	},
 	morecomment=[s]{/*}{*/},
 	morestring=[b]',
 	morestring=[b]",
-	ndkeywords={boolean,class,export,implements,import,this,throw},
+	ndkeywords={
+		boolean,class,export,implements,import,this,throw
+	},
 	ndkeywordstyle=\color{darkgray}\bfseries,
 	sensitive=false
 }
@@ -317,17 +235,15 @@
 	emph={delegate,filter,first,firstOrNull,forEach,lazy,map,mapNotNull,println,
 		return@},
 	emphstyle={\color{OrangeRed}},
-	keywords={abstract,actual,as,as?,break,by,class,companion,continue,data,do,
-		dynamic,else,enum,expect,false,final,for,fun,get,if,import,in,interface,
-		internal,is,null,object,override,package,private,public,return,set,
-		super,suspend,this,throw,true,try,typealias,val,var,vararg,when,where,
-		while},
+	keywords={
+		abstract,actual,as,as?,break,by,class,companion,continue,data,do,dynamic,else,enum,expect,false,final,for,fun,get,if,import,in,interface,internal,is,null,object,override,package,private,public,return,set,super,suspend,this,throw,true,try,typealias,val,var,vararg,when,where,while
+	},
 	morecomment=[s]{/*}{*/},
 	morestring=[b]",
 	morestring=[s]{"""*}{*"""},
-	ndkeywords={@Deprecated,@JvmField,@JvmName,@JvmOverloads,@JvmStatic,
-		@JvmSynthetic,Array,Byte,Double,Float,Int,Integer,Iterable,Long,
-		Runnable,Short,String},
+	ndkeywords={
+		@Deprecated,@JvmField,@JvmName,@JvmOverloads,@JvmStatic,@JvmSynthetic,Array,Byte,Double,Float,Int,Integer,Iterable,Long,Runnable,Short,String
+	},
 	ndkeywordstyle=\color{BurntOrange}\bfseries,
 	sensitive=true
 }
@@ -337,28 +253,9 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{latex}{
 	language=TeX,
-	morekeywords={aacos,aasin,aatan,acos,addimage,addimageboxed,
-		align,asin,atan,begin,bibitem,bibliography,bigstrut,boldmath,
-		bookmarksetup,boxed,cancelto,caption,changeheadertitle,checkmark,
-		checkvardefined,cite,dd,degree,eqref,equal,frac,fracnpartial,fullcite,
-		hline,href,ifthenelse,imagesnewline,imageshspace,imagesvspace,
-		includehfpdf,includefullhfpdf,insertalign,
-		insertalignanum,insertaligncaptioned,insertaligncaptioned,
-		insertaligncaptionedanum,insertaligned,insertalignedanum,
-		insertalignedcaptioned,insertalignedcaptionedanum,insertemail,
-		insertemptypage,inserteqimage,insertequation,insertequationanum,
-		insertequationcaptioned,insertequationcaptionedanum,insertgather,
-		insertgatheranum,insertgathercaptioned,insertgathercaptionedanum,
-		insertgathered,insertgatheredanum,insertgatheredcaptioned,
-		insertgatheredcaptionedanum,insertimage,insertimageleft,
-		insertimageright,insertindextitle,insertindextitlepage,insertphone,
-		isundefined,itemresize,label,LaTeX,lipsum,lpow,makeatletter,makeatother,
-		newcommand,newcounter,newp,newpage,pow,quotes,ref,renewcommand,section,
-		sectionanum,setcounter,setlength,shortcite,sourcecode,sourcecodep,
-		subsection,subsectionanum,subsubsection,subsubsectionanum,
-		subsubsubsection,subsubsubsection,subsubsubsectionanum,textbf,textit,
-		textregistered,textsuperscript,texttt,throwbadconfig,unboldmath,url,
-		xspace}
+	morekeywords={
+		aacos,aasin,aatan,acos,addimage,addimageboxed,align,asin,atan,begin,bibitem,bibliography,bigstrut,boldmath,bookmarksetup,boxed,cancelto,caption,changeheadertitle,checkmark,checkvardefined,cite,dd,degree,eqref,equal,frac,fracnpartial,fullcite,hline,href,ifthenelse,imagesnewline,imageshspace,imagesvspace,includehfpdf,includefullhfpdf,insertalign,insertalignanum,insertaligncaptioned,insertaligncaptioned,insertaligncaptionedanum,insertaligned,insertalignedanum,insertalignedcaptioned,insertalignedcaptionedanum,insertemail,insertemptypage,inserteqimage,insertequation,insertequationanum,insertequationcaptioned,insertequationcaptionedanum,insertgather,insertgatheranum,insertgathercaptioned,insertgathercaptionedanum,insertgathered,insertgatheredanum,insertgatheredcaptioned,insertgatheredcaptionedanum,insertimage,insertimageleft,insertimageright,insertindextitle,insertindextitlepage,insertphone,isundefined,itemresize,label,LaTeX,lipsum,lpow,makeatletter,makeatother,newcommand,newcounter,newp,newpage,pow,quotes,ref,renewcommand,section,sectionanum,setcounter,setlength,shortcite,sourcecode,sourcecodep,subsection,subsectionanum,subsubsection,subsubsectionanum,subsubsubsection,subsubsubsection,subsubsubsectionanum,textbf,textit,textregistered,textsuperscript,texttt,throwbadconfig,unboldmath,url,xspace
+	}
 }
 
 % -----------------------------------------------------------------------------
@@ -381,11 +278,9 @@
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{Maple}{
 	morecomment=[l]\#,
-	morekeywords={and,assuming,break,by,catch,description,do,done,
-		elif,else,end,error,export,fi,finally,for,from,global,if,
-		implies,in,intersect,local,minus,mod,module,next,not,od, 
-		option,options,or,proc,quit,read,restart,return,save,stop,
-		subset,then,to,try,union,use,uses,with,while,xor},
+	morekeywords={
+		and,assuming,break,by,catch,description,do,done,elif,else,end,error,export,fi,finally,for,from,global,if,implies,in,intersect,local,minus,mod,module,next,not,od, option,options,or,proc,quit,read,restart,return,save,stop,subset,then,to,try,union,use,uses,with,while,xor
+	},
 	morestring=[b]",
 	morestring=[d],
 	sensitive=true
@@ -404,10 +299,9 @@
 	keepspaces=true,
 	morecomment=[l]\%,
 	morecomment=[n]{\%\{\^^M}{\%\}\^^M},
-	morekeywords={addOptional,alpha,box,break,catch,cell,continue,end,
-		factorial,for,if,isa,ltitr,matlab2tikz,methods,movegui,normcdf,
-		normpdf,ones,parse,poissrnd,properties,repmat,strcat,try,var,
-		warning,xlim,ylim}
+	morekeywords={
+		addOptional,alpha,box,break,catch,cell,continue,end,factorial,for,if,isa,ltitr,matlab2tikz,methods,movegui,normcdf,normpdf,ones,parse,poissrnd,properties,repmat,strcat,try,var,warning,xlim,ylim
+	}
 }
 
 % -----------------------------------------------------------------------------
@@ -427,14 +321,9 @@
 \lstdefinestyle{opencl}{
 	language=C++,
 	breakatwhitespace=false,
-	emph={bool3,bool4,bool8,bool16,char2,char3,char4,char8,char16,
-		complex,constant,event_t,bool2,float2,float3,float4,float8,float16,
-		global,half2,half3,half4,half8,half16,image2d_t,image3d_t,imaginary,
-		int2,int3,int4,int8,int16,kernel,local,long2,long3,long4,long8,long16,
-		private,quad,quad2,quad3,quad4,quad8,quad16,sampler_t,short2,short3,
-		short4,short8,short16,uchar2,uchar3,uchar4,uchar8,uchar16,uint2,uint3,
-		uint4,uint8,uint16,ulong2,ulong3,ulong4,ulong8,ulong16,ushort2,ushort3,
-		ushort4,ushort8,ushort16,__constant,__global,__kernel,__local,__private},
+	emph={
+		bool3,bool4,bool8,bool16,char2,char3,char4,char8,char16,complex,constant,event_t,bool2,float2,float3,float4,float8,float16,global,half2,half3,half4,half8,half16,image2d_t,image3d_t,imaginary,int2,int3,int4,int8,int16,kernel,local,long2,long3,long4,long8,long16,private,quad,quad2,quad3,quad4,quad8,quad16,sampler_t,short2,short3,short4,short8,short16,uchar2,uchar3,uchar4,uchar8,uchar16,uint2,uint3,uint4,uint8,uint16,ulong2,ulong3,ulong4,ulong8,ulong16,ushort2,ushort3,ushort4,ushort8,ushort16,__constant,__global,__kernel,__local,__private
+	},
 	emphstyle=\color{dkcyan}\ttfamily,
 	morecomment=[l][\color{magenta}]{\#}
 }
@@ -445,24 +334,19 @@
 \lstdefinestyle{opensees}{
 	language=tcl,
 	breakatwhitespace=false,
-	emph=[1]{-dir,-dof,-ele,-eleRange,-file,-height,-increment,-initial,-iNode,
-		-iterate,-jNode,-kNode,-mat,-matConcrete,-matShear,-matSteel,-maxDim,
-		-maxEta,-maxIter,-minEta,-ndf,-ndm,-node,-nodeRange,-numSublevels,
-		-numSubSteps,-region,-rho,-thick,-time,-tol,-type,-width},
+	emph=[1]{
+		-dir,-dof,-ele,-eleRange,-file,-height,-increment,-initial,-iNode,-integration,-iterate,-jNode,-kNode,-mass,-mat,-matConcrete,-matShear,-matSteel,-max,-maxDim,-maxEta,-maxIter,-min,-minEta,-ndf,-ndm,-node,-nodeRange,-numSublevels,-numSubSteps,-region,-rho,-sections,-thick,-time,-tol,-type,-width
+	},
 	emphstyle=[1]\color{black}\bfseries\em,
 	% moredelim=[s][\color{black}\bfseries\em]{-}{\ },
 	keepspaces=true,
 	morecomment=[l]{\#},
-	morekeywords={algorithm,analysis,analyze,constraints,deformation,disp,
-		DisplayModel2D,DisplayModel3D,element,equalDOF,fix,fixX,fixY,fixZmodel,
-		geomTransf,initialize,integrator,loadConst,mass,node,numberer,pattern,
-		printA,reaction,recorder,region,section,system,test,uniaxialMaterial,wipe},
-	ndkeywords={Aggregator,BandGeneral,BasicBuilder,BFGS,Broyden,
-		constraintsTypeGravity,DeformedShape,DisplacementControl,Elastic,
-		elasticBeamColumn,EnergyIncr,KrylovNewton,Linear,LoadControl,LoadControl,
-		ModifiedNewton,Newton,NewtonLineSearch,Node,NodeNumbers,nonlinearBeamColumn,
-		NormDispIncr,numberer,pattern,Plain,rayleigh,RCM,SecantNewton,
-		SparseGeneral,Static,Steel01,Transient,truss,ViewScale,zeroLength},
+	morekeywords={
+		algorithm,analysis,analyze,constraints,deformation,disp,DisplayModel2D,DisplayModel3D,element,equalDOF,fix,fixX,fixY,fixZmodel,geomTransf,initialize,integrator,loadConst,mass,node,numberer,pattern,printA,PySimple1Gen,reaction,recorder,region,section,system,test,uniaxialMaterial,wipe
+	},
+	ndkeywords={
+		9_4_QuadUP,20_8_BrickUP,AC3D8,Aggregator,ArcLength,ASI3D8,AV3D4,AxialSp,AxialSpHD,BandGeneral,BARSLIP,BasicBuilder,bbarBrick,bbarBrickUP,bbarQuad,bbarQuadUP,BeamColumnJoint,BeamContact2D,BeamContact3D,BeamEndContact3D,BFGS,Bilin,BilinearOilDamper,Bond_SP01,BoucWen,Brick20N,brickUP,Broyden,BWBN,Cast,CatenaryCable,CentralDifference,CFSSSWP,CFSWSWP,Concrete01,Concrete01WithSITC,Concrete02,Concrete03,Concrete04,Concrete06,Concrete07,ConcreteCM,ConcreteD,ConfinedConcrete01,constraintsTypeGravity,corotTruss,corotTrussSection,CoupledZeroLength,DeformedShape,dispBeamColumn,dispBeamColumnInt,DisplacementControl,Dodd_Restrepo,ECC01,Elastic,elasticBeamColumn,ElasticBilin,ElasticMultiLinear,ElasticPP,ElasticPPGap,ElasticTimoshenkoBeam,ElasticTubularJoint,elastomericBearingBoucWen,elastomericBearingPlasticity,ElastomericX,EnergyIncr,enhancedQuad,ENT,Explicitdifference,Fatigue,flatSliderBearing,forceBeamColumn,forceBeamColumn,FourNodeTetrahedron,FPBearingPTV,FRPConfinedConcrete,GeneralizedAlpha,Hardening,HDR,HHT,HyperbolicGapMaterial,Hysteretic,ImpactMaterial,InitStrainMaterial,InitStressMaterial,Joint2D,KikuchiAikenHDR,KikuchiAikenLRB,KikuchiBearing,KrylovNewton,LeadRubberX,LimitState,Linear,LoadControl,LoadControl,MinMax,MinUnbalDispNorm,ModElasticBeam2d,ModifiedNewton,ModIMKPeakOriented,ModIMKPinching,MultiLinear,multipleShearSpring,MVLEM,Newmark,NewtonLineSearch,Node,NodeNumbers,nonlinearBeamColumn,NormDispIncr,numberer,Parallel,PathIndependentMaterial,pattern,Pinching4,PinchingLimitStateMaterial,Plain,PyLiq1,PySimple1,quad,quadUP,QzSimple1,RambergOsgoodSteel,rayleigh,RCM,ReinforcingSteel,RJWatsonEqsBearing,SAWS,SecantNewton,SelfCentering,Series,SFI_MVLEM,ShallowFoundationGen,ShellDKGQ,ShellDKGT,ShellMITC4,ShellNL,ShellNLDKGQ,ShellNLDKGT,SimpleContact2D,SimpleContact3D,singleFPBearing,SparseGeneral,SSPbrick,SSPbrickUP,SSPquad,SSPquadUP,Static,stdBrick,Steel01,Steel01,Steel02,Steel4,SteelMPF,SurfaceLoad,TFP,Transient,TRBDF2,tri31,TripleFrictionPendulum,truss,trussSection,twoNodeLink,TzLiq1,TzSimple1,ViewScale,Viscous,ViscousDamper,VS3D4,YamamotoBiaxialHDR,zeroLength,zeroLengthContact,zeroLengthContactNTS2D,zeroLengthImpact3D,zeroLengthImpact3D,zeroLengthInterface2D,zeroLengthND,zeroLengthSection
+	},
 	ndkeywordstyle=\color{dkcyan}\ttfamily
 }
 
@@ -497,13 +381,9 @@
 		var},
 	emphstyle=[1]\color{black},
 	emphstyle=[2]\color{dkyellow},
-	keywords={abstract,and,array,as,break,callable,case,catch,class,clone,const,
-		continue,declare,default,die,do,echo,else,elseif,empty,enddeclare,
-		endfor,endforeach,endif,endswitch,endwhile,eval,exit,extends,final,
-		finally,for,foreach,function,global,goto,if,implements,include,
-		include_once,instanceof,insteadof,interface,isset,list,namespace,new,or,
-		print,private,protected,public,require,require_once,return,static,
-		switch,throw,trait,try,unset,use,var,while,xor,yield,__halt_compiler},
+	keywords={
+		abstract,and,array,as,break,callable,case,catch,class,clone,const,continue,declare,default,die,do,echo,else,elseif,empty,enddeclare,endfor,endforeach,endif,endswitch,endwhile,eval,exit,extends,final,finally,for,foreach,function,global,goto,if,implements,include,include_once,instanceof,insteadof,interface,isset,list,namespace,new,or,print,private,protected,public,require,require_once,return,static,switch,throw,trait,try,unset,use,var,while,xor,yield,__halt_compiler
+	},
 	showlines=true,
 	upquote=true
 }
@@ -541,9 +421,11 @@
 	commentstyle=\color{gray}\upshape,
 	frame=tb,
 	keepspaces=true,
-	keywords={and,be,begin,break,datatype,do,elif,else,end,for,foreach,fun,
+	keywords={
+		and,be,begin,break,datatype,do,elif,else,end,for,foreach,fun,
 		function,if,in,input,let,null,or,output,pop,procedure,push,repeat,
-		return,swap,until,while,xor},
+		return,swap,until,while,xor
+	},
 	keywordstyle=\color{black}\bfseries\em,
 	mathescape=true,
 	morecomment=[l]{//},
@@ -599,10 +481,9 @@
 	breakatwhitespace=true,
 	morecomment=[l]{//},
 	morecomment=[n]{/*}{*/},
-	morekeywords={abstract,case,catch,class,def,do,else,extends,false,final,
-		finally,for,if,implicit,import,match,mixin,new,null,object,override,
-		package,private,protected,requires,return,sealed,super,this,throw,trait,
-		true,try,type,val,var,while,with,yield},
+	morekeywords={
+		abstract,case,catch,class,def,do,else,extends,false,final,finally,for,if,implicit,import,match,mixin,new,null,object,override,package,private,protected,requires,return,sealed,super,this,throw,trait,true,try,type,val,var,while,with,yield
+	},
 	morestring=[b]',
 	morestring=[b]",
 	morestring=[b]""",
@@ -615,11 +496,9 @@
 \lstdefinestyle{scheme}{
 	language=Lisp,
 	morecomment=[l]{;},
-	morekeywords={and,begin,case,case-lambda,cond,cond-expand,define,delay,
-		delay-force,do,else,force,guard,if,lambda,let,let*,let*-values,
-		let-syntax,let-values,letrec,letrec*,letrec-syntax,make-parameter,
-		make-promise,map,or,parameterize,promise?,quasiquote,quote,set!,
-		syntax-rules,unless,when},
+	morekeywords={
+		and,begin,case,case-lambda,cond,cond-expand,define,delay,delay-force,do,else,force,guard,if,lambda,let,let*,let*-values,let-syntax,let-values,letrec,letrec*,letrec-syntax,make-parameter,make-promise,map,or,parameterize,promise?,quasiquote,quote,set!,syntax-rules,unless,when
+	},
 	morestring=[b]"
 }
 
@@ -661,13 +540,10 @@
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{VHDL}{
 	morekeywords=[1]{
-		library,use,all,entity,is,port,in,out,end,architecture,of,
-		begin,and,or,Not,downto,ALL
+		library,use,all,entity,is,port,in,out,end,architecture,of,begin,and,or,Not,downto,ALL
 	},
 	morekeywords=[2]{
-		STD_LOGIC_VECTOR,STD_LOGIC,IEEE,STD_LOGIC_1164,
-		NUMERIC_STD,STD_LOGIC_ARITH,STD_LOGIC_UNSIGNED,std_logic_vector,
-		std_logic
+		STD_LOGIC_VECTOR,STD_LOGIC,IEEE,STD_LOGIC_1164,NUMERIC_STD,STD_LOGIC_ARITH,STD_LOGIC_UNSIGNED,std_logic_vector,std_logic
 	},
 	morecomment=[l]--
 }
@@ -680,7 +556,9 @@
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{XML}{
 	morecomment=[s]{<?}{?>},
-	morekeywords={encoding,type,version,xmlns},
+	morekeywords={
+		encoding,type,version,xmlns
+	},
 	morestring=[b]",
 	morestring=[s]{>}{<}
 }
