@@ -312,6 +312,16 @@
 		{\@latex@warning{Ambiente `thebibliography' no definido}}
 		\endlist\end{multicols}}}{}
 \makeatother
+% Crea referencias enumeradas en apacite
+\newcounter{apaciteNumberCounter}
+\addtocounter{apaciteNumberCounter}{-1}
+\makeatletter
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{
+	\ifthenelse{\equal{\apaciterefnumber}{true}}{
+		\renewcommand{\@biblabel}[1]{\apaciterefnumberinit\stepcounter{apaciteNumberCounter}\theMyBibCount\apaciterefnumberfinal}
+	}{}
+}{}
+\makeatother
 
 % -----------------------------------------------------------------------------
 % Configuración anexo
