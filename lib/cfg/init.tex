@@ -289,6 +289,16 @@
 }{
 	\throwbadconfig{Estilo citas desconocido}{\stylecitereferences}{bibtex,apacite,natbib}}}
 }
+% Crea referencias enumeradas en apacite
+\newcounter{apaciteNumberCounter}
+\addtocounter{apaciteNumberCounter}{-1}
+\makeatletter
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{
+	\ifthenelse{\equal{\apaciterefnumber}{true}}{
+		\renewcommand{\@biblabel}[1]{\apaciterefnumberinit\stepcounter{apaciteNumberCounter}\theapaciteNumberCounter\apaciterefnumberfinal}
+	}{}
+}{}
+\makeatother
 % Referencias en 2 columnas
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
@@ -311,16 +321,6 @@
 		{\def\@noitemerr
 		{\@latex@warning{Ambiente `thebibliography' no definido}}
 		\endlist\end{multicols}}}{}
-\makeatother
-% Crea referencias enumeradas en apacite
-\newcounter{apaciteNumberCounter}
-\addtocounter{apaciteNumberCounter}{-1}
-\makeatletter
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{
-	\ifthenelse{\equal{\apaciterefnumber}{true}}{
-		\renewcommand{\@biblabel}[1]{\apaciterefnumberinit\stepcounter{apaciteNumberCounter}\theMyBibCount\apaciterefnumberfinal}
-	}{}
-}{}
 \makeatother
 
 % -----------------------------------------------------------------------------
