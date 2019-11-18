@@ -12,11 +12,22 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % -----------------------------------------------------------------------------
+% PARCHES DE LIBRERÍAS
+% -----------------------------------------------------------------------------
+\let\counterwithout\relax
+\let\counterwithin\relax
+\let\underbar\relax
+\let\underline\relax
+
+% -----------------------------------------------------------------------------
 % LIBRERÍAS IMPORTANTES
 % -----------------------------------------------------------------------------
 
 % Define el idioma
 \usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel}
+
+% Cambia el estilo de los títulos
+\usepackage{sectsty}
 
 % Manejo de condicionales
 \usepackage{ifthen}
@@ -56,14 +67,6 @@
 }
 
 % -----------------------------------------------------------------------------
-% PARCHES DE LIBRERÍAS
-% -----------------------------------------------------------------------------
-\let\counterwithout\relax
-\let\counterwithin\relax
-\let\underbar\relax
-\let\underline\relax
-
-% -----------------------------------------------------------------------------
 % SE GUARDAN VARIABLES ANTES DE CARGAR LIBRERÍAS
 % -----------------------------------------------------------------------------
 \let\RE\Re
@@ -99,7 +102,6 @@
 \usepackage{pdfpages}      % Permite administrar páginas en pdf
 \usepackage{physics}       % Paquete de matemáticas
 \usepackage{rotating}      % Permite rotación de objetos
-\usepackage{sectsty}       % Cambia el estilo de los títulos
 \usepackage{selinput}      % Compatibilidad con acentos
 \usepackage{setspace}      % Cambia el espacio entre líneas
 \usepackage{soul}          % Permite subrayar texto
