@@ -21,6 +21,11 @@
 % Manejo de condicionales
 \usepackage{ifthen}
 
+% Codificación
+\ifthenelse{\equal{\compilertype}{pdf2latex}}{
+	\usepackage[utf8]{inputenc}}{
+}
+
 % Lanza un mensaje de error indicando mala configuración
 %	#1	Parámetros opcionales (nostop,noheader)
 %	#2	Mensaje de error
@@ -86,7 +91,6 @@
 \usepackage{graphicx}      % Propiedades extra para los gráficos
 \usepackage{lipsum}        % Permite crear párrafos de prueba
 \usepackage{listings}      % Permite añadir código fuente
-\usepackage{listingsutf8}  % Acepta codificación UTF-8 en código fuente
 \usepackage{longtable}     % Permite utilizar tablas en varias hojas
 \usepackage{mathtools}     % Permite utilizar notaciones matemáticas
 \usepackage{multicol}      % Múltiples columnas
@@ -130,6 +134,9 @@
 % -----------------------------------------------------------------------------
 % LIBRERÍAS CONDICIONALES
 % -----------------------------------------------------------------------------
+\ifthenelse{\equal{\compilertype}{pdf2latex}}{ % Acepta codificación UTF-8 en código fuente
+	\usepackage{listingsutf8}}{
+}
 \ifthenelse{\equal{\footnotepagetoprule}{true}}{ % Regla superior
 	\usepackage[bottom,hang]{footmisc} % Estilo pie de página
 }{
@@ -605,6 +612,8 @@
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
 \usepackage{csquotes} % Citas y comillas, se debe usar después de lineno [6.4.2]
-\inputencoding{utf8}
+\ifthenelse{\equal{\compilertype}{pdf2latex}}{
+	\inputencoding{utf8}}{
+}
 
 % END
