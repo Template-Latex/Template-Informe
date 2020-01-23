@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      6.7.2 (03/01/2020)
+% Versión:      6.7.3 (23/01/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -26,7 +26,7 @@
 	% numerar y sin aparecer en el índice
 	\subsection{Una breve introducción}
 		
-		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\hreftext{\textbackslash insertimage}}:
+		Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} como \eqref{eqn:identidad-imposible} ó (\ref{img:anexo-2}). A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\hreftext{\textbackslash insertimage}}:
 
 		% Esta instrucción, añadida en la v6.5.5 permite cambiar el título de cada
 		% objeto en el índice de cada objeto. Este título es solo válido hasta el
@@ -325,7 +325,7 @@ end
 \section{Cálculos realizados}
 
 	\subsection{Metodología}
-		\lipsum[1]
+		\lipsum[1] \eqref{eqn:identidad-imposible}
 
 		% Imagen, se numerará automáticamente con la letra del anexo según
 		% la configuración \appendixindepobjnum
