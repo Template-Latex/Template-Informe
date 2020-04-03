@@ -34,14 +34,16 @@
 % LIBRERÍAS DEL NÚCLEO
 % -----------------------------------------------------------------------------
 
-% Define el idioma
-\usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel}
+% Manejo de condicionales
+\usepackage{ifthen}
+
+% Idioma español, borrar esta línea si se desea usar otro idioma
+\ifthenelse{\equal{\usespanishbabel}{true}}{
+	\usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel}}{
+}
 
 % Cambia el estilo de los títulos
 \usepackage{sectsty}
-
-% Manejo de condicionales
-\usepackage{ifthen}
 
 % Codificación
 \ifthenelse{\equal{\compilertype}{pdf2latex}}{
