@@ -12,7 +12,26 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % -----------------------------------------------------------------------------
-% LIBRERÍAS IMPORTANTES
+% SE GUARDAN VARIABLES ANTES DE CARGAR LIBRERÍAS
+% -----------------------------------------------------------------------------
+\let\RE\Re
+\let\IM\Im
+
+% -----------------------------------------------------------------------------
+% PARCHES DE LIBRERÍAS
+% -----------------------------------------------------------------------------
+\let\counterwithout\relax
+\let\counterwithin\relax
+\let\underbar\relax
+\let\underline\relax
+
+% Si se desactiva el idioma
+\def\unaccentedoperators{}
+\def\decimalpoint{}
+\def\bibname{}
+
+% -----------------------------------------------------------------------------
+% LIBRERÍAS DEL NÚCLEO
 % -----------------------------------------------------------------------------
 
 % Define el idioma
@@ -57,20 +76,6 @@
 }{
 	\usepackage{amsmath}
 }
-
-% -----------------------------------------------------------------------------
-% SE GUARDAN VARIABLES ANTES DE CARGAR LIBRERÍAS
-% -----------------------------------------------------------------------------
-\let\RE\Re
-\let\IM\Im
-
-% -----------------------------------------------------------------------------
-% PARCHES DE LIBRERÍAS
-% -----------------------------------------------------------------------------
-\let\counterwithout\relax
-\let\counterwithin\relax
-\let\underbar\relax
-\let\underline\relax
 
 % -----------------------------------------------------------------------------
 % LIBRERÍAS INDEPENDIENTES
