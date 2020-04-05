@@ -32,9 +32,9 @@
 
 % Parche de sectsty.sty
 \makeatletter
-\def\underline#1{
+\def\underline#1{%
 	\relax
-	\ifmmode\@@underline{#1}
+	\ifmmode\@@underline{#1}%
 	\else $\@@underline{\hbox{#1}}\m@th$\relax\fi}
 \def\underbar#1{\underline{\sbox\tw@{#1}\dp\tw@\z@\box\tw@}}
 \makeatother
@@ -117,6 +117,7 @@
 \usepackage{pdflscape}     % Modo página horizontal de página
 \usepackage{pdfpages}      % Permite administrar páginas en pdf
 \usepackage{physics}       % Paquete de matemáticas
+\usepackage{ragged2e}      % Redefine centering
 \usepackage{rotating}      % Permite rotación de objetos
 \usepackage{selinput}      % Compatibilidad con acentos
 \usepackage{setspace}      % Cambia el espacio entre líneas
