@@ -341,6 +341,17 @@
 \endgroup
 
 % -----------------------------------------------------------------------------
+% Crea índice de ecuaciones
+% -----------------------------------------------------------------------------
+\newcommand{\listindexequationsname}{\fontsizetitlei{\nomlteqn}}
+\newlistof{myindexequations}{equ}{\listindexequationsname}
+\newcommand{\myindexequations}[1]{
+	\addcontentsline{equ}{myindexequations}{\protect\numberline{\theequation}#1}
+}
+\setcounter{templateIndexEquations}{0}
+\DeclareTotalCounter{templateIndexEquations}
+
+% -----------------------------------------------------------------------------
 % Reconfiguración de tamaño de páginas
 % -----------------------------------------------------------------------------
 \makeatletter

@@ -46,7 +46,7 @@
 	% -------------------------------------------------------------------------
 	% Configuración del punto en índice
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\showdotaftersnum}{true}}{		
+	\ifthenelse{\equal{\showdotaftersnum}{true}}{
 		% Agrega los puntos
 		\def\cftchapaftersnum {.}
 		\def\cftsecaftersnum {.}
@@ -70,10 +70,11 @@
 	% -------------------------------------------------------------------------
 	% Configuración del punto en número de objetos
 	% -------------------------------------------------------------------------
-	\def\cftfigaftersnum {\charafterobjectindex\enspace}
-	\def\cftsubfigaftersnum {\charafterobjectindex\enspace}
-	\def\cfttabaftersnum {\charafterobjectindex\enspace}
-	\def\cftlstlistingaftersnum {\charafterobjectindex\enspace}
+	\def\cftfigaftersnum {\charafterobjectindex\enspace} % Figuras
+	\def\cftsubfigaftersnum {\charafterobjectindex\enspace} % Subfiguras
+	\def\cfttabaftersnum {\charafterobjectindex\enspace} % Tablas
+	\def\cftlstlistingaftersnum {\charafterobjectindex\enspace} % Códigos fuente
+	\def\cftmyindexequationsaftersnum {\charafterobjectindex\enspace} % Ecuaciones
 	
 	% -------------------------------------------------------------------------
 	% Desactiva los números de línea
@@ -86,15 +87,17 @@
 	% Cambia tabulación índice de objetos para alinear con contenidos
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\objectindexindent}{true}}{
-		\setlength{\cfttabindent}{1.9em}
-		\setlength{\cftfigindent}{1.9em}
-		\setlength{\cftsubfigindent}{1.9em}
-		\def\cftlstlistingindent {1.9em}
+		\setlength{\cfttabindent}{1.9em} % Tablas
+		\setlength{\cftfigindent}{1.9em} % Figuras
+		\setlength{\cftsubfigindent}{1.9em} % Subfiguras
+		\setlength{\cftmyindexequationsindent}{1.9em} % Ecuaciones
+		\def\cftlstlistingindent {1.9em} % Códigos fuente
 	}{
-		\setlength{\cfttabindent}{0em}
-		\setlength{\cftfigindent}{0em}
-		\setlength{\cftsubfigindent}{0em}
-		\def\cftlstlistingindent {0em}
+		\setlength{\cfttabindent}{0em} % Tablas
+		\setlength{\cftfigindent}{0em} % Figuras
+		\setlength{\cftsubfigindent}{0em} % Subfiguras
+		\setlength{\cftmyindexequationsindent}{0em} % Ecuaciones
+		\def\cftlstlistingindent {0em} % Códigos fuente
 	}
 	
 	% -------------------------------------------------------------------------
@@ -127,6 +130,34 @@
 		\def\cftdefaultnumwidthromancode {5.25em}
 	}{
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,chap,sec,ssec,sssec,ssssec}}}}}}
+	}
+
+	% Código fuente
+	\ifthenelse{\equal{\showsectioncaptioneqn}{none}}{
+		\def\cftdefautnumwidtheqn {3.0em} % Añade +0.7em
+		\def\cftdefaultnumwidthromaneqn {5.25em} % Añade +0.5em para no overflow
+	}{
+	\ifthenelse{\equal{\showsectioncaptioneqn}{sec}}{
+		\def\cftdefautnumwidtheqn {3.7em}
+		\def\cftdefaultnumwidthromaneqn {5.75em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptioneqn}{ssec}}{
+		\def\cftdefautnumwidtheqn {4.4em}
+		\def\cftdefaultnumwidthromaneqn {6.25em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptioneqn}{sssec}}{
+		\def\cftdefautnumwidtheqn {5.1em}
+		\def\cftdefaultnumwidthromaneqn {6.75em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{
+		\def\cftdefautnumwidtheqn {5.8em}
+		\def\cftdefaultnumwidthromaneqn {7.25em}
+	}{
+	\ifthenelse{\equal{\showsectioncaptioneqn}{chap}}{
+		\def\cftdefautnumwidtheqn {3.0em}
+		\def\cftdefaultnumwidthromaneqn {5.25em}
+	}{
+		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioneqn}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 	}
 	
 	% Figuras
@@ -204,6 +235,20 @@
 			\def\cftlstlistingnumwidth {\cftdefautnumwidthcode}
 		}}
 	}
+
+	% Ecuaciones
+	\ifthenelse{\equal{\captionnumequation}{arabic}}{ % No hace nada (default)
+		\def\cftmyindexequationsnumwidth {\cftdefautnumwidtheqn}
+	}{
+		\ifthenelse{\equal{\captionnumequation}{roman}}{
+			\def\cftmyindexequationsnumwidth {\cftdefaultnumwidthromaneqn}
+		}{
+		\ifthenelse{\equal{\captionnumequation}{Roman}}{
+			\def\cftmyindexequationsnumwidth {\cftdefaultnumwidthromaneqn}
+		}{
+			\def\cftmyindexequationsnumwidth {\cftdefautnumwidtheqn}
+		}}
+	}
 	
 	% Figuras
 	\ifthenelse{\equal{\captionnumfigure}{arabic}}{ % No hace nada (default)
@@ -252,6 +297,12 @@
 		\iftotallstlistings
 			\ifthenelse{\equal{\indexnewpagec}{true}}{\newpage}{}
 			\lstlistoflistings
+		\fi
+	}
+	\newcommand{\coregenerateindexequationindex}{
+		\iftotaltemplateIndexEquationss
+			\ifthenelse{\equal{\indexnewpagee}{true}}{\newpage}{}
+			\listofmyindexequations
 		\fi
 	}
 
@@ -332,6 +383,7 @@
 	}{
 		\throwbadconfig{Estilo desconocido del indice}{\indexstyle}{,f,ft,ftc,fc,fct,t,tf,tfc,tc,tcf,c,ct,ctf,cf,cft}}}}}}}}}}}}}}}}
 	}
+	\coregenerateindexequationindex
 
 	% -------------------------------------------------------------------------
 	% Termina el bloque de índice

@@ -20,6 +20,21 @@
 	\resizebox{#1\textwidth}{!}{$#2$}
 }
 
+% Insertar una ecuación en el índice
+% 	#1	Label (opcional)
+%	#2	Ecuación
+%	#3	Título de la ecuación
+\newcommand{\insertindexequation}[3][]{
+	\vspace{\marginequationtop cm}
+	\begin{align}
+		\text{#1} \ensuremath{#2}
+	\end{align}
+	\vspace{\marginequationbottom cm}
+	\myindexequations{#3}
+	\centering \small \textit{#3} \normalsize
+	\addtocounter{templateIndexEquations}{1}
+}
+
 % Insertar una ecuación
 % 	#1	Label (opcional)
 %	#2	Ecuación
