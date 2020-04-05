@@ -74,7 +74,7 @@
 \def\indexnewpagee {false}         % Nueva página en índice ecuaciones
 \def\indexnewpagef {false}         % Nueva página en índice figuras
 \def\indexnewpaget {false}         % Nueva página en índice tablas
-\def\indexstyle {tfc}              % Estilo índice {f:figura, t:tabla, c:código}
+\def\indexstyle {tfce}             % Estilo {f:figura,t:tabla,c:código,e:ecuación}
 \def\indextitlemargin {11.4}       % Margen título índice \insertindextitle [pt]
 \def\objectindexindent {false}     % Indenta la lista de objetos
 \def\showappendixsecindex {false}  % Título de la sec. de anexos en el índice
@@ -118,6 +118,8 @@
 \def\marginaligntop {-0.40}        % Margen superior entorno align [cm]
 \def\margineqncaptionbottom {0.0}  % Margen inferior caption ecuación [cm]
 \def\margineqncaptiontop {-0.65}   % Margen superior caption ecuación [cm]
+\def\margineqnindexbottom {-0.85}  % Margen inferior ecuaciones índice [cm]
+\def\margineqnindextop {-0.25}     % Margen superior ecuaciones índice [cm]
 \def\marginequationbottom {-0.15}  % Margen inferior ecuaciones [cm]
 \def\marginequationtop {0.0}       % Margen superior ecuaciones [cm]
 \def\marginfloatimages {-13.0}     % Margen sup. fig. insertimageleft/right [pt]
@@ -159,7 +161,7 @@
 \def\styletitlei {\bfseries}       % Estilo títulos en el índice
 
 % CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
-\def\captioncolor {black}          % Color de la leyenda (código,figura,tabla)
+\def\captioncolor {black}          % Color nombre objeto (código,figura,tabla)
 \def\captiontextcolor {black}      % Color de la leyenda
 \def\colorpage {white}             % Color de la página
 \def\highlightcolor {yellow}       % Color del subrayado con \hl

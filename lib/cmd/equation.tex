@@ -25,13 +25,15 @@
 %	#2	Ecuación
 %	#3	Título de la ecuación
 \newcommand{\insertindexequation}[3][]{
-	\vspace{\marginequationtop cm}
+	\vspace{\margineqnindextop cm}
 	\begin{align}
 		\text{#1} \ensuremath{#2}
 	\end{align}
-	\vspace{\marginequationbottom cm}
+	\vspace{\margineqnindexbottom cm}
 	\myindexequations{#3}
-	\centering \small \textit{#3} \normalsize
+	\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
+		\centering \textcolor{\captiontextcolor}{\textit{#3}}
+	\end{changemargin}
 	\addtocounter{templateIndexEquations}{1}
 }
 
