@@ -25,6 +25,8 @@
 %	#2	Ecuación
 %	#3	Título de la ecuación
 \newcommand{\insertindexequation}[3][]{
+	\emptyvarerr{\insertindexequation}{#2}{Ecuacion no definida}
+	\emptyvarerr{\insertindexequation}{#3}{Leyenda no definida}
 	\vspace{\margineqnindextop cm}
 	\begin{align}
 		\text{#1} \ensuremath{#2}
