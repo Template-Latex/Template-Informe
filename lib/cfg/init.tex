@@ -413,9 +413,7 @@
 % -----------------------------------------------------------------------------
 % Configuraciones del motor de compilación
 % -----------------------------------------------------------------------------
-
 \ifthenelse{\equal{\compilertype}{pdf2latex}}{
-	
 	% Nivel de compresión
 	\pdfcompresslevel=\pdfcompilecompression
 	
@@ -431,8 +429,13 @@
 	
 	% Compresión de objetos
 	\pdfobjcompresslevel=\pdfcompileobjcompression
-	
-}{}
+}{
+\ifthenelse{\equal{\compilertype}{xelatex}}{
+}{
+\ifthenelse{\equal{\compilertype}{lualatex}}{
+}{
+	\throwbadconfig{Compilador desconocido}{\compilertype}{pdf2latex,xelatex,lualatex}}}
+}
 
 % -----------------------------------------------------------------------------
 % Profundidad de las secciones
