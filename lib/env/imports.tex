@@ -102,7 +102,6 @@
 \usepackage{floatrow}      % Permite administrar posiciones en los caption
 \usepackage{framed}        % Permite creación de recuadros
 \usepackage{gensymb}       % Simbología común
-\usepackage{geometry}      % Dimensiones y geometría del documento
 \usepackage{graphicx}      % Propiedades extra para los gráficos
 \usepackage{lipsum}        % Permite crear párrafos de prueba
 \usepackage{listings}      % Permite añadir código fuente
@@ -149,19 +148,27 @@
 % -----------------------------------------------------------------------------
 % LIBRERÍAS CONDICIONALES
 % -----------------------------------------------------------------------------
-\ifthenelse{\equal{\compilertype}{pdf2latex}}{ % Acepta codificación UTF-8 en código fuente
+
+% Acepta codificación UTF-8 en código fuente
+\ifthenelse{\equal{\compilertype}{pdf2latex}}{
 	\usepackage{listingsutf8}}{
 }
-\ifthenelse{\equal{\footnotepagetoprule}{true}}{ % Regla superior
+
+% Regla superior
+\ifthenelse{\equal{\footnotepagetoprule}{true}}{
 	\usepackage[bottom,hang]{footmisc} % Estilo pie de página
 }{
 	\usepackage[bottom,norule,hang]{footmisc}
 }
-\ifthenelse{\equal{\showdotaftersnum}{true}}{ % Agrega punto a títulos/subtítulos
+
+% Agrega punto a títulos/subtítulos
+\ifthenelse{\equal{\showdotaftersnum}{true}}{
 	\usepackage{secdot}
 	\sectiondot{subsection}
 	\sectiondot{subsubsection}}{
 }
+
+% Referencias
 % Desde 6.2.8 se debe cargar al final para evitar errores:
 %	- Option clash for package hyperref
 % 	- name has been referenced but does not exist, replaced by a fixed one
@@ -220,13 +227,24 @@
 		}{}
 	}
 }
-\ifthenelse{\equal{\showappendixsecindex}{true}}{ % Anexos/Apéndices
+
+% Anexos/Apéndices
+\ifthenelse{\equal{\showappendixsecindex}{true}}{
 	\usepackage[toc]{appendix}
 }{
 	\usepackage{appendix}
 }
-\ifthenelse{\equal{\importtikz}{true}}{ % Importa la librería tikz
+
+% Importa la librería tikz
+\ifthenelse{\equal{\importtikz}{true}}{
 	\usepackage{tikz}}{
+}
+
+% Dimensiones y geometría del documento
+\ifthenelse{\equal{\compilertype}{lualatex}}{ % En lualatex sólo se puede cambiar 1 vez el margen
+	\usepackage[top=\pagemargintop cm,bottom=\pagemarginbottom cm,margin=\pagemarginleft cm]{geometry}
+}{ % pdf2latex, xelatex
+	\usepackage{geometry}
 }
 
 % -----------------------------------------------------------------------------
