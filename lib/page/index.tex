@@ -287,19 +287,19 @@
 			\listoffigures
 		\fi
 	}
-	\newcommand{\LoIt}{
+	\newcommand{\LoIt}{ % Tablas
 		\iftotaltables
 			\ifthenelse{\equal{\indexnewpaget}{true}}{\newpage}{}
 			\listoftables
 		\fi
 	}
-	\newcommand{\LoIc}{
+	\newcommand{\LoIc}{ % Códigos fuente (listings)
 		\iftotallstlistings
 			\ifthenelse{\equal{\indexnewpagec}{true}}{\newpage}{}
 			\lstlistoflistings
 		\fi
 	}
-	\newcommand{\LoIe}{
+	\newcommand{\LoIe}{ % Ecuaciones
 		\iftotaltemplateIndexEquationss
 			\ifthenelse{\equal{\indexnewpagee}{true}}{\newpage}{}
 			\listofmyindexequations
