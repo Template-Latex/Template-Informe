@@ -32,11 +32,7 @@
 
 % Parche de sectsty.sty
 \makeatletter
-\def\underline#1{%
-	\relax
-	\ifmmode\@@underline{#1}%
-	\else $\@@underline{\hbox{#1}}\m@th$\relax\fi}
-\def\underbar#1{\underline{\sbox\tw@{#1}\dp\tw@\z@\box\tw@}}
+\def\underline#1{\relax\ifmmode\@@underline{#1}\else $\@@underline{\hbox{#1}}\m@th$\relax\fi}\def\underbar#1{\underline{\sbox\tw@{#1}\dp\tw@\z@\box\tw@}}
 \makeatother
 
 % -----------------------------------------------------------------------------

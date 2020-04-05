@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      6.7.4 (02/04/2020)
+% Versión:      6.7.6 (05/04/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -99,8 +99,8 @@
 		% Párrafos de ejemplo
 		\newp \lipsum[115]
 
-		% Agrega una ecuación con leyenda
-		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
+		% Agrega una ecuación en el índice
+		\insertindexequation[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
 
 		% Inserta una definición, compatibilidad con otros templates
 		\begin{defn}[ver \cite{templateinforme}]
@@ -377,5 +377,9 @@ end
 		\end{tabular}
 		\label{tab:anexo-2}
 	\end{table}
+
+	\lipsum[6]
+	
+	\insertindexequation{a=b+c}{Ecuación muy difícil}
 
 \end{anexo}
