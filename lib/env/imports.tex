@@ -230,13 +230,13 @@
 
 % Anexos/Apéndices
 \ifthenelse{\equal{\showappendixsecindex}{true}}{
-	\usepackage[toc]{appendix}
+	\usepackage[toc]{appendix} % Eliminado en Auxiliares/Controles, sin [toc]
 }{
 	\usepackage{appendix}
 }
 
 % Importa la librería tikz
-\ifthenelse{\equal{\importtikz}{true}}{
+\ifthenelse{\equal{\importtikz}{true}}{ % Eliminado en Auxiliares/Controles
 	\usepackage{tikz}}{
 }
 
