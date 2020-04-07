@@ -398,6 +398,9 @@
 % Se activa el word-wrap para textos con \texttt{}
 % -----------------------------------------------------------------------------
 \ttfamily \hyphenchar\the\font=`\-
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds} % Word-wrap para las \url
+\makeatother
 
 % -----------------------------------------------------------------------------
 % Se define el tipo de texto de los url
