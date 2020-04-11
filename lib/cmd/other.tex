@@ -77,13 +77,7 @@
 
 % Inserta un texto con el formato de enlace
 % 	#1 	Enlace
-\newcommand{\hreftext}[1]{
-	\ifthenelse{\equal{\fonturl}{same}}{#1}{
-	\ifthenelse{\equal{\fonturl}{tt}}{\texttt{#1}}{
-	\ifthenelse{\equal{\fonturl}{rm}}{\textrm{#1}}{
-	\ifthenelse{\equal{\fonturl}{sf}}{\textsf{#1}}{	
-	}}}}
-}
+\newcommand{\hreftext}[1]{\ifthenelse{\equal{\fonturl}{same}}{#1}{\ifthenelse{\equal{\fonturl}{tt}}{\texttt{#1}}{\ifthenelse{\equal{\fonturl}{rm}}{\textrm{#1}}{\ifthenelse{\equal{\fonturl}{sf}}{\textsf{#1}}{}}}}}
 
 % Parcha href para incluir el estilo
 % \let\oldhref=\href
