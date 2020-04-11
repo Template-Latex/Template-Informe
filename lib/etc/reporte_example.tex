@@ -94,6 +94,7 @@
 		\newp \lipsum[2]
 
 		% Agrega una ecuación con leyenda
+		% Recordar que como no existe un índice, \insertindexequation no está disponible
 		\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
 
 		% Aquí no es necesario usar \newp dado que todas las funciones \insert...
