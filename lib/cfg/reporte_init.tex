@@ -22,6 +22,10 @@
 					\@author
 				\end{tabular}\par}
 		}{}
+		\ifthenelse{\equal{\titleshowcourse}{true}}{
+			\vskip 0.5em
+			{\normalsize \codigodelcurso\ - \nombredelcurso}
+		}{}
 		\ifthenelse{\equal{\titleshowdate}{true}}{
 			\vskip 1em
 			{\large \@date}
