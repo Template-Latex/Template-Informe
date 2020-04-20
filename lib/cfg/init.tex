@@ -58,15 +58,36 @@
 % Se define metadata del pdf
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\cfgshowbookmarkmenu}{true}}{
-	\def\cdfpagemodepdf {UseOutlines}
+	\def\cfgpdfpagemode {UseOutlines}
 	}{
-	\def\cdfpagemodepdf {UseNone}
+	\def\cfgpdfpagemode {UseNone}
+}
+\ifthenelse{\equal{\usepdfmetadata}{true}}{
+	\def\pdfmetainfoautor {\autordeldocumento}
+	\def\pdfmetainfocodigodelcurso {\codigodelcurso}
+	\def\pdfmetainfonombredelcurso {\nombredelcurso}
+	\def\pdfmetainfoautor {\autordeldocumento}
+	\def\pdfmetainfotema {\temaatratar}
+	\def\pdfmetainfotitulo {\titulodelinforme}
+	\def\pdfmetainfounidepto {\departamentouniversidad}
+	\def\pdfmetainfouninombre {\departamentouniversidad}
+	\def\pdfmetainfouniubicacion {\departamentouniversidad}
+}{
+	\def\pdfmetainfoautor {}
+	\def\pdfmetainfocodigodelcurso {}
+	\def\pdfmetainfonombredelcurso {}
+	\def\pdfmetainfoautor {}
+	\def\pdfmetainfotema {}
+	\def\pdfmetainfotitulo {}
+	\def\pdfmetainfounidepto {}
+	\def\pdfmetainfouninombre {}
+	\def\pdfmetainfouniubicacion {}
 }
 \hypersetup{
 	bookmarksopen={\cfgpdfbookmarkopen},
 	bookmarksopenlevel={\cfgbookmarksopenlevel},
 	bookmarkstype={toc},
-	pdfauthor={\autordeldocumento},
+	pdfauthor={\pdfmetainfoautor},
 	pdfcenterwindow={\cfgpdfcenterwindow},
 	pdfcopyright={\cfgpdfcopyright},
 	pdfcreator={LaTeX},
@@ -74,11 +95,11 @@
 	pdfencoding={unicode},
 	pdffitwindow={\cfgpdffitwindow},
 	pdfinfo={
-		Curso.Codigo={\codigodelcurso},
-		Curso.Nombre={\nombredelcurso},
-		Documento.Autor={\autordeldocumento},
-		Documento.Tema={\temaatratar},
-		Documento.Titulo={\titulodelinforme},
+		Curso.Codigo={\pdfmetainfocodigodelcurso},
+		Curso.Nombre={\pdfmetainfonombredelcurso},
+		Documento.Autor={\pdfmetainfoautor},
+		Documento.Tema={\pdfmetainfotema},
+		Documento.Titulo={\pdfmetainfotitulo},
 		Template.Autor.Alias={ppizarror},
 		Template.Autor.Email={pablo@ppizarror.com},
 		Template.Autor.Nombre={Pablo Pizarro R.},
@@ -95,21 +116,21 @@
 		Template.Version.Release={DEV},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe/},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
-		Universidad.Departamento={\departamentouniversidad},
-		Universidad.Nombre={\nombreuniversidad},
-		Universidad.Ubicacion={\localizacionuniversidad}
+		Universidad.Departamento={\pdfmetainfounidepto},
+		Universidad.Nombre={\pdfmetainfouninombre},
+		Universidad.Ubicacion={\pdfmetainfouniubicacion}
 	},
 	pdfkeywords={\cfgpdfkeywords},
 	pdflang={\documentlang},
 	pdfmenubar={\cfgpdfmenubar},
-	pdfpagelayout={\cfgpdfpagemode},
-	pdfpagemode={\cdfpagemodepdf},
+	pdfpagelayout={\cfgpdflayout},
+	pdfpagemode={\cfgpdfpagemode},
 	pdfproducer={Template-Informe DEV | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
-	pdfsubject={\temaatratar},
-	pdftitle={\titulodelinforme},
+	pdfsubject={\pdfmetainfotema},
+	pdftitle={\pdfmetainfotitulo},
 	pdftoolbar={\cfgpdftoolbar}
 }
 
