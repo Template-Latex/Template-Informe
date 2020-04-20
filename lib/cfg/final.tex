@@ -19,19 +19,13 @@
 
 % Actualiza headers
 \ifthenelse{\equal{\disablehfrightmark}{false}}{
-	\ifthenelse{\equal{\hfstyle}{style1}}{
+	
+	% Define funciones generales
+	\def\COREhfstyledefA { % 1, 2, 4, 9, 11, 14, 15
 		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
 		\fancyhead[L]{\nouppercase{\leftmark}}
-	}{
-	\ifthenelse{\equal{\hfstyle}{style2}}{
-		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}
-	}{
-	\ifthenelse{\equal{\hfstyle}{style4}}{
-		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}
-	}{
-	\ifthenelse{\equal{\hfstyle}{style5}}{
+	}
+	\def\COREhfstyledefB { % 5
 		\fancypagestyle{plain}{
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{
 				\fancyhead[R]{
@@ -56,12 +50,8 @@
 		}{
 			\fancyhead[R]{\nouppercase{\leftmark}}
 		}
-	}{
-	\ifthenelse{\equal{\hfstyle}{style9}}{
-		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}
-	}{
-	\ifthenelse{\equal{\hfstyle}{style10}}{
+	}
+	\def\COREhfstyledefC { % 10
 		\fancypagestyle{plain}{
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{
 				\fancyhead[L]{
@@ -86,81 +76,72 @@
 		}{
 			\fancyhead[L]{\nouppercase{\leftmark}}
 		}
+	}
+	
+	% Actualiza los header-footer
+	\ifthenelse{\equal{\hfstyle}{style1}}{
+		\COREhfstyledefA
 	}{
-	\ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
-		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}
-	}{
-	\ifthenelse{\equal{\hfstyle}{style14}}{ % Similar a 4
-		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}
-	}{
-	\ifthenelse{\equal{\hfstyle}{style15}}{ % Similar a 1
-		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}
-	}{
-	\ifthenelse{\equal{\hfstyle}{style17}}{ % 1, impar derecha
+	\ifthenelse{\equal{\hfstyle}{style1-i}}{ % impar izquierdo
 		\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
 		\fancyhead[LE,RO]{\nouppercase{\leftmark}}
 	}{
-	\ifthenelse{\equal{\hfstyle}{style18}}{ % 1, impar izquierda
+	\ifthenelse{\equal{\hfstyle}{style1-d}}{ % impar derecho
 		\fancypagestyle{plain}{\fancyhead[LO,RE]{\nouppercase{\leftmark}}}
 		\fancyhead[LO,RE]{\nouppercase{\leftmark}}
 	}{
-	\ifthenelse{\equal{\hfstyle}{style19}}{ % 5, impar derecha
-		\fancypagestyle{plain}{
-			\ifthenelse{\equal{\hfwidthwrap}{true}}{
-				\fancyhead[R]{
-					\begin{minipage}[t]{\hfwidthtitle\linewidth}
-						\begin{flushright}
-							\nouppercase{\leftmark}
-						\end{flushright}
-					\end{minipage}
-				}
-			}{
-				\fancyhead[R]{\nouppercase{\leftmark}}
-			}
-		}
-		\ifthenelse{\equal{\hfwidthwrap}{true}}{
-			\fancyhead[R]{
-				\begin{minipage}[t]{\hfwidthtitle\linewidth}
-					\begin{flushright}
-						\nouppercase{\leftmark}
-					\end{flushright}
-				\end{minipage}
-			}
-		}{
-			\fancyhead[R]{\nouppercase{\leftmark}}
-		}
+	\ifthenelse{\equal{\hfstyle}{style2}}{
+		\COREhfstyledefA
 	}{
-	\ifthenelse{\equal{\hfstyle}{style20}}{ % 5, impar izquierda
-		\fancypagestyle{plain}{
-			\ifthenelse{\equal{\hfwidthwrap}{true}}{
-				\fancyhead[R]{
-					\begin{minipage}[t]{\hfwidthtitle\linewidth}
-						\begin{flushright}
-							\nouppercase{\leftmark}
-						\end{flushright}
-					\end{minipage}
-				}
-			}{
-				\fancyhead[R]{\nouppercase{\leftmark}}
-			}
-		}
-		\ifthenelse{\equal{\hfwidthwrap}{true}}{
-			\fancyhead[R]{
-				\begin{minipage}[t]{\hfwidthtitle\linewidth}
-					\begin{flushright}
-						\nouppercase{\leftmark}
-					\end{flushright}
-				\end{minipage}
-			}
-		}{
-			\fancyhead[R]{\nouppercase{\leftmark}}
-		}
+	\ifthenelse{\equal{\hfstyle}{style2-i}}{ % impar izquierdo
+		\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
+		\fancyhead[LE,RO]{\nouppercase{\leftmark}}
+	}{
+	\ifthenelse{\equal{\hfstyle}{style2-d}}{ % impar derecho
+		\fancypagestyle{plain}{\fancyhead[LO,RE]{\nouppercase{\leftmark}}}
+		\fancyhead[LO,RE]{\nouppercase{\leftmark}}
+	}{
+	\ifthenelse{\equal{\hfstyle}{style4}}{
+		\COREhfstyledefA
+	}{
+	\ifthenelse{\equal{\hfstyle}{style5}}{
+		\COREhfstyledefB
+	}{
+	\ifthenelse{\equal{\hfstyle}{style5-d}}{ % impar derecho
+		\COREhfstyledefB
+	}{
+	\ifthenelse{\equal{\hfstyle}{style5-i}}{ % impar izquierdo
+		\COREhfstyledefB
+	}{
+	\ifthenelse{\equal{\hfstyle}{style9}}{
+		\COREhfstyledefA
+	}{
+	\ifthenelse{\equal{\hfstyle}{style9-d}}{ % impar derecho
+		\COREhfstyledefA
+	}{
+	\ifthenelse{\equal{\hfstyle}{style9-i}}{ % impar izquierdo
+		\COREhfstyledefA
+	}{
+	\ifthenelse{\equal{\hfstyle}{style10}}{
+		\COREhfstyledefC
+	}{
+	\ifthenelse{\equal{\hfstyle}{style10-d}}{ % impar derecho
+		\COREhfstyledefC
+	}{
+	\ifthenelse{\equal{\hfstyle}{style10-i}}{ % impar izquierdo
+		\COREhfstyledefC
+	}{
+	\ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
+		\COREhfstyledefA
+	}{
+	\ifthenelse{\equal{\hfstyle}{style14}}{ % Similar a 4
+		\COREhfstyledefA
+	}{
+	\ifthenelse{\equal{\hfstyle}{style15}}{ % Similar a 1
+		\COREhfstyledefA
 	}{
 		% No se encontró el header-footer, no hace nada
-	}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}
 }{
 }
 
