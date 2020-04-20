@@ -17,19 +17,20 @@
 \markboth{}{}
 \newpage
 
+% Actualiza headers
 \ifthenelse{\equal{\disablehfrightmark}{false}}{
 	\ifthenelse{\equal{\hfstyle}{style1}}{
 		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}}{
-	}
+		\fancyhead[L]{\nouppercase{\leftmark}}
+	}{
 	\ifthenelse{\equal{\hfstyle}{style2}}{
 		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}}{
-	}
+		\fancyhead[L]{\nouppercase{\leftmark}}
+	}{
 	\ifthenelse{\equal{\hfstyle}{style4}}{
 		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}}{
-	}
+		\fancyhead[L]{\nouppercase{\leftmark}}
+	}{
 	\ifthenelse{\equal{\hfstyle}{style5}}{
 		\fancypagestyle{plain}{
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{
@@ -54,12 +55,12 @@
 			}
 		}{
 			\fancyhead[R]{\nouppercase{\leftmark}}
-		}}{
-	}
+		}
+	}{
 	\ifthenelse{\equal{\hfstyle}{style9}}{
 		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}}{
-	}
+		\fancyhead[L]{\nouppercase{\leftmark}}
+	}{
 	\ifthenelse{\equal{\hfstyle}{style10}}{
 		\fancypagestyle{plain}{
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{
@@ -84,21 +85,83 @@
 			}
 		}{
 			\fancyhead[L]{\nouppercase{\leftmark}}
-		}}{
-	}
+		}
+	}{
 	\ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
 		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}}{
-	}
+		\fancyhead[L]{\nouppercase{\leftmark}}
+	}{
 	\ifthenelse{\equal{\hfstyle}{style14}}{ % Similar a 4
 		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}}{
-	}
+		\fancyhead[L]{\nouppercase{\leftmark}}
+	}{
 	\ifthenelse{\equal{\hfstyle}{style15}}{ % Similar a 1
 		\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
-		\fancyhead[L]{\nouppercase{\leftmark}}}{
-	}
+		\fancyhead[L]{\nouppercase{\leftmark}}
 	}{
+	\ifthenelse{\equal{\hfstyle}{style17}}{ % 1, impar derecha
+		\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
+		\fancyhead[LE,RO]{\nouppercase{\leftmark}}
+	}{
+	\ifthenelse{\equal{\hfstyle}{style18}}{ % 1, impar izquierda
+		\fancypagestyle{plain}{\fancyhead[LO,RE]{\nouppercase{\leftmark}}}
+		\fancyhead[LO,RE]{\nouppercase{\leftmark}}
+	}{
+	\ifthenelse{\equal{\hfstyle}{style19}}{ % 5, impar derecha
+		\fancypagestyle{plain}{
+			\ifthenelse{\equal{\hfwidthwrap}{true}}{
+				\fancyhead[R]{
+					\begin{minipage}[t]{\hfwidthtitle\linewidth}
+						\begin{flushright}
+							\nouppercase{\leftmark}
+						\end{flushright}
+					\end{minipage}
+				}
+			}{
+				\fancyhead[R]{\nouppercase{\leftmark}}
+			}
+		}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\fancyhead[R]{
+				\begin{minipage}[t]{\hfwidthtitle\linewidth}
+					\begin{flushright}
+						\nouppercase{\leftmark}
+					\end{flushright}
+				\end{minipage}
+			}
+		}{
+			\fancyhead[R]{\nouppercase{\leftmark}}
+		}
+	}{
+	\ifthenelse{\equal{\hfstyle}{style20}}{ % 5, impar izquierda
+		\fancypagestyle{plain}{
+			\ifthenelse{\equal{\hfwidthwrap}{true}}{
+				\fancyhead[R]{
+					\begin{minipage}[t]{\hfwidthtitle\linewidth}
+						\begin{flushright}
+							\nouppercase{\leftmark}
+						\end{flushright}
+					\end{minipage}
+				}
+			}{
+				\fancyhead[R]{\nouppercase{\leftmark}}
+			}
+		}
+		\ifthenelse{\equal{\hfwidthwrap}{true}}{
+			\fancyhead[R]{
+				\begin{minipage}[t]{\hfwidthtitle\linewidth}
+					\begin{flushright}
+						\nouppercase{\leftmark}
+					\end{flushright}
+				\end{minipage}
+			}
+		}{
+			\fancyhead[R]{\nouppercase{\leftmark}}
+		}
+	}{
+		% No se encontró el header-footer, no hace nada
+	}}}}}}}}}}}}}
+}{
 }
 
 % -----------------------------------------------------------------------------
