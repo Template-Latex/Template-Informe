@@ -223,7 +223,7 @@
 % Insertar un título sin número, sin indexar y sin cambiar el título del header
 % 	#1	Título
 \newcommand{\sectionanumnoiheadless}[1]{
-	\emptyvarerr{\sectionanumnoi}{#1}{Titulo no definido}
+	\emptyvarerr{\sectionanumnoiheadless}{#1}{Titulo no definido}
 	\section*{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 	\setcounter{subsection}{0}

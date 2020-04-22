@@ -75,7 +75,7 @@
 %	#3	Parámetros
 %	#4	Caption
 \newcommand{\coreinitsourcecodep}[4]{
-	\emptyvarerr{sourcecodep}{#2}{Estilo no definido}
+	\emptyvarerr{\coreinitsourcecodep}{#2}{Estilo de codigo no definido}
 	\checkvalidsourcecodestyle{#2}
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\rightlinenumbers}{
@@ -174,7 +174,7 @@
 %	#2	Estilo de código
 %	#3	Caption
 \newcommand{\coreinitsourcecode}[3]{
-	\emptyvarerr{\equationresize}{#2}{Estilo no definido}
+	\emptyvarerr{\coreinitsourcecode}{#2}{Estilo de codigo no definido}
 	\checkvalidsourcecodestyle{#2}
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\rightlinenumbers}{
