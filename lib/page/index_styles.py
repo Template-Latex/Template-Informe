@@ -25,7 +25,7 @@ def move_first(item):
 
 
 # Process all permutations
-move_first('tfce')
+move_first('ftc')
 print(_totals)
 
 # Generate string containing all options
