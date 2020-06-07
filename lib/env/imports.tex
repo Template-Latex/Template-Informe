@@ -67,7 +67,7 @@
 		\ifthenelse{\equal{#1}{noheader-nostop}}{
 			\errmessage{LaTeX Warning: #4}
 		}{
-			\errmessage{LaTeX Warning: #2 \noexpand #3=#3. Valores esperados: #4}
+			\errmessage{LaTeX Warning: #2 (\noexpand #3= #3). Valores esperados: #4}
 		}
 	}
 	\ifthenelse{\equal{#1}{nostop}}{}{
