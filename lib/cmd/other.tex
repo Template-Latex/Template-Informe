@@ -201,4 +201,115 @@
 	\settablerowcolorslast
 }
 
+% Cambia el tamaño de la página
+%	#1	Orientacion de la página, puede ser 0 o 90. Por defecto es cero
+%	#2	Ancho de la página (cm)
+%	#3	Alto de la página (cm)
+\newcommand{\changepagesize}[3][]{
+	% \emptyvarerr{\changepagesize}{#1}{Orientacion de la pagina}
+	\emptyvarerr{\changepagesize}{#2}{Ancho de la pagina no definida}
+	\emptyvarerr{\changepagesize}{#3}{Altura de la pagina no definida}
+	\ifthenelse{\equal{\compilertype}{lualatex}}{
+		\throwwarning{Funcion no valida en compilador lualatex}
+	}{
+		\newpage
+		\ifthenelse{\equal{#1}{}}{
+			\newgeometry{left=\pagemarginleft cm, top=\pagemargintop cm, right=\pagemarginright cm, bottom=\pagemarginbottom cm, paperwidth=#2 cm, paperheight=#3 cm}
+		}{
+		\ifthenelse{\equal{#1}{0}}{
+			\newgeometry{left=\pagemarginleft cm, top=\pagemargintop cm, right=\pagemarginright cm, bottom=\pagemarginbottom cm, paperwidth=#2 cm, paperheight=#3 cm}
+		}{
+		\ifthenelse{\equal{#1}{90}}{
+			\newgeometry{left=\pagemarginleft cm, top=\pagemargintop cm, right=\pagemarginright cm, bottom=\pagemarginbottom cm, paperwidth=#3 cm, paperheight=#2 cm}
+		}{
+			\throwbadconfig{Orientacion de pagina no valido}{\changepagesize}{0,90}}}
+		}
+	}
+}
+
+% Ofrece diferentes formatos de pagina
+% https://www.prepressure.com/library/paper-size
+%	#1	Indica la rotación, puede ser 0 o 90
+%	#2	Formato de la pagina
+\newcommand{\changepagesizeformat}[2][]{
+	\emptyvarerr{\changepagesizeformat}{#2}{Formato de pagina no definido}
+	\ifthenelse{\equal{#2}{4A0}}{
+		\changepagesize[#1]{168.2}{237.8}
+	}{
+	\ifthenelse{\equal{#2}{2A0}}{
+		\changepagesize[#1]{118.9}{168.2}
+	}{
+	\ifthenelse{\equal{#2}{A0}}{
+		\changepagesize[#1]{84.1}{118.9}
+	}{
+	\ifthenelse{\equal{#2}{A1}}{
+		\changepagesize[#1]{59.4}{84.1}
+	}{
+	\ifthenelse{\equal{#2}{A2}}{
+		\changepagesize[#1]{42.0}{84.1}
+	}{
+	\ifthenelse{\equal{#2}{A3}}{
+		\changepagesize[#1]{29.7}{42.0}
+	}{
+	\ifthenelse{\equal{#2}{A4}}{
+		\changepagesize[#1]{21.0}{29.7}
+	}{
+	\ifthenelse{\equal{#2}{A5}}{
+		\changepagesize[#1]{14.8}{21.0}
+	}{
+	\ifthenelse{\equal{#2}{A6}}{
+		\changepagesize[#1]{10.5}{14.8}
+	}{
+	\ifthenelse{\equal{#2}{letter}}{
+		\changepagesize[#1]{21.59}{27.94}
+	}{
+	\ifthenelse{\equal{#2}{legal}}{
+		\changepagesize[#1]{21.59}{35.6}
+	}{
+	\ifthenelse{\equal{#2}{foolscap}}{
+		\changepagesize[#1]{20.3}{33.0}
+	}{
+	\ifthenelse{\equal{#2}{executive}}{
+		\changepagesize[#1]{18.41}{26.67}
+	}{
+	\ifthenelse{\equal{#2}{ledger}}{
+		\changepagesize[#1]{27.94}{43.18}
+	}{
+	\ifthenelse{\equal{#2}{tabloid}}{
+		\changepagesize[#1]{43.18}{27.94}
+	}{
+	\ifthenelse{\equal{#2}{ANSIC}}{
+		\changepagesize[#1]{55.9}{43.2}
+	}{
+	\ifthenelse{\equal{#2}{ANSID}}{
+		\changepagesize[#1]{86.4}{55.9}
+	}{
+	\ifthenelse{\equal{#2}{ANSIE}}{
+		\changepagesize[#1]{111.8}{86.4}
+	}{
+	\ifthenelse{\equal{#2}{B0}}{
+		\changepagesize[#1]{100}{141.4}
+	}{
+	\ifthenelse{\equal{#2}{B1}}{
+		\changepagesize[#1]{70.7}{100}
+	}{
+	\ifthenelse{\equal{#2}{B2}}{
+		\changepagesize[#1]{50}{70.7}
+	}{
+	\ifthenelse{\equal{#2}{B3}}{
+		\changepagesize[#1]{35.3}{50}
+	}{
+	\ifthenelse{\equal{#2}{B4}}{
+		\changepagesize[#1]{25}{35.3}
+	}{
+	\ifthenelse{\equal{#2}{B5}}{
+		\changepagesize[#1]{17.6}{25}
+	}{
+	\ifthenelse{\equal{#2}{B6}}{
+		\changepagesize[#1]{12.5}{17.6}
+	}{
+		\throwbadconfig{Estilo de pagina no valido}{\changepagesizeformat}{4A0,2A0,A0,A1,A2,A3,A4,A5,A6,letter,legal,foolscap,executive,ledger,tabloid,ANSIC,ANSID,ANSIE,B0,B1,B2,B3,B4,B5,B6}}}}}}}}}}}}}}}}}}}}}}}}}
+	}
+}
+
 % END
