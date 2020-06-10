@@ -27,8 +27,8 @@
 % -----------------------------------------------------------------------------
 \newcommand{\COREwriteheaderitem}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{#2 ~ \\}}
 \newcommand{\COREwriteheaderitemsc}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{\small \scshape{\MakeUppercase{#2}} ~ \\}}
-\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 \ifthenelse{\equal{\portraitstyle}{style1}}{
+	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
 
 	% Escribe el header
@@ -65,6 +65,7 @@
 	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style2}}{
+	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
 
 	% Escribe el header
@@ -103,6 +104,7 @@
 	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style3}}{
+	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
 
 	% Escribe el header
@@ -143,6 +145,7 @@
 	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style4}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Escribe el header
@@ -176,6 +179,7 @@
 	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style5}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Escribe el header
@@ -210,6 +214,7 @@
 	\end{center}
 }{
 \ifthenelse{\equal{\portraitstyle}{style6}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Escribe el header
@@ -261,6 +266,7 @@
 	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style7}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Escribe el header
@@ -296,6 +302,7 @@
 	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style8}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Escribe el header
@@ -328,6 +335,7 @@
 	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style9}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Título del informe
@@ -357,6 +365,7 @@
 	\end{center}
 }{
 \ifthenelse{\equal{\portraitstyle}{style10}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Header
@@ -394,6 +403,7 @@
 	~ \\
 }{
 \ifthenelse{\equal{\portraitstyle}{style11}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Header
@@ -424,6 +434,7 @@
 	\end{center}
 }{
 \ifthenelse{\equal{\portraitstyle}{style12}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Imagen departamento
@@ -458,6 +469,7 @@
 	\end{center}
 }{
 \ifthenelse{\equal{\portraitstyle}{style13}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Header
@@ -502,6 +514,7 @@
 	\end{flushright}
 }{
 \ifthenelse{\equal{\portraitstyle}{style14}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 
 	% Header
@@ -523,9 +536,10 @@
 	\end{flushright}
 }{
 \ifthenelse{\equal{\portraitstyle}{style15}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	\checkextravarexist{\portraitheaderimageA}{Defina la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-	\checkextravarexist{\portraitheaderimagescaleA}{Defina la escala de la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\headerimageA}{Defina la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\headerimagescaleA}{Defina la escala de la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 
 	% Header
 	\vspace*{-1.5cm}
@@ -553,9 +567,9 @@
 	\end{minipage}
 	\noindent \begin{minipage}{0.2\textwidth}
 		\begin{flushright}
-			\ifthenelse{\isundefined{\portraitheaderimageA}}{}{
-				\ifthenelse{\isundefined{\portraitheaderimagescaleA}}{}{
-					\noindent \includegraphics[scale=\portraitheaderimagescaleA]{\portraitheaderimageA} \\
+			\ifthenelse{\isundefined{\headerimageA}}{}{
+				\ifthenelse{\isundefined{\headerimagescaleA}}{}{
+					\noindent \includegraphics[scale=\headerimagescaleA]{\headerimageA} \\
 				}
 			}
 		\end{flushright}
@@ -575,6 +589,7 @@
 	\end{center}
 }{
 \ifthenelse{\equal{\portraitstyle}{style16}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\checkextravarexist{\portraitbackgroundimageB}{[portrait-style16] Defina el fondo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\portraitbackgroundcolorB}{[portrait-style16] Defina el color del bloque del titulo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 
@@ -592,6 +607,7 @@
 	\endgroup
 }{
 \ifthenelse{\equal{\portraitstyle}{style17}}{
+	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
 	\checkextravarexist{\portraitimageC}{[portrait-style17] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\portraitimageboxedC}{[portrait-style17] Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
@@ -641,6 +657,7 @@
 	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style18}}{
+	\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{fancy}
 	\checkextravarexist{\portraitimageD}{[portrait-style18] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 	\checkextravarexist{\portraitimageboxedD}{[portrait-style18] Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
@@ -688,6 +705,7 @@
 	\end{minipage}
 }{
 \ifthenelse{\equal{\portraitstyle}{style19}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
 	% Título informe
@@ -718,6 +736,7 @@
 	~ \\
 }{
 \ifthenelse{\equal{\portraitstyle}{style20}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
 	
 	{\raggedleft	
@@ -742,6 +761,7 @@
 	}}
 }{
 \ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{
+	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\pagestyle{empty}
 	\pagecolor{lbrown}
 	\begin{center}
