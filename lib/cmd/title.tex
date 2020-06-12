@@ -11,6 +11,50 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
+% Activa la numeraci
+\def\coreintializetitlenumbering {
+	% section
+	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{
+		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+			\renewcommand{\thesection}{\Alph{section}}
+		}{
+			\renewcommand{\thesection}{\arabic{section}}
+		}
+	}{
+		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
+			\renewcommand{\thesection}{\thechapter.\Alph{section}}
+		}{
+			\renewcommand{\thesection}{\thechapter.\arabic{section}}
+		}
+	}
+	% subsection
+	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
+		\renewcommand{\thesubsection}{\arabic{subsection}}
+	}{
+		\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+	}
+	% subsubsection
+	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
+		\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+	}{
+		\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+	}
+	% subsubsubsection
+	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
+		\ifthenelse{\equal{\showdotaftersnum}{true}}{
+			\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}.}
+		}{
+			\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}
+		}
+	}{
+		\ifthenelse{\equal{\showdotaftersnum}{true}}{
+			\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
+		}{
+			\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
+		}
+	}
+}
+
 % Parcha el formato de capítulos
 \pretocmd{\chapter}{
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
@@ -33,6 +77,8 @@
 		\addtocounter{templateTables}{\value{table}}
 		\setcounter{table}{0}
 	}{}
+	\def\GLOBALchapternumenabled{true}
+	\coreintializetitlenumbering
 }{}{}
 
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
@@ -58,13 +104,9 @@
 		\addtocounter{templateTables}{\value{table}}
 		\setcounter{table}{0}
 	}{}
-	\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
-		\renewcommand{\thesubsection}{\Alph{section}.\arabic{subsection}}
-	}{
-		\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
-	}
 	\def\GLOBALsectionanumenabled{false}
 	\def\GLOBALsubsectionanumenabled{false}
+	\coreintializetitlenumbering
 }{}{}
 
 % Comienza nueva subsección, si está dentro de una sectionanum entonces no dibuja el
@@ -90,16 +132,8 @@
 		\addtocounter{templateTables}{\value{table}}
 		\setcounter{table}{0}
 	}{}
-	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
-		\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
-	}{
-		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
-			\renewcommand{\thesubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}}
-		}{
-			\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
-		}
-	}
 	\def\GLOBALsubsectionanumenabled{false}
+	\coreintializetitlenumbering
 }{}{}
 
 % Comienza nueva subsubsección, aquí hay varios casos:
@@ -127,33 +161,7 @@
 		\addtocounter{templateTables}{\value{table}}
 		\setcounter{table}{0}
 	}{}
-	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
-		\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}
-	}{
-		\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
-			% Se ocultan las secciones
-			\ifthenelse{\equal{\showdotaftersnum}{true}}{
-				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
-			}{
-				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
-			}
-		}{
-			% Se muestra la ruta completa
-			\ifthenelse{\equal{\showdotaftersnum}{true}}{
-				\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
-					\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}	
-				}{
-					\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
-				}
-			}{
-				\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
-					\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
-				}{
-					\renewcommand{\thesubsubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
-				}
-			}
-		}
-	}
+	\coreintializetitlenumbering
 }{}{}
 
 \pretocmd{\subsubsubsection}{
