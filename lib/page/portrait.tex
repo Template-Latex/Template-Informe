@@ -538,8 +538,8 @@
 \ifthenelse{\equal{\portraitstyle}{style15}}{
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\thispagestyle{empty}
-	\checkextravarexist{\headerimageA}{Defina la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-	\checkextravarexist{\headerimagescaleA}{Defina la escala de la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitheaderimageA}{Defina la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+	\checkextravarexist{\portraitheaderimagescaleA}{Defina la escala de la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
 
 	% Header
 	\vspace*{-1.5cm}
@@ -567,9 +567,9 @@
 	\end{minipage}
 	\noindent \begin{minipage}{0.2\textwidth}
 		\begin{flushright}
-			\ifthenelse{\isundefined{\headerimageA}}{}{
-				\ifthenelse{\isundefined{\headerimagescaleA}}{}{
-					\noindent \includegraphics[scale=\headerimagescaleA]{\headerimageA} \\
+			\ifthenelse{\isundefined{\portraitheaderimageA}}{}{
+				\ifthenelse{\isundefined{\portraitheaderimagescaleA}}{}{
+					\noindent \includegraphics[scale=\portraitheaderimagescaleA]{\portraitheaderimageA} \\
 				}
 			}
 		\end{flushright}
