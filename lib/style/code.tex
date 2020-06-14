@@ -308,7 +308,7 @@
 \lstdefinelanguage{Maple}{
 	morecomment=[l]\#,
 	morekeywords={
-		and,assuming,break,by,catch,description,do,done,elif,else,end,error,export,fi,finally,for,from,global,if,implies,in,intersect,local,minus,mod,module,next,not,od, option,options,or,proc,quit,read,restart,return,save,stop,subset,then,to,try,union,use,uses,with,while,xor
+		and,assuming,break,by,catch,description,do,done,elif,else,end,error,export,fi,finally,for,from,global,if,implies,in,intersect,local,minus,mod,module,next,not,o,,option,options,or,proc,quit,read,restart,return,save,stop,subset,then,to,try,union,use,uses,with,while,xor
 	},
 	morestring=[b]",
 	morestring=[d],
@@ -403,11 +403,15 @@
 % -----------------------------------------------------------------------------
 \lstdefinestyle{php}{
 	language=php,
-	emph=[1]{php},
-	emph=[2]{if,and,or,else},
-	emph=[3]{abstract,as,const,else,elseif,endfor,endforeach,endif,extends,
-		final,for,foreach,global,if,implements,private,protected,public,static,
-		var},
+	emph=[1]{
+		php
+	},
+	emph=[2]{
+		if,and,or,else
+	},
+	emph=[3]{
+		abstract,as,const,else,elseif,endfor,endforeach,endif,extends,final,for,foreach,global,if,implements,private,protected,public,static,var
+	},
 	emphstyle=[1]\color{black},
 	emphstyle=[2]\color{blue},
 	keywords={
@@ -451,9 +455,7 @@
 	frame=tb,
 	keepspaces=true,
 	keywords={
-		and,be,begin,break,datatype,do,elif,else,end,for,foreach,fun,
-		function,if,in,input,let,not,null,or,output,pop,procedure,push,
-		repeat,return,swap,until,while,xor
+		and,be,begin,break,datatype,do,elif,else,end,for,foreach,fun,function,if,in,input,let,not,null,or,output,pop,procedure,push,repeat,return,swap,until,while,xor
 	},
 	keywordstyle=\color{black}\bfseries,
 	mathescape=true,
@@ -494,7 +496,7 @@
 % -----------------------------------------------------------------------------
 % Ruby
 % -----------------------------------------------------------------------------
-\lstdefinestyle{ruby} {
+\lstdefinestyle{ruby}{
 	language=Ruby,
 	breakatwhitespace=true,
 	morestring=[s][]{\#\{}{\}},
