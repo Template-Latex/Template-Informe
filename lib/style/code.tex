@@ -87,6 +87,14 @@
 }
 
 % -----------------------------------------------------------------------------
+% CSV, Archivos separados por coma
+% -----------------------------------------------------------------------------
+\lstdefinestyle{csv}{
+	language={},
+	columns=flexible
+}
+
+% -----------------------------------------------------------------------------
 % CUDA
 % -----------------------------------------------------------------------------
 \lstdefinestyle{cuda}{
@@ -634,6 +642,7 @@
 	\ifthenelse{\equal{#1}{cpp}}{}{
 	\ifthenelse{\equal{#1}{csharp}}{}{
 	\ifthenelse{\equal{#1}{css}}{}{
+	\ifthenelse{\equal{#1}{csv}}{}{
 	\ifthenelse{\equal{#1}{cuda}}{}{
 	\ifthenelse{\equal{#1}{docker}}{}{
 	\ifthenelse{\equal{#1}{fortran}}{}{
@@ -670,8 +679,8 @@
 	\ifthenelse{\equal{#1}{vhdl}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
-		\throwbadconfig{Estilo de codigo desconocido}{\checkvalidsourcecodestyle}{assemblerx64,assemblerx86,bash,c,cpp,csharp,css,cuda,docker,fortran,glsl,haskell,html5,ini,java,js,json,kotlin,latex,lisp,lua,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,c,cpp,csharp,css,csv,cuda,docker,fortran,glsl,haskell,html5,ini,java,js,json,kotlin,latex,lisp,lua,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END
