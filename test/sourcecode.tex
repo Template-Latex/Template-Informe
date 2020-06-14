@@ -1760,6 +1760,18 @@ a = io.read("*number")        -- read a number
 print(fact(a))
 \end{sourcecode}
 
+\begin{sourcecode}{ini}{Configuración de los anchors.}
+[anchor_parameters]
+# Sizes should correlate to how the network processes an image.
+sizes   = 32 64 128 256 512
+# Strides should correlate to how the network strides over an image.
+strides = 8 16 32 64 128
+# The different ratios to use per anchor location.
+ratios  = 0.5 1 2 3
+# The different scaling factors to use per anchor location.
+scales  = 1 1.2 1.6
+\end{sourcecode}
+
 % \newpage
 % \importsourcecode{latex}{test/general.tex}{Carga código fuente archivo LaTeX.}
 % \importsourcecode{latex}{lib/etc/example.tex}{Carga código fuente ejemplo LaTeX.}

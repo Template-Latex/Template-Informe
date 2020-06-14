@@ -183,6 +183,21 @@
 }
 
 % -----------------------------------------------------------------------------
+% INI, Archivos de configuraciones
+% -----------------------------------------------------------------------------
+\lstdefinestyle{ini}{
+	language={},
+	columns=flexible,
+	commentstyle=\color{gray}\ttfamily,
+	keywordstyle={\color{black}\bfseries},
+	morecomment=[l]{;},
+	morecomment=[l]{\#},
+	morecomment=[s][\color{dkgreen}\bfseries]{[}{]},
+	morekeywords={},
+	otherkeywords={=,:}
+}
+
+% -----------------------------------------------------------------------------
 % Java
 % -----------------------------------------------------------------------------
 \lstdefinestyle{java}{
@@ -415,7 +430,7 @@
 % Pseudocódigo
 % -----------------------------------------------------------------------------
 \lstdefinestyle{pseudocode}{
-	language=Matlab,
+	language={},
 	backgroundcolor=\color{white},
 	breakatwhitespace=false,
 	commentstyle=\color{gray}\upshape,
@@ -423,10 +438,10 @@
 	keepspaces=true,
 	keywords={
 		and,be,begin,break,datatype,do,elif,else,end,for,foreach,fun,
-		function,if,in,input,let,null,or,output,pop,procedure,push,repeat,
-		return,swap,until,while,xor
+		function,if,in,input,let,not,null,or,output,pop,procedure,push,
+		repeat,return,swap,until,while,xor
 	},
-	keywordstyle=\color{black}\bfseries\em,
+	keywordstyle=\color{black}\bfseries,
 	mathescape=true,
 	morecomment=[l]{//},
 	morecomment=[l]{\#},
@@ -625,6 +640,7 @@
 	\ifthenelse{\equal{#1}{glsl}}{}{
 	\ifthenelse{\equal{#1}{haskell}}{}{
 	\ifthenelse{\equal{#1}{html5}}{}{
+	\ifthenelse{\equal{#1}{ini}}{}{
 	\ifthenelse{\equal{#1}{java}}{}{
 	\ifthenelse{\equal{#1}{js}}{}{
 	\ifthenelse{\equal{#1}{json}}{}{
@@ -654,8 +670,8 @@
 	\ifthenelse{\equal{#1}{vhdl}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
 		\def\sourcecodestyle {#1}
-		\throwbadconfig{Estilo de codigo desconocido}{\checkvalidsourcecodestyle}{assemblerx64,assemblerx86,bash,c,cpp,csharp,css,cuda,docker,fortran,glsl,haskell,html5,java,js,json,kotlin,latex,lisp,lua,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+		\throwbadconfig{Estilo de codigo desconocido}{\checkvalidsourcecodestyle}{assemblerx64,assemblerx86,bash,c,cpp,csharp,css,cuda,docker,fortran,glsl,haskell,html5,ini,java,js,json,kotlin,latex,lisp,lua,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END
