@@ -13,7 +13,6 @@
 
 % CREACIÓN DEL DOCUMENTO
 \documentclass[letterpaper,11pt,oneside]{article}
-\input{template}
 
 % INFORMACIÓN DEL DOCUMENTO
 \def\titulodelinforme {Título del informe}
@@ -59,17 +58,29 @@
 \end{tabular}}{
 }
 
-% INICIO DEL TEMPLATE
-\templateInit
+% CONFIGURACIONES
+\input{lib/config}
+
+% IMPORTACIÓN DE LIBRERÍAS
+\input{lib/env/imports}
+
+% IMPORTACIÓN DE FUNCIONES Y ENTORNOS
+\input{lib/cmd/all}
+
+% IMPORTACIÓN DE ESTILOS
+\input{lib/style/all}
+
+% CONFIGURACIÓN INICIAL DEL DOCUMENTO
+\input{lib/cfg/init}
 
 % INICIO DE LAS PÁGINAS
 \begin{document}
 	
 % PORTADA
-\templatePortrait
+\input{lib/page/portrait} % Se puede borrar
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
-\templatePagecfg
+\input{lib/cfg/page}
 
 % RESUMEN O ABSTRACT
 \begin{resumen}
@@ -77,10 +88,10 @@
 \end{resumen}
 
 % TABLA DE CONTENIDOS - ÍNDICE
-\templateIndex
+\input{lib/page/index} % Se puede borrar
 
 % CONFIGURACIONES FINALES
-\templateFinalcfg
+\input{lib/cfg/final}
 
 % ======================= INICIO DEL DOCUMENTO =======================
 
