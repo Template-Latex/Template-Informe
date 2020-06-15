@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      6.8.6 (15/06/2020)
+% Versión:      7.0.0 (15/06/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -201,7 +201,7 @@ end
 	% SUB-SECCIÓN
 	\subsection{Añadir múltiples imágenes}
 
-	El template ofrece el entorno \href{https://latex.ppizarror.com/informe#hlp-images}{\hreftext{images}} que permite insertar múltiples imágenes de una manera muy sencilla\footnote{Desde la versión \texttt{6.0.0} no se da soporte a las funciones de inserción de imágenes múltiples \texttt{\textbackslash insertdoubleimage}, \texttt{\textbackslash insertdoubleeqimage}, \texttt{\textbackslash inserttripleimage}, \texttt{\textbackslash inserttripleeqimage}, \texttt{\textbackslash insertquadimage}, \texttt{\textbackslash insertpentaimage} y \texttt{\textbackslash inserthexaimage}.}. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
+	El template ofrece el entorno \href{https://latex.ppizarror.com/informe#hlp-images}{\hreftext{images}} que permite insertar múltiples imágenes de una manera muy sencilla. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
 
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
@@ -218,7 +218,7 @@ end
 		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
 		\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo.}
 		\imagesnewline
-		\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande.}
+		\addimage{ejemplos/test-image}{width=12.5cm}{Ciudad más grande.}
 	\end{images}
 
 
@@ -231,7 +231,7 @@ end
 	% Inserta un subtítulo sin número
 	\subsectionanum{Listas y Enumeraciones}
 
-		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template\footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.}, para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento comienza por \texttt{\textbackslash item}, resultando así:
+		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template,\footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.} para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento comienza por \texttt{\textbackslash item}, resultando así:
 
 		\begin{enumerate}
 			\item Grecia
@@ -239,7 +239,7 @@ end
 			\item Manzanas
 		\end{enumerate}
 
-		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph}\footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.}, números romanos con \texttt{\textbackslash roman}\footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek}\footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}:
+		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph},\footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.} números romanos con \texttt{\textbackslash roman}\footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek}:\footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}
 
 		\begin{multicols}{3}
 			\begin{enumeratebf}[label=\alph*) ] % Fuente en negrita
