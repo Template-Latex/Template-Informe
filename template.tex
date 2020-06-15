@@ -1,0 +1,68 @@
+% Template:     Informe LaTeX
+% Documento:    Núcleo del template
+% Versión:      DEV
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/informe]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% Carga las configuraciones
+\input{config}
+
+% Inicia el template
+\newcommand{\templateInit}{
+
+	% IMPORTACIÓN DE LIBRERÍAS
+	\input{lib/env/imports}
+	
+	% IMPORTACIÓN DE FUNCIONES Y ENTORNOS
+	\input{lib/cmd/core}
+	\input{lib/cmd/math}
+	\input{lib/cmd/equation}
+	\input{lib/cmd/image}
+	\input{lib/cmd/title}
+	\input{lib/cmd/other}
+	\input{lib/env/environments}
+	
+	% IMPORTACIÓN DE ESTILOS
+	\input{lib/style/color}
+	\input{lib/style/code}
+	\input{lib/style/other}
+	
+	% CONFIGURACIÓN INICIAL DEL DOCUMENTO
+	\input{lib/cfg/init}
+
+}
+
+% Genera la portada
+\newcommand{\templatePortrait}{
+
+	\input{lib/page/portrait}
+
+}
+
+% Configuración de la página y encabezados
+\newcommand{\templatePagecfg}{
+
+	\input{lib/cfg/page}
+
+}
+
+% Genera el índice
+\newcommand{\templateIndex}{
+
+	\input{lib/page/index}
+
+}
+
+% Configuraciones finales
+\newcommand{\templateFinalcfg}{
+
+	\input{lib/cfg/final}
+
+}
