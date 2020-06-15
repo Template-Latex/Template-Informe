@@ -41,10 +41,6 @@ log.txt
 # Distribución
 dist/
 
-# Archivos gitkeep
-*.gitkeep
-*/*.gitkeep
-
 # Archivos temporales
 *_temp.tex
 TODO.txt

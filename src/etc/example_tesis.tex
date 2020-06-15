@@ -1,0 +1,370 @@
+% Template:     Template Tesis LaTeX
+% Documento:    Archivo de ejemplo
+% Versión:      DEV
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R. @ppizarror
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo@ppizarror.com
+%
+% Sitio web:    [https://latex.ppizarror.com/Template-Tesis/]
+% Licencia MIT: [https://opensource.org/licenses/MIT]
+
+% ------------------------------------------------------------------------------
+% NUEVO CAPÍTULO
+% ------------------------------------------------------------------------------
+% A diferencia de Template-Informe, Template-Tesis requiere el uso de capítulos; las secciones, subsecciones, etc son parte de un capítulo. Se recomienda el uso de un capítulo en un archivo distinto
+\chapter{Introducción}
+
+\section{Tesis con \LaTeX}
+
+\lipsum[1]
+
+% SUB-SECCIÓN
+% Las sub-secciones se inician con \subsection, si se quiere una sub-sección
+% sin número se pueden usar las funciones \subsectionanum (nuevo subtítulo sin
+% numeración) o la función \subsectionanumnoi para crear el mismo subtítulo sin
+% numerar y sin aparecer en el índice
+\subsection{Una breve introducción}
+	
+	Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} como \eqref{eqn:identidad-imposible}. A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\hreftext{\textbackslash insertimage}}:
+
+	% Esta instrucción, añadida en la v1.1.0 permite cambiar el título de cada
+	% objeto en el índice de cada objeto. Este título es solo válido hasta el
+	% primer objeto que lo llame, luego este se reestablecerá. Por mientras solo
+	% se ofrece compatibilidad para las funciones de imágenes. Los entornos como
+	% images o sourcecode aún no tienen compatibilidad
+	\setindexcaption{Título de la imagen en el índice.}
+		
+	% Para insertar una imagen se puede usar la función \insertimage la cual
+	% toma un primer parámetro opcional para definir una etiqueta (dentro de
+	% los corchetes), luego toma la dirección de la imagen, sus parámetros
+	% (en este caso se definió la escala de 0.12) y una leyenda opcional
+	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.12}{Where are you? de \quotes{Internet}.}
+
+	A continuación\footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{https://latex.ppizarror.com/informe.html#hlp-formulae}{\hreftext{\textbackslash insertequation}}:
+
+	% Se inserta una ecuación, el primer parámetro entre [] es opcional
+	% (permite identificar con una etiqueta para poder referenciarlo después
+	% con \ref), seguido de aquello se escribe la ecuación en modo bruto sin signos $
+	\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
+
+	% Notar que no se requiere añadir un salto de línea después de insertar una imagen
+	Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online \scite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}.
+
+	% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar
+	% errores y warnings por parte del compilador de LaTeX
+	\newp Este es un nuevo párrafo insertado con el comando \href{https://latex.ppizarror.com/informe.html#hlp-parrafo}{\hreftext{\textbackslash newp}}. Si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales acompañado de \texttt{\textbackslash par}.
+	
+	\newp \lipsum[4]
+	
+	\newp \lipsum[11]
+
+\section{Añadiendo tablas}
+
+	También puedes usar tablas, ¡Crearlas es muy fácil!. Puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{excel2latex} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{tablesgenerator}.
+
+	% Tabla generada con el plugin Excel2Latex
+	\begin{table}[H] % Importante el H
+		\centering
+		\caption{Ejemplo de tablas.}
+		\begin{tabular}{ccc}
+			\hline
+			\textbf{Columna 1} & \textbf{Columna 2} & \textbf{Columna 3} \bigstrut\\
+			\hline
+			$\omega$ & $\nu$ & $\delta$ \bigstrut[t]\\
+			$\Phi$ & $\Theta$ & $\varSigma$ \\
+			$\R$ & $\E$ & $\psi$ \\
+			\hline
+		\end{tabular}
+		\label{tab:tabla-1}
+	\end{table}
+	
+	% Tabla generada con el plugin Excel2Latex
+	\enabletablerowcolor
+	\begin{table}[H]
+		\centering
+		\caption{Ejemplo de tablas con colores de filas.}
+		\begin{tabular}{ccccc}
+			\rowcolor[rgb]{ .749,  .749,  .749} \textbf{Valor A} & \textbf{Valor B} & \textbf{Valor C} & \multicolumn{2}{c}{\textbf{Valor Esperado}} \\
+			1     & a     & $3x$  & \multicolumn{2}{c}{Cumple} \\
+			2     & b     & $6x$  & \multicolumn{2}{c}{No cumple} \\
+			3     & c     & $3x+y$ & \multicolumn{2}{c}{Quizás} \\
+			4     & d     & $5\sin x$ & \multicolumn{2}{c}{No} \\
+			5     & e     & $0$ & \multicolumn{2}{c}{Sí} \\
+		\end{tabular}
+	\end{table}
+	\disabletablerowcolor
+	
+\section{Creando citas}
+
+El template por defecto está configurado para trabajar con citas de la librería \href{https://www.ctan.org/pkg/natbib}{natbib}, y se configuró al estilo plainnat. Puedes usar otros estilos cambiando la configuración \texttt{\textbackslash natbibrefstyle} si es que usas natbib. También se da soporte a la librería apacite, para ello puedes cambiar la configuración \texttt{\textbackslash stylecitereferences}. Una completa guía de estilos la puedes consultar en \url{http://homepage.stat.uiowa.edu/~rlenth/ALPHA/bibstylescompared.pdf}. \\
+
+Para citar usando la librería \textbf{natbib} puedes usar:
+
+\begin{itemize}
+	\item \citet{einstein}
+	\item \citep{einstein}
+\end{itemize}
+
+Para citar usando la librería \textbf{apacite} puedes usar:
+
+\begin{itemize}
+	\item \cite{einstein}
+	\item \shortcite{latexcompanion}
+	\item \fullcite{einstein}
+\end{itemize}
+
+
+% ------------------------------------------------------------------------------
+% NUEVO CAPÍTULO
+% ------------------------------------------------------------------------------
+\chapter{El desarrollo de la tesis}
+
+\section{Aquí una nueva sección}
+
+\subsection{Haciendo una tesis como un profesional}
+
+	% Se inserta una imagen flotante en la izquierda del documento con
+	% \insertimageleft, al igual que las demás funciones, el primer parámetro
+	% es opcional, luego viene la ubicación de la imagen, seguido de la escala
+	% (un 27% del ancho de página) y por último su leyenda. Para insertar una
+	% imagen flotante en la derecha se utiliza \insertimageright usando los
+	% mismos parámetros
+	\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.27}{Apolo flotando a la izquierda.}
+
+	~ \lipsum[6]
+
+	% Párrafos de ejemplo
+	\newp ~ \lipsum[115]
+
+	% Agrega una ecuación con leyenda
+	\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
+	
+	% Inserta una definición
+	\begin{defn}[ver \cite{einstein}]
+		Definición definitiva
+		$$\frac{d}{dx}\int_a^xf(y)dy=f(x)$$
+	\end{defn}
+
+	% Aquí no es necesario usar \newp dado que todas las funciones \insert...
+	% añaden un párrafo nuevo por defecto
+	\lipsum[115]
+
+% Inserta un subtítulo sin número
+\subsection{Otros párrafos más normales}
+
+	% Párrafos
+	\lipsum[7]
+
+	% Se inserta una ecuación larga con el entorno gathered (1 solo número de ecuación)
+	\insertgathered[\label{eqn:eqn-larga}]{
+		\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \bigp{M - d}}{l \cdot W} \cdot \frac{\pow{\bigp{\lpow{Q}{e}- i\cdot Q}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}\\
+		Q_e = 2.5Q \cdot \int_{0}^{e} V(x) \dd{x} + \aasin{\biggp{1+\frac{1}{1-e}}}
+	}
+
+	% Nuevo párrafo
+	\lipsum[4]
+
+	% Se inserta un multicols, con esto se pueden escribir párrafos en varias columnas
+	\begin{multicols}{2}
+
+		% Párrafo 1
+		\lipsum[4]
+
+		% Ecuación encerrada en una caja
+		\insertequation[]{ \boxed{f(x) = \fracdpartial{u}{t}} }
+
+		% Párrafo 2 del multicols
+		\lipsum[2-3]
+
+	\end{multicols}
+
+\newpage
+\subsection{Ejemplos de inserción de código fuente}
+
+	% A continuación se crea una función auxiliar, esta es una herramienta
+	% extremadamente importante y muy útil. Esta función de ejemplo toma dos
+	% parámetros, uno es el lenguaje del código fuente, el segundo el
+	% identificador en el manual
+	\newcommand{\insertsrcmanual}[2]{\href{https://latex.ppizarror.com/informe.html?srctype=#1\#hlp-srccode}{#2}}
+
+	El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{assemblerx64}{Assembler x64}, \insertsrcmanual{assemblerx86}{Assembler x86[masm]},  \insertsrcmanual{bash}{Bash}, \insertsrcmanual{c}{C}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{css}{CSS}, \insertsrcmanual{csv}{CSV}, \insertsrcmanual{cuda}{CUDA}, \insertsrcmanual{docker}{DOCKER}, \insertsrcmanual{fortran}{Fortran}, \insertsrcmanual{glsl}{GLSL}, \insertsrcmanual{haskell}{Haskell}, \insertsrcmanual{html5}{HTML5}, \insertsrcmanual{ini}{INI}, \insertsrcmanual{java}{Java}, \insertsrcmanual{js}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{kotlin}{Kotlin}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{lisp}{Lisp}, \insertsrcmanual{lua}{Lua}, \insertsrcmanual{maple}{Maple}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{octave}{Octave}, \insertsrcmanual{opencl}{OpenCL}, \insertsrcmanual{opensees}{OpenSees}, \insertsrcmanual{pascal}{Pascal}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{r}{R}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{scala}{Scala}, \insertsrcmanual{scheme}{Scheme}, \insertsrcmanual{sql}{SQL}, \insertsrcmanual{tcl}{TCL}, \insertsrcmanual{vbscript}{VBScript}, \insertsrcmanual{verilog}{Verilog}, \insertsrcmanual{vhdl}{VHDL} y \insertsrcmanual{xml}{XML}. \\
+		
+	Para insertar un código fuente se debe usar el entorno \texttt{sourcecode}, o el entorno \texttt{sourcecodep} si es que se quiere utilizar parámetros adicionales. A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}), Java y Matlab:
+
+% Se define el lenguaje del código. Cuidado: Los códigos en LaTeX son sensibles
+% a las tabulaciones y espacios en blanco
+\begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
+import numpy as np
+def incmatrix(genl1, genl2):
+	m = len(genl1)
+	n = len(genl2)
+	M = None # Comentario 1
+	VT = np.zeros((n*m, 1), int) # Comentario 2
+\end{sourcecode}
+
+\begin{sourcecode}[]{java}{Ejemplo en Java.}
+import java.io.IOException;
+import javax.servlet.*;
+
+public class Hola extends GenericServlet { // Hola mundo
+	public void service(ServletRequest request, ServletResponse response)
+	throws ServletException, IOException{
+		response.setContentType("text/html");
+		PrintWriter pw = response.getWriter();
+		pw.println("Hola, mundo!");
+	}
+}
+\end{sourcecode}
+
+\begin{sourcecode}{matlab}{Ejemplo en Matlab.}
+	% Se crea gráfico
+	f = figure(1); hold on; movegui(f, 'center');
+	xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
+	title('Espectro de pulso de desplazamiento');
+	
+	for j = 1:length(BETA)
+	fad = ones(1, NDATOS); % Arreglo para el FAD
+	for i = 1:NDATOS
+	[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
+	fad(i) = max(abs(u_t)) / uf0;
+	end
+	end
+\end{sourcecode}
+
+% SUB-SECCIÓN
+\subsection{Añadir múltiples imágenes}
+
+El template ofrece el entorno \href{https://latex.ppizarror.com/informe.html#hlp-images}{\hreftext{images}} que permite insertar múltiples imágenes de una manera muy sencilla. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
+
+\begin{sourcecode}{latex}{}
+\begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
+	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
+	\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo.}
+	\imagesnewline
+	\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande.}
+\end{images}
+\end{sourcecode}
+
+Obteniendo así:
+
+\begin{images}{Ejemplo de imagen múltiple.}
+	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
+	\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo.}
+	\imagesnewline
+	\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande.}
+\end{images}
+
+% Inserta una sección sin número
+\newpage
+\sectionanum{Más ejemplos}
+
+	% Inserta un subtítulo sin número
+	\subsectionanum{Listas y Enumeraciones}
+
+		Hacer listas enumeradas con \LaTeX\ es muy fácil con el template\footnote{También puedes revisar el manual de las enumeraciones en \url{http://www.texnia.com/archive/enumitem.pdf}.}, también puedes revisar el manual \cite{templatelatex}, para ello debes usar el comando \texttt{\textbackslash begin\{enumerate\}}, cada elemento comienza por \texttt{\textbackslash item}, resultando así:
+
+		\begin{enumerate}
+			\item Grecia
+			\item Abracadabra
+			\item Manzanas
+		\end{enumerate}
+
+		También se puede cambiar el tipo de enumeración, se pueden usar letras, números romanos, entre otros. Esto se logra cambiando el \textbf{label} del objeto \texttt{enumerate}. A continuación se muestra un ejemplo usando letras con el estilo \texttt{\textbackslash alph}\footnote{Con \texttt{\textbackslash Alph} las letras aparecen en mayúscula.}, números romanos con \texttt{\textbackslash roman}\footnote{Con \texttt{\textbackslash Roman} los números romanos salen en mayúscula.} o números griegos con \texttt{\textbackslash greek}\footnote{Una característica propia del template, con \texttt{\textbackslash Greek} las letras griegas están escritas en mayúscula.}:
+
+		\begin{multicols}{3}
+			\begin{enumeratebf}[label=\alph*) ] % Fuente en negrita
+				\item Peras
+				\item Manzanas
+				\item Naranjas
+			\end{enumeratebf}
+
+			\begin{enumerate}[label=\greek*) ]
+				\item Matemáticas
+				\item Lenguaje
+				\item Filosofía
+			\end{enumerate}
+
+			\begin{enumerate}[label=\roman*) ]
+				\item Rojo
+				\item Café
+				\item Morado
+			\end{enumerate}
+		\end{multicols}
+
+		Para hacer listas sin numerar con \LaTeX\ hay que usar el comando \texttt{\textbackslash begin\{itemize\}}, cada elemento empieza por \texttt{\textbackslash item}, resultando:
+
+		\begin{multicols}{3}
+			\begin{itemize}[label={--}]
+				\item Peras
+				\item Manzanas
+				\item Naranjas
+			\end{itemize}
+
+			\begin{enumerate}[label={*}]
+				\item Rojo
+				\item Café
+				\item Morado
+			\end{enumerate}
+
+			\begin{itemize}
+				\item Árboles
+				\item Pasto
+				\item Flores
+			\end{itemize}
+		\end{multicols}
+
+
+% ------------------------------------------------------------------------------
+% NUEVO CAPÍTULO
+% ------------------------------------------------------------------------------
+\chapter{Conclusiones}
+
+\lipsum[1]
+\newp \lipsum[2]
+
+
+% ------------------------------------------------------------------------------
+% BIBLIOGRAFÍA (ESTILO NATBIB), revisar configuración \stylecitereferences
+% ------------------------------------------------------------------------------
+\bibliography{library} 
+
+
+% ------------------------------------------------------------------------------
+% ANEXO
+% ------------------------------------------------------------------------------
+\begin{anexo}
+	
+\chapter{Cálculos realizados}
+
+	\section{Metodología}
+		\lipsum[1-2]
+
+		% Imagen, se numerará automáticamente con la letra del anexo según
+		% la configuración \appendixindepobjnum
+		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
+
+	\section{Resultados}
+		\lipsum[10]
+
+		% Tablas
+		\begin{table}[htbp]
+			\centering
+			\caption{Tabla de cálculo.}
+			\begin{tabular}{ccc}
+				\hline
+				\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
+				\hline
+				A     & 10    & 3,14$\pi$ \bigstrut[t]\\
+				B     & 20    & 6 \\
+				C     & 30    & 7 \\
+				D     & 150    & 10 \\
+				E     & 0    & 0 \\
+				\hline
+				\end{tabular}
+			\label{tab:anexo-1}
+		\end{table}
+
+\end{anexo}
