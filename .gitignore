@@ -40,7 +40,6 @@ log.txt
 
 # Distribución
 dist/
-dist/lib/*
 
 # Archivos temporales
 *_temp.tex
