@@ -63,29 +63,17 @@
 \end{tabular}}{
 }
 
-% CONFIGURACIONES
-\input{lib/config}
-
-% IMPORTACIÓN DE LIBRERÍAS
-\input{lib/env/imports}
-
-% IMPORTACIÓN DE FUNCIONES Y ENTORNOS
-\input{lib/cmd/all}
-
-% IMPORTACIÓN DE ESTILOS
-\input{lib/style/all}
-
-% CONFIGURACIÓN INICIAL DEL DOCUMENTO
-\input{lib/cfg/init}
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
 
 % INICIO DE LAS PÁGINAS
 \begin{document}
 	
 % PORTADA
-\input{lib/page/portrait} % Se puede borrar
+\templatePortrait
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
-\input{lib/cfg/page}
+\templatePagecfg
 
 % DEDICATORIA
 \begin{dedicatoria}
@@ -100,7 +88,7 @@
 \end{agradecimientos}
 
 % TABLA DE CONTENIDOS - ÍNDICE
-\input{lib/page/index}
+\templateIndex
 
 % RESUMEN O ABSTRACT
 \begin{resumen}
@@ -108,11 +96,11 @@
 \end{resumen}
 
 % CONFIGURACIONES FINALES
-\input{lib/cfg/final}
+\templateFinalcfg
 
 % ======================= INICIO DEL DOCUMENTO =======================
 
-\input{lib/etc/example} % Ejemplo, se puede borrar
+\input{example} % Ejemplo, se puede borrar
 
 % FIN DEL DOCUMENTO
 \end{document}
