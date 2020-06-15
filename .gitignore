@@ -40,10 +40,7 @@ log.txt
 
 # Distribución
 dist/
-
-# Archivos gitkeep
-*.gitkeep
-*/*.gitkeep
+dist/lib/*
 
 # Archivos temporales
 *_temp.tex
