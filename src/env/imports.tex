@@ -175,6 +175,7 @@
 % Desde 6.5.6 se carga después de las referencias (apacite, natbib, bibtex)
 \usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{ % Formato citas natbib
+	\usepackage[nottoc,notlof,notlot]{tocbibind}
 	\ifthenelse{\equal{\natbibrefstyle}{apa}}{
 		\ifthenelse{\equal{\natbibsquare}{true}}{
 			\usepackage[square]{natbib}
@@ -217,11 +218,10 @@
 			}
 		}
 	}}}}
-	\usepackage[nottoc,notlof,notlot]{tocbibind}
 }{
 	\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
-		\usepackage{apacite}
 		\usepackage[nottoc,notlof,notlot]{tocbibind}
+		\usepackage{apacite}
 	}{
 		\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
 		}{}

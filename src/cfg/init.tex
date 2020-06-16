@@ -280,22 +280,21 @@
 % Configuración de referencias y citas
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{
+	\def\twocolumnreferencesmargin{-0.35cm}
 	\bibliographystyle{\natbibrefstyle}
 	\setlength{\bibsep}{\natbibrefsep pt}
-	%\newcommand{\shortcite}[1]{\texttt{\textbackslash shortcite\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias natbib}}
-	%\newcommand{\fullcite}[1]{\texttt{\textbackslash fullcite\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias natbib}}
 	\newcommand{\shortcite}[1]{\texttt{\textbackslash shortcite\{#1\}}}
 	\newcommand{\fullcite}[1]{\texttt{\textbackslash fullcite\{#1\}}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
+	\def\twocolumnreferencesmargin{-0.39cm}
 	\bibliographystyle{\apacitestyle}
 	\setlength{\bibitemsep}{\apaciterefsep pt}
-	%\newcommand{\citet}[1]{\texttt{\textbackslash citet\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias apacite}}
-	%\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}\throwwarning{Esta funcion no es soportada con el uso de las referencias apacite}}
 	\newcommand{\citet}[1]{\texttt{\textbackslash citet\{#1\}}}
 	\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+	\def\twocolumnreferencesmargin{-0.35cm}
 	\bibliographystyle{\bibtexstyle}
 	\newlength{\bibitemsep}
 	\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
@@ -311,12 +310,14 @@
 	\throwbadconfig{Estilo citas desconocido}{\stylecitereferences}{bibtex,apacite,natbib}}}
 }
 % Crea referencias enumeradas en apacite
-\newcounter{apaciteNumberCounter}
-\addtocounter{apaciteNumberCounter}{-1}
 \makeatletter
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\ifthenelse{\equal{\apaciterefnumber}{true}}{
-		\renewcommand{\@biblabel}[1]{\apaciterefnumberinit\stepcounter{apaciteNumberCounter}\theapaciteNumberCounter\apaciterefnumberfinal}
+		\newcounter{apaciteNumberCounter}
+		\renewcommand{\theapaciteNumberCounter}{\apaciterefnumberinit\arabic{apaciteNumberCounter}\apaciterefnumberfinal} % Formato de número
+		\patchcmd{\@lbibitem}{\item[}{\item[\stepcounter{apaciteNumberCounter}{\hss\llap{\theapaciteNumberCounter}\quad}}{}{}
+		\setlength{\bibleftmargin}{2.54em}
+		\setlength{\bibindent}{-0.54em}
 	}{}
 }{}
 \makeatother
@@ -324,7 +325,7 @@
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
 	\renewenvironment{thebibliography}[1]
-	{\begin{multicols}{2}[\section*{\refname}]
+	{\begin{multicols}{2}[\section*{\refname}\vspace{\twocolumnreferencesmargin}]
 		\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
 		\list{\@biblabel{\@arabic\c@enumiv}}
 		{\settowidth\labelwidth{\@biblabel{#1}}
