@@ -32,7 +32,7 @@
 		% toma un primer parámetro opcional para definir una etiqueta (dentro de
 		% los corchetes), luego toma la dirección de la imagen, sus parámetros
 		% (en este caso se definió la escala de 0.14) y una leyenda opcional
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
+		\insertimage[\label{img:testimage}]{test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
 
 		A continuación\footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{https://latex.ppizarror.com/informe.html#hlp-formulae}{\hreftext{\textbackslash insertequation}}:
 
@@ -85,7 +85,7 @@
 		% (un 30% del ancho de página) y por último su leyenda. Para insertar una
 		% imagen flotante en la derecha se utiliza \insertimageright usando los
 		% mismos parámetros
-		\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
+		\insertimageleft[\label{img:imagen-izquierda}]{test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
 
 		~ \lipsum[1]
 
@@ -184,20 +184,20 @@ title('Espectro de pulso de desplazamiento');
 
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
-	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
-	\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo.}
+	\addimage{test-image}{width=6.5cm}{Ciudad.}
+	\addimage{test-image-wrap}{height=4cm}{Apolo.}
 	\imagesnewline
-	\addimage{ejemplos/test-image}{width=10cm}{Ciudad más grande.}
+	\addimage{test-image}{width=10cm}{Ciudad más grande.}
 \end{images}
 \end{sourcecode}
 
 	Obteniendo así:
 
 	\begin{images}{Ejemplo de imagen múltiple.}
-		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
-		\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo.}
+		\addimage{test-image}{width=6.5cm}{Ciudad.}
+		\addimage{test-image-wrap}{height=4cm}{Apolo.}
 		\imagesnewline
-		\addimage{ejemplos/test-image}{width=10cm}{Ciudad más grande.}
+		\addimage{test-image}{width=10cm}{Ciudad más grande.}
 	\end{images}
 
 
@@ -310,7 +310,7 @@ title('Espectro de pulso de desplazamiento');
 
 		% Imagen, se numerará automáticamente con la letra del anexo según
 		% la configuración \appendixindepobjnum
-		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
+		\insertimage[\label{img:anexo-2}]{test-image.png}{scale=0.2}{Imagen en anexo.}
 
 	\subsection{Resultados}
 		\lipsum[10]
