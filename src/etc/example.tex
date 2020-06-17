@@ -139,20 +139,16 @@
 			\insertequation[]{ \boxed{f(x) = \fracdpartial{u}{t}} }
 			
 			% Párrafo 2
-			\lipsum[6-7]
+			\lipsum[6]
 			
-			% Inserta una imagen simple
+			% Inserta una imagen encima que use ambas columnas
+			\insertimagemc{ejemplos/test-image}{width=6cm}{top}{Imagen en múltiples columnas.}
+			
+			% Inserta una imagen simple dentro del párrafo
 			\insertimage{ejemplos/test-image-wrap}{width=4cm}{Imagen dentro de párrafo.}
 
-			% Párrafo 2 del multicols
+			% Párrafo 3 del multicols
 			\lipsum[1-2]
-			
-			\begin{figure*}[b!]
-				\includegraphics[width=5cm,height=4cm]{ejemplos/test-image-wrap}
-				\caption{This is a tiger.}
-			\end{figure*}
-		
-			\lipsum[1-20]
 
 		\end{multicols}
 
@@ -182,7 +178,6 @@ def incmatrix(genl1, genl2):
 \end{sourcecode}
 
 \begin{sourcecode}[]{java}{Ejemplo en Java.}
-import java.io.IOException;
 import javax.servlet.*;
 
 // Hola mundo
@@ -211,27 +206,42 @@ for j = 1:length(BETA)
 end
 \end{sourcecode}
 
+\begin{sourcecode}{pseudocode}{Algoritmo Non-Max supression.}
+function NMS(B,c)
+	$B_{nms} \leftarrow \emptyset$
+	for $b_i \in B$ do
+		$discard \leftarrow$ False
+		for $b_j \in B$ do
+			if same($b_i$,$b_j$) > $\lambda_{nms}$ then
+				if score($c$,$b_j$) > score($c$, $b_i$) then
+					$discard \leftarrow$ True
+		if not $discard$ then
+			$B_{nms} \leftarrow B_{nms} \bigcup b_i$
+	return $B_{nms}$
+\end{sourcecode}
+
 	% SUB-SECCIÓN
+	\newpage
 	\subsection{Añadir múltiples imágenes}
 
 	El template ofrece el entorno \href{https://latex.ppizarror.com/informe#hlp-images}{\hreftext{images}} que permite insertar múltiples imágenes de una manera muy sencilla. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
 
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
-	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
-	\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo.}
+	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
+	\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
 	\imagesnewline
-	\addimage{ejemplos/test-image}{width=12.5cm}{Ciudad más grande.}
+	\addimage{ejemplos/test-image}{width=12.5cm}{Ciudad más grande}
 \end{images}
 \end{sourcecode}
 
 	Obteniendo así:
 
 	\begin{images}{Ejemplo de imagen múltiple.}
-		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
-		\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo.}
+		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
+		\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
 		\imagesnewline
-		\addimage{ejemplos/test-image}{width=12.5cm}{Ciudad más grande.}
+		\addimage{ejemplos/test-image}{width=12.5cm}{Ciudad más grande}
 	\end{images}
 
 
@@ -261,16 +271,16 @@ end
 				\item Naranjas
 			\end{enumeratebf}
 
-			\begin{enumerate}[label=\greek*) ]
-				\item Matemáticas
-				\item Lenguaje
-				\item Filosofía
-			\end{enumerate}
-
 			\begin{enumerate}[label=\roman*) ]
 				\item Rojo
 				\item Café
 				\item Morado
+			\end{enumerate}
+		
+			\begin{enumerate}[label=\greek*) ]
+				\item Matemáticas
+				\item Lenguaje
+				\item Filosofía
 			\end{enumerate}
 		\end{multicols}
 
@@ -366,33 +376,5 @@ end
 			\label{tab:anexo-1}
 		\end{table}
 		\disabletablerowcolor % Desactiva el color de celda
-
-\newpage
-\section{Más cálculos}
-
-	% Párrafo
-	\lipsum[1]
-
-	% Nuevo párrafo con identación
-	\newp \lipsum[4]
-
-	% Tabla de encuestas
-	\begin{table}[htbp]
-		\centering
-		\caption{Resultados encuesta.}
-		\begin{tabular}{ccc}
-			\hline
-			\textbf{Herramienta} & \textbf{Nota} & \textbf{Recomendado} \bigstrut\\
-			\hline
-			\LaTeX & 100\% & Si $\checkmark$ \\
-			Microsoft Word \textsuperscript{\textregistered} & 0\% & No $\frownie$\\
-			\hline
-		\end{tabular}
-		\label{tab:anexo-2}
-	\end{table}
-
-	\lipsum[6]
-	
-	\insertindexequation{a=b+c}{Ecuación muy difícil}
 
 \end{anexo}
