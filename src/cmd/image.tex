@@ -79,9 +79,21 @@
 %	#2	Dirección de la imagen
 %	#3	Parámetros de la imagen
 %	#4	Leyenda de la imagen (opcional)
-\newcommand{\insertimagemc}[5][]{
+\newcommand{\insertimagemc}[4][]{
 	\setcaptionmargincm{\captionlrmarginmc}
 	\insertimageboxed[#1]{#2}{#3}{0}{#4}
+	\setcaptionmargincm{\captionlrmargin}
+}
+
+% Insertar una imagen con recuadro en un entorno multicol
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Ancho de la línea (en pt)
+%	#5	Leyenda de la imagen (opcional)
+\newcommand{\insertimageboxedmc}[5][]{
+	\setcaptionmargincm{\captionlrmarginmc}
+	\insertimageboxed[#1]{#2}{#3}{#4}{#5}
 	\setcaptionmargincm{\captionlrmargin}
 }
 
