@@ -128,11 +128,8 @@
 			% Párrafo 2
 			\lipsum[6]
 			
-			% Inserta una imagen encima que use ambas columnas
-			\insertimagemc{ejemplos/test-image}{width=6cm}{top}{Imagen en múltiples columnas.}
-			
 			% Inserta una imagen simple dentro del párrafo
-			\insertimage{ejemplos/test-image-wrap}{width=4cm}{Imagen dentro de párrafo.}
+			\insertimagemc{ejemplos/test-image-wrap}{width=4cm}{Imagen dentro de párrafo.}
 			
 			% Párrafo 3 del multicols
 			\lipsum[1-2]
@@ -186,6 +183,20 @@ xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
 title('Espectro de pulso de desplazamiento');
 \end{sourcecode}
 
+\begin{sourcecode}{pseudocode}{Algoritmo Non-Max supression.}
+function NMS(B,c)
+	$B_{nms} \leftarrow \emptyset$
+	for $b_i \in B$ do
+		$discard \leftarrow$ False
+		for $b_j \in B$ do
+			if same($b_i$,$b_j$) > $\lambda_{nms}$ then
+				if score($c$,$b_j$) > score($c$, $b_i$) then
+					$discard \leftarrow$ True
+		if not $discard$ then
+			$B_{nms} \leftarrow B_{nms} \bigcup b_i$
+	return $B_{nms}$
+\end{sourcecode}
+
 	% SUB-SECCIÓN
 	\subsection{Añadir múltiples imágenes}
 
@@ -193,20 +204,20 @@ title('Espectro de pulso de desplazamiento');
 
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
-	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
-	\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo.}
+	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
+	\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo}
 	\imagesnewline
-	\addimage{ejemplos/test-image}{width=10cm}{Ciudad más grande.}
+	\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande}
 \end{images}
 \end{sourcecode}
 
 	Obteniendo así:
 
 	\begin{images}{Ejemplo de imagen múltiple.}
-		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
-		\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo.}
+		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
+		\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo}
 		\imagesnewline
-		\addimage{ejemplos/test-image}{width=10cm}{Ciudad más grande.}
+		\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande}
 	\end{images}
 
 

@@ -306,4 +306,44 @@
 	\def\GLOBALenvimageinitialized {false}
 }
 
+% Crea una sección de imágenes múltiples dentro de un multicol
+%	#1	Label (opcional)
+%	#2	Posición de la imagen, "bottom" o "top"
+%	#3	Caption
+\newenvironment{imagesmc}[3][]{
+	% Modifica globales
+	\def\envimageslabelvar {#1}
+	\def\envimagescaptionvar {#3}
+	\def\GLOBALenvimageinitialized {true}
+	\def\GLOBALenvimageadded {false}
+	
+	% Configura caption y márgenes
+	\setcaptionmargincm{\captionmarginmultimg}
+	
+	% Inicia la figura
+	\ifthenelse{\equal{#2}{bottom}}{
+		\begin{figure*}[b!] \centering
+		}{
+	\ifthenelse{\equal{#2}{top}}{
+		\begin{figure*}[t!] \centering
+	}{
+		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
+	}}
+		\vspace{\marginimagemulttop cm}
+	}{
+		\setcaptionmargincm{\captionlrmargin}
+		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
+			\vspace{\captionlessmarginimage cm}
+		}{
+			\caption{\envimagescaptionvar\envimageslabelvar}
+		}
+	\end{figure*}
+	
+	% Reestablece caption y márgenes
+	\setcaptionmargincm{\captionlrmargin}
+	
+	% Reestablece globales
+	\def\GLOBALenvimageinitialized {false}
+}
+
 % END

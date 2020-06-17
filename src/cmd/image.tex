@@ -74,29 +74,39 @@
 	\resetindexcaption
 }
 
+% Insertar una imagen en un entorno multicol
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Leyenda de la imagen (opcional)
+\newcommand{\insertimagemc}[5][]{
+	\setcaptionmargincm{\captionlrmarginmc}
+	\insertimageboxed[#1]{#2}{#3}{0}{#4}
+	\setcaptionmargincm{\captionlrmargin}
+}
+
 % Insertar una imagen completa en un entorno multicol
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Parámetros de la imagen
-%	#4	Posición, "top" o "bottom"
+%	#4	Posición, "bottom" o "top"
 %	#5	Leyenda de la imagen (opcional)
-\newcommand{\insertimagemc}[5][]{
-	\insertimageboxedmc[#1]{#2}{#3}{0}{#4}{#5}
+\newcommand{\insertimagemcfull}[5][]{
+	\insertimageboxedmcfull[#1]{#2}{#3}{0}{#4}{#5}
 }
-
 
 % Insertar una imagen completa con recuadro en un entorno multicol
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Parámetros de la imagen
 %	#4	Ancho de la línea (en pt)
-%	#5	Posición, "top" o "bottom"
+%	#5	Posición, "bottom" o "top"
 %	#6	Leyenda de la imagen (opcional)
-\newcommand{\insertimageboxedmc}[6][]{
-	\emptyvarerr{\insertimageboxedmc}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageboxedmc}{#3}{Parametros de la imagen no definidos}
-	\emptyvarerr{\insertimageboxedmc}{#4}{Ancho de la linea no definido}
-	\emptyvarerr{\insertimageboxedmc}{#5}{Posicion de la imagen no definida}
+\newcommand{\insertimageboxedmcfull}[6][]{
+	\emptyvarerr{\insertimageboxedmcfull}{#2}{Direccion de la imagen no definida}
+	\emptyvarerr{\insertimageboxedmcfull}{#3}{Parametros de la imagen no definidos}
+	\emptyvarerr{\insertimageboxedmcfull}{#4}{Ancho de la linea no definido}
+	\emptyvarerr{\insertimageboxedmcfull}{#5}{Posicion de la imagen no definida}
 	\checkoutsideenvimage
 	\setcaptionmargincm{\captionlrmarginmc}
 	\ifthenelse{\equal{#5}{bottom}}{
