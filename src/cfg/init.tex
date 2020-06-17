@@ -142,7 +142,7 @@
 % -----------------------------------------------------------------------------
 % Definición de valores e dimensiones
 % -----------------------------------------------------------------------------
-\renewcommand{\baselinestretch}{\defaultinterline} % Ajuste del entrelineado
+\renewcommand{\baselinestretch}{\documentinterline} % Ajuste del entrelineado
 \setlength{\headheight}{64 pt} % Tamaño de la cabecera sin fancyhdr
 % \setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
 \setlength{\footnotemargin}{\marginfootnote pt} % Margen del footnote
@@ -291,7 +291,7 @@
 	\bibliographystyle{\apacitestyle}
 	\setlength{\bibitemsep}{\apaciterefsep pt}
 	\newcommand{\citet}[1]{\texttt{\textbackslash citet\{#1\}}}
-	\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}}
+	\newcommand{\citep}[1]{\texttt{\textbackslash citep\{#1\}}}	
 }{
 \ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	\def\twocolumnreferencesmargin{-0.35cm}
@@ -321,6 +321,14 @@
 	}{}
 }{}
 \makeatother
+% Desactiva la URL de apacite
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{
+	\ifthenelse{\equal{\apaciteshowurl}{false}}{
+		\renewenvironment{APACrefURL}[1][]{}{}
+		\AtBeginEnvironment{APACrefURL}{\renewcommand{\url}[1]{}}
+		\renewcommand{\doiprefix}{doi:~\kern-1pt}
+	}{}
+}{}
 % Referencias en 2 columnas
 \makeatletter
 \ifthenelse{\equal{\twocolumnreferences}{true}}{
