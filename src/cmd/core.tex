@@ -182,4 +182,23 @@
 \newcommand\addpathimage[1]{\gappto\Ginput@path{{#1}}}
 \makeatother
 
+% Verifica que un tamaño de fuente sea correcto
+%	#1	Tamaño de fuente
+\newcommand{\corecheckfontsize}[1]{
+	\ifthenelse{\equal{#1}{normalsize}}{}{
+	\ifthenelse{\equal{#1}{small}}{}{
+	\ifthenelse{\equal{#1}{large}}{}{
+	\ifthenelse{\equal{#1}{Large}}{}{
+	\ifthenelse{\equal{#1}{LARGE}}{}{
+	\ifthenelse{\equal{#1}{huge}}{}{
+	\ifthenelse{\equal{#1}{Huge}}{}{
+	\ifthenelse{\equal{#1}{HUGE}}{}{
+	\ifthenelse{\equal{#1}{footnotesize}}{}{
+	\ifthenelse{\equal{#1}{scriptsize}}{}{
+		\errmessage{LaTeX Warning: Tamano de fuente incorrecto (\noexpand #1= #1). Valores esperados: scriptsize,footnotesize,small,normalisize,large,Large,LARGE,huge,Huge,HUGE}
+		\stop
+		}}}}}}}}}
+	}
+}
+
 % END

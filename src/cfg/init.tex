@@ -48,6 +48,12 @@
 }
 
 % -----------------------------------------------------------------------------
+% Verifica tamaños de fuentes
+% -----------------------------------------------------------------------------
+\corecheckfontsize{\captionfontsize}
+\corecheckfontsize{\subcaptionfsize}
+
+% -----------------------------------------------------------------------------
 % Se activan números en menú marcadores del pdf
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\cfgpdfsecnumbookmarks}{true}}{
@@ -214,6 +220,7 @@
 
 % Se configura el texto de los caption
 \captionsetup{
+	font={\captionfontsize},
 	labelfont={color=\captioncolor, \captiontextbold},
 	labelformat={\captionlabelformat},
 	labelsep={\captionlabelsep},
@@ -223,6 +230,7 @@
 
 % Configura texto de los subcaption
 \captionsetup*[subfigure]{
+	font={\subcaptionfsize},
 	labelfont={color=\captioncolor, \captiontextsubnumbold},
 	labelformat={\subcaptionlabelformat},
 	labelsep={\subcaptionlabelsep},
@@ -230,6 +238,7 @@
 	singlelinecheck=on
 }
 \captionsetup*[subtable]{
+	font={\subcaptionfsize},
 	labelfont={color=\captioncolor, \captiontextsubnumbold},
 	labelformat={\subcaptionlabelformat},
 	labelsep={\subcaptionlabelsep},
