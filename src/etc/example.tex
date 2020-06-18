@@ -38,8 +38,8 @@
 		% Para insertar una imagen se puede usar la función \insertimage la cual
 		% toma un primer parámetro opcional para definir una etiqueta (dentro de
 		% los corchetes), luego toma la dirección de la imagen, sus parámetros
-		% (en este caso se definió la escala de 0.15) y una leyenda opcional
-		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}.}
+		% (en este caso se definió la escala de 0.14) y una leyenda opcional
+		\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
 
 		A continuación\footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{https://latex.ppizarror.com/informe.html#hlp-formulae}{\hreftext{\textbackslash insertequation}}:
 
@@ -139,7 +139,7 @@
 			\insertequation[]{ \boxed{f(x) = \fracdpartial{u}{t}} }
 			
 			% Párrafo 2
-			\lipsum[6]
+			\lipsum[4]
 			
 			% Inserta una imagen encima que use ambas columnas
 			\insertimagemcfull{ejemplos/test-image}{width=6cm}{top}{Imagen en múltiples columnas.}
@@ -195,7 +195,6 @@ public class Hola extends GenericServlet {
 % Se crea gráfico
 f = figure(1); hold on; movegui(f, 'center');
 xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
-title('Espectro de pulso de desplazamiento');
 
 for j = 1:length(BETA)
 	fad = ones(1, NDATOS); % Arreglo para el FAD
@@ -222,7 +221,7 @@ function NMS(B,c)
 
 	% SUB-SECCIÓN
 	\newpage
-	\subsection{Añadir múltiples imágenes}
+	\subsection{Agregando múltiples imágenes}
 
 	El template ofrece el entorno \href{https://latex.ppizarror.com/informe#hlp-images}{\hreftext{images}} que permite insertar múltiples imágenes de una manera muy sencilla. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
 
