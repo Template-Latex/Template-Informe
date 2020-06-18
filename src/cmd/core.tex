@@ -176,4 +176,10 @@
 	}
 }
 
+% Agrega una carpeta al path de imágenes
+%	#1	Carpeta
+\makeatletter
+\newcommand\addpathimage[1]{\gappto\Ginput@path{{#1}}}
+\makeatother
+
 % END

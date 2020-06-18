@@ -137,7 +137,17 @@
 % -----------------------------------------------------------------------------
 % Establece la carpeta de imágenes por defecto
 % -----------------------------------------------------------------------------
-\graphicspath{{./\defaultimagefolder}{./\defaultimagefolder/departamentos/}}
+\graphicspath{{./\defaultimagefolder}}
+
+% -----------------------------------------------------------------------------
+% Elimina el espacio vertical de los flotantes
+% -----------------------------------------------------------------------------
+\makeatletter
+\ifthenelse{\equal{\fpremovetopbottomcenter}{true}}{
+	\setlength{\@fptop}{0pt}
+	\setlength{\@fpbot}{0pt}
+}{}
+\makeatother
 
 % -----------------------------------------------------------------------------
 % Definición de valores e dimensiones
