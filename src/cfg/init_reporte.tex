@@ -16,7 +16,7 @@
 		{\titlefontsize \titlefontstyle \@title \par}
 		\ifthenelse{\equal{\titleshowauthor}{true}}{
 			\vskip \titlelinemargin
-			{\large
+			{\normalsize
 				\lineskip 0.5em
 				\begin{tabular}[t]{c}
 					\@author
@@ -28,7 +28,7 @@
 		}{}
 		\ifthenelse{\equal{\titleshowdate}{true}}{
 			\vskip 1em
-			{\large \@date}
+			{\normalsize \@date}
 		}{}
 	\end{center}
 	\par
