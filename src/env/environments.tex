@@ -288,6 +288,7 @@
 	
 	% Inicia la figura
 	\begin{figure}[H] \centering%
+		\thisfloatpagestyle{fancy}
 		\vspace{\marginimagemulttop cm}%
 		}{%
 		\setcaptionmargincm{\captionlrmargin}%
@@ -323,6 +324,7 @@
 	% Inicia la figura
 	\begin{figure}[H] \centering%
 		\vspace{\marginimagemulttop cm}%
+		\thisfloatpagestyle{fancy}
 		}{%
 		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
@@ -357,13 +359,14 @@
 	
 	% Inicia la figura
 	\ifthenelse{\equal{#2}{bottom}}{%
-		\begin{figure*}[b!] \centering \thisfloatpagestyle{fancy}%
+		\begin{figure*}[b!] \centering%
 		}{%
 	\ifthenelse{\equal{#2}{top}}{%
-		\begin{figure*}[t!] \centering \thisfloatpagestyle{fancy}%
+		\begin{figure*}[t!] \centering%
 	}{%
 		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
 	}}%
+		\thisfloatpagestyle{fancy}%
 		\vspace{\marginimagemulttop cm}%
 	}{%
 		\setcaptionmargincm{\captionlrmargin}%

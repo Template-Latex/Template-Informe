@@ -56,7 +56,8 @@
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}
 	\checkoutsideenvimage
 	\vspace{\marginimagetop cm}
-	\begin{figure}[H]
+	\begin{figure}[H]%
+		\thisfloatpagestyle{fancy}
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
 			\setlength{\fboxrule}{#4 pt}
@@ -129,6 +130,7 @@
 	}{
 		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
 	}}
+		\thisfloatpagestyle{fancy}
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
 			\setlength{\fboxrule}{#4 pt}
@@ -179,8 +181,9 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	\par
-	\begin{wrapfigure}{l}{#3\textwidth}
+	\par%
+	\begin{wrapfigure}{l}{#3\textwidth}%
+		\thisfloatpagestyle{fancy}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -226,8 +229,9 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	\par
-	\begin{wrapfigure}[#5]{l}{#3\textwidth}
+	\par%
+	\begin{wrapfigure}[#5]{l}{#3\textwidth}%
+		\thisfloatpagestyle{fancy}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
@@ -269,8 +273,9 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	\par
-	\begin{wrapfigure}{r}{#3\textwidth}
+	\par%
+	\begin{wrapfigure}{r}{#3\textwidth}%
+		\thisfloatpagestyle{fancy}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -316,8 +321,9 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	\par
-	\begin{wrapfigure}[#5]{r}{#3\textwidth}
+	\par%
+	\begin{wrapfigure}[#5]{r}{#3\textwidth}%
+		\thisfloatpagestyle{fancy}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -345,9 +351,9 @@
 %	#4	Propiedades de la imagen
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftp}[5][]{%
-	\xspace~\\
-	\vspace{-2\baselineskip}
-	\par
+	\xspace~\\%
+	\vspace{-2\baselineskip}%
+	\par%
 	\insertimageleftboxedp[#1]{#2}{#3}{#4}{0}{#5}
 }
 
@@ -366,8 +372,9 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	\par
-	\begin{wrapfigure}{l}{#3}
+	\par%
+	\begin{wrapfigure}{l}{#3}%
+		\thisfloatpagestyle{fancy}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -416,8 +423,9 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	\par
-	\begin{wrapfigure}[#6]{l}{#3}
+	\par%
+	\begin{wrapfigure}[#6]{l}{#3}%
+		\thisfloatpagestyle{fancy}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -445,9 +453,9 @@
 %	#4	Propiedades de la imagen
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightp}[5][]{%
-	\xspace~\\
-	\vspace{-2\baselineskip}
-	\par
+	\xspace~\\%
+	\vspace{-2\baselineskip}%
+	\par%
 	\insertimagerightboxedp[#1]{#2}{#3}{#4}{0}{#5}
 }
 
@@ -466,8 +474,9 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	\par
-	\begin{wrapfigure}{r}{#3}
+	\par%
+	\begin{wrapfigure}{r}{#3}%
+		\thisfloatpagestyle{fancy}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -516,8 +525,9 @@
 	\checkoutsideenvimage
 	~
 	\vspace{-\baselineskip}
-	\par
-	\begin{wrapfigure}[#6]{r}{#3}
+	\par%
+	\begin{wrapfigure}[#6]{r}{#3}%
+		\thisfloatpagestyle{fancy}
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
