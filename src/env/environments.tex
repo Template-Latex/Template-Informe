@@ -287,16 +287,16 @@
 	\setcaptionmargincm{\captionmarginmultimg}
 	
 	% Inicia la figura
-	\begin{figure}[H] \centering
-		\vspace{\marginimagemulttop cm}
+	\begin{figure}[H] \centering%
+		\vspace{\marginimagemulttop cm}%
 		}{%
-		\setcaptionmargincm{\captionlrmargin}
+		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
-			\vspace{\captionlessmarginimage cm}
-		}{
-			\caption{\envimagescaptionvar\envimageslabelvar}
-		}
-	\end{figure}
+			\vspace{\captionlessmarginimage cm}%
+		}{%
+			\caption{\envimagescaptionvar\envimageslabelvar}%
+		}%
+	\end{figure}%
 
 	% Reestablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}
@@ -321,23 +321,23 @@
 	\setcaptionmargincm{\captionmarginmultimg}
 	
 	% Inicia la figura
-	\ifthenelse{\equal{#2}{bottom}}{
-		\begin{figure*}[b!] \centering \thisfloatpagestyle{fancy}
+	\ifthenelse{\equal{#2}{bottom}}{%
+		\begin{figure*}[b!] \centering \thisfloatpagestyle{fancy}%
 		}{%
-	\ifthenelse{\equal{#2}{top}}{
-		\begin{figure*}[t!] \centering \thisfloatpagestyle{fancy}
+	\ifthenelse{\equal{#2}{top}}{%
+		\begin{figure*}[t!] \centering \thisfloatpagestyle{fancy}%
 	}{%
 		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
-	}}
-		\vspace{\marginimagemulttop cm}
-	}{
-		\setcaptionmargincm{\captionlrmargin}
+	}}%
+		\vspace{\marginimagemulttop cm}%
+	}{%
+		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
-			\vspace{\captionlessmarginimage cm}
-		}{
-			\caption{\envimagescaptionvar\envimageslabelvar}
-		}
-	\end{figure*}
+			\vspace{\captionlessmarginimage cm}%
+		}{%
+			\caption{\envimagescaptionvar\envimageslabelvar}%
+		}%
+	\end{figure*}%
 	
 	% Reestablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}
