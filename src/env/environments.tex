@@ -307,55 +307,20 @@
 	\def\GLOBALenvimageinitialized {false}
 }
 
-% Crea una sección de imágenes múltiples en un entorno multicol
-%	#1	Label (opcional)
-%	#2	Caption
-\newenvironment{imagesmc}[2][]{
-	% Modifica globales
-	\def\envimageslabelvar {#1}
-	\def\envimagescaptionvar {#2}
-	\def\GLOBALenvimageinitialized {true}
-	\def\GLOBALenvimageadded {false}
-	
-	% Configura caption y márgenes
-	\vspace{\marginimagetop cm}
-	\setcaptionmargincm{\captionmarginmultimg}
-	
-	% Inicia la figura
-	\begin{figure}[H] \centering%
-		\vspace{\marginimagemulttop cm}%
-		\thisfloatpagestyle{fancy}%
-		}{%
-		\setcaptionmargincm{\captionlrmarginmc}%
-		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
-			\vspace{\captionlessmarginimage cm}%
-		}{%
-			\setcaptionmargincm{\captionlrmarginmc}%
-			\caption{\envimagescaptionvar\envimageslabelvar}%
-		}%
-	\end{figure}%
-
-	% Reestablece caption y márgenes
-	\setcaptionmargincm{\captionlrmargin}
-	\vspace{\marginimagebottom cm}
-	
-	% Reestablece globales
-	\def\GLOBALenvimageinitialized {false}
-}
-
 % Crea una sección de imágenes múltiples completa dentro de un multicol
 %	#1	Label (opcional)
 %	#2	Posición de la imagen, "bottom" o "top"
 %	#3	Caption
-\newenvironment{imagesmcfull}[3][]{
+\newenvironment{imagesmc}[3][]{
 	% Modifica globales
 	\def\envimageslabelvar {#1}
 	\def\envimagescaptionvar {#3}
 	\def\GLOBALenvimageinitialized {true}
 	\def\GLOBALenvimageadded {false}
+	\checkinsidemulticol
 	
 	% Configura caption y márgenes
-	\setcaptionmargincm{\captionmarginmultimg}
+	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
 	
 	% Inicia la figura
 	\ifthenelse{\equal{#2}{bottom}}{%
