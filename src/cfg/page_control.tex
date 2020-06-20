@@ -67,16 +67,14 @@
 \begin{center}
 	\vspace*{0.75cm}
 	\huge {\tituloevaluacion} ~ \\
-	\ifx\hfuzz\equipodocente\hfuzz
-	\else
+	\ifdefempty{\equipodocente}{}{
 		\vspace{0.2cm}
 		\normalsize{\equipodocente}
-	\fi
-	\ifx\hfuzz\indicacionevaluacion\hfuzz
-	\else
+	}
+	\ifdefempty{\indicacionevaluacion}{}{
 		\vspace{0.5cm}
 		\normalsize{\indicacionevaluacion}
-	\fi
+	}
 \end{center}
 \fancypagestyle{plain}{
 	\fancyheadoffset{0pt}
