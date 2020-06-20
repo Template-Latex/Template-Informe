@@ -288,7 +288,7 @@
 	
 	% Inicia la figura
 	\begin{figure}[H] \centering%
-		\thisfloatpagestyle{fancy}
+		\thisfloatpagestyle{fancy}%
 		\vspace{\marginimagemulttop cm}%
 		}{%
 		\setcaptionmargincm{\captionlrmargin}%
@@ -324,13 +324,13 @@
 	% Inicia la figura
 	\begin{figure}[H] \centering%
 		\vspace{\marginimagemulttop cm}%
-		\thisfloatpagestyle{fancy}
+		\thisfloatpagestyle{fancy}%
 		}{%
-		\setcaptionmargincm{\captionlrmargin}%
+		\setcaptionmargincm{\captionlrmarginmc}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\vspace{\captionlessmarginimage cm}%
 		}{%
-			\setcaptionmargincm{\captionlrmarginmc}
+			\setcaptionmargincm{\captionlrmarginmc}%
 			\caption{\envimagescaptionvar\envimageslabelvar}%
 		}%
 	\end{figure}%
