@@ -45,16 +45,17 @@
 	\setcaptionmargincm{\captionmarginmultimg}
 	
 	% Inicia la figura
-	\begin{figure}[H] \centering
-		\vspace{\marginimagemulttop cm}
+	\begin{figure}[H] \centering%
+	\thisfloatpagestyle{fancy}%
+		\vspace{\marginimagemulttop cm}%
 		}{
-		\setcaptionmargincm{\captionlrmargin}
+		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
-			\vspace{\captionlessmarginimage cm}
-		}{
-			\caption{\envimagescaptionvar\envimageslabelvar}
-		}
-	\end{figure}
+			\vspace{\captionlessmarginimage cm}%
+		}{%
+			\caption{\envimagescaptionvar\envimageslabelvar}%
+		}%
+	\end{figure}%
 
 	% Reestablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}
