@@ -203,9 +203,10 @@
 	\ifthenelse{\equal{#1}{HUGE}}{}{
 	\ifthenelse{\equal{#1}{footnotesize}}{}{
 	\ifthenelse{\equal{#1}{scriptsize}}{}{
-		\errmessage{LaTeX Warning: Tamano de fuente incorrecto (\noexpand #1= #1). Valores esperados: scriptsize,footnotesize,small,normalisize,large,Large,LARGE,huge,Huge,HUGE}
+	\ifthenelse{\equal{#1}{tiny}}{}{
+		\errmessage{LaTeX Warning: Tamano de fuente incorrecto (\noexpand #1= #1). Valores esperados: tiny,scriptsize,footnotesize,small,normalisize,large,Large,LARGE,huge,Huge,HUGE}
 		\stop
-		}}}}}}}}}
+		}}}}}}}}}}
 	}
 }
 
