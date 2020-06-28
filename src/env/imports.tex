@@ -240,11 +240,6 @@
 	\usepackage{appendix}
 }
 
-% Importa la librería tikz
-\ifthenelse{\equal{\importtikz}{true}}{ % Eliminado en Auxiliares/Controles
-	\usepackage{tikz}}{
-}
-
 % Dimensiones y geometría del documento
 \ifthenelse{\equal{\compilertype}{lualatex}}{ % En lualatex sólo se puede cambiar 1 vez el margen
 	\usepackage[top=\pagemargintop cm,bottom=\pagemarginbottom cm,margin=\pagemarginleft cm]{geometry}

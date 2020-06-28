@@ -466,8 +466,8 @@
 % -----------------------------------------------------------------------------
 % Se revisa si se importa tikz
 % -----------------------------------------------------------------------------
-\ifthenelse{\equal{\portraitstyle}{style16}}{\coreimporttikz}{}
-\ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{\coreimporttikz}{}
+\ifthenelse{\equal{\portraitstyle}{style16}}{\usepackage{tikz}}{}
+\ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{\usepackage{tikz}}{}
 
 % -----------------------------------------------------------------------------
 % Configuraciones del motor de compilación
