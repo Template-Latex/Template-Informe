@@ -101,7 +101,7 @@
 %	#2	Dirección de la imagen
 %	#3	Parámetros de la imagen
 %	#4	Ancho de la línea (en pt)
-%	#5	Posición, "bottom" o "top"
+%	#5	Posición, "bottom", "top", "fixed2", "fixed3", "fixed4"
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimageboxedmc}[6][]{%
 	\emptyvarerr{\insertimageboxedmc}{#2}{Direccion de la imagen no definida}
@@ -111,15 +111,27 @@
 	\checkoutsideenvimage
 	\checkinsidemulticol
 	\setcaptionmargincm{\captionlrmarginmc}
-	\ifthenelse{\equal{#5}{bottom}}{
-		\begin{figure*}[b!]
+	\ifthenelse{\equal{#5}{bottom}}{%
+		\begin{figure*}[hb]
 	}{
-	\ifthenelse{\equal{#5}{top}}{
-		\begin{figure*}[t!]
+	\ifthenelse{\equal{#5}{top}}{%
+		\begin{figure*}[ht]
 	}{
-		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
-		\stop
-	}}
+	\ifthenelse{\equal{#5}{fixed2}}{%
+		\end{multicols}
+		\begin{figure*}[h]
+	}{
+	\ifthenelse{\equal{#5}{fixed3}}{%
+		\end{multicols}
+		\begin{figure*}[h]
+	}{
+	\ifthenelse{\equal{#5}{fixed4}}{%
+		\end{multicols}
+		\begin{figure*}[h]
+	}{
+		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top,fixed2,fixed3,fixed4}
+		\stop}}}}
+	}
 		\thisfloatpagestyle{fancy}
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
@@ -134,6 +146,15 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{figure*}
+	\ifthenelse{\equal{#5}{fixed2}}{%
+		\begin{multicols}{2}
+	}{
+	\ifthenelse{\equal{#5}{fixed3}}{%
+		\begin{multicols}{3}
+	}{
+	\ifthenelse{\equal{#5}{fixed4}}{%
+		\begin{multicols}{4}
+	}{}}}
 	\setcaptionmargincm{\captionlrmargin}
 	\resetindexcaption
 }
@@ -152,7 +173,7 @@
 % Insertar una imagen a la izquierda, escalada, ancho fijo
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
-%	#3	Ancho de la imagen (en textwidth)
+%	#3	Ancho de la imagen (en linewidth)
 %	#4	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleft}[4][]{%
 	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}
@@ -161,7 +182,7 @@
 % Insertar una imagen a la izquierda, escalada, ancho fijo
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
-%	#3	Ancho de la imagen (en textwidth)
+%	#3	Ancho de la imagen (en linewidth)
 %	#4	Ancho de la línea (en pt)
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftboxed}[5][]{%
@@ -172,7 +193,7 @@
 	~
 	\vspace{-\baselineskip}
 	\par%
-	\begin{wrapfigure}{l}{#3\textwidth}%
+	\begin{wrapfigure}{l}{#3\linewidth}%
 		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -197,7 +218,7 @@
 % Insertar una imagen a la izquierda, ajustada en un número de líneas, escalada, ancho fijo
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
-%	#3	Ancho de la imagen (en textwidth)
+%	#3	Ancho de la imagen (en linewidth)
 %	#4	Altura en líneas de la imagen
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftline}[5][]{%
@@ -207,7 +228,7 @@
 % Insertar una imagen recuadrada a la izquierda, ajustada en un número de líneas, escalada, ancho fijo
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
-%	#3	Ancho de la imagen (en textwidth)
+%	#3	Ancho de la imagen (en linewidth)
 %	#4	Ancho de la línea (en pt)
 %	#5	Altura en líneas de la imagen
 %	#6	Leyenda de la imagen (opcional)
@@ -220,7 +241,7 @@
 	~
 	\vspace{-\baselineskip}
 	\par%
-	\begin{wrapfigure}[#5]{l}{#3\textwidth}%
+	\begin{wrapfigure}[#5]{l}{#3\linewidth}%
 		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -244,7 +265,7 @@
 % Insertar una imagen a la derecha, escalada, ancho fijo
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
-%	#3	Ancho de la imagen (en textwidth)
+%	#3	Ancho de la imagen (en linewidth)
 %	#4	Leyenda de la imagen (opcional)
 \newcommand{\insertimageright}[4][]{%
 	\insertimagerightboxed[#1]{#2}{#3}{0}{#4}
@@ -253,7 +274,7 @@
 % Insertar una imagen recuadrada a la derecha, escalada, ancho fijo
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
-%	#3	Ancho de la imagen (en textwidth)
+%	#3	Ancho de la imagen (en linewidth)
 %	#4	Ancho de la línea (en pt)
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightboxed}[5][]{%
@@ -264,7 +285,7 @@
 	~
 	\vspace{-\baselineskip}
 	\par%
-	\begin{wrapfigure}{r}{#3\textwidth}%
+	\begin{wrapfigure}{r}{#3\linewidth}%
 		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
@@ -289,7 +310,7 @@
 % Insertar una imagen a la derecha, ajustada en un número de líneas, escalada, ancho fijo
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
-%	#3	Ancho de la imagen (en textwidth)
+%	#3	Ancho de la imagen (en linewidth)
 %	#4	Altura en líneas de la imagen
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightline}[5][]{%
@@ -299,7 +320,7 @@
 % Insertar una imagen recuadrada a la derecha, ajustada en un número de líneas, escalada, ancho fijo
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
-%	#3	Ancho de la imagen (en textwidth)
+%	#3	Ancho de la imagen (en linewidth)
 %	#4	Ancho de la línea (en pt)
 %	#5	Altura en líneas de la imagen
 %	#6	Leyenda de la imagen (opcional)
@@ -312,7 +333,7 @@
 	~
 	\vspace{-\baselineskip}
 	\par%
-	\begin{wrapfigure}[#5]{r}{#3\textwidth}%
+	\begin{wrapfigure}[#5]{r}{#3\linewidth}%
 		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{

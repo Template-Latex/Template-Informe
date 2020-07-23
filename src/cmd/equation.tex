@@ -11,13 +11,13 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-% Redimensiona una ecuación en textwidth
-% 	#1	Tamaño del nuevo objeto (En textwidth)
+% Redimensiona una ecuación en linewidth
+% 	#1	Tamaño del nuevo objeto (En linewidth)
 %	#2	Ecuación a redimensionar
 \newcommand{\equationresize}[2]{
 	\emptyvarerr{\equationresize}{#1}{Dimension no definida}
 	\emptyvarerr{\equationresize}{#2}{Ecuacion a redimensionar no definida}
-	\resizebox{#1\textwidth}{!}{$#2$}
+	\resizebox{#1\linewidth}{!}{$#2$}
 }
 
 % Insertar una ecuación en el índice
