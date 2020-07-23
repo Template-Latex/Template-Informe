@@ -121,16 +121,40 @@
 		\end{multicols}
 		\begin{figure*}[h]
 	}{
+	\ifthenelse{\equal{#5}{fixed2b}}{%
+		\end{multicols}
+		\begin{figure*}[b]
+	}{
+	\ifthenelse{\equal{#5}{fixed2t}}{%
+		\end{multicols}
+		\begin{figure*}[t]
+	}{
 	\ifthenelse{\equal{#5}{fixed3}}{%
 		\end{multicols}
 		\begin{figure*}[h]
+	}{
+	\ifthenelse{\equal{#5}{fixed3b}}{%
+		\end{multicols}
+		\begin{figure*}[b]
+	}{
+	\ifthenelse{\equal{#5}{fixed3t}}{%
+		\end{multicols}
+		\begin{figure*}[t]
 	}{
 	\ifthenelse{\equal{#5}{fixed4}}{%
 		\end{multicols}
 		\begin{figure*}[h]
 	}{
-		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top,fixed2,fixed3,fixed4}
-		\stop}}}}
+	\ifthenelse{\equal{#5}{fixed4b}}{%
+		\end{multicols}
+		\begin{figure*}[h]
+	}{
+	\ifthenelse{\equal{#5}{fixed4t}}{%
+		\end{multicols}
+		\begin{figure*}[h]
+	}{
+		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top,fixed2,fixed2b,fixed2t,fixed3,fixed3b,fixed3t,fixed4,fixed4b,fixed4t}
+		\stop}}}}}}}}}}
 	}
 		\thisfloatpagestyle{fancy}
 		\begingroup
@@ -149,12 +173,31 @@
 	\ifthenelse{\equal{#5}{fixed2}}{%
 		\begin{multicols}{2}
 	}{
+	\ifthenelse{\equal{#5}{fixed2b}}{%
+		\begin{multicols}{2}
+	}{
+	\ifthenelse{\equal{#5}{fixed2t}}{%
+		\begin{multicols}{2}
+	}{
 	\ifthenelse{\equal{#5}{fixed3}}{%
+		\begin{multicols}{3}
+	}{
+	\ifthenelse{\equal{#5}{fixed3b}}{%
+		\begin{multicols}{3}
+	}{
+	\ifthenelse{\equal{#5}{fixed3t}}{%
 		\begin{multicols}{3}
 	}{
 	\ifthenelse{\equal{#5}{fixed4}}{%
 		\begin{multicols}{4}
-	}{}}}
+	}{
+	\ifthenelse{\equal{#5}{fixed4b}}{%
+		\begin{multicols}{4}
+	}{
+	\ifthenelse{\equal{#5}{fixed4t}}{%
+		\begin{multicols}{4}
+	}{
+	}}}}}}}}}
 	\setcaptionmargincm{\captionlrmargin}
 	\resetindexcaption
 }
