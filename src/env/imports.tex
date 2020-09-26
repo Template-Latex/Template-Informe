@@ -117,7 +117,7 @@
 \usepackage{pdflscape}     % Modo página horizontal de página
 \usepackage{pdfpages}      % Permite administrar páginas en pdf
 \usepackage{physics}       % Paquete de matemáticas
-%\usepackage{ragged2e}      % Redefine centering
+% \usepackage{ragged2e}    % Redefine centering
 \usepackage{rotating}      % Permite rotación de objetos
 \usepackage{selinput}      % Compatibilidad con acentos
 \usepackage{setspace}      % Cambia el espacio entre líneas
@@ -125,16 +125,15 @@
 \usepackage{subfig}        % Permite agrupar imágenes
 \usepackage{textcomp}      % Simbología común
 \usepackage{url}           % Permite añadir enlaces
-\usepackage{wasysym}       % Contiene caracteres misceláneos
 \usepackage{wrapfig}       % Posición de imágenes
 \usepackage{xspace}        % Adminsitra espacios en párrafos y líneas
 
-% En 6.3.7 se desactiva cellspace
-% \usepackage{cellspace}     % Tamaños en celdas de tablas
+% En v6.3.7 se desactiva cellspace
+% \usepackage{cellspace}   % Tamaños en celdas de tablas
 
 % \usepackage{colortbl}, xcolor al cargar table ya importa colortbl (v6.3.3)
 % El paquete colortbl queda obsoleto con array+xcolor si la versión es inferior
-% a 1.0c, se recomienda actualizar o ocurren errores asociados a @parbox
+% a v1.0c, se recomienda actualizar o ocurren errores asociados a @parbox
 
 % Se prefiere no utilizar matlab-prettifier ya que es muy pesada para lo que
 % la librería ofrece
@@ -148,6 +147,7 @@
 \usepackage[subfigure,titles]{tocloft} % Maneja entradas en el índice
 \usepackage[figure,table,lstlisting]{totalcount} % Contador de objetos
 \usepackage[normalem]{ulem} % Permite tachar y subrayar
+\usepackage[nointegrals]{wasysym} % Contiene caracteres misceláneos (v7.0.4)
 \usepackage[dvipsnames,table,usenames]{xcolor} % Paquete de colores avanzado
 
 % -----------------------------------------------------------------------------
@@ -174,10 +174,10 @@
 }
 
 % Referencias
-% Desde 6.2.8 se debe cargar al final para evitar errores:
+% Desde v6.2.8 se debe cargar al final para evitar errores:
 %	- Option clash for package hyperref
 % 	- name has been referenced but does not exist, replaced by a fixed one
-% Desde 6.5.6 se carga después de las referencias (apacite, natbib, bibtex)
+% Desde v6.5.6 se carga después de las referencias (apacite, natbib, bibtex)
 \usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{ % Formato citas natbib
 	\usepackage[nottoc,notlof,notlot]{tocbibind}
