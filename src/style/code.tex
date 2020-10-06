@@ -236,6 +236,9 @@
 	ndkeywordstyle=\color{blue}\bfseries,
 	sensitive=false
 }
+\lstdefinestyle{javascript}{
+	language=JavaScript
+}
 \lstdefinestyle{js}{
 	language=JavaScript
 }
@@ -453,16 +456,22 @@
 % -----------------------------------------------------------------------------
 % Python
 % -----------------------------------------------------------------------------
-\lstdefinestyle{python}{
+\lstdefinelanguage{pythonEXTENDED}{
 	language=Python,
 	breakatwhitespace=false,
 	emph={
-		AbstractSet,Any,AsyncContextManager,AsyncGenerator,AsyncIterable,AsyncIterator,Awaitable,AwaitableGenerator,BinaryIO,ByteString,Callable,Collection,Container,ContextManager,Coroutine,Dict,ForwardRef,Generator,GenericMeta,Hashable,IO,ItemsView,Iterable,Iterator,KeysView,List,Mapping,MappingView,Match,Meta,MutableMapping,MutableSequence,MutableSet,NamedTuple,Pattern,Reversible,Sequence,Sized,SupportInts,SupportsAbs,SupportsBytes,SupportsComplex,SupportsFloat,SupportsIndex,SupportsRound,TextIO,Tuple,TypeAlias,TYPE_CHECKING,Union,ValuesView,__add__,__and__,__eq__,__floordiv__,__ge__,__gt__,__init__,__le__,__lt__,__main__,__mod__,__mul__,__name__,__ne__,__or__,__pow__,__repr__,__str__,__sub__,__truediv__,__xor__
+		AbstractSet,Any,AsyncContextManager,AsyncGenerator,AsyncIterable,AsyncIterator,Awaitable,AwaitableGenerator,BinaryIO,ByteString,Callable,Collection,Container,ContextManager,Coroutine,Dict,False,ForwardRef,Generator,GenericMeta,Hashable,IO,ItemsView,Iterable,Iterator,KeysView,List,Mapping,MappingView,Match,Meta,MutableMapping,MutableSequence,MutableSet,NamedTuple,None,Pattern,Reversible,Sequence,Sized,SupportInts,SupportsAbs,SupportsBytes,SupportsComplex,SupportsFloat,SupportsIndex,SupportsRound,TextIO,True,Tuple,TypeAlias,TYPE_CHECKING,Union,ValuesView,__add__,__and__,__eq__,__floordiv__,__ge__,__gt__,__init__,__le__,__lt__,__main__,__mod__,__mul__,__name__,__ne__,__or__,__pow__,__repr__,__str__,__sub__,__truediv__,__xor__
 	},
 	emphstyle=\color{dkcyan}\ttfamily,
 	keepspaces=true,
 	morecomment=[s][\color{BurntOrange}]{@}{\ },
-	morekeywords={as,assert,close,listdir,None,self,sorted,split,strip,with}
+	morekeywords={as,assert,close,listdir,self,sorted,split,strip,with}
+}
+\lstdefinestyle{py}{
+	language=pythonEXTENDED
+}
+\lstdefinestyle{python}{
+	language=pythonEXTENDED
 }
 
 % -----------------------------------------------------------------------------
@@ -647,6 +656,7 @@
 	\ifthenelse{\equal{#1}{html5}}{}{
 	\ifthenelse{\equal{#1}{ini}}{}{
 	\ifthenelse{\equal{#1}{java}}{}{
+	\ifthenelse{\equal{#1}{javascript}}{}{
 	\ifthenelse{\equal{#1}{js}}{}{
 	\ifthenelse{\equal{#1}{json}}{}{
 	\ifthenelse{\equal{#1}{kotlin}}{}{
@@ -663,6 +673,7 @@
 	\ifthenelse{\equal{#1}{php}}{}{
 	\ifthenelse{\equal{#1}{plaintext}}{}{
 	\ifthenelse{\equal{#1}{pseudocode}}{}{
+	\ifthenelse{\equal{#1}{py}}{}{
 	\ifthenelse{\equal{#1}{python}}{}{
 	\ifthenelse{\equal{#1}{r}}{}{
 	\ifthenelse{\equal{#1}{ruby}}{}{
@@ -674,9 +685,9 @@
 	\ifthenelse{\equal{#1}{verilog}}{}{
 	\ifthenelse{\equal{#1}{vhdl}}{}{
 	\ifthenelse{\equal{#1}{xml}}{}{
-		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,c,cpp,csharp,css,csv,cuda,docker,fortran,glsl,haskell,html5,ini,java,js,json,kotlin,latex,lisp,lua,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,python,r,ruby,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}
+		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,c,cpp,csharp,css,csv,cuda,docker,fortran,glsl,haskell,html5,ini,java,javascript,js,json,kotlin,latex,lisp,lua,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,py,python,r,ruby,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}
 		\stop
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % END
