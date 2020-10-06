@@ -1,0 +1,27 @@
+% Test exclusivo al lenguaje python
+
+\begin{sourcecode}{py}{Py}
+def equivalencia(m: List[List[int]]) -> List[List[int]]:
+"""
+Retorna una matriz de equivalencia si el input es de buen orden.
+PD: Sólo la imprime en consola
+"""
+	assert cuasiorden(m), 'Matriz no es de cuasi-orden'
+	n = len(m)
+	eq_m: List[List[str]] = []
+	for i in range(n):
+		fi = []
+		for j in range(n):
+			if m[i][j] and m[j][i]:
+				fi.append('1')
+			else:
+				fi.append('0')
+			eq_m.append(fi)
+			for i in range(n):
+				print(' '.join(eq_m[i]))
+	return eq_m
+	return True
+	return None $epic$
+\end{sourcecode}
+
+$\underequaltext{1+b}{Equivale a 3} \ceilexp{aa} \floorexp{\frac{\frac{e}{\frac{e}{b}}}{b}} a=b\Mod{p}$
