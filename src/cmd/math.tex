@@ -135,6 +135,7 @@
 \newcommand{\topequal}[2]{
 	\ensuremath{\overbrace{#1}^{\mathclap{#2}}}
 }
+\newcommand{\topequaltext}[2]{\topequal{#1}{\text{#2}}}
 
 % Llave inferior de equivalencia
 % 	#1	Elemento a igualar
@@ -142,6 +143,7 @@
 \newcommand{\underequal}[2]{
 	\ensuremath{\underbrace{#1}_{\mathclap{#2}}}
 }
+\newcommand{\underequaltext}[2]{\underequal{#1}{\text{#2}}}
 
 % Rectángulo superior de equivalencia
 % 	#1	Elemento a igualar
@@ -149,6 +151,7 @@
 \newcommand{\topsequal}[2]{
 	\ensuremath{\overbracket{#1}^{\mathclap{#2}}}
 }
+\newcommand{\topsequaltext}[2]{\topsequal{#1}{\text{#2}}}
 
 % Rectángulo inferior de equivalencia
 % 	#1	Elemento a igualar
@@ -156,6 +159,23 @@
 \newcommand{\undersequal}[2]{
 	\ensuremath{\underbracket{#1}_{\mathclap{#2}}}
 }
+\newcommand{\undersequaltext}[2]{\undersequal{#1}{\text{#2}}}
+
+% Función piso
+% 	#1	Elemento
+\newcommand{\floorexp}[1]{
+	\ensuremath{\left\lfloor{#1}\right\rfloor}
+}
+
+% Función techo
+% 	#1	Elemento
+\newcommand{\ceilexp}[1]{
+	\ensuremath{\left\lceil{#1}\right\rceil}
+}
+
+% Función mod
+%	#1	Elemento tal que (mod #1)
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
 
 % Paréntesis grande
 % 	#1	Expresión
@@ -233,6 +253,10 @@
 	\ensuremath{\rm{Re}(z)}
 }
 
+% Barra superior en elemento
+%	#1 	Elemento
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
 % Definición de letras
 \newcommand{\A}{\mathcal{A}}
 \let\oldC=\C
@@ -257,10 +281,6 @@
 \renewcommand{\S}{\mathcal{S}}
 \newcommand{\T}{\mathcal{T}}
 \newcommand{\Z}{\mathbb{Z}}
-
-% Barra superior en elemento
-%	#1 	Elemento
-\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 
 % Definición de teoremas y lemas
 \makeatletter
