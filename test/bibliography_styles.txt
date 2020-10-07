@@ -1,0 +1,5 @@
+[ORDENADAS POR APARICION]
+https://www.bibtex.com/s/bibliography-style-ijqc-ijqc/
+https://www.bibtex.com/s/bibliography-style-iopart-num-iopart-num/ no tiene url
+https://www.bibtex.com/s/bibliography-style-phy-bstyles-iaea/
+https://www.bibtex.com/s/bibliography-style-ieeepes-ieeepes/
