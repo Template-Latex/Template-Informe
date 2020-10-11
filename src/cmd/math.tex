@@ -175,7 +175,9 @@
 
 % Función mod
 %	#1	Elemento tal que (mod #1)
-\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Mod}[1]{
+	\ensuremath{\ (\mathrm{mod}\ #1)}
+}
 
 % Paréntesis grande
 % 	#1	Expresión
@@ -258,29 +260,39 @@
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 
 % Definición de letras
-\newcommand{\A}{\mathcal{A}}
-\let\oldC=\C
-\renewcommand{\C}{\mathbb{C}}
-\newcommand{\D}{\mathbb{D}}
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\F}{\mathcal{F}}
-\let\oldG=\G
-\renewcommand{\G}{\mathcal{G}}
-\let\oldH=\H
-\renewcommand{\H}{\mathcal{H}}
-\newcommand{\K}{\mathcal{K}}
-\let\oldL=\L
-\renewcommand{\L}{\mathcal{L}}
-\newcommand{\M}{\mathcal{M}}
-\newcommand{\N}{\mathbb{N}}
-\let\oldP=\P
-\renewcommand{\P}{\mathbb{P}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\R}{\mathbb{R}}
-\let\oldS=\S
-\renewcommand{\S}{\mathcal{S}}
-\newcommand{\T}{\mathcal{T}}
-\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\A}{\ensuremath{\mathcal{A}}}
+\newcommand{\B}{\ensuremath{\mathcal{B}}}
+\let\oldC=\C % No existe en T1
+\renewcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\D}{\ensuremath{\mathbb{D}}}
+\newcommand{\E}{\ensuremath{\mathbb{E}}}
+\newcommand{\F}{\ensuremath{\mathcal{F}}}
+\let\oldG=\G % No existe en T1
+\renewcommand{\G}{\ensuremath{\mathcal{G}}}
+\let\oldH=\H % No existe en T1
+\renewcommand{\H}{\ensuremath{\mathcal{H}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+\newcommand{\J}{\ensuremath{\mathcal{J}}}
+\newcommand{\K}{\ensuremath{\mathcal{K}}}
+\let\oldL=\L % Es como una L con una raya
+\renewcommand{\L}{\ensuremath{\mathcal{L}}}
+\newcommand{\M}{\ensuremath{\mathcal{M}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+% \renewcommand{\O}{\ensuremath{\mathbb{O}}} % O equivale a o/oo
+\let\oldP=\P % P negra
+\renewcommand{\P}{\ensuremath{\mathbb{P}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\let\oldS=\S % Es como una serpiente
+\renewcommand{\S}{\ensuremath{\mathcal{S}}}
+\newcommand{\T}{\ensuremath{\mathcal{T}}}
+\let\oldU=\U % No existe en T1
+\renewcommand{\U}{\ensuremath{\mathcal{U}}}
+\newcommand{\V}{\ensuremath{\mathcal{V}}}
+\newcommand{\W}{\ensuremath{\mathcal{W}}}
+\newcommand{\X}{\ensuremath{\mathcal{X}}}
+\newcommand{\Y}{\ensuremath{\mathcal{Y}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 
 % Definición de teoremas y lemas
 \makeatletter
