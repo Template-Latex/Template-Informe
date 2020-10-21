@@ -18,7 +18,7 @@
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
 	\begingroup
-	\ifthenelse{\equal{\sectionrefenv}{true}}{ % Se configura las referencias como una sección
+	\ifthenelse{\equal{\bibtexenvrefsecnum}{true}}{ % Se configura las referencias como una sección
 		\section{\namereferences}
 	}{
 		\sectionanum{\namereferences}
