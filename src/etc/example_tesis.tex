@@ -99,20 +99,15 @@
 	
 \section{Creando citas}
 
-El template por defecto está configurado para trabajar con citas de la librería \href{https://www.ctan.org/pkg/natbib}{natbib}, y se configuró al estilo plainnat. Puedes usar otros estilos cambiando la configuración \texttt{\textbackslash natbibrefstyle} si es que usas natbib. También se da soporte a la librería apacite, para ello puedes cambiar la configuración \texttt{\textbackslash stylecitereferences}. Una completa guía de estilos la puedes consultar en \url{http://homepage.stat.uiowa.edu/~rlenth/ALPHA/bibstylescompared.pdf}. \\
+El template por defecto está configurado para trabajar con citas de la librería \href{https://www.ctan.org/pkg/natbib}{natbib}, y se configuró al estilo \textit{ieeetr}. Puedes usar otros estilos cambiando la configuración \texttt{\textbackslash natbibrefstyle} si es que usas natbib. También se da soporte a las librerías \textbf{bibtex} y \textbf{apacite}, para ello puedes cambiar la configuración \texttt{\textbackslash stylecitereferences}. Una completa guía de estilos la puedes consultar en \url{http://homepage.stat.uiowa.edu/~rlenth/ALPHA/bibstylescompared.pdf}. \\
 
-Para citar usando la librería \textbf{natbib} puedes usar:
-
-\begin{itemize}
-	\item \texttt{\textbackslash cite\{einstein\}} \cite{einstein}
-	\item \texttt{\textbackslash citep\{einstein\}} \citep{einstein}
-\end{itemize}
-
-Para citar usando la librería \textbf{apacite} puedes usar:
+A continuación se detallan algunos links de ayuda para el uso de las referencias:
 
 \begin{itemize}
-	\item \texttt{\textbackslash cite\{einstein\}} \cite{einstein}
-	\item \texttt{\textbackslash shortcite\{einstein\}} \shortcite{einstein}
+    \item \href{https://www.bibtex.com/bibliography-styles-numeric-square-brackets/}{Galería de estilos numéricos por corchetes}
+    \item \href{https://www.bibtex.com/bibliography-styles-author-date/}{Galería de estilos por autor/fecha}
+    \item \href{https://latex.ppizarror.com/res/guia_basica_referencias_mendeley_v3.pdf}{Guía básica referencias Mendeley}
+    \item \href{http://homepage.stat.uiowa.edu/~rlenth/ALPHA/bibstylescompared.pdf}{Guía completa de estilos}
 \end{itemize}
 
 
@@ -159,8 +154,8 @@ Para citar usando la librería \textbf{apacite} puedes usar:
 
 	% Se inserta una ecuación larga con el entorno gathered (1 solo número de ecuación)
 	\insertgathered[\label{eqn:eqn-larga}]{
-		\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \bigp{M - d}}{l \cdot W} \cdot \frac{\pow{\bigp{\lpow{Q}{e}- i\cdot Q}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}\\
-		Q_e = 2.5Q \cdot \int_{0}^{e} V(x) \dd{x} + \aasin{\biggp{1+\frac{1}{1-e}}}
+		\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \bigp{M - d}}{l \cdot W} \cdot \underequal{\frac{\pow{\bigp{\lpow{Q}{e}- i\cdot Q}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}}{\sim \A}\\
+			Q_e = 2.5Q \cdot \int_{0}^{e} V(x) \dd{x} + \aasin{\biggp{1+\frac{1}{1-e}}}
 	}
 
 	% Nuevo párrafo
@@ -326,7 +321,7 @@ Obteniendo así:
 
 
 % ------------------------------------------------------------------------------
-% BIBLIOGRAFÍA (ESTILO NATBIB), revisar configuración \stylecitereferences
+% BIBLIOGRAFÍA, revisar configuración \stylecitereferences
 % ------------------------------------------------------------------------------
 \bibliography{library} 
 
