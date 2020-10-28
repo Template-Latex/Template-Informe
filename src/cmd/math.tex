@@ -259,6 +259,16 @@
 %	#1 	Elemento
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 
+% Función \tilde{} pero que encierra todo el texto
+%	#1 	Elemento
+\makeatletter
+\def\longtilde#1{\mathop{\vbox{\m@th\ialign{##\crcr\noalign{\kern3\p@}%
+				\sortoftildefill\crcr\noalign{\kern3\p@\nointerlineskip}%
+				$\hfil\displaystyle{#1}\hfil$\crcr}}}\limits}
+\def\sortoftildefill{$\m@th \setbox\z@\hbox{$\braceld$}%
+	\braceld\leaders\vrule \@height\ht\z@ \@depth\z@\hfill\braceru$}
+\makeatother
+
 % Definición de letras
 \newcommand{\A}{\ensuremath{\mathcal{A}}}
 \newcommand{\B}{\ensuremath{\mathcal{B}}}
