@@ -79,7 +79,7 @@
 	% Se crean los header-footer
 	% -----------------------------------------------------------------------------
 	\fancyheadoffset{0pt} % Desactiva el offset de los header-footer
-	\def\hfheaderimagesizeA {1.2} % Tamaño de las imágenes del encabezado estilo 3/13
+	\def\hfheaderimageparamsA {height=\baselineskip} % Tamaño de las imágenes del encabezado estilo 3/13
 	\ifthenelse{\equal{\hfstyle}{style1}}{
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{
@@ -293,9 +293,9 @@
 			}{
 				\fancyhead[L]{\small \textit{\codigodelcurso \nombredelcurso}}
 			}
-			\fancyhead[R]{
-				\includegraphics[width=\hfheaderimagesizeA cm]{\imagendepartamento}
-				\vspace{-0.15cm}
+			\fancyhead[R]{%
+				\coreinsertkeyimage{\hfheaderimageparamsA}{\imagendepartamento}%
+				\vspace{-0.15cm}%
 			}
 			\fancyfoot[C]{\thepage}
 			\renewcommand{\headrulewidth}{0.5pt}
@@ -694,9 +694,9 @@
 			}{
 				\fancyhead[L]{\small \textit{\codigodelcurso \nombredelcurso}}
 			}
-			\fancyhead[R]{
-				\includegraphics[width=\hfheaderimagesizeA cm]{\imagendepartamento}
-				\vspace{-0.15cm}
+			\fancyhead[R]{%
+				\coreinsertkeyimage{\hfheaderimageparamsA}{\imagendepartamento}%
+				\vspace{-0.15cm}%
 			}
 			\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
 			\renewcommand{\headrulewidth}{0.5pt}
