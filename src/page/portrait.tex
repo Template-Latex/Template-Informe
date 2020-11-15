@@ -36,10 +36,10 @@
 			\COREwriteheaderitem{\departamentouniversidad}
 			\vspace{-0.95\baselineskip}
 		}
-		\fancyhead[R]{
-			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
-			\hspace{-0.255cm}
-			\vspace{-0.175cm}
+		\fancyhead[R]{%
+			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+			\hspace{-0.097cm}%
+			\vspace{-0.175cm}%
 		}
 
 		% Título y tema a tratar
@@ -73,10 +73,10 @@
 			\COREwriteheaderitem{\departamentouniversidad}
 			\vspace{-0.95\baselineskip}
 		}
-		\fancyhead[R]{
-			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
-			\hspace{-0.255cm}
-			\vspace{-0.175cm}
+		\fancyhead[R]{%
+			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+			\hspace{-0.097cm}%
+			\vspace{-0.175cm}%
 		}
 
 		% Nombre de curso y título
@@ -112,10 +112,10 @@
 			\COREwriteheaderitem{\departamentouniversidad}
 			\vspace{-0.95\baselineskip}
 		}
-		\fancyhead[R]{
-			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
-			\hspace{-0.255cm}
-			\vspace{-0.175cm}
+		\fancyhead[R]{%
+			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+			\hspace{-0.097cm}%
+			\vspace{-0.175cm}%
 		}
 
 		% Curso y código - título informe
@@ -144,10 +144,13 @@
 	\ifthenelse{\equal{\portraitstyle}{style4}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\thispagestyle{empty}
+		
+		\checkextravarexist{\portraitimageF}{[portrait-style4] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageparamsF}{[portrait-style4] Defina los parametros de la imagen extra de la portada}
 
 		% Escribe el header
 		\vspace*{-1.5cm}
-		\noindent \includegraphics[width=1.75cm]{departamentos/uchile2}
+		\noindent \coreinsertkeyimage{\portraitimageparamsF}{\portraitimageF}
 		\hspace*{-0.15cm}
 		\begin{tabular}{l}
 			% Inserta nuevas lineas independiente de si tiene texto o no
@@ -178,16 +181,19 @@
 	\ifthenelse{\equal{\portraitstyle}{style5}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\thispagestyle{empty}
+		
+		\checkextravarexist{\portraitimageG}{[portrait-style5] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageparamsG}{[portrait-style5] Defina los parametros de la imagen extra de la portada}
 
 		% Escribe el header
-		\includegraphics[width=1.5cm]{departamentos/uchile3}
+		\coreinsertkeyimage{\portraitimageparamsG}{\portraitimageG}
 		\hspace{-0.2cm}
 		\begin{tabular}{l}
 			% Inserta nuevas lineas independiente de si tiene texto o no
 			\COREwriteheaderitemsc[~\\]{\nombreuniversidad}
 			\COREwriteheaderitemsc[~\\]{\nombrefacultad}
 			\COREwriteheaderitemsc[~\\]{\departamentouniversidad}
-			\vspace*{1cm}\mbox{}
+			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
 
 		% Título informe - tema
@@ -213,11 +219,15 @@
 	\ifthenelse{\equal{\portraitstyle}{style6}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\thispagestyle{empty}
+		
+		\checkextravarexist{\portraitimageH}{[portrait-style6] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageparamsH}{[portrait-style6] Defina los parametros de la imagen extra de la portada}
 
 		% Escribe el header
-		\begin{wrapfigure}{l}{0.3\linewidth}
-			\vspace{-0.69cm}
-			\noindent \hspace{-1.10cm} \includegraphics[scale=1.35]{departamentos/fcfm2}
+		\begin{wrapfigure}{l}{0.305\linewidth}%
+			\vspace{-0.69cm}%
+			\noindent \hspace{-1cm}%
+			\coreinsertkeyimage{\portraitimageparamsH}{\portraitimageH}%
 		\end{wrapfigure}
 		\def\COREstylefirstmargin {-2.2cm}
 		\ifthenelse{\equal{\departamentouniversidad}{\xspace}}{}{
@@ -269,8 +279,9 @@
 		% Escribe el header
 		\begin{center}
 			\vspace*{-1.5cm}
-			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
-			\hspace*{-0.15cm}
+			\hspace*{-1.25cm}
+			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}
+			\hspace*{-0.25cm}
 			\begin{tabular}{l}
 				\vspace*{0.26cm}\mbox{} ~ \\
 				\COREwriteheaderitemsc{\nombreuniversidad}
@@ -306,7 +317,7 @@
 		\begin{center}
 			\vspace*{-1.0cm}
 			\begin{tabular}{c}
-				\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \vspace{0.5cm} ~ \\
+				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0.5cm} ~ \\
 				\COREwriteheaderitemsc{\nombreuniversidad}
 				\COREwriteheaderitemsc{\nombrefacultad}
 				\COREwriteheaderitemsc{\departamentouniversidad}
@@ -336,7 +347,7 @@
 		\thispagestyle{empty}
 
 		% Título del informe
-		\noindent \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+		\noindent \hspace{-0.25cm} \coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}
 		\vfill
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
@@ -437,7 +448,7 @@
 		% Imagen departamento
 		\begin{center}
 			\vspace*{-1.0cm}
-			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
+			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}
 		\end{center}
 
 		% Título informe
@@ -518,7 +529,7 @@
 		\noindent
 		\begin{flushleft}
 			\vspace*{-1.0cm}
-			\noindent \includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento} \\
+			\noindent \coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \\
 		\end{flushleft}
 
 		% Título del informe
@@ -535,17 +546,22 @@
 	\ifthenelse{\equal{\portraitstyle}{style15}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\thispagestyle{empty}
-		\checkextravarexist{\portraitheaderimageA}{Defina la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-		\checkextravarexist{\portraitheaderimagescaleA}{Defina la escala de la imagen extra de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+		
+		\checkextravarexist{\portraitimageA}{[portrait-style15] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageparamsA}{[portrait-style15] Defina los parametros de la imagen extra de la portada}
+		\checkextravarexist{\portraitimagerightA}{[portrait-style15] Defina la direccion de la imagen extra derecha de la portada}
+		\checkextravarexist{\portraitimagerightparamsA}{[portrait-style15] Defina los parametros de la imagen extra derecha de la portada}
 
 		% Header
 		\vspace*{-1.5cm}
 		\noindent \begin{minipage}{0.8\linewidth}
 			\noindent \begin{minipage}{0.22\linewidth}
-				\includegraphics[scale=1.0]{departamentos/fcfm2} \\
+				\coreinsertkeyimage{\portraitimageparamsA}{\portraitimageA} \\
 			\end{minipage}
+			\hspace{-0.25cm}
 			\begin{minipage}{0.6\linewidth}
 				\begin{flushleft}
+					\vspace*{-0.05cm}
 					\textsc{
 					\begin{tabular}{l}
 						\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{}{
@@ -564,9 +580,9 @@
 		\end{minipage}
 		\noindent \begin{minipage}{0.2\linewidth}
 			\begin{flushright}
-				\ifthenelse{\isundefined{\portraitheaderimageA}}{}{
-					\ifthenelse{\isundefined{\portraitheaderimagescaleA}}{}{
-						\noindent \includegraphics[scale=\portraitheaderimagescaleA]{\portraitheaderimageA} \\
+				\ifthenelse{\isundefined{\portraitimagerightA}}{}{
+					\ifthenelse{\isundefined{\portraitimagerightparamsA}}{}{
+						\noindent \coreinsertkeyimage{\portraitimagerightparamsA}{\portraitimagerightA} \\
 					}
 				}
 			\end{flushright}
@@ -587,8 +603,9 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style16}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-		\checkextravarexist{\portraitbackgroundimageB}{[portrait-style16] Defina el fondo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-		\checkextravarexist{\portraitbackgroundcolorB}{[portrait-style16] Defina el color del bloque del titulo de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+		
+		\checkextravarexist{\portraitbackgroundimageB}{[portrait-style16] Defina la direccion del fondo de la portada}
+		\checkextravarexist{\portraitbackgroundcolorB}{[portrait-style16] Defina el color del bloque del titulo de la portada}
 
 		% Imagen fondo, título informe
 		\begingroup
@@ -606,10 +623,11 @@
 	\ifthenelse{\equal{\portraitstyle}{style17}}{
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\pagestyle{fancy}
-		\checkextravarexist{\portraitimageC}{[portrait-style17] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-		\checkextravarexist{\portraitimageboxedC}{[portrait-style17] Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-		\checkextravarexist{\portraitimageboxedwidthC}{[portrait-style17] Defina el grosor del recuadro de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-		\checkextravarexist{\portraitimagewidthC}{[portrait-style17] Defina los parametros de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+		
+		\checkextravarexist{\portraitimageC}{[portrait-style17] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageboxedC}{[portrait-style17] Defina si la imagen de la portada se encierra en un recuadro}
+		\checkextravarexist{\portraitimageboxedwidthC}{[portrait-style17] Defina el grosor del recuadro de la imagen de la portada}
+		\checkextravarexist{\portraitimageparamsC}{[portrait-style17] Defina los parametros de la imagen de la portada}
 
 		% Header
 		\fancyhf{}
@@ -619,10 +637,10 @@
 			\COREwriteheaderitem{\departamentouniversidad}
 			\vspace{-0.95\baselineskip}
 		}
-		\fancyhead[R]{
-			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
-			\hspace{-0.255cm}
-			\vspace{-0.175cm}
+		\fancyhead[R]{%
+			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+			\hspace{-0.097cm}%
+			\vspace{-0.175cm}%
 		}
 
 		% Título del informe
@@ -637,11 +655,18 @@
 
 		% Imagen de la portada
 		~ \\
-		\ifthenelse{\equal{\portraitimageboxedC}{true}}{
-			\insertimageboxed{\portraitimageC}{width=\portraitimagewidthC}{\portraitimageboxedwidthC}{}
-		}{
-			\insertimage{\portraitimageC}{width=\portraitimagewidthC}{}
-		}
+		\vspace{2\baselineskip}
+		\begin{center}
+			\ifthenelse{\equal{\portraitimageboxedC}{true}}{
+				\begingroup
+				\setlength{\fboxsep}{0 pt}
+				\setlength{\fboxrule}{\portraitimageboxedwidthC pt}
+				\fbox{\coreinsertkeyimage{\portraitimageparamsC}{\portraitimageC}}%
+				\endgroup
+			}{
+				\coreinsertkeyimage{\portraitimageparamsC}{\portraitimageC}
+			}
+		\end{center}
 		~ \\
 		\vfill
 
@@ -656,10 +681,11 @@
 	\ifthenelse{\equal{\portraitstyle}{style18}}{
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\pagestyle{fancy}
-		\checkextravarexist{\portraitimageD}{[portrait-style18] Defina la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-		\checkextravarexist{\portraitimageboxedD}{[portrait-style18] Defina si la imagen de la portada se encierra en un recuadro en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-		\checkextravarexist{\portraitimageboxedwidthD}{[portrait-style18] Defina el grosor del recuadro de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
-		\checkextravarexist{\portraitimagewidthD}{[portrait-style18] Defina los parametros de la imagen de la portada en el archivo lib/page/portrait-config.tex (VERSION NORMAL) o bien en el bloque PORTADA (VERSION COMPACTA)}
+		
+		\checkextravarexist{\portraitimageD}{[portrait-style18] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageboxedD}{[portrait-style18] Defina si la imagen de la portada se encierra en un recuadro}
+		\checkextravarexist{\portraitimageboxedwidthD}{[portrait-style18] Defina el grosor del recuadro de la imagen de la portada}
+		\checkextravarexist{\portraitimageparamsD}{[portrait-style18] Defina los parametros de la imagen de la portada}
 
 		% Header
 		\fancyhf{}
@@ -669,19 +695,26 @@
 			\COREwriteheaderitem{\departamentouniversidad}
 			\vspace{-0.95\baselineskip}
 		}
-		\fancyhead[R]{
-			\includegraphics[scale=\imagendepartamentoescala]{\imagendepartamento}
-			\hspace{-0.255cm}
-			\vspace{-0.175cm}
+		\fancyhead[R]{%
+			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+			\hspace{-0.097cm}%
+			\vspace{-0.175cm}%
 		}
 
 		% Imagen de la portada
 		~ \\
-		\ifthenelse{\equal{\portraitimageboxedD}{true}}{
-			\insertimageboxed{\portraitimageD}{width=\portraitimagewidthD}{\portraitimageboxedwidthD}{}
-		}{
-			\insertimage{\portraitimageD}{width=\portraitimagewidthD}{}
-		}
+		\begin{center}
+			\ifthenelse{\equal{\portraitimageboxedD}{true}}{
+				\begingroup
+				\setlength{\fboxsep}{0 pt}
+				\setlength{\fboxrule}{\portraitimageboxedwidthD pt}
+				\fbox{\coreinsertkeyimage{\portraitimageparamsD}{\portraitimageD}}%
+				\endgroup
+			}{
+				\coreinsertkeyimage{\portraitimageparamsD}{\portraitimageD}
+			}
+		\end{center}
+		\vspace{-2\baselineskip}
 
 		% Título del informe
 		\vfill
@@ -735,6 +768,8 @@
 	\ifthenelse{\equal{\portraitstyle}{style20}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\thispagestyle{empty}
+		
+		\checkextravarexist{\portraitverticalspaceE}{[portrait-style20] Defina el espaciamiento vertical de la portada}
 		
 		{\raggedleft	
 		\rule{1pt}{\textheight}
