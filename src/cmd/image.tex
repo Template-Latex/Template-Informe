@@ -605,8 +605,8 @@
 % Inserta una imagen con parametros keyvals almacenados en una variable
 % 	#1	Parámetros (keyvals)
 %	#2	Dirección de la imagen
-\newcommand{\coreinsertkeyimage}[2]{
-	\expandafter\includegraphics\expandafter[#1]{\expandafter#2}
+\newcommand{\coreinsertkeyimage}[2]{%
+	\expandafter\includegraphics\expandafter[#1]{\expandafter#2}%
 }
 
 % Define la clave resolution al insertar imágenes
