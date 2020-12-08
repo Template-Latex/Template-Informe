@@ -363,17 +363,17 @@
 	language=tcl,
 	breakatwhitespace=false,
 	emph=[1]{
-		-dir,-dof,-ele,-eleRange,-file,-height,-increment,-initial,-iNode,-integration,-iterate,-jNode,-kNode,-mass,-mat,-matConcrete,-matShear,-matSteel,-max,-maxDim,-maxEta,-maxIter,-min,-minEta,-ndf,-ndm,-node,-nodeRange,-numSublevels,-numSubSteps,-region,-rho,-sections,-thick,-time,-tol,-type,-width
+		-accel,-beamUniform,-dir,-dof,-ele,-eleRange,-file,-height,-increment,-initial,-iNode,-integration,-iterate,-jNode,-kNode,-mass,-mat,-matConcrete,-matShear,-matSteel,-max,-maxDim,-maxEta,-maxIter,-min,-minEta,-ndf,-ndm,-node,-nodeRange,-numSublevels,-numSubSteps,-perpDirn,-region,-rho,-sections,-thick,-time,-tol,-type,-width
 	},
 	emphstyle=[1]\color{black}\bfseries\em,
 	% moredelim=[s][\color{black}\bfseries\em]{-}{\ },
 	keepspaces=true,
 	morecomment=[l]{\#},
 	morekeywords={
-		algorithm,analysis,analyze,constraints,deformation,disp,DisplayModel2D,DisplayModel3D,element,equalDOF,fix,fixX,fixY,fixZmodel,geomTransf,initialize,integrator,loadConst,mass,node,numberer,pattern,printA,PySimple1Gen,reaction,recorder,region,section,system,test,uniaxialMaterial,wipe
+		algorithm,analysis,analyze,constraints,deformation,disp,eleLoad,element,equalDOF,fix,fixX,fixY,fixZmodel,geomTransf,initialize,integrator,layer,loadConst,mass,model,node,numberer,patch,pattern,printA,PySimple1Gen,reaction,recorder,region,rigidDiaphragm,section,system,test,uniaxialMaterial,wipe,wipeAnalysis
 	},
 	ndkeywords={
-		9_4_QuadUP,20_8_BrickUP,AC3D8,Aggregator,ArcLength,ASI3D8,AV3D4,AxialSp,AxialSpHD,BandGeneral,BARSLIP,BasicBuilder,bbarBrick,bbarBrickUP,bbarQuad,bbarQuadUP,BeamColumnJoint,BeamContact2D,BeamContact3D,BeamEndContact3D,BFGS,Bilin,BilinearOilDamper,Bond_SP01,BoucWen,Brick20N,brickUP,Broyden,BWBN,Cast,CatenaryCable,CentralDifference,CFSSSWP,CFSWSWP,Concrete01,Concrete01WithSITC,Concrete02,Concrete03,Concrete04,Concrete06,Concrete07,ConcreteCM,ConcreteD,ConfinedConcrete01,constraintsTypeGravity,corotTruss,corotTrussSection,CoupledZeroLength,DeformedShape,dispBeamColumn,dispBeamColumnInt,DisplacementControl,Dodd_Restrepo,ECC01,Elastic,elasticBeamColumn,ElasticBilin,ElasticMultiLinear,ElasticPP,ElasticPPGap,ElasticTimoshenkoBeam,ElasticTubularJoint,elastomericBearingBoucWen,elastomericBearingPlasticity,ElastomericX,EnergyIncr,enhancedQuad,ENT,Explicitdifference,Fatigue,flatSliderBearing,forceBeamColumn,forceBeamColumn,FourNodeTetrahedron,FPBearingPTV,FRPConfinedConcrete,GeneralizedAlpha,Hardening,HDR,HHT,HyperbolicGapMaterial,Hysteretic,ImpactMaterial,InitStrainMaterial,InitStressMaterial,Joint2D,KikuchiAikenHDR,KikuchiAikenLRB,KikuchiBearing,KrylovNewton,LeadRubberX,LimitState,Linear,LoadControl,LoadControl,MinMax,MinUnbalDispNorm,ModElasticBeam2d,ModifiedNewton,ModIMKPeakOriented,ModIMKPinching,MultiLinear,multipleShearSpring,MVLEM,Newmark,NewtonLineSearch,Node,NodeNumbers,nonlinearBeamColumn,NormDispIncr,numberer,Parallel,PathIndependentMaterial,pattern,Pinching4,PinchingLimitStateMaterial,Plain,PyLiq1,PySimple1,quad,quadUP,QzSimple1,RambergOsgoodSteel,rayleigh,RCM,ReinforcingSteel,RJWatsonEqsBearing,SAWS,SecantNewton,SelfCentering,Series,SFI_MVLEM,ShallowFoundationGen,ShellDKGQ,ShellDKGT,ShellMITC4,ShellNL,ShellNLDKGQ,ShellNLDKGT,SimpleContact2D,SimpleContact3D,singleFPBearing,SparseGeneral,SSPbrick,SSPbrickUP,SSPquad,SSPquadUP,Static,stdBrick,Steel01,Steel01,Steel02,Steel4,SteelMPF,SurfaceLoad,TFP,Transient,TRBDF2,tri31,TripleFrictionPendulum,truss,trussSection,twoNodeLink,TzLiq1,TzSimple1,ViewScale,Viscous,ViscousDamper,VS3D4,YamamotoBiaxialHDR,zeroLength,zeroLengthContact,zeroLengthContactNTS2D,zeroLengthImpact3D,zeroLengthImpact3D,zeroLengthInterface2D,zeroLengthND,zeroLengthSection
+		9_4_QuadUP,20_8_BrickUP,AC3D8,Aggregator,ArcLength,ASI3D8,AV3D4,AxialSp,AxialSpHD,BandGeneral,BARSLIP,BasicBuilder,bbarBrick,bbarBrickUP,bbarQuad,bbarQuadUP,BeamColumnJoint,BeamContact2D,BeamContact3D,BeamEndContact3D,BFGS,Bilin,BilinearOilDamper,Bond_SP01,BoucWen,Brick20N,brickUP,Broyden,BWBN,Cast,CatenaryCable,CentralDifference,CFSSSWP,CFSWSWP,Concrete01,Concrete01WithSITC,Concrete02,Concrete03,Concrete04,Concrete06,Concrete07,ConcreteCM,ConcreteD,ConfinedConcrete01,constraintsTypeGravity,Corotational,corotTruss,corotTrussSection,CoupledZeroLength,DeformedShape,dispBeamColumn,dispBeamColumnInt,DisplacementControl,Dodd_Restrepo,Drift,ECC01,Elastic,elasticBeamColumn,ElasticBilin,ElasticMultiLinear,ElasticPP,ElasticPPGap,ElasticTimoshenkoBeam,ElasticTubularJoint,elastomericBearingBoucWen,elastomericBearingPlasticity,ElastomericX,Element,EnergyIncr,enhancedQuad,ENT,Explicitdifference,Fatigue,flatSliderBearing,forceBeamColumn,forceBeamColumn,FourNodeTetrahedron,FPBearingPTV,FRPConfinedConcrete,GeneralizedAlpha,Hardening,HDR,HHT,HyperbolicGapMaterial,Hysteretic,ImpactMaterial,InitStrainMaterial,InitStressMaterial,Joint2D,KikuchiAikenHDR,KikuchiAikenLRB,KikuchiBearing,KrylovNewton,Lagrange,LeadRubberX,LimitState,Linear,LoadControl,LoadControl,MinMax,MinUnbalDispNorm,mkdir,ModElasticBeam2d,ModifiedNewton,ModIMKPeakOriented,ModIMKPinching,MultiLinear,multipleShearSpring,MVLEM,Newmark,Newton,NewtonLineSearch,Node,NodeNumbers,nonlinearBeamColumn,NormDispIncr,numberer,Parallel,PathIndependentMaterial,pattern,PDelta,Pinching4,PinchingLimitStateMaterial,Plain,PyLiq1,PySimple1,quad,quadr,quadUP,QzSimple1,RambergOsgoodSteel,rayleigh,RCM,rect,ReinforcingSteel,RJWatsonEqsBearing,SAWS,SecantNewton,SelfCentering,Series,SFI_MVLEM,ShallowFoundationGen,ShellDKGQ,ShellDKGT,ShellMITC4,ShellNL,ShellNLDKGQ,ShellNLDKGT,SimpleContact2D,SimpleContact3D,singleFPBearing,SparseGeneral,SSPbrick,SSPbrickUP,SSPquad,SSPquadUP,Static,stdBrick,Steel01,Steel01,Steel02,Steel4,SteelMPF,straight,SurfaceLoad,TFP,Transient,TRBDF2,tri31,TripleFrictionPendulum,truss,trussSection,twoNodeLink,TzLiq1,TzSimple1,UniformExcitation,ViewScale,Viscous,ViscousDamper,VS3D4,YamamotoBiaxialHDR,zeroLength,zeroLengthContact,zeroLengthContactNTS2D,zeroLengthImpact3D,zeroLengthImpact3D,zeroLengthInterface2D,zeroLengthND,zeroLengthSection
 	},
 	ndkeywordstyle=\color{dkcyan}\ttfamily
 }
@@ -623,7 +623,12 @@
 		{ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?``}}1 {¡}{{!``}}1 {«}{{\guillemotleft}}1
 		{»}{{\guillemotright}}1 {°}{{\textdegree}}1 {∢}{{$\sphericalangle$}}1
 		{¬}{{$\neg$}}1 {¨}{{\textasciidieresis}}1 {ã}{{\~a}}1 {Ã}{{\~a}}1
-		{õ}{{\~o}}1 {Õ}{{\~O}}1 {Ð}{{\DJ}}1 {Ø}{{\O}}1 {Ý}{{\'Y}}1,
+		{õ}{{\~o}}1 {Õ}{{\~O}}1 {Ð}{{\DJ}}1 {Ø}{{\O}}1 {Ý}{{\'Y}}1
+		{¹}{{\textsuperscript{1}}}1 {²}{{\textsuperscript{2}}}1
+		{³}{{\textsuperscript{3}}}1 {⁴}{{\textsuperscript{4}}}1
+		{⁵}{{\textsuperscript{5}}}1 {⁶}{{\textsuperscript{6}}}1
+		{⁷}{{\textsuperscript{7}}}1 {⁸}{{\textsuperscript{8}}}1
+		{⁹}{{\textsuperscript{9}}}1 {⁰}{{\textsuperscript{0}}}1,
 	numbers=left,
 	numbersep={\sourcecodenumbersep pt},
 	numberstyle=\tiny\color{dkgray},
