@@ -267,6 +267,697 @@ loadConst -time 0.0
 puts "Model Built"
 \end{sourcecode}
 
+\begin{sourcecode}[]{opensees}{Otro de opensees}
+# SET UP MODEL ------------------------------------------------------------------------------------
+wipe
+
+# Define model builder
+# --------------------
+model basic -ndm 2 -ndf 3
+source MomentCurvature.tcl;         # Llama a la rutina de Momento-Curvatura
+
+# Define materials for nonlinear columns
+# ------------------------------------------
+# CONCRETE
+# Core and cover concrete (unconfined)
+
+set fc -25.0;      # MPa
+set eco -0.0025; 
+set fcu -0.00;     # MPa
+set ecu -0.005;
+set lambda 0.00001;
+set ft [expr 0.62*pow(25,0.5)]; #MPa
+set Ecs 1e10;      #MPa
+# uniaxialMaterial Concrete02 $matTag $fpc $epsc0 $fpcu $epsU $lambda $ft $Ets
+uniaxialMaterial Concrete02   1  $fc $eco $fcu $ecu $lambda $ft $Ecs ;
+
+# STEEL
+# Reinforcing steel 
+
+set fy 420.0;     # MPa
+set E 2e5;        # MPa
+set b 0.01;
+
+#uniaxialMaterial Steel02 $matTag $Fy $E $b $R0 $cR1 $cR2 <$a1 $a2 $a3 $a4 $sigInit>
+uniaxialMaterial Steel02  2  $fy $E $b 15.0 0.10 0.15;
+
+# Define cross-section for nonlinear columns
+# ------------------------------------------
+
+# set some paramaters
+set b  350.0;   #mm 
+set h  700.0;   #mm
+set b2 700.0;   #mm
+set d  645.0;   #mm
+set dp  55.0;   #mm
+set tf 110.0;   #mm
+set As  1050.0;  #mm²  area de cada barra
+set Asp 1050.0;  #mm²
+
+# some variables derived from the parameters
+set y1 [expr $h/2.0];
+set z1 [expr $b/2.0];
+set z2 [expr $b2/2.0];
+
+section Fiber 1 {
+	
+	# Create the concrete fibers
+	#Beam web
+	#patch rect $matTag $numSubdivY $numSubdivZ $yI $zI $yJ $zJ
+	patch rect 1 59 1 [expr -$y1+$tf] [expr -$z1] [expr $y1] [expr $z1];
+	
+	#Beam flange 
+	patch rect 1 11 1 [expr -$y1] [expr -$z2] [expr -$y1+$tf] [expr $z2];
+	
+	# Create the reinforcing fibers (left, right)
+	#layer straight $matTag $numFiber $areaFiber $yStart $zStart $yEnd $zEnd
+	layer straight 2 2 $As [expr $y1-$dp] [expr $z1-$dp] [expr $y1-$dp] [expr -$z1+$dp];
+	layer straight 2 2 $As [expr -$y1+$dp] [expr $z1-$dp] [expr -$y1+$dp] [expr -$z1+$dp];
+	
+}   
+
+# Estimate yield curvature
+# (Assuming no axial load and only top and bottom steel)
+set epsy [expr $fy/$E]  ;# steel yield strain
+set Ky [expr $epsy/(0.7*$d)];
+
+# Print estimate to standard output
+puts "Estimated yield curvature: $Ky"
+
+# Set axial load 
+set P -10e3;  # [N] 
+
+set mu 26;      # Target ductility for analysis
+set numIncr 500;    # Number of analysis increments
+
+# Call the section analysis procedure
+MomentCurvature 1 $P [expr $Ky*$mu] $numIncr
+
+puts "ANALISIS FINALIZADO"
+
+# SET UP MODEL ------------------------------------------------------------------------------------
+wipe                                                                                
+model BasicBuilder -ndm 2 -ndf 3;   # Model builder, ndm=#dims, ndf=#dofs, /2D 3GDL por nudo                                                                            
+set dataDir Data_P2_2c;             # Define una carpeta para guardar los archivos de salida
+file mkdir $dataDir;                # Crea la carpeta
+source lib_DisplayPlane.tcl;        # Opcional Rutina que despliega el modelo
+source lib_DisplayModel2D.tcl;      # Opcional Rutina que dibuja 
+
+#Creamos las constantes del problema 
+# Unidades m, kN
+set L 2.0;       #m
+set A 0.1;       #m2 
+set I 8e-3;
+set E 2e10;
+set k 10;      #kN*m
+set theta [expr -0.01*3.1416/180];
+
+puts "Constantes ...OK"
+
+#Coordenadas de nodos en m
+#node $nodeTag (ndm $coords) <-mass (ndf $massValues)>
+
+node 1 0.0 0.0; 
+node 2 [expr $L*sin($theta) ] $L;
+node 3 [expr 2*$L*sin($theta) ] [expr 2*$L];
+node 4 [expr 3*$L*sin($theta) ] [expr 3*$L];
+node 5 [expr 4*$L*sin($theta) ] [expr 4*$L];
+
+#Resortes
+node 11 0.0 0.0; 
+node 12 [expr $L*sin($theta) ] $L;
+node 13 [expr 2*$L*sin($theta) ] [expr 2*$L];
+node 14 [expr 3*$L*sin($theta) ] [expr 3*$L];
+
+puts "Nodos ...OK"
+
+#Condiciones de borde 
+fix 1 1 1 1;
+fix 11 1 1 0;
+
+#Resortes
+equalDOF 2 12 1 2;
+equalDOF 3 13 1 2;
+equalDOF 4 14 1 2;
+
+puts "Condiciones de borde ...OK"
+
+#Materiales 
+uniaxialMaterial Elastic 1 $k;
+
+#Matriz de transformación geométrica (NO LINEALIDAD GEOMÉTRICA)
+geomTransf Linear 1;          # No considera no linealidad geométrica
+geomTransf PDelta 2;          # Considera efectos P-delta
+geomTransf Corotational 3;    # Considera efectos P-delta y P-Delta
+
+#Creación de elementos
+# Barras Rígidas
+element elasticBeamColumn 1 11 2 $A $E $I 3;
+element elasticBeamColumn 2 12 3 $A $E $I 3;
+element elasticBeamColumn 3 13 4 $A $E $I 3;
+element elasticBeamColumn 4 14 5 $A $E $I 3;
+
+#Resortes
+element zeroLength 11 1 11 -mat 1 -dir 3;  # La dirección es 6 (3D) o 3 (2D) funciona con los 2
+element zeroLength 12 2 12 -mat 1 -dir 3;  
+element zeroLength 13 3 13 -mat 1 -dir 3;
+element zeroLength 14 4 14 -mat 1 -dir 3;
+
+puts "Materiales ...OK"
+
+# DISPLAY -----------------------------------------------------------------------------------------
+DisplayModel2D NodeNumbers
+
+#Creación del Patrón de cargas
+set P -1.0;
+
+pattern Plain 1 Linear {
+	load 5 0.0 $P 0.0;
+} 
+
+#RECORDERS
+recorder Node -file $dataDir/NodeReact.out -time -node 1 -dof 1 2 3 reaction;
+recorder Node -file $dataDir/Node2Disp.out -time -node 2 -dof 1 2 3 disp;
+recorder Node -file $dataDir/Node3Disp.out -time -node 3 -dof 1 2 3 disp;
+recorder Node -file $dataDir/Node4Disp.out -time -node 4 -dof 1 2 3 disp;
+recorder Node -file $dataDir/Node5Disp.out -time -node 5 -dof 1 2 3 disp;
+
+# Display Deformed Shape: (Opcional) Dibuja la deformada
+set ViewScale 0.1;               # amplify display of deformed shape
+DisplayModel2D DeformedShape $ViewScale ;   # display deformed shape, the scaling factor needs to be adjusted for each model
+
+#Definición del análisis
+#integrator DisplacementControl $node $dof $incr <$numIter $<math>\Delta U \text{min} </math> $<math>\Delta U \text{max}</math>>
+set dU -0.001;
+integrator DisplacementControl 5 2 $dU;
+# test de tolerancia
+set tol 1.0e-15;                # tolerance 
+set iter 5000;                 # max iterations
+set pFlag 0;                   # No desplega info de cada iteración
+set nType 2;                   # Tipo de 
+test EnergyIncr $tol $iter $pFlag $nType;
+algorithm KrylovNewton; 
+numberer Plain;
+constraints Plain;
+system SparseGeneral;
+analysis Static;
+analyze 4100;
+
+puts "Analysis...   OK"
+puts "End Time: [getTime]"
+
+# --------------------------------------------------------------------------------------------------
+# Example 1. portal frame in 2D
+# dynamic earthquake analysis of Portal Frame, with gravity.
+# all units are in kip, inch, second
+# elasticBeamColumn ELEMENT
+#		Silvia Mazzoni & Frank McKenna, 2006
+#
+#    ^Y
+#    |
+#    3_________(3)________4       __ 
+#    |                                    |          | 
+#    |                                    |          |
+#    |                                    |          |
+#  (1)                                 (2)       LCol
+#    |                                    |          |
+#    |                                    |          |
+#    |                                    |          |
+#  =1=                               =2=      _|_  -------->X
+#    |----------LBeam------------|
+#
+
+# SET UP ----------------------------------------------------------------------------
+wipe;						# clear opensees model
+model basic -ndm 2 -ndf 3;				# 2 dimensions, 3 dof per node
+file mkdir data; 					# create data directory
+
+# define GEOMETRY -------------------------------------------------------------
+# nodal coordinates:
+node 1 0 0;					# node#, X Y
+node 2 504 0
+node 3 0 432
+node 4 504 432 
+
+# Single point constraints -- Boundary Conditions
+fix 1 1 1 1; 			# node DX DY RZ
+fix 2 1 1 1; 			# node DX DY RZ
+fix 3 0 0 0
+fix 4 0 0 0
+
+# nodal masses:
+mass 3 5.18 0. 0.;					# node#, Mx My Mz, Mass=Weight/g.
+mass 4 5.18 0. 0.
+
+# Define ELEMENTS -------------------------------------------------------------
+# define geometric transformation: performs a linear geometric transformation of beam stiffness and resisting force from the basic system to the global-coordinate system
+geomTransf Linear 1;  		# associate a tag to transformation
+
+# connectivity: (make A very large, 10e6 times its actual value)
+element elasticBeamColumn 1 1 3 3600000000 4227 1080000 1;	# element elasticBeamColumn $eleTag $iNode $jNode $A $E $Iz $transfTag
+element elasticBeamColumn 2 2 4 3600000000 4227 1080000 1
+element elasticBeamColumn 3 3 4 5760000000 4227 4423680 1
+
+# Define RECORDERS -------------------------------------------------------------
+recorder Node -file Data/DFree.out -time -node 3 4 -dof 1 2 3 disp;			# displacements of free nodes
+recorder Node -file Data/DBase.out -time -node 1 2 -dof 1 2 3 disp;			# displacements of support nodes
+recorder Node -file Data/RBase.out -time -node 1 2 -dof 1 2 3 reaction;		# support reaction
+recorder Drift -file Data/Drift.out -time -iNode 1 2 -jNode 3 4 -dof 1  -perpDirn 2 ;	# lateral drift
+recorder Element -file Data/FCol.out -time -ele 1 2 globalForce;			# element forces -- column
+recorder Element -file Data/FBeam.out -time -ele 3 globalForce;			# element forces -- beam
+
+# define GRAVITY -------------------------------------------------------------
+pattern Plain 1 Linear {
+	eleLoad -ele 3 -type -beamUniform -7.94 ; # distributed superstructure-weight on beam
+}
+constraints Plain;     				# how it handles boundary conditions
+numberer Plain;					# renumber dof's to minimize band-width (optimization), if you want to
+system BandGeneral;				# how to store and solve the system of equations in the analysis
+test NormDispIncr 1.0e-8 6 ; 				# determine if convergence has been achieved at the end of an iteration step
+algorithm Newton;					# use Newton's solution algorithm: updates tangent stiffness at every iteration
+integrator LoadControl 0.1;				# determine the next time step for an analysis, # apply gravity in 10 steps
+analysis Static					# define type of analysis static or transient
+analyze 10;					# perform gravity analysis
+loadConst -time 0.0;				# hold gravity constant and restart time
+
+# DYNAMIC ground-motion analysis -------------------------------------------------------------
+# create load pattern
+set accelSeries "Series -dt 0.01 -filePath BM68elc.acc -factor 1";	# define acceleration vector from file (dt=0.01 is associated with the input file gm)
+pattern UniformExcitation 2 1 -accel $accelSeries;		# define where and how (pattern tag, dof) acceleration is applied
+rayleigh 0. 0. 0. [expr 2*0.02/pow([eigen 1],0.5)];		# set damping based on first eigen mode
+
+# create the analysis
+wipeAnalysis;					# clear previously-define analysis parameters
+constraints Plain;     				# how it handles boundary conditions
+numberer Plain;					# renumber dof's to minimize band-width (optimization), if you want to
+system BandGeneral;				# how to store and solve the system of equations in the analysis
+test NormDispIncr 1.0e-8 10;				# determine if convergence has been achieved at the end of an iteration step
+algorithm Newton;					# use Newton's solution algorithm: updates tangent stiffness at every iteration
+integrator Newmark 0.5 0.25 ;			# determine the next time step for an analysis
+analysis Transient;					# define type of analysis: time-dependent
+analyze 1000 0.02;					# apply 1000 0.02-sec time steps in analysis
+
+
+puts "Done!"
+
+set coverY [expr $HSec/2.0];		# The distance from the section z-axis to the edge of the cover concrete -- outer edge of cover concrete
+set coverZ [expr $BSec/2.0];		# The distance from the section y-axis to the edge of the cover concrete -- outer edge of cover concrete
+set coreY [expr $coverY-$coverH];		# The distance from the section z-axis to the edge of the core concrete --  edge of the core concrete/inner edge of cover concrete
+set coreZ [expr $coverZ-$coverB];		# The distance from the section y-axis to the edge of the core concrete --  edge of the core concrete/inner edge of cover concrete
+set numBarsInt [expr $numBarsIntTot/2];	# number of intermediate bars per side
+
+# Define the fiber section
+section fiberSec $id {
+	# Define the core patch
+	patch quadr $coreID $nfCoreZ $nfCoreY -$coreY $coreZ -$coreY -$coreZ $coreY -$coreZ $coreY $coreZ
+	
+	# Define the four cover patches
+	patch quadr $coverID 2 $nfCoverY -$coverY $coverZ -$coreY $coreZ $coreY $coreZ $coverY $coverZ
+	patch quadr $coverID 2 $nfCoverY -$coreY -$coreZ -$coverY -$coverZ $coverY -$coverZ $coreY -$coreZ
+	patch quadr $coverID $nfCoverZ 2 -$coverY $coverZ -$coverY -$coverZ -$coreY -$coreZ -$coreY $coreZ
+	patch quadr $coverID $nfCoverZ 2 $coreY $coreZ $coreY -$coreZ $coverY -$coverZ $coverY $coverZ	
+	
+	# define reinforcing layers
+	layer straight $steelID $numBarsInt $barAreaInt  -$coreY $coreZ $coreY $coreZ;	# intermediate skin reinf. +z
+	layer straight $steelID $numBarsInt $barAreaInt  -$coreY -$coreZ $coreY -$coreZ;	# intermediate skin reinf. -z
+	layer straight $steelID $numBarsTop $barAreaTop $coreY $coreZ $coreY -$coreZ;	# top layer reinfocement
+	layer straight $steelID $numBarsBot $barAreaBot  -$coreY $coreZ  -$coreY -$coreZ;	# bottom layer reinforcement
+	
+};	# end of fibersection definition
+
+wipe;				# clear memory of all past model definitions
+model BasicBuilder -ndm 3 -ndf 6;	# Define the model builder, ndm=#dimension, ndf=#dofs
+set dataDir Data;			# set up name of data directory
+file mkdir $dataDir; 			# create data directory
+set GMdir "../GMfiles";		# ground-motion file directory
+source LibUnits.tcl;			# define units
+source DisplayPlane.tcl;		# procedure for displaying a plane in model
+source DisplayModel3D.tcl;		# procedure for displaying 3D perspectives of model
+source BuildRCrectSection.tcl;		# procedure for definining RC fiber section
+
+# ------ frame configuration
+set NStory 2;			# number of stories above ground level
+set NBay 2;			# number of bays in X direction
+set NBayZ 2;			# number of bays in Z direction
+puts "Number of Stories in Y: $NStory Number of bays in X: $NBay Number of bays in Z: $NBayZ"
+set NFrame [expr $NBayZ + 1];	# actually deal with frames in Z direction, as this is an easy extension of the 2d model
+
+# define GEOMETRY -------------------------------------------------------------
+# define structure-geometry paramters
+set LCol [expr 14*$ft];		# column height (parallel to Y axis)
+set LBeam [expr 24*$ft];		# beam length (parallel to X axis)
+set LGird [expr 24*$ft];		# girder length (parallel to Z axis)
+
+# define NODAL COORDINATES
+set Dlevel 10000;	# numbering increment for new-level nodes
+set Dframe 100;	# numbering increment for new-frame nodes
+for {set frame 1} {$frame <=[expr $NFrame]} {incr frame 1} {
+	set Z [expr ($frame-1)*$LGird];
+	for {set level 1} {$level <=[expr $NStory+1]} {incr level 1} {
+		set Y [expr ($level-1)*$LCol];
+		for {set pier 1} {$pier <= [expr $NBay+1]} {incr pier 1} {
+			set X [expr ($pier-1)*$LBeam];
+			set nodeID [expr $level*$Dlevel+$frame*$Dframe+$pier]
+			node $nodeID $X $Y $Z;		# actually define node
+		}
+	}
+}
+
+# rigid diaphragm nodes
+set RigidDiaphragm ON ;		# options: ON, OFF. specify this before the analysis parameters are set the constraints are handled differently.
+set Xa [expr ($NBay*$LBeam)/2];		# mid-span coordinate for rigid diaphragm
+set Za [expr ($NFrame-1)*$LGird/2];
+set iMasterNode ""
+for {set level 2} {$level <=[expr $NStory+1]} {incr level 1} {
+	set Y [expr ($level-1)*$LCol];
+	# rigid-diaphragm nodes in center of each diaphram
+	set MasterNodeID [expr 9900+$level]
+	node $MasterNodeID $Xa $Y $Za;		# master nodes for rigid diaphragm
+	fix $MasterNodeID 0  1  0  1  0  1;		# constrain other dofs that don't belong to rigid diaphragm control
+	lappend iMasterNode $MasterNodeID
+	set perpDirn 2;				# perpendicular to plane of rigid diaphragm
+	for {set frame 1} {$frame <=[expr $NFrame]} {incr frame 1} {
+		for {set pier 1} {$pier <= [expr $NBay+1]} {incr pier 1} {
+			set nodeID [expr $level*$Dlevel+$frame*$Dframe+$pier]
+			rigidDiaphragm $perpDirn $MasterNodeID $nodeID; 	# define Rigid Diaphram,
+		}
+	}
+}
+
+# determine support nodes where ground motions are input, for multiple-support excitation
+set iSupportNode ""
+for {set frame 1} {$frame <=[expr $NFrame]} {incr frame 1} {
+	set level 1
+	for {set pier 1} {$pier <= [expr $NBay+1]} {incr pier 1} {
+		set nodeID [expr $level*$Dlevel+$frame*$Dframe+$pier]
+		lappend iSupportNode $nodeID
+	}
+}
+
+# BOUNDARY CONDITIONS
+fixY 0.0  1 1 1 0 1 0;		# pin all Y=0.0 nodes
+
+# calculated MODEL PARAMETERS, particular to this model
+# Set up parameters that are particular to the model for displacement control
+set IDctrlNode [expr int(($NStory+1)*$Dlevel+(1*$Dframe)+1)];		# node where displacement is read for displacement control
+set IDctrlDOF 1;					# degree of freedom of displacement read for displacement control
+set LBuilding [expr $NStory*$LCol];			# total building height
+
+# Define SECTIONS -------------------------------------------------------------
+set SectionType FiberSection;		# options: Elastic FiberSection
+
+# define section tags:
+set ColSecTag 1
+set BeamSecTag 2
+set GirdSecTag 3
+set ColSecTagFiber 4
+set BeamSecTagFiber 5
+set GirdSecTagFiber 6
+set SecTagTorsion 70
+
+# Section Properties:
+set HCol [expr 18*$in];		# square-Column width
+set BCol $HCol
+set HBeam [expr 24*$in];		# Beam depth -- perpendicular to bending axis
+set BBeam [expr 18*$in];		# Beam width -- parallel to bending axis
+set HGird [expr 24*$in];		# Girder depth -- perpendicular to bending axis
+set BGird [expr 18*$in];		# Girder width -- parallel to bending axis
+
+if {$SectionType == "Elastic"} {
+	# material properties:
+	set fc 4000*$psi;			# concrete nominal compressive strength
+	set Ec [expr 57*$ksi*pow($fc/$psi,0.5)];	# concrete Young's Modulus
+	set nu 0.2;			# Poisson's ratio
+	set Gc [expr $Ec/2./[expr 1+$nu]];  	# Torsional stiffness Modulus
+	set J $Ubig;			# set large torsional stiffness
+	# column section properties:
+	set AgCol [expr $HCol*$BCol];		# rectuangular-Column cross-sectional area
+	set IzCol [expr 0.5*1./12*$BCol*pow($HCol,3)];	# about-local-z Rect-Column gross moment of inertial
+	set IyCol [expr 0.5*1./12*$HCol*pow($BCol,3)];	# about-local-z Rect-Column gross moment of inertial
+	# beam sections:
+	set AgBeam [expr $HBeam*$BBeam];		# rectuangular-Beam cross-sectional area
+	set IzBeam [expr 0.5*1./12*$BBeam*pow($HBeam,3)];	# about-local-z Rect-Beam cracked moment of inertial
+	set IyBeam [expr 0.5*1./12*$HBeam*pow($BBeam,3)];	# about-local-y Rect-Beam cracked moment of inertial
+	# girder sections:
+	set AgGird [expr $HGird*$BGird];		# rectuangular-Girder cross-sectional area
+	set IzGird [expr 0.5*1./12*$BGird*pow($HGird,3)];	# about-local-z Rect-Girder cracked moment of inertial
+	set IyGird [expr 0.5*1./12*$HGird*pow($BGird,3)];	# about-local-y Rect-Girder cracked moment of inertial
+	
+	section Elastic $ColSecTag $Ec $AgCol $IzCol $IyCol $Gc $J
+	section Elastic $BeamSecTag $Ec $AgBeam $IzBeam $IyBeam $Gc $J
+	section Elastic $GirdSecTag $Ec $AgGird $IzGird $IyGird $Gc $J
+	
+	set IDconcCore  1;		# material numbers for recorder (this stressstrain recorder will be blank, as this is an elastic section)
+	set IDSteel  2;			# material numbers for recorder (this stressstrain recorder will be blank, as this is an elastic section)
+	
+} elseif {$SectionType == "FiberSection"} {
+	# MATERIAL parameters 
+	source LibMaterialsRC.tcl;	# define library of Reinforced-concrete Materials
+	# FIBER SECTION properties 
+	# Column section geometry:
+	set cover [expr 2.5*$in];	# rectangular-RC-Column cover
+	set numBarsTopCol 8;		# number of longitudinal-reinforcement bars on top layer
+	set numBarsBotCol 8;		# number of longitudinal-reinforcement bars on bottom layer
+	set numBarsIntCol 6;		# TOTAL number of reinforcing bars on the intermediate layers
+	set barAreaTopCol [expr 1.*$in*$in];	# longitudinal-reinforcement bar area
+	set barAreaBotCol [expr 1.*$in*$in];	# longitudinal-reinforcement bar area
+	set barAreaIntCol [expr 1.*$in*$in];	# longitudinal-reinforcement bar area
+	
+	set numBarsTopBeam 6;		# number of longitudinal-reinforcement bars on top layer
+	set numBarsBotBeam 6;		# number of longitudinal-reinforcement bars on bottom layer
+	set numBarsIntBeam 2;		# TOTAL number of reinforcing bars on the intermediate layers
+	set barAreaTopBeam [expr 1.*$in*$in];	# longitudinal-reinforcement bar area
+	set barAreaBotBeam [expr 1.*$in*$in];	# longitudinal-reinforcement bar area
+	set barAreaIntBeam [expr 1.*$in*$in];	# longitudinal-reinforcement bar area
+	
+	set numBarsTopGird 6;		# number of longitudinal-reinforcement bars on top layer
+	set numBarsBotGird 6;		# number of longitudinal-reinforcement bars on bottom layer
+	set numBarsIntGird 2;		# TOTAL number of reinforcing bars on the intermediate layers
+	set barAreaTopGird [expr 1.*$in*$in];	# longitudinal-reinforcement bar area
+	set barAreaBotGird [expr 1.*$in*$in];	# longitudinal-reinforcement bar area
+	set barAreaIntGird [expr 1.*$in*$in];	# longitudinal-reinforcement bar area
+	
+	set nfCoreY 12;		# number of fibers in the core patch in the y direction
+	set nfCoreZ 12;		# number of fibers in the core patch in the z direction
+	set nfCoverY 8;		# number of fibers in the cover patches with long sides in the y direction
+	set nfCoverZ 8;		# number of fibers in the cover patches with long sides in the z direction
+	# rectangular section with one layer of steel evenly distributed around the perimeter and a confined core.
+	BuildRCrectSection $ColSecTagFiber $HCol $BCol $cover $cover $IDconcCore  $IDconcCover $IDSteel $numBarsTopCol $barAreaTopCol $numBarsBotCol $barAreaBotCol $numBarsIntCol $barAreaIntCol  $nfCoreY $nfCoreZ $nfCoverY $nfCoverZ
+	BuildRCrectSection $BeamSecTagFiber $HBeam $BBeam $cover $cover $IDconcCore  $IDconcCover $IDSteel $numBarsTopBeam $barAreaTopBeam $numBarsBotBeam $barAreaBotBeam $numBarsIntBeam $barAreaIntBeam  $nfCoreY $nfCoreZ $nfCoverY $nfCoverZ
+	BuildRCrectSection $GirdSecTagFiber $HGird $BGird $cover $cover $IDconcCore  $IDconcCover $IDSteel $numBarsTopGird $barAreaTopGird $numBarsBotGird $barAreaBotGird $numBarsIntGird $barAreaIntGird  $nfCoreY $nfCoreZ $nfCoverY $nfCoverZ
+	
+	# assign torsional Stiffness for 3D Model
+	uniaxialMaterial Elastic $SecTagTorsion $Ubig
+	section Aggregator $ColSecTag $SecTagTorsion T -section $ColSecTagFiber
+	section Aggregator $BeamSecTag $SecTagTorsion T -section $BeamSecTagFiber
+	section Aggregator $GirdSecTag $SecTagTorsion T -section $GirdSecTagFiber
+} else {
+	puts "No section has been defined"
+	return -1
+}
+set GammaConcrete [expr 150*$pcf];
+set QdlCol [expr $GammaConcrete*$HCol*$BCol];	# self weight of Column, weight per length
+set QBeam [expr $GammaConcrete*$HBeam*$BBeam];	# self weight of Beam, weight per length
+set QGird [expr $GammaConcrete*$HGird*$BGird];	# self weight of Gird, weight per length
+
+# --------------------------------------------------------------------------------------------------------------------------------
+# define ELEMENTS
+# set up geometric transformations of element
+#   separate columns and beams, in case of P-Delta analysis for columns
+set IDColTransf 1; # all columns
+set IDBeamTransf 2; # all beams
+set IDGirdTransf 3; # all girds
+set ColTransfType Linear ;		# options for columns: Linear PDelta  Corotational 
+geomTransf $ColTransfType  $IDColTransf  0 0 1;			# orientation of column stiffness affects bidirectional response.
+geomTransf Linear $IDBeamTransf 0 0 1
+geomTransf Linear $IDGirdTransf 1 0 0
+
+# Define Beam-Column Elements
+set numIntgrPts 5;	# number of Gauss integration points for nonlinear curvature distribution
+# columns
+set N0col [expr 10000-1];	# column element numbers
+set level 0
+for {set frame 1} {$frame <=[expr $NFrame]} {incr frame 1} {
+	for {set level 1} {$level <=$NStory} {incr level 1} {
+		for {set pier 1} {$pier <= [expr $NBay+1]} {incr pier 1} {
+			set elemID [expr $N0col  +$level*$Dlevel + $frame*$Dframe+$pier]
+			set nodeI [expr  $level*$Dlevel + $frame*$Dframe+$pier]
+			set nodeJ  [expr  ($level+1)*$Dlevel + $frame*$Dframe+$pier]
+			element nonlinearBeamColumn $elemID $nodeI $nodeJ $numIntgrPts $ColSecTag $IDColTransf;		# columns
+		}
+	}
+}
+
+
+# beams -- parallel to X-axis
+set N0beam 1000000;	# beam element numbers
+for {set frame 1} {$frame <=[expr $NFrame]} {incr frame 1} {
+	for {set level 2} {$level <=[expr $NStory+1]} {incr level 1} {
+		for {set bay 1} {$bay <= $NBay} {incr bay 1} {
+			set elemID [expr $N0beam +$level*$Dlevel + $frame*$Dframe+ $bay]
+			set nodeI [expr $level*$Dlevel + $frame*$Dframe+ $bay]
+			set nodeJ  [expr $level*$Dlevel + $frame*$Dframe+ $bay+1]
+			element nonlinearBeamColumn $elemID $nodeI $nodeJ $numIntgrPts $BeamSecTag $IDBeamTransf;	# beams
+		}
+	}
+}
+
+# girders -- parallel to Z-axis
+set N0gird 2000000;	# gird element numbers
+for {set frame 1} {$frame <=[expr $NFrame-1]} {incr frame 1} {
+	for {set level 2} {$level <=[expr $NStory+1]} {incr level 1} {
+		for {set bay 1} {$bay <= $NBay+1} {incr bay 1} {
+			set elemID [expr $N0gird + $level*$Dlevel +$frame*$Dframe+ $bay]
+			set nodeI [expr   $level*$Dlevel + $frame*$Dframe+ $bay]
+			set nodeJ  [expr  $level*$Dlevel + ($frame+1)*$Dframe+ $bay]
+			element nonlinearBeamColumn $elemID $nodeI $nodeJ $numIntgrPts $GirdSecTag $IDGirdTransf;		# Girds
+		}
+	}
+}
+
+# --------------------------------------------------------------------------------------------------------------------------------
+# Define GRAVITY LOADS, weight and masses
+# calculate dead load of frame, assume this to be an internal frame (do LL in a similar manner)
+# calculate distributed weight along the beam length
+#set GammaConcrete [expr 150*$pcf];   		# Reinforced-Concrete floor slabs, defined above
+set Tslab [expr 6*$in];			# 6-inch slab
+set Lslab [expr $LGird/2]; 			# slab extends a distance of $LGird/2 in/out of plane
+set DLfactor 1.0;				# scale dead load up a little
+set Qslab [expr $GammaConcrete*$Tslab*$Lslab*$DLfactor]; 
+set QdlBeam [expr $Qslab + $QBeam]; 	# dead load distributed along beam (one-way slab)
+set QdlGird $QGird; 			# dead load distributed along girder
+set WeightCol [expr $QdlCol*$LCol];  		# total Column weight
+set WeightBeam [expr $QdlBeam*$LBeam]; 	# total Beam weight
+set WeightGird [expr $QdlGird*$LGird]; 	# total Beam weight
+
+# assign masses to the nodes that the columns are connected to 
+# each connection takes the mass of 1/2 of each element framing into it (mass=weight/$g)
+set iFloorWeight ""
+set WeightTotal 0.0
+set sumWiHi 0.0;		# sum of storey weight times height, for lateral-load distribution
+
+for {set frame 1} {$frame <=[expr $NFrame]} {incr frame 1} {
+	if {$frame == 1 || $frame == $NFrame}  {
+		set GirdWeightFact 1;		# 1x1/2girder on exterior frames
+	} else {
+		set GirdWeightFact 2;		# 2x1/2girder on interior frames
+	}
+	for {set level 2} {$level <=[expr $NStory+1]} {incr level 1} { ;		
+		set FloorWeight 0.0
+		if {$level == [expr $NStory+1]}  {
+			set ColWeightFact 1;		# one column in top story
+		} else {
+			set ColWeightFact 2;		# two columns elsewhere
+		}
+		for {set pier 1} {$pier <= [expr $NBay+1]} {incr pier 1} {;
+			if {$pier == 1 || $pier == [expr $NBay+1]} {
+				set BeamWeightFact 1;	# one beam at exterior nodes
+			} else {;
+				set BeamWeightFact 2;	# two beams elewhere
+			}
+			set WeightNode [expr $ColWeightFact*$WeightCol/2 + $BeamWeightFact*$WeightBeam/2 + $GirdWeightFact*$WeightGird/2]
+			set MassNode [expr $WeightNode/$g];
+			set nodeID [expr $level*$Dlevel+$frame*$Dframe+$pier]
+			mass $nodeID $MassNode 0. $MassNode 0. 0. 0.;			# define mass
+			set FloorWeight [expr $FloorWeight+$WeightNode];
+		}
+		lappend iFloorWeight $FloorWeight
+		set WeightTotal [expr $WeightTotal+ $FloorWeight]
+		set sumWiHi [expr $sumWiHi+$FloorWeight*($level-1)*$LCol];		# sum of storey weight times height, for lateral-load distribution
+	}
+}
+set MassTotal [expr $WeightTotal/$g];						# total mass
+
+# --------------------------------------------------------------------------------------------------------------------------------
+# LATERAL-LOAD distribution for static pushover analysis
+# calculate distribution of lateral load based on mass/weight distributions along building height
+# Fj = WjHj/sum(WiHi)  * Weight   at each floor j
+set iFj ""
+for {set level 2} {$level <=[expr $NStory+1]} {incr level 1} { ;	
+	set FloorWeight [lindex $iFloorWeight [expr $level-1-1]];
+	set FloorHeight [expr ($level-1)*$LCol];
+	lappend iFj [expr $FloorWeight*$FloorHeight/$sumWiHi*$WeightTotal];		# per floor
+}
+set iNodePush $iMasterNode;		# nodes for pushover/cyclic, vectorized
+set iFPush $iFj;				# lateral load for pushover, vectorized
+
+# Define RECORDERS -------------------------------------------------------------
+set FreeNodeID [expr $NFrame*$Dframe+($NStory+1)*$Dlevel+($NBay+1)];					# ID: free node
+set SupportNodeFirst [lindex $iSupportNode 0];						# ID: first support node
+set SupportNodeLast [lindex $iSupportNode [expr [llength $iSupportNode]-1]];			# ID: last support node
+set FirstColumn [expr $N0col  + 1*$Dframe+1*$Dlevel +1];							# ID: first column
+recorder Node -file $dataDir/DFree.out -time -node $FreeNodeID  -dof 1 2 3 disp;				# displacements of free node
+recorder Node -file $dataDir/DBase.out -time -nodeRange $SupportNodeFirst $SupportNodeLast -dof 1 2 3 disp;	# displacements of support nodes
+recorder Node -file $dataDir/RBase.out -time -nodeRange $SupportNodeFirst $SupportNodeLast -dof 1 2 3 reaction;	# support reaction
+recorder Drift -file $dataDir/DrNode.out -time -iNode $SupportNodeFirst  -jNode $FreeNodeID   -dof 1 -perpDirn 2;	# lateral drift
+recorder Element -file $dataDir/Fel1.out -time -ele $FirstColumn localForce;					# element forces in local coordinates
+recorder Element -file $dataDir/ForceEle1sec1.out -time -ele $FirstColumn section 1 force;			# section forces, axial and moment, node i
+recorder Element -file $dataDir/DefoEle1sec1.out -time -ele $FirstColumn section 1 deformation;			# section deformations, axial and curvature, node i
+recorder Element -file $dataDir/ForceEle1sec$numIntgrPts.out -time -ele $FirstColumn section $numIntgrPts force;			# section forces, axial and moment, node j
+recorder Element -file $dataDir/DefoEle1sec$numIntgrPts.out -time -ele $FirstColumn section $numIntgrPts deformation;		# section deformations, axial and curvature, node j
+set yFiber [expr $HCol/2-$cover];								# fiber location for stress-strain recorder, local coords
+set zFiber [expr $BCol/2-$cover];								# fiber location for stress-strain recorder, local coords
+recorder Element -file $dataDir/SSconcEle1sec1.out -time -ele $FirstColumn section $numIntgrPts fiber $yFiber $zFiber $IDconcCore  stressStrain;	# steel fiber stress-strain, node i
+recorder Element -file $dataDir/SSreinfEle1sec1.out -time -ele $FirstColumn section $numIntgrPts fiber $yFiber $zFiber $IDSteel  stressStrain;	# steel fiber stress-strain, node i
+
+# Define DISPLAY -------------------------------------------------------------
+DisplayModel3D DeformedShape ;	 # options: DeformedShape NodeNumbers ModeShape
+
+# GRAVITY -------------------------------------------------------------
+# define GRAVITY load applied to beams and columns -- eleLoad applies loads in local coordinate axis
+pattern Plain 101 Linear {
+	for {set frame 1} {$frame <=[expr $NFrame]} {incr frame 1} {
+		for {set level 1} {$level <=$NStory} {incr level 1} {
+			for {set pier 1} {$pier <= [expr $NBay+1]} {incr pier 1} {
+				set elemID [expr $N0col  + $level*$Dlevel +$frame*$Dframe+$pier]
+				eleLoad -ele $elemID -type -beamUniform 0. 0. -$QdlCol; 	# COLUMNS		}
+		}
+	}
+	for {set frame 1} {$frame <=[expr $NFrame]} {incr frame 1} {
+		for {set level 2} {$level <=[expr $NStory+1]} {incr level 1} {
+			for {set bay 1} {$bay <= $NBay} {incr bay 1} {
+				set elemID [expr $N0beam + $level*$Dlevel +$frame*$Dframe+ $bay]
+				eleLoad -ele $elemID  -type -beamUniform -$QdlBeam 0.; 	# BEAMS
+			}
+		}
+	}
+	for {set frame 1} {$frame <=[expr $NFrame-1]} {incr frame 1} {
+		for {set level 2} {$level <=[expr $NStory+1]} {incr level 1} {
+			for {set bay 1} {$bay <= $NBay+1} {incr bay 1} {
+				set elemID [expr $N0gird + $level*$Dlevel +$frame*$Dframe+ $bay]
+				eleLoad -ele $elemID  -type -beamUniform -$QdlGird 0.;	# GIRDS
+			}
+		}
+	}
+	
+}
+puts goGravity
+# Gravity-analysis parameters -- load-controlled static analysis
+set Tol 1.0e-8;			# convergence tolerance for test
+variable constraintsTypeGravity Plain;		# default;
+if {  [info exists RigidDiaphragm] == 1} {
+	if {$RigidDiaphragm=="ON"} {
+		variable constraintsTypeGravity Lagrange;	#  large model: try Transformation
+	};	# if rigid diaphragm is on
+};	# if rigid diaphragm exists
+constraints $constraintsTypeGravity ;     		# how it handles boundary conditions
+numberer RCM;			# renumber dof's to minimize band-width (optimization), if you want to
+system BandGeneral ;		# how to store and solve the system of equations in the analysis (large model: try UmfPack)
+test EnergyIncr $Tol 6 ; 		# determine if convergence has been achieved at the end of an iteration step
+algorithm Newton;			# use Newton's solution algorithm: updates tangent stiffness at every iteration
+set NstepGravity 10;  		# apply gravity in 10 steps
+set DGravity [expr 1./$NstepGravity]; 	# first load increment;
+integrator LoadControl $DGravity;	# determine the next time step for an analysis
+analysis Static;			# define type of analysis static or transient
+analyze $NstepGravity;		# apply gravity
+
+# ------------------------------------------------- maintain constant gravity loads and reset time to zero
+loadConst -time 0.0
+
+# -------------------------------------------------------------
+puts "Model Built"
+\end{sourcecode}
+
 \begin{sourcecode}[]{cuda}{Un poco de cuda.}
 __global__ void foo(){
 }
