@@ -152,7 +152,7 @@
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 		
-		\checkextravarexist{\portraitimageF}{[portrait-style4] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageF}{[portrait-style4] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageparamsF}{[portrait-style4] Defina los parametros de la imagen extra de la portada}
 
 		% Escribe el header
@@ -191,7 +191,7 @@
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 		
-		\checkextravarexist{\portraitimageG}{[portrait-style5] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageG}{[portrait-style5] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageparamsG}{[portrait-style5] Defina los parametros de la imagen extra de la portada}
 
 		% Escribe el header
@@ -231,7 +231,7 @@
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 		
-		\checkextravarexist{\portraitimageH}{[portrait-style6] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageH}{[portrait-style6] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageparamsH}{[portrait-style6] Defina los parametros de la imagen extra de la portada}
 
 		% Escribe el header
@@ -577,9 +577,9 @@
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 		
-		\checkextravarexist{\portraitimageA}{[portrait-style15] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageA}{[portrait-style15] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageparamsA}{[portrait-style15] Defina los parametros de la imagen extra de la portada}
-		\checkextravarexist{\portraitimagerightA}{[portrait-style15] Defina la direccion de la imagen extra derecha de la portada}
+		\checkextravarexist{\portraitimagerightA}{[portrait-style15] Defina la ubicacion de la imagen extra derecha de la portada}
 		\checkextravarexist{\portraitimagerightparamsA}{[portrait-style15] Defina los parametros de la imagen extra derecha de la portada}
 
 		% Header
@@ -635,7 +635,7 @@
 	\ifthenelse{\equal{\portraitstyle}{style16}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
-		\checkextravarexist{\portraitbackgroundimageB}{[portrait-style16] Defina la direccion del fondo de la portada}
+		\checkextravarexist{\portraitbackgroundimageB}{[portrait-style16] Defina la ubicacion del fondo de la portada}
 		\checkextravarexist{\portraitbackgroundcolorB}{[portrait-style16] Defina el color del bloque del titulo de la portada}
 
 		% Imagen fondo, título informe
@@ -656,7 +656,7 @@
 		\pagestyle{fancy}
 		\begin{spacing}{1.025}
 		
-		\checkextravarexist{\portraitimageC}{[portrait-style17] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageC}{[portrait-style17] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageboxedC}{[portrait-style17] Defina si la imagen de la portada se encierra en un recuadro}
 		\checkextravarexist{\portraitimageboxedwidthC}{[portrait-style17] Defina el grosor del recuadro de la imagen de la portada}
 		\checkextravarexist{\portraitimageparamsC}{[portrait-style17] Defina los parametros de la imagen de la portada}
@@ -716,7 +716,7 @@
 		\pagestyle{fancy}
 		\begin{spacing}{1.025}
 		
-		\checkextravarexist{\portraitimageD}{[portrait-style18] Defina la direccion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageD}{[portrait-style18] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageboxedD}{[portrait-style18] Defina si la imagen de la portada se encierra en un recuadro}
 		\checkextravarexist{\portraitimageboxedwidthD}{[portrait-style18] Defina el grosor del recuadro de la imagen de la portada}
 		\checkextravarexist{\portraitimageparamsD}{[portrait-style18] Defina los parametros de la imagen de la portada}
@@ -831,6 +831,54 @@
 		}}
 		\end{spacing}
 	}{
+	\ifthenelse{\equal{\portraitstyle}{style21}}{
+		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
+		\pagestyle{fancy}
+		\begin{spacing}{1.025}
+			
+		\checkextravarexist{\portraitimageI}{[portrait-style21] Defina la ubicacion de la imagen extra de la portada}
+		\checkextravarexist{\portraitimageboxedI}{[portrait-style21] Defina si la imagen de la portada se encierra en un recuadro}
+		\checkextravarexist{\portraitimageboxedwidthI}{[portrait-style21] Defina el grosor del recuadro de la imagen de la portada}
+		\checkextravarexist{\portraitimageparamsI}{[portrait-style21] Defina los parametros de la imagen de la portada}
+		
+		% Header
+		\fancyhf{}
+		\fancyhead[L]{
+			\COREwriteheaderitem{\nombreuniversidad}
+			\COREwriteheaderitem{\nombrefacultad}
+			\COREwriteheaderitem{\departamentouniversidad}
+			\vspace{-0.95\baselineskip}
+		}
+		\fancyhead[R]{%
+			\hspace{-0.255cm}%
+			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+			\vspace{-0.175cm}%
+		}
+		
+		% Imagen de la portada
+		~ \vfill
+		\begin{center}
+			\ifthenelse{\equal{\portraitimageboxedI}{true}}{
+				\begingroup
+				\setlength{\fboxsep}{0 pt}
+				\setlength{\fboxrule}{\portraitimageboxedwidthI pt}
+				\fbox{\coreinsertkeyimage{\portraitimageparamsI}{\portraitimageC}}%
+				\endgroup
+			}{
+				\coreinsertkeyimage{\portraitimageparamsI}{\portraitimageC}
+			}
+		\end{center}
+		~ \vfill
+		
+		% Tabla de integrantes
+		\noindent
+		\begin{minipage}{1.0\linewidth}%
+			\begin{flushright}%
+				\tablaintegrantes
+			\end{flushright}
+		\end{minipage}
+		\end{spacing}
+	}{
 	\ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\pagestyle{empty}
@@ -864,7 +912,7 @@
 		\newpage
 		\pagecolor{\colorpage}
 	}{
-		\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style20}}}}}}}}}}}}}}}}}}}}}
+		\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style21}}}}}}}}}}}}}}}}}}}}}}
 	}
 
 	% -----------------------------------------------------------------------------
