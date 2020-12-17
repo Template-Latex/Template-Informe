@@ -247,8 +247,8 @@
 }
 
 \makeatletter
-\renewcommand\p@subfigure{\captionsubcharfirst\thefigure\captionsubcharafter}
-\renewcommand\p@subtable{\captionsubcharfirst\thetable\captionsubcharafter}
+\renewcommand\p@subfigure{\thefigure\captionsubchar}
+\renewcommand\p@subtable{\thetable\captionsubchar}
 \makeatother
 
 % Configuración de márgenes en las figuras
