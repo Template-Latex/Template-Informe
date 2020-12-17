@@ -203,8 +203,8 @@ end
 
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
-	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
-	\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
+	\addimage[\label{ciudadfoto}]{ejemplos/test-image}{width=6.5cm}{Ciudad}
+	\addimageanum{ejemplos/test-image-wrap}{width=5cm}
 	\imagesnewline
 	\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
 \end{images}
@@ -214,7 +214,7 @@ end
 
 	\begin{images}{Ejemplo de imagen múltiple.}
 		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
-		\addimage{ejemplos/test-image-wrap}{width=5cm}{Apolo}
+		\addimageanum{ejemplos/test-image-wrap}{width=5cm}
 		\imagesnewline
 		\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
 	\end{images}
@@ -224,6 +224,7 @@ end
 % NUEVA SECCIÓN
 % ------------------------------------------------------------------------------
 % Inserta una sección sin número
+\newpage
 \sectionanum{Más ejemplos}
 
 	% Inserta un subtítulo sin número

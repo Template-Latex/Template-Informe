@@ -246,6 +246,11 @@
 	singlelinecheck=on
 }
 
+\makeatletter
+\renewcommand\p@subfigure{\captionsubcharfirst\thefigure\captionsubcharafter}
+\renewcommand\p@subtable{\captionsubcharfirst\thetable\captionsubcharafter}
+\makeatother
+
 % Configuración de márgenes en las figuras
 \floatsetup[figure]{
 	captionskip=\captiontbmarginfigure pt
