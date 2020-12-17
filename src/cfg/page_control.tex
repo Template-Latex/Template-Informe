@@ -41,29 +41,28 @@
 	\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 }
 \thispagestyle{styleportrait} % Encabezado control (título e integrantes)
+\begin{spacing}{1.025}
 \begin{flushleft} % Crea el header
 	\hspace{0cm}
 	\vspace{-0cm}
 	\begin{tabular}{c}
 		\hspace{-0.45cm}~
-		\begin{minipage}[t]{0.6\linewidth}
+		\begin{minipage}[t]{1\linewidth}
 			\vspace{-4.65em}
 			\nombreuniversidad ~ \\
 			\nombrefacultad ~ \\
 			\departamentouniversidad ~ \\
 			\codigodelcurso\ - \nombredelcurso ~ \\
-		\end{minipage}
-		~\hspace{-0.25cm}~
-		\begin{minipage}[t]{0.4\linewidth}
-			\begin{flushright}
-				\vspace{-4.75em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm}
+			\begin{flushright}%
+				\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm} ~
 			\end{flushright}
 		\end{minipage}
 		\\
 	\end{tabular}
 	~
 \end{flushleft}
-\vspace*{-1.25cm}
+\end{spacing}
+\vspace*{-1.15cm}
 \rule{1\linewidth}{0.5pt}
 \begin{center}
 	\vspace*{0.35cm}
