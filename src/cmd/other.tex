@@ -108,12 +108,6 @@
 % Reinicia el margen de las leyendas
 \newcommand{\resetcaptionmargin}{\setcaptionmargincm{\captionlrmargin}}
 
-% Crea un entorno de código inline
-\newcommand{\inlinesourcecode}[1]{%
-	\checkvalidsourcecodestyle{#1}%
-	\lstinline[style=#1]%
-}
-
 % Modifica el color de las tablas
 %	#1	Posición inicial del inicio de colores
 \newcommand{\settablerowcolors}[1]{

@@ -695,4 +695,10 @@
 	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
 }
 
+% Crea un entorno de código inline
+\newcommand{\inlinesourcecode}[1]{%
+	\checkvalidsourcecodestyle{#1}%
+	\lstinline[style=#1]%
+}
+
 % END
