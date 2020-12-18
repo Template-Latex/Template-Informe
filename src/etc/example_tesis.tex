@@ -235,20 +235,20 @@ El template ofrece el entorno \href{https://latex.ppizarror.com/informe.html#hlp
 
 \begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
-	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
-	\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo.}
+	\addimage[\label{ciudadfoto}]{ejemplos/test-image}{width=6.5cm}{Ciudad}
+	\addimageanum{ejemplos/test-image-wrap}{height=4cm}
 	\imagesnewline
-	\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande.}
+	\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande}
 \end{images}
 \end{sourcecode}
 
 Obteniendo así:
 
 \begin{images}{Ejemplo de imagen múltiple.}
-	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad.}
-	\addimage{ejemplos/test-image-wrap}{height=4cm}{Apolo.}
+	\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
+	\addimageanum{ejemplos/test-image-wrap}{height=4cm}
 	\imagesnewline
-	\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande.}
+	\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande}
 \end{images}
 
 % Inserta una sección sin número
