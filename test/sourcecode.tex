@@ -2,6 +2,26 @@
 Epicˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ¹²³¹²αάγΓδΐόϋ
 \end{sourcecode}
 
+\begin{sourcecode}[\label{ejemplo-tcl}]{tcl}{Código en TCL.}
+	proc file'hexdump filename {
+		set fp [open $filename]
+		fconfigure $fp -translation binary
+		set n 0
+		while {![eof $fp]} {
+			set bytes [read $fp 16]
+			regsub -all {[^ -þ]} $bytes . ascii
+			puts [format "%04X %-48s %-16s" $n [hexdump $bytes] $ascii]
+			incr n 16
+		}
+		close $fp
+	}
+	
+	proc hexdump string {
+		binary scan $string H* hex
+		regexp -all -inline .. $hex
+	}
+\end{sourcecode}
+
 \begin{sourcecode}{rust}{Ejemplo en Rust.}
 use std::rc::Rc;
 
