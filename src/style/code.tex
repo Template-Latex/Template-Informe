@@ -320,6 +320,13 @@
 }
 
 % -----------------------------------------------------------------------------
+% Mathematica
+% -----------------------------------------------------------------------------
+\lstdefinestyle{mathematica}{
+	language=Mathematica
+}
+
+% -----------------------------------------------------------------------------
 % Matlab
 % -----------------------------------------------------------------------------
 \lstdefinestyle{matlab}{
@@ -465,7 +472,9 @@
 	emphstyle=\color{dkcyan}\ttfamily,
 	keepspaces=true,
 	morecomment=[s][\color{BurntOrange}]{@}{\ },
-	morekeywords={as,assert,close,listdir,self,sorted,split,strip,with}
+	morekeywords={
+		as,assert,close,listdir,self,sorted,split,strip,with
+	}
 }
 \lstdefinestyle{py}{
 	language=pythonEXTENDED
@@ -481,12 +490,39 @@
 	language=R,
 	alsoletter={.<-},
 	alsoother={._$},
-	deletekeywords={df,data,frame,length,as,character},
+	deletekeywords={
+		df,data,frame,length,as,character
+	},
 	morecomment=[l]\#,
 	morestring=[d]',
 	morestring=[d]",
-	otherkeywords={!,!=,~,$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-,/}
+	otherkeywords={
+		!,!=,~,$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-,/
+	}
 }
+
+% -----------------------------------------------------------------------------
+% Racket
+% -----------------------------------------------------------------------------
+\lstdefinestyle{racket}{
+	alsoletter={',`,-,/,>,<,\#,\%},
+	morekeywords=[1]{
+		define,define-macro,define-stream,define-syntax,lambda,stream-lambda
+	},
+	morekeywords=[2]{
+		->,always_publish,and,\#',\#\%module-begin,\#lang,\#`,begin,begin-for-syntax,Boolean,call-with-current-continuation,call-with-input-file,call-with-output-file,callback,call/cc,case,cond,define-context,define-controller,define-struct/contract,define/contract,delay,do,else,environment,eval,fold,for,for-each,force,get,if,implement,in-range,Integer,label,let,let*,let*-values,let-syntax,let-values,letrec,letrec-syntax,map,maybe_publish,message-box,module,new,not,or,or/c,parent,provide,quasiquote,query,quote,rename-out,require,send,submod,syntax,syntax-case,syntax-rules,unquote,unquote-splicing,when,when-provided,when-required,with-syntax
+	},
+	morekeywords=[3]{
+		export,import
+	},
+	morecomment=[l]{;},
+	moredelim=**[is][\color{lgray}]{<<@<<}{>>@>>},
+	moredelim=**[is][\itshape\color{mauve}]{<<;<<}{>>;>>},
+	morecomment=[s]{\#|}{|\#},
+	morestring=[s]{"}{"},
+	sensitive=true
+}
+
 
 % -----------------------------------------------------------------------------
 % Ruby
@@ -572,7 +608,9 @@
 	morestring=[b]',
 	morestring=[b]",
 	morestring=[b]""",
-	otherkeywords={=>,<-,<\%,<:,>:,\#,@}
+	otherkeywords={
+		=>,<-,<\%,<:,>:,\#,@
+	}
 }
 
 % -----------------------------------------------------------------------------
@@ -625,10 +663,10 @@
 % -----------------------------------------------------------------------------
 \lstdefinelanguage{VHDL}{
 	morekeywords=[1]{
-		library,use,all,entity,is,port,in,out,end,architecture,of,begin,and,or,Not,downto,ALL
+		ALL,all,and,architecture,begin,downto,end,entity,in,is,library,Not,of,or,out,port,use
 	},
 	morekeywords=[2]{
-		STD_LOGIC_VECTOR,STD_LOGIC,IEEE,STD_LOGIC_1164,NUMERIC_STD,STD_LOGIC_ARITH,STD_LOGIC_UNSIGNED,std_logic_vector,std_logic
+		IEEE,NUMERIC_STD,STD_LOGIC,std_logic,STD_LOGIC_1164,STD_LOGIC_ARITH,STD_LOGIC_UNSIGNED,STD_LOGIC_VECTOR,std_logic_vector
 	},
 	morecomment=[l]--
 }
@@ -755,6 +793,7 @@
 	\ifthenelse{\equal{#1}{lisp}}{}{%
 	\ifthenelse{\equal{#1}{lua}}{}{%
 	\ifthenelse{\equal{#1}{maple}}{}{%
+	\ifthenelse{\equal{#1}{mathematica}}{}{%
 	\ifthenelse{\equal{#1}{matlab}}{}{%
 	\ifthenelse{\equal{#1}{octave}}{}{%
 	\ifthenelse{\equal{#1}{opencl}}{}{%
@@ -767,6 +806,7 @@
 	\ifthenelse{\equal{#1}{py}}{}{%
 	\ifthenelse{\equal{#1}{python}}{}{%
 	\ifthenelse{\equal{#1}{r}}{}{%
+	\ifthenelse{\equal{#1}{racket}}{}{%
 	\ifthenelse{\equal{#1}{ruby}}{}{%
 	\ifthenelse{\equal{#1}{rust}}{}{%
 	\ifthenelse{\equal{#1}{scala}}{}{%
@@ -777,9 +817,9 @@
 	\ifthenelse{\equal{#1}{verilog}}{}{%
 	\ifthenelse{\equal{#1}{vhdl}}{}{%
 	\ifthenelse{\equal{#1}{xml}}{}{%
-		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,c,cpp,csharp,css,csv,cuda,docker,fortran,glsl,haskell,html5,ini,java,javascript,js,json,kotlin,latex,lisp,lua,maple,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,py,python,r,ruby,rust,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}%
+		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,c,cpp,csharp,css,csv,cuda,docker,fortran,glsl,haskell,html5,ini,java,javascript,js,json,kotlin,latex,lisp,lua,maple,mathematica,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,py,python,r,racket,ruby,rust,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}%
 		\stop%
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
 }
 
 % Crea un entorno de código inline
@@ -787,6 +827,18 @@
 \newcommand{\inlinesourcecode}[1]{%
 	\checkvalidsourcecodestyle{#1}%
 	\lstinline[style=#1]%
+}
+
+% Inserta una referencia en un código fuente
+% 	#1	Referencia
+\newcommand{\coderef}[1]{%
+	\ensuremath{\text{\ref{#1}}}
+}
+
+% Inserta una referencia en un código fuente
+% 	#1	Referencia
+\newcommand{\codeeqref}[1]{%
+	\ensuremath{\text{(\ref{#1})}}
 }
 
 % END

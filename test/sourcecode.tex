@@ -1,3 +1,62 @@
+\begin{sourcecode}{mathematica}{Ejemplo en Mathematica.}
+Block[
+ {region=DiscretizeRegion[Polygon[{{0,0},{-1/2,Sqrt[3]/2},{1/2,Sqrt[3]/2}}]]},
+ ContourPlot[
+  2 Cos[4 Pi x] Sin[(4 Pi y)/Sqrt[3]] - Sin[(8 Pi y)/Sqrt[3]],
+  {x,y} %*$\in$*) region,
+  PlotPoints ->70,
+  Contours ->10,
+  AspectRatio ->Automatic,
+  FrameLabel ->{"x","y"},
+  PlotLabel ->"Excited state of the equilateral triangle"
+ ]
+]
+\end{sourcecode}
+
+\begin{sourcecode}{racket}{Ejemplo en Racket.}
+#lang racket/gui
+
+;; let's play a guessing game
+
+(define frame (new frame% [label "Guess"]))
+
+(define secret (random 5))
+(define ((check i) btn evt)
+  (define found? (if (= i secret) "Yes" "No"))
+  (message-box "?" found?)
+  (when (= i secret)
+    (send frame show #false)))
+
+(for ([i (in-range 5)])
+   (new button%
+        [label (~a i)]
+        [parent frame]
+        [callback (check i)]))
+
+(send frame show #t)
+\end{sourcecode}
+
+Testeamos las ecuaciones:
+
+\insertequation[\label{CI2.1}]{Epic}
+\insertequation[\label{D.1}]{Epic}
+\insertequation[\label{T.1}]{Epic}
+\insertequation[\label{T.2}]{Epic}
+
+\begin{sourcecode}{pseudocode}{Algoritmo transporte de calor en sistemas geotermales.}
+Inicializar temperatura $T^0$ y velocidad $\textbf{u}^0$ según ecuaciones $\coderef{CI2.1}$.
+PARA k = 1, ..., n
+	Resolver la ecuación de Darcy (ec. $\codeeqref{D.1}$) con Backwards Euler para obtener $\Psi^{pr}$
+	Calcular  $u^{pr} = \frac{\partial \Psi}{\partial z}$ y $w^{pr} = -\frac{\partial \Psi}{\partial x}$
+	Resolver la ecuación de Transporte (ec. $\coderef{T.2}$) con Backwards Euler para obtener $T^{pr}$
+	Resolver la ecuación de Darcy (ec. $\coderef{D.1}$) con Backwards Euler para obtener $\Psi^{k+1}$
+	Calcular $u^{k+1} = \frac{\partial \Psi}{\partial z}$ y $w^{k+1} = -\frac{\partial \Psi}{\partial x}$
+	Resolver la ecuación de Transporte (ec. $\coderef{T.2}$) con Crank Nicolson para obtener $T^{k+1}$
+	Usar la condición de CFL para obtener $dt$
+FIN
+\end{sourcecode}
+
+
 \begin{sourcecode}{plaintext}{}
 Epicˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ¹²³¹²αάγΓδΐόϋ
 \end{sourcecode}
