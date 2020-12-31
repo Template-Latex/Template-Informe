@@ -100,10 +100,12 @@
 		\ifx\hfuzz#4\hfuzz
 			\ifx\hfuzz#3\hfuzz
 				\lstset{
+					escapeinside={(*@}{@*)},
 					style=#2
 				}
 			\else
 				\lstset{
+					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
 				}
@@ -113,12 +115,14 @@
 				\lstset{
 					caption={#4 #1},
 					captionpos=t,
+					escapeinside={(*@}{@*)},
 					style=#2
 				}
 			\else
 				\lstset{
 					caption={#4 #1},
 					captionpos=t,
+					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
 				}
@@ -128,10 +132,12 @@
 		\ifx\hfuzz#4\hfuzz
 			\ifx\hfuzz#3\hfuzz
 				\lstset{
+					escapeinside={(*@}{@*)},
 					style=#2
 				}
 			\else
 				\lstset{
+					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
 				}
@@ -147,6 +153,7 @@
 				\lstset{
 					caption={#4 #1},
 					captionpos=b,
+					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
 				}
@@ -198,25 +205,29 @@
 	\ifthenelse{\equal{\codecaptiontop}{true}}{
 		\ifx\hfuzz#3\hfuzz
 			\lstset{
+				escapeinside={(*@}{@*)},
 				style=#2
 			}
 		\else
 			\lstset{
-				style=#2,
+				escapeinside={(*@}{@*)},
 				caption={#3 #1},
-				captionpos=t
+				captionpos=t,
+				style=#2
 			}
 		\fi
 	}{
 		\ifx\hfuzz#3\hfuzz
 			\lstset{
+				escapeinside={(*@}{@*)},
 				style=#2
 			}
 		\else
 			\lstset{
-				style=#2,
+				escapeinside={(*@}{@*)},
 				caption={#3 #1},
-				captionpos=b
+				captionpos=b,
+				style=#2
 			}
 		\fi
 	}
