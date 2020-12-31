@@ -41,12 +41,26 @@
 }
 
 % -----------------------------------------------------------------------------
+% Basic
+% -----------------------------------------------------------------------------
+\lstdefinestyle{basic}{
+	language=[Visual]Basic
+}
+
+% -----------------------------------------------------------------------------
 % C
 % -----------------------------------------------------------------------------
 \lstdefinestyle{c}{
 	language=C,
 	breakatwhitespace=false,
 	keepspaces=true
+}
+
+% -----------------------------------------------------------------------------
+% Cobol
+% -----------------------------------------------------------------------------
+\lstdefinestyle{cobol}{
+	language=Cobol
 }
 
 % -----------------------------------------------------------------------------
@@ -154,6 +168,20 @@
 	prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
 	sensitive=true,
 	upquote=true
+}
+
+% -----------------------------------------------------------------------------
+% Gnuplot
+% -----------------------------------------------------------------------------
+\lstdefinestyle{gnuplot}{
+	language=Gnuplot
+}
+
+% -----------------------------------------------------------------------------
+% Go
+% -----------------------------------------------------------------------------
+\lstdefinestyle{go}{
+	language=Go
 }
 
 % -----------------------------------------------------------------------------
@@ -438,6 +466,14 @@
 }
 
 % -----------------------------------------------------------------------------
+% Postscript
+% -----------------------------------------------------------------------------
+\lstdefinestyle{postscript}{
+	language=PostScript,
+	keepspaces=true
+}
+
+% -----------------------------------------------------------------------------
 % Pseudocódigo
 % -----------------------------------------------------------------------------
 \lstdefinestyle{pseudocode}{
@@ -634,6 +670,13 @@
 }
 
 % -----------------------------------------------------------------------------
+% Swift
+% -----------------------------------------------------------------------------
+\lstdefinestyle{swift}{
+	language=Swift
+}
+
+% -----------------------------------------------------------------------------
 % TCL
 % -----------------------------------------------------------------------------
 \lstdefinestyle{tcl}{
@@ -772,7 +815,9 @@
 	\ifthenelse{\equal{#1}{assemblerx64}}{}{%
 	\ifthenelse{\equal{#1}{assemblerx86}}{}{%
 	\ifthenelse{\equal{#1}{bash}}{}{%
+	\ifthenelse{\equal{#1}{basic}}{}{%
 	\ifthenelse{\equal{#1}{c}}{}{%
+	\ifthenelse{\equal{#1}{cobol}}{}{%
 	\ifthenelse{\equal{#1}{cpp}}{}{%
 	\ifthenelse{\equal{#1}{csharp}}{}{%
 	\ifthenelse{\equal{#1}{css}}{}{%
@@ -781,6 +826,8 @@
 	\ifthenelse{\equal{#1}{docker}}{}{%
 	\ifthenelse{\equal{#1}{fortran}}{}{%
 	\ifthenelse{\equal{#1}{glsl}}{}{%
+	\ifthenelse{\equal{#1}{gnuplot}}{}{%
+	\ifthenelse{\equal{#1}{go}}{}{%
 	\ifthenelse{\equal{#1}{haskell}}{}{%
 	\ifthenelse{\equal{#1}{html5}}{}{%
 	\ifthenelse{\equal{#1}{ini}}{}{%
@@ -802,6 +849,7 @@
 	\ifthenelse{\equal{#1}{perl}}{}{%
 	\ifthenelse{\equal{#1}{php}}{}{%
 	\ifthenelse{\equal{#1}{plaintext}}{}{%
+	\ifthenelse{\equal{#1}{postscript}}{}{%
 	\ifthenelse{\equal{#1}{pseudocode}}{}{%
 	\ifthenelse{\equal{#1}{py}}{}{%
 	\ifthenelse{\equal{#1}{python}}{}{%
@@ -812,14 +860,15 @@
 	\ifthenelse{\equal{#1}{scala}}{}{%
 	\ifthenelse{\equal{#1}{scheme}}{}{%
 	\ifthenelse{\equal{#1}{sql}}{}{%
+	\ifthenelse{\equal{#1}{swift}}{}{%
 	\ifthenelse{\equal{#1}{tcl}}{}{%
 	\ifthenelse{\equal{#1}{vbscript}}{}{%
 	\ifthenelse{\equal{#1}{verilog}}{}{%
 	\ifthenelse{\equal{#1}{vhdl}}{}{%
 	\ifthenelse{\equal{#1}{xml}}{}{%
-		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,c,cpp,csharp,css,csv,cuda,docker,fortran,glsl,haskell,html5,ini,java,javascript,js,json,kotlin,latex,lisp,lua,maple,mathematica,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,pseudocode,py,python,r,racket,ruby,rust,scala,scheme,sql,tcl,vbscript,verilog,vhdl,xml}%
+		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,basic,c,cobol,cpp,csharp,css,csv,cuda,docker,fortran,glsl,gnuplot,go,haskell,html5,ini,java,javascript,js,json,kotlin,latex,lisp,lua,maple,mathematica,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,pseudocode,py,python,r,racket,ruby,rust,scala,scheme,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
 		\stop%
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
 }
 
 % Crea un entorno de código inline

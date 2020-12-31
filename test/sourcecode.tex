@@ -1,3 +1,113 @@
+\begin{sourcecode}{cobol}{Ejemplo en Cobol.}
+*> Terminator period ("implicit termination")
+IF invalid-record
+    IF no-more-records
+        NEXT SENTENCE
+    ELSE
+        READ record-file
+            AT END SET no-more-records TO TRUE.
+
+*> Scope terminators ("explicit termination")
+IF invalid-record
+    IF no-more-records
+        CONTINUE
+    ELSE
+        READ record-file
+            AT END SET no-more-records TO TRUE
+        END-READ
+    END-IF
+END-IF
+\end{sourcecode}
+
+\begin{sourcecode}{basic}{Ejemplo en Basic.}
+REM QuickBASIC example
+
+REM Forward declaration - allows the main code to call a
+REM    subroutine that is defined later in the source code
+DECLARE SUB PrintSomeStars (StarCount!)
+
+REM Main program follows
+INPUT "What is your name: ", UserName$
+PRINT "Hello "; UserName$
+DO
+   INPUT "How many stars do you want: ", NumStars
+   CALL PrintSomeStars(NumStars)
+   DO
+      INPUT "Do you want more stars? ", Answer$
+   LOOP UNTIL Answer$ <> ""
+   Answer$ = LEFT$(Answer$, 1)
+LOOP WHILE UCASE$(Answer$) = "Y"
+PRINT "Goodbye "; UserName$
+END
+
+REM subroutine definition
+SUB PrintSomeStars (StarCount)
+   REM This procedure uses a local variable called Stars$
+   Stars$ = STRING$(StarCount, "*")
+   PRINT Stars$
+END SUB
+\end{sourcecode}
+
+\begin{sourcecode}{postscript}{Ejemplo en PostScript.}
+%!PS
+ /Courier             % name the desired font
+ 20 selectfont        % choose the size in points and establish 
+                      % the font as the current one
+ 72 500 moveto        % position the current point at 
+                      % coordinates 72, 500 (the origin is at the 
+                      % lower-left corner of the page)
+ (Hello world!) show  % stroke the text in parentheses
+ showpage             % print all on the page
+\end{sourcecode}
+
+\begin{sourcecode}{gnuplot}{Ejemplo en Gnuplot.}
+set terminal epslatex   
+set output 'mplot.tex'   
+set xlabel "Avg. No. of demand duration (slot) "   
+set ylabel "Acceptence rate (%)"   
+set grid xtics ytics   
+set key right bottom   
+
+set style line 1 lw 1 lc 3 pt 7  
+set style line 2 lw 1 lc 1 pt 5  
+set style line 3 lw 1 lc 0 pt 9  
+set style line 4 lw 1 lc 4 pt 3  
+
+plot "AcceptanceRate_Ser.txt" using 2:4:5:6 title "NoMig" with errorlines linestyle 1,\ 
+     "AcceptanceRate_Ser.txt" using 2:7:8:9 title "FlowMig" with errorlines linestyle 2 ,\ 
+      "AcceptanceRate_Ser.txt" using 2:10:11:12 title "VMMig" with errorlines linestyle 3, \ 
+     "AcceptanceRate_Ser.txt" using 2:13:14:15 title "NoRis" with errorlines linestyle 4
+\end{sourcecode}
+
+\begin{sourcecode}{go}{Ejemplo en Go.}
+// Package main is, tautologically, the main package.
+package main
+
+import "fmt"
+
+type s struct{}
+
+func main() {
+	fmt.Println("Hello, world!")
+}
+\end{sourcecode}
+
+\begin{sourcecode}{swift}{Ejemplo en Swift.}
+// This function passes the result of the first closure or function to another and returns its result.
+func b(closure a: () -> Int, anotherClosure: (Int) -> Int) -> Int {
+    return anotherClosure(a())
+}
+
+// With no trailing closures
+a(closure: {return 1}, anotherClosure: {x in return x + 1})
+
+// With 1 trailing closure
+a(closure: {return 1}) {x in return x + 1})
+
+// With 2 trailing closures
+a {return 1} anotherClosure: {x in return x + 1}
+\end{sourcecode}
+
 \begin{sourcecode}{mathematica}{Ejemplo en Mathematica.}
 Block[
  {region=DiscretizeRegion[Polygon[{{0,0},{-1/2,Sqrt[3]/2},{1/2,Sqrt[3]/2}}]]},
