@@ -139,6 +139,10 @@
 % la librería ofrece
 % \usepackage{matlab-prettifier}
 
+% Tampoco se recomienda el uso de subfigure, posee errores de compatibilidad y
+% está obsoleto
+% \usepackage{subfigure}
+
 % -----------------------------------------------------------------------------
 % LIBRERÍAS CON PARÁMETROS
 % -----------------------------------------------------------------------------
@@ -224,13 +228,14 @@
 		}
 	}}}}
 }{
-	\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
-		\usepackage[nottoc,notlof,notlot]{tocbibind}
-		\usepackage{apacite}
-	}{
-		\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
-		}{}
-	}
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
+	\usepackage[nottoc,notlof,notlot]{tocbibind}
+	\usepackage{apacite}
+}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
+}{
+\ifthenelse{\equal{\stylecitereferences}{custom}}{ % Formato citas custom
+}{}}}
 }
 
 % Anexos/Apéndices
