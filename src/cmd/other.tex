@@ -12,21 +12,31 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % Insertar párrafo
-\newcommand{\newp}{\hbadness=10000 \vspace{\baselineskip} \par}
+\newcommand{\newp}{%
+	\hbadness=10000 \vspace{\baselineskip} \par%
+}
 
 % Insertar párrafo
 % 	#1	Párrafo
-\newcommand{\newpar}[1]{\hbadness=10000 #1 \newp}
+\newcommand{\newpar}[1]{%
+	\hbadness=10000 #1 \newp%
+}
 
 % Insertar párrafo sin nueva línea al final
 % 	#1	Párrafo
-\newcommand{\newparnl}[1]{#1 \par}
+\newcommand{\newparnl}[1]{%
+	#1 \par%
+}
 
 % Crea un salto de columna en el entorno multicol
-\newcommand{\newcolumn}{\checkinsidemulticol\vfill\null\columnbreak}
+\newcommand{\newcolumn}{%
+	\checkinsidemulticol\vfill\null\columnbreak%
+}
 
 % Salto de página en entorno multicol
-\newcommand{\newpagemulticol}{\newcolumn\newcolumn\newpage}
+\newcommand{\newpagemulticol}{%
+	\newcolumn\newcolumn\newpage%
+}
 
 % Inserta un lipsum corregido
 % \newcommand{\slipsum}[1][]{~\lipsum[#1]}
@@ -34,14 +44,14 @@
 % Redimensiona un ítem
 % 	#1	Tamaño del nuevo objeto (En linewidth)
 %	#2	Objeto a redimensionar
-\newcommand{\itemresize}[2]{
+\newcommand{\itemresize}[2]{%
 	\emptyvarerr{\itemresize}{#1}{Tamano del nuevo objeto no definido}
 	\emptyvarerr{\itemresize}{#2}{Objeto a redimensionar no definido}
 	\resizebox{#1\linewidth}{!}{#2}
 }
 
 % Crea una página vacía sin header o footer
-\newcommand{\insertemptypage}{
+\newcommand{\insertemptypage}{%
 	\newpage
 	\setcounter{templatePageCounter}{\thepage}
 	\pagenumbering{gobble}
@@ -53,7 +63,7 @@
 }
 
 % Inserta una página vacía, aunque conserva header, footer y numeración
-\newcommand{\insertblankpage}{
+\newcommand{\insertblankpage}{%
 	\newpage
 	\null
 	\newpage
@@ -62,28 +72,34 @@
 % Añade un archivo pdf con el header
 %	#1	Parámetros (opcional)
 %	#2	Nombre del archivo pdf
-\newcommand{\includehfpdf}[2][]{
+\newcommand{\includehfpdf}[2][]{%
 	\includepdf[pagecommand={\pagestyle{fancy}},#1]{#2}
 }
 
 % Añade un archivo pdf con el header
 %	#1	Parámetros (opcional)
 %	#2	Nombre del archivo pdf
-\newcommand{\includefullhfpdf}[2][]{
+\newcommand{\includefullhfpdf}[2][]{%
 	\includepdf[pages=-,pagecommand={\pagestyle{fancy}},#1]{#2}
 }
 
 % Inserta un texto entre comillas
 %	#1 	Texto
-\newcommand{\quotes}[1]{\enquote*{#1}}
+\newcommand{\quotes}[1]{%
+	\enquote*{#1}%
+}
 
 % Inserta una cita con texto elevado
 %	#1	Cita
-\newcommand{\scite}[1]{\textsuperscript{\cite{#1}}}
+\newcommand{\scite}[1]{%
+	\textsuperscript{\cite{#1}}%
+}
 
 % Inserta un texto con el formato de enlace
 % 	#1 	Enlace
-\newcommand{\hreftext}[1]{\ifthenelse{\equal{\fonturl}{same}}{#1}{\ifthenelse{\equal{\fonturl}{tt}}{\texttt{#1}}{\ifthenelse{\equal{\fonturl}{rm}}{\textrm{#1}}{\ifthenelse{\equal{\fonturl}{sf}}{\textsf{#1}}{}}}}}
+\newcommand{\hreftext}[1]{%
+	\ifthenelse{\equal{\fonturl}{same}}{#1}{\ifthenelse{\equal{\fonturl}{tt}}{\texttt{#1}}{\ifthenelse{\equal{\fonturl}{rm}}{\textrm{#1}}{\ifthenelse{\equal{\fonturl}{sf}}{\textsf{#1}}{}}}}%
+}
 
 % Parcha href para incluir el estilo
 % \let\oldhref=\href
@@ -93,24 +109,34 @@
 
 % Inserta un email con un link cliqueable
 %	#1 	Dirección email
-\newcommand{\insertemail}[1]{\href{mailto:#1}{\hreftext{#1}}}
+\newcommand{\insertemail}[1]{%
+	\href{mailto:#1}{\hreftext{#1}}%
+}
 
 % Inserta un teléfono celular
 %	#1	Teléfono celular
-\newcommand{\insertphone}[1]{\href{tel:#1}{\hreftext{#1}}}
+\newcommand{\insertphone}[1]{%
+	\href{tel:#1}{\hreftext{#1}}%
+}
 
 % Reinicia el número de ecuaciones
-\newcommand{\restartequation}{\setcounter{equation}{0}}
+\newcommand{\restartequation}{%
+	\setcounter{equation}{0}%
+}
 
 % Desactiva el margen de las leyendas
-\newcommand{\disablecaptionmargin}{\setcaptionmargincm{0}}
+\newcommand{\disablecaptionmargin}{%
+	\setcaptionmargincm{0}%
+}
 
 % Reinicia el margen de las leyendas
-\newcommand{\resetcaptionmargin}{\setcaptionmargincm{\captionlrmargin}}
+\newcommand{\resetcaptionmargin}{%
+	\setcaptionmargincm{\captionlrmargin}%
+}
 
 % Modifica el color de las tablas
 %	#1	Posición inicial del inicio de colores
-\newcommand{\settablerowcolors}[1]{
+\newcommand{\settablerowcolors}[1]{%
 	\emptyvarerr{\settablerowcolors}{#1}{Posicion de fila no definida}
 	
 	% Usa colores normales
@@ -237,7 +263,7 @@
 % https://www.prepressure.com/library/paper-size
 %	#1	Indica la rotación, puede ser 0 o 90
 %	#2	Formato de la pagina
-\newcommand{\changepagesizeformat}[2][]{
+\newcommand{\changepagesizeformat}[2][]{%
 	\emptyvarerr{\changepagesizeformat}{#2}{Formato de pagina no definido}
 	\ifthenelse{\equal{#2}{4A0}}{
 		\changepagesize[#1]{168.2}{237.8}

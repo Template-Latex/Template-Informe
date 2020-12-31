@@ -16,7 +16,9 @@
 %	#2	Dirección de la imagen
 %	#3	Parámetros de la imagen
 %	#4	Leyenda de la imagen (opcional)
-\newcommand{\addimage}[4][]{\addimageboxed[#1]{#2}{#3}{0}{#4}}
+\newcommand{\addimage}[4][]{%
+	\addimageboxed[#1]{#2}{#3}{0}{#4}%
+}
 
 % Añade una imagen a un env 'image' con borde
 % 	#1	Label (opcional)
@@ -24,29 +26,41 @@
 %	#3	Parámetros de la imagen
 %	#4	Ancho de la línea (en pt)
 %	#5	Leyenda de la imagen (opcional)
-\newcommand{\addimageboxed}[5][]{\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#4 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginimagemultright cm}\hspace{-0.125cm}}{}\subfloat[#5]{\fbox{\includegraphics[#3]{#2}}#1}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}}
+\newcommand{\addimageboxed}[5][]{%
+	\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#4 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginimagemultright cm}\hspace{-0.125cm}}{}\subfloat[#5]{\fbox{\includegraphics[#3]{#2}}#1}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}%
+}
 
 % Añade una imagen a un env 'image' con borde sin leyenda
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
-\newcommand{\addimageanum}[2]{\addimageboxedanum{#1}{#2}{0}}
+\newcommand{\addimageanum}[2]{%
+	\addimageboxedanum{#1}{#2}{0}%
+}
 
 % Añade una imagen a un env 'image' con borde sin leyenda
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
-\newcommand{\addimageboxedanum}[3]{\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginimagemultright cm}\hspace{-0.125cm}}{}\fbox{\includegraphics[#2]{#1}}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}}
+\newcommand{\addimageboxedanum}[3]{%
+	\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginimagemultright cm}\hspace{-0.125cm}}{}\fbox{\includegraphics[#2]{#1}}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}%
+}
 
 % Añade un salto de línea en las imágenes
-\newcommand{\imagesnewline}{\checkonlyonenvimage\def\GLOBALenvimageadded {false}\vspace{\marginimagemultbottom cm}\linebreak\noindent}
+\newcommand{\imagesnewline}{%
+	\checkonlyonenvimage\def\GLOBALenvimageadded {false}\vspace{\marginimagemultbottom cm}\linebreak\noindent%
+}
 
 % Agrega un espacio horizontal a las imágenes
 % 	#1 Tamaño del espacio
-\newcommand{\imageshspace}[1]{\checkonlyonenvimage\def\GLOBALenvimageadded {false}\hspace{#1}}
+\newcommand{\imageshspace}[1]{%
+	\checkonlyonenvimage\def\GLOBALenvimageadded {false}\hspace{#1}%
+}
 
 % Agrega un espacio vertical a las imágenes
 % 	#1 Tamaño del espacio
-\newcommand{\imagesvspace}[1]{\checkonlyonenvimage\def\GLOBALenvimageadded {false}~ \\ \vspace*{#1}}
+\newcommand{\imagesvspace}[1]{%
+	\checkonlyonenvimage\def\GLOBALenvimageadded {false}~ \\ \vspace*{#1}%
+}
 
 % Insertar una imagen
 % 	#1	Label (opcional)
@@ -54,7 +68,7 @@
 %	#3	Parámetros de la imagen
 %	#4	Leyenda de la imagen (opcional)
 \newcommand{\insertimage}[4][]{%
-	\insertimageboxed[#1]{#2}{#3}{0}{#4}
+	\insertimageboxed[#1]{#2}{#3}{0}{#4}%
 }
 
 % Insertar una imagen con recuadro
@@ -95,7 +109,7 @@
 %	#4	Posición, "bottom" o "top"
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimagemc}[5][]{%
-	\insertimageboxedmc[#1]{#2}{#3}{0}{#4}{#5}
+	\insertimageboxedmc[#1]{#2}{#3}{0}{#4}{#5}%
 }
 
 % Insertar una imagen completa con recuadro en un entorno multicol
@@ -207,13 +221,17 @@
 % Insertar una imagen dentro de una tabla
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
-\newcommand{\inserttableimage}[2]{\inserttableimageboxed{#1}{#2}{0}}
+\newcommand{\inserttableimage}[2]{%
+	\inserttableimageboxed{#1}{#2}{0}%
+}
 
 % Insertar una imagen dentro de una tabla con recuadro
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
-\newcommand{\inserttableimageboxed}[3]{\emptyvarerr{\inserttableimageboxed}{#1}{Direccion de la imagen no definida}\emptyvarerr{\inserttableimageboxed}{#2}{Parametros de la imagen no definidos}\emptyvarerr{\inserttableimageboxed}{#3}{Ancho de la linea no definido}\checkoutsideenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\raisebox{-1\totalheight}{\fbox{\includegraphics[#2]{#1}}}\endgroup\resetindexcaption}
+\newcommand{\inserttableimageboxed}[3]{%
+	\emptyvarerr{\inserttableimageboxed}{#1}{Direccion de la imagen no definida}\emptyvarerr{\inserttableimageboxed}{#2}{Parametros de la imagen no definidos}\emptyvarerr{\inserttableimageboxed}{#3}{Ancho de la linea no definido}\checkoutsideenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\raisebox{-1\totalheight}{\fbox{\includegraphics[#2]{#1}}}\endgroup\resetindexcaption%
+}
 
 % Insertar una imagen a la izquierda, escalada, ancho fijo
 % 	#1	Label (opcional)
@@ -221,7 +239,7 @@
 %	#3	Ancho de la imagen (en linewidth)
 %	#4	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleft}[4][]{%
-	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}
+	\insertimageleftboxed[#1]{#2}{#3}{0}{#4}%
 }
 
 % Insertar una imagen a la izquierda, escalada, ancho fijo
@@ -267,7 +285,7 @@
 %	#4	Altura en líneas de la imagen
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftline}[5][]{%
-	\insertimageleftlineboxed[#1]{#2}{#3}{0}{#4}{#5}
+	\insertimageleftlineboxed[#1]{#2}{#3}{0}{#4}{#5}%
 }
 
 % Insertar una imagen recuadrada a la izquierda, ajustada en un número de líneas, escalada, ancho fijo
@@ -313,7 +331,7 @@
 %	#3	Ancho de la imagen (en linewidth)
 %	#4	Leyenda de la imagen (opcional)
 \newcommand{\insertimageright}[4][]{%
-	\insertimagerightboxed[#1]{#2}{#3}{0}{#4}
+	\insertimagerightboxed[#1]{#2}{#3}{0}{#4}%
 }
 
 % Insertar una imagen recuadrada a la derecha, escalada, ancho fijo
@@ -359,7 +377,7 @@
 %	#4	Altura en líneas de la imagen
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightline}[5][]{%
-	\insertimagerightlineboxed[#1]{#2}{#3}{0}{#4}{#5}
+	\insertimagerightlineboxed[#1]{#2}{#3}{0}{#4}{#5}%
 }
 
 % Insertar una imagen recuadrada a la derecha, ajustada en un número de líneas, escalada, ancho fijo
@@ -410,7 +428,7 @@
 	\xspace ~ \\%
 	\vspace{-2\baselineskip}%
 	\par%
-	\insertimageleftboxedp[#1]{#2}{#3}{#4}{0}{#5}
+	\insertimageleftboxedp[#1]{#2}{#3}{#4}{0}{#5}%
 }
 
 % Insertar una imagen a la izquierda, propiedades variables
@@ -459,7 +477,7 @@
 %	#5	Altura en líneas de la imagen
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftlinep}[6][]{%
-	\insertimageleftlineboxedp[#1]{#2}{#3}{#4}{0}{#5}{#6}
+	\insertimageleftlineboxedp[#1]{#2}{#3}{#4}{0}{#5}{#6}%
 }
 
 % Insertar una imagen recuadrada a la izquierda, ajustada en un número de líneas, propiedades variables
@@ -470,7 +488,7 @@
 %	#5	Ancho de la línea (en pt)
 %	#6	Altura en líneas de la imagen
 %	#7	Leyenda de la imagen (opcional)
-\newcommand{\insertimageleftlineboxedp}[7][]{
+\newcommand{\insertimageleftlineboxedp}[7][]{%
 	\emptyvarerr{\insertimageleftlineboxedp}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimageleftlineboxedp}{#3}{Ancho del objeto no definido}
 	\emptyvarerr{\insertimageleftlineboxedp}{#4}{Propiedades de la imagen no definidos}
@@ -512,7 +530,7 @@
 	\xspace ~ \\%
 	\vspace{-2\baselineskip}%
 	\par%
-	\insertimagerightboxedp[#1]{#2}{#3}{#4}{0}{#5}
+	\insertimagerightboxedp[#1]{#2}{#3}{#4}{0}{#5}%
 }
 
 % Insertar una imagen recuadrada a la derecha, propiedades variables
@@ -522,7 +540,7 @@
 %	#4	Propiedades de la imagen
 %	#5	Ancho de la línea (en pt)
 %	#6	Leyenda de la imagen (opcional)
-\newcommand{\insertimagerightboxedp}[6][]{
+\newcommand{\insertimagerightboxedp}[6][]{%
 	\emptyvarerr{\insertimagerightboxedp}{#2}{Direccion de la imagen no definida}
 	\emptyvarerr{\insertimagerightboxedp}{#3}{Ancho del objeto no definido}
 	\emptyvarerr{\insertimagerightboxedp}{#4}{Propiedades de la imagen no definidos}
@@ -561,7 +579,7 @@
 %	#5	Altura en líneas de la imagen
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightlinep}[6][]{%
-	\insertimagerightlineboxedp[#1]{#2}{#3}{#4}{0}{#5}{#6}
+	\insertimagerightlineboxedp[#1]{#2}{#3}{#4}{0}{#5}{#6}%
 }
 
 % Insertar una imagen recuadrada a la derecha, ajustada en un número de líneas, propiedades variables
