@@ -271,37 +271,62 @@
 
 % Definición de letras
 \newcommand{\A}{\ensuremath{\mathcal{A}}}
+
 \newcommand{\B}{\ensuremath{\mathcal{B}}}
-\let\oldC=\C % No existe en T1
+
+\ifthenelse{\isundefined{\C}}{\newcommand{\C}{C}}{\let\oldC=\C}
 \renewcommand{\C}{\ensuremath{\mathbb{C}}}
+
 \newcommand{\D}{\ensuremath{\mathbb{D}}}
+
 \newcommand{\E}{\ensuremath{\mathbb{E}}}
+
 \newcommand{\F}{\ensuremath{\mathcal{F}}}
-\let\oldG=\G % No existe en T1
+
+\ifthenelse{\isundefined{\G}}{\newcommand{\G}{G}}{\let\oldG=\G}
 \renewcommand{\G}{\ensuremath{\mathcal{G}}}
-\let\oldH=\H % No existe en T1
+
+\ifthenelse{\isundefined{\H}}{\newcommand{\H}{H}}{\let\oldH=\H}
 \renewcommand{\H}{\ensuremath{\mathcal{H}}}
+
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
+
 \newcommand{\J}{\ensuremath{\mathcal{J}}}
+
 \newcommand{\K}{\ensuremath{\mathcal{K}}}
+
 \let\oldL=\L % Es como una L con una raya
 \renewcommand{\L}{\ensuremath{\mathcal{L}}}
+
 \newcommand{\M}{\ensuremath{\mathcal{M}}}
+
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
+
 % \renewcommand{\O}{\ensuremath{\mathbb{O}}} % O equivale a o/oo
+
 \let\oldP=\P % P negra
 \renewcommand{\P}{\ensuremath{\mathbb{P}}}
+
 \newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
+
 \let\oldS=\S % Es como una serpiente
 \renewcommand{\S}{\ensuremath{\mathcal{S}}}
+
 \newcommand{\T}{\ensuremath{\mathcal{T}}}
-\let\oldU=\U % No existe en T1
+
+\ifthenelse{\isundefined{\U}}{\newcommand{\U}{U}}{\let\oldU=\U}
 \renewcommand{\U}{\ensuremath{\mathcal{U}}}
+
 \newcommand{\V}{\ensuremath{\mathcal{V}}}
+
 \newcommand{\W}{\ensuremath{\mathcal{W}}}
+
 \newcommand{\X}{\ensuremath{\mathcal{X}}}
+
 \newcommand{\Y}{\ensuremath{\mathcal{Y}}}
+
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 
 % Definición de operadores matemáticos de asignación (Typeset assigments)
