@@ -64,7 +64,16 @@
 \ifthenelse{\equal{\chapterstyle}{style9}}{
 	\usepackage[Bjornstrup]{fncychap}
 }{
-	\throwbadconfigondoc{Estilo de capitulo incorrecto}{\chapterstyle}{style1 .. style9}}}}}}}}}
+\ifthenelse{\equal{\chapterstyle}{style10}}{
+	\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter.\hspace{20pt}}{0pt}{\Huge\bfseries}
+}{
+\ifthenelse{\equal{\chapterstyle}{style11}}{
+	\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hspace{20pt}}{0pt}{\Huge\bfseries}
+}{
+\ifthenelse{\equal{\chapterstyle}{style12}}{
+	\titleformat{\chapter}[hang]{\Huge\bfseries}{}{0pt}{\Huge\bfseries}
+}{
+	\throwbadconfigondoc{Estilo de capitulo incorrecto}{\chapterstyle}{style1 .. style12}}}}}}}}}}}}
 }
 
 % END
