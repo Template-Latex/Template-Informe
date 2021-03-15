@@ -26,22 +26,24 @@
 	% Portada por estilo
 	\ifthenelse{\equal{\portraitstyle}{style1}}{
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-		\pagestyle{fancy}
-		\begin{spacing}{1.025}
-
+		
 		% Escribe el header
-		\fancyhf{}
-		\fancyhead[L]{
-			\COREwriteheaderitem{\nombreuniversidad}
-			\COREwriteheaderitem{\nombrefacultad}
-			\COREwriteheaderitem{\departamentouniversidad}
-			\vspace{-0.95\baselineskip}
+		\fancypagestyle{portraitstyle}{
+			\fancyhf{}
+			\fancyhead[L]{
+				\COREwriteheaderitem{\nombreuniversidad}
+				\COREwriteheaderitem{\nombrefacultad}
+				\COREwriteheaderitem{\departamentouniversidad}
+				\vspace{-0.95\baselineskip}
+			}
+			\fancyhead[R]{%
+				\hspace{-0.255cm}%
+				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\vspace{-0.175cm}%
+			}
 		}
-		\fancyhead[R]{%
-			\hspace{-0.255cm}%
-			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
-			\vspace{-0.175cm}%
-		}
+		\thispagestyle{portraitstyle}
+		\begin{spacing}{1.025}
 
 		% Título y tema a tratar
 		~ \\
@@ -65,22 +67,24 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style2}}{
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-		\pagestyle{fancy}
-		\begin{spacing}{1.025}
-
+		
 		% Escribe el header
-		\fancyhf{}
-		\fancyhead[L]{
-			\COREwriteheaderitem{\nombreuniversidad}
-			\COREwriteheaderitem{\nombrefacultad}
-			\COREwriteheaderitem{\departamentouniversidad}
-			\vspace{-0.95\baselineskip}
+		\fancypagestyle{portraitstyle}{
+			\fancyhf{}
+			\fancyhead[L]{
+				\COREwriteheaderitem{\nombreuniversidad}
+				\COREwriteheaderitem{\nombrefacultad}
+				\COREwriteheaderitem{\departamentouniversidad}
+				\vspace{-0.95\baselineskip}
+			}
+			\fancyhead[R]{%
+				\hspace{-0.255cm}%
+				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\vspace{-0.175cm}%
+			}
 		}
-		\fancyhead[R]{%
-			\hspace{-0.255cm}%
-			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
-			\vspace{-0.175cm}%
-		}
+		\thispagestyle{portraitstyle}
+		\begin{spacing}{1.025}
 
 		% Nombre de curso y título
 		~ \\
@@ -106,22 +110,24 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style3}}{
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-		\pagestyle{fancy}
-		\begin{spacing}{1.025}
-
+		
 		% Escribe el header
-		\fancyhf{}
-		\fancyhead[L]{
-			\COREwriteheaderitem{\nombreuniversidad}
-			\COREwriteheaderitem{\nombrefacultad}
-			\COREwriteheaderitem{\departamentouniversidad}
-			\vspace{-0.95\baselineskip}
+		\fancypagestyle{portraitstyle}{
+			\fancyhf{}
+			\fancyhead[L]{
+				\COREwriteheaderitem{\nombreuniversidad}
+				\COREwriteheaderitem{\nombrefacultad}
+				\COREwriteheaderitem{\departamentouniversidad}
+				\vspace{-0.95\baselineskip}
+			}
+			\fancyhead[R]{%
+				\hspace{-0.255cm}%
+				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\vspace{-0.175cm}%
+			}
 		}
-		\fancyhead[R]{%
-			\hspace{-0.255cm}%
-			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
-			\vspace{-0.175cm}%
-		}
+		\thispagestyle{portraitstyle}
+		\begin{spacing}{1.025}
 
 		% Curso y código - título informe
 		~ \\
@@ -149,6 +155,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style4}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 		
@@ -188,6 +195,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style5}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 		
@@ -228,6 +236,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style6}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 		
@@ -286,6 +295,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style7}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 
@@ -325,6 +335,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style8}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 
@@ -360,6 +371,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style9}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 
@@ -392,6 +404,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style10}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 
@@ -432,6 +445,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style11}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 
@@ -465,6 +479,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style12}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 
@@ -502,6 +517,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style13}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 
@@ -550,6 +566,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style14}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 
@@ -574,6 +591,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style15}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 		
@@ -653,8 +671,6 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style17}}{
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-		\pagestyle{fancy}
-		\begin{spacing}{1.025}
 		
 		\checkextravarexist{\portraitimageC}{[portrait-style17] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageboxedC}{[portrait-style17] Defina si la imagen de la portada se encierra en un recuadro}
@@ -662,18 +678,22 @@
 		\checkextravarexist{\portraitimageparamsC}{[portrait-style17] Defina los parametros de la imagen de la portada}
 
 		% Header
-		\fancyhf{}
-		\fancyhead[L]{
-			\COREwriteheaderitem{\nombreuniversidad}
-			\COREwriteheaderitem{\nombrefacultad}
-			\COREwriteheaderitem{\departamentouniversidad}
-			\vspace{-0.95\baselineskip}
+		\fancypagestyle{portraitstyle}{
+			\fancyhf{}
+			\fancyhead[L]{
+				\COREwriteheaderitem{\nombreuniversidad}
+				\COREwriteheaderitem{\nombrefacultad}
+				\COREwriteheaderitem{\departamentouniversidad}
+				\vspace{-0.95\baselineskip}
+			}
+			\fancyhead[R]{%
+				\hspace{-0.255cm}%
+				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\vspace{-0.175cm}%
+			}
 		}
-		\fancyhead[R]{%
-			\hspace{-0.255cm}%
-			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
-			\vspace{-0.175cm}%
-		}
+		\thispagestyle{portraitstyle}
+		\begin{spacing}{1.025}
 
 		% Título del informe
 		~ \\
@@ -713,8 +733,6 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style18}}{
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-		\pagestyle{fancy}
-		\begin{spacing}{1.025}
 		
 		\checkextravarexist{\portraitimageD}{[portrait-style18] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageboxedD}{[portrait-style18] Defina si la imagen de la portada se encierra en un recuadro}
@@ -722,18 +740,22 @@
 		\checkextravarexist{\portraitimageparamsD}{[portrait-style18] Defina los parametros de la imagen de la portada}
 
 		% Header
-		\fancyhf{}
-		\fancyhead[L]{
-			\COREwriteheaderitem{\nombreuniversidad}
-			\COREwriteheaderitem{\nombrefacultad}
-			\COREwriteheaderitem{\departamentouniversidad}
-			\vspace{-0.95\baselineskip}
+		\fancypagestyle{portraitstyle}{
+			\fancyhf{}
+			\fancyhead[L]{
+				\COREwriteheaderitem{\nombreuniversidad}
+				\COREwriteheaderitem{\nombrefacultad}
+				\COREwriteheaderitem{\departamentouniversidad}
+				\vspace{-0.95\baselineskip}
+			}
+			\fancyhead[R]{%
+				\hspace{-0.255cm}%
+				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\vspace{-0.175cm}%
+			}
 		}
-		\fancyhead[R]{%
-			\hspace{-0.255cm}%
-			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
-			\vspace{-0.175cm}%
-		}
+		\thispagestyle{portraitstyle}
+		\begin{spacing}{1.025}
 
 		% Imagen de la portada
 		~ \\
@@ -771,6 +793,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style19}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 		
@@ -804,6 +827,7 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style20}}{
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
+		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
 		
@@ -833,8 +857,6 @@
 	}{
 	\ifthenelse{\equal{\portraitstyle}{style21}}{
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
-		\pagestyle{fancy}
-		\begin{spacing}{1.025}
 			
 		\checkextravarexist{\portraitimageI}{[portrait-style21] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageboxedI}{[portrait-style21] Defina si la imagen de la portada se encierra en un recuadro}
@@ -842,18 +864,22 @@
 		\checkextravarexist{\portraitimageparamsI}{[portrait-style21] Defina los parametros de la imagen de la portada}
 		
 		% Header
-		\fancyhf{}
-		\fancyhead[L]{
-			\COREwriteheaderitem{\nombreuniversidad}
-			\COREwriteheaderitem{\nombrefacultad}
-			\COREwriteheaderitem{\departamentouniversidad}
-			\vspace{-0.95\baselineskip}
+		\fancypagestyle{portraitstyle}{
+			\fancyhf{}
+			\fancyhead[L]{
+				\COREwriteheaderitem{\nombreuniversidad}
+				\COREwriteheaderitem{\nombrefacultad}
+				\COREwriteheaderitem{\departamentouniversidad}
+				\vspace{-0.95\baselineskip}
+			}
+			\fancyhead[R]{%
+				\hspace{-0.255cm}%
+				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\vspace{-0.175cm}%
+			}
 		}
-		\fancyhead[R]{%
-			\hspace{-0.255cm}%
-			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
-			\vspace{-0.175cm}%
-		}
+		\thispagestyle{portraitstyle}
+		\begin{spacing}{1.025}
 		
 		% Imagen de la portada
 		~ \vfill
