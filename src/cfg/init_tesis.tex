@@ -34,4 +34,37 @@
 	\def\l@subparagraph{\@dottedtocline{6}{19em}{7em}}
 \makeatother
 
+% Estilos de capítulos
+\ifthenelse{\equal{\chapterstyle}{style1}}{
+	% Default
+}{
+\ifthenelse{\equal{\chapterstyle}{style2}}{
+	\definecolor{gray75}{gray}{0.75}
+	\newcommand{\hsp}{\hspace{20pt}}
+	\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+}{
+\ifthenelse{\equal{\chapterstyle}{style3}}{
+	\usepackage[Sonny]{fncychap}
+}{
+\ifthenelse{\equal{\chapterstyle}{style4}}{
+	\usepackage[Lenny]{fncychap}
+}{
+\ifthenelse{\equal{\chapterstyle}{style5}}{
+	\usepackage[Glenn]{fncychap}
+}{
+\ifthenelse{\equal{\chapterstyle}{style6}}{
+	\usepackage[Conny]{fncychap}
+}{
+\ifthenelse{\equal{\chapterstyle}{style7}}{
+	\usepackage[Rejne]{fncychap}
+}{
+\ifthenelse{\equal{\chapterstyle}{style8}}{
+	\usepackage[Bjarne]{fncychap}
+}{
+\ifthenelse{\equal{\chapterstyle}{style9}}{
+	\usepackage[Bjornstrup]{fncychap}
+}{
+	\throwbadconfigondoc{Estilo de capitulo incorrecto}{\chapterstyle}{style1 .. style9}}}}}}}}}
+}
+
 % END
