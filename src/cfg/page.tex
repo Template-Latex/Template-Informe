@@ -766,7 +766,12 @@
 	% -----------------------------------------------------------------------------
 	% Configura el nombre del abstract
 	% -----------------------------------------------------------------------------
-	\renewcommand{\abstractname}{\nameabstract}
+	\ifthenelse{\isundefined{\abstractname}}{
+		\newcommand{\abstractname}{\nameabstract}
+		\throwwarning{La variable \noexpand\abstractname no existe, lo que indica que la libreria babel no se ha cargado. Si ha desactivado la configuracion \noexpand\usespanishbabel debe cargar manualmente la libreria babel con algun otro idioma, como por ejemplo \noexpand\usepackage[english]{babel}}
+	}{
+		\renewcommand{\abstractname}{\nameabstract}
+	}
 
 }
 
