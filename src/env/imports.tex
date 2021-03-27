@@ -107,6 +107,7 @@
 \usepackage{floatrow}      % Permite administrar posiciones en los caption
 \usepackage{framed}        % Permite creación de recuadros
 \usepackage{gensymb}       % Simbología común
+\usepackage{graphicx}      % Propiedades extra para los gráficos
 \usepackage{lipsum}        % Permite crear párrafos de prueba
 \usepackage{listings}      % Permite añadir código fuente
 \usepackage{longtable}     % Permite utilizar tablas en varias hojas
@@ -157,11 +158,14 @@
 % LIBRERÍAS CONDICIONALES
 % -----------------------------------------------------------------------------
 
-% Carga las imagenes
-\ifthenelse{\equal{\graphicxdraft}{false}}{
-	\usepackage{graphicx}
-}{
-	\usepackage[draft]{graphicx}
+% Imágenes en modo draft
+\ifthenelse{\equal{\graphicxdraft}{true}}{
+	\usepackage[
+		allfiguresdraft,
+		filename,
+		size={scriptsize},
+		style={tt}
+	]{draftfigure}}{
 }
 
 % Acepta codificación UTF-8 en código fuente
