@@ -107,7 +107,6 @@
 \usepackage{floatrow}      % Permite administrar posiciones en los caption
 \usepackage{framed}        % Permite creación de recuadros
 \usepackage{gensymb}       % Simbología común
-\usepackage{graphicx}      % Propiedades extra para los gráficos
 \usepackage{lipsum}        % Permite crear párrafos de prueba
 \usepackage{listings}      % Permite añadir código fuente
 \usepackage{longtable}     % Permite utilizar tablas en varias hojas
@@ -157,6 +156,13 @@
 % -----------------------------------------------------------------------------
 % LIBRERÍAS CONDICIONALES
 % -----------------------------------------------------------------------------
+
+% Carga las imagenes
+\ifthenelse{\equal{\graphicxdraft}{false}}{
+	\usepackage{graphicx}
+}{
+	\usepackage[draft]{graphicx}
+}
 
 % Acepta codificación UTF-8 en código fuente
 \ifthenelse{\equal{\compilertype}{pdf2latex}}{
@@ -651,6 +657,9 @@
 % FINALES
 % -----------------------------------------------------------------------------
 \usepackage[T1]{fontenc} % Caracteres acentuados
+\ifthenelse{\equal{\showlayoutlines}{true}}{ % Muestra las líneas del layout
+	\usepackage{showframe}}{
+}
 \ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
