@@ -565,6 +565,7 @@
 % Restauración número footnote
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\footnoterestart}{none}}{
+	% \counterwithout*{footnote}{chapter}
 }{
 \ifthenelse{\equal{\footnoterestart}{sec}}{
 	\counterwithin*{footnote}{section}
