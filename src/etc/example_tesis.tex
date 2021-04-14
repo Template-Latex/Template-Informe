@@ -214,18 +214,18 @@ public class Hola extends GenericServlet { // Hola mundo
 \end{sourcecode}
 
 \begin{sourcecode}{matlab}{Ejemplo en Matlab.}
-	% Se crea gráfico
-	f = figure(1); hold on; movegui(f, 'center');
-	xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
-	title('Espectro de pulso de desplazamiento');
-	
-	for j = 1:length(BETA)
+% Se crea gráfico
+f = figure(1); hold on; movegui(f, 'center');
+xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
+title('Espectro de pulso de desplazamiento');
+
+for j = 1:length(BETA)
 	fad = ones(1, NDATOS); % Arreglo para el FAD
 	for i = 1:NDATOS
-	[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
-	fad(i) = max(abs(u_t)) / uf0;
+		[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
+		fad(i) = max(abs(u_t)) / uf0;
 	end
-	end
+end
 \end{sourcecode}
 
 % SUB-SECCIÓN
