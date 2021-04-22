@@ -38,7 +38,7 @@
 	% \setpagemargincm{\pagemarginleft}{\pagemarginright}{\pagemarginright}{\pagemarginbottom}
 	\ifthenelse{\equal{\addabstracttobookmarks}{true}}{
 		\phantomsection
-		\pdfbookmark{#3}{contents}}{
+		\pdfbookmark{#3}{abstract}}{
 	}
 	% Inserta la tabla resumen
 	\begin{flushright}
@@ -64,7 +64,6 @@
 	}
 	% \setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 }
-
 % Crea una sección de resumen
 \newenvironment{resumen}{
 	\begin{resumenenv}{\tablaresumen}{\titulotesis}{\nameabstract}
@@ -96,7 +95,7 @@
 	\chapter*{\nameagradec}
 	\ifthenelse{\equal{\addagradectobookmarks}{true}}{
 		\phantomsection
-		\pdfbookmark{\nameagradec}{contents}}{
+		\pdfbookmark{\nameagradec}{acknowledgments}}{
 	}
 	~ \\
 	% EMPTYLINE
