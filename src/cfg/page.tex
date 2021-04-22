@@ -13,10 +13,10 @@
 
 \newcommand{\templatePagecfg}{
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Numeración de páginas
-	% -----------------------------------------------------------------------------
-	\newpage
+	% -------------------------------------------------------------------------
+	\clearpage
 	\ifthenelse{\equal{\predocpageromannumber}{true}}{ % Si se usan números romanos en el predocumento
 		\ifthenelse{\equal{\predocpageromanupper}{true}}{
 			\pagenumbering{Roman}
@@ -28,23 +28,23 @@
 	\setcounter{page}{1}
 	\setcounter{footnote}{0}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Márgenes de páginas y tablas
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 	\def\arraystretch {\tablepaddingv} % Se ajusta el padding vertical de las tablas
 	\setlength{\tabcolsep}{\tablepaddingh em} % Se ajusta el padding horizontal de las tablas
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Se define el punto decimal
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\pointdecimal}{true}}{
 		\decimalpoint}{
 	}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Definición de nombres de objetos
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\renewcommand{\appendixname}{\nomltappendixsection} % Nombre del anexo (título)
 	\renewcommand{\appendixpagename}{\nameappendixsection} % Nombre del anexo en índice
 	\renewcommand{\appendixtocname}{\nameappendixsection} % Nombre del anexo en índice
@@ -58,9 +58,9 @@
 	\renewcommand{\bibname}{\namereferences} % Nombre de las referencias (natbib)
 	\renewcommand{\tablename}{\nomltwtable} % Nombre de la leyenda de tablas
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Estilo de títulos
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
 	\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
 	\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
@@ -68,16 +68,16 @@
 	\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 	\def\bibfont{\fontsizerefbibl} % Tamaño de fuente de las referencias
 	
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Estilo citas
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\stylecitereferences}{apacite}}{
 		\renewcommand{\BOthers}[1]{\apacitebothers\hbox{}}
 	}{}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Se crean los header-footer
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\fancyheadoffset{0pt} % Desactiva el offset de los header-footer
 	\def\hfheaderimageparamsA {height=\baselineskip} % Tamaño de las imágenes del encabezado estilo 3/13
 	\ifthenelse{\equal{\hfstyle}{style1}}{
@@ -756,16 +756,16 @@
 		\COREstyledefinition
 	}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Muestra los números de línea
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\linenumbers}{
 	}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Configura el nombre del abstract
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\ifthenelse{\isundefined{\abstractname}}{
 		\newcommand{\abstractname}{\nameabstract}
 		\throwwarning{La variable \noexpand\abstractname no existe, lo que indica que la libreria babel no se ha cargado. Si ha desactivado la configuracion \noexpand\usespanishbabel debe cargar manualmente la libreria babel con algun otro idioma, como por ejemplo \noexpand\usepackage[english]{babel}, o bien define en true la configuracion \noexpand\useenglishbabel}

@@ -16,7 +16,7 @@
 	% -------------------------------------------------------------------------
 	% Crea nueva página y establece estilo de títulos
 	% -------------------------------------------------------------------------
-	\newpage
+	\clearpage
 	\begingroup
 	\sectionfont{\color{\indextitlecolor} \fontsizetitlei \styletitlei \selectfont}
 	
@@ -27,10 +27,10 @@
 		\checkoddpage
 		\ifoddpage
 		\else
-			\newpage
+			\clearpage
 			\null
 			\thispagestyle{empty}
-			\newpage
+			\clearpage
 			\addtocounter{page}{-1}
 		\fi}{
 	}
@@ -39,6 +39,7 @@
 	% Añade la entrada del índice a los marcadores del pdf
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\addindextobookmarks}{true}}{
+		\phantomsection
 		\belowpdfbookmark{\nomltcont}{contents}}{
 	}
 	\tocloftpagestyle{fancy}
@@ -283,25 +284,25 @@
 	% -------------------------------------------------------------------------
 	\newcommand{\LoIf}{ % Lista de figuras
 		\iftotalfigures
-			\ifthenelse{\equal{\indexnewpagef}{true}}{\newpage}{}
+			\ifthenelse{\equal{\indexnewpagef}{true}}{\clearpage}{}
 			\listoffigures
 		\fi
 	}
 	\newcommand{\LoIt}{ % Tablas
 		\iftotaltables
-			\ifthenelse{\equal{\indexnewpaget}{true}}{\newpage}{}
+			\ifthenelse{\equal{\indexnewpaget}{true}}{\clearpage}{}
 			\listoftables
 		\fi
 	}
 	\newcommand{\LoIc}{ % Códigos fuente (listings)
 		\iftotallstlistings
-			\ifthenelse{\equal{\indexnewpagec}{true}}{\newpage}{}
+			\ifthenelse{\equal{\indexnewpagec}{true}}{\clearpage}{}
 			\lstlistoflistings
 		\fi
 	}
 	\newcommand{\LoIe}{ % Ecuaciones
 		\iftotaltemplateIndexEquationss
-			\ifthenelse{\equal{\indexnewpagee}{true}}{\newpage}{}
+			\ifthenelse{\equal{\indexnewpagee}{true}}{\clearpage}{}
 			\listofmyindexequations
 		\fi
 	}
@@ -326,15 +327,15 @@
 	% -------------------------------------------------------------------------
 	% Se añade una página en blanco
 	% -------------------------------------------------------------------------
-	\newpage
+	\clearpage
 	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
 		\vfill
 		\checkoddpage
 		\ifoddpage
-			\newpage
+			\clearpage
 			\null
 			\thispagestyle{empty}
-			\newpage
+			\clearpage
 			\addtocounter{page}{-1}
 		\else
 		\fi}{

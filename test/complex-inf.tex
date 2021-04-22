@@ -139,7 +139,7 @@ P1 Analitico, periodo resonante: 0.533333
 
 Tal como se puede observar el programa retornó los mismos resultados.
 
-\newpage
+\clearpage
 \subsubsectionanum{Test resonancia}
 
 En este test se busca llegar a la resonancia. Para ello se utilizó el mismo suelo, pero evaluado en $T=\frac{4H}{V_s}$, valor del período para el cual el coseno del denominador de la expresión se indefine, logrando teóricamente un factor de amplificación infinito.
@@ -148,7 +148,7 @@ En este test se busca llegar a la resonancia. Para ello se utilizó el mismo sue
 
 Tal como se puede observar en la figura anterior, se obtuvo un FA muy alto, numéricamente inestable. Esto indica claramente que la solución es correcta, ya que amplifica en el período teóricamente resonante.
 
-\newpage
+\clearpage
 \section{Pregunta 2}
 
 \textbf{Implemente las ecuaciones de propagación unidimensional de ondas de corte para un medio visco-elástico compuesto por capas en condición permanente y grafique el desplazamiento de partícula en profundidad en forma animada. Considere un depósito compuesto por tres capas.} \\
@@ -253,7 +253,7 @@ Para resolver el problema se creó, al igual que para la primera pregunta, una f
 
 A continuación se muestra el extracto de código más importante de la implementación:
 
-\newpage
+\clearpage
 \begin{sourcecodep}{matlab}{firstnumber=52}{Código más importante de \texttt{u\_velt.m}.}
 	%% Calcula propiedades N capas (Kelvin-Voigt)
 	nVs = Vs .* sqrt(1+2*1i*D); % Velocidad onda de corte compleja (si D!=0)
@@ -322,7 +322,7 @@ Obteniendo luego el siguiente resultado:
 
 Como es posible observar en la figura anterior existe un incremento importante en los desplazamientos en superficie fruto del fuerte contraste de impedancias, además, en roca, no se observa mayor cambio dado que las velocidades de corte son similares.
 
-\newpage
+\clearpage
 \subsubsectionanum{Segundo caso}
 
 Se modeló un sistema de 5 capas y una capa con una velocidad de corte $V_s$=250 m/s y una altura total de 50 metros. En ambos casos se obtuvo la misma solución, lo cual es consistente.

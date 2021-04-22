@@ -13,11 +13,11 @@
 
 \newcommand{\templateFinalcfg}{
 	
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Se reestablecen headers y footers
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\markboth{}{}
-	\newpage
+	\clearpage
 
 	% Actualiza headers
 	\ifthenelse{\equal{\disablehfrightmark}{false}}{
@@ -147,18 +147,18 @@
 	}{
 	}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Estilo de títulos - reestablece estilos por el índice
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
 	\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
 	\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
 	\titleformat{\subsubsubsection}{\color{\ssstitlecolor} \normalfont \fontsizessstitle \stylessstitle}{\thesubsubsubsection}{1em}{}
 	\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Crea funciones para numerar objetos
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 
 	% Numeración de la sección en los objetos CÓDIGO FUENTE
 	\ifthenelse{\equal{\showsectioncaptioncode}{none}}{
@@ -264,9 +264,9 @@
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptiontab}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 	}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Modifica numeración de objetos
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 
 	% Código fuente, INCLUIR SECCIÓN
 	\ifthenelse{\equal{\captionnumcode}{arabic}}{
@@ -382,9 +382,9 @@
 		\throwbadconfig{Tipo numero subtabla desconocido}{\captionnumsubtable}{arabic,alph,Alph,roman,Roman}}}}}
 	}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Se reestablecen números de página y secciones
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 
 	% Se usa número de páginas en arábigo si es que se tenía activado los númeos romanos
 	\ifthenelse{\equal{\predocpageromannumber}{true}}{
@@ -398,16 +398,16 @@
 	\setcounter{section}{0}
 	\setcounter{footnote}{0}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Muestra los números de línea
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\linenumbers}{
 	}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Establece el estilo de las subsubsubsecciones
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\titleclass{\subsubsubsection}{straight}[\subsection]
 
 }

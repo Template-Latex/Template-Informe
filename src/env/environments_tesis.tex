@@ -26,24 +26,34 @@
 }
 
 % Crea una sección de resumen
-\newenvironment{resumen}{
+%	#1	Tabla resumen
+%	#2	Título de la tesis
+%	#3	Título de la sección
+\newenvironment{resumenenv}[3]{
+	\clearpage
+	\emptyvarerr{\resumenenv}{#1}{Tabla resumen no definida}
+	\emptyvarerr{\resumenenv}{#2}{Titulo tesis no definido}
+	\emptyvarerr{\resumenenv}{#3}{Titulo seccion no definida}
 	% Añade a los marcadores
 	% \setpagemargincm{\pagemarginleft}{\pagemarginright}{\pagemarginright}{\pagemarginbottom}
 	\ifthenelse{\equal{\addabstracttobookmarks}{true}}{
-		\pdfbookmark{\nameabstract}{contents}}{
+		\phantomsection
+		\pdfbookmark{#3}{contents}}{
 	}
 	% Inserta la tabla resumen
 	\begin{flushright}
 		\small
-		\tablaresumen
+		#1
 	\end{flushright}
 	\vspace{0.75\baselineskip}
 	% Título
 	\begin{center}
-		\textcolor{\titlecolor}{\MakeUppercase{\textbf{\titulotesis}}}
+		\textcolor{\titlecolor}{\MakeUppercase{\textbf{#2}}}
 	\end{center} \newp
 	\vspace{-\baselineskip}
-	}{\vfill\null
+	}{%
+	\vfill\null
+	\clearpage
 	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
 		\vfill
 		\checkoddpage
@@ -55,11 +65,19 @@
 	% \setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 }
 
+% Crea una sección de resumen
+\newenvironment{resumen}{
+	\begin{resumenenv}{\tablaresumen}{\titulotesis}{\nameabstract}
+	}{
+	\end{resumenenv}
+}
+
 % Crea una sección de dedicatoria
 \newenvironment{dedicatoria}{
-	\cleardoublepage\null
+	\clearpage\null
+	\phantomsection
 	% \ifthenelse{\equal{\adddedictobookmarks}{true}}{
-	% 	\belowpdfbookmark{\nameadedic}{contents}}{
+	% 	\pdfbookmark{\nameadedic}{contents}}{
 	% }
 	\vspace{\stretch{1}}
 	\begin{flushright}
@@ -74,15 +92,17 @@
 
 % Crea una sección de agradecimientos
 \newenvironment{agradecimientos}{
+	\clearpage
 	\chapter*{\nameagradec}
 	\ifthenelse{\equal{\addagradectobookmarks}{true}}{
-		\belowpdfbookmark{\nameagradec}{contents}}{
+		\phantomsection
+		\pdfbookmark{\nameagradec}{contents}}{
 	}
 	~ \\
 	% EMPTYLINE
 	\vspace{-2\baselineskip}
 	}{
-	\newpage
+	\clearpage
 	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
 		\insertblankpage}{
 	}

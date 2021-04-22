@@ -35,7 +35,7 @@
 
 % Salto de página en entorno multicol
 \newcommand{\newpagemulticol}{%
-	\newcolumn\newcolumn\newpage%
+	\newcolumn\newcolumn\clearpage%
 }
 
 % Inserta un lipsum corregido
@@ -52,21 +52,21 @@
 
 % Crea una página vacía sin header o footer
 \newcommand{\insertemptypage}{%
-	\newpage
+	\clearpage
 	\setcounter{templatePageCounter}{\thepage}
 	\pagenumbering{gobble}
 	\null
 	\thispagestyle{empty}
-	\newpage
+	\clearpage
 	\pagenumbering{arabic}
 	\setcounter{page}{\thetemplatePageCounter}
 }
 
 % Inserta una página vacía, aunque conserva header, footer y numeración
 \newcommand{\insertblankpage}{%
-	\newpage
+	\clearpage
 	\null
-	\newpage
+	\clearpage
 }
 
 % Añade un archivo pdf con el header
@@ -244,7 +244,7 @@
 	\ifthenelse{\equal{\compilertype}{lualatex}}{
 		\throwwarning{Funcion no valida en compilador lualatex}
 	}{
-		\newpage
+		\clearpage
 		\ifthenelse{\equal{#1}{}}{
 			\newgeometry{left=\pagemarginleft cm, top=\pagemargintop cm, right=\pagemarginright cm, bottom=\pagemarginbottom cm, paperwidth=#2 cm, paperheight=#3 cm}
 		}{

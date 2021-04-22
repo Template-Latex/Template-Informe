@@ -20,7 +20,7 @@
 \newcommand{\templatePortrait}{
 	
 	% Se escribe el header de la portada
-	\newpage
+	\clearpage
 	\renewcommand{\thepage}{\nameportraitpage} % !NL
 	
 	% Portada por estilo
@@ -936,21 +936,21 @@
 			\noindent \tablaintegrantes
 		\end{flushright}
 		\end{spacing}
-		\newpage
+		\clearpage
 		\pagecolor{\colorpage}
 	}{
 		\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style21}}}}}}}}}}}}}}}}}}}}}}
 	}
 
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	% Añade una página en blanco al imprimir por las dos caras
-	% -----------------------------------------------------------------------------
+	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
-		\newpage
+		\clearpage
 		\null
 		\thispagestyle{empty}
 		\renewcommand{\thepage}{}
-		\newpage}{
+		\clearpage}{
 	}
 
 }
