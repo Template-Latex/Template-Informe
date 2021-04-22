@@ -29,16 +29,18 @@
 %	#1	Tabla resumen
 %	#2	Título de la tesis
 %	#3	Título de la sección
+%	#4	Etiqueta del marcador del pdf
 \newenvironment{resumenenv}[3]{
 	\clearpage
 	\emptyvarerr{\resumenenv}{#1}{Tabla resumen no definida}
 	\emptyvarerr{\resumenenv}{#2}{Titulo tesis no definido}
 	\emptyvarerr{\resumenenv}{#3}{Titulo seccion no definida}
+	\emptyvarerr{\resumenenv}{#4}{Etiqueta marcador del pdf}
 	% Añade a los marcadores
 	% \setpagemargincm{\pagemarginleft}{\pagemarginright}{\pagemarginright}{\pagemarginbottom}
 	\ifthenelse{\equal{\addabstracttobookmarks}{true}}{
 		\phantomsection
-		\pdfbookmark{#3}{abstract}}{
+		\pdfbookmark{#3}{#4}}{
 	}
 	% Inserta la tabla resumen
 	\begin{flushright}
@@ -66,7 +68,7 @@
 }
 % Crea una sección de resumen
 \newenvironment{resumen}{
-	\begin{resumenenv}{\tablaresumen}{\titulotesis}{\nameabstract}
+	\begin{resumenenv}{\tablaresumen}{\titulotesis}{\nameabstract}{abstractbookmark}
 	}{
 	\end{resumenenv}
 }
