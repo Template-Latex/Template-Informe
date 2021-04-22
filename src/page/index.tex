@@ -285,24 +285,44 @@
 	\newcommand{\LoIf}{ % Lista de figuras
 		\iftotalfigures
 			\ifthenelse{\equal{\indexnewpagef}{true}}{\clearpage}{}
+			\ifthenelse{\equal{\addindextobookmarks}{true}}{
+				\ifthenelse{\equal{\addindextobookmarks}{true}}{
+					\phantomsection
+					\belowpdfbookmark{\nomltfigure}{clof}}{}}{
+			}
 			\listoffigures
 		\fi
 	}
 	\newcommand{\LoIt}{ % Tablas
 		\iftotaltables
 			\ifthenelse{\equal{\indexnewpaget}{true}}{\clearpage}{}
+			\ifthenelse{\equal{\addindextobookmarks}{true}}{
+				\ifthenelse{\equal{\addindextobookmarks}{true}}{
+					\phantomsection
+					\belowpdfbookmark{\nomlttable}{clot}}{}}{
+			}
 			\listoftables
 		\fi
 	}
 	\newcommand{\LoIc}{ % Códigos fuente (listings)
 		\iftotallstlistings
 			\ifthenelse{\equal{\indexnewpagec}{true}}{\clearpage}{}
+			\ifthenelse{\equal{\addindextobookmarks}{true}}{
+				\ifthenelse{\equal{\addindextobookmarks}{true}}{
+					\phantomsection
+					\belowpdfbookmark{\nomltsrc}{clsrc}}{}}{
+			}
 			\lstlistoflistings
 		\fi
 	}
 	\newcommand{\LoIe}{ % Ecuaciones
 		\iftotaltemplateIndexEquationss
 			\ifthenelse{\equal{\indexnewpagee}{true}}{\clearpage}{}
+			\ifthenelse{\equal{\addindextobookmarks}{true}}{
+				\ifthenelse{\equal{\addindextobookmarks}{true}}{
+					\phantomsection
+					\belowpdfbookmark{\nomlteqn}{cleqn}}{}}{
+			}
 			\listofmyindexequations
 		\fi
 	}
