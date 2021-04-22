@@ -327,7 +327,7 @@
 	\ifthenelse{\equal{\bibtexindexbibliography}{true}}{
 		\let\oldbibliography\bibliography
 		\renewcommand{\bibliography}[1]{
-			\cleardoublepage
+			\clearpage
 			\phantomsection
 			\addcontentsline{toc}{section}{\namereferences} % bibtex tesis en chapter
 			\oldbibliography{#1}}}{
