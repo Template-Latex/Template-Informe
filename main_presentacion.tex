@@ -1,4 +1,4 @@
-% Template:     Template Tesis LaTeX
+% Template:     Template Presentación LaTeX
 % Documento:    Archivo principal
 % Versión:      DEV
 % Codificación: UTF-8
@@ -8,7 +8,7 @@
 %        Universidad de Chile
 %        pablo@ppizarror.com
 %
-% Sitio web:    [https://latex.ppizarror.com/tesis]
+% Sitio web:    [https://latex.ppizarror.com/presentacion]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
 % CREACIÓN DEL DOCUMENTO
@@ -70,43 +70,20 @@
 }
 
 % IMPORTACIÓN DEL TEMPLATE
-\input{template}
+\input{template_presentacion}
 
 % INICIO DE LAS PÁGINAS
 \begin{document}
-	
-% PORTADA
-\templatePortrait
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \templatePagecfg
-
-% RESUMEN O ABSTRACT
-\begin{resumen}
-	\lipsum[1]
-\end{resumen}
-
-% DEDICATORIA
-\begin{dedicatoria}
-	Una frase de dedicatoria, \\
-	pueden ser dos líneas. \newp
-	\textbf{Saludos}
-\end{dedicatoria}
-
-% AGRADECIMIENTOS
-\begin{agradecimientos}
-	\lipsum[1]
-\end{agradecimientos}
-
-% TABLA DE CONTENIDOS - ÍNDICE
-\templateIndex
 
 % CONFIGURACIONES FINALES
 \templateFinalcfg
 
 % ======================= INICIO DEL DOCUMENTO =======================
 
-\input{example} % Ejemplo, se puede borrar
+
 
 % FIN DEL DOCUMENTO
 \end{document}

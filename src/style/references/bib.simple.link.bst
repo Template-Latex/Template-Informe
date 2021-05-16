@@ -1,13 +1,14 @@
 %% Template:     Template LaTeX
-%% Documento:    Archivo de estilos de referencias
+%% Documento:    Archivo de estilos simple + link
+%% Versión:      1.0.0 (11/05/2020)
 %% Codificación: UTF-8
 %%
-%% Autor: Pablo Pizarro R. @ppizarror
+%% Autor: Pablo Pizarro R.
 %%        Facultad de Ciencias Físicas y Matemáticas
 %%        Universidad de Chile
 %%        pablo@ppizarror.com
 %%
-%% Sitio web:    [https://latex.ppizarror.com/tesis]
+%% Sitio web:    [https://latex.ppizarror.com/]
 %% Licencia MIT: [https://opensource.org/licenses/MIT]
 
 ENTRY
@@ -33,6 +34,9 @@ ENTRY
  type
  volume
  year
+ doi
+ arxivId
+ url
 }
 {}
 { label }
@@ -47,6 +51,48 @@ FUNCTION {init.state.consts}
  #3 'after.sentence :=
  #4 'after.quoted.block :=
  #5 'after.block :=
+}
+
+FUNCTION {output.links}
+{ 
+doi empty$
+{
+	arxivId empty$
+	{
+		url empty$
+		{ skip$ }
+		{ ", \href{" * url * "}{\detokenize{" * url * "}}" * output }
+		if$
+	}
+	{ "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" * output }
+	if$
+}
+{ "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" * output }
+if$
+}
+
+FUNCTION {output.doi}
+{ 
+doi empty$
+{ skip$ }
+{ "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" * output }
+if$
+}
+
+FUNCTION {output.arxivId}
+{ 
+arxivId empty$
+{ skip$ }
+{ "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" * output }
+if$
+}
+
+FUNCTION {output.url}
+{ 
+url empty$
+{ skip$ }
+{ ", \href{" * url * "}{\detokenize{" * url * "}}" * output }
+if$
 }
 
 STRINGS { s t }
@@ -590,6 +636,8 @@ FUNCTION {article}
  }
  if$
  new.block
+ output.links
+ new.block
  note output
  fin.entry
 }
@@ -619,6 +667,8 @@ FUNCTION {book}
  format.edition output
  format.date "year" output.check
  new.block
+ output.links
+ new.block
  note output
  fin.entry
 }
@@ -642,6 +692,8 @@ FUNCTION {booklet}
  howpublished output
  address output
  format.date output
+ new.block
+ output.links
  new.block
  note output
  fin.entry
@@ -674,6 +726,8 @@ FUNCTION {inbook}
  format.edition output
  format.date "year" output.check
  new.block
+ output.links
+ new.block
  note output
  fin.entry
 }
@@ -696,6 +750,8 @@ FUNCTION {incollection}
   format.chapter.pages output
  }
  if$
+ new.block
+ output.links
  new.block
  note output
  fin.entry
@@ -720,6 +776,8 @@ FUNCTION {inproceedings}
   format.pages output
  }
  if$
+ new.block
+ output.links
  new.block
  note output
  fin.entry
@@ -790,6 +848,8 @@ FUNCTION {misc}
  if$
  howpublished output
  format.date output
+ new.block
+ output.links
  new.block
  note output
  fin.entry
