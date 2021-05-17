@@ -107,15 +107,6 @@
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Teoremas}
-	\begin{theorem}[Equivalencia masa energía]
-		$E = mc^2$
-	\end{theorem}
-\end{frame}
-
-%---------------------------------------------------------------------
-
 \begin{frame}[fragile]
 	\frametitle{Código fuente (Template)}
 	Al igual que \href{https://latex.ppizarror.com/informe}{Template-Informe}, Template-Presentación ofrece el soporte a todos los lenguajes de programación con el entorno \texttt{sourcecode}.
@@ -158,14 +149,41 @@ def incmatrix(genl1, genl2):
 
 \begin{frame}
 	\frametitle{Figuras múltiples}
-	\begin{images}{Ejemplo de imagen múltiple.}
-		\addimage{ejemplos/test-image}{width=3cm}{Ciudad}
-		\addimageanum{ejemplos/test-image-wrap}{height=2cm}
-		\imagesnewline
-		\addimage{ejemplos/test-image}{width=4cm}{Ciudad más grande}
-	\end{images}
+	\begin{columns}[c]
+		
+		\column{.65\textwidth} % Columna izquierda y espesor
+		\begin{images}{Ejemplo de imagen múltiple.}
+			\addimage{ejemplos/test-image}{width=3cm}{Ciudad}
+			\addimageanum{ejemplos/test-image-wrap}{height=2cm}
+			\imagesnewline
+			\addimage{ejemplos/test-image}{width=4cm}{Ciudad más grande}
+		\end{images}
+	
+		\column{.35\textwidth}
+		
+		Enumerar con letras:
+		
+		\begin{enumeratebf}[label=\alph*) ] % Fuente en negrita
+			\item Peras
+			\item Manzanas
+		\end{enumeratebf}
+		
+		O con números romanos:
+		
+		\begin{enumerate}[label=\roman*) ]
+			\item Rojo
+			\item Café
+		\end{enumerate}
+	
+		$\ldots$ o griegos:
+		
+		\begin{enumerate}[label=\greek*) ]
+			\item Matemáticas
+			\item Lenguaje
+		\end{enumerate}
+	
+	\end{columns}
 \end{frame}
-
 
 %---------------------------------------------------------------------
 
@@ -177,6 +195,15 @@ def incmatrix(genl1, genl2):
 		\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \bigp{M - d}}{l \cdot W} \cdot \frac{\pow{\bigp{\lpow{Q}{e}- i\cdot Q}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}\\
 		Q_e = 2.5Q \cdot \int_{0}^{e} V(x) \dd{x} + \aasin{\biggp{1+\frac{1}{1-e}}}
 	}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Teoremas}
+	\begin{theorem}[Equivalencia masa energía]
+		$E = mc^2$
+	\end{theorem}
 \end{frame}
 
 %---------------------------------------------------------------------

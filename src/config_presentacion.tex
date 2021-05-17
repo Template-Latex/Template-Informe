@@ -1,67 +1,98 @@
 % CONFIGURA BEAMER
+% http://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf
 \mode<presentation> {
 	
-	% LISTA DE TEMAS, DESCONFIGURAR PARA APLICAR
+	% LISTA DE TEMAS GLOBALES, DESCONFIGURAR PARA APLICAR
 	% https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_theme.html
 
-	%\usetheme{AnnArbor}
-	%\usetheme{Antibes}
-	%\usetheme{Bergen}
-	%\usetheme{Berkeley}
-	%\usetheme{Berlin}
-	%\usetheme{Boadilla}
-	%\usetheme{boxes}
-	%\usetheme{CambridgeUS}
-	%\usetheme{Copenhagen}
-	%\usetheme{Darmstadt}
-	%\usetheme{default}
-	%\usetheme{Dresden}
-	%\usetheme{Frankfurt}
-	%\usetheme{Goettingen}
-	%\usetheme{Hannover}
-	%\usetheme{Ilmenau}
-	%\usetheme{JuanLesPins}
-	%\usetheme{Luebeck}
-	\usetheme{Madrid}
-	%\usetheme{Malmoe}
-	%\usetheme{Marburg}
-	%\usetheme{Montpellier}
-	%\usetheme{PaloAlto}
-	%\usetheme{Pittsburgh}
-	%\usetheme{Rochester}
-	%\usetheme{Singapore}
-	%\usetheme{Szeged}
-	%\usetheme{Warsaw}
+	% \usetheme{AnnArbor}
+	% \usetheme{Antibes}
+	% \usetheme{Bergen}
+	% \usetheme{Berkeley}
+	% \usetheme{Berlin}
+	% \usetheme{Boadilla}
+	% \usetheme{boxes}
+	% \usetheme{CambridgeUS}
+	% \usetheme{Copenhagen}
+	% \usetheme{Darmstadt}
+	% \usetheme{default}
+	% \usetheme{Dresden}
+	% \usetheme{Frankfurt}
+	% \usetheme{Goettingen}
+	% \usetheme{Hannover}
+	% \usetheme{Ilmenau}
+	% \usetheme{JuanLesPins}
+	% \usetheme{Luebeck}
+	% \usetheme{Madrid}
+	% \usetheme{Malmoe}
+	% \usetheme{Marburg}
+	% \usetheme{Montpellier}
+	% \usetheme{PaloAlto}
+	% \usetheme{Pittsburgh}
+	% \usetheme{Rochester}
+	% \usetheme{Singapore}
+	% \usetheme{Szeged}
+	% \usetheme{Warsaw}
+	
+	% TEMAS TIPO -INNER-, USAR SÓLO SI NO SE APLICA EL GLOBAL
+	% http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf
+	
+	% \useinnertheme{default}
+	% \useinnertheme{circles}
+	\useinnertheme{rectangles}
+	% \useinnertheme{rounded}
+	% \useinnertheme{inmargin}
+	
+	% TEMAS TIPO -OUTER-, USAR SÓLO SI NO SE APLICA EL GLOBAL
+	
+	% \useoutertheme{default}
+	\useoutertheme{infolines}
+	% \useoutertheme{miniframes}
+	% \useoutertheme{smoothbars}
+	% \useoutertheme{sidebar}
+	% \useoutertheme{split}
+	% \useoutertheme{shadow}
+	% \useoutertheme{tree}
+	% \useoutertheme{smoothtree}
 	
 	% COLORES DE LA SLIDE, DESCOMENTAR PARA APLICAR
 	% https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_color.html
+	
+	%\usecolortheme{default}
+	\usecolortheme[named=cardinalred]{structure}
+	%\usecolortheme{sidebartab}
 
-	%\usecolortheme{albatross}
-	\usecolortheme{beaver}
-	%\usecolortheme{beetle}
-	%\usecolortheme{crane}
-	%\usecolortheme{dolphin}
-	%\usecolortheme{dove}
-	%\usecolortheme{fly}
-	%\usecolortheme{lily}
-	%\usecolortheme{orchid}
-	%\usecolortheme{rose}
-	%\usecolortheme{seagull}
-	%\usecolortheme{seahorse}
-	%\usecolortheme{whale}
-	%\usecolortheme{wolverine}
+	% \usecolortheme{albatross}
+	% \usecolortheme{beaver}
+	% \usecolortheme{beetle}
+	% \usecolortheme{crane}
+	% \usecolortheme{dolphin}
+	% \usecolortheme{dove}
+	% \usecolortheme{fly}
+	% \usecolortheme{lily}
+	% \usecolortheme{monarca}
+	\usecolortheme{orchid}
+	% \usecolortheme{rose}
+	% \usecolortheme{seagull}
+	% \usecolortheme{seahorse}
+	% \usecolortheme{spruce}
+	\usecolortheme{whale}
+	% \usecolortheme{wolverine}
 
 	% IDIOMA
 	\uselanguage{spanish}
 	\languagepath{spanish}
+
+	% PARA REESTABLECER EL HEADLINE, COMENTAR
+	\setbeamertemplate{headline}{}
 	
 	% PARA ELIMINAR EL FOOTER, DESCOMENTAR
-	%\setbeamertemplate{footline}
+	% \setbeamertemplate{footline}{}
 	
 	% REEMPLAZAR EL FOOTER POR EL N° DE PÁGINA
-	%\setbeamertemplate{footline}[page number]
+	% \setbeamertemplate{footline}[page number]
 	
 	% PARA ELIMINAR LOS SÍMBOLOS DE NAVEGACIÓN, DESCOMENTAR
-	%\setbeamertemplate{navigation symbols}{}
+	% \setbeamertemplate{navigation symbols}{}
     
 }

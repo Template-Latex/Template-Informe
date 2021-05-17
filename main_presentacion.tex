@@ -33,16 +33,18 @@
 
 % CONFIGURACIÓN DATOS BEAMER
 \title[\titulopresentacioncorto]{\titulopresentacion}
-\author{\autordeldocumento}
-\institute[UChile]
-{
+\author[\autordeldocumento]{
+	\autordeldocumento,
+	\footnotesize \href{mailto:pablo@ppizarror.com}{pablo@ppizarror.com}
+}
+\institute[UChile]{
 	\includegraphics[height=1cm]{\imagendepartamento} \\
 	\medskip
 	\nombreuniversidad \\
 	\nombrefacultad \\
 	\departamentouniversidad
 }
-\date{\today}
+\date[\today]{\footnotesize{\today}}
 
 % IMPORTACIÓN DEL TEMPLATE
 \input{template}
