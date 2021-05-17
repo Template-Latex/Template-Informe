@@ -18,10 +18,8 @@
 	% -------------------------------------------------------------------------
 	\markboth{}{}
 	\clearpage
-
 	% Actualiza headers
 	\ifthenelse{\equal{\disablehfrightmark}{false}}{
-		
 		% Define funciones generales
 		\def\COREhfstyledefA { % 1, 2, 4, 9, 11, 14, 15
 			\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
@@ -79,7 +77,6 @@
 				\fancyhead[L]{\nouppercase{\leftmark}}
 			}
 		}
-		
 		% Actualiza los header-footer
 		\ifthenelse{\equal{\hfstyle}{style1}}{
 			\COREhfstyledefA
@@ -395,6 +392,7 @@
 	\ifthenelse{\equal{\predocresetpagenumber}{true}}{
 		\setcounter{page}{1}}{
 	}
+	
 	\setcounter{section}{0}
 	\setcounter{footnote}{0}
 

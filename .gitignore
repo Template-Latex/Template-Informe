@@ -1,4 +1,4 @@
-# Archivos creados por TeXstudio.
+# Archivos creados por TeXstudio
 *.aux
 *.lof
 *.lomycapequ
@@ -13,13 +13,13 @@
 *.equ
 *(busy)*
 
-# Releases.
+# Releases
 *.zip
 
-# Windows.
+# Windows
 desktop.ini
 
-# OSX.
+# OSX
 __MACOSX/
 .DS_Store
 

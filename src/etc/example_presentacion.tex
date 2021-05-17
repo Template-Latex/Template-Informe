@@ -11,4 +11,205 @@
 % Sitio web:    [https://latex.ppizarror.com/presentacion]
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
-Example
+% Portada
+\begin{frame}
+	\titlepage
+\end{frame}
+
+% Tabla de contenidos
+\begin{frame}
+	\frametitle{Contenidos}
+	\tableofcontents
+\end{frame}
+
+% Organiza el documento en secciones, útiles para la tabla de contenidos
+\section{Primera sección}
+
+\subsection{Ejemplo de sub-sección}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Empezando con el mejor template}
+	\lipsum[1]
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Enumeraciones}
+	\begin{itemize}
+		\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
+		\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
+		\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
+		\item Nam cursus est eget velit posuere pellentesque
+		\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
+	\end{itemize}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Bloques de texto}
+	\begin{block}{Bloque 1}
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+	\end{block}
+	
+	\begin{block}{Bloque 2}
+		Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum quis magna at risus dictum tempor eu vitae velit.
+	\end{block}
+	
+	\begin{block}{Bloque 3}
+		Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
+	\end{block}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Múltiples columnas}
+	\begin{columns}[c]
+		
+		\column{.45\textwidth} % Columna izquierda y espesor
+		\textbf{Heading}
+		\begin{enumerate}
+			\item Statement
+			\item Explanation
+			\item Example
+		\end{enumerate}
+		
+		\column{.5\textwidth} % Columna derecha y espesor
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+		
+	\end{columns}
+\end{frame}
+
+\section{Segunda sección}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Tabla}
+	\begin{table}
+		\centering
+		\caption{Mi tabla.}
+		\begin{tabular}{ccc}
+			\hline
+			\textbf{Columna 1} & \textbf{Columna 2} & \textbf{Columna 3} \bigstrut\\
+			\hline
+			$\omega$ & $\nu$ & $\delta$ \bigstrut[t]\\
+			$\Phi$ & $\Theta$ & $\varSigma$ \\
+			$\xi$ & $\kappa$ & $\varpi$ \bigstrut[b] \\
+			\hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Teoremas}
+	\begin{theorem}[Equivalencia masa energía]
+		$E = mc^2$
+	\end{theorem}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}[fragile]
+	\frametitle{Código fuente (Template)}
+	Al igual que \href{https://latex.ppizarror.com/informe}{Template-Informe}, Template-Presentación ofrece el soporte a todos los lenguajes de programación con el entorno \texttt{sourcecode}.
+\begin{sourcecode}{python}{Ejemplo en Python.}
+import numpy as np
+
+def incmatrix(genl1, genl2):
+	m = len(genl1)
+	n = len(genl2)
+	M = None # Comentario 1
+	VT = np.zeros((n*m, 1), int) # Comentario 2
+\end{sourcecode}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}[fragile]
+	\frametitle{Código fuente (Verbatim)}
+	\begin{example}[Código sencillo en Python]
+		\begin{verbatim}
+			\begin{frame}
+				\frametitle{Theorem}
+				\begin{theorem}[Mass--energy equivalence]
+					$E = mc^2$
+				\end{theorem}
+		\end{frame}\end{verbatim}
+	\end{example}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Figuras}
+	La Figura \ref{img:testimage} ilustra una imagen insertada con las funciones propias del template, mismas compartidas con todos los subtemplates.
+	
+	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Figuras múltiples}
+	\begin{images}{Ejemplo de imagen múltiple.}
+		\addimage{ejemplos/test-image}{width=3cm}{Ciudad}
+		\addimageanum{ejemplos/test-image-wrap}{height=2cm}
+		\imagesnewline
+		\addimage{ejemplos/test-image}{width=4cm}{Ciudad más grande}
+	\end{images}
+\end{frame}
+
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Citas \& Ecuaciones}
+	El template también ofrece opciones para citar \cite{templateinforme}. Análogamente, todas las fórmulas de ecuaciones de \href{https://latex.ppizarror.com/informe}{Template-Informe} son soportadas \eqref{eqn:eqn-larga}:
+	
+	\insertgathered[\label{eqn:eqn-larga}]{
+		\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \bigp{M - d}}{l \cdot W} \cdot \frac{\pow{\bigp{\lpow{Q}{e}- i\cdot Q}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}\\
+		Q_e = 2.5Q \cdot \int_{0}^{e} V(x) \dd{x} + \aasin{\biggp{1+\frac{1}{1-e}}}
+	}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Referencias}
+	\footnotesize{
+		\begin{thebibliography}{99}
+			\bibitem{templateinforme}
+			Template Informe en \LaTeX.
+			\textit{¡Revisa el manual online de este template!} \\
+			\url{https://latex.ppizarror.com/informe}
+			
+			\bibitem{excel2latex}
+			Excel2Latex.
+			\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
+			\url{https://www.ctan.org/tex-archive/support/excel2latex/}
+			
+			\bibitem{overleaf}
+			Overleaf.
+			\textit{Uno de los mejores editores online para \LaTeX, renovado con su versión 2.0.} \\
+			\href{https://www.overleaf.com?r=298b935f&rm=d&rs=b}{\hreftext{https://es.overleaf.com/}}
+			
+			\bibitem{tablesgenerator}
+			Tables Generator.
+			\textit{Creador de tablas online para \LaTeX.}\\
+			\url{https://www.tablesgenerator.com}
+		\end{thebibliography}
+	}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+	\Huge{\centerline{Gracias por su atención}}
+\end{frame}

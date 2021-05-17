@@ -12,65 +12,40 @@
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
 % CREACIÓN DEL DOCUMENTO
-\documentclass[letterpaper,oneside]{book} % Libro, tamaño carta
+\documentclass[
+	hyperref={pdfencoding=auto,psdextra},
+	xcolor={dvipsnames,table,usenames}
+]{beamer}
 
 % INFORMACIÓN DEL DOCUMENTO
-\def\titulotesis {Título de la tesis}
-\def\titulogrado {
-	Tesis para optar al grado de magíster en ciencias de la ingeniería, mención área de la ingeniería
-	\bigbreak\vspace{0.3cm}
-	Memoria para optar al título de ingeniero
-}
+\def\titulopresentacion {Título de la presentación en portada}
+\def\titulopresentacioncorto {Título de la presentación}
+
+\def\autordeldocumento {Nombre del autor}
+\def\nombredelcurso {Curso}
+\def\codigodelcurso {CO-1234}
 
 \def\nombreuniversidad {Universidad de Chile}
 \def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}
 \def\departamentouniversidad {Departamento de la Universidad}
-\def\imagendepartamento {departamentos/uchile2}
-\def\imagendepartamentoparams {height=3cm}
+\def\imagendepartamento {departamentos/fcfm}
 \def\localizacionuniversidad {Santiago, Chile}
 
-% INTEGRANTES, PROFESORES Y FECHAS
-\def\autortesis {Nombre del autor}
-\def\fechatesis {\the\year}
-
-\def\portada {
-\begin{center}
-	\vspace{1.5cm} ~ \\
-	\textcolor{\portraittitlecolor}{\MakeUppercase{\textbf{\titulotesis}}} ~ \\
-	\vspace{1.5cm}
-	\textcolor{\portraittitlecolor}{\MakeUppercase{\titulogrado}} ~ \\
-	\vfill
-	\begin{tabular}{c}
-		\MakeUppercase{\autortesis} \\
-		\vspace{1.0cm} \\
-		PROFESOR GUÍA: \\
-		PROFESOR 1 \\
-		\vspace{0.5cm} \\
-		MIEMBROS DE LA COMISIÓN: \\
-		PROFESOR 2 \\
-		PROFESOR 3 \\
-		\vspace{0.5cm} \\
-		Este trabajo ha sido parcialmente financiado por: \\
-		NOMBRE INSTITUCIÓN \\
-		\vspace{0.5cm} \\
-		\MakeUppercase{\localizacionuniversidad} \\
-		\MakeUppercase{\fechatesis}
-	\end{tabular}
-\end{center}}{
+% CONFIGURACIÓN DATOS BEAMER
+\title[\titulopresentacioncorto]{\titulopresentacion}
+\author{\autordeldocumento}
+\institute[UChile]
+{
+	\includegraphics[height=1cm]{\imagendepartamento} \\
+	\medskip
+	\nombreuniversidad \\
+	\nombrefacultad \\
+	\departamentouniversidad
 }
-\def\tablaresumen {
-\begin{tabular}{l}
-	RESUMEN DE LA MEMORIA PARA OPTAR \\
-	AL TÍTULO DE MAGÍSTER EN CIENCIAS \\
-	DE LA INGENIERÍA \\
-	POR: \MakeUppercase{\autortesis} \\
-	FECHA: \MakeUppercase{\fechatesis} \\
-	PROF. GUÍA: NOMBRE PROFESOR
-\end{tabular}}{
-}
+\date{\today}
 
 % IMPORTACIÓN DEL TEMPLATE
-\input{template_presentacion}
+\input{template}
 
 % INICIO DE LAS PÁGINAS
 \begin{document}
@@ -83,7 +58,7 @@
 
 % ======================= INICIO DEL DOCUMENTO =======================
 
-
+\input{example} % Ejemplo, se puede borrar
 
 % FIN DEL DOCUMENTO
 \end{document}
