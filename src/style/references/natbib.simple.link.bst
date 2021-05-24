@@ -8,7 +8,7 @@
 %%        Universidad de Chile
 %%        pablo@ppizarror.com
 %%
-%% Sitio web:    [https://latex.ppizarror.com/]
+%% Sitio web:    [https://latex.ppizarror.com]
 %% Licencia MIT: [https://opensource.org/licenses/MIT]
 
 ENTRY
@@ -61,13 +61,13 @@ doi empty$
 	{
 		url empty$
 		{ skip$ }
-		{ ", \href{" * url * "}{\detokenize{" * url * "}}" }
+		{ ", \href{" * url * "}{\detokenize{" * url * "}}" * output }
 		if$
 	}
-	{ "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" }
+	{ "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" * output }
 	if$
 }
-{ "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" }
+{ "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" * output }
 if$
 }
 
@@ -75,7 +75,7 @@ FUNCTION {output.doi}
 { 
 doi empty$
 { skip$ }
-{ "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" }
+{ "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" * output }
 if$
 }
 
@@ -83,7 +83,7 @@ FUNCTION {output.arxivId}
 { 
 arxivId empty$
 { skip$ }
-{ "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" }
+{ "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" * output }
 if$
 }
 
@@ -91,7 +91,7 @@ FUNCTION {output.url}
 { 
 url empty$
 { skip$ }
-{ ", \href{" * url * "}{\detokenize{" * url * "}}" }
+{ ", \href{" * url * "}{\detokenize{" * url * "}}" * output }
 if$
 }
 
