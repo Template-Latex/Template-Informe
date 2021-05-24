@@ -1,5 +1,5 @@
 %% Template:     Template LaTeX
-%% Documento:    Archivo de estilos simple + link
+%% Documento:    Archivo de estilos simple + link (doi)
 %% Versión:      1.0.0 (11/05/2020)
 %% Codificación: UTF-8
 %%
@@ -8,7 +8,7 @@
 %%        Universidad de Chile
 %%        pablo@ppizarror.com
 %%
-%% Sitio web:    [https://latex.ppizarror.com]
+%% Sitio web:    [https://latex.ppizarror.com/]
 %% Licencia MIT: [https://opensource.org/licenses/MIT]
 
 ENTRY
@@ -61,13 +61,13 @@ doi empty$
 	{
 		url empty$
 		{ skip$ }
-		{ ", \href{" * url * "}{\detokenize{" * url * "}}" * output }
+		{ ", \href{" * url * "}{\detokenize{" * url * "}}" }
 		if$
 	}
-	{ "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" * output }
+	{ "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" }
 	if$
 }
-{ "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" * output }
+{ "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" }
 if$
 }
 
@@ -75,7 +75,7 @@ FUNCTION {output.doi}
 { 
 doi empty$
 { skip$ }
-{ "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" * output }
+{ "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" }
 if$
 }
 
@@ -83,7 +83,7 @@ FUNCTION {output.arxivId}
 { 
 arxivId empty$
 { skip$ }
-{ "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" * output }
+{ "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" }
 if$
 }
 
@@ -91,7 +91,7 @@ FUNCTION {output.url}
 { 
 url empty$
 { skip$ }
-{ ", \href{" * url * "}{\detokenize{" * url * "}}" * output }
+{ ", \href{" * url * "}{\detokenize{" * url * "}}" }
 if$
 }
 
