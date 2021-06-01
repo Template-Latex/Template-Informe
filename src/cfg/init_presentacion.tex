@@ -1,0 +1,22 @@
+% Configuración de referencias y citas
+% -----------------------------------------------------------------------------
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+	\bibliographystyle{\bibtexstyle}
+	\newlength{\bibitemsep}
+	\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
+	\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
+	\let\oldthebibliography\thebibliography
+	\renewcommand\thebibliography[1]{
+		\oldthebibliography{#1}
+		\setlength{\parskip}{\bibitemsep}
+		\setlength{\itemsep}{\bibparskip}
+	}
+	\setlength{\bibitemsep}{\bibtexrefsep pt}
+}{
+\ifthenelse{\equal{\stylecitereferences}{custom}}{
+	\coretemplatemessage{Usando estilo citas referencias custom, importar librerias y configuraciones posterior al llamado de template.tex en archivo principal}
+}{
+	\throwbadconfig{Estilo citas desconocido}{\stylecitereferences}{bibtex,custom}}
+}
+
+% END
