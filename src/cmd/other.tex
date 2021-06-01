@@ -38,9 +38,6 @@
 	\newcolumn\newcolumn\clearpage%
 }
 
-% Inserta un lipsum corregido
-% \newcommand{\slipsum}[1][]{~\lipsum[#1]}
-
 % Redimensiona un ítem
 % 	#1	Tamaño del nuevo objeto (En linewidth)
 %	#2	Objeto a redimensionar
@@ -113,12 +110,6 @@
 \newcommand{\hreftext}[1]{%
 	\ifthenelse{\equal{\fonturl}{same}}{#1}{\ifthenelse{\equal{\fonturl}{tt}}{\texttt{#1}}{\ifthenelse{\equal{\fonturl}{rm}}{\textrm{#1}}{\ifthenelse{\equal{\fonturl}{sf}}{\textsf{#1}}{}}}}%
 }
-
-% Parcha href para incluir el estilo
-% \let\oldhref=\href
-% \renewcommand{\href}[2]{
-% 	\oldhref{#1}{\insertHREFtext{#2}}
-% }
 
 % Inserta un email con un link cliqueable
 %	#1 	Dirección email
