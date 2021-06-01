@@ -290,7 +290,7 @@
 % TIPOGRAFÍA DEL DOCUMENTO
 % -----------------------------------------------------------------------------
 % Tipografías clásicas
-\ifthenelse{\equal{\fontdocument}{lmodern}}{ % Default
+\ifthenelse{\equal{\fontdocument}{lmodern}}{
 	\usepackage{lmodern}
 }{
 \ifthenelse{\equal{\fontdocument}{arial}}{
@@ -436,7 +436,7 @@
 	\usepackage[defaultsans]{droidsans}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-\ifthenelse{\equal{\fontdocument}{fetamont}}{ % Falta implementar aún
+\ifthenelse{\equal{\fontdocument}{fetamont}}{
 	\usepackage{fetamont}
 	\renewcommand*\familydefault{\sfdefault}
 }{
@@ -597,7 +597,7 @@
 % -----------------------------------------------------------------------------
 % TIPOGRAFÍA TYPEWRITER
 % -----------------------------------------------------------------------------
-\ifthenelse{\equal{\fonttypewriter}{tmodern}}{ % Default
+\ifthenelse{\equal{\fonttypewriter}{tmodern}}{
 	\renewcommand*\ttdefault{lmvtt}
 }{
 \ifthenelse{\equal{\fonttypewriter}{anonymouspro}}{

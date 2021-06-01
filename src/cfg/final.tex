@@ -81,22 +81,22 @@
 		\ifthenelse{\equal{\hfstyle}{style1}}{
 			\COREhfstyledefA
 		}{
-		\ifthenelse{\equal{\hfstyle}{style1-i}}{ % impar izquierdo
+		\ifthenelse{\equal{\hfstyle}{style1-i}}{ % Impar izquierdo
 			\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
 			\fancyhead[LE,RO]{\nouppercase{\leftmark}}
 		}{
-		\ifthenelse{\equal{\hfstyle}{style1-d}}{ % impar derecho
+		\ifthenelse{\equal{\hfstyle}{style1-d}}{ % Impar derecho
 			\fancypagestyle{plain}{\fancyhead[LO,RE]{\nouppercase{\leftmark}}}
 			\fancyhead[LO,RE]{\nouppercase{\leftmark}}
 		}{
 		\ifthenelse{\equal{\hfstyle}{style2}}{
 			\COREhfstyledefA
 		}{
-		\ifthenelse{\equal{\hfstyle}{style2-i}}{ % impar izquierdo
+		\ifthenelse{\equal{\hfstyle}{style2-i}}{ % Impar izquierdo
 			\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
 			\fancyhead[LE,RO]{\nouppercase{\leftmark}}
 		}{
-		\ifthenelse{\equal{\hfstyle}{style2-d}}{ % impar derecho
+		\ifthenelse{\equal{\hfstyle}{style2-d}}{ % Impar derecho
 			\fancypagestyle{plain}{\fancyhead[LO,RE]{\nouppercase{\leftmark}}}
 			\fancyhead[LO,RE]{\nouppercase{\leftmark}}
 		}{
@@ -106,28 +106,28 @@
 		\ifthenelse{\equal{\hfstyle}{style5}}{
 			\COREhfstyledefB
 		}{
-		\ifthenelse{\equal{\hfstyle}{style5-d}}{ % impar derecho
+		\ifthenelse{\equal{\hfstyle}{style5-d}}{ % Impar derecho
 			\COREhfstyledefB
 		}{
-		\ifthenelse{\equal{\hfstyle}{style5-i}}{ % impar izquierdo
+		\ifthenelse{\equal{\hfstyle}{style5-i}}{ % Impar izquierdo
 			\COREhfstyledefB
 		}{
 		\ifthenelse{\equal{\hfstyle}{style9}}{
 			\COREhfstyledefA
 		}{
-		\ifthenelse{\equal{\hfstyle}{style9-d}}{ % impar derecho
+		\ifthenelse{\equal{\hfstyle}{style9-d}}{ % Impar derecho
 			\COREhfstyledefA
 		}{
-		\ifthenelse{\equal{\hfstyle}{style9-i}}{ % impar izquierdo
+		\ifthenelse{\equal{\hfstyle}{style9-i}}{ % Impar izquierdo
 			\COREhfstyledefA
 		}{
 		\ifthenelse{\equal{\hfstyle}{style10}}{
 			\COREhfstyledefC
 		}{
-		\ifthenelse{\equal{\hfstyle}{style10-d}}{ % impar derecho
+		\ifthenelse{\equal{\hfstyle}{style10-d}}{ % Impar derecho
 			\COREhfstyledefC
 		}{
-		\ifthenelse{\equal{\hfstyle}{style10-i}}{ % impar izquierdo
+		\ifthenelse{\equal{\hfstyle}{style10-i}}{ % Impar izquierdo
 			\COREhfstyledefC
 		}{
 		\ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
@@ -156,7 +156,6 @@
 	% -------------------------------------------------------------------------
 	% Crea funciones para numerar objetos
 	% -------------------------------------------------------------------------
-
 	% Numeración de la sección en los objetos CÓDIGO FUENTE
 	\ifthenelse{\equal{\showsectioncaptioncode}{none}}{
 		\def\sectionobjectnumcode {}
@@ -264,7 +263,6 @@
 	% -------------------------------------------------------------------------
 	% Modifica numeración de objetos
 	% -------------------------------------------------------------------------
-
 	% Código fuente, INCLUIR SECCIÓN
 	\ifthenelse{\equal{\captionnumcode}{arabic}}{
 		\renewcommand{\thelstlisting}{\sectionobjectnumcode\arabic{lstlisting}}
@@ -382,7 +380,6 @@
 	% -------------------------------------------------------------------------
 	% Se reestablecen números de página y secciones
 	% -------------------------------------------------------------------------
-
 	% Se usa número de páginas en arábigo si es que se tenía activado los númeos romanos
 	\ifthenelse{\equal{\predocpageromannumber}{true}}{
 		\renewcommand{\thepage}{\arabic{page}}}{

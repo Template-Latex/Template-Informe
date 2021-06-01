@@ -11,7 +11,7 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-% Añade una imagen a un env 'image' con borde
+% Añade una imagen a un env "image" con borde
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Parámetros de la imagen
@@ -20,7 +20,7 @@
 	\addimageboxed[#1]{#2}{#3}{0}{#4}%
 }
 
-% Añade una imagen a un env 'image' con borde
+% Añade una imagen a un env "image" con borde
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
 %	#3	Parámetros de la imagen
@@ -30,14 +30,14 @@
 	\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#4 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginimagemultright cm}\hspace{-0.125cm}}{}\subfloat[#5]{\fbox{\includegraphics[#3]{#2}}#1}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}%
 }
 
-% Añade una imagen a un env 'image' con borde sin leyenda
+% Añade una imagen a un env "image" con borde sin leyenda
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 \newcommand{\addimageanum}[2]{%
 	\addimageboxedanum{#1}{#2}{0}%
 }
 
-% Añade una imagen a un env 'image' con borde sin leyenda
+% Añade una imagen a un env "image" con borde sin leyenda
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
