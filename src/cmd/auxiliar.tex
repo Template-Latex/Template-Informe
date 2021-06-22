@@ -16,18 +16,18 @@
 
 % Insertar nuevo título de pregunta
 %	#1	Título
-\newcommand{\newquestion}[1]{
-	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
-	\sectionanum{#1}
+\newcommand{\newquestion}[1]{%
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}%
+	\sectionanum{#1}%
 }
 
 % Insertar nuevo título de pregunta encerrado en un recuadro
 %	#1	Número pregunta
-\newcommand{\newboxquestion}[1]{
-	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
-	\phantomsection
-	\newp \fbox{\ \textbf{#1}.-\ } \noindent
-	\pdfbookmark[1]{#1}{question}
+\newcommand{\newboxquestion}[1]{%
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}%
+	\phantomsection%
+	\newp \fbox{\ \textbf{#1}.-\ } \noindent%
+	\pdfbookmark[1]{#1}{question}%
 }
 
 % Crea una sección de imágenes múltiples

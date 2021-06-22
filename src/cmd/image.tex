@@ -27,7 +27,18 @@
 %	#4	Ancho de la línea (en pt)
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\addimageboxed}[5][]{%
-	\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#4 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginimagemultright cm}\hspace{-0.125cm}}{}\subfloat[#5]{\fbox{\includegraphics[#3]{#2}}#1}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}%
+	\checkonlyonenvimage%
+	\begingroup%
+	\setlength{\fboxsep}{0 pt}%
+	\setlength{\fboxrule}{#4 pt}%
+	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
+		\hspace{\marginimagemultright cm}%
+		\hspace{-2cm}%
+	}{}%
+	\subfloat[#5]{%
+		\fbox{\includegraphics[#3]{#2}}#1}%
+	\endgroup%
+	\def\GLOBALenvimageadded {true}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -42,12 +53,25 @@
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
 \newcommand{\addimageboxedanum}[3]{%
-	\checkonlyonenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{\hspace{\marginimagemultright cm}\hspace{-0.125cm}}{}\fbox{\includegraphics[#2]{#1}}\endgroup\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{}{\def\GLOBALenvimageadded {true}}%
+	\checkonlyonenvimage%
+	\begingroup%
+	\setlength{\fboxsep}{0 pt}%
+	\setlength{\fboxrule}{#3 pt}%
+	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
+		\hspace{\marginimagemultright cm}%
+		\hspace{-0.125cm}%
+	}{}%
+	\fbox{\includegraphics[#2]{#1}}%
+	\endgroup%
+	\def\GLOBALenvimageadded {true}%
 }
 
 % Añade un salto de línea en las imágenes
 \newcommand{\imagesnewline}{%
-	\checkonlyonenvimage\def\GLOBALenvimageadded {false}\vspace{\marginimagemultbottom cm}\linebreak\noindent%
+	\checkonlyonenvimage%
+	\def\GLOBALenvimageadded {false}%
+	\vspace{\marginimagemultbottom cm}%
+	\linebreak\noindent%
 }
 
 % Agrega un espacio horizontal a las imágenes
@@ -84,11 +108,11 @@
 	\checkoutsideenvimage
 	\vspace{\marginimagetop cm}
 	\begin{figure}[H]%
-		\thisfloatpagestyle{fancy}
-		\begingroup
-			\setlength{\fboxsep}{0 pt}
-			\setlength{\fboxrule}{#4 pt}
-			\centering
+		\thisfloatpagestyle{fancy}%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#4 pt}%
+			\centering%
 			\fbox{\includegraphics[#3]{#2}}%
 		\endgroup
 		\ifx\hfuzz#5\hfuzz

@@ -17,24 +17,24 @@
 % Insertar nuevo título de pregunta con un tema de bajada
 %	#1	Título
 %	#2	Tema
-\newcommand{\newquestionthemed}[2]{
-	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}
-	\emptyvarerr{\newquestion}{#1}{Tema no definido}
-	\sectionanum{#1}
-	\vspace{-0.2cm}
-	\textbf{#2}
-	\newp
+\newcommand{\newquestionthemed}[2]{%
+	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}%
+	\emptyvarerr{\newquestion}{#1}{Tema no definido}%
+	\sectionanum{#1}%
+	\vspace{-0.2cm}%
+	\textbf{#2}%
+	\newp%
 }
 
 % Inserta un ítem con puntaje
 %	#1	Puntaje
 %	#2	Contenido del ítem
-\newcommand{\itempto}[2]{
-	\ifthenelse{\equal{\bolditempto}{true}}{
-		\item \textbf{(#1 pto)} #2
-	}{
-		\item (#1 pto) #2
-	}
+\newcommand{\itempto}[2]{%
+	\ifthenelse{\equal{\bolditempto}{true}}{%
+		\item \textbf{(#1 pto)} #2%
+	}{%
+		\item (#1 pto) #2%
+	}%
 }
 
 % END

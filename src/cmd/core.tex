@@ -47,52 +47,52 @@
 % Lanza un mensaje de error
 % 	#1	Función del error
 %	#2	Mensaje
-\newcommand{\throwerror}[2]{
-	\errmessage{LaTeX Error: \noexpand#1 #2 (linea \the\inputlineno)}
+\newcommand{\throwerror}[2]{%
+	\errmessage{LaTeX Error: \noexpand#1 #2 (linea \the\inputlineno)}%
 	\stop
 }
 
 % Lanza un mensaje de advertencia
 %	#1	Mensaje
-\newcommand{\throwwarning}[1]{
-	\errmessage{LaTeX Warning: #1 (linea \the\inputlineno)}
+\newcommand{\throwwarning}[1]{%
+	\errmessage{LaTeX Warning: #1 (linea \the\inputlineno)}%
 }
 
 % Lanza un mensaje de error indicando mala configuración dentro de begin{document}
 %	#1	Mensaje de error
 % 	#2	Configuración usada
 %	#3	Valores esperados
-\newcommand{\throwbadconfigondoc}[3]{
-	\errmessage{#1 \noexpand #2=#2. Valores esperados: #3}
+\newcommand{\throwbadconfigondoc}[3]{%
+	\errmessage{#1 \noexpand #2=#2. Valores esperados: #3}%
 	\stop
 }
 
 % Comprueba si una variable está definida
 %	#1	Variable
-\newcommand{\checkvardefined}[1]{
-	\ifthenelse{\isundefined{#1}}{
-		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}
-		\stop}{
-	}
+\newcommand{\checkvardefined}[1]{%
+	\ifthenelse{\isundefined{#1}}{%
+		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}%
+		\stop}{%
+	}%
 }
 
 % Escribe un mensaje en la consola
 %	#1	Mensaje
-\newcommand{\coretemplatemessage}[1]{
-	\message{Template: #1}
+\newcommand{\coretemplatemessage}[1]{%
+	\message{Template: #1}%
 }
 
 % Comprueba si una variable está definida
 %	#1	Variable
 %	#2	Mensaje
-\newcommand{\checkextravarexist}[2]{
-	\ifthenelse{\isundefined{#1}}{
-		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}
-		\ifx\hfuzz#2\hfuzz
-			\errmessage{LaTeX Warning: Defina la variable en el bloque de INFORMACION DEL DOCUMENTO al comienzo del archivo principal del template}
-		\else
-			\errmessage{LaTeX Warning: #2}
-		\fi}{
+\newcommand{\checkextravarexist}[2]{%
+	\ifthenelse{\isundefined{#1}}{%
+		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}%
+		\ifx\hfuzz#2\hfuzz%
+			\errmessage{LaTeX Warning: Defina la variable en el bloque de INFORMACION DEL DOCUMENTO al comienzo del archivo principal del template}%
+		\else%
+			\errmessage{LaTeX Warning: #2}%
+		\fi}{%
 	}
 }
 
@@ -100,9 +100,9 @@
 % 	#1	Función del error
 %	#2	Variable
 %	#3	Mensaje
-\newcommand{\emptyvarerr}[3]{
-	\ifx\hfuzz#2\hfuzz
-		\errmessage{LaTeX Warning: \noexpand#1 #3 (linea \the\inputlineno)}
+\newcommand{\emptyvarerr}[3]{%
+	\ifx\hfuzz#2\hfuzz%
+		\errmessage{LaTeX Warning: \noexpand#1 #3 (linea \the\inputlineno)}%
 	\fi
 }
 
@@ -163,11 +163,11 @@
 \newcommand{\checkonlyonenvimage}{\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{}{\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}\stop}}
 
 % Chequea que las funciones sólo puedan usarse fuera del entorno images
-\newcommand{\checkoutsideenvimage}{
-	\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{
-		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}
-		\stop}{
-	}
+\newcommand{\checkoutsideenvimage}{%
+	\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{%
+		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}%
+		\stop}{%
+	}%
 }
 
 % Chequea que las funciones puedan usarse solo en el entorno multicol
@@ -178,6 +178,25 @@
 	}
 }
 
+% Verifica que una variable sea del estilo "true" o "false"
+\newcommand{\corecheckbooleanvar}[1]{%
+	\emptyvarerr{\corecheckbooleanvar}{#1}{Variable no definida}
+	\ifthenelse{\equal{#1}{true}}{}{%
+		\ifthenelse{\equal{#1}{false}}{}{%
+			\throwwarning{Variable debe ser true o false}\stop}%
+	}%
+}
+
+% Centra verticalmente un texto
+%	#1	Texto a centrar
+\newcommand{\verticallycentertext}[1]{%
+	\emptyvarerr{\verticallycentertext}{#1}{Centra un texto verticalmente}%
+	\topskip0pt%
+	\vspace*{\fill}%
+	#1%
+	\vspace*{\fill}%
+}
+
 % Agrega una carpeta al path de imágenes
 %	#1	Carpeta
 \makeatletter
@@ -186,22 +205,22 @@
 
 % Verifica que un tamaño de fuente sea correcto
 %	#1	Tamaño de fuente
-\newcommand{\corecheckfontsize}[1]{
-	\ifthenelse{\equal{#1}{normalsize}}{}{
-	\ifthenelse{\equal{#1}{small}}{}{
-	\ifthenelse{\equal{#1}{large}}{}{
-	\ifthenelse{\equal{#1}{Large}}{}{
-	\ifthenelse{\equal{#1}{LARGE}}{}{
-	\ifthenelse{\equal{#1}{huge}}{}{
-	\ifthenelse{\equal{#1}{Huge}}{}{
-	\ifthenelse{\equal{#1}{HUGE}}{}{
-	\ifthenelse{\equal{#1}{footnotesize}}{}{
-	\ifthenelse{\equal{#1}{scriptsize}}{}{
-	\ifthenelse{\equal{#1}{tiny}}{}{
-		\errmessage{LaTeX Warning: Tamano de fuente incorrecto (\noexpand #1= #1). Valores esperados: tiny,scriptsize,footnotesize,small,normalisize,large,Large,LARGE,huge,Huge,HUGE}
-		\stop
-		}}}}}}}}}}
-	}
+\newcommand{\corecheckfontsize}[1]{%
+	\ifthenelse{\equal{#1}{normalsize}}{}{%
+	\ifthenelse{\equal{#1}{small}}{}{%
+	\ifthenelse{\equal{#1}{large}}{}{%
+	\ifthenelse{\equal{#1}{Large}}{}{%
+	\ifthenelse{\equal{#1}{LARGE}}{}{%
+	\ifthenelse{\equal{#1}{huge}}{}{%
+	\ifthenelse{\equal{#1}{Huge}}{}{%
+	\ifthenelse{\equal{#1}{HUGE}}{}{%
+	\ifthenelse{\equal{#1}{footnotesize}}{}{%
+	\ifthenelse{\equal{#1}{scriptsize}}{}{%
+	\ifthenelse{\equal{#1}{tiny}}{}{%
+		\errmessage{LaTeX Warning: Tamano de fuente incorrecto (\noexpand #1= #1). Valores esperados: tiny,scriptsize,footnotesize,small,normalisize,large,Large,LARGE,huge,Huge,HUGE}%
+		\stop%
+		}}}}}}}}}}%
+	}%
 }
 
 % END
