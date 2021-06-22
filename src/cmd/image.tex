@@ -119,6 +119,7 @@
 			\vspace{\captionlessmarginimage cm}
 		\else
 			\hspace{0cm}
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}
 		\fi
 	\end{figure}
@@ -207,6 +208,7 @@
 			\vspace{\captionlessmarginimage cm}
 		\else
 			\hspace{0cm}
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{figure*}
@@ -254,7 +256,17 @@
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
 \newcommand{\inserttableimageboxed}[3]{%
-	\emptyvarerr{\inserttableimageboxed}{#1}{Direccion de la imagen no definida}\emptyvarerr{\inserttableimageboxed}{#2}{Parametros de la imagen no definidos}\emptyvarerr{\inserttableimageboxed}{#3}{Ancho de la linea no definido}\checkoutsideenvimage\begingroup\setlength{\fboxsep}{0 pt}\setlength{\fboxrule}{#3 pt}\raisebox{-1\totalheight}{\fbox{\includegraphics[#2]{#1}}}\endgroup\resetindexcaption%
+	\emptyvarerr{\inserttableimageboxed}{#1}{Direccion de la imagen no definida}%
+	\emptyvarerr{\inserttableimageboxed}{#2}{Parametros de la imagen no definidos}%
+	\emptyvarerr{\inserttableimageboxed}{#3}{Ancho de la linea no definido}%
+	\checkoutsideenvimage%
+	\begingroup%
+	\setlength{\fboxsep}{0 pt}%
+	\setlength{\fboxrule}{#3 pt}%
+	\raisebox{-1\totalheight}{%
+		\fbox{\includegraphics[#2]{#1}}}%
+	\endgroup%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la izquierda, escalada, ancho fijo
@@ -295,6 +307,7 @@
 		\ifx\hfuzz#5\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}
 		\fi
 	\end{wrapfigure}
@@ -342,6 +355,7 @@
 		\ifx\hfuzz#6\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
@@ -387,6 +401,7 @@
 		\ifx\hfuzz#5\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}
 		\fi
 	\end{wrapfigure}
@@ -435,6 +450,7 @@
 		\ifx\hfuzz#6\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
@@ -486,6 +502,7 @@
 		\ifx\hfuzz#6\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
@@ -537,6 +554,7 @@
 		\ifx\hfuzz#7\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}
 		\fi
 	\end{wrapfigure}
@@ -588,6 +606,7 @@
 		\ifx\hfuzz#6\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
@@ -639,6 +658,7 @@
 		\ifx\hfuzz#7\hfuzz
 			\vspace{\captionlessmarginimage cm}
 		\else
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}
 		\fi
 	\end{wrapfigure}
