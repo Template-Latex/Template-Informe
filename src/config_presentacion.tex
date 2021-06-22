@@ -82,9 +82,16 @@
 	% IDIOMA
 	\uselanguage{spanish}
 	\languagepath{spanish}
+	
+	% OPACIDAD DEL ENTORNO \tabularframe
+	\def\opacitytabularframe {0.4}
 
 	% PARA REESTABLECER EL HEADLINE, COMENTAR
 	\setbeamertemplate{headline}{}
+	
+	% ELEMENTOS CON \pause o \onslide ESTÁN OCULTOS
+	\setbeamercovered{invisible}
+	% \setbeamercovered{transparent}
 	
 	% PARA ELIMINAR EL FOOTER, DESCOMENTAR
 	% \setbeamertemplate{footline}{}

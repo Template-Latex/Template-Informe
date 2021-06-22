@@ -1,0 +1,121 @@
+% Template:     Template Presentación LaTeX
+% Documento:    Funciones del template
+% Versión:      DEV
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/presentacion]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+\def\COREtabularframecolumnselected {1}
+\def\COREtabularframebarheight {0.05}
+\def\COREtabularframecontentheight {0.65}
+\def\COREtabularframecontentwidthleft {0.4}
+\def\COREtabularframecontentwidthright {0.6}
+\def\COREtabularframecontentleftcentered {false}
+\def\COREtabularframecontentrightcentered {false}
+\def\COREtabularinit {false}
+\newcounter{tabularcolnumber}
+\setcounter{tabularcolnumber}{0}
+
+% Función que configura el entorno tabular frames
+%	#1	Altura de head en porcentaje (0-1)
+%	#2	Altura de content en porcentaje (0-1)
+%	#3	Ancho de la barra izquierda de contenidos (coloreada)
+%	#4	Ancho de la barra derecha de contenidos
+\newcommand{\tabularframecfg}[4]{
+	\emptyvarerr{\tabularframecfg}{#1}{Altura de head no definido}
+	\emptyvarerr{\tabularframecfg}{#2}{Altura de content no definido}
+	\emptyvarerr{\tabularframecfg}{#3}{Ancho de la barra izquierda de contenidos}
+	\emptyvarerr{\tabularframecfg}{#4}{Ancho de la barra derecha de contenidos}
+	\def\COREtabularframebarheight {#1}
+	\def\COREtabularframecontentheight {#2}
+	\def\COREtabularframecontentwidthleft {#3}
+	\def\COREtabularframecontentwidthright {#4}
+}
+
+% Función que configura la alineación del entorno tabular frames
+%	#1	Columna izquierda contenidos centrada (true/false)
+%	#2	Columna derecha contenidos centrada (true/false)
+\newcommand{\tabularframecfgalign}[2]{
+	\emptyvarerr{\tabularframecfgalign}{#1}{Centrado columna izquierda no definido}
+	\emptyvarerr{\tabularframecfgalign}{#2}{Centrado columna derecha no definido}
+	\corecheckbooleanvar{#1}
+	\corecheckbooleanvar{#2}
+	\def\COREtabularframecontentleftcentered {#1}
+	\def\COREtabularframecontentrightcentered {#2}
+}
+
+% Función que configura el entorno tabular frames
+%	#1	Número de la columna destacada (desde 1)
+\newenvironment{tabularframehead}[1]{%
+	\emptyvarerr{\tabularframehead}{#1}{Numero de columna destacada no definido}
+	\def\COREtabularframecolumnselected {#1}
+	\def\COREtabularinit {true}
+	\setcounter{tabularcolnumber}{0}%
+	\vspace{\dimexpr-\COREtabularframebarheight\textheight-0.5\footheight}
+	\begin{columns}[t,onlytextwidth]%
+	}{
+	\end{columns}
+	\setcounter{tabularcolnumber}{-1}
+}
+
+% Agrega una columna al tabular head
+%	#1	Tamaño de la columna
+%	#2	Texto
+\newcommand{\addtfheadcolumn}[2]{%
+	\ifthenelse{\equal{\COREtabularinit}{true}}{}{%
+		\throwwarning{Funcion \noexpand\addtfheadcolumn no puede usarse fuera del entorno \noexpand\tabularframehead}\stop}%
+	\emptyvarerr{\addtfheadcolumn}{#1}{Tamano de la columna no definido}%
+	\emptyvarerr{\addtfheadcolumn}{#2}{Texto de la columna no definido}%
+	\stepcounter{tabularcolnumber}%
+	% Obtiene el tamaño de la columna
+	\column{\dimexpr#1\linewidth}%
+	\ifthenelse{\equal{\thetabularcolnumber}{\COREtabularframecolumnselected}}{%
+		\transparent{1.0}%
+	}{%
+		\transparent{\opacitytabularframe}%
+	}
+	\usebeamercolor[fg]{frametitle}\colorbox{bg}{\begin{minipage}[t][\COREtabularframebarheight\textheight][t]{\dimexpr\linewidth-15\fboxrule}%
+		\usebeamercolor[fg]{frametitle}{%
+			\verticallycentertext{#2}%
+		}%
+	\end{minipage}}%
+}
+
+% Inicia el contenido de un tabular frame
+%	#1	Panel izquierdo
+%	#2	Panel derecho
+\newcommand{\tabularframecontent}[2]{%
+	\ifthenelse{\equal{\thetabularcolnumber}{-1}}{}{%
+		\throwwarning{Funcion \noexpand\addtfheadcolumn no puede usarse fuera del entorno \noexpand\tabularframehead}\stop}%
+	\emptyvarerr{\tabularframecontent}{#1}{Columna izquierda no definida}%
+	\emptyvarerr{\tabularframecontent}{#2}{Columna derecha no definida}%
+	\vspace{-2.5\fboxrule}
+	\begin{columns}[t,onlytextwidth]%
+		\column{\COREtabularframecontentwidthleft\linewidth}%
+		\usebeamercolor[fg]{block body}\colorbox{bg}{\begin{minipage}[t][\COREtabularframecontentheight \textheight][t]{\dimexpr\textwidth-15\fboxrule}%
+			\ifthenelse{\equal{\COREtabularframecontentleftcentered}{false}}{%
+				#1%
+			}{%
+				\verticallycentertext{#1}%
+			}
+		\end{minipage}}%
+		\column{\COREtabularframecontentwidthright\linewidth}%
+		\centering
+		{\begin{minipage}[t][\COREtabularframecontentheight \textheight][t]{\dimexpr\textwidth-10\fboxrule}%
+			\ifthenelse{\equal{\COREtabularframecontentrightcentered}{false}}{%
+				\vspace{-10\fboxrule}%
+				#2%
+			}{%
+				\vspace{-\baselineskip}
+				\verticallycentertext{#2}%
+			}
+		\end{minipage}}%
+	\end{columns}%
+	\def\COREtabularinit {false}%
+}
