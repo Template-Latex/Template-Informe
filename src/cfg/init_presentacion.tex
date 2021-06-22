@@ -19,4 +19,13 @@
 	\throwbadconfig{Estilo citas desconocido}{\stylecitereferences}{bibtex,custom}}
 }
 
+% Justificación de textos
+% -----------------------------------------------------------------------------
+\ifthenelse{\equal{\frametextjustified}{true}}{
+	\usepackage{ragged2e}
+	\apptocmd{\frame}{}{\justifying}{}
+}{
+}
+\newcommand{\justifytext}[1]{\parbox{\linewidth}{#1}}
+
 % END
