@@ -449,7 +449,7 @@
 % Configura las fuentes
 % -----------------------------------------------------------------------------
 \makeatletter
-\def\Hv@scale{.95}
+\def\Hv@scale {.95}
 \makeatother
 
 % -----------------------------------------------------------------------------
@@ -538,9 +538,9 @@
 % Agrega compatibilidad de subsubsubsecciones al TOC
 % -----------------------------------------------------------------------------
 \makeatletter
-	\def\toclevel@subsubsubsection{4}
-	\def\toclevel@paragraph{5}
-	\def\toclevel@subparagraph{6}
+	\def\toclevel@subsubsubsection {4}
+	\def\toclevel@paragraph {5}
+	\def\toclevel@subparagraph {6}
 	\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}
 		{3.25ex \@plus 1ex \@minus .2ex}
 		{-1em}
@@ -550,13 +550,13 @@
 		{-1em}
 		{\normalfont\normalsize\bfseries}}
 	\ifthenelse{\equal{\showdotaftersnum}{true}}{
-		\def\l@subsubsubsection{\@dottedtocline{4}{7.83em}{4.15em}} % Incremento 0.77+3.35 a 3.35
-		\def\l@paragraph{\@dottedtocline{5}{11.98em}{4.92em}}
-		\def\l@subparagraph{\@dottedtocline{6}{14.65em}{5.69em}}
+		\def\l@subsubsubsection {\@dottedtocline{4}{7.83em}{4.15em}} % Incremento 0.77+3.35 a 3.35
+		\def\l@paragraph {\@dottedtocline{5}{11.98em}{4.92em}}
+		\def\l@subparagraph {\@dottedtocline{6}{14.65em}{5.69em}}
 	}{
-		\def\l@subsubsubsection{\@dottedtocline{4}{6.97em}{4em}}
-		\def\l@paragraph{\@dottedtocline{5}{10.97em}{5em}}
-		\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+		\def\l@subsubsubsection {\@dottedtocline{4}{6.97em}{4em}}
+		\def\l@paragraph {\@dottedtocline{5}{10.97em}{5em}}
+		\def\l@subparagraph {\@dottedtocline{6}{14em}{6em}}
 	}
 \makeatother
 
@@ -694,7 +694,15 @@
 % Parcha el entorno multicols
 % -----------------------------------------------------------------------------
 \let\SOURCEcaptionlrmargin\captionlrmargin
-\BeforeBeginEnvironment{multicols}{\def\captionlrmargin{\captionlrmarginmc}\def\GLOBALenvmulticol{true}\setcaptionmargincm{\captionlrmargin}}
-\AfterEndEnvironment{multicols}{\def\captionlrmargin{\SOURCEcaptionlrmargin}\def\GLOBALenvmulticol{false}\setcaptionmargincm{\captionlrmargin}}
+\BeforeBeginEnvironment{multicols}{%
+	\def\captionlrmargin {\captionlrmarginmc}%
+	\def\GLOBALenvmulticol {true}%
+	\setcaptionmargincm{\captionlrmargin}%
+}
+\AfterEndEnvironment{multicols}{%
+	\def\captionlrmargin {\SOURCEcaptionlrmargin}%
+	\def\GLOBALenvmulticol {false}%
+	\setcaptionmargincm{\captionlrmargin}%
+}
 
 % END

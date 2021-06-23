@@ -77,7 +77,7 @@
 		\addtocounter{templateTables}{\value{table}}
 		\setcounter{table}{0}
 	}{}
-	\def\GLOBALchapternumenabled{true}
+	\def\GLOBALchapternumenabled {true}
 	\coreintializetitlenumbering
 }{}{}
 
@@ -104,8 +104,8 @@
 		\addtocounter{templateTables}{\value{table}}
 		\setcounter{table}{0}
 	}{}
-	\def\GLOBALsectionanumenabled{false}
-	\def\GLOBALsubsectionanumenabled{false}
+	\def\GLOBALsectionanumenabled {false}
+	\def\GLOBALsubsectionanumenabled {false}
 	\coreintializetitlenumbering
 }{}{}
 
@@ -132,7 +132,7 @@
 		\addtocounter{templateTables}{\value{table}}
 		\setcounter{table}{0}
 	}{}
-	\def\GLOBALsubsectionanumenabled{false}
+	\def\GLOBALsubsectionanumenabled {false}
 	\coreintializetitlenumbering
 }{}{}
 
@@ -199,7 +199,7 @@
 	\changeheadertitle{#1}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
-	\def\GLOBALsectionanumenabled{true}
+	\def\GLOBALsectionanumenabled {true}
 }
 
 % Insertar un título sin número y sin indexar
@@ -213,7 +213,7 @@
 	\changeheadertitle{#1}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
-	\def\GLOBALsectionanumenabled{true}
+	\def\GLOBALsectionanumenabled {true}
 }
 
 % Insertar un título sin número sin cambiar el título del header
@@ -225,7 +225,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
-	\def\GLOBALsectionanumenabled{true}
+	\def\GLOBALsectionanumenabled {true}
 }
 
 % Insertar un título sin número, sin indexar y sin cambiar el título del header
@@ -236,7 +236,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
-	\def\GLOBALsectionanumenabled{true}
+	\def\GLOBALsectionanumenabled {true}
 }
 
 % Insertar un subtítulo sin número
@@ -248,7 +248,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}
 	\setcounter{subsubsection}{0}
 	\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
-	\def\GLOBALsubsectionanumenabled{true}
+	\def\GLOBALsubsectionanumenabled {true}
 }
 
 % Insertar un subtítulo sin número y sin indexar
@@ -259,7 +259,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}
 	\setcounter{subsubsection}{0}
 	\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
-	\def\GLOBALsubsectionanumenabled{true}
+	\def\GLOBALsubsectionanumenabled {true}
 }
 
 % Insertar un sub-subtítulo sin número

@@ -262,11 +262,15 @@
 % Función \tilde{} pero que encierra todo el texto
 %	#1 	Elemento
 \makeatletter
-\def\longtilde#1{\mathop{\vbox{\m@th\ialign{##\crcr\noalign{\kern3\p@}%
-				\sortoftildefill\crcr\noalign{\kern3\p@\nointerlineskip}%
-				$\hfil\displaystyle{#1}\hfil$\crcr}}}\limits}
-\def\sortoftildefill{$\m@th \setbox\z@\hbox{$\braceld$}%
-	\braceld\leaders\vrule \@height\ht\z@ \@depth\z@\hfill\braceru$}
+\def\longtilde#1{%
+	\mathop{\vbox{\m@th\ialign{##\crcr\noalign{\kern3\p@}%
+	\sortoftildefill\crcr\noalign{\kern3\p@\nointerlineskip}%
+	$\hfil\displaystyle{#1}\hfil$\crcr}}}\limits%
+}
+\def\sortoftildefill {%
+	$\m@th \setbox\z@\hbox{$\braceld$}%
+	\braceld\leaders\vrule \@height\ht\z@ \@depth\z@\hfill\braceru$%
+}
 \makeatother
 
 % Definición de letras
