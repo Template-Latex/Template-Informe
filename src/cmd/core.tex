@@ -160,7 +160,11 @@
 \def\bgtemplatetestcode {d0g3}
 
 % Chequea que las funciones sólo puedan usarse en el entorno images
-\newcommand{\checkonlyonenvimage}{\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{}{\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}\stop}}
+\newcommand{\checkonlyonenvimage}{%
+	\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{}{%
+		\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}\stop%
+	}%
+}
 
 % Chequea que las funciones sólo puedan usarse fuera del entorno images
 \newcommand{\checkoutsideenvimage}{%

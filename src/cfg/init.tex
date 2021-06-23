@@ -455,9 +455,7 @@
 % -----------------------------------------------------------------------------
 % Configuraciones de las tablas
 % -----------------------------------------------------------------------------
-
-% Reinicia el número de cada fila en todas las tablas
-\makeatletter
+\makeatletter % Reinicia el número de cada fila en todas las tablas
 \preto\tabular{\global\rownum=\z@}
 \preto\tabularx{\global\rownum=\z@}
 \makeatother

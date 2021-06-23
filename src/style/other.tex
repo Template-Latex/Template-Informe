@@ -18,61 +18,61 @@
 \makeatletter
 \def\greek#1{\expandafter\@greek\csname c@#1\endcsname}
 \def\Greek#1{\expandafter\@Greek\csname c@#1\endcsname}
-\def\@greek#1{
-	\ifcase#1
-		\or $\alpha$
-		\or $\beta$
-		\or $\gamma$
-		\or $\delta$
-		\or $\epsilon$
-		\or $\zeta$
-		\or $\eta$
-		\or $\theta$
-		\or $\iota$
-		\or $\kappa$
-		\or $\lambda$
-		\or $\mu$
-		\or $\nu$
-		\or $\xi$
-		\or $o$
-		\or $\pi$
-		\or $\rho$
-		\or $\sigma$
-		\or $\tau$
-		\or $\upsilon$
-		\or $\phi$
-		\or $\chi$
-		\or $\psi$
-		\or $\omega$
-	\fi
+\def\@greek#1{%
+	\ifcase#1%
+		\or $\alpha$%
+		\or $\beta$%
+		\or $\gamma$%
+		\or $\delta$%
+		\or $\epsilon$%
+		\or $\zeta$%
+		\or $\eta$%
+		\or $\theta$%
+		\or $\iota$%
+		\or $\kappa$%
+		\or $\lambda$%
+		\or $\mu$%
+		\or $\nu$%
+		\or $\xi$%
+		\or $o$%
+		\or $\pi$%
+		\or $\rho$%
+		\or $\sigma$%
+		\or $\tau$%
+		\or $\upsilon$%
+		\or $\phi$%
+		\or $\chi$%
+		\or $\psi$%
+		\or $\omega$%
+	\fi%
 }
-\def\@Greek#1{
-	\ifcase#1
-		\or $\mathrm{A}$
-		\or $\mathrm{B}$
-		\or $\Gamma$
-		\or $\Delta$
-		\or $\mathrm{E}$
-		\or $\mathrm{Z}$
-		\or $\mathrm{H}$
-		\or $\Theta$
-		\or $\mathrm{I}$
-		\or $\mathrm{K}$
-		\or $\Lambda$
-		\or $\mathrm{M}$
-		\or $\mathrm{N}$
-		\or $\Xi$
-		\or $\mathrm{O}$
-		\or $\Pi$
-		\or $\mathrm{P}$
-		\or $\Sigma$
-		\or $\mathrm{T}$
-		\or $\mathrm{Y}$
-		\or $\Phi$
-		\or $\mathrm{X}$
-		\or $\Psi$
-		\or $\Omega$
-	\fi
+\def\@Greek#1{%
+	\ifcase#1%
+		\or $\mathrm{A}$%
+		\or $\mathrm{B}$%
+		\or $\Gamma$%
+		\or $\Delta$%
+		\or $\mathrm{E}$%
+		\or $\mathrm{Z}$%
+		\or $\mathrm{H}$%
+		\or $\Theta$%
+		\or $\mathrm{I}$%
+		\or $\mathrm{K}$%
+		\or $\Lambda$%
+		\or $\mathrm{M}$%
+		\or $\mathrm{N}$%
+		\or $\Xi$%
+		\or $\mathrm{O}$%
+		\or $\Pi$%
+		\or $\mathrm{P}$%
+		\or $\Sigma$%
+		\or $\mathrm{T}$%
+		\or $\mathrm{Y}$%
+		\or $\Phi$%
+		\or $\mathrm{X}$%
+		\or $\Psi$%
+		\or $\Omega$%
+	\fi%
 }
 \makeatother
 \AddEnumerateCounter{\greek}{\@greek}{24}

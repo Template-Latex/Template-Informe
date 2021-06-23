@@ -102,11 +102,11 @@
 %	#4	Ancho de la línea (en pt)
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageboxed}[5][]{%
-	\emptyvarerr{\insertimageboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}
-	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}
-	\checkoutsideenvimage
-	\vspace{\marginimagetop cm}
+	\emptyvarerr{\insertimageboxed}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}%
+	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}%
+	\checkoutsideenvimage%
+	\vspace{\marginimagetop cm}%
 	\begin{figure}[H]%
 		\thisfloatpagestyle{fancy}%
 		\begingroup%
