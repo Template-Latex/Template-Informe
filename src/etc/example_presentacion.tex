@@ -214,6 +214,7 @@ def incmatrix(genl1, genl2):
 % Configura el tabularframe
 \tabularframecfg{0.05}{0.65}{0.4}{0.6} % Tamaño header, contenido, col. izq., col. der.
 \tabularframecfgalign{false}{true} % Centrado columna izquierda, derecha
+\tabularframebartextcfg{\normalsize}{false} % Tamaño, centrado
 
 \begin{frame}
 	\frametitle{Entorno tabular (1/3)}
@@ -223,7 +224,7 @@ def incmatrix(genl1, genl2):
 		\addtfheadcolumn{0.3}{Tercer titular}%
 	\end{tabularframehead}
 	\tabularframecontent{
-		\begin{itemize}
+		\begin{itemize}[leftmargin=*]
 			\item A
 			\item B
 			\item C
