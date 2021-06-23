@@ -14,60 +14,60 @@
 % Redimensiona una ecuación en linewidth
 % 	#1	Tamaño del nuevo objeto (En linewidth)
 %	#2	Ecuación a redimensionar
-\newcommand{\equationresize}[2]{
-	\emptyvarerr{\equationresize}{#1}{Dimension no definida}
-	\emptyvarerr{\equationresize}{#2}{Ecuacion a redimensionar no definida}
-	\resizebox{#1\linewidth}{!}{$#2$}
+\newcommand{\equationresize}[2]{%
+	\emptyvarerr{\equationresize}{#1}{Dimension no definida}%
+	\emptyvarerr{\equationresize}{#2}{Ecuacion a redimensionar no definida}%
+	\resizebox{#1\linewidth}{!}{$#2$}%
 }
 
 % Insertar una ecuación en el índice
 % 	#1	Label (opcional)
 %	#2	Ecuación
 %	#3	Título de la ecuación
-\newcommand{\insertindexequation}[3][]{
-	\emptyvarerr{\insertindexequation}{#2}{Ecuacion no definida}
-	\emptyvarerr{\insertindexequation}{#3}{Leyenda no definida}
-	\vspace{\margineqnindextop cm}
-	\begin{align}
-		\text{#1} \ensuremath{#2}
-	\end{align}
-	\vspace{\margineqnindexbottom cm}
-	\myindexequations{#3}
-	\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}
-		\centering \textcolor{\captiontextcolor}{\begin{\captionfontsize}\textit{#3}\end{\captionfontsize}}
-	\end{changemargin}
-	\addtocounter{templateIndexEquations}{1}
+\newcommand{\insertindexequation}[3][]{%
+	\emptyvarerr{\insertindexequation}{#2}{Ecuacion no definida}%
+	\emptyvarerr{\insertindexequation}{#3}{Leyenda no definida}%
+	\vspace{\margineqnindextop cm}%
+	\begin{align}%
+		\text{#1} \ensuremath{#2}%
+	\end{align}%
+	\vspace{\margineqnindexbottom cm}%
+	\myindexequations{#3}%
+	\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}%
+		\centering \textcolor{\captiontextcolor}{\begin{\captionfontsize}\textit{#3}\end{\captionfontsize}}%
+	\end{changemargin}%
+	\addtocounter{templateIndexEquations}{1}%
 }
 
 % Insertar una ecuación
 % 	#1	Label (opcional)
 %	#2	Ecuación
-\newcommand{\insertequation}[2][]{
-	\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}
-	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{\marginequationtop cm}
-		\begin{equation}
-			\text{#1} #2
-		\end{equation}
-		\vspace{\marginequationbottom cm}
-	}{
-		\ifx\hfuzz#1\hfuzz
-		\else
-			\throwwarning{Label invalido en ecuacion sin numero}
-		\fi
-		\insertequationanum{#2}
-	}
+\newcommand{\insertequation}[2][]{%
+	\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}%
+	\ifthenelse{\equal{\numberedequation}{true}}{%
+		\vspace{\marginequationtop cm}%
+		\begin{equation}%
+			\text{#1} #2%
+		\end{equation}%
+		\vspace{\marginequationbottom cm}%
+	}{%
+		\ifx\hfuzz#1\hfuzz%
+		\else%
+			\throwwarning{Label invalido en ecuacion sin numero}%
+		\fi%
+		\insertequationanum{#2}%
+	}%
 }
 
 % Insertar una ecuación sin número
 %	#1	Ecuación
-\newcommand{\insertequationanum}[1]{
-	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}
-	\vspace{\marginequationtop cm}
-	\begin{equation*}
-		\ensuremath{#1}
-	\end{equation*}
-	\vspace{\marginequationbottom cm}
+\newcommand{\insertequationanum}[1]{%
+	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}%
+	\vspace{\marginequationtop cm}%
+	\begin{equation*}%
+		\ensuremath{#1}%
+	\end{equation*}%
+	\vspace{\marginequationbottom cm}%
 }
 
 % Insertar una ecuación alineada a la izquierda

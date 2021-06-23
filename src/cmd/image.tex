@@ -114,13 +114,13 @@
 			\setlength{\fboxrule}{#4 pt}%
 			\centering%
 			\fbox{\includegraphics[#3]{#2}}%
-		\endgroup
-		\ifx\hfuzz#5\hfuzz
+		\endgroup%
+		\ifx\hfuzz#5\hfuzz%
 			\vspace{\captionlessmarginimage cm}
-		\else
-			\hspace{0cm}
+		\else%
+			\hspace{0cm}%
 			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi
 	\end{figure}
 	\vspace{\marginimagebottom cm}

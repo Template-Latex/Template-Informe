@@ -27,11 +27,11 @@
 
 % Contador global de objetos
 \newcounter{templateEquations}      % Ecuaciones
-\newcounter{templateIndexEquations} % Ecuaciones en el índice
 \newcounter{templateFigures}        % Figuras
+\newcounter{templateIndexEquations} % Ecuaciones en el índice
+\newcounter{templateListings}       % Códigos fuente
 \newcounter{templatePageCounter}    % Administra números de páginas
 \newcounter{templateTables}         % Tablas
-\newcounter{templateListings}       % Códigos fuente
 
 % Contador nivel de bookmarks marcadores
 \newcounter{templateBookmarksLevelPrev}
@@ -139,10 +139,10 @@
 % Cambia los márgenes del documento
 %	#1	Margen izquierdo
 %	#2	Margen derecho
-\newcommand{\changemargin}[2]{
-	\emptyvarerr{\changemargin}{#1}{Margen izquierdo no definido}
-	\emptyvarerr{\changemargin}{#2}{Margen derecho no definido}
-	\list{}{\rightmargin#2\leftmargin#1}\item[]
+\newcommand{\changemargin}[2]{%
+	\emptyvarerr{\changemargin}{#1}{Margen izquierdo no definido}%
+	\emptyvarerr{\changemargin}{#2}{Margen derecho no definido}%
+	\list{}{\rightmargin#2\leftmargin#1}\item[]%
 }
 \let\endchangemargin=\endlist
 
@@ -171,16 +171,16 @@
 }
 
 % Chequea que las funciones puedan usarse solo en el entorno multicol
-\newcommand{\checkinsidemulticol}{
-	\ifthenelse{\equal{\GLOBALenvmulticol}{false}}{
-		\throwwarning{Esta funcion solo puede usarse dentro de multicols}
-		\stop}{
+\newcommand{\checkinsidemulticol}{%
+	\ifthenelse{\equal{\GLOBALenvmulticol}{false}}{%
+		\throwwarning{Esta funcion solo puede usarse dentro de multicols}%
+		\stop}{%
 	}
 }
 
 % Verifica que una variable sea del estilo "true" o "false"
 \newcommand{\corecheckbooleanvar}[1]{%
-	\emptyvarerr{\corecheckbooleanvar}{#1}{Variable no definida}
+	\emptyvarerr{\corecheckbooleanvar}{#1}{Variable no definida}%
 	\ifthenelse{\equal{#1}{true}}{}{%
 		\ifthenelse{\equal{#1}{false}}{}{%
 			\throwwarning{Variable debe ser true o false}\stop}%
