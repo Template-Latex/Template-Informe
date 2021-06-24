@@ -84,8 +84,6 @@
 	\end{columns}
 \end{frame}
 
-\section{Segunda sección}
-
 %---------------------------------------------------------------------
 
 \begin{frame}
@@ -191,7 +189,7 @@ def incmatrix(genl1, genl2):
 
 \begin{frame}
 	\frametitle{Citas \& Ecuaciones}
-	El template también ofrece opciones para citar \cite{templateinforme}. Análogamente, todas las fórmulas de ecuaciones de \href{https://latex.ppizarror.com/informe}{Template-Informe} son soportadas \eqref{eqn:eqn-larga}:
+	El template también ofrece opciones para citar \cite{templatelatex}. Análogamente, todas las fórmulas de ecuaciones de \href{https://latex.ppizarror.com/informe}{Template-Informe} son soportadas \eqref{eqn:eqn-larga}:
 	
 	\insertgathered[\label{eqn:eqn-larga}]{
 		\lpow{\Lambda}{f} = \frac{L\cdot f}{W} \cdot \frac{\pow{\lpow{Q}{e}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g} + \sum_{i=1}^{l} \frac{f \cdot \bigp{M - d}}{l \cdot W} \cdot \frac{\pow{\bigp{\lpow{Q}{e}- i\cdot Q}}{2}}{8 \pow{\pi}{2} \pow{W}{4} g}\\
@@ -208,11 +206,19 @@ def incmatrix(genl1, genl2):
 	\end{theorem}
 \end{frame}
 
+%---------------------------------------------------------------------
+
+\section{Segunda sección}
+
+\begin{frame}
+	\frametitle{Contenidos}
+	\tableofcontentscurrent
+\end{frame}
 
 %---------------------------------------------------------------------
 
 % Configura el tabularframe
-\tabularframecfg{0.05}{0.65}{0.4}{0.6} % Tamaño header, contenido, col. izq., col. der.
+\tabularframecfg{0.05}{0.7}{0.4}{0.6} % Tamaño header, contenido, col. izq., col. der.
 \tabularframecfgalign{false}{true} % Centrado columna izquierda, derecha
 \tabularframebartextcfg{\normalsize}{true} % Tamaño, centrado
 
@@ -274,34 +280,12 @@ def incmatrix(genl1, genl2):
 %---------------------------------------------------------------------
 
 \begin{frame}
-	\frametitle{Referencias}
-	\footnotesize{
-		\begin{thebibliography}{99}
-			\bibitem{templateinforme}
-			Template Informe en \LaTeX.
-			\textit{¡Revisa el manual online de este template!} \\
-			\url{https://latex.ppizarror.com/informe}
-			
-			\bibitem{excel2latex}
-			Excel2Latex.
-			\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
-			\url{https://www.ctan.org/tex-archive/support/excel2latex/}
-			
-			\bibitem{overleaf}
-			Overleaf.
-			\textit{Uno de los mejores editores online para \LaTeX, renovado con su versión 2.0.} \\
-			\href{https://www.overleaf.com?r=298b935f&rm=d&rs=b}{\hreftext{https://es.overleaf.com/}}
-			
-			\bibitem{tablesgenerator}
-			Tables Generator.
-			\textit{Creador de tablas online para \LaTeX.}\\
-			\url{https://www.tablesgenerator.com}
-		\end{thebibliography}
-	}
+	\Huge{\centerline{Gracias por su atención}}
 \end{frame}
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\Huge{\centerline{Gracias por su atención}}
+\begin{frame}[allowframebreaks]\scriptsize
+	\frametitle{\namereferences}
+	\bibliography{library}
 \end{frame}

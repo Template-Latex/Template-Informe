@@ -33,4 +33,9 @@
 \let\@cite@ofmt\@firstofone
 \makeatother
 
+% Corrige espaciamiento de itemize
+% -----------------------------------------------------------------------------
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+
 % END
