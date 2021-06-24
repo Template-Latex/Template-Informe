@@ -236,11 +236,7 @@ def incmatrix(genl1, genl2):
 
 \begin{frame}
 	\frametitle{Entorno tabular (2/3)}
-	\begin{tabularframehead}{2}
-		\addtfheadcolumn{0.4}{Primer titular}%
-		\addtfheadcolumn{0.3}{Segundo titular}%
-		\addtfheadcolumn{0.3}{Tercer titular}%
-	\end{tabularframehead}
+	\tabularframeheadrepeat{2} % Repite el header anterior, pasa como argumento la columna activa
 	\tabularframecontent{
 		La ecuación \eqref{eqtabular} indica la profundidad de un elemento, aunque no tiene mucho sentido ya que sólo se usa dentro del template. \\
 		\insertequation[\label{eqtabular}]{a = \frac{1}{2} + \cos c} 
@@ -251,11 +247,7 @@ def incmatrix(genl1, genl2):
 
 \begin{frame}
 	\frametitle{Entorno tabular (3/3)}
-	\begin{tabularframehead}{3}
-		\addtfheadcolumn{0.4}{Primer titular}%
-		\addtfheadcolumn{0.3}{Segundo titular}%
-		\addtfheadcolumn{0.3}{Tercer titular}%
-	\end{tabularframehead}
+	\tabularframeheadrepeat{3}
 	\tabularframecontent{
 		\lipsum[11]
 	}{
