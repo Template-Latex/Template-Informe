@@ -20,25 +20,23 @@
 \global\def\GLOBALtabularframecontentrightcentered {false}
 \global\def\GLOBALtabularframecontentwidthleft {0.4}
 \global\def\GLOBALtabularframecontentwidthright {0.6}
-\global\def\GLOBALtabularframetfcontentlist {}
+\global\def\GLOBALtabularframebarcreated {false}
 
 \def\GLOBALtabularframecolumnselected {1}
-\def\GLOBALtabularinit {false}
+\def\GLOBALtabularframeinit {false}
+\def\GLOBALtabularframestorevar {true}
 
-% Librerías especiales
-% \usepackage{pgffor}
-% \usepackage{xstring}
+\def\GLOBALtabularframepercentchar#1{}
+\edef\GLOBALtabularframepercentchar{\expandafter\GLOBALtabularframepercentchar\string\%}
+
+% Archivo que guarda el código generado del framehead
+\newwrite\filetabularframehead
 
 % Define contadores
 \newcounter{tabularcolnumber}
 \setcounter{tabularcolnumber}{0}
 
-% Obtiene el enésimo elemento de una lista
-%	#1	La lista de elementos
-%	#2	El número de elemento a recoger
-% \newcommand*\coregetelementlist[2]{\StrBetween[#2,\number\numexpr#2+1]{,#1,},,}
-
-% Función que configra el texto de la barra superior del tabularframe
+% Función que configura el texto de la barra superior del tabular frame
 % 	#1 Tamaño de letra
 %	#2 Texto centrado
 \newcommand{\tabularframebartextcfg}[2]{
@@ -77,45 +75,52 @@
 	\global\def\GLOBALtabularframecontentrightcentered {#2}
 }
 
-% Entorno que configura el entorno tabular frames
+% Crea el header del tabular frame, acepta columnas creadas con \addtfheadcolumn
 %	#1	Número de la columna destacada (desde 1)
 \newenvironment{tabularframehead}[1]{%
 	\emptyvarerr{\tabularframehead}{#1}{Numero de columna destacada no definido}
 	\def\GLOBALtabularframecolumnselected {#1}
-	\def\GLOBALtabularinit {true}
-	% \global\def\GLOBALtabularframetfcontentlist {}
+	\def\GLOBALtabularframeinit {true}%
 	\setcounter{tabularcolnumber}{0}%
-	\vspace{\dimexpr-\GLOBALtabularframebarheight\textheight-0.5\footheight}
+	\ifthenelse{\equal{\GLOBALtabularframestorevar}{true}}{%
+		\immediate\openout\filetabularframehead=\jobname.tframeh%
+	}{}%
+	\vspace{\dimexpr-\GLOBALtabularframebarheight\textheight-0.5\footheight}%
 	\begin{columns}[t,onlytextwidth]%
 	}{
 	\end{columns}
 	\setcounter{tabularcolnumber}{-1}
+	\ifthenelse{\equal{\GLOBALtabularframestorevar}{true}}{%
+		\immediate\closeout\filetabularframehead%
+		\global\def\GLOBALtabularframebarcreated {true}%
+	}{}%
 }
 
 % Función que repite el último entorno tabular frames
 %	#1	Número de la columna destacada (desde 1)
-% \newcommand{\tabularframeheadrepeatlast}[1]{
-% 	\emptyvarerr{\tabularframeheadrepeatlast}{#1}{Numero de columna destacada no definido}
-% 	\edef\GLOBALtabularframetfcontentlistlast {\GLOBALtabularframetfcontentlist}
-% 	\begin{tabularframehead}{#1}%
-% 		\foreach \x in \GLOBALtabularframetfcontentlistlast {%
-% 			\ifthenelse{\equal{\x}{}}{}{%
-% 				\addtfheadcolumn{\coregetelementlist{\x}{1}}{\coregetelementlist{\x}{2}}
-% 			}%
-% 		}%
-% 	\end{tabularframehead}%
-% }
+\newcommand{\tabularframeheadrepeat}[1]{
+	\ifthenelse{\equal{\GLOBALtabularframebarcreated}{true}}{}{%
+		\throwwarning{Funcion \noexpand\tabularframeheadrepeat no puede usarse si no existe un \noexpand\tabularframehead previo}\stop}%
+	\emptyvarerr{\tabularframeheadrepeat}{#1}{Numero de columna destacada no definido}
+	\def\GLOBALtabularframestorevar {false}
+	\begin{tabularframehead}{#1}%
+		\input{\jobname.tframeh}%
+	\end{tabularframehead}%
+	\def\GLOBALtabularframestorevar {true}
+}
 
 % Agrega una columna al tabular head
 %	#1	Tamaño de la columna
 %	#2	Texto
 \newcommand{\addtfheadcolumn}[2]{%
-	\ifthenelse{\equal{\GLOBALtabularinit}{true}}{}{%
+	\ifthenelse{\equal{\GLOBALtabularframeinit}{true}}{}{%
 		\throwwarning{Funcion \noexpand\addtfheadcolumn no puede usarse fuera del entorno \noexpand\tabularframehead}\stop}%
 	\emptyvarerr{\addtfheadcolumn}{#1}{Tamano de la columna no definido}%
 	\emptyvarerr{\addtfheadcolumn}{#2}{Texto de la columna no definido}%
+	\ifthenelse{\equal{\GLOBALtabularframestorevar}{true}}{%
+		\immediate\write\filetabularframehead{\unexpanded{\addtfheadcolumn{#1}{#2}}\GLOBALtabularframepercentchar}%
+	}{}%
 	\stepcounter{tabularcolnumber}%
-	% \global\edef\GLOBALtabularframetfcontentlist {{#1,#2}, \GLOBALtabularframetfcontentlist}%
 	\column{\dimexpr#1\linewidth}%
 	\ifthenelse{\equal{\thetabularcolnumber}{\GLOBALtabularframecolumnselected}}{%
 		\transparent{1.0}%
@@ -165,5 +170,5 @@
 			}
 		\end{minipage}}%
 	\end{columns}%
-	\def\GLOBALtabularinit {false}%
+	\def\GLOBALtabularframeinit {false}%
 }
