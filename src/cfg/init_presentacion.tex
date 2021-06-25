@@ -23,8 +23,7 @@
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\frametextjustified}{true}}{
 	\apptocmd{\frame}{}{\justifying}{}
-}{
-}
+}{}
 \newcommand{\justifytext}[1]{\parbox{\linewidth}{#1}}
 
 % Word-break en citas
@@ -35,7 +34,11 @@
 
 % Corrige espaciamiento de itemize
 % -----------------------------------------------------------------------------
-\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
-\addtolength{\leftmargini}{\labelsep}
+\ifthenelse{\equal{\itemizedeleteleftmargin}{true}}{
+	% \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+	% \addtolength{\leftmargini}{\labelsep}
+	\setlist[itemize]{leftmargin=*}
+	\setlist[enumerate]{leftmargin=*}
+}{}
 
 % END
