@@ -231,9 +231,9 @@ def incmatrix(genl1, genl2):
 	\end{tabularframehead}
 	\tabularframecontent{
 		\begin{itemize}[leftmargin=*]
-			\item A
-			\item B
-			\item C
+			\item A, \cite{excel2latex}.
+			\item B, \cite{overleaf}.
+			\item C, \cite{tablesgenerator}.
 		\end{itemize}
 	}{
 		\insertimage{ejemplos/test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
@@ -279,13 +279,13 @@ def incmatrix(genl1, genl2):
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\Huge{\centerline{Gracias por su atención}}
+\begin{frame}[allowframebreaks]\scriptsize
+	\frametitle{\namereferences}
+	\bibliography{library}
 \end{frame}
 
 %---------------------------------------------------------------------
 
-\begin{frame}[allowframebreaks]\scriptsize
-	\frametitle{\namereferences}
-	\bibliography{library}
+\begin{frame}
+	\Huge{\centerline{Gracias por su atención}}
 \end{frame}
