@@ -41,19 +41,25 @@ ENTRY {
 }
 
 INTEGERS {
-    output.state
-    before.all
-    mid.sentence
-    after.quote
-    after.sentence
-    after.quoted.block
     after.block
+    after.quote
+    after.quoted.block
+    after.sentence
+    before.all
+    longest.label.width
+    mid.sentence
+    multiresult
     nameptr
     namesleft
-    numnames
-    multiresult
     number.label
-    longest.label.width
+    numnames
+    output.state
+}
+
+STRINGS {
+    s
+    t
+    longest.label
 }
 
 FUNCTION {init.state.consts} {
@@ -63,12 +69,6 @@ FUNCTION {init.state.consts} {
     #3 'after.sentence :=
     #4 'after.quoted.block :=
     #5 'after.block :=
-}
-
-STRINGS {
-    s
-    t
-    longest.label
 }
 
 FUNCTION {output.nonnull} {
