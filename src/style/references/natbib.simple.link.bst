@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Archivo de estilos simple + link (doi)
-%% Versión:      1.1.0 (27/06/2020)
+%% Versión:      1.1.1 (28/06/2020)
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -45,19 +45,25 @@ ENTRY {
 }
 
 INTEGERS {
-    output.state
-    before.all
-    mid.sentence
-    after.quote
-    after.sentence
-    after.quoted.block
     after.block
+    after.quote
+    after.quoted.block
+    after.sentence
+    before.all
+    longest.label.width
+    mid.sentence
+    multiresult
     nameptr
     namesleft
-    numnames
-    multiresult
     number.label
-    longest.label.width
+    numnames
+    output.state
+}
+
+STRINGS {
+	s
+	t
+	longest.label
 }
 
 FUNCTION {init.state.consts} {
@@ -67,33 +73,6 @@ FUNCTION {init.state.consts} {
     #3 'after.sentence :=
     #4 'after.quoted.block :=
     #5 'after.block :=
-}
-
-FUNCTION {output.links} {
-    doi empty$ {
-        arxivId empty$ {
-            url empty$ {
-                skip$
-            }{
-                ", \href{" * url * "}{\detokenize{" * url * "}}" * output
-                urldate empty$ {
-                    skip$
-                }{
-                    " (visited on " * urldate * ")" * output
-                } if$
-            } if$
-        }{
-            "\href{https://arxiv.org/abs/" arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" * output
-        } if$
-    }{
-        "\href{https://dx.doi.org/" doi * "}{doi:\detokenize{" * doi * "}}" * output
-    } if$
-}
-
-STRINGS {
-    s
-    t
-    longest.label
 }
 
 FUNCTION {output.nonnull} {
@@ -126,10 +105,10 @@ FUNCTION {output.nonnull} {
 }
 
 FUNCTION {output} {
-    duplicate$ empty$
-    'pop$
-    'output.nonnull
-    if$
+	duplicate$ empty$
+	'pop$
+	'output.nonnull
+	if$
 }
 
 FUNCTION {output.check} {
@@ -137,6 +116,35 @@ FUNCTION {output.check} {
     duplicate$ empty$ {
         pop$ "empty " t * " in " * cite$ * warning$
     } 'output.nonnull if$
+}
+
+FUNCTION {output.links} {
+    doi empty$ {
+        arxivId empty$ {
+            url empty$ {
+                skip$
+            }{
+                ", \href{" * url * "}{\detokenize{" * url * "}}" * output
+                urldate empty$ {
+                    skip$
+                }{
+                    " (visited on " * urldate * ")" * output
+                } if$
+            } if$
+        }{
+            %% url empty$ {
+                ", \href{https://arxiv.org/abs/" * arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" * output
+            %% }{
+            %%     ", \href{" * url * "}{arXiv:\detokenize{" * arxivId * "}}" * output
+            %% } if$
+        } if$
+    }{
+        %% url empty$ {
+            ", \href{https://dx.doi.org/" * doi * "}{doi:\detokenize{" * doi * "}}" * output
+        %% }{
+        %%     ", \href{" * url * "}{doi:\detokenize{" * doi * "}}" * output
+        %% } if$
+    } if$
 }
 
 FUNCTION {output.bibitem} {
