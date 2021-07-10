@@ -11,9 +11,7 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-% -----------------------------------------------------------------------------
 % Assembler
-% -----------------------------------------------------------------------------
 \lstdefinelanguage[x64]{Assembler}[x86masm]{Assembler}{
 	morekeywords={
 		CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD,POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS,rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp,r8,r8d,r8w,r8b,r9,r9d,r9w,r9b,r10,r10d,r10w,r10b,r11,r11d,r11w,r11b,r12,r12d,r12w,r12b,r13,r13d,r13w,r13b,r14,r14d,r14w,r14b,r15,r15d,r15w,r15b
@@ -26,9 +24,7 @@
 	language=[x86masm]Assembler
 }
 
-% -----------------------------------------------------------------------------
 % Bash
-% -----------------------------------------------------------------------------
 \lstdefinestyle{bash}{
 	language=bash,
 	breakatwhitespace=false,
@@ -40,41 +36,31 @@
 	sensitive=false
 }
 
-% -----------------------------------------------------------------------------
 % Basic
-% -----------------------------------------------------------------------------
 \lstdefinestyle{basic}{
 	language=[Visual]Basic
 }
 
-% -----------------------------------------------------------------------------
 % C
-% -----------------------------------------------------------------------------
 \lstdefinestyle{c}{
 	language=C,
 	breakatwhitespace=false,
 	keepspaces=true
 }
 
-% -----------------------------------------------------------------------------
 % Cobol
-% -----------------------------------------------------------------------------
 \lstdefinestyle{cobol}{
 	language=Cobol
 }
 
-% -----------------------------------------------------------------------------
 % C++
-% -----------------------------------------------------------------------------
 \lstdefinestyle{cpp}{
 	language=C++,
 	breakatwhitespace=false,
 	morecomment=[l][\color{magenta}]{\#}
 }
 
-% -----------------------------------------------------------------------------
 % C#
-% -----------------------------------------------------------------------------
 \lstdefinestyle{csharp}{
 	language=csh,
 	morecomment=[l]{//},
@@ -84,9 +70,7 @@
 	}
 }
 
-% -----------------------------------------------------------------------------
 % CSS
-% -----------------------------------------------------------------------------
 \lstdefinelanguage{CSS}{
 	morecomment=[s]{/*}{*/},
 	morekeywords={
@@ -100,16 +84,12 @@
 	breakatwhitespace=true
 }
 
-% -----------------------------------------------------------------------------
 % CSV, Archivos separados por coma
-% -----------------------------------------------------------------------------
 \lstdefinestyle{csv}{
 	language={}
 }
 
-% -----------------------------------------------------------------------------
 % CUDA
-% -----------------------------------------------------------------------------
 \lstdefinestyle{cuda}{
 	language=C++,
 	breakatwhitespace=false,
@@ -121,9 +101,7 @@
 	moredelim=[s][\ttfamily]{<<<}{>>>}
 }
 
-% -----------------------------------------------------------------------------
 % DOCKER
-% -----------------------------------------------------------------------------
 \lstdefinelanguage{docker}{
 	comment=[l]{\#},
 	keywords={
@@ -137,17 +115,13 @@
 	breakatwhitespace=true
 }
 
-% -----------------------------------------------------------------------------
 % Fortran-95
-% -----------------------------------------------------------------------------
 \lstdefinestyle{fortran}{
 	language=[95]Fortran,
 	breakatwhitespace=false
 }
 
-% -----------------------------------------------------------------------------
 % GLSL - Shaders
-% -----------------------------------------------------------------------------
 \lstdefinelanguage{GLSL}{
 	alsoletter={\#},
 	morekeywords=[1]{
@@ -170,31 +144,23 @@
 	upquote=true
 }
 
-% -----------------------------------------------------------------------------
 % Gnuplot
-% -----------------------------------------------------------------------------
 \lstdefinestyle{gnuplot}{
 	language=Gnuplot
 }
 
-% -----------------------------------------------------------------------------
 % Go
-% -----------------------------------------------------------------------------
 \lstdefinestyle{go}{
 	language=Go
 }
 
-% -----------------------------------------------------------------------------
 % Haskell
-% -----------------------------------------------------------------------------
 \lstdefinestyle{haskell}{
 	language=haskell,
 	morecomment=[l]\%
 }
 
-% -----------------------------------------------------------------------------
 % HTML5
-% -----------------------------------------------------------------------------
 \lstdefinelanguage{HTML5}{
 	language=html,
 	alsoletter={<>=-},
@@ -202,9 +168,9 @@
 	ndkeywords={
 		% General
 		=,
-		% HTML attributes
+		% Atributos HTML
 		accept=,accept-charset=,accesskey=,action=,align=,alt=,async=,autocomplete=,autofocus=,autoplay=,autosave=,bgcolor=,border=,buffered=,challenge=,charset=,checked=,cite=,class=,code=,codebase=,color=,cols=,colspan=,content=,contenteditable=,contextmenu=,controls=,coords=,data=,datetime=,default=,defer=,dir=,dirname=,disabled=,download=,draggable=,dropzone=,enctype=,for=,form=,formaction=,headers=,height=,hidden=,high=,href=,hreflang=,http-equiv=,icon=,id=,ismap=,itemprop=,keytype=,kind=,label=,lang=,language=,list=,loop=,low=,manifest=,max=,maxlength=,media=,method=,min=,multiple=,name=,novalidate=,open=,optimum=,pattern=,ping=,placeholder=,poster=,preload=,pubdate=,radiogroup=,readonly=,rel=,required=,reversed=,rows=,rowspan=,sandbox=,scope=,scoped=,seamless=,selected=,shape=,size=,sizes=,span=,spellcheck=,src=,srcdoc=,srclang=,start=,step=,style=,summary=,tabindex=,target=,title=,type=,usemap=,value=,width=,wrap=,
-		% CSSproperties
+		% Propiedades CSS
 		accelerator:,azimuth:,background:,background-attachment:,background-color:,background-image:,background-position:,background-position-x:,background-position-y:,background-repeat:,behavior:,border:,border-bottom:,border-bottom-color:,border-bottom-style:,border-bottom-width:,border-collapse:,border-color:,border-left:,border-left-color:,border-left-style:,border-left-width:,border-right:,border-right-color:,border-right-style:,border-right-width:,border-spacing:,border-style:,border-top:,border-top-color:,border-top-style:,border-top-width:,border-width:,bottom:,caption-side:,clear:,clip:,color:,content:,counter-increment:,counter-reset:,cue:,cue-after:,cue-before:,cursor:,direction:,display:,elevation:,empty-cells:,filter:,float:,font:,font-family:,font-size:,font-size-adjust:,font-stretch:,font-style:,font-variant:,font-weight:,height:,ime-mode:,include-source:,layer-background-color:,layer-background-image:,layout-flow:,layout-grid:,layout-grid-char:,layout-grid-char-spacing:,layout-grid-line:,layout-grid-mode:,layout-grid-type:,left:,letter-spacing:,line-break:,line-height:,list-style:,list-style-image:,list-style-position:,list-style-type:,margin:,margin-bottom:,margin-left:,margin-right:,margin-top:,marker-offset:,marks:,max-height:,max-width:,min-height:,min-width:,transition-duration:,transition-property:,transition-timing-function:,transform:,-moz-transform:,-moz-binding:,-moz-border-radius:,-moz-border-radius-topleft:,-moz-border-radius-topright:,-moz-border-radius-bottomright:,-moz-border-radius-bottomleft:,-moz-border-top-colors:,-moz-border-right-colors:,-moz-border-bottom-colors:,-moz-border-left-colors:,-moz-opacity:,-moz-outline:,-moz-outline-color:,-moz-outline-style:,-moz-outline-width:,-moz-user-focus:,-moz-user-input:,-moz-user-modify:,-moz-user-select:,orphans:,outline:,outline-color:,outline-style:,outline-width:,overflow:,overflow-X:,overflow-Y:,padding:,padding-bottom:,padding-left:,padding-right:,padding-top:,page:,page-break-after:,page-break-before:,page-break-inside:,pause:,pause-after:,pause-before:,pitch:,pitch-range:,play-during:,position:,quotes:,-replace:,richness:,right:,ruby-align:,ruby-overhang:,ruby-position:,-set-link-source:,size:,speak:,speak-header:,speak-numeral:,speak-punctuation:,speech-rate:,stress:,scrollbar-arrow-color:,scrollbar-base-color:,scrollbar-dark-shadow-color:,scrollbar-face-color:,scrollbar-highlight-color:,scrollbar-shadow-color:,scrollbar-3d-light-color:,scrollbar-track-color:,table-layout:,text-align:,text-align-last:,text-decoration:,text-indent:,text-justify:,text-overflow:,text-shadow:,text-transform:,text-autospace:,text-kashida-space:,text-underline-position:,top:,unicode-bidi:,-use-link-source:,vertical-align:,visibility:,voice-family:,volume:,white-space:,widows:,width:,word-break:,word-spacing:,word-wrap:,writing-mode:,z-index:,zoom:
 	},
 	otherkeywords={
@@ -222,9 +188,7 @@
 	numberfirstline=true
 }
 
-% -----------------------------------------------------------------------------
 % INI, Archivos de configuraciones
-% -----------------------------------------------------------------------------
 \lstdefinestyle{ini}{
 	language={},
 	commentstyle=\color{gray}\ttfamily,
@@ -236,18 +200,14 @@
 	otherkeywords={=,:}
 }
 
-% -----------------------------------------------------------------------------
 % Java
-% -----------------------------------------------------------------------------
 \lstdefinestyle{java}{
 	language=Java,
 	breakatwhitespace=true,
 	keepspaces=true
 }
 
-% -----------------------------------------------------------------------------
 % Javascript
-% -----------------------------------------------------------------------------
 \lstdefinelanguage{JavaScript}{
 	comment=[l]{//},
 	keepspaces=true,
@@ -271,9 +231,7 @@
 	language=JavaScript
 }
 
-% -----------------------------------------------------------------------------
 % JSON
-% -----------------------------------------------------------------------------
 \lstdefinestyle{json}{
 	literate=*{0}{{{\color{numb}0}}}{1}{1}{{{\color{numb}1}}}{1}{2}
 	{{{\color{numb}2}}}{1}{3}{{{\color{numb}3}}}{1}{4}{{{\color{numb}4}}}
@@ -285,9 +243,7 @@
 	tabsize=2
 }
 
-% -----------------------------------------------------------------------------
 % Kotlin
-% -----------------------------------------------------------------------------
 \lstdefinestyle{kotlin}{
 	comment=[l]{//},
 	emph={delegate,filter,first,firstOrNull,forEach,lazy,map,mapNotNull,println,
@@ -306,9 +262,7 @@
 	sensitive=true
 }
 
-% -----------------------------------------------------------------------------
 % LaTeX
-% -----------------------------------------------------------------------------
 \lstdefinestyle{latex}{
 	language=TeX,
 	morekeywords={
@@ -316,24 +270,18 @@
 	}
 }
 
-% -----------------------------------------------------------------------------
 % Lisp
-% -----------------------------------------------------------------------------
 \lstdefinestyle{lisp}{
 	language=Lisp,
 	morekeywords={if}
 }
 
-% -----------------------------------------------------------------------------
 % Lua
-% -----------------------------------------------------------------------------
 \lstdefinestyle{lua}{
 	language={[5.2]Lua}
 }
 
-% -----------------------------------------------------------------------------
 % Maple
-% -----------------------------------------------------------------------------
 \lstdefinelanguage{Maple}{
 	morecomment=[l]\#,
 	morekeywords={
@@ -347,16 +295,12 @@
 	language=Maple
 }
 
-% -----------------------------------------------------------------------------
 % Mathematica
-% -----------------------------------------------------------------------------
 \lstdefinestyle{mathematica}{
 	language=Mathematica
 }
 
-% -----------------------------------------------------------------------------
 % Matlab
-% -----------------------------------------------------------------------------
 \lstdefinestyle{matlab}{
 	language=Matlab,
 	deletekeywords={fft},
@@ -368,9 +312,7 @@
 	}
 }
 
-% -----------------------------------------------------------------------------
 % Octave
-% -----------------------------------------------------------------------------
 \lstdefinestyle{octave}{
 	language=Octave,
 	keepspaces=true,
@@ -378,9 +320,7 @@
 	morecomment=[n]{\%\{\^^M}{\%\}\^^M}
 }
 
-% -----------------------------------------------------------------------------
 % OpenCL
-% -----------------------------------------------------------------------------
 \lstdefinestyle{opencl}{
 	language=C++,
 	breakatwhitespace=false,
@@ -391,9 +331,7 @@
 	morecomment=[l][\color{magenta}]{\#}
 }
 
-% -----------------------------------------------------------------------------
 % OpenSees
-% -----------------------------------------------------------------------------
 \lstdefinestyle{opensees}{
 	language=tcl,
 	breakatwhitespace=false,
@@ -401,7 +339,6 @@
 		-accel,-beamUniform,-dir,-dof,-ele,-eleRange,-file,-height,-increment,-initial,-iNode,-integration,-iterate,-jNode,-kNode,-mass,-mat,-matConcrete,-matShear,-matSteel,-max,-maxDim,-maxEta,-maxIter,-min,-minEta,-ndf,-ndm,-node,-nodeRange,-numSublevels,-numSubSteps,-perpDirn,-region,-rho,-sections,-thick,-time,-tol,-type,-width
 	},
 	emphstyle=[1]\color{black}\bfseries\em,
-	% moredelim=[s][\color{black}\bfseries\em]{-}{\ },
 	keepspaces=true,
 	morecomment=[l]{\#},
 	morekeywords={
@@ -413,18 +350,14 @@
 	ndkeywordstyle=\color{dkcyan}\ttfamily
 }
 
-% -----------------------------------------------------------------------------
 % Pascal
-% -----------------------------------------------------------------------------
 \lstdefinestyle{pascal}{
 	language=Pascal,
 	morecomment=[l]{//},
 	sensitive=false
 }
 
-% -----------------------------------------------------------------------------
 % Perl
-% -----------------------------------------------------------------------------
 \lstdefinestyle{perl}{
 	language=Perl,
 	alsoletter={\%},
@@ -432,9 +365,7 @@
 	keepspaces=true
 }
 
-% -----------------------------------------------------------------------------
 % PHP
-% -----------------------------------------------------------------------------
 \lstdefinestyle{php}{
 	language=php,
 	emph=[1]{
@@ -455,9 +386,7 @@
 	upquote=true
 }
 
-% -----------------------------------------------------------------------------
 % Texto plano
-% -----------------------------------------------------------------------------
 \lstdefinestyle{plaintext}{
 	language={},
 	keepspaces=true,
@@ -465,17 +394,13 @@
 	tabsize=4
 }
 
-% -----------------------------------------------------------------------------
 % Postscript
-% -----------------------------------------------------------------------------
 \lstdefinestyle{postscript}{
 	language=PostScript,
 	keepspaces=true
 }
 
-% -----------------------------------------------------------------------------
 % Pseudocódigo
-% -----------------------------------------------------------------------------
 \lstdefinestyle{pseudocode}{
 	language={},
 	backgroundcolor=\color{white},
@@ -496,9 +421,7 @@
 	stringstyle=\color{dkgray}\bfseries\em
 }
 
-% -----------------------------------------------------------------------------
 % Python
-% -----------------------------------------------------------------------------
 \lstdefinelanguage{pythonEXTENDED}{
 	language=Python,
 	breakatwhitespace=false,
@@ -519,9 +442,7 @@
 	language=pythonEXTENDED
 }
 
-% -----------------------------------------------------------------------------
 % R
-% -----------------------------------------------------------------------------
 \lstdefinestyle{r}{
 	language=R,
 	alsoletter={.<-},
@@ -537,9 +458,7 @@
 	}
 }
 
-% -----------------------------------------------------------------------------
 % Racket
-% -----------------------------------------------------------------------------
 \lstdefinestyle{racket}{
 	alsoletter={',`,-,/,>,<,\#,\%},
 	morekeywords=[1]{
@@ -560,9 +479,7 @@
 }
 
 
-% -----------------------------------------------------------------------------
 % Ruby
-% -----------------------------------------------------------------------------
 \lstdefinestyle{ruby}{
 	language=Ruby,
 	breakatwhitespace=true,
@@ -571,14 +488,7 @@
 	sensitive=true
 }
 
-% -----------------------------------------------------------------------------
 % Rust
-% [1] Reserve keywords
-% [2] Traits
-% [3] Primitive types
-% [4] Type and value constructors
-% [5] Identifier
-% -----------------------------------------------------------------------------
 \lstdefinelanguage{Rust}{
 	sensitive,
 	alsodigit={},
@@ -587,22 +497,22 @@
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/},
 	moredelim=[s][{\itshape\color[rgb]{0,0,0.75}}]{\#[}{]},
-	morekeywords=[2]{
+	morekeywords=[2]{ % Traits
 		Add,AddAssign,Any,AsciiExt,AsInner,AsInnerMut,AsMut,AsRawFd,AsRawHandle,AsRawSocket,AsRef,Binary,BitAnd,BitAndAssign,Bitor,BitOr,BitOrAssign,BitXor,BitXorAssign,Borrow,BorrowMut,Boxed,BoxPlace,BufRead,BuildHasher,CastInto,CharExt,Clone,CoerceUnsized,CommandExt,Copy,Debug,DecodableFloat,Default,Deref,DerefMut,DirBuilderExt,DirEntryExt,Display,Div,DivAssign,DoubleEndedIterator,DoubleEndedSearcher,Drop,EnvKey,Eq,Error,ExactSizeIterator,ExitStatusExt,Extend,FileExt,FileTypeExt,Float,Fn,FnBox,FnMut,FnOnce,Freeze,From,FromInner,FromIterator,FromRawFd,FromRawHandle,FromRawSocket,FromStr,FullOps,FusedIterator,Generator,Hash,Hasher,Index,IndexMut,InPlace,Int,Into,IntoCow,IntoInner,IntoIterator,IntoRawFd,IntoRawHandle,IntoRawSocket,IsMinusOne,IsZero,Iterator,JoinHandleExt,LargeInt,LowerExp,LowerHex,MetadataExt,Mul,MulAssign,Neg,Not,Octal,OpenOptionsExt,Ord,OsStrExt,OsStringExt,Packet,PartialEq,PartialOrd,Pattern,PermissionsExt,Place,Placer,Pointer,Product,Put,RangeArgument,RawFloat,Read,Rem,RemAssign,Seek,Shl,ShlAssign,Shr,ShrAssign,Sized,SliceConcatExt,SliceExt,SliceIndex,Stats,Step,StrExt,Sub,SubAssign,Sum,Sync,TDynBenchFn,Terminal,Termination,ToOwned,ToSocketAddrs,ToString,Try,TryFrom,TryInto,UnicodeStr,Unsize,UpperExp,UpperHex,WideInt,Write
 	},
 	morekeywords=[2]{
 		Send
 	},
-	morekeywords=[3]{
+	morekeywords=[3]{ % Primitivas
 		bool,char,f32,f64,i8,i16,i32,i64,isize,str,u8,u16,u32,u64,unit,usize,i128,u128
 	},
-	morekeywords=[4]{
+	morekeywords=[4]{ % Valor y tipo de constructores
 		Err,false,None,Ok,Some,true
 	},
-	morekeywords=[5]{
+	morekeywords=[5]{ % Identificadores
 		assert!,assert_eq!,assert_ne!,cfg!,column!,compile_error!,concat!,concat_idents!,debug_assert!,debug_assert_eq!,debug_assert_ne!,env!,eprint!,eprintln!,file!,format!,format_args!,include!,include_bytes!,include_str!,line!,module_path!,option_env!,panic!,print!,println!,select!,stringify!,thread_local!,try!,unimplemented!,unreachable!,vec!,write!,writeln!
 	},
-	morekeywords={
+	morekeywords={ % Palabras reservadas
 		abstract,alignof,become,box,do,final,macro,offsetof,override,priv, proc,pure,sizeof,typeof,unsized,virtual,yield
 	},
 	morekeywords={
@@ -625,14 +535,12 @@
 \lstdefinestyle{rust}{
 	language=Rust,
 	keywordstyle=[2]\color[rgb]{0.75,0,0}, % Traits
-	keywordstyle=[3]\color[rgb]{0,0.5,0}, % Primitive types
-	keywordstyle=[4]\color[rgb]{0,0.5,0}, % Type and value constructors
+	keywordstyle=[3]\color[rgb]{0,0.5,0}, % Primitivas
+	keywordstyle=[4]\color[rgb]{0,0.5,0}, % Valor y tipo de constructores
 	keywordstyle=[5]\color[rgb]{0,0,0.75} % Macros
 }
 
-% -----------------------------------------------------------------------------
 % Scala
-% -----------------------------------------------------------------------------
 \lstdefinestyle{scala}{
 	language=scala,
 	breakatwhitespace=true,
@@ -649,9 +557,7 @@
 	}
 }
 
-% -----------------------------------------------------------------------------
 % Scheme
-% -----------------------------------------------------------------------------
 \lstdefinestyle{scheme}{
 	language=Lisp,
 	morecomment=[l]{;},
@@ -661,24 +567,18 @@
 	morestring=[b]"
 }
 
-% -----------------------------------------------------------------------------
 % SQL
-% -----------------------------------------------------------------------------
 \lstdefinestyle{sql}{
 	language=SQL,
 	breakatwhitespace=true
 }
 
-% -----------------------------------------------------------------------------
 % Swift
-% -----------------------------------------------------------------------------
 \lstdefinestyle{swift}{
 	language=Swift
 }
 
-% -----------------------------------------------------------------------------
 % TCL
-% -----------------------------------------------------------------------------
 \lstdefinestyle{tcl}{
 	language=tcl,
 	breakatwhitespace=false,
@@ -686,24 +586,18 @@
 	morecomment=[l]{\#}
 }
 
-% -----------------------------------------------------------------------------
 % Visual Basic
-% -----------------------------------------------------------------------------
 \lstdefinestyle{vbscript}{
 	language=[Visual]Basic,
 	extendedchars=true
 }
 
-% -----------------------------------------------------------------------------
 % Verilog
-% -----------------------------------------------------------------------------
 \lstdefinestyle{verilog}{
 	language=Verilog
 }
 
-% -----------------------------------------------------------------------------
 % VDHL
-% -----------------------------------------------------------------------------
 \lstdefinelanguage{VHDL}{
 	morekeywords=[1]{
 		ALL,all,and,architecture,begin,downto,end,entity,in,is,library,Not,of,or,out,port,use
@@ -717,9 +611,7 @@
 	language=VHDL
 }
 
-% -----------------------------------------------------------------------------
 % XML
-% -----------------------------------------------------------------------------
 \lstdefinelanguage{XML}{
 	morecomment=[s]{<?}{?>},
 	morekeywords={
