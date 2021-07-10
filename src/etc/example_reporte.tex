@@ -54,7 +54,7 @@
 		También puedes usar tablas, ¡Crearlas es muy fácil!. Puedes usar el plugin \href{https://www.ctan.org/tex-archive/support/excel2latex/}{Excel2Latex} \cite{excel2latex} de Excel para convertir las tablas a \LaTeX\xspace o bien utilizar el \quotes{creador de tablas online} \cite{tablesgenerator}.
 
 		% Tabla generada con el plugin Excel2Latex
-		\begin{table}[htbp]
+		\begin{table}[H]
 			\centering
 			\caption{Ejemplo de tablas.}
 			\begin{tabular}{ccc}
@@ -331,14 +331,14 @@ function NMS(B,c)
 
 		% Imagen, se numerará automáticamente con la letra del anexo según
 		% la configuración \appendixindepobjnum
-		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
+		\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.19}{Imagen en anexo.}
 
 	\subsection{Resultados}
 		\lipsum[10]
 
 		% Tablas
 		\enabletablerowcolor[2] % Activa el color de celda
-		\begin{table}[htbp]
+		\begin{table}[H]
 			\centering
 			\caption{Tabla de cálculo.}
 			\begin{tabular}{ccc}
@@ -366,7 +366,7 @@ function NMS(B,c)
 	\newp \lipsum[4]
 
 	% Tabla de encuestas
-	\begin{table}[htbp]
+	\begin{table}[H]
 		\centering
 		\caption{Resultados encuesta.}
 		\begin{tabular}{ccc}
