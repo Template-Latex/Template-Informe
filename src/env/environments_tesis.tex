@@ -37,22 +37,29 @@
 	\emptyvarerr{\resumenenv}{#3}{Titulo seccion no definida}
 	\emptyvarerr{\resumenenv}{#4}{Etiqueta marcador del pdf}
 	% Añade a los marcadores
-	% \setpagemargincm{\pagemarginleft}{\pagemarginright}{\pagemarginright}{\pagemarginbottom}
 	\ifthenelse{\equal{\addabstracttobookmarks}{true}}{
 		\phantomsection
 		\pdfbookmark{#3}{#4}}{
 	}
 	% Inserta la tabla resumen
-	\begin{flushright}
-		\small
-		#1
-	\end{flushright}
-	\vspace{0.75\baselineskip}
+	\ifthenelse{\equal{\showtableresumenenv}{true}}{
+		\begin{flushright}
+			\small
+			#1
+		\end{flushright}
+		\vspace{0.75\baselineskip}
+	}{
+		\vspace*{0.5\baselineskip}
+	}
 	% Título
 	\begin{center}
 		\textcolor{\titlecolor}{\MakeUppercase{\textbf{#2}}}
 	\end{center} \newp
-	\vspace{-\baselineskip}
+	\ifthenelse{\equal{\showtableresumenenv}{true}}{
+		\vspace{-\baselineskip}
+	}{
+		\vspace{-0.5\baselineskip}
+	}
 	}{%
 	\vfill\null
 	\clearpage
@@ -64,7 +71,6 @@
 			\insertblankpage
 		\fi}{
 	}
-	% \setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 }
 % Llama al entorno de resumen
 \newenvironment{resumen}{
