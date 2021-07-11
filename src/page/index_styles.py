@@ -24,18 +24,18 @@ def move_first(item):
     _totals.insert(0, item)
 
 
-# Process all permutations
+# Procesa las permutaciones
 move_first('ftc')
 print(_totals)
 
-# Generate string containing all options
+# Genera el string
 indexs = ''
 _end = ''
 for o in _totals:
     _inst = o.replace('f', '\LoIf').replace(
         'c', '\LoIc').replace('t', '\LoIt').replace('e', '\LoIe')
-    indexs += '\ifthenelse{\equal{\indexstyle}{'+o+'}}{'+_inst+'}{'
+    indexs += '\ifthenelse{\equal{\indexstyle}{'+o+'}}{%\n\t'+_inst+'\n}{\n'
     _end += '}'
-_last = '\\throwbadconfig{Estilo desconocido del indice}{\indexstyle}{'+','.join(_totals)+'}'
+_last = '\t\\throwbadconfig{Estilo desconocido del indice}{\indexstyle}{'+','.join(_totals)+'}'
 
 print(indexs+_last+_end)
