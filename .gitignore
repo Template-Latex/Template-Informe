@@ -39,7 +39,11 @@ informe.pdf
 log.txt
 
 # Distribución
-dist/
+dist/img
+dist/src
+dist/main.tex
+dist/example.tex
+dist/template_config.tex
 
 # Archivos temporales
 *_temp.tex
