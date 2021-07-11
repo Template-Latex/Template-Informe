@@ -71,7 +71,7 @@
 \def\margineqncaptiontop {-0.70}   % Margen superior caption ecuación [cm]
 \def\margingathercaptbottom {0.05} % Margen inferior caption en gather [cm]
 \def\margingathercapttop {-0.90}   % Margen superior caption en gather [cm]
-\def\margingatheredcaptbottom{0.0} % Margen inf. caption en gathered [cm]
+\def\margingatheredcaptbottom {0}  % Margen inf. caption en gathered [cm]
 \def\margingatheredcapttop {-0.90} % Margen superior caption en gathered [cm]
 \def\sectioncaptiondelimiter {.}   % Carácter delimitador n° objeto y sección
 \def\showsectioncaptioncode {none} % N° sec. código {none,chap,(s/ss/sss/ssss)ec}
@@ -85,8 +85,8 @@
 \def\tablecaptiontop {true}        % Leyenda arriba de las tablas
 
 % CONFIGURACIÓN DEL ÍNDICE
-\def\addindextobookmarks {true}    % Añade el índice a los marcadores del pdf
 \def\addindexsubtobookmarks{false} % Agrega índice tabla,codigo,etc. a marcadores
+\def\addindextobookmarks {true}    % Añade el índice a los marcadores del pdf
 \def\charafterobjectindex {.}      % Carácter después de n° figura,tabla,código
 \def\charnumpageindex {.}          % Carácter número de página en índice
 \def\indexdepth {4}                % Profundidad máxima del índice
@@ -153,6 +153,14 @@
 \def\marginimagemulttop {-0.30}    % Margen superior imágenes múltiples [cm]
 \def\marginimagetop {0.0}          % Margen superior figuras [cm]
 \def\numberedequation {true}       % Ecuaciones con \insert... numeradas
+\def\senumerti {\arabic{enumi}.}   % Estilo enumerate nivel 1
+\def\senumertii {\alph{enumii})}   % Estilo enumerate nivel 2
+\def\senumertiii{\roman{enumiii}.} % Estilo enumerate nivel 3
+\def\senumertiv {\Alph{enumiv})}   % Estilo enumerate nivel 4
+\def\sitemizei {\iitembcirc}       % Estilo itemize nivel 1
+\def\sitemizeii {\iitemdash}       % Estilo itemize nivel 2
+\def\sitemizeiii {\iitemcirc}      % Estilo itemize nivel 3
+\def\sitemizeiv {\iitembsquare}    % Estilo itemize nivel 4
 \def\sourcecodefontf {\ttfamily}   % Tipo de letra código fuente
 \def\sourcecodefonts {\small}      % Tamaño letra código fuente
 \def\sourcecodenumbersep {6}       % Separación entre número línea y código [pt]
