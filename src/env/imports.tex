@@ -15,9 +15,7 @@
 \let\RE\Re
 \let\IM\Im
 
-% -----------------------------------------------------------------------------
-% PARCHES DE LIBRERÍAS
-% -----------------------------------------------------------------------------
+% Parches de librerías
 \let\counterwithout\relax
 \let\counterwithin\relax
 \let\underbar\relax
@@ -35,7 +33,7 @@
 \makeatother
 
 % -----------------------------------------------------------------------------
-% LIBRERÍAS DEL NÚCLEO
+% Librerías del núcleo
 % -----------------------------------------------------------------------------
 % Manejo de condicionales
 \usepackage{ifthen}
@@ -90,7 +88,7 @@
 \changefontsizes{\documentfontsize pt}
 
 % -----------------------------------------------------------------------------
-% LIBRERÍAS INDEPENDIENTES
+% Librerías independientes
 % -----------------------------------------------------------------------------
 \usepackage{amssymb}       % Librerías matemáticas
 \usepackage{amsthm}        % Definición de teoremas
@@ -126,7 +124,7 @@
 \usepackage{textcomp}      % Simbología común
 \usepackage{url}           % Permite añadir enlaces
 \usepackage{wrapfig}       % Posición de imágenes
-\usepackage{xspace}        % Adminsitra espacios en párrafos y líneas
+\usepackage{xspace}        % Administra espacios en párrafos y líneas
 
 % En v6.3.7 se desactiva cellspace
 % \usepackage{cellspace}   % Tamaños en celdas de tablas
@@ -144,7 +142,7 @@
 % \usepackage{subfigure}
 
 % -----------------------------------------------------------------------------
-% LIBRERÍAS CON PARÁMETROS
+% Librerías con parámetros
 % -----------------------------------------------------------------------------
 \usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
 \usepackage[inline]{enumitem} % Permite enumerar ítems
@@ -155,7 +153,7 @@
 \usepackage[dvipsnames,table,usenames]{xcolor} % Paquete de colores avanzado
 
 % -----------------------------------------------------------------------------
-% LIBRERÍAS CONDICIONALES
+% Librerías condicionales
 % -----------------------------------------------------------------------------
 % Imágenes en modo draft
 \ifthenelse{\equal{\graphicxdraft}{true}}{
@@ -262,7 +260,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% ESTILO PORTADA
+% Estilo portada
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\hfstyle}{style11}}{
 	\usepackage{lastpage}}{}
@@ -275,7 +273,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% LIBRERÍAS DEPENDIENTES
+% Librerías dependientes
 % -----------------------------------------------------------------------------
 \usepackage{bookmark}      % Administración de marcadores en pdf
 \usepackage{fancyhdr}      % Encabezados y pie de páginas
@@ -286,7 +284,7 @@
 \usepackage{titlesec}      % Administración de títulos
 
 % -----------------------------------------------------------------------------
-% TIPOGRAFÍA DEL DOCUMENTO
+% Tipografía del documento
 % -----------------------------------------------------------------------------
 % Tipografías clásicas
 \ifthenelse{\equal{\fontdocument}{lmodern}}{
@@ -594,7 +592,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% TIPOGRAFÍA TYPEWRITER
+% Tipografía typewriter
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\fonttypewriter}{tmodern}}{
 	\renewcommand*\ttdefault{lmvtt}
@@ -659,7 +657,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% FINALES
+% Finales
 % -----------------------------------------------------------------------------
 \usepackage[T1]{fontenc} % Caracteres acentuados
 \ifthenelse{\equal{\showlayoutlines}{true}}{ % Muestra las líneas del layout
