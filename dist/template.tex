@@ -2074,7 +2074,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}[#5]{l}{#3\linewidth}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}}
@@ -2119,7 +2118,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}{r}{#3\linewidth}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2168,7 +2166,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}[#5]{r}{#3\linewidth}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2220,7 +2217,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}{l}{#3}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2272,7 +2268,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}[#6]{l}{#3}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2324,7 +2319,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}{r}{#3}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -2376,7 +2370,6 @@
 	\vspace{-\baselineskip}
 	\par%
 	\begin{wrapfigure}[#6]{r}{#3}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
 			\vspace{\marginfloatimages pt}
@@ -3170,7 +3163,7 @@
 	}{
 	\end{appendices}
 	\def\GLOBALsectionalph {false} % Desactiva formato de secciones con sección alph
-	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Reestablece índice marcador
+	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Restablece índice marcador
 	\bookmarksetup{
 		numbered={\cfgpdfsecnumbookmarks},
 		openlevel={\cfgbookmarksopenlevel}
@@ -3407,11 +3400,11 @@
 		}%
 	\end{figure}%
 
-	% Reestablece caption y márgenes
+	% Restablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}
 	\vspace{\marginimagebottom cm}
 	
-	% Reestablece globales
+	% Restablece globales
 	\def\GLOBALenvimageinitialized {false}
 }
 
@@ -3453,10 +3446,10 @@
 		}%
 	\end{figure*}%
 	
-	% Reestablece caption y márgenes
+	% Restablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}
 	
-	% Reestablece globales
+	% Restablece globales
 	\def\GLOBALenvimageinitialized {false}
 }
 
@@ -4427,8 +4420,8 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.2.8-1},
-		Template.Version.Hash={E4F4ECAD29514911BCDAD98F9D85B298},
+		Template.Version.Dev={7.2.8-2},
+		Template.Version.Hash={F8E3A1568BD4BE9AEC5809A201D10E34},
 		Template.Version.Release={7.2.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
@@ -4772,7 +4765,7 @@
 \strictpagecheck
 
 % -----------------------------------------------------------------------------
-% Actualización márgen títulos
+% Actualización margen títulos
 % -----------------------------------------------------------------------------
 \titlespacing{\section}{0pt}{20pt}{10pt}
 \titlespacing{\subsection}{0pt}{15pt}{10pt}
@@ -4824,14 +4817,9 @@
 }
 
 % -----------------------------------------------------------------------------
-% Profundidad de las secciones
+% Crea las sub-sub-sub-secciones
 % -----------------------------------------------------------------------------
-\setcounter{secnumdepth}{4} % Límite máximo subsubsubsección
-
-% Crea las subsubsubsecciones
 \newcounter{subsubsubsection}[subsubsection]
-
-% Establece el número de las subsubsubsecciones
 \ifthenelse{\equal{\showdotaftersnum}{true}}{ % Agrega punto tras el número
 	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
 	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}.}
@@ -4840,9 +4828,10 @@
 	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}}
 }
 
-% -----------------------------------------------------------------------------
-% Agrega compatibilidad de subsubsubsecciones al TOC
-% -----------------------------------------------------------------------------
+% Límite máximo profundidad
+\setcounter{secnumdepth}{4}
+
+% Agrega compatibilidad de sub-sub-sub-secciones al TOC
 \makeatletter
 	\def\toclevel@subsubsubsection {4}
 	\def\toclevel@paragraph {5}
@@ -4975,7 +4964,7 @@
 % -----------------------------------------------------------------------------
 % Configuraciones del idioma
 % -----------------------------------------------------------------------------
-% Desactiva carácteres acentuados en operaciones matemáticas
+% Desactiva caracteres acentuados en operaciones matemáticas
 \unaccentedoperators
 
 % -----------------------------------------------------------------------------
@@ -6046,7 +6035,7 @@
 	% Numeración de páginas
 	% -------------------------------------------------------------------------
 	\clearpage
-	\ifthenelse{\equal{\predocpageromannumber}{true}}{ % Si se usan números romanos en el predocumento
+	\ifthenelse{\equal{\predocpageromannumber}{true}}{ % Si se usan números romanos en el pre-documento
 		\ifthenelse{\equal{\predocpageromanupper}{true}}{
 			\pagenumbering{Roman}
 		}{
@@ -7359,7 +7348,7 @@
 \newcommand{\templateFinalcfg}{
 	
 	% -------------------------------------------------------------------------
-	% Se reestablecen headers y footers
+	% Se restablecen headers y footers
 	% -------------------------------------------------------------------------
 	\markboth{}{}
 	\clearpage
@@ -7490,7 +7479,7 @@
 	}
 
 	% -------------------------------------------------------------------------
-	% Estilo de títulos - reestablece estilos por el índice
+	% Estilo de títulos - restablece estilos por el índice
 	% -------------------------------------------------------------------------
 	\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
 	\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
@@ -7723,9 +7712,9 @@
 	}
 
 	% -------------------------------------------------------------------------
-	% Se reestablecen números de página y secciones
+	% Se restablecen números de página y secciones
 	% -------------------------------------------------------------------------
-	% Se usa número de páginas en arábigo si es que se tenía activado los númeos romanos
+	% Se usa número de páginas en arábigo si es que se tenía activado los números romanos
 	\ifthenelse{\equal{\predocpageromannumber}{true}}{
 		\renewcommand{\thepage}{\arabic{page}}}{
 	}
@@ -7746,7 +7735,7 @@
 	}
 
 	% -------------------------------------------------------------------------
-	% Establece el estilo de las subsubsubsecciones
+	% Establece el estilo de las sub-sub-sub-secciones
 	% -------------------------------------------------------------------------
 	\titleclass{\subsubsubsection}{straight}[\subsection]
 
