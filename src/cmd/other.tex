@@ -237,6 +237,21 @@
 	\settablerowcolorslast
 }
 
+% Actualiza el padding de las celdas de las tablas
+%	#1	Padding horizontal (em)
+%	#2	Padding vertical (em)
+\newcommand{\settablecellpadding}[2]{
+	\emptyvarerr{\settablecellpadding}{#1}{Padding horizontal no definido}
+	\emptyvarerr{\settablecellpadding}{#2}{Padding vertical no definido}
+	\setlength{\tabcolsep}{#1 em} % Horizontal
+	\def\arraystretch {#2} % Vertical
+}
+
+% Resetea el padding de las celdas de las tablas
+\newcommand{\resettablecellpadding}{
+	\settablecellpadding{\tablepaddingh}{\tablepaddingv}
+}
+
 % Cambia el tamaño de la página
 %	#1	Orientacion de la página, puede ser 0 o 90. Por defecto es cero
 %	#2	Ancho de la página (cm)
