@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.2.8 (11/07/2021)
+% Versión:      7.3.0 (12/07/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -208,48 +208,11 @@
 \usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{ % Formato citas natbib
 	\usepackage[nottoc,notlof,notlot]{tocbibind}
-	\ifthenelse{\equal{\natbibrefstyle}{apa}}{
-		\ifthenelse{\equal{\natbibsquare}{true}}{
-			\usepackage[square]{natbib}
-		}{
-			\usepackage[round]{natbib}
-		}
+	\ifthenelse{\equal{\natbibrefcitecompress}{true}}{
+		\usepackage[sort&compress]{natbib}
 	}{
-	\ifthenelse{\equal{\natbibrefstyle}{ieeetr}}{
-		\ifthenelse{\equal{\natbibsquare}{true}}{
-			\usepackage[square,numbers]{natbib}
-		}{
-			\usepackage[round,numbers]{natbib}
-		}
-	}{
-	\ifthenelse{\equal{\natbibrefstyle}{unsrt}}{
-		\ifthenelse{\equal{\natbibsquare}{true}}{
-			\usepackage[square,numbers]{natbib}
-		}{
-			\usepackage[round,numbers]{natbib}
-		}
-	}{
-	\ifthenelse{\equal{\natbibrefstyle}{abbrvnat}}{
-		\ifthenelse{\equal{\natbibsquare}{true}}{
-			\usepackage[square,numbers]{natbib}
-		}{
-			\usepackage[round,numbers]{natbib}
-		}
-	}{
-		\ifthenelse{\equal{\natbibnumbers}{true}}{
-			\ifthenelse{\equal{\natbibsquare}{true}}{
-				\usepackage[square,numbers]{natbib}
-			}{
-				\usepackage[round,numbers]{natbib}
-			}
-		}{
-			\ifthenelse{\equal{\natbibsquare}{true}}{
-				\usepackage[square]{natbib}
-			}{
-				\usepackage[round]{natbib}
-			}
-		}
-	}}}}
+		\usepackage{natbib}
+	}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
 	\usepackage[nottoc,notlof,notlot]{tocbibind}
@@ -2989,6 +2952,21 @@
 	\settablerowcolorslast
 }
 
+% Actualiza el padding de las celdas de las tablas
+%	#1	Padding horizontal (em)
+%	#2	Padding vertical (em)
+\newcommand{\settablecellpadding}[2]{
+	\emptyvarerr{\settablecellpadding}{#1}{Padding horizontal no definido}
+	\emptyvarerr{\settablecellpadding}{#2}{Padding vertical no definido}
+	\setlength{\tabcolsep}{#1 em} % Horizontal
+	\def\arraystretch {#2} % Vertical
+}
+
+% Resetea el padding de las celdas de las tablas
+\newcommand{\resettablecellpadding}{
+	\settablecellpadding{\tablepaddingh}{\tablepaddingv}
+}
+
 % Cambia el tamaño de la página
 %	#1	Orientacion de la página, puede ser 0 o 90. Por defecto es cero
 %	#2	Ancho de la página (cm)
@@ -4414,15 +4392,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={11/07/2021},
+		Template.Fecha={12/07/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.2.8-2},
-		Template.Version.Hash={D1CD3DAE63C3280BF1550F4D311D2787},
-		Template.Version.Release={7.2.8},
+		Template.Version.Dev={7.3.0},
+		Template.Version.Hash={595B350BE7CE80218BD80EFAC6303818},
+		Template.Version.Release={7.3.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -4434,7 +4412,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.2.8 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.3.0 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -4615,6 +4593,26 @@
 	\setlength{\bibsep}{\natbibrefsep pt}
 	\newcommand{\shortcite}[1]{\citep{#1}}
 	\newcommand{\fullcite}[1]{\citet{#1}}
+	% Caracteres citas
+	\setcitestyle{open={\natbibrefcharopen},close={\natbibrefcharclose}}
+	% Separador citas
+	\ifthenelse{\equal{\natbibrefcitesepcomma}{true}}{
+		\setcitestyle{comma}
+	}{
+		\setcitestyle{semicolon}
+	}
+	% Tipo citas
+	\ifthenelse{\equal{\natbibrefcitetype}{numbers}}{
+		\setcitestyle{numbers}
+	}{
+	\ifthenelse{\equal{\natbibrefcitetype}{authoryear}}{
+		\setcitestyle{authoryear}
+	}{
+	\ifthenelse{\equal{\natbibrefcitetype}{super}}{
+		\setcitestyle{super}
+	}{
+		\throwbadconfig{Tipo cita natbib desconocido}{\natbibrefcitetype}{numbers,authoryear,super}}}
+	}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\def\twocolumnreferencesmargin{-0.39cm}
@@ -4655,7 +4653,9 @@
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\ifthenelse{\equal{\apaciterefnumber}{true}}{
 		\newcounter{apaciteNumberCounter}
-		\renewcommand{\theapaciteNumberCounter}{\apaciterefnumberinit\arabic{apaciteNumberCounter}\apaciterefnumberfinal} % Formato de número
+		\renewcommand{\theapaciteNumberCounter}{% Formato de número
+			\apaciterefciteopen\arabic{apaciteNumberCounter}\apaciterefciteclose
+		}
 		\patchcmd{\@lbibitem}{\item[}{\item[\stepcounter{apaciteNumberCounter}{\hss\llap{\theapaciteNumberCounter}\quad}}{}{}
 		\setlength{\bibleftmargin}{2.54em}
 		\setlength{\bibindent}{-0.54em}
@@ -6050,8 +6050,7 @@
 	% Márgenes de páginas y tablas
 	% -------------------------------------------------------------------------
 	\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-	\def\arraystretch {\tablepaddingv} % Se ajusta el padding vertical de las tablas
-	\setlength{\tabcolsep}{\tablepaddingh em} % Se ajusta el padding horizontal de las tablas
+	\resettablecellpadding
 
 	% -------------------------------------------------------------------------
 	% Se define el punto decimal
