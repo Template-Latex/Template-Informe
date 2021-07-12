@@ -38,9 +38,10 @@ for j in f:
         continue
     j = j.replace('\\def', '').replace('\\', '').replace(' ', '').strip()
     conf.append(j)
+conf.sort()
 
 # Finalmente, por cada configuración, cuenta las entradas
-print('Resultados análisis para {0}:'.format(p))
+print('Resultados análisis para {0} ({1} configuraciones):'.format(p, len(conf)))
 for j in conf:
     k = '\\{0}'.format(j).ljust(30)
     r = count_def(j)
