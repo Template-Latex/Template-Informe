@@ -315,7 +315,7 @@
 	\newcommand{\shortcite}[1]{\citep{#1}}
 	\newcommand{\fullcite}[1]{\citet{#1}}
 	% Caracteres citas
-	\setcitestyle{open={\natbibrefcharopen},close={\natbibrefcharclose}}
+	\setcitestyle{open={\natbibrefcitecharopen},close={\natbibrefcitecharclose}}
 	% Separador citas
 	\ifthenelse{\equal{\natbibrefcitesepcomma}{true}}{
 		\setcitestyle{comma}
@@ -375,7 +375,7 @@
 	\ifthenelse{\equal{\apaciterefnumber}{true}}{
 		\newcounter{apaciteNumberCounter}
 		\renewcommand{\theapaciteNumberCounter}{% Formato de número
-			\apaciterefciteopen\arabic{apaciteNumberCounter}\apaciterefciteclose
+			\apaciterefcitecharopen\arabic{apaciteNumberCounter}\apaciterefcitecharclose
 		}
 		\patchcmd{\@lbibitem}{\item[}{\item[\stepcounter{apaciteNumberCounter}{\hss\llap{\theapaciteNumberCounter}\quad}}{}{}
 		\setlength{\bibleftmargin}{2.54em}
