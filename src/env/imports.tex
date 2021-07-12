@@ -192,48 +192,11 @@
 \usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{ % Formato citas natbib
 	\usepackage[nottoc,notlof,notlot]{tocbibind}
-	\ifthenelse{\equal{\natbibrefstyle}{apa}}{
-		\ifthenelse{\equal{\natbibsquare}{true}}{
-			\usepackage[square]{natbib}
-		}{
-			\usepackage[round]{natbib}
-		}
+	\ifthenelse{\equal{\natbibrefcitecompress}{true}}{
+		\usepackage[sort&compress]{natbib}
 	}{
-	\ifthenelse{\equal{\natbibrefstyle}{ieeetr}}{
-		\ifthenelse{\equal{\natbibsquare}{true}}{
-			\usepackage[square,numbers]{natbib}
-		}{
-			\usepackage[round,numbers]{natbib}
-		}
-	}{
-	\ifthenelse{\equal{\natbibrefstyle}{unsrt}}{
-		\ifthenelse{\equal{\natbibsquare}{true}}{
-			\usepackage[square,numbers]{natbib}
-		}{
-			\usepackage[round,numbers]{natbib}
-		}
-	}{
-	\ifthenelse{\equal{\natbibrefstyle}{abbrvnat}}{
-		\ifthenelse{\equal{\natbibsquare}{true}}{
-			\usepackage[square,numbers]{natbib}
-		}{
-			\usepackage[round,numbers]{natbib}
-		}
-	}{
-		\ifthenelse{\equal{\natbibnumbers}{true}}{
-			\ifthenelse{\equal{\natbibsquare}{true}}{
-				\usepackage[square,numbers]{natbib}
-			}{
-				\usepackage[round,numbers]{natbib}
-			}
-		}{
-			\ifthenelse{\equal{\natbibsquare}{true}}{
-				\usepackage[square]{natbib}
-			}{
-				\usepackage[round]{natbib}
-			}
-		}
-	}}}}
+		\usepackage{natbib}
+	}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
 	\usepackage[nottoc,notlof,notlot]{tocbibind}
