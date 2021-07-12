@@ -54,7 +54,7 @@
 \def\captionnumsubfigure {alph}    % N° subfiguras {arabic,alph,Alph,roman,Roman}
 \def\captionnumsubtable {alph}     % N° subtabla {arabic,alph,Alph,roman,Roman}
 \def\captionnumtable {arabic}      % N° tabla {arabic,alph,Alph,roman,Roman}
-\def\captionsubchar {.}            % Carácter entre N° objeto y N° subfigura/tabla
+\def\captionsubchar {.}            % Caracter entre N° objeto y N° subfigura/tabla
 \def\captiontbmarginfigure {9.35}  % Margen sup/inf de la leyenda en fig. [pt]
 \def\captiontbmargintable {7.0}    % Margen sup/inf de la leyenda en tab. [pt]
 \def\captiontextbold {false}       % Etiqueta (código,figura,tabla) en negrita
@@ -73,7 +73,7 @@
 \def\margingathercapttop {-0.90}   % Margen superior caption en gather [cm]
 \def\margingatheredcaptbottom {0}  % Margen inf. caption en gathered [cm]
 \def\margingatheredcapttop {-0.90} % Margen superior caption en gathered [cm]
-\def\sectioncaptiondelimiter {.}   % Carácter delimitador n° objeto y sección
+\def\sectioncaptiondelimiter {.}   % Caracter delimitador n° objeto y sección
 \def\showsectioncaptioncode {none} % N° sec. código {none,chap,(s/ss/sss/ssss)ec}
 \def\showsectioncaptioneqn {none}  % N° sec. ecuación {none,chap,(s/ss/sss/ssss)ec}
 \def\showsectioncaptionfig {none}  % N° sec. figuras {none,chap,(s/ss/sss/ssss)ec}
@@ -87,8 +87,8 @@
 % CONFIGURACIÓN DEL ÍNDICE
 \def\addindexsubtobookmarks{false} % Agrega índice tabla,codigo,etc. a marcadores
 \def\addindextobookmarks {true}    % Añade el índice a los marcadores del pdf
-\def\charafterobjectindex {.}      % Carácter después de n° figura,tabla,código
-\def\charnumpageindex {.}          % Carácter número de página en índice
+\def\charafterobjectindex {.}      % Caracter después de n° figura,tabla,código
+\def\charnumpageindex {.}          % Caracter número de página en índice
 \def\indexdepth {4}                % Profundidad máxima del índice
 \def\indexnewpagec {false}         % Nueva página en índice códigos fuente
 \def\indexnewpagee {false}         % Nueva página en índice ecuaciones
@@ -102,9 +102,9 @@
 
 % ANEXO, CITAS, REFERENCIAS
 \def\apacitebothers {et al.}       % Etiqueta usada en (y otros) con \shortcite
+\def\apaciterefciteclose {]}       % Caracter final cita apacite
+\def\apaciterefciteopen {[}        % Caracter inicial cita apacite
 \def\apaciterefnumber {false}      % Lista de referencias con números
-\def\apaciterefnumberfinal {]}     % Caracter final números apacite
-\def\apaciterefnumberinit {[}      % Caracter inicial números apacite
 \def\apaciterefsep {6}             % Separación entre refs. {apacite} [pt]
 \def\apaciteshowurl {false}        % Muestra las url en las referencias
 \def\apacitestyle {apacite}        % Formato de ref. apacite {apa,ieeetr,etc..}
@@ -115,11 +115,14 @@
 \def\bibtexstyle {ieeetr}          % Formato de ref. bibtex {apa,ieeetr,etc...}
 \def\bibtextextalign {justify}     % Alineación bibtex {justify,left,right,center}
 \def\fontsizerefbibl {\normalsize} % Tamaño de fuentes al usar \bibliography{file}
-\def\natbibnumbers {true}          % Forza el uso de números en la bibliografía
+\def\natbibrefcharclose {]}        % Caracter final cita natbib
+\def\natbibrefcharopen {[}         % Caracter inicial cita natbib
+\def\natbibrefcitecompress {true}  % Comprime refererencias al citar
+\def\natbibrefcitesepcomma {true}  % Separador en coma (,) o punto y coma (;)
+\def\natbibrefcitetype {numbers}   % Tipo citación {authoryear,numbers,super}
 \def\natbibrefsep {6}              % Separación entre referencia {natbib} [pt]
 \def\natbibrefstyle {ieeetr}       % Formato de ref. natbib {apa,ieeetr,etc...}
-\def\natbibsquare {true}           % Usa [] o () en las numeraciones
-\def\sectionappendixlastchar {.}   % Carácter entre n° de sec. anexo y título
+\def\sectionappendixlastchar {.}   % Caracter entre n° de sec. anexo y título
 \def\stylecitereferences {bibtex}  % Estilo cita/ref {apacite,bibtex,natbib,custom}
 \def\twocolumnreferences {false}   % Referencias en dos columnas
 

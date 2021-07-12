@@ -314,6 +314,26 @@
 	\setlength{\bibsep}{\natbibrefsep pt}
 	\newcommand{\shortcite}[1]{\citep{#1}}
 	\newcommand{\fullcite}[1]{\citet{#1}}
+	% Caracteres citas
+	\setcitestyle{open={\natbibrefcharopen},close={\natbibrefcharclose}}
+	% Separador citas
+	\ifthenelse{\equal{\natbibrefcitesepcomma}{true}}{
+		\setcitestyle{comma}
+	}{
+		\setcitestyle{semicolon}
+	}
+	% Tipo citas
+	\ifthenelse{\equal{\natbibrefcitetype}{numbers}}{
+		\setcitestyle{numbers}
+	}{
+	\ifthenelse{\equal{\natbibrefcitetype}{authoryear}}{
+		\setcitestyle{authoryear}
+	}{
+	\ifthenelse{\equal{\natbibrefcitetype}{super}}{
+		\setcitestyle{super}
+	}{
+		\throwbadconfig{Tipo cita natbib desconocido}{\natbibrefcitetype}{numbers,authoryear,super}}}
+	}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\def\twocolumnreferencesmargin{-0.39cm}
@@ -354,7 +374,9 @@
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\ifthenelse{\equal{\apaciterefnumber}{true}}{
 		\newcounter{apaciteNumberCounter}
-		\renewcommand{\theapaciteNumberCounter}{\apaciterefnumberinit\arabic{apaciteNumberCounter}\apaciterefnumberfinal} % Formato de número
+		\renewcommand{\theapaciteNumberCounter}{% Formato de número
+			\apaciterefciteopen\arabic{apaciteNumberCounter}\apaciterefciteclose
+		}
 		\patchcmd{\@lbibitem}{\item[}{\item[\stepcounter{apaciteNumberCounter}{\hss\llap{\theapaciteNumberCounter}\quad}}{}{}
 		\setlength{\bibleftmargin}{2.54em}
 		\setlength{\bibindent}{-0.54em}
