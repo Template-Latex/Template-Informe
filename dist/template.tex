@@ -447,6 +447,10 @@
 \ifthenelse{\equal{\fontdocument}{lato}}{
 	\usepackage[default]{lato}
 }{
+\ifthenelse{\equal{\fontdocument}{libertine}}{
+	\usepackage[libertine]{newtxmath}
+	\usepackage[tt=false]{libertine}
+}{
 \ifthenelse{\equal{\fontdocument}{libris}}{
 	\usepackage{libris}
 	\renewcommand*\familydefault{\sfdefault}
@@ -565,9 +569,9 @@
 }{
 	\throwbadconfig[nostop]{Fuente desconocida}{\fontdocument}{(Fuentes recomendadas) lmodern,arial,arial2,helvet,times,alegreyasans,mathpazo,mathptmx}
 	\throwbadconfig[noheader-nostop]{Fuente desconocida}{\fontdocument}{(Fuentes adicionales) accantis,alegreya,algolrevived,antiqua,antpolt,antpoltlight,anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,aurical,avant,baskervald,berasans,beraserif,biolinum,cabin,cabincondensed,cantarell,caladea,carlito,chivolight,chivoregular,clearsans,comfortaa,comicneue,comicneueangular,crimson,cyklop,dejavusans,dejavusanscondensed,droidsans,firasans,iwona,iwonacondensed,iwonalight,iwonalightcondensed,kurier}
-	\throwbadconfig[noheader-nostop]{Fuente desconocida}{\fontdocument}{kuriercondensed,kurierlight,kurierlightcondensed,lato,libris,lxfonts,merriweather,merriweatherlight,mintspirit,montserratalternatesextralight,montserratalternatesregular,montserratalternatesthin,montserratextralight,montserratlight,montserratregular,montserratthin,nimbussans,noto,opensansserif,overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,sourcesanspro,uarial,ugq}
+	\throwbadconfig[noheader-nostop]{Fuente desconocida}{\fontdocument}{kuriercondensed,kurierlight,kurierlightcondensed,lato,libertine,libris,lxfonts,merriweather,merriweatherlight,mintspirit,montserratalternatesextralight,montserratalternatesregular,montserratalternatesthin,montserratextralight,montserratlight,montserratregular,montserratthin,nimbussans,noto,opensansserif,overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,sourcesanspro,uarial,ugq}
 	\throwbadconfig[noheader]{Fuente desconocida}{\fontdocument}{universalis,universaliscondensed,venturis}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % -----------------------------------------------------------------------------
@@ -2494,7 +2498,7 @@
 % Comienza nueva subsubsección, aquí hay varios casos:
 %	- si está dentro de una subsección sin número ignora la sección
 %	- si no, entonces puede estar dentro de una sección sin número o no, en ese caso
-%     debe evaluar ambas posibilidades
+%	  debe evaluar ambas posibilidades
 \pretocmd{\subsubsection}{
 	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}
@@ -4399,7 +4403,7 @@
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
 		Template.Version.Dev={7.3.1},
-		Template.Version.Hash={BBCD9EA24F5EAD096C9FAC9010F2E134},
+		Template.Version.Hash={3619C995DB32967A3AC13C7C53F7609E},
 		Template.Version.Release={7.3.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
@@ -7121,7 +7125,7 @@
 	% Índice de objetos
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\indexstyle}{ftc}}{%
-        \LoIf\LoIt\LoIc
+		\LoIf\LoIt\LoIc
 	}{
 	\ifthenelse{\equal{\indexstyle}{}}{%
 	}{%
