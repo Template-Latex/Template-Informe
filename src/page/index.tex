@@ -131,7 +131,7 @@
 	}{
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 	}
-
+	
 	% Código fuente
 	\ifthenelse{\equal{\showsectioncaptioneqn}{none}}{
 		\def\cftdefautnumwidtheqn {3.0em} % Añade +0.7em
@@ -235,7 +235,7 @@
 			\def\cftlstlistingnumwidth {\cftdefautnumwidthcode}
 		}}
 	}
-
+	
 	% Ecuaciones
 	\ifthenelse{\equal{\captionnumequation}{arabic}}{ % No hace nada (default)
 		\def\cftmyindexequationsnumwidth {\cftdefautnumwidtheqn}
@@ -263,7 +263,7 @@
 				\def\cftfignumwidth {\cftdefautnumwidthfig}
 			}}
 	}
-
+	
 	% Tablas
 	\ifthenelse{\equal{\captionnumtable}{arabic}}{ % No hace nada (default)
 		\def\cfttabnumwidth {\cftdefautnumwidthtab}
@@ -277,7 +277,7 @@
 				\def\cfttabnumwidth {\cftdefautnumwidthtab}
 			}}
 	}
-
+	
 	% -------------------------------------------------------------------------
 	% Genera las funciones para los índices
 	% -------------------------------------------------------------------------
@@ -325,7 +325,7 @@
 			\listofmyindexequations
 		\fi
 	}
-
+	
 	% -------------------------------------------------------------------------
 	% Índice de contenidos
 	% -------------------------------------------------------------------------
@@ -532,7 +532,7 @@
 	}{
 		\throwbadconfig{Estilo desconocido del indice}{\indexstyle}{ftc,,e,c,f,t,ec,ce,ef,fe,et,te,cf,fc,ct,tc,ft,tf,ecf,efc,cef,cfe,fec,fce,ect,etc,cet,cte,tec,tce,eft,etf,fet,fte,tef,tfe,cft,ctf,fct,tcf,tfc,ecft,ectf,efct,eftc,etcf,etfc,ceft,cetf,cfet,cfte,ctef,ctfe,fect,fetc,fcet,fcte,ftec,ftce,tecf,tefc,tcef,tcfe,tfec,tfce}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 	}
-
+	
 	% -------------------------------------------------------------------------
 	% Termina el bloque de índice
 	% -------------------------------------------------------------------------
@@ -554,7 +554,7 @@
 		\else
 		\fi}{
 	}
-
+	
 }
 
 % END

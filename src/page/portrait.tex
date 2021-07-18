@@ -11,9 +11,6 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-% -----------------------------------------------------------------------------
-% Definiciones de portadas
-% -----------------------------------------------------------------------------
 \newcommand{\COREwriteheaderitem}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{#2 ~ \\}}
 \newcommand{\COREwriteheaderitemsc}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{\small \scshape{\MakeUppercase{#2}} ~ \\}}
 
@@ -44,7 +41,7 @@
 		}
 		\thispagestyle{portraitstyle}
 		\begin{spacing}{1.025}
-
+		
 		% Título y tema a tratar
 		~ \\
 		\vfill
@@ -54,7 +51,7 @@
 				{\noindent \large{\temaatratar}}
 			}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\noindent
@@ -85,7 +82,7 @@
 		}
 		\thispagestyle{portraitstyle}
 		\begin{spacing}{1.025}
-
+		
 		% Nombre de curso y título
 		~ \\
 		\vfill
@@ -97,7 +94,7 @@
 				{\noindent \large{\temaatratar}}
 			}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\noindent
@@ -128,7 +125,7 @@
 		}
 		\thispagestyle{portraitstyle}
 		\begin{spacing}{1.025}
-
+		
 		% Curso y código - título informe
 		~ \\
 		\vfill
@@ -142,7 +139,7 @@
 				{\noindent \large{\temaatratar}}
 			}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\noindent
@@ -161,7 +158,7 @@
 		
 		\checkextravarexist{\portraitimageF}{[portrait-style4] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageparamsF}{[portrait-style4] Defina los parametros de la imagen extra de la portada}
-
+		
 		% Escribe el header
 		\vspace*{-1.5cm}
 		\noindent \coreinsertkeyimage{\portraitimageparamsF}{\portraitimageF}
@@ -173,7 +170,7 @@
 			\COREwriteheaderitemsc[~ \\]{\departamentouniversidad}
 			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
-
+		
 		% Título portada - curso
 		\vfill
 		\begin{center}
@@ -182,7 +179,7 @@
 			{\noindent \fontsize{10pt}{5pt} \selectfont \textcolor{\portraittitlecolor}{\codigodelcurso\ \hfpdashcharstyle\ \nombredelcurso}} ~ \\
 			\vspace*{3cm}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\noindent
@@ -201,7 +198,7 @@
 		
 		\checkextravarexist{\portraitimageG}{[portrait-style5] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageparamsG}{[portrait-style5] Defina los parametros de la imagen extra de la portada}
-
+		
 		% Escribe el header
 		\coreinsertkeyimage{\portraitimageparamsG}{\portraitimageG}
 		\hspace{-0.2cm}
@@ -212,7 +209,7 @@
 			\COREwriteheaderitemsc[~ \\]{\departamentouniversidad}
 			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
-
+		
 		% Título informe - tema
 		\vfill
 		\begin{center}
@@ -226,7 +223,7 @@
 			\footnotesize{\codigodelcurso\ \hfpdashcharstyle\ \nombredelcurso} ~ \\
 			\vspace*{1.4cm}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
@@ -242,7 +239,7 @@
 		
 		\checkextravarexist{\portraitimageH}{[portrait-style6] Defina la ubicacion de la imagen extra de la portada}
 		\checkextravarexist{\portraitimageparamsH}{[portrait-style6] Defina los parametros de la imagen extra de la portada}
-
+		
 		% Escribe el header
 		\begin{wrapfigure}{l}{0.305\linewidth}%
 			\vspace{-0.69cm}%
@@ -270,7 +267,7 @@
 			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \codigodelcurso \nombredelcurso} ~ \\
 			\def\COREstylefirstmargin {-1.6cm}
 		}
-
+		
 		% Título informe - tema
 		\vfill
 		\begin{center}
@@ -283,7 +280,7 @@
 		\begin{minipage}{.5\linewidth}
 			~
 		\end{minipage}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\begin{minipage}{1.0\linewidth}%
@@ -298,7 +295,7 @@
 		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
-
+		
 		% Escribe el header
 		\begin{center}
 			\vspace*{-1.5cm}
@@ -313,7 +310,7 @@
 				\vspace*{1.25cm}\mbox{}
 			\end{tabular}
 		\end{center}
-
+		
 		% Título informe - tema
 		\vfill
 		\begin{center}
@@ -322,7 +319,7 @@
 			\noindent \rule{\linewidth}{0.4mm} ~ \\ \vspace{0cm}
 			{\large \textcolor{\portraittitlecolor}{\temaatratar} ~ \\}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\noindent
@@ -338,7 +335,7 @@
 		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
-
+		
 		% Escribe el header
 		\begin{center}
 			\vspace*{-1.0cm}
@@ -349,7 +346,7 @@
 				\COREwriteheaderitemsc{\departamentouniversidad}
 			\end{tabular}
 		\end{center}
-
+		
 		% Título informe - tema
 		\vfill
 		\begin{center}
@@ -358,7 +355,7 @@
 			\noindent \rule{\linewidth}{0.4mm} ~ \\ \vspace{0cm}
 			{\large \textcolor{\portraittitlecolor}{\temaatratar} ~ \\}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\noindent
@@ -374,7 +371,7 @@
 		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
-
+		
 		% Título del informe
 		\noindent \hspace{-0.10cm} \coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}
 		\vfill
@@ -384,7 +381,7 @@
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.35cm}
 			{\large \textcolor{\portraittitlecolor}{\temaatratar} \\}
 		\end{center}
-
+		
 		% Nombre universidad - departamento
 		\vfill
 		\begin{center}
@@ -394,7 +391,7 @@
 				\COREwriteheaderitemsc{\departamentouniversidad}
 			\end{tabular}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
@@ -407,7 +404,7 @@
 		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
-
+		
 		% Header
 		~ \\
 		\vfill
@@ -419,7 +416,7 @@
 			}
 			\vspace{1.0cm}
 		\end{center}
-
+		
 		% Título informe
 		\vfill
 		\begin{center}
@@ -433,7 +430,7 @@
 			{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{2.5cm}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
@@ -448,7 +445,7 @@
 		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
-
+		
 		% Header
 		\begin{center}
 			\vspace*{-1.0cm}
@@ -462,14 +459,14 @@
 				\scshape{\departamentouniversidad}
 			}
 		\end{center}
-
+		
 		% Título informe
 		\vfill
 		\begin{center}
 			{\setstretch{1.2} \fontsize{21pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\titulodelinforme}} \vspace{0.5cm}} ~ \\
 			{\fontsize{13pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\temaatratar}}}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
@@ -482,26 +479,26 @@
 		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
-
+		
 		% Imagen departamento
 		\begin{center}
 			\vspace*{-1.0cm}
 			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}
 		\end{center}
-
+		
 		% Título informe
 		\vfill
 		\begin{center}
 			{\bf \Huge \scshape{\textcolor{\portraittitlecolor}{\titulodelinforme}} \vspace{0.3cm}} \\
 			{\bf \Large \textcolor{\portraittitlecolor}{\temaatratar}}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\begin{flushright}%
 			\noindent \tablaintegrantes
 		\end{flushright}
-
+		
 		% Footer
 		\vspace{0.5cm}
 		\noindent \rule{\linewidth}{0.4mm}
@@ -520,7 +517,7 @@
 		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
-
+		
 		% Header
 		\noindent
 		\vspace*{-1.5cm}
@@ -543,7 +540,7 @@
 				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
 			\end{minipage}
 		\end{flushright}
-
+		
 		% Título informe
 		\vfill
 		\begin{center}
@@ -556,7 +553,7 @@
 				\end{framed}
 			\end{minipage}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\begin{flushright}%
@@ -569,19 +566,19 @@
 		
 		\thispagestyle{empty}
 		\begin{spacing}{1.025}
-
+		
 		% Header
 		\noindent
 		\begin{flushleft}%
 			\vspace*{-1.0cm}%
 			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \\
 		\end{flushleft}
-
+		
 		% Título del informe
 		\vfill
 		{\bf \huge \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\titulodelinforme}} \vspace*{0.05cm}}} \\
 		{\bf \large \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\temaatratar}}}} \\
-
+		
 		% Tabla de integrantes
 		\vfill
 		\begin{flushright}%
@@ -599,7 +596,7 @@
 		\checkextravarexist{\portraitimageparamsA}{[portrait-style15] Defina los parametros de la imagen extra de la portada}
 		\checkextravarexist{\portraitimagerightA}{[portrait-style15] Defina la ubicacion de la imagen extra derecha de la portada}
 		\checkextravarexist{\portraitimagerightparamsA}{[portrait-style15] Defina los parametros de la imagen extra derecha de la portada}
-
+		
 		% Header
 		\vspace*{-1.5cm}
 		\noindent \begin{minipage}{0.8\linewidth}
@@ -635,14 +632,14 @@
 				}
 			\end{flushright}
 		\end{minipage}
-
+		
 		% Título informe
 		\vfill
 		\begin{center}
 			{\fontsize{25pt}{15pt} \selectfont \textcolor{\portraittitlecolor}{\textbf{\titulodelinforme}} \vspace{0.7cm}} \\
 			{\Large \textcolor{\portraittitlecolor}{\temaatratar}}
 		\end{center}
-
+		
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
@@ -655,7 +652,7 @@
 		
 		\checkextravarexist{\portraitbackgroundimageB}{[portrait-style16] Defina la ubicacion del fondo de la portada}
 		\checkextravarexist{\portraitbackgroundcolorB}{[portrait-style16] Defina el color del bloque del titulo de la portada}
-
+		
 		% Imagen fondo, título informe
 		\begingroup
 			\thispagestyle{empty}
@@ -676,7 +673,7 @@
 		\checkextravarexist{\portraitimageboxedC}{[portrait-style17] Defina si la imagen de la portada se encierra en un recuadro}
 		\checkextravarexist{\portraitimageboxedwidthC}{[portrait-style17] Defina el grosor del recuadro de la imagen de la portada}
 		\checkextravarexist{\portraitimageparamsC}{[portrait-style17] Defina los parametros de la imagen de la portada}
-
+		
 		% Header
 		\fancypagestyle{portraitstyle}{
 			\fancyhf{}
@@ -694,7 +691,7 @@
 		}
 		\thispagestyle{portraitstyle}
 		\begin{spacing}{1.025}
-
+		
 		% Título del informe
 		~ \\
 		\vfill
@@ -704,7 +701,7 @@
 				{\noindent \large{\temaatratar}}
 			}
 		\end{center}
-
+		
 		% Imagen de la portada
 		~ \\
 		\vspace{2\baselineskip}
@@ -721,7 +718,7 @@
 		\end{center}
 		~ \\
 		\vfill
-
+		
 		% Tabla de integrantes
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
@@ -738,7 +735,7 @@
 		\checkextravarexist{\portraitimageboxedD}{[portrait-style18] Defina si la imagen de la portada se encierra en un recuadro}
 		\checkextravarexist{\portraitimageboxedwidthD}{[portrait-style18] Defina el grosor del recuadro de la imagen de la portada}
 		\checkextravarexist{\portraitimageparamsD}{[portrait-style18] Defina los parametros de la imagen de la portada}
-
+		
 		% Header
 		\fancypagestyle{portraitstyle}{
 			\fancyhf{}
@@ -756,7 +753,7 @@
 		}
 		\thispagestyle{portraitstyle}
 		\begin{spacing}{1.025}
-
+		
 		% Imagen de la portada
 		~ \\
 		\begin{center}
@@ -771,7 +768,7 @@
 			}
 		\end{center}
 		\vspace{-2\baselineskip}
-
+		
 		% Título del informe
 		\vfill
 		\begin{center}
@@ -781,7 +778,7 @@
 			}
 		\end{center}
 		\vfill
-
+		
 		% Tabla de integrantes
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
@@ -804,7 +801,7 @@
 			{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
 			\noindent \rule{\linewidth}{0.4mm}
 		\end{center}
-
+		
 		% Nombre universidad
 		~ \\
 		\begin{center}
@@ -837,7 +834,6 @@
 		\noindent \rule{1pt}{\textheight}
 		\hspace{0.05\linewidth}
 		\parbox[b]{0.75\linewidth}{
-			
 			{\Huge\bfseries \textcolor{\portraittitlecolor}{\titulodelinforme}}\\[2\baselineskip]
 			{\large\textit{\textcolor{\portraittitlecolor}{\temaatratar}}}\\[4\baselineskip]
 			\vspace*{2cm}
