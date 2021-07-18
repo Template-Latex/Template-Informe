@@ -139,7 +139,7 @@
 % Comienza nueva subsubsección, aquí hay varios casos:
 %	- si está dentro de una subsección sin número ignora la sección
 %	- si no, entonces puede estar dentro de una sección sin número o no, en ese caso
-%     debe evaluar ambas posibilidades
+%	  debe evaluar ambas posibilidades
 \pretocmd{\subsubsection}{
 	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}

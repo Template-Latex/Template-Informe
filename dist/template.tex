@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.3.0 (12/07/2021)
+% Versión:      7.3.1 (17/07/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -143,7 +143,7 @@
 \usepackage{xspace}        % Administra espacios en párrafos y líneas
 
 % En v6.3.7 se desactiva cellspace
-% \usepackage{cellspace}   % Tamaños en celdas de tablas
+% \usepackage{cellspace}
 
 % \usepackage{colortbl}, xcolor al cargar table ya importa colortbl (v6.3.3)
 % El paquete colortbl queda obsoleto con array+xcolor si la versión es inferior
@@ -4392,15 +4392,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={12/07/2021},
+		Template.Fecha={17/07/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.3.0-1},
-		Template.Version.Hash={3DCFE4D1F70B45236EFF1232E7F8DFDE},
-		Template.Version.Release={7.3.0},
+		Template.Version.Dev={7.3.1},
+		Template.Version.Hash={BBCD9EA24F5EAD096C9FAC9010F2E134},
+		Template.Version.Release={7.3.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -4412,7 +4412,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.3.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.3.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5969,7 +5969,7 @@
 	}{
 		\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style21}}}}}}}}}}}}}}}}}}}}}}
 	}
-
+	
 	% -------------------------------------------------------------------------
 	% Añade una página en blanco al imprimir por las dos caras
 	% -------------------------------------------------------------------------
@@ -5980,7 +5980,7 @@
 		\renewcommand{\thepage}{}
 		\clearpage}{
 	}
-
+	
 }
 
 % Configuración portada style4
@@ -6867,7 +6867,7 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\nolinenumbers}{
 	}
-
+	
 	% -------------------------------------------------------------------------
 	% Cambia tabulación índice de objetos para alinear con contenidos
 	% -------------------------------------------------------------------------
