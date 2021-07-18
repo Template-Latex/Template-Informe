@@ -48,4 +48,6 @@ dist/template_config.tex
 # Archivos temporales
 *_temp.tex
 TODO.txt
+
+# Otros
 .vscode
