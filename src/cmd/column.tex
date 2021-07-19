@@ -105,12 +105,32 @@
 			\hspace{-0.34cm}%
 			\begin{minipage}[\GLOBALtwocolumnav]{#1\linewidth}%
 				\vspace{-2em}\nobreak%
-				\insertalignedtext{\GLOBALtwocolumnap}{#4}%
+				\ifthenelse{\equal{\GLOBALtwocolumnap}{c}}{%
+					\begin{center}#4\end{center}%
+				}{%
+				\ifthenelse{\equal{\GLOBALtwocolumnap}{l}}{%
+					\begin{raggedright}#4\end{raggedright}%
+				}{%
+				\ifthenelse{\equal{\GLOBALtwocolumnap}{r}}{%
+					\hfill\begin{raggedleft}#4\end{raggedleft}%
+				}{%
+					\errmessage{LaTeX Warning: Alineacion columna izquierda incorrecta, valores esperados: c,l,r}
+				}}}
 			\end{minipage}%
 			\hspace{#3 cm}%
 			\begin{minipage}[\GLOBALtwocolumnbv]{#2\linewidth}%
 				\vspace{-2em}\nobreak%
-				\insertalignedtext{\GLOBALtwocolumnbp}{#5}%
+				\ifthenelse{\equal{\GLOBALtwocolumnbp}{c}}{%
+					\begin{center}#5\end{center}%
+				}{%
+				\ifthenelse{\equal{\GLOBALtwocolumnbp}{l}}{%
+					\begin{raggedright}#5\end{raggedright}%
+				}{%
+				\ifthenelse{\equal{\GLOBALtwocolumnbp}{r}}{%
+					\hfill\begin{raggedleft}#5\end{raggedleft}%
+				}{%
+					\errmessage{LaTeX Warning: Alineacion columna derecha incorrecta, valores esperados: c,l,r}
+				}}}
 			\end{minipage}%
 		\end{tabular}%
 	\end{flushleft}%
@@ -141,17 +161,47 @@
 			\hspace{-0.34cm}%
 			\begin{minipage}[\GLOBALthreecolumnav]{#1\linewidth}%
 				\vspace{-2em}\nobreak%
-				#6%
+				\ifthenelse{\equal{\GLOBALthreecolumnap}{c}}{%
+					\begin{center}#6\end{center}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumnap}{l}}{%
+					\begin{raggedright}#6\end{raggedright}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumnap}{r}}{%
+					\hfill\begin{raggedleft}#6\end{raggedleft}%
+				}{%
+					\errmessage{LaTeX Warning: Alineacion columna izquierda incorrecta, valores esperados: c,l,r}
+				}}}
 			\end{minipage}%
 			\hspace{#4 cm}%
 			\begin{minipage}[\GLOBALthreecolumnbv]{#2\linewidth}%
 				\vspace{-2em}\nobreak%
-				#7%
+				\ifthenelse{\equal{\GLOBALthreecolumnbp}{c}}{%
+					\begin{center}#7\end{center}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumnbp}{l}}{%
+					\begin{raggedright}#7\end{raggedright}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumnbp}{r}}{%
+					\hfill\begin{raggedleft}#7\end{raggedleft}%
+				}{%
+					\errmessage{LaTeX Warning: Alineacion columna central incorrecta, valores esperados: c,l,r}
+				}}}
 			\end{minipage}%
 			\hspace{#5 cm}%
 			\begin{minipage}[\GLOBALthreecolumncv]{#3\linewidth}%
 				\vspace{-2em}\nobreak%
-				#8%
+				\ifthenelse{\equal{\GLOBALthreecolumncp}{c}}{%
+					\begin{center}#8\end{center}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumncp}{l}}{%
+					\begin{raggedright}#8\end{raggedright}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumncp}{r}}{%
+					\hfill\begin{raggedleft}#8\end{raggedleft}%
+				}{%
+					\errmessage{LaTeX Warning: Alineacion columna derecha incorrecta, valores esperados: c,l,r}
+				}}}
 			\end{minipage}%
 		\end{tabular}%
 	\end{flushleft}%

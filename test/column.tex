@@ -30,7 +30,7 @@
 \createthirdcolumn{\lipsum[1]}{\lipsum[1]}{\lipsum[1]}
 
 \subsectionanum{dos columnas 30-70 centradas}
-\createtwocolumn{0.3}{0.7}{0cm}{
+\createtwocolumn{0.3}{0.7}{0}{
 
 \lipsum[1]
 
@@ -44,7 +44,7 @@
 hola
 
 \subsectionanum{dos columnas 30-30 separadas por 3cm}
-\createtwocolumn{0.3}{0.3}{3cm}{
+\createtwocolumn{0.3}{0.3}{3}{
 	
 	\lipsum[1]
 	
@@ -104,6 +104,7 @@ hola
 	Departamento X \\
 	Departamento X \\
 	Santiago, Chile \\}
+\resettwocolumncfg
 
 \createtwocolumn{0.5}{0.5}{0}{aa}{bb}
 
@@ -113,3 +114,10 @@ hola
 
 \createthreecolumncfg{c}{r}{c}{c}{c}{l}
 \createthirdcolumn{aa}{bb}{cc}
+
+\newpage
+\section{test vertical}
+
+\createthreecolumncfg{t}{l}{t}{l}{t}{l}
+\createthirdcolumn{\lipsum[6]}{\lipsum[6]}{\lipsum[6]}
+\createthirdcolumn{\lipsum[6]}{\lipsum[6]}{\lipsum[6]}
