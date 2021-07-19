@@ -27,42 +27,6 @@
 
 }
 
-\subsectionanum{dos columnas idénticas}
-\createhalfcolumnc{
-	
-	\insertequation{a+b}
-	
-}{
-	
-	\begin{tabular}{|ccc|}
-		&  & \\ \hline
-		& 3 & \\ \hline 
-		& x & \\ \hline
-		& 2 & \\ \hline
-	\end{tabular}
-	
-}
-
-\subsectionanum{tres columnas idénticas centradas}
-\createthirdcolumnc{
-	
-	\insertequation{a+b}
-	
-}{
-	
-	\begin{tabular}{|ccc|}
-		&  & \\ \hline
-		& 3 & \\ \hline 
-		& x & \\ \hline
-		& 2 & \\ \hline
-	\end{tabular}
-	
-}{
-
-	\insertequation{a+o}
-
-}
-
 \createthirdcolumn{\lipsum[1]}{\lipsum[1]}{\lipsum[1]}
 
 \subsectionanum{dos columnas 30-70 centradas}
@@ -129,32 +93,23 @@ hola
 
 }
 
-\createhalfcolumnc{
-	
-	\begin{tabular}{|ccc|}
-		&  & \\ \hline
-		& 3 & \\ \hline 
-		& x & \\ \hline
-		& 2 & \\ \hline
-	\end{tabular}
-	
-}{
-	
-	\begin{tabular}{|ccc|}
-		&  & \\ \hline
-		& 3 & \\ \hline 
-		& x & \\ \hline
-		& 2 & \\ \hline
-	\end{tabular}
-	
-}
+\section{Otros}
 
-\createtwocolumnl{0.3}{0.7}{0cm}{
-	
-	\lipsum[1]
-	
-}{
-	
-	\insertimage{ejemplos/test-image.png}{scale=0.15}{Where are you? de \quotes{Internet}}
-	
-}{1cm}
+\createtwocolumncfg{c}{r}{c}{l}
+\createhalfcolumn{%
+	\includegraphics[height=1.1cm]{\imagendepartamento}\hspace{0.5cm}
+}{Universidad de chile \\
+	Departamento X \\
+	Departamento X \\
+	Departamento X \\
+	Departamento X \\
+	Santiago, Chile \\}
+
+\createtwocolumn{0.5}{0.5}{0}{aa}{bb}
+
+\createhalfcolumn{aa}{aa}
+
+\createhalfcolumn{aa}{bb}
+
+\createthreecolumncfg{c}{r}{c}{c}{c}{l}
+\createthirdcolumn{aa}{bb}{cc}

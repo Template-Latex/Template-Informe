@@ -11,141 +11,159 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
+% Crea variables para guardar configuraciones de columnas
+\global\def\GLOBALtwocolumnap {l}
+\global\def\GLOBALtwocolumnav {c}
+\global\def\GLOBALtwocolumnbp {l}
+\global\def\GLOBALtwocolumnbv {c}
+\global\def\GLOBALthreecolumnap {l}
+\global\def\GLOBALthreecolumnav {c}
+\global\def\GLOBALthreecolumnbp {l}
+\global\def\GLOBALthreecolumnbv {c}
+\global\def\GLOBALthreecolumncp {l}
+\global\def\GLOBALthreecolumncv {c}
+
+% Chequea posición columna
+%	#1	Valor posición (c, t, b)
+\newcommand{\corecheckcolumnvvalue}[1]{
+	\ifthenelse{\equal{#1}{c}}{}{
+	\ifthenelse{\equal{#1}{t}}{}{
+	\ifthenelse{\equal{#1}{b}}{}{
+		\errmessage{LaTeX Warning: Posicion vertical columna invalido, valores esperados: c,t,b}
+	}}}
+}
+
+% Chequea alineación columna
+%	#1	Valor alineación (c, l, r)
+\newcommand{\corecheckcolumnpvalue}[1]{
+	\ifthenelse{\equal{#1}{c}}{}{
+	\ifthenelse{\equal{#1}{l}}{}{
+	\ifthenelse{\equal{#1}{r}}{}{
+		\errmessage{LaTeX Warning: Alineacion columna invalida, valores esperados: c,l,r}
+	}}}
+}
+
+% Configura las columnas dobles
+%	#1	Posición vertical columna izquierda (c, t, b)
+%	#2	Alineación horizontal columna izquierda (c, l, r)
+%	#3	Posición vertical columna derecha (c, t, b)
+%	#4	Alineación horizontal columna derecha (c, l, r)
+\newcommand{\createtwocolumncfg}[4]{
+	\corecheckcolumnvvalue{#1}
+	\corecheckcolumnpvalue{#2}
+	\corecheckcolumnvvalue{#3}
+	\corecheckcolumnpvalue{#4}
+	\global\def\GLOBALtwocolumnav {#1}
+	\global\def\GLOBALtwocolumnap {#2}
+	\global\def\GLOBALtwocolumnbv {#3}
+	\global\def\GLOBALtwocolumnbp {#4}
+}
+
+% Restaura la configuración de dos columnas
+\newcommand{\resettwocolumncfg}{
+	\createtwocolumncfg{c}{l}{c}{l}
+}
+
+% Configura las columnas triples
+%	#1	Posición vertical columna izquierda (c, t, b)
+%	#2	Alineación horizontal columna izquierda (c, l, r)
+%	#3	Posición vertical columna central (c, t, b)
+%	#4	Alineación horizontal columna central (c, l, r)
+%	#5	Posición vertical columna derecha (c, t, b)
+%	#6	Alineación horizontal columna derecha (c, l, r)
+\newcommand{\createthreecolumncfg}[6]{
+	\corecheckcolumnvvalue{#1}
+	\corecheckcolumnpvalue{#2}
+	\corecheckcolumnvvalue{#3}
+	\corecheckcolumnpvalue{#4}
+	\corecheckcolumnvvalue{#5}
+	\corecheckcolumnpvalue{#6}
+	\global\def\GLOBALthreecolumnav {#1}
+	\global\def\GLOBALthreecolumnap {#2}
+	\global\def\GLOBALthreecolumnbv {#3}
+	\global\def\GLOBALthreecolumnbp {#4}
+	\global\def\GLOBALthreecolumncv {#3}
+	\global\def\GLOBALthreecolumncp {#4}
+}
+
+% Restaura la configuración de tres columnas
+\newcommand{\resetthreecolumncfg}{
+	\createthreecolumncfg{c}{l}{c}{l}{c}{l}
+}
+
 % Crea dos columnas con contenido
-%	#1 	Dimensión de la primera columna (En linewidth)
-%	#2	Dimensión de la segunda columna (En linewidth)
-%	#3	Distancia entre columnas
-%	#4 	Contenido de la primera columna
-%	#5	Contenido de la segunda columna
+%	#1 	Dimensión de la columna izquierda (En linewidth)
+%	#2	Dimensión de la columna derecha (En linewidth)
+%	#3	Distancia entre columnas (En cm)
+%	#4 	Contenido de la columna izquierda
+%	#5	Contenido de la columna derecha
 \newcommand{\createtwocolumn}[5]{%
 	\setcaptionmargincm{0}%
 	\begin{flushleft}%
 		\hspace{0cm}%
 		\begin{tabular}{c}%
 			\hspace{-0.34cm}%
-			\begin{minipage}[t]{#1\linewidth}%
-				\vspace{-2em}\nobreak~ #4%
+			\begin{minipage}[\GLOBALtwocolumnav]{#1\linewidth}%
+				\vspace{-2em}\nobreak%
+				\insertalignedtext{\GLOBALtwocolumnap}{#4}%
 			\end{minipage}%
-			\hspace{\columnhspace cm}%
-			\hspace{#3}%
-			\begin{minipage}[t]{#2\linewidth}%
-				\vspace{-2em}\nobreak~ #5%
+			\hspace{#3 cm}%
+			\begin{minipage}[\GLOBALtwocolumnbv]{#2\linewidth}%
+				\vspace{-2em}\nobreak%
+				\insertalignedtext{\GLOBALtwocolumnbp}{#5}%
 			\end{minipage}%
-			\\%
 		\end{tabular}%
-		~%
 	\end{flushleft}%
 	\setcaptionmargincm{\captionlrmargin}%
 }
 
-% Crea dos columnas con contenido y margen a la izquierda
-%	#1 	Dimensión de la primera columna (En linewidth)
-%	#2	Dimensión de la segunda columna (En linewidth)
-%	#3	Margen izquierdo
-%	#4	Distancia entre columnas
-%	#5 	Contenido de la primera columna
-%	#6	Contenido de la segunda columna
-\newcommand{\createtwocolumnl}[6]{%
-	\createthreecolumn{0.001}{#1}{#2}{#3}{#4}{~}{#5}{#6}%
-}
-
-% Crea dos columnas idénticas que usan la mitad del ancho de la página
-%	#1 	Contenido de la primera columna
-%	#2	Contenido de la segunda columna
+% Crea dos columnas idénticas
+%	#1 	Contenido de la columna izquierda
+%	#2	Contenido de la columna derecha
 \newcommand{\createhalfcolumn}[2]{%
-	\createtwocolumn{0.5}{0.5}{0cm}{#1}{#2}%
-}
-
-% Crea dos columnas con contenido centrado
-%	#1 	Dimensión de la primera columna (En linewidth)
-%	#2	Dimensión de la segunda columna (En linewidth)
-%	#3	Distancia entre columnas
-%	#4 	Contenido de la primera columna
-%	#5	Contenido de la segunda columna
-\newcommand{\createtwocolumnc}[5]{%
-	\createtwocolumn{#1}{#2}{#3}{\begin{center}#4\end{center}}{\begin{center}#5\end{center}}%
-}
-
-% Crea dos columnas con contenido centrado y margen a la izquierda
-%	#1 	Dimensión de la primera columna (En linewidth)
-%	#2	Dimensión de la segunda columna (En linewidth)
-%	#3	Margen izquierdo
-%	#4	Distancia entre columnas
-%	#5 	Contenido de la primera columna
-%	#6	Contenido de la segunda columna
-\newcommand{\createtwocolumncl}[6]{%
-	\createtwocolumnl{#1}{#2}{#3}{#4}{\begin{center}#5\end{center}}{\begin{center}#6\end{center}}%
-}
-
-% Crea dos columnas idénticas que usan la mitad del ancho de la página, centradas
-%	#1 	Contenido de la primera columna
-%	#2	Contenido de la segunda columna
-\newcommand{\createhalfcolumnc}[2]{%
-	\createtwocolumnc{0.493}{0.493}{0cm}{#1}{#2}%
+	\createtwocolumn{0.5}{0.5}{0}{#1}{#2}%
 }
 
 % Crea tres columnas con contenido
-%	#1 	Dimensión de la primera columna (En linewidth)
-%	#2	Dimensión de la segunda columna (En linewidth)
-%	#3	Dimensión de la tercera columna (En linewidth)
-%	#4	Distancia entre columna 1-2
-%	#5	Distancia entre columna 2-3
-%	#6 	Contenido de la primera columna
-%	#7	Contenido de la segunda columna
-%	#8	Contenido de la tercera columna
+%	#1 	Dimensión de la columna izquierda (En linewidth)
+%	#2	Dimensión de la columna central (En linewidth)
+%	#3	Dimensión de la columna derecha (En linewidth)
+%	#4	Distancia entre columna 1-2 (En cm)
+%	#5	Distancia entre columna 2-3 (En cm)
+%	#6 	Contenido de la columna izquierda
+%	#7	Contenido de la columna central
+%	#8	Contenido de la columna derecha
 \newcommand{\createthreecolumn}[8]{%
 	\setcaptionmargincm{0}%
 	\begin{flushleft}%
 		\hspace{0cm}%
 		\begin{tabular}{l}%
 			\hspace{-0.34cm}%
-			\begin{minipage}[t]{#1\linewidth}%
-				\vspace{-2em}\nobreak~ #6%
+			\begin{minipage}[\GLOBALthreecolumnav]{#1\linewidth}%
+				\vspace{-2em}\nobreak%
+				#6%
 			\end{minipage}%
-			\hspace{\columnhspace cm}%
-			\hspace{#4}%
-			\begin{minipage}[t]{#2\linewidth}%
-				\vspace{-2em}\nobreak~ #7%
+			\hspace{#4 cm}%
+			\begin{minipage}[\GLOBALthreecolumnbv]{#2\linewidth}%
+				\vspace{-2em}\nobreak%
+				#7%
 			\end{minipage}%
-			\hspace{\columnhspace cm}%
-			\hspace{#5}%
-			\begin{minipage}[t]{#3\linewidth}%
-				\vspace{-2em}\nobreak~ #8%
+			\hspace{#5 cm}%
+			\begin{minipage}[\GLOBALthreecolumncv]{#3\linewidth}%
+				\vspace{-2em}\nobreak%
+				#8%
 			\end{minipage}%
-			\\%
 		\end{tabular}%
-		~%
 	\end{flushleft}%
 	\setcaptionmargincm{\captionlrmargin}%
 }
 
-% Crea tres columnas idénticas que usan los tercios de la página
-%	#1 	Contenido de la primera columna
-%	#2	Contenido de la segunda columna
-%	#3	Contenido de la tercera columna
+% Crea tres columnas idénticas
+%	#1 	Contenido de la columna izquierda
+%	#2	Contenido de la columna central
+%	#3	Contenido de la columna derecha
 \newcommand{\createthirdcolumn}[3]{%
-	\createthreecolumn{0.3333}{0.3333}{0.333}{0cm}{0cm}{#1}{#2}{#3}%
-}
-
-% Crea tres columnas con contenido centrado
-%	#1 	Dimensión de la primera columna (En linewidth)
-%	#2	Dimensión de la segunda columna (En linewidth)
-%	#3	Dimensión de la tercera columna (En linewidth)
-%	#4	Distancia entre columna 1-2
-%	#5	Distancia entre columna 2-3
-%	#6 	Contenido de la primera columna
-%	#7	Contenido de la segunda columna
-%	#8	Contenido de la tercera columna
-\newcommand{\createthreecolumnc}[8]{%
-	\createthreecolumn{#1}{#2}{#3}{#4}{#5}{\begin{center}#6\end{center}}{\begin{center}#7\end{center}}{\begin{center}#8\end{center}}%
-}
-
-% Crea tres columnas idénticas que usan los tercios de la página, centradas
-%	#1 	Contenido de la primera columna
-%	#2	Contenido de la segunda columna
-%	#3	Contenido de la tercera columna
-\newcommand{\createthirdcolumnc}[3]{%
-	\createthreecolumnc{0.3333}{0.3333}{0.3333}{0cm}{0cm}{#1}{#2}{#3}%
+	\createthreecolumn{0.3333}{0.3333}{0.3333}{0}{0}{#1}{#2}{#3}%
 }
 
 % END

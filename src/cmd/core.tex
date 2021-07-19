@@ -194,11 +194,30 @@
 % Centra verticalmente un texto
 %	#1	Texto a centrar
 \newcommand{\verticallycentertext}[1]{%
-	\emptyvarerr{\verticallycentertext}{#1}{Centra un texto verticalmente}%
+	\emptyvarerr{\verticallycentertext}{#1}{Texto no definido}%
 	\topskip0pt%
 	\vspace*{\fill}%
 	#1%
 	\vspace*{\fill}%
+}
+
+% Inserta un texto alineado según valor
+%	#1	Posición del texto, puede ser c (centrado), l (izquierdo), r (derecho)
+%	#2	Texto
+\newcommand{\insertalignedtext}[2]{
+	\emptyvarerr{\corealignedtext}{#1}{Posicion alineado no definida}%
+	\emptyvarerr{\corealignedtext}{#2}{Texto no definido}%
+	\ifthenelse{\equal{#1}{c}}{%
+		\begin{center}#2\end{center}%
+	}{%
+	\ifthenelse{\equal{#1}{l}}{
+		\begin{raggedright}#2\end{raggedright}%
+	}{%
+	\ifthenelse{\equal{#1}{r}}{
+		\hfill\begin{raggedleft}#2\end{raggedleft}%
+	}{%
+		\errmessage{LaTeX Warning: Alineacion incorrecta, valores esperados: c,l,r}
+	}}}
 }
 
 % Agrega una carpeta al path de imágenes
