@@ -145,7 +145,7 @@
 %	#2	Panel derecho
 \newcommand{\tabularframecontent}[2]{%
 	\ifthenelse{\equal{\thetabularcolnumber}{-1}}{}{%
-		\throwwarning{Funcion \noexpand\addtfheadcolumn no puede usarse fuera del entorno \noexpand\tabularframehead}\stop}%
+		\throwwarning{Funcion \noexpand\tabularframecontent no puede usarse sin haber inicializado \noexpand\tabularframehead}\stop}%
 	\emptyvarerr{\tabularframecontent}{#1}{Columna izquierda no definida}%
 	\emptyvarerr{\tabularframecontent}{#2}{Columna derecha no definida}%
 	\vspace{-2.5\fboxrule}
@@ -167,6 +167,33 @@
 				\vspace{-1\baselineskip}%
 				\verticallycentertext{#2}%
 			}
+		\end{minipage}}%
+	\end{columns}%
+	\def\GLOBALtabularframeinit {false}%
+}
+
+% Tabular frame de una sola columna
+%	#1	Color, si vacío usa por defecto el color de columna izquierda
+%	#2	Contenido
+\newcommand{\tabularframesinglecontent}[2][]{%
+	\ifthenelse{\equal{\thetabularcolnumber}{-1}}{}{%
+		\throwwarning{Funcion \noexpand\tabularframesinglecontent no puede usarse sin haber inicializado \noexpand\tabularframehead}\stop}%
+	\emptyvarerr{\tabularframesinglecontent}{#2}{Contenido no definido}%
+	\vspace{-2.5\fboxrule}
+	\ifx\hfuzz#1\hfuzz
+		\def\tabularframesinglecontentemptycolor {bg}
+		\usebeamercolor[fg]{block body}
+	\else
+		\def\tabularframesinglecontentemptycolor {#1}
+	\fi
+	\begin{columns}[t,onlytextwidth]%
+		\column{1\linewidth}%
+		\colorbox{\tabularframesinglecontentemptycolor}{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth-15\fboxrule}%
+				\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
+					#2%
+				}{%
+					\verticallycentertext{#2}%
+				}
 		\end{minipage}}%
 	\end{columns}%
 	\def\GLOBALtabularframeinit {false}%
