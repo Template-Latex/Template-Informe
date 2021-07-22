@@ -95,7 +95,7 @@ hola
 
 \section{Otros}
 
-\createtwocolumncfg{c}{r}{c}{l}
+\createtwocolumncfg{b}{r}{c}{l}
 \createhalfcolumn{%
 	\includegraphics[height=1.1cm]{\imagendepartamento}\hspace{0.5cm}
 }{Universidad de chile \\
@@ -121,3 +121,70 @@ hola
 \createthreecolumncfg{t}{l}{t}{l}{t}{l}
 \createthirdcolumn{\lipsum[6]}{\lipsum[6]}{\lipsum[6]}
 \createthirdcolumn{\lipsum[6]}{\lipsum[6]}{\lipsum[6]}
+
+\resettwocolumncfg
+
+% Ejemplos de la web
+\newpage
+
+A continuación se ilustran los siguientes conceptos: \\
+
+\createtwocolumn{0.5}{0.5}{0}{%
+	\begin{itemize}
+		\item A
+		\item B
+		\item C
+	\end{itemize}
+}{%
+	Esto es increíble:
+	\insertimage{ejemplos/test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
+}
+
+A continuación se ilustran los siguientes conceptos: \\
+
+\createthreecolumn{0.2}{0.5}{0.3}{0}{0}{%
+	\begin{itemize}
+		\item A
+		\item B
+		\item C
+	\end{itemize}
+}{%
+	Esto es increíble:
+	\insertimage{ejemplos/test-image.png}{scale=0.1}{Where are you? de \quotes{Internet}.}
+}{%
+	\lipsum[101]
+}
+
+% Centramos
+\newpage
+
+A continuación se ilustran los siguientes conceptos: \\
+
+\createtwocolumncfg{c}{l}{c}{l} % Centradas y texto en izquierda
+\createtwocolumn[5cm]{0.5}{0.5}{0}{%
+	\begin{itemize}
+		\item A
+		\item B
+		\item C
+	\end{itemize}
+}{%
+	Esto es increíble:
+	\insertimage{ejemplos/test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
+}
+
+\begin{itemize}
+	\item Columna por defecto (centro vertical y alineación izquierda): \\
+	\createtwocolumncfg{c}{l}{c}{l}
+	\createhalfcolumn[3cm]{Contenido de la línea}{\lipsum[101]}
+	
+	\item Ambas centradas y en top: \\
+	\createtwocolumncfg{t}{c}{t}{c}
+	\createhalfcolumn[3cm]{Contenido de la línea}{\lipsum[101]}
+	
+	\item Izquierda en cr y derecha en br: \\
+	\createtwocolumncfg{c}{r}{b}{r}
+	\createhalfcolumn[3cm]{\lipsum[101]}{Contenido de la línea}
+\end{itemize}
+
+
+

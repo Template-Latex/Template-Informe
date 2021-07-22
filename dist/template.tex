@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.3.1 (17/07/2021)
+% Versión:      7.3.2 (21/07/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -687,7 +687,7 @@
 % Para la compatibilidad con template-tesis se define el capítulo
 \newcounter{chapter}
 
-% Otros
+% Define latex para uso en referencias
 \let\latex\LaTeX
 
 % Lanza un mensaje de error
@@ -840,7 +840,7 @@
 % Centra verticalmente un texto
 %	#1	Texto a centrar
 \newcommand{\verticallycentertext}[1]{%
-	\emptyvarerr{\verticallycentertext}{#1}{Centra un texto verticalmente}%
+	\emptyvarerr{\verticallycentertext}{#1}{Texto no definido}%
 	\topskip0pt%
 	\vspace*{\fill}%
 	#1%
@@ -3082,6 +3082,209 @@
 	}
 }
 
+% Crea variables para guardar configuraciones de columnas
+\global\def\GLOBALtwocolumnap {l}
+\global\def\GLOBALtwocolumnav {t}
+\global\def\GLOBALtwocolumnbp {l}
+\global\def\GLOBALtwocolumnbv {t}
+\global\def\GLOBALthreecolumnap {l}
+\global\def\GLOBALthreecolumnav {t}
+\global\def\GLOBALthreecolumnbp {l}
+\global\def\GLOBALthreecolumnbv {t}
+\global\def\GLOBALthreecolumncp {l}
+\global\def\GLOBALthreecolumncv {t}
+
+% Chequea posición columna
+%	#1	Valor posición (c, t, b)
+\newcommand{\corecheckcolumnvvalue}[1]{%
+	\ifthenelse{\equal{#1}{c}}{}{%
+	\ifthenelse{\equal{#1}{t}}{}{%
+	\ifthenelse{\equal{#1}{b}}{}{%
+		\errmessage{LaTeX Warning: Posicion vertical columna invalido, valores esperados: c,t,b}%
+	}}}%
+}
+
+% Chequea alineación columna
+%	#1	Valor alineación (c, l, r)
+\newcommand{\corecheckcolumnpvalue}[1]{%
+	\ifthenelse{\equal{#1}{c}}{}{%
+	\ifthenelse{\equal{#1}{l}}{}{%
+	\ifthenelse{\equal{#1}{r}}{}{%
+		\errmessage{LaTeX Warning: Alineacion columna invalida, valores esperados: c,l,r}%
+	}}}%
+}
+
+% Configura las columnas dobles
+%	#1	Posición vertical columna izquierda (c, t, b)
+%	#2	Alineación horizontal columna izquierda (c, l, r)
+%	#3	Posición vertical columna derecha (c, t, b)
+%	#4	Alineación horizontal columna derecha (c, l, r)
+\newcommand{\createtwocolumncfg}[4]{%
+	\corecheckcolumnvvalue{#1}%
+	\corecheckcolumnpvalue{#2}%
+	\corecheckcolumnvvalue{#3}%
+	\corecheckcolumnpvalue{#4}%
+	\global\def\GLOBALtwocolumnav {#1}%
+	\global\def\GLOBALtwocolumnap {#2}%
+	\global\def\GLOBALtwocolumnbv {#3}%
+	\global\def\GLOBALtwocolumnbp {#4}%
+}
+
+% Restaura la configuración de dos columnas
+\newcommand{\resettwocolumncfg}{%
+	\createtwocolumncfg{t}{l}{t}{l}%
+}
+
+% Configura las columnas triples
+%	#1	Posición vertical columna izquierda (c, t, b)
+%	#2	Alineación horizontal columna izquierda (c, l, r)
+%	#3	Posición vertical columna central (c, t, b)
+%	#4	Alineación horizontal columna central (c, l, r)
+%	#5	Posición vertical columna derecha (c, t, b)
+%	#6	Alineación horizontal columna derecha (c, l, r)
+\newcommand{\createthreecolumncfg}[6]{%
+	\corecheckcolumnvvalue{#1}%
+	\corecheckcolumnpvalue{#2}%
+	\corecheckcolumnvvalue{#3}%
+	\corecheckcolumnpvalue{#4}%
+	\corecheckcolumnvvalue{#5}%
+	\corecheckcolumnpvalue{#6}%
+	\global\def\GLOBALthreecolumnav {#1}%
+	\global\def\GLOBALthreecolumnap {#2}%
+	\global\def\GLOBALthreecolumnbv {#3}%
+	\global\def\GLOBALthreecolumnbp {#4}%
+	\global\def\GLOBALthreecolumncv {#3}%
+	\global\def\GLOBALthreecolumncp {#4}%
+}
+
+% Restaura la configuración de tres columnas
+\newcommand{\resetthreecolumncfg}{%
+	\createthreecolumncfg{t}{l}{t}{l}{t}{l}%
+}
+
+% Crea dos columnas con contenido
+%	#1	Altura de las columnas (opcional)
+%	#2 	Dimensión de la columna izquierda (En linewidth)
+%	#3	Dimensión de la columna derecha (En linewidth)
+%	#4	Distancia entre columnas (En cm)
+%	#5 	Contenido de la columna izquierda
+%	#6	Contenido de la columna derecha
+\newcommand{\createtwocolumn}[6][]{%
+	\setcaptionmargincm{0}%
+	\begin{flushleft}%
+		\vspace{-0.5\baselineskip}%
+		\begin{minipage}{1\linewidth}%
+			\begin{minipage}[t][#1][\GLOBALtwocolumnav]{#2\linewidth}%
+				\ifthenelse{\equal{\GLOBALtwocolumnap}{c}}{%
+					\begin{center}#5\end{center}%
+				}{%
+				\ifthenelse{\equal{\GLOBALtwocolumnap}{l}}{%
+					\begin{raggedright}#5\end{raggedright}%
+				}{%
+				\ifthenelse{\equal{\GLOBALtwocolumnap}{r}}{%
+					\hfill\begin{raggedleft}#5\end{raggedleft}%
+				}{%
+					\errmessage{LaTeX Warning: Alineacion columna izquierda incorrecta, valores esperados: c,l,r}
+				}}}
+			\end{minipage}%
+			\hspace{#4 cm}%
+			\begin{minipage}[t][#1][\GLOBALtwocolumnbv]{#3\linewidth}%
+				\ifthenelse{\equal{\GLOBALtwocolumnbp}{c}}{%
+					\begin{center}#6\end{center}%
+				}{%
+				\ifthenelse{\equal{\GLOBALtwocolumnbp}{l}}{%
+					\begin{raggedright}#6\end{raggedright}%
+				}{%
+				\ifthenelse{\equal{\GLOBALtwocolumnbp}{r}}{%
+					\hfill\begin{raggedleft}#6\end{raggedleft}%
+				}{%
+					\errmessage{LaTeX Warning: Alineacion columna derecha incorrecta, valores esperados: c,l,r}
+				}}}
+			\end{minipage}%
+		\end{minipage}%
+	\end{flushleft}%
+	~ \vspace{-0.5\baselineskip}%
+	\setcaptionmargincm{\captionlrmargin}%
+}
+
+% Crea dos columnas idénticas
+%	#1	Altura de las columnas (opcional)
+%	#2 	Contenido de la columna izquierda
+%	#3	Contenido de la columna derecha
+\newcommand{\createhalfcolumn}[3][]{%
+	\createtwocolumn[#1]{0.5}{0.5}{0}{#2}{#3}%
+}
+
+% Crea tres columnas con contenido
+%	#1	Altura de las columnas (opcional)
+%	#2 	Dimensión de la columna izquierda (En linewidth)
+%	#3	Dimensión de la columna central (En linewidth)
+%	#4	Dimensión de la columna derecha (En linewidth)
+%	#5	Distancia entre columna 1-2 (En cm)
+%	#6	Distancia entre columna 2-3 (En cm)
+%	#7 	Contenido de la columna izquierda
+%	#8	Contenido de la columna central
+%	#9	Contenido de la columna derecha
+\newcommand{\createthreecolumn}[9][]{%
+	\setcaptionmargincm{0}%
+	\begin{flushleft}%
+		\vspace{-0.5\baselineskip}%
+		\begin{minipage}{1\linewidth}%
+			\begin{minipage}[t][#1][\GLOBALthreecolumnav]{#2\linewidth}%
+				\ifthenelse{\equal{\GLOBALthreecolumnap}{c}}{%
+					\begin{center}#7\end{center}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumnap}{l}}{%
+					\begin{raggedright}#7\end{raggedright}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumnap}{r}}{%
+					\hfill\begin{raggedleft}#7\end{raggedleft}%
+				}{%
+					\errmessage{LaTeX Warning: Alineacion columna izquierda incorrecta, valores esperados: c,l,r}
+				}}}
+			\end{minipage}%
+			\hspace{#5 cm}%
+			\begin{minipage}[t][#1][\GLOBALthreecolumnbv]{#3\linewidth}%
+				\ifthenelse{\equal{\GLOBALthreecolumnbp}{c}}{%
+					\begin{center}#8\end{center}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumnbp}{l}}{%
+					\begin{raggedright}#8\end{raggedright}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumnbp}{r}}{%
+					\hfill\begin{raggedleft}#8\end{raggedleft}%
+				}{%
+					\errmessage{LaTeX Warning: Alineacion columna central incorrecta, valores esperados: c,l,r}
+				}}}
+			\end{minipage}%
+			\hspace{#6 cm}%
+			\begin{minipage}[t][#1][\GLOBALthreecolumncv]{#4\linewidth}%
+				\ifthenelse{\equal{\GLOBALthreecolumncp}{c}}{%
+					\begin{center}#9\end{center}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumncp}{l}}{%
+					\begin{raggedright}#9\end{raggedright}%
+				}{%
+				\ifthenelse{\equal{\GLOBALthreecolumncp}{r}}{%
+					\hfill\begin{raggedleft}#9\end{raggedleft}%
+				}{%
+					\errmessage{LaTeX Warning: Alineacion columna derecha incorrecta, valores esperados: c,l,r}
+				}}}
+			\end{minipage}%
+		\end{minipage}%
+	\end{flushleft}%
+	~ \vspace{-0.5\baselineskip}%
+	\setcaptionmargincm{\captionlrmargin}%
+}
+
+% Crea tres columnas idénticas
+%	#1 	Contenido de la columna izquierda
+%	#2	Contenido de la columna central
+%	#3	Contenido de la columna derecha
+\newcommand{\createthirdcolumn}[3]{%
+	\createthreecolumn{0.3333}{0.3333}{0.3333}{0}{0}{#1}{#2}{#3}%
+}
+
 % Crea una sección de referencias solo para bibtex
 \newenvironment{references}{
 	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Verifica configuraciones
@@ -4396,15 +4599,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={17/07/2021},
+		Template.Fecha={21/07/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.3.1},
-		Template.Version.Hash={DEAA41520B1BFC52C3EF481DFF52F9D5},
-		Template.Version.Release={7.3.1},
+		Template.Version.Dev={7.3.2-1},
+		Template.Version.Hash={16521ED3404E8A5559F0209AB877F372},
+		Template.Version.Release={7.3.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -4416,7 +4619,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.3.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.3.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
