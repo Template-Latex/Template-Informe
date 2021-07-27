@@ -15,7 +15,7 @@
 \def\addemptypagetwosides {false}  % Añade pag. en blanco al imprimir a 2 caras
 \def\compilertype {pdf2latex}      % Compilador {pdf2latex,xelatex,lualatex}
 \def\documentfontsize {11}         % Tamaño de la fuente del documento [pt]
-\def\documentinterline {1.025}     % Interlineado del documento defecto [factor]
+\def\documentinterline {1.025}     % Interlineado del documento [factor]
 \def\fontdocument {lmodern}        % Tipografía base, ver soportadas en manual
 \def\fonttypewriter {tmodern}      % Tipografía de \texttt, ver manual
 \def\fonturl {same}                % Tipo de fuente url {tt,sf,rm,same}
@@ -47,7 +47,9 @@
 \def\captionlrmargin {2.0}         % Márgenes izq/der de la leyenda [cm]
 \def\captionlrmarginmc {1.0}       % Mar. izq/der leyenda dentro de columnas [cm]
 \def\captionmarginimage {0}        % Margen vertical entre caption e imagen [cm]
-\def\captionmarginmultimg {0.0}    % Margen izq/der leyendas múltiple img [cm]
+\def\captionmarginimages {0}       % Margen v. entre caption y entorno images [cm]
+\def\captionmarginimagesmc {0}     % Margen v. entre caption y entorno images [cm]
+\def\captionmarginmultimg {0}      % Margen izq/der leyendas múltiple img [cm]
 \def\captionnumcode {arabic}       % N° código {arabic,alph,Alph,roman,Roman}
 \def\captionnumequation {arabic}   % N° ecuaciones {arabic,alph,Alph,roman,Roman}
 \def\captionnumfigure {arabic}     % N° figuras {arabic,alph,Alph,roman,Roman}
@@ -65,9 +67,9 @@
 \def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
 \def\marginaligncaptbottom {0.05}  % Margen inferior caption en align [cm]
 \def\marginaligncapttop {-0.60}    % Margen superior caption en align [cm]
-\def\marginalignedcaptbottom {0.0} % Margen inferior caption en aligned [cm]
+\def\marginalignedcaptbottom {0}   % Margen inferior caption en aligned [cm]
 \def\marginalignedcapttop {-0.60}  % Margen superior caption en aligned [cm]
-\def\margineqncaptionbottom {0.0}  % Margen inferior caption ecuación [cm]
+\def\margineqncaptionbottom {0}    % Margen inferior caption ecuación [cm]
 \def\margineqncaptiontop {-0.70}   % Margen superior caption ecuación [cm]
 \def\margingathercaptbottom {0.05} % Margen inferior caption en gather [cm]
 \def\margingathercapttop {-0.90}   % Margen superior caption en gather [cm]
@@ -141,11 +143,11 @@
 \def\marginalignedtop {-0.40}      % Margen superior entorno aligned [cm]
 \def\marginaligntop {-0.40}        % Margen superior entorno align [cm]
 \def\margineqnindexbottom {-0.90}  % Margen inferior ecuaciones índice [cm]
-\def\margineqnindextop {0.0}       % Margen superior ecuaciones índice [cm]
+\def\margineqnindextop {0}         % Margen superior ecuaciones índice [cm]
 \def\marginequationbottom {-0.15}  % Margen inferior ecuaciones [cm]
-\def\marginequationtop {0.0}       % Margen superior ecuaciones [cm]
+\def\marginequationtop {0}         % Margen superior ecuaciones [cm]
 \def\marginfloatimages {-13.0}     % Margen sup. fig. insertimageleft/right [pt]
-\def\marginfootnote {10.0}         % Margen derecho footnote [pt]
+\def\marginfootnote {10}           % Margen derecho footnote [pt]
 \def\margingatherbottom {-0.20}    % Margen inferior entorno gather [cm]
 \def\margingatheredbottom {-0.10}  % Margen inf. entorno gathered [cm]
 \def\margingatheredtop {-0.40}     % Margen superior entorno gathered [cm]
@@ -154,7 +156,7 @@
 \def\marginimagemultbottom {-0.05} % Margen inferior imágenes múltiples [cm]
 \def\marginimagemultright {0.50}   % Margen derecho imágenes múltiples [cm]
 \def\marginimagemulttop {-0.30}    % Margen superior imágenes múltiples [cm]
-\def\marginimagetop {0.0}          % Margen superior figuras [cm]
+\def\marginimagetop {0}            % Margen superior figuras [cm]
 \def\numberedequation {true}       % Ecuaciones con \insert... numeradas
 \def\senumerti {\arabic{enumi}.}   % Estilo enumerate nivel 1
 \def\senumertii {\alph{enumii})}   % Estilo enumerate nivel 2
