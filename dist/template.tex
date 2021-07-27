@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.3.2 (21/07/2021)
+% Versión:      7.3.3 (27/07/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -658,18 +658,16 @@
 % IMPORTACIÓN DE FUNCIONES Y ENTORNOS
 % -----------------------------------------------------------------------------
 % Definición de variables globales
-\def\GLOBALcaptiondefn {EMPTY-VAR}       % Definición del caption
-%\def\GLOBALcaptiondefnimages{EMPTY-VAR} % Definición del caption en images
-%\def\GLOBALcaptiondefnsrc{EMPTY-VAR}    % Definición del caption en sourcecode
-\def\GLOBALchapternumenabled {false}     % Numeración de capítulos empezó
-\def\GLOBALenvimageadded {false}         % Indica que una imagen ha sido añadida
-\def\GLOBALenvimageinitialized {false}   % Entorno images activo
-\def\GLOBALenvmulticol {false}           % Indica que el entorno multicol está activo
-\def\GLOBALsectionalph {false}           % Sección con numeración de letras
-\def\GLOBALsectionanumenabled {false}    % Sección sin numeración
-\def\GLOBALsubsectionanumenabled {false} % Subsección sin numeración
-\def\GLOBALtablerowcolorindex {2}        % Índice tabla colores
-\def\GLOBALtablerowcolorswitch {false}   % Tabla con colores cambiados
+\global\def\GLOBALcaptiondefn {EMPTY-VAR}       % Definición del caption
+\global\def\GLOBALchapternumenabled {false}     % Numeración de capítulos empezó
+\global\def\GLOBALenvimageadded {false}         % Indica que una imagen ha sido añadida
+\global\def\GLOBALenvimageinitialized {false}   % Entorno images activo
+\global\def\GLOBALenvmulticol {false}           % Indica que el entorno multicol está activo
+\global\def\GLOBALsectionalph {false}           % Sección con numeración de letras
+\global\def\GLOBALsectionanumenabled {false}    % Sección sin numeración
+\global\def\GLOBALsubsectionanumenabled {false} % Subsección sin numeración
+\global\def\GLOBALtablerowcolorindex {2}        % Índice tabla colores
+\global\def\GLOBALtablerowcolorswitch {false}   % Tabla con colores cambiados
 
 % Contador global de objetos
 \newcounter{templateEquations}      % Ecuaciones
@@ -773,14 +771,14 @@
 
 % Define el caption del índice
 % 	#1	Título del caption
-\newcommand{\setindexcaption}[1]{\def\GLOBALcaptiondefn {#1}}
-%\newcommand{\setindexcaptionimages}[1]{\def\GLOBALcaptiondefnimages {#1}}
-%\newcommand{\setindexcaptionsourcecode}[1]{\def\GLOBALcaptiondefnsrc {#1}}
+\newcommand{\setindexcaption}[1]{%
+	\global\def\GLOBALcaptiondefn {#1}%
+}
 
 % Resetea los caption
-\newcommand{\resetindexcaption}{\def\GLOBALcaptiondefn {EMPTY-VAR}}
-%\newcommand{\resetindexcaptionimages}{\def\GLOBALcaptiondefnimages {EMPTY-VAR}}
-%\newcommand{\resetindexcaptionsourcecode}{\def\GLOBALcaptiondefnsrc {EMPTY-VAR}}
+\newcommand{\resetindexcaption}{%
+	\global\def\GLOBALcaptiondefn {EMPTY-VAR}%
+}
 
 % Cambia los márgenes del documento
 %	#1	Margen izquierdo
@@ -1737,7 +1735,7 @@
 	\subfloat[#5]{%
 		\fbox{\includegraphics[#3]{#2}}#1}%
 	\endgroup%
-	\def\GLOBALenvimageadded {true}%
+	\global\def\GLOBALenvimageadded {true}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -1762,13 +1760,13 @@
 	}{}%
 	\fbox{\includegraphics[#2]{#1}}%
 	\endgroup%
-	\def\GLOBALenvimageadded {true}%
+	\global\def\GLOBALenvimageadded {true}%
 }
 
 % Añade un salto de línea en las imágenes
 \newcommand{\imagesnewline}{%
 	\checkonlyonenvimage%
-	\def\GLOBALenvimageadded {false}%
+	\global\def\GLOBALenvimageadded {false}%
 	\vspace{\marginimagemultbottom cm}%
 	\linebreak\noindent%
 }
@@ -1776,13 +1774,17 @@
 % Agrega un espacio horizontal a las imágenes
 % 	#1 Tamaño del espacio
 \newcommand{\imageshspace}[1]{%
-	\checkonlyonenvimage\def\GLOBALenvimageadded {false}\hspace{#1}%
+	\checkonlyonenvimage%
+	\global\def\GLOBALenvimageadded {false}%
+	\hspace{#1}%
 }
 
 % Agrega un espacio vertical a las imágenes
 % 	#1 Tamaño del espacio
 \newcommand{\imagesvspace}[1]{%
-	\checkonlyonenvimage\def\GLOBALenvimageadded {false}~ \\ \vspace*{#1}%
+	\checkonlyonenvimage%
+	\global\def\GLOBALenvimageadded {false}%
+	~ \\ \vspace*{#1}%
 }
 
 % Insertar una imagen
@@ -2436,7 +2438,7 @@
 		\addtocounter{templateTables}{\value{table}}
 		\setcounter{table}{0}
 	}{}
-	\def\GLOBALchapternumenabled {true}
+	\global\def\GLOBALchapternumenabled {true}
 	\coreintializetitlenumbering
 }{}{}
 
@@ -2463,8 +2465,8 @@
 		\addtocounter{templateTables}{\value{table}}
 		\setcounter{table}{0}
 	}{}
-	\def\GLOBALsectionanumenabled {false}
-	\def\GLOBALsubsectionanumenabled {false}
+	\global\def\GLOBALsectionanumenabled {false}
+	\global\def\GLOBALsubsectionanumenabled {false}
 	\coreintializetitlenumbering
 }{}{}
 
@@ -2491,7 +2493,7 @@
 		\addtocounter{templateTables}{\value{table}}
 		\setcounter{table}{0}
 	}{}
-	\def\GLOBALsubsectionanumenabled {false}
+	\global\def\GLOBALsubsectionanumenabled {false}
 	\coreintializetitlenumbering
 }{}{}
 
@@ -2558,7 +2560,7 @@
 	\changeheadertitle{#1}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
-	\def\GLOBALsectionanumenabled {true}
+	\global\def\GLOBALsectionanumenabled {true}
 }
 
 % Insertar un título sin número y sin indexar
@@ -2572,7 +2574,7 @@
 	\changeheadertitle{#1}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
-	\def\GLOBALsectionanumenabled {true}
+	\global\def\GLOBALsectionanumenabled {true}
 }
 
 % Insertar un título sin número sin cambiar el título del header
@@ -2584,7 +2586,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
-	\def\GLOBALsectionanumenabled {true}
+	\global\def\GLOBALsectionanumenabled {true}
 }
 
 % Insertar un título sin número, sin indexar y sin cambiar el título del header
@@ -2595,7 +2597,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}
 	\setcounter{subsection}{0}
 	\renewcommand{\thesubsection}{\arabic{subsection}}
-	\def\GLOBALsectionanumenabled {true}
+	\global\def\GLOBALsectionanumenabled {true}
 }
 
 % Insertar un subtítulo sin número
@@ -2607,7 +2609,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}
 	\setcounter{subsubsection}{0}
 	\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
-	\def\GLOBALsubsectionanumenabled {true}
+	\global\def\GLOBALsubsectionanumenabled {true}
 }
 
 % Insertar un subtítulo sin número y sin indexar
@@ -2618,7 +2620,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}
 	\setcounter{subsubsection}{0}
 	\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
-	\def\GLOBALsubsectionanumenabled {true}
+	\global\def\GLOBALsubsectionanumenabled {true}
 }
 
 % Insertar un sub-subtítulo sin número
@@ -2895,7 +2897,7 @@
 	}
 
 	% Actualiza el índice previo
-	\def\GLOBALtablerowcolorindex {#1}
+	\global\def\GLOBALtablerowcolorindex {#1}
 }
 
 % Alterna los colores de las tablas a la última ejecución
@@ -2949,9 +2951,9 @@
 % Alterna los colores de las filas de las tablas
 \newcommand{\switchtablerowcolors}{
 	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{
-		\def\GLOBALtablerowcolorswitch {true}
+		\global\def\GLOBALtablerowcolorswitch {true}
 	}{
-		\def\GLOBALtablerowcolorswitch {false}
+		\global\def\GLOBALtablerowcolorswitch {false}
 	}
 	\settablerowcolorslast
 }
@@ -3324,7 +3326,7 @@
 	% \clearpage
 	\phantomsection
 	\changeheadertitle{\nomltappendixsection} % Cambia el nombre del header
-	\def\GLOBALsectionalph {true} % Modifica formato de secciones con sección alph
+	\global\def\GLOBALsectionalph {true} % Modifica formato de secciones con sección alph
 	\bookmarksetup{
 		numbered={true},
 		openlevel={\thetemplateBookmarksLevelPrev}
@@ -3347,7 +3349,7 @@
 		}
 	}{
 	\end{appendices}
-	\def\GLOBALsectionalph {false} % Desactiva formato de secciones con sección alph
+	\global\def\GLOBALsectionalph {false} % Desactiva formato de secciones con sección alph
 	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Restablece índice marcador
 	\bookmarksetup{
 		numbered={\cfgpdfsecnumbookmarks},
@@ -3564,8 +3566,8 @@
 	% Modifica globales
 	\def\envimageslabelvar {#1}
 	\def\envimagescaptionvar {#2}
-	\def\GLOBALenvimageinitialized {true}
-	\def\GLOBALenvimageadded {false}
+	\global\def\GLOBALenvimageinitialized {true}
+	\global\def\GLOBALenvimageadded {false}
 	
 	% Configura caption y márgenes
 	\vspace{\marginimagetop cm}
@@ -3580,7 +3582,7 @@
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\vspace{\captionlessmarginimage cm}%
 		}{%
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
+			\ifthenelse{\equal{\captionmarginimages}{0}}{}{\vspace{\captionmarginimages cm}}%
 			\caption{\envimagescaptionvar\envimageslabelvar}%
 		}%
 	\end{figure}%
@@ -3590,7 +3592,7 @@
 	\vspace{\marginimagebottom cm}
 	
 	% Restablece globales
-	\def\GLOBALenvimageinitialized {false}
+	\global\def\GLOBALenvimageinitialized {false}
 }
 
 % Crea una sección de imágenes múltiples completa dentro de un multicol
@@ -3602,8 +3604,8 @@
 	\def\envimageslabelvar {#1}
 	\def\envimagesmcpos {#2}
 	\def\envimagescaptionvar {#3}
-	\def\GLOBALenvimageinitialized {true}
-	\def\GLOBALenvimageadded {false}
+	\global\def\GLOBALenvimageinitialized {true}
+	\global\def\GLOBALenvimageadded {false}
 	\checkinsidemulticol
 	
 	% Configura caption y márgenes
@@ -3626,7 +3628,7 @@
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\vspace{\captionlessmarginimage cm}%
 		}{%
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}
+			\ifthenelse{\equal{\captionmarginimagesmc}{0}}{}{\vspace{\captionmarginimagesmc cm}}
 			\caption{\envimagescaptionvar\envimageslabelvar}%
 		}%
 	\end{figure*}%
@@ -3635,7 +3637,7 @@
 	\setcaptionmargincm{\captionlrmargin}
 	
 	% Restablece globales
-	\def\GLOBALenvimageinitialized {false}
+	\global\def\GLOBALenvimageinitialized {false}
 }
 
 % -----------------------------------------------------------------------------
@@ -4599,15 +4601,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={21/07/2021},
+		Template.Fecha={27/07/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.3.2-1},
-		Template.Version.Hash={16521ED3404E8A5559F0209AB877F372},
-		Template.Version.Release={7.3.2},
+		Template.Version.Dev={7.3.3-2},
+		Template.Version.Hash={19525F30F83814CCB52056E124B8FAAE},
+		Template.Version.Release={7.3.3},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -4619,7 +4621,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.3.2 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.3.3 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5219,12 +5221,12 @@
 \let\SOURCEcaptionlrmargin\captionlrmargin
 \BeforeBeginEnvironment{multicols}{%
 	\def\captionlrmargin {\captionlrmarginmc}%
-	\def\GLOBALenvmulticol {true}%
+	\global\def\GLOBALenvmulticol {true}%
 	\setcaptionmargincm{\captionlrmargin}%
 }
 \AfterEndEnvironment{multicols}{%
 	\def\captionlrmargin {\SOURCEcaptionlrmargin}%
-	\def\GLOBALenvmulticol {false}%
+	\global\def\GLOBALenvmulticol {false}%
 	\setcaptionmargincm{\captionlrmargin}%
 }
 
