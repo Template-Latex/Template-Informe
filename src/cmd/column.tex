@@ -100,6 +100,7 @@
 %	#6	Contenido de la columna derecha
 \newcommand{\createtwocolumn}[6][]{%
 	\setcaptionmargincm{0}%
+	\begin{samepage}%
 	\begin{flushleft}%
 		\vspace{-0.5\baselineskip}%
 		\begin{minipage}{1\linewidth}%
@@ -133,6 +134,7 @@
 		\end{minipage}%
 	\end{flushleft}%
 	~ \vspace{-0.5\baselineskip}%
+	\end{samepage}
 	\setcaptionmargincm{\captionlrmargin}%
 }
 
@@ -156,6 +158,7 @@
 %	#9	Contenido de la columna derecha
 \newcommand{\createthreecolumn}[9][]{%
 	\setcaptionmargincm{0}%
+	\begin{samepage}%
 	\begin{flushleft}%
 		\vspace{-0.5\baselineskip}%
 		\begin{minipage}{1\linewidth}%
@@ -203,6 +206,7 @@
 		\end{minipage}%
 	\end{flushleft}%
 	~ \vspace{-0.5\baselineskip}%
+	\end{samepage}
 	\setcaptionmargincm{\captionlrmargin}%
 }
 
