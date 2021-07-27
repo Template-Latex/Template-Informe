@@ -41,10 +41,11 @@
 	\def\GLOBALenvimageadded {false}
 	
 	% Configura caption y márgenes
-	\vspace{\marginimagetop cm}
-	\setcaptionmargincm{\captionmarginmultimg}
+	\vspace{\marginimagetop cm}%
+	\setcaptionmargincm{\captionmarginmultimg}%
 	
 	% Inicia la figura
+	\begin{samepage}%
 	\begin{figure}[H] \centering%
 	\thisfloatpagestyle{fancy}%
 		\vspace{\marginimagemulttop cm}%
@@ -59,8 +60,9 @@
 	\end{figure}%
 
 	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmargin}
-	\vspace{\marginimagebottom cm}
+	\setcaptionmargincm{\captionlrmargin}%
+	\vspace{\marginimagebottom cm}%
+	\end{samepage}
 	
 	% Restablece globales
 	\def\GLOBALenvimageinitialized {false}

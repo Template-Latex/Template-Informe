@@ -85,7 +85,7 @@
 	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\openout\filetabularframehead=\jobname.tframeh%
 	}{}%
-	\vspace{\dimexpr-\GLOBALtabularframebarheight\textheight}%
+	\vspace{-\GLOBALtabularframebarheight\textheight}%
 	\begin{columns}[t,onlytextwidth]%
 	}{
 	\end{columns}
@@ -121,13 +121,13 @@
 		\immediate\write\filetabularframehead{\unexpanded{\addtfheadcolumn{#1}{#2}}\LOCALtabularframepercentchar}%
 	}{}%
 	\stepcounter{tabularcolnumber}%
-	\column{\dimexpr#1\linewidth}%
+	\column{#1\linewidth}%
 	\ifthenelse{\equal{\thetabularcolnumber}{\LOCALtabularframecolumnselected}}{%
 		\transparent{1.0}%
 	}{%
 		\transparent{\opacitytabularframe}%
 	}
-	\usebeamercolor[fg]{frametitle}\colorbox{bg}{\begin{minipage}[t][\GLOBALtabularframebarheight\textheight][t]{\dimexpr\linewidth-15\fboxrule}%
+	\usebeamercolor[fg]{frametitle}\colorbox{bg}{\begin{minipage}[t][\GLOBALtabularframebarheight\textheight][t]{\dimexpr\linewidth - 15\fboxrule}%
 		\usebeamercolor[fg]{frametitle}{%
 			\ifthenelse{\equal{\GLOBALtabularframebartextcentered}{false}}{%
 				\verticallycentertext{\GLOBALtabularframebarfontsize{#2}}%
@@ -151,7 +151,7 @@
 	\vspace{-2.5\fboxrule}
 	\begin{columns}[t,onlytextwidth]%
 		\column{\GLOBALtabularframecontentwidthleft\linewidth}%
-		\usebeamercolor[fg]{block body}\colorbox{bg}{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth-15\fboxrule}%
+		\usebeamercolor[fg]{block body}\colorbox{bg}{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 15\fboxrule}%
 			\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
 				#1%
 			}{%
@@ -160,7 +160,7 @@
 		\end{minipage}}%
 		\column{\GLOBALtabularframecontentwidthright\linewidth}%
 		\centering
-		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth-10\fboxrule}%
+		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 10\fboxrule}%
 			\ifthenelse{\equal{\GLOBALtabularframecontentrightcentered}{false}}{%
 				#2%
 			}{%
@@ -188,7 +188,7 @@
 	\fi
 	\begin{columns}[t,onlytextwidth]%
 		\column{1\linewidth}%
-		\colorbox{\tabularframesinglecontentemptycolor}{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth-15\fboxrule}%
+		\colorbox{\tabularframesinglecontentemptycolor}{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 15\fboxrule}%
 				\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
 					#2%
 				}{%

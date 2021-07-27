@@ -102,7 +102,7 @@
 		\begin{equation}
 			\hfilneg \text{#1} #2 \hspace{10000pt minus 1fil}
 		\end{equation}
-		\vspace{\dimexpr-0.2\baselineskip +\marginequationbottom cm}%
+		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 		\end{samepage}
 	}{%
 		\ifx\hfuzz#1\hfuzz%
@@ -117,12 +117,12 @@
 %	#1	Ecuación
 \newcommand{\insertequationleftanum}[1]{%
 	\emptyvarerr{\insertequationleftanum}{#1}{Ecuacion no definida}%
-	\vspace{\dimexpr\marginequationtop cm -\baselineskip}%
+	\vspace{\dimexpr\marginequationtop cm - \baselineskip}%
 	\begin{samepage}%
 	\begin{equation*}
 		\hfilneg \ensuremath{#1} \hspace{10000pt minus 1fil}
 	\end{equation*}
-	\vspace{\dimexpr-0.2\baselineskip +\marginequationbottom cm}%
+	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 	\end{samepage}
 }
 
@@ -132,12 +132,12 @@
 \newcommand{\insertequationright}[2][]{%
 	\emptyvarerr{\insertequationright}{#2}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\vspace{\dimexpr\marginequationtop cm -\baselineskip}%
+		\vspace{\dimexpr\marginequationtop cm - \baselineskip}%
 		\begin{samepage}%
 		\begin{equation}
 			\hspace{10000pt minus 1fil} \text{#1} #2 \hfilneg
 		\end{equation}
-		\vspace{\dimexpr-0.2\baselineskip +\marginequationbottom cm}%
+		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 		\end{samepage}
 	}{%
 		\ifx\hfuzz#1\hfuzz%
@@ -152,12 +152,12 @@
 %	#1	Ecuación
 \newcommand{\insertequationrightanum}[1]{%
 	\emptyvarerr{\insertequationrightanum}{#1}{Ecuacion no definida}%
-	\vspace{\dimexpr\marginequationtop cm -\baselineskip}%
+	\vspace{\dimexpr\marginequationtop cm - \baselineskip}%
 	\begin{samepage}%
 	\begin{equation*}
 		\hspace{10000pt minus 1fil} \ensuremath{#1} \hfilneg
 	\end{equation*}
-	\vspace{\dimexpr-0.2\baselineskip +\marginequationbottom cm}%
+	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 	\end{samepage}
 }
 
@@ -323,7 +323,7 @@
 	\begin{gather*}
 		\ensuremath{#1}
 	\end{gather*}
-	\vspace{\dimexpr-0.15cm +\margingatheredbottom cm}%
+	\vspace{\dimexpr-0.15cm + \margingatheredbottom cm}%
 	\end{samepage}
 }
 
@@ -371,9 +371,9 @@
 		\begin{gather*}
 			\ensuremath{#1}
 		\end{gather*}
-		\vspace{\dimexpr-0.2cm +\margingatheredcapttop cm}%
+		\vspace{\dimexpr-0.2cm + \margingatheredcapttop cm}%
 		\coreinsertequationcaption{#2}%
-		\vspace{\dimexpr-0.05cm +\margingatheredcaptbottom cm}%
+		\vspace{\dimexpr-0.05cm + \margingatheredcaptbottom cm}%
 		\end{samepage}
 	\fi
 }
@@ -485,7 +485,7 @@
 	\begin{align*}
 		\ensuremath{#1}
 	\end{align*}
-	\vspace{\dimexpr-0.2cm +\marginalignedbottom cm}%
+	\vspace{\dimexpr-0.2cm + \marginalignedbottom cm}%
 	\end{samepage}
 }
 
