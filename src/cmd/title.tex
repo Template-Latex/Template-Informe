@@ -13,7 +13,7 @@
 
 % Activa la numeración en las secciones
 \def\coreintializetitlenumbering {
-	% section
+	% Section
 	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{
 		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
 			\renewcommand{\thesection}{\Alph{section}}
@@ -27,19 +27,19 @@
 			\renewcommand{\thesection}{\thechapter.\arabic{section}}
 		}
 	}
-	% subsection
+	% Subsection
 	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
 		\renewcommand{\thesubsection}{\arabic{subsection}}
 	}{
 		\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 	}
-	% subsubsection
+	% Subsubsection
 	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
 		\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
 	}{
 		\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 	}
-	% subsubsubsection
+	% Subsubsubsection
 	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
 		\ifthenelse{\equal{\showdotaftersnum}{true}}{
 			\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}.}
