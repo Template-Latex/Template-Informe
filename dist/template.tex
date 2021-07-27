@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.3.3 (27/07/2021)
+% Versión:      7.3.4 (27/07/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -848,7 +848,9 @@
 % Agrega una carpeta al path de imágenes
 %	#1	Carpeta
 \makeatletter
-\newcommand\addpathimage[1]{\gappto\Ginput@path{{#1}}}
+\newcommand\addpathimage[1]{%
+	\gappto\Ginput@path{{#1}}%
+}
 \makeatother
 
 % Verifica que un tamaño de fuente sea correcto
@@ -874,20 +876,20 @@
 % Insertar sub-índice, a_b
 % 	#1	Elemento inferior (a)
 %	#2	Elemento superior (b)
-\newcommand{\lpow}[2]{
+\newcommand{\lpow}[2]{%
 	\ensuremath{{#1}_{#2}}
 }
 
 % Insertar elevado, a^b
 % 	#1	Elemento inferior (a)
 %	#2	Elemento superior (b)
-\newcommand{\pow}[2]{
+\newcommand{\pow}[2]{%
 	\ensuremath{{#1}^{#2}}
 }
 
 % Inserta inverso función seno, sin^-1
 %	#1	Elemento
-\newcommand{\aasin}[1][]{
+\newcommand{\aasin}[1][]{%
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\sin^{-1}#1}
 	\else
@@ -897,7 +899,7 @@
 
 % Inserta inverso función coseno, cos^-1
 %	#1	Elemento
-\newcommand{\aacos}[1][]{
+\newcommand{\aacos}[1][]{%
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\cos^{-1}#1}
 	\else
@@ -907,7 +909,7 @@
 
 % Inserta inverso función tangente, tan^-1
 %	#1	Elemento
-\newcommand{\aatan}[1][]{
+\newcommand{\aatan}[1][]{%
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\tan^{-1}#1}
 	\else
@@ -917,7 +919,7 @@
 
 % Inserta inverso función cosecante, csc^-1
 %	#1	Elemento
-\newcommand{\aacsc}[1][]{
+\newcommand{\aacsc}[1][]{%
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\csc^{-1}#1}
 	\else
@@ -927,7 +929,7 @@
 
 % Inserta inverso función secante, sec^-1
 %	#1	Elemento
-\newcommand{\aasec}[1][]{
+\newcommand{\aasec}[1][]{%
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\sec^{-1}#1}
 	\else
@@ -937,7 +939,7 @@
 
 % Inserta inverso función cotangente, cot^-1
 %	#1	Elemento
-\newcommand{\aacot}[1][]{
+\newcommand{\aacot}[1][]{%
 	\ifx\hfuzz#1\hfuzz
 		\ensuremath{\cot^{-1}#1}
 	\else
@@ -948,14 +950,14 @@
 % Fracción de derivadas parciales af/ax
 % 	#1	Función a derivar (f)
 %	#2	Variable a derivar (x)
-\newcommand{\fracpartial}[2]{
+\newcommand{\fracpartial}[2]{%
 	\ensuremath{\pdv{#1}{#2}}
 }
 
 % Fracción de derivadas parciales dobles a^2f/ax^2
 % 	#1	Función a derivar (f)
 %	#2	Variable a derivar (x)
-\newcommand{\fracdpartial}[2]{
+\newcommand{\fracdpartial}[2]{%
 	\ensuremath{\pdv[2]{#1}{#2}}
 }
 
@@ -963,21 +965,21 @@
 % 	#1	Función a derivar (f)
 %	#2	Variable a derivar (x)
 %	#3	Orden (n)
-\newcommand{\fracnpartial}[3]{
+\newcommand{\fracnpartial}[3]{%
 	\ensuremath{\pdv[#3]{#1}{#2}}
 }
 
 % Fracción de derivadas df/dx
 % 	#1	Función a derivar (f)
 %	#2	Variable a derivar (x)
-\newcommand{\fracderivat}[2]{
+\newcommand{\fracderivat}[2]{%
 	\ensuremath{\dv{#1}{#2}}
 }
 
 % Fracción de derivadas dobles d^2/dx^2
 % 	#1	Función a derivar (f)
 %	#2	Variable a derivar (x)
-\newcommand{\fracdderivat}[2]{
+\newcommand{\fracdderivat}[2]{%
 	\ensuremath{\dv[2]{#1}{#2}}
 }
 
@@ -985,140 +987,150 @@
 % 	#1	Función a derivar (f)
 %	#2	Variable a derivar (x)
 %	#3	Orden de la derivada (n)
-\newcommand{\fracnderivat}[3]{
+\newcommand{\fracnderivat}[3]{%
 	\ensuremath{\dv[#3]{#1}{#2}}
 }
 
 % Llave superior de equivalencia
 % 	#1	Elemento a igualar
 %	#2	Igualdad
-\newcommand{\topequal}[2]{
+\newcommand{\topequal}[2]{%
 	\ensuremath{\overbrace{#1}^{\mathclap{#2}}}
 }
-\newcommand{\topequaltext}[2]{\topequal{#1}{\text{#2}}}
+\newcommand{\topequaltext}[2]{%
+	\topequal{#1}{\text{#2}}
+}
 
 % Llave inferior de equivalencia
 % 	#1	Elemento a igualar
 %	#2	Igualdad
-\newcommand{\underequal}[2]{
+\newcommand{\underequal}[2]{%
 	\ensuremath{\underbrace{#1}_{\mathclap{#2}}}
 }
-\newcommand{\underequaltext}[2]{\underequal{#1}{\text{#2}}}
+\newcommand{\underequaltext}[2]{%
+	\underequal{#1}{\text{#2}}
+}
 
 % Rectángulo superior de equivalencia
 % 	#1	Elemento a igualar
 %	#2	Igualdad
-\newcommand{\topsequal}[2]{
+\newcommand{\topsequal}[2]{%
 	\ensuremath{\overbracket{#1}^{\mathclap{#2}}}
 }
-\newcommand{\topsequaltext}[2]{\topsequal{#1}{\text{#2}}}
+\newcommand{\topsequaltext}[2]{%
+	\topsequal{#1}{\text{#2}}
+}
 
 % Rectángulo inferior de equivalencia
 % 	#1	Elemento a igualar
 %	#2	Igualdad
-\newcommand{\undersequal}[2]{
+\newcommand{\undersequal}[2]{%
 	\ensuremath{\underbracket{#1}_{\mathclap{#2}}}
 }
-\newcommand{\undersequaltext}[2]{\undersequal{#1}{\text{#2}}}
+\newcommand{\undersequaltext}[2]{%
+	\undersequal{#1}{\text{#2}}
+}
 
 % Función piso
 % 	#1	Elemento
-\newcommand{\floorexp}[1]{
+\newcommand{\floorexp}[1]{%
 	\ensuremath{\left\lfloor{#1}\right\rfloor}
 }
 
 % Función techo
 % 	#1	Elemento
-\newcommand{\ceilexp}[1]{
+\newcommand{\ceilexp}[1]{%
 	\ensuremath{\left\lceil{#1}\right\rceil}
 }
 
 % Función mod
 %	#1	Elemento tal que (mod #1)
-\newcommand{\Mod}[1]{
+\newcommand{\Mod}[1]{%
 	\ensuremath{\ (\mathrm{mod}\ #1)}
 }
 
 % Paréntesis grande
 % 	#1	Expresión
-\newcommand{\bigp}[1]{
+\newcommand{\bigp}[1]{%
 	\ensuremath{\big(#1\big)}
 }
 
 % Paréntesis g+grande
 % 	#1	Expresión
-\newcommand{\biggp}[1]{
+\newcommand{\biggp}[1]{%
 	\ensuremath{\bigg(#1\bigg)}
 }
 
 % Cajón grande
 % 	#1	Expresión
-\newcommand{\bigc}[1]{
+\newcommand{\bigc}[1]{%
 	\ensuremath{\big[#1\big]}
 }
 
 % Cajón g+grande
 % 	#1	Expresión
-\newcommand{\biggc}[1]{
+\newcommand{\biggc}[1]{%
 	\ensuremath{\bigg[#1\bigg]}
 }
 
 % Llave grande
 % 	#1	Expresión
-\newcommand{\bigb}[1]{
+\newcommand{\bigb}[1]{%
 	\ensuremath{\big\{#1\big\}}
 }
 
 % Llave g+grande
 % 	#1	Expresión
-\newcommand{\biggb}[1]{
+\newcommand{\biggb}[1]{%
 	\ensuremath{\bigg\{#1\bigg\}}
 }
 
 % Expresión divergencia
-\newcommand{\divexp}{
+\newcommand{\divexp}{%
 	\ensuremath{\rm{div}\ }
 }
 
 % Expresión automorfismo
-\newcommand{\Autexp}{
+\newcommand{\Autexp}{%
 	\ensuremath{\rm{Aut}}
 }
 
 % Negrita introducida por word
 % 	#1	Expresión
-\newcommand{\mathbit}[1]{
+\newcommand{\mathbit}[1]{%
 	\bm{#1}
 }
 
 % Expresión diff
-\newcommand{\Diffexp}{
+\newcommand{\Diffexp}{%
 	\ensuremath{\rm{Diff}}
 }
 
 % Expresión imaginario
-\newcommand{\Imexp}{
+\newcommand{\Imexp}{%
 	\ensuremath{\rm{Im}}
 }
 
 % Expresión imaginario en z
-\newcommand{\Imzexp}{
+\newcommand{\Imzexp}{%
 	\ensuremath{\rm{Im}(z)}
 }
 
 % Expresión real
-\newcommand{\Reexp}{
+\newcommand{\Reexp}{%
 	\ensuremath{\rm{Re}}
 }
 
 % Expresión real en z
-\newcommand{\Rezexp}{
+\newcommand{\Rezexp}{%
 	\ensuremath{\rm{Re}(z)}
 }
 
 % Barra superior en elemento
 %	#1 	Elemento
-\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\overbar}[1]{%
+	\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu
+}
 
 % Función \tilde{} pero que encierra todo el texto
 %	#1 	Elemento
@@ -1254,135 +1266,147 @@
 % Insertar una ecuación
 % 	#1	Label (opcional)
 %	#2	Ecuación
-\newcommand{\insertequation}[2][]{
-	\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}
-	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{\marginequationtop cm}
-		\begin{equation}
+\newcommand{\insertequation}[2][]{%
+	\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}%
+	\ifthenelse{\equal{\numberedequation}{true}}{%
+		\vspace{\marginequationtop cm}%
+		\begin{samepage}%
+		\begin{equation}%
 			\text{#1} #2
 		\end{equation}
-		\vspace{\marginequationbottom cm}
-	}{
-		\ifx\hfuzz#1\hfuzz
-		\else
+		\vspace{\marginequationbottom cm}%
+		\end{samepage}
+	}{%
+		\ifx\hfuzz#1\hfuzz%
+		\else%
 			\throwwarning{Label invalido en ecuacion sin numero}
 		\fi
-		\insertequationanum{#2}
+		\insertequationanum{#2}%
 	}
 }
 
 % Insertar una ecuación sin número
 %	#1	Ecuación
-\newcommand{\insertequationanum}[1]{
-	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}
-	\vspace{\marginequationtop cm}
-	\begin{equation*}
+\newcommand{\insertequationanum}[1]{%
+	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}%
+	\vspace{\marginequationtop cm}%
+	\begin{samepage}%
+	\begin{equation*}%
 		\ensuremath{#1}
 	\end{equation*}
-	\vspace{\marginequationbottom cm}
+	\vspace{\marginequationbottom cm}%
+	\end{samepage}
 }
 
 % Insertar una ecuación en el índice
 % 	#1	Label (opcional)
 %	#2	Ecuación
 %	#3	Título de la ecuación
-\newcommand{\insertindexequation}[3][]{
-	\emptyvarerr{\insertindexequation}{#2}{Ecuacion no definida}
-	\emptyvarerr{\insertindexequation}{#3}{Leyenda no definida}
-	\vspace{\margineqnindextop cm}
-	\begin{align}
+\newcommand{\insertindexequation}[3][]{%
+	\emptyvarerr{\insertindexequation}{#2}{Ecuacion no definida}%
+	\emptyvarerr{\insertindexequation}{#3}{Leyenda no definida}%
+	\vspace{\margineqnindextop cm}%
+	\begin{samepage}%
+	\begin{align}%
 		\text{#1} \ensuremath{#2}
 	\end{align}
 	\myindexequations{#3}%
 	\vspace{\margineqnindexbottom cm}%
+	\end{samepage}
 	\coreinsertequationcaption{\textit{#3}}%
-	\addtocounter{templateIndexEquations}{1}
+	\addtocounter{templateIndexEquations}{1}%
 }
 
 % Insertar una ecuación alineada a la izquierda
 % 	#1	Label (opcional)
 %	#2	Ecuación
-\newcommand{\insertequationleft}[2][]{
-	\emptyvarerr{\insertequationleft}{#2}{Ecuacion no definida}
-	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{\marginequationtop cm}
-		\vspace{-\baselineskip}
+\newcommand{\insertequationleft}[2][]{%
+	\emptyvarerr{\insertequationleft}{#2}{Ecuacion no definida}%
+	\ifthenelse{\equal{\numberedequation}{true}}{%
+		\vspace{\dimexpr\marginequationtop cm - \baselineskip}%
+		\begin{samepage}%
 		\begin{equation}
 			\hfilneg \text{#1} #2 \hspace{10000pt minus 1fil}
 		\end{equation}
-		\vspace{\marginequationbottom cm}
-	}{
-		\ifx\hfuzz#1\hfuzz
+		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
+		\end{samepage}
+	}{%
+		\ifx\hfuzz#1\hfuzz%
 		\else
 			\throwwarning{Label invalido en ecuacion sin numero}
 		\fi
-		\insertequationleftanum{#2}
+		\insertequationleftanum{#2}%
 	}
 }
 
 % Insertar una ecuación sin número alineada a la izquierda
 %	#1	Ecuación
-\newcommand{\insertequationleftanum}[1]{
-	\emptyvarerr{\insertequationleftanum}{#1}{Ecuacion no definida}
-	\vspace{\marginequationtop cm}
-	\vspace{-\baselineskip}
+\newcommand{\insertequationleftanum}[1]{%
+	\emptyvarerr{\insertequationleftanum}{#1}{Ecuacion no definida}%
+	\vspace{\dimexpr\marginequationtop cm - \baselineskip}%
+	\begin{samepage}%
 	\begin{equation*}
 		\hfilneg \ensuremath{#1} \hspace{10000pt minus 1fil}
 	\end{equation*}
-	\vspace{\marginequationbottom cm}
+	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
+	\end{samepage}
 }
 
 % Insertar una ecuación alineada a la derecha
 % 	#1	Label (opcional)
 %	#2	Ecuación
-\newcommand{\insertequationright}[2][]{
-	\emptyvarerr{\insertequationright}{#2}{Ecuacion no definida}
-	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{\marginequationtop cm}
-		\vspace{-\baselineskip}
+\newcommand{\insertequationright}[2][]{%
+	\emptyvarerr{\insertequationright}{#2}{Ecuacion no definida}%
+	\ifthenelse{\equal{\numberedequation}{true}}{%
+		\vspace{\dimexpr\marginequationtop cm - \baselineskip}%
+		\begin{samepage}%
 		\begin{equation}
 			\hspace{10000pt minus 1fil} \text{#1} #2 \hfilneg
 		\end{equation}
-		\vspace{\marginequationbottom cm}
-	}{
-		\ifx\hfuzz#1\hfuzz
+		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
+		\end{samepage}
+	}{%
+		\ifx\hfuzz#1\hfuzz%
 		\else
 			\throwwarning{Label invalido en ecuacion sin numero}
 		\fi
-		\insertequationrightanum{#2}
+		\insertequationrightanum{#2}%
 	}
 }
 
 % Insertar una ecuación sin número alineada a la derecha
 %	#1	Ecuación
-\newcommand{\insertequationrightanum}[1]{
-	\emptyvarerr{\insertequationrightanum}{#1}{Ecuacion no definida}
-	\vspace{\marginequationtop cm}
-	\vspace{-\baselineskip}
+\newcommand{\insertequationrightanum}[1]{%
+	\emptyvarerr{\insertequationrightanum}{#1}{Ecuacion no definida}%
+	\vspace{\dimexpr\marginequationtop cm - \baselineskip}%
+	\begin{samepage}%
 	\begin{equation*}
 		\hspace{10000pt minus 1fil} \ensuremath{#1} \hfilneg
 	\end{equation*}
-	\vspace{\marginequationbottom cm}
+	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
+	\end{samepage}
 }
 
 % Insertar una ecuación con leyenda
 % 	#1	Label (opcional)
 %	#2	Ecuación
 %	#3	Leyenda
-\newcommand{\insertequationcaptioned}[3][]{
-	\emptyvarerr{\insertequationcaptioned}{#2}{Ecuacion no definida}
-	\ifx\hfuzz#3\hfuzz
-		\insertequation[#1]{#2}
+\newcommand{\insertequationcaptioned}[3][]{%
+	\emptyvarerr{\insertequationcaptioned}{#2}{Ecuacion no definida}%
+	\ifx\hfuzz#3\hfuzz%
+		\insertequation[#1]{#2}%
 	\else
-		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{\marginequationtop cm}
+		\ifthenelse{\equal{\numberedequation}{true}}{%
+			\vspace{\marginequationtop cm}%
+			\begin{samepage}%
 			\begin{equation}
 				\text{#1} #2
 			\end{equation}
-			\vspace{\margineqncaptiontop cm}
-			\coreinsertequationcaption{#3}
-			\vspace{\margineqncaptionbottom cm}
-		}{
+			\vspace{\margineqncaptiontop cm}%
+			\coreinsertequationcaption{#3}%
+			\vspace{\margineqncaptionbottom cm}%
+			\end{samepage}
+		}{%
 			\ifx\hfuzz#1\hfuzz
 			\else
 				\throwwarning{Label invalido en ecuacion sin numero}
@@ -1395,65 +1419,73 @@
 % Insertar una ecuación con leyenda sin número
 %	#1	Ecuación
 %	#2	Leyenda
-\newcommand{\insertequationcaptionedanum}[2]{
-	\emptyvarerr{\insertequationcaptionedanum}{#1}{Ecuacion no definida}
-	\ifx\hfuzz#2\hfuzz
-		\insertequationanum{#1}
+\newcommand{\insertequationcaptionedanum}[2]{%
+	\emptyvarerr{\insertequationcaptionedanum}{#1}{Ecuacion no definida}%
+	\ifx\hfuzz#2\hfuzz%
+		\insertequationanum{#1}%
 	\else
-		\vspace{\marginequationtop cm}
+		\vspace{\marginequationtop cm}%
+		\begin{samepage}%
 		\begin{equation*}
 			\ensuremath{#1}%
 		\end{equation*}%
 		\vspace{\margineqncaptiontop cm}%
-		\coreinsertequationcaption{#2}
-		\vspace{\margineqncaptionbottom cm}
+		\coreinsertequationcaption{#2}%
+		\vspace{\margineqncaptionbottom cm}%
+		\end{samepage}
 	\fi
 }
 
 % Insertar una ecuación con el ambiente gather
 %	#1	Ecuación
-\newcommand{\insertgather}[1]{
-	\emptyvarerr{\insertgather}{#1}{Ecuacion no definida}
-	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{\margingathertop cm}
-		\begin{gather}
+\newcommand{\insertgather}[1]{%
+	\emptyvarerr{\insertgather}{#1}{Ecuacion no definida}%
+	\ifthenelse{\equal{\numberedequation}{true}}{%
+		\vspace{\margingathertop cm}%
+		\begin{samepage}%
+		\begin{gather}%
 			\ensuremath{#1}
 		\end{gather}
-		\vspace{\margingatherbottom cm}
-	}{
-		\insertgatheranum{#1}
+		\vspace{\margingatherbottom cm}%
+		\end{samepage}
+	}{%
+		\insertgatheranum{#1}%
 	}
 }
 
 % Insertar una ecuación con el ambiente gather sin número
 %	#1	Ecuación
-\newcommand{\insertgatheranum}[1]{
-	\emptyvarerr{\insertgatheranum}{#1}{Ecuacion no definida}
-	\vspace{\margingathertop cm}
-	\begin{gather*}
+\newcommand{\insertgatheranum}[1]{%
+	\emptyvarerr{\insertgatheranum}{#1}{Ecuacion no definida}%
+	\vspace{\margingathertop cm}%
+	\begin{samepage}%
+	\begin{gather*}%
 		\ensuremath{#1}
 	\end{gather*}
-	\vspace{\margingatherbottom cm}
+	\vspace{\margingatherbottom cm}%
+	\end{samepage}
 }
 
 % Insertar una ecuación (gather) con leyenda
 %	#1	Ecuación
 %	#2	Leyenda
-\newcommand{\insertgathercaptioned}[2]{
-	\emptyvarerr{\insertgathercaptioned}{#1}{Ecuacion no definida}
-	\ifx\hfuzz#2\hfuzz
-		\insertgather{#1}
+\newcommand{\insertgathercaptioned}[2]{%
+	\emptyvarerr{\insertgathercaptioned}{#1}{Ecuacion no definida}%
+	\ifx\hfuzz#2\hfuzz%
+		\insertgather{#1}%
 	\else
-		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{\margingathertop cm}
-			\begin{gather}
+		\ifthenelse{\equal{\numberedequation}{true}}{%
+			\vspace{\margingathertop cm}%
+			\begin{samepage}%
+			\begin{gather}%
 				\ensuremath{#1}
 			\end{gather}
-			\vspace{\margingathercapttop cm}
-			\coreinsertequationcaption{#2}
-			\vspace{\margingathercaptbottom cm}
-		}{
-			\insertgathercaptionedanum{#1}{#2}
+			\vspace{\margingathercapttop cm}%
+			\coreinsertequationcaption{#2}%
+			\vspace{\margingathercaptbottom cm}%
+			\end{samepage}
+		}{%
+			\insertgathercaptionedanum{#1}{#2}%
 		}
 	\fi
 }
@@ -1461,83 +1493,93 @@
 % Insertar una ecuación (gather) con leyenda sin número
 %	#1	Ecuación
 %	#2	Leyenda
-\newcommand{\insertgathercaptionedanum}[2]{
-	\emptyvarerr{\insertgathercaptionedanum}{#1}{Ecuacion no definida}
-	\ifx\hfuzz#2\hfuzz
-		\insertgatheranum{#1}
+\newcommand{\insertgathercaptionedanum}[2]{%
+	\emptyvarerr{\insertgathercaptionedanum}{#1}{Ecuacion no definida}%
+	\ifx\hfuzz#2\hfuzz%
+		\insertgatheranum{#1}%
 	\else
-		\vspace{\margingathertop cm}
-		\begin{gather*}
+		\vspace{\margingathertop cm}%
+		\begin{samepage}%
+		\begin{gather*}%
 			\ensuremath{#1}
 		\end{gather*}
-		\vspace{\margingathercapttop cm}
-		\coreinsertequationcaption{#2}
-		\vspace{\margingathercaptbottom cm}
+		\vspace{\margingathercapttop cm}%
+		\coreinsertequationcaption{#2}%
+		\vspace{\margingathercaptbottom cm}%
+		\end{samepage}
 	\fi
 }
 
 % Insertar una ecuación con el ambiente gathered
 % 	#1	Label (opcional)
 %	#2	Ecuación
-\newcommand{\insertgathered}[2][]{
-	\emptyvarerr{\insertgathered}{#2}{Ecuacion no definida}
-	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{\marginequationtop cm}
+\newcommand{\insertgathered}[2][]{%
+	\emptyvarerr{\insertgathered}{#2}{Ecuacion no definida}%
+	\ifthenelse{\equal{\numberedequation}{true}}{%
+		\vspace{\marginequationtop cm}%
+		\begin{samepage}%
 		\begin{equation}
 			\begin{gathered}
 				\text{#1} \ensuremath{#2}
 			\end{gathered}
 		\end{equation}
-		\vspace{\margingatheredbottom cm}
-	}{
+		\vspace{\margingatheredbottom cm}%
+		\end{samepage}
+	}{%
 		\ifx\hfuzz#1\hfuzz
 		\else
 			\throwwarning{Label invalido en ecuacion (gathered) sin numero}
 		\fi
-		\vspace{\margingatheredtop cm}
-		\begin{gather*}
+		\vspace{\margingatheredtop cm}%
+		\begin{samepage}%
+		\begin{gather*}%
 			\ensuremath{#2}
 		\end{gather*}
-		\vspace{\margingatheredbottom cm}
+		\vspace{\margingatheredbottom cm}%
+		\end{samepage}
 	}
 }
 
 % Insertar una ecuación con el ambiente gathered sin número
 %	#1	Ecuación
-\newcommand{\insertgatheredanum}[1]{
-	\emptyvarerr{\insertgatheredanum}{#1}{Ecuacion no definida}
-	\vspace{\margingatheredtop cm}
+\newcommand{\insertgatheredanum}[1]{%
+	\emptyvarerr{\insertgatheredanum}{#1}{Ecuacion no definida}%
+	\vspace{\margingatheredtop cm}%
+	\begin{samepage}%
 	\begin{gather*}
 		\ensuremath{#1}
 	\end{gather*}
-	\vspace{\margingatheredbottom cm}
+	\vspace{\dimexpr-0.15cm + \margingatheredbottom cm}%
+	\end{samepage}
 }
 
 % Insertar una ecuación (gathered) con leyenda
 % 	#1	Label (opcional)
 %	#2	Ecuación
 %	#3	Leyenda
-\newcommand{\insertgatheredcaptioned}[3][]{
-	\emptyvarerr{\insertgatheredcaptioned}{#2}{Ecuacion no definida}
-	\ifx\hfuzz#3\hfuzz
-		\insertgathered[#1]{#2}
+\newcommand{\insertgatheredcaptioned}[3][]{%
+	\emptyvarerr{\insertgatheredcaptioned}{#2}{Ecuacion no definida}%
+	\ifx\hfuzz#3\hfuzz%
+		\insertgathered[#1]{#2}%
 	\else
-		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{\marginequationtop cm}
+		\ifthenelse{\equal{\numberedequation}{true}}{%
+			\vspace{\marginequationtop cm}%
+			\begin{samepage}%
 			\begin{equation}
 				\begin{gathered}
 					\text{#1} \ensuremath{#2}
 				\end{gathered}
 			\end{equation}
-			\vspace{\margingatheredcapttop cm}
-			\coreinsertequationcaption{#3}
-			\vspace{\margingatheredcaptbottom cm}
-		}{
+			\vspace{\margingatheredcapttop cm}%
+			\coreinsertequationcaption{#3}%
+			\vspace{\margingatheredcaptbottom cm}%
+			\end{samepage}
+		}{%
 			\ifx\hfuzz#1\hfuzz
 			\else
 				\throwwarning{Label invalido en ecuacion (gathered) sin numero}
 			\fi
-			\insertgatheredcaptionedanum{#2}{#3}
+			\insertgatheredcaptionedanum{#2}{#3}%
 		}
 		\fi
 }
@@ -1547,63 +1589,71 @@
 %	#2	Leyenda
 \newcommand{\insertgatheredcaptionedanum}[2]{
 	\emptyvarerr{\insertgatheredcaptionedanum}{#1}{Ecuacion no definida}
-	\ifx\hfuzz#2\hfuzz
-		\insertgatheredanum{#1}
+	\ifx\hfuzz#2\hfuzz%
+		\insertgatheredanum{#1}%
 	\else
-		\vspace{\margingatheredtop cm}
+		\vspace{\margingatheredtop cm}%
+		\begin{samepage}%
 		\begin{gather*}
 			\ensuremath{#1}
 		\end{gather*}
-		\vspace{\margingatheredcapttop cm}
-		\coreinsertequationcaption{#2}
-		\vspace{\margingathercaptbottom cm}
+		\vspace{\dimexpr-0.2cm + \margingatheredcapttop cm}%
+		\coreinsertequationcaption{#2}%
+		\vspace{\dimexpr-0.05cm + \margingatheredcaptbottom cm}%
+		\end{samepage}
 	\fi
 }
 
 % Insertar una ecuación con el ambiente align
 %	#1	Ecuación
-\newcommand{\insertalign}[1]{
-	\emptyvarerr{\insertalign}{#1}{Ecuacion no definida}
-	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{\marginaligntop cm}
+\newcommand{\insertalign}[1]{%
+	\emptyvarerr{\insertalign}{#1}{Ecuacion no definida}%
+	\ifthenelse{\equal{\numberedequation}{true}}{%
+		\vspace{\marginaligntop cm}%
+		\begin{samepage}%
 		\begin{align}
 			\ensuremath{#1}
 		\end{align}
-		\vspace{\marginalignbottom cm}
-	}{
-		\insertalignanum{#1}
+		\vspace{\marginalignbottom cm}%
+		\end{samepage}
+	}{%
+		\insertalignanum{#1}%
 	}
 }
 
 % Insertar una ecuación con el ambiente align sin número
 %	#1	Ecuación
-\newcommand{\insertalignanum}[1]{
-	\emptyvarerr{\insertalignanum}{#1}{Ecuacion no definida}
-	\vspace{\marginaligntop cm}
+\newcommand{\insertalignanum}[1]{%
+	\emptyvarerr{\insertalignanum}{#1}{Ecuacion no definida}%
+	\vspace{\marginaligntop cm}%
+	\begin{samepage}%
 	\begin{align*}
 		\ensuremath{#1}
 	\end{align*}
-	\vspace{\marginalignbottom cm}
+	\vspace{\marginalignbottom cm}%
+	\end{samepage}
 }
 
 % Insertar una ecuación (align) con leyenda
 %	#1	Ecuación
 %	#2	Leyenda
-\newcommand{\insertaligncaptioned}[2]{
-	\emptyvarerr{\insertaligncaptioned}{#1}{Ecuacion no definida}
-	\ifx\hfuzz#2\hfuzz
-		\insertalign{#1}
+\newcommand{\insertaligncaptioned}[2]{%
+	\emptyvarerr{\insertaligncaptioned}{#1}{Ecuacion no definida}%
+	\ifx\hfuzz#2\hfuzz%
+		\insertalign{#1}%
 	\else
-		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{\marginaligntop cm}
+		\ifthenelse{\equal{\numberedequation}{true}}{%
+			\vspace{\marginaligntop cm}%
+			\begin{samepage}%
 			\begin{align}
 				\ensuremath{#1}
 			\end{align}
-			\vspace{\marginaligncapttop cm}
-			\coreinsertequationcaption{#2}
-			\vspace{\marginaligncaptbottom cm}
-		}{
-			\insertaligncaptionedanum{#1}{#2}
+			\vspace{\marginaligncapttop cm}%
+			\coreinsertequationcaption{#2}%
+			\vspace{\marginaligncaptbottom cm}%
+			\end{samepage}
+		}{%
+			\insertaligncaptionedanum{#1}{#2}%
 		}
 	\fi
 }
@@ -1611,79 +1661,87 @@
 % Insertar una ecuación (align) con leyenda sin número
 %	#1	Ecuación
 %	#2	Leyenda
-\newcommand{\insertaligncaptionedanum}[2]{
-	\emptyvarerr{\insertaligncaptionedanum}{#1}{Ecuacion no definida}
-	\ifx\hfuzz#2\hfuzz
-		\insertalignanum{#1}
+\newcommand{\insertaligncaptionedanum}[2]{%
+	\emptyvarerr{\insertaligncaptionedanum}{#1}{Ecuacion no definida}%
+	\ifx\hfuzz#2\hfuzz%
+		\insertalignanum{#1}%
 	\else
-		\vspace{\marginaligntop cm}
+		\vspace{\marginaligntop cm}%
+		\begin{samepage}%
 		\begin{align*}
 			\ensuremath{#1}
 		\end{align*}
-		\vspace{\marginaligncapttop cm}
-		\coreinsertequationcaption{#2}
-		\vspace{\marginaligncaptbottom cm}
+		\vspace{\marginaligncapttop cm}%
+		\coreinsertequationcaption{#2}%
+		\vspace{\marginaligncaptbottom cm}%
+		\end{samepage}
 	\fi
 }
 
 % Insertar una ecuación con el ambiente aligned
 % 	#1	Label (opcional)
 %	#2	Ecuación
-\newcommand{\insertaligned}[2][]{
-	\emptyvarerr{\insertaligned}{#2}{Ecuacion no definida}
-	\ifthenelse{\equal{\numberedequation}{true}}{
-		\vspace{\marginequationtop cm}
+\newcommand{\insertaligned}[2][]{%
+	\emptyvarerr{\insertaligned}{#2}{Ecuacion no definida}%
+	\ifthenelse{\equal{\numberedequation}{true}}{%
+		\vspace{\marginequationtop cm}%
+		\begin{samepage}%
 		\begin{equation}
 			\begin{aligned}
 				\text{#1} \ensuremath{#2}
 			\end{aligned}
 		\end{equation}
-		\vspace{\marginalignedbottom cm}
-	}{
+		\vspace{\marginalignedbottom cm}%
+		\end{samepage}
+	}{%
 		\ifx\hfuzz#1\hfuzz
 		\else
 			\throwwarning{Label invalido en ecuacion (aligned) sin numero}
 		\fi
-		\insertalignedanum{#2}
+		\insertalignedanum{#2}%
 	}
 }
 
 % Insertar una ecuación con el ambiente aligned sin número
 %	#1	Ecuación
-\newcommand{\insertalignedanum}[1]{
-	\emptyvarerr{\insertalignedanum}{#1}{Ecuacion no definida}
-	\vspace{\marginalignedtop cm}
+\newcommand{\insertalignedanum}[1]{%
+	\emptyvarerr{\insertalignedanum}{#1}{Ecuacion no definida}%
+	\vspace{\marginalignedtop cm}%
+	\begin{samepage}%
 	\begin{align*}
 		\ensuremath{#1}
 	\end{align*}
-	\vspace{\marginalignedbottom cm}
+	\vspace{\dimexpr-0.2cm + \marginalignedbottom cm}%
+	\end{samepage}
 }
 
 % Insertar una ecuación (aligned) con leyenda
 % 	#1	Label (opcional)
 %	#2	Ecuación
 %	#3	Leyenda
-\newcommand{\insertalignedcaptioned}[3][]{
-	\emptyvarerr{\insertalignedcaptioned}{#2}{Ecuacion no definida}
-	\ifx\hfuzz#3\hfuzz
-		\insertaligned[#1]{#2}
+\newcommand{\insertalignedcaptioned}[3][]{%
+	\emptyvarerr{\insertalignedcaptioned}{#2}{Ecuacion no definida}%
+	\ifx\hfuzz#3\hfuzz%
+		\insertaligned[#1]{#2}%
 	\else
-		\ifthenelse{\equal{\numberedequation}{true}}{
-			\vspace{\marginequationtop cm}
+		\ifthenelse{\equal{\numberedequation}{true}}{%
+			\vspace{\marginequationtop cm}%
+			\begin{samepage}%
 			\begin{equation}
 				\begin{aligned}
 					\text{#1} \ensuremath{#2}
 				\end{aligned}
 			\end{equation}
-			\vspace{\marginalignedcapttop cm}
-			\coreinsertequationcaption{#3}
-			\vspace{\marginalignedcaptbottom cm}
-		}{
+			\vspace{\marginalignedcapttop cm}%
+			\coreinsertequationcaption{#3}%
+			\vspace{\marginalignedcaptbottom cm}%
+			\end{samepage}
+		}{%
 			\ifx\hfuzz#1\hfuzz
 			\else
 				\throwwarning{Label invalido en ecuacion (aligned) sin numero}
 			\fi
-			\insertalignedcaptionedanum{#2}{#3}
+			\insertalignedcaptionedanum{#2}{#3}%
 		}
 	\fi
 }
@@ -1691,20 +1749,22 @@
 % Insertar una ecuación (aligned) con leyenda sin número
 %	#1	Ecuación
 %	#2	Leyenda
-\newcommand{\insertalignedcaptionedanum}[2]{
-	\emptyvarerr{\insertalignedcaptionedanum}{#1}{Ecuacion no definida}
-	\ifx\hfuzz#2\hfuzz
-		\insertalignedanum{#1}
+\newcommand{\insertalignedcaptionedanum}[2]{%
+	\emptyvarerr{\insertalignedcaptionedanum}{#1}{Ecuacion no definida}%
+	\ifx\hfuzz#2\hfuzz%
+		\insertalignedanum{#1}%
 	\else
-		\vspace{\marginequationtop cm}
+		\vspace{\marginequationtop cm}%
+		\begin{samepage}%
 		\begin{equation}
 			\begin{aligned}
 				\ensuremath{#1}
 			\end{aligned}
 		\end{equation}
-		\vspace{\marginalignedcapttop cm}
-		\coreinsertequationcaption{#2}
-		\vspace{\marginalignedcaptbottom cm}
+		\vspace{\marginalignedcapttop cm}%
+		\coreinsertequationcaption{#2}%
+		\vspace{\marginalignedcaptbottom cm}%
+		\end{samepage}
 	\fi
 }
 
@@ -1808,6 +1868,7 @@
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}%
 	\checkoutsideenvimage%
 	\vspace{\marginimagetop cm}%
+	\begin{samepage}%
 	\begin{figure}[H]%
 		\thisfloatpagestyle{fancy}%
 		\begingroup%
@@ -1824,8 +1885,9 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi
 	\end{figure}
-	\vspace{\marginimagebottom cm}
-	\resetindexcaption
+	\vspace{\marginimagebottom cm}%
+	\end{samepage}
+	\resetindexcaption%
 }
 
 % Insertar una imagen completa en un entorno multicol
@@ -1846,73 +1908,85 @@
 %	#5	Posición, "bottom", "top", "fixed2", "fixed3", "fixed4"
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimageboxedmc}[6][]{%
-	\emptyvarerr{\insertimageboxedmc}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageboxedmc}{#3}{Parametros de la imagen no definidos}
-	\emptyvarerr{\insertimageboxedmc}{#4}{Ancho de la linea no definido}
-	\emptyvarerr{\insertimageboxedmc}{#5}{Posicion de la imagen no definida}
-	\checkoutsideenvimage
-	\checkinsidemulticol
-	\setcaptionmargincm{\captionlrmarginmc}
+	\emptyvarerr{\insertimageboxedmc}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageboxedmc}{#3}{Parametros de la imagen no definidos}%
+	\emptyvarerr{\insertimageboxedmc}{#4}{Ancho de la linea no definido}%
+	\emptyvarerr{\insertimageboxedmc}{#5}{Posicion de la imagen no definida}%
+	\checkoutsideenvimage%
+	\checkinsidemulticol%
+	\setcaptionmargincm{\captionlrmarginmc}%
 	\ifthenelse{\equal{#5}{bottom}}{%
+		\begin{samepage}%
 		\begin{figure*}[hb]
 	}{
 	\ifthenelse{\equal{#5}{top}}{%
+		\begin{samepage}%
 		\begin{figure*}[ht]
 	}{
 	\ifthenelse{\equal{#5}{fixed2}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[h]
 	}{
 	\ifthenelse{\equal{#5}{fixed2b}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[b]
 	}{
 	\ifthenelse{\equal{#5}{fixed2t}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[t]
 	}{
 	\ifthenelse{\equal{#5}{fixed3}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[h]
 	}{
 	\ifthenelse{\equal{#5}{fixed3b}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[b]
 	}{
 	\ifthenelse{\equal{#5}{fixed3t}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[t]
 	}{
 	\ifthenelse{\equal{#5}{fixed4}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[h]
 	}{
 	\ifthenelse{\equal{#5}{fixed4b}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[h]
 	}{
 	\ifthenelse{\equal{#5}{fixed4t}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[h]
 	}{
 		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top,fixed2,fixed2b,fixed2t,fixed3,fixed3b,fixed3t,fixed4,fixed4b,fixed4t}
 		\stop}}}}}}}}}}
 	}
-		\thisfloatpagestyle{fancy}
+		\thisfloatpagestyle{fancy}%
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
 			\setlength{\fboxrule}{#4 pt}
 			\centering
 			\fbox{\includegraphics[#3]{#2}}%
 		\endgroup
-		\ifx\hfuzz#6\hfuzz
-			\vspace{\captionlessmarginimage cm}
+		\ifx\hfuzz#6\hfuzz%
+			\vspace{\captionlessmarginimage cm}%
 		\else
 			\hspace{0cm}
 			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{figure*}
+	\end{samepage}
 	\ifthenelse{\equal{#5}{fixed2}}{%
 		\begin{multicols}{2}
 	}{
@@ -1986,12 +2060,12 @@
 %	#4	Ancho de la línea (en pt)
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftboxed}[5][]{%
-	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}
-	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}%
+	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{l}{#3\linewidth}%
 		% \thisfloatpagestyle{fancy} no funciona bien
@@ -2012,8 +2086,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la izquierda, ajustada en un número de líneas, escalada, ancho fijo
@@ -2034,13 +2108,13 @@
 %	#5	Altura en líneas de la imagen
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftlineboxed}[6][]{%
-	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}
-	\emptyvarerr{\insertimageleftlineboxed}{#4}{Ancho de la linea no definido}
+	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}%
+	\emptyvarerr{\insertimageleftlineboxed}{#4}{Ancho de la linea no definido}%
 	\emptyvarerr{\insertimageleftlineboxed}{#5}{Altura en lineas de la imagen flotante izquierda no definida}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#5]{l}{#3\linewidth}%
 		\setcaptionmargincm{0}
@@ -2059,8 +2133,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la derecha, escalada, ancho fijo
@@ -2079,12 +2153,12 @@
 %	#4	Ancho de la línea (en pt)
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightboxed}[5][]{%
-	\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}
-	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}%
+	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{r}{#3\linewidth}%
 		\setcaptionmargincm{0}
@@ -2104,8 +2178,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la derecha, ajustada en un número de líneas, escalada, ancho fijo
@@ -2126,13 +2200,13 @@
 %	#5	Altura en líneas de la imagen
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightlineboxed}[6][]{%
-	\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}
-	\emptyvarerr{\insertimagerightlineboxed}{#4}{Ancho de la linea no definido}
-	\emptyvarerr{\insertimagerightlineboxed}{#5}{Altura en lineas de la imagen flotante derecha no definida}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}%
+	\emptyvarerr{\insertimagerightlineboxed}{#4}{Ancho de la linea no definido}%
+	\emptyvarerr{\insertimagerightlineboxed}{#5}{Altura en lineas de la imagen flotante derecha no definida}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#5]{r}{#3\linewidth}%
 		\setcaptionmargincm{0}
@@ -2152,8 +2226,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la izquierda, propiedades variables
@@ -2177,13 +2251,13 @@
 %	#5	Ancho de la línea (en pt)
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftboxedp}[6][]{%
-	\emptyvarerr{\insertimageleftboxedp}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftboxedp}{#3}{Ancho del objeto no definido}
-	\emptyvarerr{\insertimageleftboxedp}{#4}{Propiedades de la imagen no defindos}
-	\emptyvarerr{\insertimageleftboxedp}{#5}{Ancho de la linea no definido}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimageleftboxedp}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageleftboxedp}{#3}{Ancho del objeto no definido}%
+	\emptyvarerr{\insertimageleftboxedp}{#4}{Propiedades de la imagen no defindos}%
+	\emptyvarerr{\insertimageleftboxedp}{#5}{Ancho de la linea no definido}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{l}{#3}%
 		\setcaptionmargincm{0}
@@ -2203,8 +2277,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la izquierda, ajustada en un número de líneas, propiedades variables
@@ -2227,14 +2301,14 @@
 %	#6	Altura en líneas de la imagen
 %	#7	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftlineboxedp}[7][]{%
-	\emptyvarerr{\insertimageleftlineboxedp}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftlineboxedp}{#3}{Ancho del objeto no definido}
-	\emptyvarerr{\insertimageleftlineboxedp}{#4}{Propiedades de la imagen no definidos}
-	\emptyvarerr{\insertimageleftlineboxedp}{#5}{Ancho de la linea no definido}
-	\emptyvarerr{\insertimageleftlineboxedp}{#6}{Altura en lineas de la imagen flotante izquierda no definida}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimageleftlineboxedp}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageleftlineboxedp}{#3}{Ancho del objeto no definido}%
+	\emptyvarerr{\insertimageleftlineboxedp}{#4}{Propiedades de la imagen no definidos}%
+	\emptyvarerr{\insertimageleftlineboxedp}{#5}{Ancho de la linea no definido}%
+	\emptyvarerr{\insertimageleftlineboxedp}{#6}{Altura en lineas de la imagen flotante izquierda no definida}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#6]{l}{#3}%
 		\setcaptionmargincm{0}
@@ -2254,8 +2328,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la derecha, propiedades variables
@@ -2279,13 +2353,13 @@
 %	#5	Ancho de la línea (en pt)
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightboxedp}[6][]{%
-	\emptyvarerr{\insertimagerightboxedp}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimagerightboxedp}{#3}{Ancho del objeto no definido}
-	\emptyvarerr{\insertimagerightboxedp}{#4}{Propiedades de la imagen no definidos}
-	\emptyvarerr{\insertimagerightboxedp}{#5}{Ancho de la linea no definido}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimagerightboxedp}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimagerightboxedp}{#3}{Ancho del objeto no definido}%
+	\emptyvarerr{\insertimagerightboxedp}{#4}{Propiedades de la imagen no definidos}%
+	\emptyvarerr{\insertimagerightboxedp}{#5}{Ancho de la linea no definido}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{r}{#3}%
 		\setcaptionmargincm{0}
@@ -2305,8 +2379,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la derecha, ajustada en un número de líneas, propiedades variables
@@ -2329,14 +2403,14 @@
 %	#6	Altura en líneas de la imagen
 %	#7	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightlineboxedp}[7][]{%
-	\emptyvarerr{\insertimagerightlineboxedp}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimagerightlineboxedp}{#3}{Ancho del objeto no definido}
-	\emptyvarerr{\insertimagerightlineboxedp}{#4}{Propiedades de la imagen no definidos}
-	\emptyvarerr{\insertimagerightlineboxedp}{#5}{Ancho de la linea no definido}
-	\emptyvarerr{\insertimagerightlineboxedp}{#6}{Altura en lineas de la imagen flotante derecha no definida}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimagerightlineboxedp}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimagerightlineboxedp}{#3}{Ancho del objeto no definido}%
+	\emptyvarerr{\insertimagerightlineboxedp}{#4}{Propiedades de la imagen no definidos}%
+	\emptyvarerr{\insertimagerightlineboxedp}{#5}{Ancho de la linea no definido}%
+	\emptyvarerr{\insertimagerightlineboxedp}{#6}{Altura en lineas de la imagen flotante derecha no definida}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#6]{r}{#3}%
 		\setcaptionmargincm{0}
@@ -2356,8 +2430,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Inserta una imagen con parametros keyvals almacenados en una variable
@@ -2374,7 +2448,7 @@
 
 % Activa la numeración en las secciones
 \def\coreintializetitlenumbering {
-	% section
+	% Section
 	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{
 		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
 			\renewcommand{\thesection}{\Alph{section}}
@@ -2388,19 +2462,19 @@
 			\renewcommand{\thesection}{\thechapter.\arabic{section}}
 		}
 	}
-	% subsection
+	% Subsection
 	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
 		\renewcommand{\thesubsection}{\arabic{subsection}}
 	}{
 		\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 	}
-	% subsubsection
+	% Subsubsection
 	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
 		\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
 	}{
 		\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 	}
-	% subsubsubsection
+	% Subsubsubsection
 	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
 		\ifthenelse{\equal{\showdotaftersnum}{true}}{
 			\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}.}
@@ -3173,6 +3247,7 @@
 %	#6	Contenido de la columna derecha
 \newcommand{\createtwocolumn}[6][]{%
 	\setcaptionmargincm{0}%
+	\begin{samepage}%
 	\begin{flushleft}%
 		\vspace{-0.5\baselineskip}%
 		\begin{minipage}{1\linewidth}%
@@ -3206,6 +3281,7 @@
 		\end{minipage}%
 	\end{flushleft}%
 	~ \vspace{-0.5\baselineskip}%
+	\end{samepage}
 	\setcaptionmargincm{\captionlrmargin}%
 }
 
@@ -3229,6 +3305,7 @@
 %	#9	Contenido de la columna derecha
 \newcommand{\createthreecolumn}[9][]{%
 	\setcaptionmargincm{0}%
+	\begin{samepage}%
 	\begin{flushleft}%
 		\vspace{-0.5\baselineskip}%
 		\begin{minipage}{1\linewidth}%
@@ -3276,6 +3353,7 @@
 		\end{minipage}%
 	\end{flushleft}%
 	~ \vspace{-0.5\baselineskip}%
+	\end{samepage}
 	\setcaptionmargincm{\captionlrmargin}%
 }
 
@@ -3570,10 +3648,11 @@
 	\global\def\GLOBALenvimageadded {false}
 	
 	% Configura caption y márgenes
-	\vspace{\marginimagetop cm}
-	\setcaptionmargincm{\captionmarginmultimg}
+	\vspace{\marginimagetop cm}%
+	\setcaptionmargincm{\captionmarginmultimg}%
 	
 	% Inicia la figura
+	\begin{samepage}%
 	\begin{figure}[H] \centering%
 		\thisfloatpagestyle{fancy}%
 		\vspace{\marginimagemulttop cm}%
@@ -3588,8 +3667,9 @@
 	\end{figure}%
 
 	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmargin}
-	\vspace{\marginimagebottom cm}
+	\setcaptionmargincm{\captionlrmargin}%
+	\vspace{\marginimagebottom cm}%
+	\end{samepage}
 	
 	% Restablece globales
 	\global\def\GLOBALenvimageinitialized {false}
@@ -3606,7 +3686,7 @@
 	\def\envimagescaptionvar {#3}
 	\global\def\GLOBALenvimageinitialized {true}
 	\global\def\GLOBALenvimageadded {false}
-	\checkinsidemulticol
+	\checkinsidemulticol%
 	
 	% Configura caption y márgenes
 	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
@@ -3634,7 +3714,7 @@
 	\end{figure*}%
 	
 	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmargin}
+	\setcaptionmargincm{\captionlrmargin}%
 	
 	% Restablece globales
 	\global\def\GLOBALenvimageinitialized {false}
@@ -4607,9 +4687,9 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.3.3-2},
-		Template.Version.Hash={19525F30F83814CCB52056E124B8FAAE},
-		Template.Version.Release={7.3.3},
+		Template.Version.Dev={7.3.4-2},
+		Template.Version.Hash={1CD9581183655E7BE0EAB8595A06833E},
+		Template.Version.Release={7.3.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -4621,7 +4701,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.3.3 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.3.4 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
