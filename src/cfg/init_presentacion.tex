@@ -35,8 +35,6 @@
 % Corrige espaciamiento de itemize
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\itemizedeleteleftmargin}{true}}{
-	% \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
-	% \addtolength{\leftmargini}{\labelsep}
 	\setlist[itemize]{leftmargin=*}
 	\setlist[enumerate]{leftmargin=*}
 }{}
@@ -45,5 +43,25 @@
 % -----------------------------------------------------------------------------
 % \let\Tiny=\tiny % https://tex.stackexchange.com/q/58087/5764
 \renewcommand{\insertshorttitle}{\titulopresentacioncorto}
+
+% Configura los bloques
+% -----------------------------------------------------------------------------
+\addtobeamertemplate{block begin}
+{}
+{
+\vspace{\dimexpr-2.3em + \blockpaddingtop em} % Padding superior
+\setlength{\parskip}{18.25pt plus 1pt minus 1pt}
+\addtolength{\leftskip}{\dimexpr-0.4em + \blockpaddingleft em} % Padding izquierdo
+\addtolength{\rightskip}{\dimexpr-0.4em + \blockpaddingright em} % Padding derecho
+}
+
+\addtobeamertemplate{block end}
+{\vspace{\dimexpr-0.3em + \blockpaddingbottom em}} % Padding inferior
+{\vspace{\blockmarginbottom em}} % Margen inferior de los bloques
+
+% Definición de entornos beamer
+% -----------------------------------------------------------------------------
+\newenvironment<>{blockjustified}[1]{%
+	\begin{block}#2{#1}\justifying}{\end{block}}
 
 % END
