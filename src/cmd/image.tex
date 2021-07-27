@@ -111,6 +111,7 @@
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}%
 	\checkoutsideenvimage%
 	\vspace{\marginimagetop cm}%
+	\begin{samepage}%
 	\begin{figure}[H]%
 		\thisfloatpagestyle{fancy}%
 		\begingroup%
@@ -127,8 +128,9 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi
 	\end{figure}
-	\vspace{\marginimagebottom cm}
-	\resetindexcaption
+	\vspace{\marginimagebottom cm}%
+	\end{samepage}
+	\resetindexcaption%
 }
 
 % Insertar una imagen completa en un entorno multicol
@@ -149,73 +151,85 @@
 %	#5	Posición, "bottom", "top", "fixed2", "fixed3", "fixed4"
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimageboxedmc}[6][]{%
-	\emptyvarerr{\insertimageboxedmc}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageboxedmc}{#3}{Parametros de la imagen no definidos}
-	\emptyvarerr{\insertimageboxedmc}{#4}{Ancho de la linea no definido}
-	\emptyvarerr{\insertimageboxedmc}{#5}{Posicion de la imagen no definida}
-	\checkoutsideenvimage
-	\checkinsidemulticol
-	\setcaptionmargincm{\captionlrmarginmc}
+	\emptyvarerr{\insertimageboxedmc}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageboxedmc}{#3}{Parametros de la imagen no definidos}%
+	\emptyvarerr{\insertimageboxedmc}{#4}{Ancho de la linea no definido}%
+	\emptyvarerr{\insertimageboxedmc}{#5}{Posicion de la imagen no definida}%
+	\checkoutsideenvimage%
+	\checkinsidemulticol%
+	\setcaptionmargincm{\captionlrmarginmc}%
 	\ifthenelse{\equal{#5}{bottom}}{%
+		\begin{samepage}%
 		\begin{figure*}[hb]
 	}{
 	\ifthenelse{\equal{#5}{top}}{%
+		\begin{samepage}%
 		\begin{figure*}[ht]
 	}{
 	\ifthenelse{\equal{#5}{fixed2}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[h]
 	}{
 	\ifthenelse{\equal{#5}{fixed2b}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[b]
 	}{
 	\ifthenelse{\equal{#5}{fixed2t}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[t]
 	}{
 	\ifthenelse{\equal{#5}{fixed3}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[h]
 	}{
 	\ifthenelse{\equal{#5}{fixed3b}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[b]
 	}{
 	\ifthenelse{\equal{#5}{fixed3t}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[t]
 	}{
 	\ifthenelse{\equal{#5}{fixed4}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[h]
 	}{
 	\ifthenelse{\equal{#5}{fixed4b}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[h]
 	}{
 	\ifthenelse{\equal{#5}{fixed4t}}{%
 		\end{multicols}
+		\begin{samepage}%
 		\begin{figure*}[h]
 	}{
 		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top,fixed2,fixed2b,fixed2t,fixed3,fixed3b,fixed3t,fixed4,fixed4b,fixed4t}
 		\stop}}}}}}}}}}
 	}
-		\thisfloatpagestyle{fancy}
+		\thisfloatpagestyle{fancy}%
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
 			\setlength{\fboxrule}{#4 pt}
 			\centering
 			\fbox{\includegraphics[#3]{#2}}%
 		\endgroup
-		\ifx\hfuzz#6\hfuzz
-			\vspace{\captionlessmarginimage cm}
+		\ifx\hfuzz#6\hfuzz%
+			\vspace{\captionlessmarginimage cm}%
 		\else
 			\hspace{0cm}
 			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{figure*}
+	\end{samepage}
 	\ifthenelse{\equal{#5}{fixed2}}{%
 		\begin{multicols}{2}
 	}{
@@ -289,12 +303,12 @@
 %	#4	Ancho de la línea (en pt)
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftboxed}[5][]{%
-	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}
-	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimageleftboxed}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageleftboxed}{#3}{Ancho de la imagen no definido}%
+	\emptyvarerr{\insertimageleftboxed}{#4}{Ancho de la linea no definido}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{l}{#3\linewidth}%
 		% \thisfloatpagestyle{fancy} no funciona bien
@@ -315,8 +329,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la izquierda, ajustada en un número de líneas, escalada, ancho fijo
@@ -337,13 +351,13 @@
 %	#5	Altura en líneas de la imagen
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftlineboxed}[6][]{%
-	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}
-	\emptyvarerr{\insertimageleftlineboxed}{#4}{Ancho de la linea no definido}
+	\emptyvarerr{\insertimageleftlineboxed}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageleftlineboxed}{#3}{Ancho de la imagen no definido}%
+	\emptyvarerr{\insertimageleftlineboxed}{#4}{Ancho de la linea no definido}%
 	\emptyvarerr{\insertimageleftlineboxed}{#5}{Altura en lineas de la imagen flotante izquierda no definida}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#5]{l}{#3\linewidth}%
 		\setcaptionmargincm{0}
@@ -362,8 +376,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la derecha, escalada, ancho fijo
@@ -382,12 +396,12 @@
 %	#4	Ancho de la línea (en pt)
 %	#5	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightboxed}[5][]{%
-	\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}
-	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimagerightboxed}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimagerightboxed}{#3}{Ancho de la imagen no defindo}%
+	\emptyvarerr{\insertimagerightboxed}{#4}{Ancho de la linea no definido}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{r}{#3\linewidth}%
 		\setcaptionmargincm{0}
@@ -407,8 +421,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la derecha, ajustada en un número de líneas, escalada, ancho fijo
@@ -429,13 +443,13 @@
 %	#5	Altura en líneas de la imagen
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightlineboxed}[6][]{%
-	\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}
-	\emptyvarerr{\insertimagerightlineboxed}{#4}{Ancho de la linea no definido}
-	\emptyvarerr{\insertimagerightlineboxed}{#5}{Altura en lineas de la imagen flotante derecha no definida}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimagerightlineboxed}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimagerightlineboxed}{#3}{Ancho de la imagen no defindo}%
+	\emptyvarerr{\insertimagerightlineboxed}{#4}{Ancho de la linea no definido}%
+	\emptyvarerr{\insertimagerightlineboxed}{#5}{Altura en lineas de la imagen flotante derecha no definida}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#5]{r}{#3\linewidth}%
 		\setcaptionmargincm{0}
@@ -455,8 +469,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la izquierda, propiedades variables
@@ -480,13 +494,13 @@
 %	#5	Ancho de la línea (en pt)
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftboxedp}[6][]{%
-	\emptyvarerr{\insertimageleftboxedp}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftboxedp}{#3}{Ancho del objeto no definido}
-	\emptyvarerr{\insertimageleftboxedp}{#4}{Propiedades de la imagen no defindos}
-	\emptyvarerr{\insertimageleftboxedp}{#5}{Ancho de la linea no definido}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimageleftboxedp}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageleftboxedp}{#3}{Ancho del objeto no definido}%
+	\emptyvarerr{\insertimageleftboxedp}{#4}{Propiedades de la imagen no defindos}%
+	\emptyvarerr{\insertimageleftboxedp}{#5}{Ancho de la linea no definido}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{l}{#3}%
 		\setcaptionmargincm{0}
@@ -506,8 +520,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la izquierda, ajustada en un número de líneas, propiedades variables
@@ -530,14 +544,14 @@
 %	#6	Altura en líneas de la imagen
 %	#7	Leyenda de la imagen (opcional)
 \newcommand{\insertimageleftlineboxedp}[7][]{%
-	\emptyvarerr{\insertimageleftlineboxedp}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimageleftlineboxedp}{#3}{Ancho del objeto no definido}
-	\emptyvarerr{\insertimageleftlineboxedp}{#4}{Propiedades de la imagen no definidos}
-	\emptyvarerr{\insertimageleftlineboxedp}{#5}{Ancho de la linea no definido}
-	\emptyvarerr{\insertimageleftlineboxedp}{#6}{Altura en lineas de la imagen flotante izquierda no definida}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimageleftlineboxedp}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimageleftlineboxedp}{#3}{Ancho del objeto no definido}%
+	\emptyvarerr{\insertimageleftlineboxedp}{#4}{Propiedades de la imagen no definidos}%
+	\emptyvarerr{\insertimageleftlineboxedp}{#5}{Ancho de la linea no definido}%
+	\emptyvarerr{\insertimageleftlineboxedp}{#6}{Altura en lineas de la imagen flotante izquierda no definida}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#6]{l}{#3}%
 		\setcaptionmargincm{0}
@@ -557,8 +571,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la derecha, propiedades variables
@@ -582,13 +596,13 @@
 %	#5	Ancho de la línea (en pt)
 %	#6	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightboxedp}[6][]{%
-	\emptyvarerr{\insertimagerightboxedp}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimagerightboxedp}{#3}{Ancho del objeto no definido}
-	\emptyvarerr{\insertimagerightboxedp}{#4}{Propiedades de la imagen no definidos}
-	\emptyvarerr{\insertimagerightboxedp}{#5}{Ancho de la linea no definido}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimagerightboxedp}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimagerightboxedp}{#3}{Ancho del objeto no definido}%
+	\emptyvarerr{\insertimagerightboxedp}{#4}{Propiedades de la imagen no definidos}%
+	\emptyvarerr{\insertimagerightboxedp}{#5}{Ancho de la linea no definido}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{r}{#3}%
 		\setcaptionmargincm{0}
@@ -608,8 +622,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen a la derecha, ajustada en un número de líneas, propiedades variables
@@ -632,14 +646,14 @@
 %	#6	Altura en líneas de la imagen
 %	#7	Leyenda de la imagen (opcional)
 \newcommand{\insertimagerightlineboxedp}[7][]{%
-	\emptyvarerr{\insertimagerightlineboxedp}{#2}{Direccion de la imagen no definida}
-	\emptyvarerr{\insertimagerightlineboxedp}{#3}{Ancho del objeto no definido}
-	\emptyvarerr{\insertimagerightlineboxedp}{#4}{Propiedades de la imagen no definidos}
-	\emptyvarerr{\insertimagerightlineboxedp}{#5}{Ancho de la linea no definido}
-	\emptyvarerr{\insertimagerightlineboxedp}{#6}{Altura en lineas de la imagen flotante derecha no definida}
-	\checkoutsideenvimage
-	~
-	\vspace{-\baselineskip}
+	\emptyvarerr{\insertimagerightlineboxedp}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertimagerightlineboxedp}{#3}{Ancho del objeto no definido}%
+	\emptyvarerr{\insertimagerightlineboxedp}{#4}{Propiedades de la imagen no definidos}%
+	\emptyvarerr{\insertimagerightlineboxedp}{#5}{Ancho de la linea no definido}%
+	\emptyvarerr{\insertimagerightlineboxedp}{#6}{Altura en lineas de la imagen flotante derecha no definida}%
+	\checkoutsideenvimage%
+	~%
+	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#6]{r}{#3}%
 		\setcaptionmargincm{0}
@@ -659,8 +673,8 @@
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}
 		\fi
 	\end{wrapfigure}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Inserta una imagen con parametros keyvals almacenados en una variable
