@@ -202,7 +202,9 @@
 % Agrega una carpeta al path de imágenes
 %	#1	Carpeta
 \makeatletter
-\newcommand\addpathimage[1]{\gappto\Ginput@path{{#1}}}
+\newcommand\addpathimage[1]{%
+	\gappto\Ginput@path{{#1}}%
+}
 \makeatother
 
 % Verifica que un tamaño de fuente sea correcto
