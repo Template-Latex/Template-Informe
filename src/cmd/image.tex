@@ -38,7 +38,7 @@
 	\subfloat[#5]{%
 		\fbox{\includegraphics[#3]{#2}}#1}%
 	\endgroup%
-	\def\GLOBALenvimageadded {true}%
+	\global\def\GLOBALenvimageadded {true}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -63,13 +63,13 @@
 	}{}%
 	\fbox{\includegraphics[#2]{#1}}%
 	\endgroup%
-	\def\GLOBALenvimageadded {true}%
+	\global\def\GLOBALenvimageadded {true}%
 }
 
 % Añade un salto de línea en las imágenes
 \newcommand{\imagesnewline}{%
 	\checkonlyonenvimage%
-	\def\GLOBALenvimageadded {false}%
+	\global\def\GLOBALenvimageadded {false}%
 	\vspace{\marginimagemultbottom cm}%
 	\linebreak\noindent%
 }
@@ -77,13 +77,17 @@
 % Agrega un espacio horizontal a las imágenes
 % 	#1 Tamaño del espacio
 \newcommand{\imageshspace}[1]{%
-	\checkonlyonenvimage\def\GLOBALenvimageadded {false}\hspace{#1}%
+	\checkonlyonenvimage%
+	\global\def\GLOBALenvimageadded {false}%
+	\hspace{#1}%
 }
 
 % Agrega un espacio vertical a las imágenes
 % 	#1 Tamaño del espacio
 \newcommand{\imagesvspace}[1]{%
-	\checkonlyonenvimage\def\GLOBALenvimageadded {false}~ \\ \vspace*{#1}%
+	\checkonlyonenvimage%
+	\global\def\GLOBALenvimageadded {false}%
+	~ \\ \vspace*{#1}%
 }
 
 % Insertar una imagen

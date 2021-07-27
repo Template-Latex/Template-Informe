@@ -733,12 +733,12 @@
 \let\SOURCEcaptionlrmargin\captionlrmargin
 \BeforeBeginEnvironment{multicols}{%
 	\def\captionlrmargin {\captionlrmarginmc}%
-	\def\GLOBALenvmulticol {true}%
+	\global\def\GLOBALenvmulticol {true}%
 	\setcaptionmargincm{\captionlrmargin}%
 }
 \AfterEndEnvironment{multicols}{%
 	\def\captionlrmargin {\SOURCEcaptionlrmargin}%
-	\def\GLOBALenvmulticol {false}%
+	\global\def\GLOBALenvmulticol {false}%
 	\setcaptionmargincm{\captionlrmargin}%
 }
 

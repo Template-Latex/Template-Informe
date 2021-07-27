@@ -22,12 +22,12 @@
 \global\def\GLOBALtabularframecontentwidthright {0.6}
 \global\def\GLOBALtabularframebarcreated {false}
 
-\def\GLOBALtabularframecolumnselected {1}
-\def\GLOBALtabularframeinit {false}
-\def\GLOBALtabularframestorevar {true}
+\def\LOCALtabularframecolumnselected {1}
+\def\LOCALtabularframeinit {false}
+\def\LOCALtabularframestorevar {true}
 
-\def\GLOBALtabularframepercentchar#1{}
-\edef\GLOBALtabularframepercentchar{\expandafter\GLOBALtabularframepercentchar\string\%}
+\def\LOCALtabularframepercentchar#1{}
+\edef\LOCALtabularframepercentchar{\expandafter\LOCALtabularframepercentchar\string\%}
 
 % Archivo que guarda el código generado del framehead
 \newwrite\filetabularframehead
@@ -79,10 +79,10 @@
 %	#1	Número de la columna destacada (desde 1)
 \newenvironment{tabularframehead}[1]{%
 	\emptyvarerr{\tabularframehead}{#1}{Numero de columna destacada no definido}
-	\def\GLOBALtabularframecolumnselected {#1}
-	\def\GLOBALtabularframeinit {true}%
+	\def\LOCALtabularframecolumnselected {#1}
+	\def\LOCALtabularframeinit {true}%
 	\setcounter{tabularcolnumber}{0}%
-	\ifthenelse{\equal{\GLOBALtabularframestorevar}{true}}{%
+	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\openout\filetabularframehead=\jobname.tframeh%
 	}{}%
 	\vspace{\dimexpr-\GLOBALtabularframebarheight\textheight}%
@@ -90,7 +90,7 @@
 	}{
 	\end{columns}
 	\setcounter{tabularcolnumber}{-1}
-	\ifthenelse{\equal{\GLOBALtabularframestorevar}{true}}{%
+	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\closeout\filetabularframehead%
 		\global\def\GLOBALtabularframebarcreated {true}%
 	}{}%
@@ -102,27 +102,27 @@
 	\ifthenelse{\equal{\GLOBALtabularframebarcreated}{true}}{}{%
 		\throwwarning{Funcion \noexpand\tabularframeheadrepeat no puede usarse si no existe un \noexpand\tabularframehead previo}\stop}%
 	\emptyvarerr{\tabularframeheadrepeat}{#1}{Numero de columna destacada no definido}
-	\def\GLOBALtabularframestorevar {false}
+	\def\LOCALtabularframestorevar {false}
 	\begin{tabularframehead}{#1}%
 		\input{\jobname.tframeh}%
 	\end{tabularframehead}%
-	\def\GLOBALtabularframestorevar {true}
+	\def\LOCALtabularframestorevar {true}
 }
 
 % Agrega una columna al tabular head
 %	#1	Tamaño de la columna
 %	#2	Texto
 \newcommand{\addtfheadcolumn}[2]{%
-	\ifthenelse{\equal{\GLOBALtabularframeinit}{true}}{}{%
+	\ifthenelse{\equal{\LOCALtabularframeinit}{true}}{}{%
 		\throwwarning{Funcion \noexpand\addtfheadcolumn no puede usarse fuera del entorno \noexpand\tabularframehead}\stop}%
 	\emptyvarerr{\addtfheadcolumn}{#1}{Tamano de la columna no definido}%
 	\emptyvarerr{\addtfheadcolumn}{#2}{Texto de la columna no definido}%
-	\ifthenelse{\equal{\GLOBALtabularframestorevar}{true}}{%
-		\immediate\write\filetabularframehead{\unexpanded{\addtfheadcolumn{#1}{#2}}\GLOBALtabularframepercentchar}%
+	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
+		\immediate\write\filetabularframehead{\unexpanded{\addtfheadcolumn{#1}{#2}}\LOCALtabularframepercentchar}%
 	}{}%
 	\stepcounter{tabularcolnumber}%
 	\column{\dimexpr#1\linewidth}%
-	\ifthenelse{\equal{\thetabularcolnumber}{\GLOBALtabularframecolumnselected}}{%
+	\ifthenelse{\equal{\thetabularcolnumber}{\LOCALtabularframecolumnselected}}{%
 		\transparent{1.0}%
 	}{%
 		\transparent{\opacitytabularframe}%
@@ -169,7 +169,7 @@
 			}
 		\end{minipage}}%
 	\end{columns}%
-	\def\GLOBALtabularframeinit {false}%
+	\def\LOCALtabularframeinit {false}%
 }
 
 % Tabular frame de una sola columna
@@ -196,5 +196,5 @@
 				}
 		\end{minipage}}%
 	\end{columns}%
-	\def\GLOBALtabularframeinit {false}%
+	\def\LOCALtabularframeinit {false}%
 }

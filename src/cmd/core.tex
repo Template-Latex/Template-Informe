@@ -12,18 +12,18 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % Definición de variables globales
-\def\GLOBALcaptiondefn {EMPTY-VAR}       % Definición del caption
-%\def\GLOBALcaptiondefnimages{EMPTY-VAR} % Definición del caption en images
-%\def\GLOBALcaptiondefnsrc{EMPTY-VAR}    % Definición del caption en sourcecode
-\def\GLOBALchapternumenabled {false}     % Numeración de capítulos empezó
-\def\GLOBALenvimageadded {false}         % Indica que una imagen ha sido añadida
-\def\GLOBALenvimageinitialized {false}   % Entorno images activo
-\def\GLOBALenvmulticol {false}           % Indica que el entorno multicol está activo
-\def\GLOBALsectionalph {false}           % Sección con numeración de letras
-\def\GLOBALsectionanumenabled {false}    % Sección sin numeración
-\def\GLOBALsubsectionanumenabled {false} % Subsección sin numeración
-\def\GLOBALtablerowcolorindex {2}        % Índice tabla colores
-\def\GLOBALtablerowcolorswitch {false}   % Tabla con colores cambiados
+\global\def\GLOBALcaptiondefn {EMPTY-VAR}       % Definición del caption
+%\global\def\GLOBALcaptiondefnimages{EMPTY-VAR} % Definición del caption en images
+%\global\def\GLOBALcaptiondefnsrc{EMPTY-VAR}    % Definición del caption en sourcecode
+\global\def\GLOBALchapternumenabled {false}     % Numeración de capítulos empezó
+\global\def\GLOBALenvimageadded {false}         % Indica que una imagen ha sido añadida
+\global\def\GLOBALenvimageinitialized {false}   % Entorno images activo
+\global\def\GLOBALenvmulticol {false}           % Indica que el entorno multicol está activo
+\global\def\GLOBALsectionalph {false}           % Sección con numeración de letras
+\global\def\GLOBALsectionanumenabled {false}    % Sección sin numeración
+\global\def\GLOBALsubsectionanumenabled {false} % Subsección sin numeración
+\global\def\GLOBALtablerowcolorindex {2}        % Índice tabla colores
+\global\def\GLOBALtablerowcolorswitch {false}   % Tabla con colores cambiados
 
 % Contador global de objetos
 \newcounter{templateEquations}      % Ecuaciones
@@ -127,14 +127,14 @@
 
 % Define el caption del índice
 % 	#1	Título del caption
-\newcommand{\setindexcaption}[1]{\def\GLOBALcaptiondefn {#1}}
-%\newcommand{\setindexcaptionimages}[1]{\def\GLOBALcaptiondefnimages {#1}}
-%\newcommand{\setindexcaptionsourcecode}[1]{\def\GLOBALcaptiondefnsrc {#1}}
+\newcommand{\setindexcaption}[1]{\global\def\GLOBALcaptiondefn {#1}}
+%\newcommand{\setindexcaptionimages}[1]{\global\def\GLOBALcaptiondefnimages {#1}}
+%\newcommand{\setindexcaptionsourcecode}[1]{\global\def\GLOBALcaptiondefnsrc {#1}}
 
 % Resetea los caption
-\newcommand{\resetindexcaption}{\def\GLOBALcaptiondefn {EMPTY-VAR}}
-%\newcommand{\resetindexcaptionimages}{\def\GLOBALcaptiondefnimages {EMPTY-VAR}}
-%\newcommand{\resetindexcaptionsourcecode}{\def\GLOBALcaptiondefnsrc {EMPTY-VAR}}
+\newcommand{\resetindexcaption}{\global\def\GLOBALcaptiondefn {EMPTY-VAR}}
+%\newcommand{\resetindexcaptionimages}{\global\def\GLOBALcaptiondefnimages {EMPTY-VAR}}
+%\newcommand{\resetindexcaptionsourcecode}{\global\def\GLOBALcaptiondefnsrc {EMPTY-VAR}}
 
 % Cambia los márgenes del documento
 %	#1	Margen izquierdo

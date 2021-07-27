@@ -50,7 +50,7 @@
 	% \clearpage
 	\phantomsection
 	\changeheadertitle{\nomltappendixsection} % Cambia el nombre del header
-	\def\GLOBALsectionalph {true} % Modifica formato de secciones con sección alph
+	\global\def\GLOBALsectionalph {true} % Modifica formato de secciones con sección alph
 	\bookmarksetup{
 		numbered={true},
 		openlevel={\thetemplateBookmarksLevelPrev}
@@ -73,7 +73,7 @@
 		}
 	}{
 	\end{appendices}
-	\def\GLOBALsectionalph {false} % Desactiva formato de secciones con sección alph
+	\global\def\GLOBALsectionalph {false} % Desactiva formato de secciones con sección alph
 	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Restablece índice marcador
 	\bookmarksetup{
 		numbered={\cfgpdfsecnumbookmarks},
@@ -290,8 +290,8 @@
 	% Modifica globales
 	\def\envimageslabelvar {#1}
 	\def\envimagescaptionvar {#2}
-	\def\GLOBALenvimageinitialized {true}
-	\def\GLOBALenvimageadded {false}
+	\global\def\GLOBALenvimageinitialized {true}
+	\global\def\GLOBALenvimageadded {false}
 	
 	% Configura caption y márgenes
 	\vspace{\marginimagetop cm}
@@ -316,7 +316,7 @@
 	\vspace{\marginimagebottom cm}
 	
 	% Restablece globales
-	\def\GLOBALenvimageinitialized {false}
+	\global\def\GLOBALenvimageinitialized {false}
 }
 
 % Crea una sección de imágenes múltiples completa dentro de un multicol
@@ -328,8 +328,8 @@
 	\def\envimageslabelvar {#1}
 	\def\envimagesmcpos {#2}
 	\def\envimagescaptionvar {#3}
-	\def\GLOBALenvimageinitialized {true}
-	\def\GLOBALenvimageadded {false}
+	\global\def\GLOBALenvimageinitialized {true}
+	\global\def\GLOBALenvimageadded {false}
 	\checkinsidemulticol
 	
 	% Configura caption y márgenes
@@ -361,7 +361,7 @@
 	\setcaptionmargincm{\captionlrmargin}
 	
 	% Restablece globales
-	\def\GLOBALenvimageinitialized {false}
+	\global\def\GLOBALenvimageinitialized {false}
 }
 
 % END
