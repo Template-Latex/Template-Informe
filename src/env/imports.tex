@@ -87,6 +87,10 @@
 \usepackage{anyfontsize}
 \changefontsizes{\documentfontsize pt}
 
+% Evita error "Too many alphabets used in version normal"
+\newcommand\hmmax {0}
+\newcommand\bmmax {0}
+
 % -----------------------------------------------------------------------------
 % Librerías independientes
 % -----------------------------------------------------------------------------
@@ -271,30 +275,39 @@
 	\usepackage[scaled=0.95]{helvet}
 	\usepackage[helvet]{sfmath}
 }{
-\ifthenelse{\equal{\fontdocument}{alegreyasans}}{
-	\usepackage[sfdefault]{AlegreyaSans}
-	\renewcommand*\oldstylenums[1]{{\AlegreyaSansOsF #1}}
-}{
 \ifthenelse{\equal{\fontdocument}{opensans}}{
 	\usepackage[default,scale=0.95]{opensans}
 }{
 \ifthenelse{\equal{\fontdocument}{mathpazo}}{
 	\usepackage{mathpazo}
 }{
+\ifthenelse{\equal{\fontdocument}{cambria}}{
+	\usepackage{caladea}
+}{
+\ifthenelse{\equal{\fontdocument}{libertine}}{
+	\usepackage[libertine]{newtxmath}
+	\usepackage[tt=false]{libertine}
+}{
+\ifthenelse{\equal{\fontdocument}{custom}}{
+}{
 
-% Otros
-\ifthenelse{\equal{\fontdocument}{accantis}}{
+% Otros (último: fbb el 08/08/2021 - https://tug.org/FontCatalogue/seriffonts.html)
+\ifthenelse{\equal{\fontdocument}{accanthis}}{
 	\usepackage{accanthis}
 }{
 \ifthenelse{\equal{\fontdocument}{alegreya}}{
 	\usepackage{Alegreya}
 	\renewcommand*\oldstylenums[1]{{\AlegreyaOsF #1}}
 }{
+\ifthenelse{\equal{\fontdocument}{alegreyasans}}{
+	\usepackage[sfdefault]{AlegreyaSans}
+	\renewcommand*\oldstylenums[1]{{\AlegreyaSansOsF #1}}
+}{
 \ifthenelse{\equal{\fontdocument}{algolrevived}}{
 	\usepackage{algolrevived}
 }{
-\ifthenelse{\equal{\fontdocument}{antiqua}}{
-	\usepackage{antiqua}
+\ifthenelse{\equal{\fontdocument}{almendra}}{
+	\usepackage{almendra}
 }{
 \ifthenelse{\equal{\fontdocument}{antpolt}}{
 	\usepackage{antpolt}
@@ -315,20 +328,25 @@
 	\usepackage[light,condensed,math]{anttor}
 }{
 \ifthenelse{\equal{\fontdocument}{arev}}{
+	\let\quarternote\relax
+	\let\eighthnote\relax
 	\usepackage{arev}
 }{
 \ifthenelse{\equal{\fontdocument}{arimo}}{
 	\usepackage[sfdefault]{arimo}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-\ifthenelse{\equal{\fontdocument}{aurical}}{
-	\usepackage{aurical}
-}{
-\ifthenelse{\equal{\fontdocument}{avant}}{
-	\usepackage{avant}
+\ifthenelse{\equal{\fontdocument}{arvo}}{
+	\usepackage{Arvo}
 }{
 \ifthenelse{\equal{\fontdocument}{baskervald}}{
 	\usepackage{baskervald}
+}{
+\ifthenelse{\equal{\fontdocument}{baskervaldx}}{
+	\usepackage[lf]{Baskervaldx}
+	\usepackage[bigdelims,vvarbb]{newtxmath}
+	\usepackage[cal=boondoxo]{mathalfa}
+	\renewcommand*\oldstylenums[1]{\textosf{#1}}
 }{
 \ifthenelse{\equal{\fontdocument}{berasans}}{
 	\usepackage[scaled]{berasans}
@@ -341,6 +359,16 @@
 	\usepackage{libertine}
 	\renewcommand*\familydefault{\sfdefault}
 }{
+\ifthenelse{\equal{\fontdocument}{bitter}}{
+	\usepackage{bitter}
+}{
+\ifthenelse{\equal{\fontdocument}{boisik}}{
+	\let\div\relax
+	\usepackage{boisik}
+}{
+\ifthenelse{\equal{\fontdocument}{bookman}}{
+	\usepackage{bookman}
+}{
 \ifthenelse{\equal{\fontdocument}{cabin}}{
 	\usepackage[sfdefault]{cabin}
 	\renewcommand*\familydefault{\sfdefault}
@@ -349,15 +377,18 @@
 	\usepackage[sfdefault,condensed]{cabin}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-\ifthenelse{\equal{\fontdocument}{cantarell}}{
-	\usepackage[default]{cantarell}
-}{
 \ifthenelse{\equal{\fontdocument}{caladea}}{
 	\usepackage{caladea}
+}{
+\ifthenelse{\equal{\fontdocument}{cantarell}}{
+	\usepackage[default]{cantarell}
 }{
 \ifthenelse{\equal{\fontdocument}{carlito}}{
 	\usepackage[sfdefault]{carlito}
 	\renewcommand*\familydefault{\sfdefault}
+}{
+\ifthenelse{\equal{\fontdocument}{charterbt}}{
+	\usepackage[bitstream-charter]{mathdesign}
 }{
 \ifthenelse{\equal{\fontdocument}{chivolight}}{
 	\usepackage[familydefault,light]{Chivo}
@@ -365,9 +396,30 @@
 \ifthenelse{\equal{\fontdocument}{chivoregular}}{
 	\usepackage[familydefault,regular]{Chivo}
 }{
+\ifthenelse{\equal{\fontdocument}{clara}}{
+	\usepackage{clara}
+}{
 \ifthenelse{\equal{\fontdocument}{clearsans}}{
 	\usepackage[sfdefault]{ClearSans}
 	\renewcommand*\familydefault{\sfdefault}
+}{
+\ifthenelse{\equal{\fontdocument}{cochineal}}{
+	\usepackage{cochineal}
+}{
+\ifthenelse{\equal{\fontdocument}{coelacanth}}{
+	\usepackage[nf]{coelacanth}
+	\let\oldnormalfont\normalfont
+	\def\normalfont{\oldnormalfont\mdseries}
+}{
+\ifthenelse{\equal{\fontdocument}{coelacanthextralight}}{
+	\usepackage[el,nf]{coelacanth}
+	\let\oldnormalfont\normalfont
+	\def\normalfont{\oldnormalfont\mdseries}
+}{
+\ifthenelse{\equal{\fontdocument}{coelacanthlight}}{
+	\usepackage[l,nf]{coelacanth}
+	\let\oldnormalfont\normalfont
+	\def\normalfont{\oldnormalfont\mdseries}
 }{
 \ifthenelse{\equal{\fontdocument}{comfortaa}}{
 	\usepackage[default]{comfortaa}
@@ -378,8 +430,42 @@
 \ifthenelse{\equal{\fontdocument}{comicneueangular}}{
 	\usepackage[default,angular]{comicneue}
 }{
+\ifthenelse{\equal{\fontdocument}{computerconcrete}}{
+	\usepackage{concmath}
+}{
+\ifthenelse{\equal{\fontdocument}{computerconcreteeuler}}{
+	\let\Re\relax
+	\let\Im\relax
+	\usepackage{beton}
+	\usepackage{euler}
+}{
+\ifthenelse{\equal{\fontdocument}{computermodern}}{
+}{
+\ifthenelse{\equal{\fontdocument}{computermodernbright}}{
+	\usepackage{cmbright}
+}{
 \ifthenelse{\equal{\fontdocument}{crimson}}{
 	\usepackage{crimson}
+}{
+\ifthenelse{\equal{\fontdocument}{crimsonpro}}{
+	\usepackage{CrimsonPro}
+	\let\oldnormalfont\normalfont
+	\def\normalfont{\oldnormalfont\mdseries}
+}{
+\ifthenelse{\equal{\fontdocument}{crimsonproextralight}}{
+	\usepackage[extralight]{CrimsonPro}
+	\let\oldnormalfont\normalfont
+	\def\normalfont{\oldnormalfont\mdseries}
+}{
+\ifthenelse{\equal{\fontdocument}{crimsonprolight}}{
+	\usepackage[light]{CrimsonPro}
+	\let\oldnormalfont\normalfont
+	\def\normalfont{\oldnormalfont\mdseries}
+}{
+\ifthenelse{\equal{\fontdocument}{crimsonpromedium}}{
+	\usepackage[medium]{CrimsonPro}
+	\let\oldnormalfont\normalfont
+	\def\normalfont{\oldnormalfont\mdseries}
 }{
 \ifthenelse{\equal{\fontdocument}{cyklop}}{
 	\usepackage{cyklop}
@@ -392,9 +478,25 @@
 	\usepackage{DejaVuSansCondensed}
 	\renewcommand*\familydefault{\sfdefault}
 }{
+\ifthenelse{\equal{\fontdocument}{domitian}}{
+	\usepackage{mathpazo}
+	\usepackage{domitian}
+	\let\oldstylenums\oldstyle
+}{
 \ifthenelse{\equal{\fontdocument}{droidsans}}{
 	\usepackage[defaultsans]{droidsans}
 	\renewcommand*\familydefault{\sfdefault}
+}{
+\ifthenelse{\equal{\fontdocument}{electrum}}{
+	\usepackage[lf]{electrum}
+}{	
+\ifthenelse{\equal{\fontdocument}{erewhon}}{
+	\usepackage[proportional,scaled=1.064]{erewhon}
+	\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
+	\renewcommand*\oldstylenums[1]{\textosf{#1}}
+}{
+\ifthenelse{\equal{\fontdocument}{fbb}}{
+	\usepackage{fbb}
 }{
 \ifthenelse{\equal{\fontdocument}{fetamont}}{
 	\usepackage{fetamont}
@@ -404,17 +506,45 @@
 	\usepackage[sfdefault]{FiraSans}
 	\renewcommand*\familydefault{\sfdefault}
 }{
+\ifthenelse{\equal{\fontdocument}{firasansnewtxsf}}{
+	\usepackage[sfdefault]{FiraSans}
+	\usepackage{newtxsf}
+}{
+\ifthenelse{\equal{\fontdocument}{fourier}}{
+	\usepackage{fourier}
+}{
+\ifthenelse{\equal{\fontdocument}{fouriernc}}{
+	\usepackage{fouriernc}
+}{
+\ifthenelse{\equal{\fontdocument}{gfsartemisia}}{
+	\let\textlozenge\relax
+	\usepackage{gfsartemisia}
+}{
+\ifthenelse{\equal{\fontdocument}{gfsartemisiaeuler}}{
+	\let\textlozenge\relax
+	\let\Re\relax
+	\let\Im\relax
+	\usepackage{gfsartemisia-euler}
+}{
+\ifthenelse{\equal{\fontdocument}{heuristica}}{
+	\usepackage{heuristica}
+	\usepackage[heuristica,vvarbb,bigdelims]{newtxmath}
+	\renewcommand*\oldstylenums[1]{\textosf{#1}}
+}{
 \ifthenelse{\equal{\fontdocument}{iwona}}{
 	\usepackage[math]{iwona}
 }{
 \ifthenelse{\equal{\fontdocument}{iwonacondensed}}{
-	\usepackage[math]{iwona}
+	\usepackage[condensed,math]{iwona}
 }{
 \ifthenelse{\equal{\fontdocument}{iwonalight}}{
 	\usepackage[light,math]{iwona}
 }{
 \ifthenelse{\equal{\fontdocument}{iwonalightcondensed}}{
 	\usepackage[light,condensed,math]{iwona}
+}{
+\ifthenelse{\equal{\fontdocument}{kerkis}}{
+	\usepackage{kmath,kerkis}
 }{
 \ifthenelse{\equal{\fontdocument}{kurier}}{
 	\usepackage[math]{kurier}
@@ -431,9 +561,17 @@
 \ifthenelse{\equal{\fontdocument}{lato}}{
 	\usepackage[default]{lato}
 }{
-\ifthenelse{\equal{\fontdocument}{libertine}}{
-	\usepackage[libertine]{newtxmath}
-	\usepackage[tt=false]{libertine}
+\ifthenelse{\equal{\fontdocument}{libertinus}}{
+	\usepackage{libertinus}
+}{
+\ifthenelse{\equal{\fontdocument}{librebaskerville}}{
+	\usepackage{librebaskerville}
+}{
+\ifthenelse{\equal{\fontdocument}{librebodoni}}{
+	\usepackage{LibreBodoni}
+}{
+\ifthenelse{\equal{\fontdocument}{librecaslon}}{
+	\usepackage{librecaslon}
 }{
 \ifthenelse{\equal{\fontdocument}{libris}}{
 	\usepackage{libris}
@@ -450,6 +588,9 @@
 }{
 \ifthenelse{\equal{\fontdocument}{mintspirit}}{
 	\usepackage[default]{mintspirit}
+}{
+\ifthenelse{\equal{\fontdocument}{mlmodern}}{
+	\usepackage{mlmodern}
 }{
 \ifthenelse{\equal{\fontdocument}{montserratalternatesextralight}}{
 	\usepackage[defaultfam,extralight,tabular,lining,alternates]{montserrat}
@@ -479,6 +620,9 @@
 	\usepackage[defaultfam,thin,tabular,lining]{montserrat}
 	\renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
 }{
+\ifthenelse{\equal{\fontdocument}{newpx}}{
+	\usepackage{newpxtext,newpxmath}
+}{
 \ifthenelse{\equal{\fontdocument}{nimbussans}}{
 	\usepackage{nimbussans}
 	\renewcommand*\familydefault{\sfdefault}
@@ -486,6 +630,9 @@
 \ifthenelse{\equal{\fontdocument}{noto}}{
 	\usepackage[sfdefault]{noto}
 	\renewcommand*\familydefault{\sfdefault}
+}{
+\ifthenelse{\equal{\fontdocument}{notoserif}}{
+	\usepackage{notomath}
 }{
 \ifthenelse{\equal{\fontdocument}{opensansserif}}{
 	\usepackage[default,oldstyle,scale=0.95]{opensans}
@@ -505,6 +652,9 @@
 \ifthenelse{\equal{\fontdocument}{paratypesansnarrow}}{
 	\usepackage{PTSansNarrow}
 	\renewcommand*\familydefault{\sfdefault}
+}{
+\ifthenelse{\equal{\fontdocument}{pxfonts}}{
+	\usepackage{pxfonts}
 }{
 \ifthenelse{\equal{\fontdocument}{quattrocento}}{
 	\usepackage[sfdefault]{quattrocento}
@@ -533,6 +683,20 @@
 \ifthenelse{\equal{\fontdocument}{sourcesanspro}}{
 	\usepackage[default]{sourcesanspro}
 }{
+\ifthenelse{\equal{\fontdocument}{step}}{
+	\usepackage[notext]{stix}
+	\usepackage{step}
+}{
+\ifthenelse{\equal{\fontdocument}{stickstoo}}{
+	\usepackage{stickstootext}
+	\usepackage[stickstoo,vvarbb]{newtxmath}
+}{
+\ifthenelse{\equal{\fontdocument}{texgyrebonum}}{
+	\usepackage{tgbonum}
+}{
+\ifthenelse{\equal{\fontdocument}{txfonts}}{
+	\usepackage{txfonts}
+}{
 \ifthenelse{\equal{\fontdocument}{uarial}}{
 	\usepackage{uarial}
 	\renewcommand*\familydefault{\sfdefault}
@@ -551,11 +715,11 @@
 	\usepackage[lf]{venturis}
 	\renewcommand*\familydefault{\sfdefault}
 }{
-	\throwbadconfig[nostop]{Fuente desconocida}{\fontdocument}{(Fuentes recomendadas) lmodern,arial,arial2,helvet,times,alegreyasans,mathpazo,mathptmx}
-	\throwbadconfig[noheader-nostop]{Fuente desconocida}{\fontdocument}{(Fuentes adicionales) accantis,alegreya,algolrevived,antiqua,antpolt,antpoltlight,anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,aurical,avant,baskervald,berasans,beraserif,biolinum,cabin,cabincondensed,cantarell,caladea,carlito,chivolight,chivoregular,clearsans,comfortaa,comicneue,comicneueangular,crimson,cyklop,dejavusans,dejavusanscondensed,droidsans,firasans,iwona,iwonacondensed,iwonalight,iwonalightcondensed,kurier}
-	\throwbadconfig[noheader-nostop]{Fuente desconocida}{\fontdocument}{kuriercondensed,kurierlight,kurierlightcondensed,lato,libertine,libris,lxfonts,merriweather,merriweatherlight,mintspirit,montserratalternatesextralight,montserratalternatesregular,montserratalternatesthin,montserratextralight,montserratlight,montserratregular,montserratthin,nimbussans,noto,opensansserif,overlock,paratype,paratypesanscaption,paratypesansnarrow,quattrocento,raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,sourcesanspro,uarial,ugq}
-	\throwbadconfig[noheader]{Fuente desconocida}{\fontdocument}{universalis,universaliscondensed,venturis}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	\throwbadconfig[nostop]{Fuente desconocida}{\fontdocument}{(Fuentes recomendadas) lmodern,carial,arial2,times,mathptmx,helvet,opensans,mathpazo,cambria,libertine,custom}
+	\throwbadconfig[noheader-nostop]{Fuente desconocida}{\fontdocument}{(Fuentes adicionales) accanthis,alegreya,alegreyasans,algolrevived,almendra,antpolt,antpoltlight,anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,arvo,baskervald,baskervaldx,berasans,beraserif,biolinum,bitter,boisik,bookman,cabin,cabincondensed,cantarell,caladea,carlito,charterbt,chivolight,chivoregular,clara,clearsans,cochineal,coelacanth,coelacanthextralight,coelacanthlight,comfortaa,comicneue,comicneueangular,computerconcrete,computerconcreteeuler,computermodern,computermodernbright,crimson,crimsonpro,crimsonproextralight,crimsonprolight,crimsonpromedium,cyklop}
+	\throwbadconfig[noheader-nostop]{Fuente desconocida}{\fontdocument}{dejavusans,dejavusanscondensed,domitian,droidsans,electrum,erewhon,fbb,fetamont,firasans,firasansnewtxsf,fourier,fouriernc,gfsartemisia,gfsartemisiaeuler,heuristica,iwona,iwonacondensed,iwonalight,iwonalightcondensed,kerkis,kurier,kuriercondensed,kurierlight,kurierlightcondensed,lato,libertinus,librebaskerville,librebodoni,librecaslon,libris,lxfonts}
+	\throwbadconfig[noheader]{Fuente desconocida}{\fontdocument}{merriweather,merriweatherlight,mintspirit,mlmodern,montserratalternatesextralight,montserratalternatesregular,montserratalternatesthin,montserratextralight,montserratlight,montserratregular,montserratthin,newpx,nimbussans,noto,notoserif,opensansserif,overlock,paratype,paratypesanscaption,paratypesansnarrow,pxfonts,quattrocento,raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,sourcesanspro,step,stickstoo,uarial,texgyrebonum,txfonts,ugq,universalis,universaliscondensed,venturis}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % -----------------------------------------------------------------------------

@@ -345,13 +345,15 @@
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 
 % Definición de operadores matemáticos de asignación (Typeset assigments)
-\newcommand{\asteq}{\ensuremath{\mathrel{{*}{=}}}}
+\ifthenelse{\equal{\fontdocument}{step}}{}{ % Ya definidos en STEP
+	\newcommand{\asteq}{\ensuremath{\mathrel{{*}{=}}}}
+	\newcommand{\eqeq}{\ensuremath{\mathrel{{=}{=}}}}
+}
 \newcommand{\cdoteq}{\ensuremath{\mathrel{{\cdot}{=}}}}
 \newcommand{\diveq}{\ensuremath{\mathrel{{/}{=}}}}
 \newcommand{\eqast}{\ensuremath{\mathrel{{=}{*}}}}
 \newcommand{\eqcdot}{\ensuremath{\mathrel{{=}{\cdot}}}}
 \newcommand{\eqdiv}{\ensuremath{\mathrel{{=}{/}}}}
-\newcommand{\eqeq}{\ensuremath{\mathrel{{=}{=}}}}
 \newcommand{\eqminus}{\ensuremath{\mathrel{{=}{-}}}}
 \newcommand{\eqnot}{\ensuremath{\mathrel{{=}{!}}}}
 \newcommand{\eqplus}{\ensuremath{\mathrel{{=}{+}}}}
