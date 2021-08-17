@@ -32,6 +32,11 @@
 \let\@cite@ofmt\@firstofone
 \makeatother
 
+% Configura footnotes
+% -----------------------------------------------------------------------------
+\let\oldfootnote\footnote
+\renewcommand\footnote[1][]{\oldfootnote[frame,#1]}
+
 % Corrige espaciamiento de itemize
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\itemizedeleteleftmargin}{true}}{
@@ -66,6 +71,9 @@
 % Definición de entornos beamer
 % -----------------------------------------------------------------------------
 \newenvironment<>{blockjustified}[1]{%
-	\begin{block}#2{#1}\justifying}{\end{block}}
+	\begin{block}#2{#1}\justifying
+}{%
+	\end{block}
+}
 
 % END
