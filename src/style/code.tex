@@ -765,9 +765,25 @@
 
 % Crea un entorno de código inline
 %	#1	Estilo de código
-\newcommand{\inlinesourcecode}[1]{%
-	\checkvalidsourcecodestyle{#1}%
-	\lstinline[style=#1]%
+%	#2	Código a insertar
+\newcommand{\inlinesourcecode}[2]{%
+	\inlinesourcecodeboxed[NOCOLOR]{#1}{#2}%
+}
+
+% Crea un entorno de código inline dentro de un recuadro de color
+%	#1	Color del recuadro
+%	#2	Estilo de código
+%	#3	Código a insertar
+\newcommand{\inlinesourcecodeboxed}[3][]{%
+	\checkvalidsourcecodestyle{#2}%
+	\ifthenelse{\equal{#1}{}}{%
+		\Colorbox{\sourcecodebgcolor}{\lstinline[style=#2]!#3!}%
+	}{%
+	\ifthenelse{\equal{#1}{NOCOLOR}}{%
+		\lstinline[style=#2]!#3!%
+	}{%
+		\Colorbox{#1}{\lstinline[style=#2]!#3!}%
+	}}%
 }
 
 % Inserta una referencia en un código fuente
