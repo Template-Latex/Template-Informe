@@ -184,9 +184,9 @@
 \newcommand{\corecheckbooleanvar}[1]{%
 	\emptyvarerr{\corecheckbooleanvar}{#1}{Variable no definida}%
 	\ifthenelse{\equal{#1}{true}}{}{%
-		\ifthenelse{\equal{#1}{false}}{}{%
-			\throwwarning{Variable debe ser true o false}\stop}%
-	}%
+	\ifthenelse{\equal{#1}{false}}{}{%
+		\throwwarning{Variable debe ser true o false}\stop%
+	}}%
 }
 
 % Centra verticalmente un texto

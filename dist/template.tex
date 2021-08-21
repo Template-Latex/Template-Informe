@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.3.6 (17/08/2021)
+% Versión:      7.3.7 (21/08/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -136,6 +136,7 @@
 \usepackage{pdfpages}      % Permite administrar páginas en pdf
 \usepackage{physics}       % Paquete de matemáticas
 \usepackage{ragged2e}      % Alineación de texto
+\usepackage{realboxes}     % Permite inserción de recuadros
 \usepackage{rotating}      % Permite rotación de objetos
 \usepackage{selinput}      % Compatibilidad con acentos
 \usepackage{setspace}      % Cambia el espacio entre líneas
@@ -1012,9 +1013,9 @@
 \newcommand{\corecheckbooleanvar}[1]{%
 	\emptyvarerr{\corecheckbooleanvar}{#1}{Variable no definida}%
 	\ifthenelse{\equal{#1}{true}}{}{%
-		\ifthenelse{\equal{#1}{false}}{}{%
-			\throwwarning{Variable debe ser true o false}\stop}%
-	}%
+	\ifthenelse{\equal{#1}{false}}{}{%
+		\throwwarning{Variable debe ser true o false}\stop%
+	}}%
 }
 
 % Centra verticalmente un texto
@@ -3087,7 +3088,18 @@
 % Inserta un texto con el formato de enlace
 % 	#1 	Enlace
 \newcommand{\hreftext}[1]{%
-	\ifthenelse{\equal{\fonturl}{same}}{#1}{\ifthenelse{\equal{\fonturl}{tt}}{\texttt{#1}}{\ifthenelse{\equal{\fonturl}{rm}}{\textrm{#1}}{\ifthenelse{\equal{\fonturl}{sf}}{\textsf{#1}}{}}}}%
+	\ifthenelse{\equal{\fonturl}{same}}{%
+		#1%
+	}{%
+	\ifthenelse{\equal{\fonturl}{tt}}{%
+		\texttt{#1}%
+	}{%
+	\ifthenelse{\equal{\fonturl}{rm}}{%
+		\textrm{#1}%
+	}{%
+	\ifthenelse{\equal{\fonturl}{sf}}{%
+		\textsf{#1}%
+	}{}}}}%
 }
 
 % Inserta un email con un link cliqueable
@@ -3153,7 +3165,7 @@
 			}
 		}
 	}
-
+	
 	% Actualiza el índice previo
 	\global\def\GLOBALtablerowcolorindex {#1}
 }
@@ -4676,9 +4688,25 @@
 
 % Crea un entorno de código inline
 %	#1	Estilo de código
-\newcommand{\inlinesourcecode}[1]{%
-	\checkvalidsourcecodestyle{#1}%
-	\lstinline[style=#1]%
+%	#2	Código a insertar
+\newcommand{\inlinesourcecode}[2]{%
+	\inlinesourcecodeboxed[NOCOLOR]{#1}{#2}%
+}
+
+% Crea un entorno de código inline dentro de un recuadro de color
+%	#1	Color del recuadro
+%	#2	Estilo de código
+%	#3	Código a insertar
+\newcommand{\inlinesourcecodeboxed}[3][]{%
+	\checkvalidsourcecodestyle{#2}%
+	\ifthenelse{\equal{#1}{}}{%
+		\Colorbox{\sourcecodebgcolor}{\lstinline[style=#2]!#3!}%
+	}{%
+	\ifthenelse{\equal{#1}{NOCOLOR}}{%
+		\lstinline[style=#2]!#3!%
+	}{%
+		\Colorbox{#1}{\lstinline[style=#2]!#3!}%
+	}}%
 }
 
 % Inserta una referencia en un código fuente
@@ -4871,15 +4899,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={17/08/2021},
+		Template.Fecha={21/08/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.3.6-3},
-		Template.Version.Hash={675E76F370429AF077591EE0EA31F3E5},
-		Template.Version.Release={7.3.6},
+		Template.Version.Dev={7.3.7-1},
+		Template.Version.Hash={3D3BC7B89CFDC79A002199C6B4B61725},
+		Template.Version.Release={7.3.7},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -4891,7 +4919,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.3.6 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.3.7 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5253,9 +5281,14 @@
 % Se activa el word-wrap para textos con \texttt{}
 % -----------------------------------------------------------------------------
 \ttfamily \hyphenchar\the\font=`\-
-\makeatletter
-\g@addto@macro{\UrlBreaks}{\UrlOrds} % Word-wrap para las \url
-\makeatother
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%
+	\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+	\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+	\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+	\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+	\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+	\do\Y\do\Z%
+}
 
 % -----------------------------------------------------------------------------
 % Se define el tipo de texto de los url
