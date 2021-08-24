@@ -29,15 +29,13 @@
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Empezando con el mejor template}
+\begin{frame}{Empezando con el mejor template}
 	\lipsum[1]
 \end{frame}
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Enumeraciones}
+\begin{frame}{Enumeraciones}
 	\begin{itemize}
 		\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
 		\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
@@ -49,8 +47,7 @@
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Bloques de texto}
+\begin{frame}{Bloques de texto}
 	\begin{blockjustified}{Bloque 1 (justificado)}
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
 	\end{blockjustified}
@@ -66,8 +63,7 @@
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Múltiples columnas}
+\begin{frame}{Múltiples columnas}
 	\begin{columns}[c]
 		
 		\column{.45\textwidth} % Columna izquierda y espesor
@@ -86,8 +82,7 @@
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Tabla}
+\begin{frame}{Tabla}
 	\begin{table}
 		\centering
 		\caption{Mi tabla.}
@@ -105,9 +100,9 @@
 
 %---------------------------------------------------------------------
 
-\begin{frame}[fragile]
-	\frametitle{Código fuente (Template)}
+\begin{frame}[fragile]{Código fuente (Template)}
 	Al igual que \href{https://latex.ppizarror.com/informe}{Template-Informe}, Template-Presentación ofrece el soporte a todos los lenguajes de programación con el entorno \texttt{sourcecode}.
+
 \begin{sourcecode}{python}{Ejemplo en Python.}
 import numpy as np
 
@@ -117,16 +112,17 @@ def incmatrix(genl1, genl2):
 	M = None # Comentario 1
 	VT = np.zeros((n*m, 1), int) # Comentario 2
 \end{sourcecode}
+	
+	También se pueden usar códigos inline \inlinesourcecodeboxed{js}{let a = (b) => \{return b*2\};} o sin recuadro de color como \inlinesourcecode{bash}{git commit -m "Este ejemplo"}.
 \end{frame}
 
 %---------------------------------------------------------------------
 
-\begin{frame}[fragile]
-	\frametitle{Código fuente (Verbatim)}
+\begin{frame}[fragile]{Código fuente (Verbatim)}
 	\begin{example}[Código sencillo en Python]
 		\begin{verbatim}
 		import numpy as np
-
+		
 		def incmatrix(genl1, genl2):
 			m = len(genl1)
 			n = len(genl2)
@@ -138,8 +134,7 @@ def incmatrix(genl1, genl2):
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Figuras}
+\begin{frame}{Figuras}
 	La Figura \ref{img:testimage} ilustra una imagen insertada con las funciones propias del template, mismas compartidas con todos los subtemplates.
 	
 	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
@@ -147,8 +142,7 @@ def incmatrix(genl1, genl2):
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Figuras múltiples}
+\begin{frame}{Figuras múltiples}
 	\begin{columns}[c]
 		
 		\column{.65\textwidth} % Columna izquierda y espesor
@@ -158,7 +152,7 @@ def incmatrix(genl1, genl2):
 			\imagesnewline
 			\addimage{ejemplos/test-image}{width=4cm}{Ciudad más grande}
 		\end{images}
-	
+		
 		\column{.35\textwidth}
 		
 		Enumerar con letras:
@@ -174,21 +168,20 @@ def incmatrix(genl1, genl2):
 			\item Rojo
 			\item Café
 		\end{enumerate}
-	
+		
 		$\ldots$ o griegos:
 		
 		\begin{enumerate}[label=\greek*) ]
 			\item Matemáticas
 			\item Lenguaje
 		\end{enumerate}
-	
+		
 	\end{columns}
 \end{frame}
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Citas \& Ecuaciones}
+\begin{frame}{Citas \& Ecuaciones}
 	El template también ofrece opciones para citar \cite{templatelatex}. Análogamente, todas las fórmulas de ecuaciones de \href{https://latex.ppizarror.com/informe}{Template-Informe} son soportadas \eqref{eqn:eqn-larga}:
 	
 	\insertgathered[\label{eqn:eqn-larga}]{
@@ -199,8 +192,7 @@ def incmatrix(genl1, genl2):
 
 %---------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Teoremas}
+\begin{frame}{Teoremas}
 	\begin{theorem}[Equivalencia masa energía]
 		$E = mc^2$
 	\end{theorem}
@@ -210,8 +202,7 @@ def incmatrix(genl1, genl2):
 
 \section{Segunda sección}
 
-\begin{frame}
-	\frametitle{Contenidos}
+\begin{frame}{Contenidos}
 	\tableofcontentscurrent
 \end{frame}
 
@@ -222,8 +213,7 @@ def incmatrix(genl1, genl2):
 \tabularframecfgalign{false}{true} % Centrado columna izquierda, derecha
 \tabularframebartextcfg{\normalsize}{true} % Tamaño, centrado
 
-\begin{frame}
-	\frametitle{Entorno tabular (1/3)}
+\begin{frame}{Entorno tabular (1/3)}
 	\begin{tabularframehead}{1}
 		\addtfheadcolumn{0.4}{Primer titular}%
 		\addtfheadcolumn{0.3}{Segundo titular}%
@@ -240,8 +230,7 @@ def incmatrix(genl1, genl2):
 	}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Entorno tabular (2/3)}
+\begin{frame}{Entorno tabular (2/3)}
 	\tabularframeheadrepeat{2} % Repite el header anterior, pasa como argumento la columna activa
 	\tabularframecontent{
 		La ecuación \eqref{eqtabular} indica la profundidad de un elemento, aunque no tiene mucho sentido ya que sólo se usa dentro del template. \\
@@ -251,8 +240,7 @@ def incmatrix(genl1, genl2):
 	}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Entorno tabular (3/3)}
+\begin{frame}{Entorno tabular (3/3)}
 	\tabularframeheadrepeat{3}
 	\tabularframecontent{
 		\lipsum[11]
@@ -277,8 +265,7 @@ def incmatrix(genl1, genl2):
 	}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Entorno tabular (3/3)}
+\begin{frame}{Entorno tabular (3/3)}
 	\tabularframeheadrepeat{3}
 	\tabularframecfgalign{true}{true} % Configura alineación vertical (primer parámetro)
 	\tabularframesinglecontent{%
