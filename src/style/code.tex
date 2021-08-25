@@ -14,7 +14,7 @@
 % Assembler
 \lstdefinelanguage[x64]{Assembler}[x86masm]{Assembler}{
 	morekeywords={
-		CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD,POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS,rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp,r8,r8d,r8w,r8b,r9,r9d,r9w,r9b,r10,r10d,r10w,r10b,r11,r11d,r11w,r11b,r12,r12d,r12w,r12b,r13,r13d,r13w,r13b,r14,r14d,r14w,r14b,r15,r15d,r15w,r15b
+		CDQE,CMPSQ,CMPXCHG16B,CQO,IRETQ,JRCXZ,LODSQ,MOVSXD,POPFQ,PUSHFQ,r8,r8b,r8d,r8w,r9,r9b,r9d,r9w,r10,r10b,r10d,r10w,r11,r11b,r11d,r11w,r12,r12b,r12d,r12w,r13,r13b,r13d,r13w,r14,r14b,r14d,r14w,r15,r15b,r15d,r15w,rax,rbp,rbx,rcx,rdi,RDTSCP,rdx,rsi,rsp,SCASQ,STOSQ,SWAPGS
 	}
 }
 \lstdefinestyle{assemblerx64}{
@@ -48,6 +48,18 @@
 	keepspaces=true
 }
 
+% CMake
+\lstdefinestyle{cmake}{
+	language=[gnu] make,
+	keywordstyle=[2]\color{dkcyan},
+	morekeywords=[1]{
+		add_custom_command,add_custom_target,add_definitions,add_executable,add_library,cmake_minimum_required,cmake_policy,configure_file,cuda_add_library,cuda_include_directories,else,elseif,endforeach,endfunction,endif,endmacro,execute_process,file,find_package,find_path,find_program,foreach,function,get_directory_property,get_filename_component,get_filename_component,get_source_file_property,if,include,include_directories,link_directories,list,macro,mark_as_advanced,message,option,project,set,set_property,set_target_properties,string,target_link_libraries,unset
+	},
+	morekeywords=[2]{
+		APPEND,CACHE,CMAKE_MODULE_PATH,COMMENT,COMPILE_DEFINITIONS,DEPENDS,DESTINATION,ENDIF,FATAL_ERROR,FIND_LIBRARY,FORCE,GLOB,GREATER,IF,INCLUDE_DIRECTORIES,IS_ABSOLUTE,LESS,LINK_PRIVATE,LIST,MAIN_DEPENDENCY,MAKE_DIRECTORY,MARK_AS_ADVANCED,MATCHALL,MATCHES,NOT,OFF,ON,OUTPUT,PARENT_SCOPE,PRE_BUILD_COMMAND,PRE_LINK,PROPERTIES,REGEX,REQUIRED,SET,TARGET,TOUPPER,UNIX,VERSION,VERSION_EQUAL,VERSION_LESS,WIN32,WORKING_DIRECTORY
+	}
+}
+
 % Cobol
 \lstdefinestyle{cobol}{
 	language=Cobol
@@ -56,8 +68,7 @@
 % C++
 \lstdefinestyle{cpp}{
 	language=C++,
-	breakatwhitespace=false,
-	morecomment=[l][\color{magenta}]{\#}
+	breakatwhitespace=false
 }
 
 % C#
@@ -169,9 +180,9 @@
 		% General
 		=,
 		% Atributos HTML
-		accept=,accept-charset=,accesskey=,action=,align=,alt=,async=,autocomplete=,autofocus=,autoplay=,autosave=,bgcolor=,border=,buffered=,challenge=,charset=,checked=,cite=,class=,code=,codebase=,color=,cols=,colspan=,content=,contenteditable=,contextmenu=,controls=,coords=,data=,datetime=,default=,defer=,dir=,dirname=,disabled=,download=,draggable=,dropzone=,enctype=,for=,form=,formaction=,headers=,height=,hidden=,high=,href=,hreflang=,http-equiv=,icon=,id=,ismap=,itemprop=,keytype=,kind=,label=,lang=,language=,list=,loop=,low=,manifest=,max=,maxlength=,media=,method=,min=,multiple=,name=,novalidate=,open=,optimum=,pattern=,ping=,placeholder=,poster=,preload=,pubdate=,radiogroup=,readonly=,rel=,required=,reversed=,rows=,rowspan=,sandbox=,scope=,scoped=,seamless=,selected=,shape=,size=,sizes=,span=,spellcheck=,src=,srcdoc=,srclang=,start=,step=,style=,summary=,tabindex=,target=,title=,type=,usemap=,value=,width=,wrap=,
+		accept-charset=,accept=,accesskey=,action=,align=,alt=,async=,autocomplete=,autofocus=,autoplay=,autosave=,bgcolor=,border=,buffered=,challenge=,charset=,checked=,cite=,class=,code=,codebase=,color=,cols=,colspan=,content=,contenteditable=,contextmenu=,controls=,coords=,data=,datetime=,default=,defer=,dir=,dirname=,disabled=,download=,draggable=,dropzone=,enctype=,for=,form=,formaction=,headers=,height=,hidden=,high=,href=,hreflang=,http-equiv=,icon=,id=,ismap=,itemprop=,keytype=,kind=,label=,lang=,language=,list=,loop=,low=,manifest=,max=,maxlength=,media=,method=,min=,multiple=,name=,novalidate=,open=,optimum=,pattern=,ping=,placeholder=,poster=,preload=,pubdate=,radiogroup=,readonly=,rel=,required=,reversed=,rows=,rowspan=,sandbox=,scope=,scoped=,seamless=,selected=,shape=,size=,sizes=,span=,spellcheck=,src=,srcdoc=,srclang=,start=,step=,style=,summary=,tabindex=,target=,title=,type=,usemap=,value=,width=,wrap=,
 		% Propiedades CSS
-		accelerator:,azimuth:,background:,background-attachment:,background-color:,background-image:,background-position:,background-position-x:,background-position-y:,background-repeat:,behavior:,border:,border-bottom:,border-bottom-color:,border-bottom-style:,border-bottom-width:,border-collapse:,border-color:,border-left:,border-left-color:,border-left-style:,border-left-width:,border-right:,border-right-color:,border-right-style:,border-right-width:,border-spacing:,border-style:,border-top:,border-top-color:,border-top-style:,border-top-width:,border-width:,bottom:,caption-side:,clear:,clip:,color:,content:,counter-increment:,counter-reset:,cue:,cue-after:,cue-before:,cursor:,direction:,display:,elevation:,empty-cells:,filter:,float:,font:,font-family:,font-size:,font-size-adjust:,font-stretch:,font-style:,font-variant:,font-weight:,height:,ime-mode:,include-source:,layer-background-color:,layer-background-image:,layout-flow:,layout-grid:,layout-grid-char:,layout-grid-char-spacing:,layout-grid-line:,layout-grid-mode:,layout-grid-type:,left:,letter-spacing:,line-break:,line-height:,list-style:,list-style-image:,list-style-position:,list-style-type:,margin:,margin-bottom:,margin-left:,margin-right:,margin-top:,marker-offset:,marks:,max-height:,max-width:,min-height:,min-width:,transition-duration:,transition-property:,transition-timing-function:,transform:,-moz-transform:,-moz-binding:,-moz-border-radius:,-moz-border-radius-topleft:,-moz-border-radius-topright:,-moz-border-radius-bottomright:,-moz-border-radius-bottomleft:,-moz-border-top-colors:,-moz-border-right-colors:,-moz-border-bottom-colors:,-moz-border-left-colors:,-moz-opacity:,-moz-outline:,-moz-outline-color:,-moz-outline-style:,-moz-outline-width:,-moz-user-focus:,-moz-user-input:,-moz-user-modify:,-moz-user-select:,orphans:,outline:,outline-color:,outline-style:,outline-width:,overflow:,overflow-X:,overflow-Y:,padding:,padding-bottom:,padding-left:,padding-right:,padding-top:,page:,page-break-after:,page-break-before:,page-break-inside:,pause:,pause-after:,pause-before:,pitch:,pitch-range:,play-during:,position:,quotes:,-replace:,richness:,right:,ruby-align:,ruby-overhang:,ruby-position:,-set-link-source:,size:,speak:,speak-header:,speak-numeral:,speak-punctuation:,speech-rate:,stress:,scrollbar-arrow-color:,scrollbar-base-color:,scrollbar-dark-shadow-color:,scrollbar-face-color:,scrollbar-highlight-color:,scrollbar-shadow-color:,scrollbar-3d-light-color:,scrollbar-track-color:,table-layout:,text-align:,text-align-last:,text-decoration:,text-indent:,text-justify:,text-overflow:,text-shadow:,text-transform:,text-autospace:,text-kashida-space:,text-underline-position:,top:,unicode-bidi:,-use-link-source:,vertical-align:,visibility:,voice-family:,volume:,white-space:,widows:,width:,word-break:,word-spacing:,word-wrap:,writing-mode:,z-index:,zoom:
+		-moz-binding:,-moz-border-bottom-colors:,-moz-border-left-colors:,-moz-border-radius-bottomleft:,-moz-border-radius-bottomright:,-moz-border-radius-topleft:,-moz-border-radius-topright:,-moz-border-radius:,-moz-border-right-colors:,-moz-border-top-colors:,-moz-opacity:,-moz-outline-color:,-moz-outline-style:,-moz-outline-width:,-moz-outline:,-moz-transform:,-moz-user-focus:,-moz-user-input:,-moz-user-modify:,-moz-user-select:,-replace:,-set-link-source:,-use-link-source:,accelerator:,azimuth:,background-attachment:,background-color:,background-image:,background-position-x:,background-position-y:,background-position:,background-repeat:,background:,behavior:,border-bottom-color:,border-bottom-style:,border-bottom-width:,border-bottom:,border-collapse:,border-color:,border-left-color:,border-left-style:,border-left-width:,border-left:,border-right-color:,border-right-style:,border-right-width:,border-right:,border-spacing:,border-style:,border-top-color:,border-top-style:,border-top-width:,border-top:,border-width:,border:,bottom:,caption-side:,clear:,clip:,color:,content:,counter-increment:,counter-reset:,cue-after:,cue-before:,cue:,cursor:,direction:,display:,elevation:,empty-cells:,filter:,float:,font-family:,font-size-adjust:,font-size:,font-stretch:,font-style:,font-variant:,font-weight:,font:,height:,ime-mode:,include-source:,layer-background-color:,layer-background-image:,layout-flow:,layout-grid-char-spacing:,layout-grid-char:,layout-grid-line:,layout-grid-mode:,layout-grid-type:,layout-grid:,left:,letter-spacing:,line-break:,line-height:,list-style-image:,list-style-position:,list-style-type:,list-style:,margin-bottom:,margin-left:,margin-right:,margin-top:,margin:,marker-offset:,marks:,max-height:,max-width:,min-height:,min-width:,orphans:,outline-color:,outline-style:,outline-width:,outline:,overflow-X:,overflow-Y:,overflow:,padding-bottom:,padding-left:,padding-right:,padding-top:,padding:,page-break-after:,page-break-before:,page-break-inside:,page:,pause-after:,pause-before:,pause:,pitch-range:,pitch:,play-during:,position:,quotes:,richness:,right:,ruby-align:,ruby-overhang:,ruby-position:,scrollbar-3d-light-color:,scrollbar-arrow-color:,scrollbar-base-color:,scrollbar-dark-shadow-color:,scrollbar-face-color:,scrollbar-highlight-color:,scrollbar-shadow-color:,scrollbar-track-color:,size:,speak-header:,speak-numeral:,speak-punctuation:,speak:,speech-rate:,stress:,table-layout:,text-align-last:,text-align:,text-autospace:,text-decoration:,text-indent:,text-justify:,text-kashida-space:,text-overflow:,text-shadow:,text-transform:,text-underline-position:,top:,transform:,transition-duration:,transition-property:,transition-timing-function:,unicode-bidi:,vertical-align:,visibility:,voice-family:,volume:,white-space:,widows:,width:,word-break:,word-spacing:,word-wrap:,writing-mode:,z-index:,zoom:
 	},
 	otherkeywords={
 		<,</,>,</a,<a,</a>,</abbr,<abbr,</abbr>,</address,<address,</address>,</area,<area,</area>,</area,<area,</area>,</article,<article,</article>,</aside,<aside,</aside>,</audio,<audio,</audio>,</audio,<audio,</audio>,</b,<b,</b>,</base,<base,</base>,</bdi,<bdi,</bdi>,</bdo,<bdo,</bdo>,</blockquote,<blockquote,</blockquote>,</body,<body,</body>,</br,<br,</br>,</button,<button,</button>,</canvas,<canvas,</canvas>,</caption,<caption,</caption>,</cite,<cite,</cite>,</code,<code,</code>,</col,<col,</col>,</colgroup,<colgroup,</colgroup>,</data,<data,</data>,</datalist,<datalist,</datalist>,</dd,<dd,</dd>,</del,<del,</del>,</details,<details,</details>,</dfn,<dfn,</dfn>,</div,<div,</div>,</dl,<dl,</dl>,</dt,<dt,</dt>,</em,<em,</em>,</embed,<embed,</embed>,</fieldset,<fieldset,</fieldset>,</figcaption,<figcaption,</figcaption>,</figure,<figure,</figure>,</footer,<footer,</footer>,</form,<form,</form>,</h1,<h1,</h1>,</h2,<h2,</h2>,</h3,<h3,</h3>,</h4,<h4,</h4>,</h5,<h5,</h5>,</h6,<h6,</h6>,</head,<head,</head>,</header,<header,</header>,</hr,<hr,</hr>,</html,<html,</html>,</i,<i,</i>,</iframe,<iframe,</iframe>,</img,<img,</img>,</input,<input,</input>,</ins,<ins,</ins>,</kbd,<kbd,</kbd>,</keygen,<keygen,</keygen>,</label,<label,</label>,</legend,<legend,</legend>,</li,<li,</li>,</link,<link,</link>,</main,<main,</main>,</map,<map,</map>,</mark,<mark,</mark>,</math,<math,</math>,</menu,<menu,</menu>,</menuitem,<menuitem,</menuitem>,</meta,<meta,</meta>,</meter,<meter,</meter>,</nav,<nav,</nav>,</noscript,<noscript,</noscript>,</object,<object,</object>,</ol,<ol,</ol>,</optgroup,<optgroup,</optgroup>,</option,<option,</option>,</output,<output,</output>,</p,<p,</p>,</param,<param,</param>,</pre,<pre,</pre>,</progress,<progress,</progress>,</q,<q,</q>,</rp,<rp,</rp>,</rt,<rt,</rt>,</ruby,<ruby,</ruby>,</s,<s,</s>,</samp,<samp,</samp>,</script,<script,</script>,</section,<section,</section>,</select,<select,</select>,</small,<small,</small>,</source,<source,</source>,</span,<span,</span>,</strong,<strong,</strong>,</style,<style,</style>,</summary,<summary,</summary>,</sup,<sup,</sup>,</svg,<svg,</svg>,</table,<table,</table>,</tbody,<tbody,</tbody>,</td,<td,</td>,</template,<template,</template>,</textarea,<textarea,</textarea>,</tfoot,<tfoot,</tfoot>,</th,<th,</th>,</thead,<thead,</thead>,</time,<time,</time>,</title,<title,</title>,</tr,<tr,</tr>,</track,<track,</track>,</u,<u,</u>,</ul,<ul,</ul>,</var,<var,</var>,</video,<video,</video>,</wbr,<wbr,</wbr>,/>,<!
@@ -281,6 +292,11 @@
 	language={[5.2]Lua}
 }
 
+% Make
+\lstdefinestyle{make}{
+	language=[gnu] make
+}
+
 % Maple
 \lstdefinelanguage{Maple}{
 	morecomment=[l]\#,
@@ -325,7 +341,7 @@
 	language=C++,
 	breakatwhitespace=false,
 	emph={
-		bool3,bool4,bool8,bool16,char2,char3,char4,char8,char16,complex,constant,event_t,bool2,float2,float3,float4,float8,float16,global,half2,half3,half4,half8,half16,image2d_t,image3d_t,imaginary,int2,int3,int4,int8,int16,kernel,local,long2,long3,long4,long8,long16,private,quad,quad2,quad3,quad4,quad8,quad16,sampler_t,short2,short3,short4,short8,short16,uchar2,uchar3,uchar4,uchar8,uchar16,uint2,uint3,uint4,uint8,uint16,ulong2,ulong3,ulong4,ulong8,ulong16,ushort2,ushort3,ushort4,ushort8,ushort16,__constant,__global,__kernel,__local,__private
+		bool2,bool3,bool4,bool8,bool16,char2,char3,char4,char8,char16,complex,constant,event_t,float2,float3,float4,float8,float16,global,half2,half3,half4,half8,half16,image2d_t,image3d_t,imaginary,int2,int3,int4,int8,int16,kernel,local,long2,long3,long4,long8,long16,private,quad,quad2,quad3,quad4,quad8,quad16,sampler_t,short2,short3,short4,short8,short16,uchar2,uchar3,uchar4,uchar8,uchar16,uint2,uint3,uint4,uint8,uint16,ulong2,ulong3,ulong4,ulong8,ulong16,ushort2,ushort3,ushort4,ushort8,ushort16,__constant,__global,__kernel,__local,__private
 	},
 	emphstyle=\color{dkcyan}\ttfamily,
 	morecomment=[l][\color{magenta}]{\#}
@@ -629,7 +645,6 @@
 % Configuración de códigos fuente
 % -----------------------------------------------------------------------------
 \lstset{
-	% \mbox{\textcolor{black}{$\hookrightarrow$}\space}
 	aboveskip=0.75em,
 	basicstyle={\sourcecodefonts\sourcecodefontf\color{\maintextcolor}},
 	belowskip=1em,
@@ -639,7 +654,7 @@
 	extendedchars=true,
 	fontadjust=true,
 	% fancyvrb=false,
-	identifierstyle=\color{black},
+	identifierstyle=\color{\maintextcolor},
 	keepspaces=true,
 	keywordstyle=\color{blue},
 	literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
@@ -687,7 +702,8 @@
 		{υ}{{$\upsilon$}}1 {ύ}{{$\dot \upsilon$}}1 {Ϋ}{{$\ddot Y$}}1
 		{ϋ}{{$\ddot \upsilon$}}1 {ΰ}{{$\dddot \upsilon$}}1
 		{Φ}{{$\Phi$}}1 {φ}{{$\phi$}}1 {Ψ}{{$\Psi$}}1 {ψ}{{$\psi$}}1
-		{Ω}{{$\Omega$}}1 {ω}{{$\omega$}}1 {ώ}{{$\dot \omega$}}1,
+		{Ω}{{$\Omega$}}1 {ω}{{$\omega$}}1 {ώ}{{$\dot \omega$}}1
+		{“}{{``}}1 {”}{{''}}1 {…}{{$\ldots$}}1,
 	numbers=left,
 	numbersep={\sourcecodenumbersep pt},
 	numberstyle=\tiny\color{dkgray},
@@ -709,6 +725,7 @@
 	\ifthenelse{\equal{#1}{bash}}{}{%
 	\ifthenelse{\equal{#1}{basic}}{}{%
 	\ifthenelse{\equal{#1}{c}}{}{%
+	\ifthenelse{\equal{#1}{cmake}}{}{%
 	\ifthenelse{\equal{#1}{cobol}}{}{%
 	\ifthenelse{\equal{#1}{cpp}}{}{%
 	\ifthenelse{\equal{#1}{csharp}}{}{%
@@ -731,6 +748,7 @@
 	\ifthenelse{\equal{#1}{latex}}{}{%
 	\ifthenelse{\equal{#1}{lisp}}{}{%
 	\ifthenelse{\equal{#1}{lua}}{}{%
+	\ifthenelse{\equal{#1}{make}}{}{%
 	\ifthenelse{\equal{#1}{maple}}{}{%
 	\ifthenelse{\equal{#1}{mathematica}}{}{%
 	\ifthenelse{\equal{#1}{matlab}}{}{%
@@ -758,9 +776,9 @@
 	\ifthenelse{\equal{#1}{verilog}}{}{%
 	\ifthenelse{\equal{#1}{vhdl}}{}{%
 	\ifthenelse{\equal{#1}{xml}}{}{%
-		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,basic,c,cobol,cpp,csharp,css,csv,cuda,docker,fortran,glsl,gnuplot,go,haskell,html5,ini,java,javascript,js,json,kotlin,latex,lisp,lua,maple,mathematica,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,pseudocode,py,python,r,racket,ruby,rust,scala,scheme,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
+		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,basic,c,cmake,cobol,cpp,csharp,css,csv,cuda,docker,fortran,glsl,gnuplot,go,haskell,html5,ini,java,javascript,js,json,kotlin,latex,lisp,lua,make,maple,mathematica,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,pseudocode,py,python,r,racket,ruby,rust,scala,scheme,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
 		\stop%
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
 }
 
 % Crea un entorno de código inline
