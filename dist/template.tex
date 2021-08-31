@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.3.9 (25/08/2021)
+% Versión:      7.4.0 (30/08/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -3950,6 +3950,16 @@
 \definecolor{mauve}{RGB}{150,0,210}
 \definecolor{ocre}{RGB}{243,102,25}
 
+% ABAP
+\lstdefinestyle{abap}{
+	language=ABAP
+}
+
+% Ada
+\lstdefinestyle{ada}{
+	language=[2005]Ada
+}
+
 % Assembler
 \lstdefinelanguage[x64]{Assembler}[x86masm]{Assembler}{
 	morekeywords={
@@ -3961,6 +3971,11 @@
 }
 \lstdefinestyle{assemblerx86}{
 	language=[x86masm]Assembler
+}
+
+% Awk
+\lstdefinestyle{awk}{
+	language=[gnu]Awk
 }
 
 % Bash
@@ -3985,6 +4000,11 @@
 	language=C,
 	breakatwhitespace=false,
 	keepspaces=true
+}
+
+% Caml
+\lstdefinestyle{caml}{
+	language=[light]Caml
 }
 
 % CMake
@@ -4034,7 +4054,7 @@
 	breakatwhitespace=true
 }
 
-% CSV, Archivos separados por coma
+% CSV
 \lstdefinestyle{csv}{
 	language={}
 }
@@ -4051,7 +4071,7 @@
 	moredelim=[s][\ttfamily]{<<<}{>>>}
 }
 
-% DOCKER
+% Docker
 \lstdefinelanguage{docker}{
 	comment=[l]{\#},
 	keywords={
@@ -4065,13 +4085,23 @@
 	breakatwhitespace=true
 }
 
+% Elisp
+\lstdefinestyle{elisp}{
+	language=elisp
+}
+
+% Erlang
+\lstdefinestyle{erlang}{
+	language=erlang
+}
+
 % Fortran-95
 \lstdefinestyle{fortran}{
 	language=[95]Fortran,
 	breakatwhitespace=false
 }
 
-% GLSL - Shaders
+% GLSL
 \lstdefinelanguage{GLSL}{
 	alsoletter={\#},
 	morekeywords=[1]{
@@ -4129,7 +4159,7 @@
 	sensitive=true,
 	tag=[s]
 }
-\lstdefinestyle{html5}{
+\lstdefinestyle{html}{
 	language=HTML5,
 	alsodigit={.:;},
 	alsolanguage=JavaScript,
@@ -4177,9 +4207,6 @@
 \lstdefinestyle{javascript}{
 	language=JavaScript
 }
-\lstdefinestyle{js}{
-	language=JavaScript
-}
 
 % JSON
 \lstdefinestyle{json}{
@@ -4191,6 +4218,18 @@
 	{{{\color{delim}{\{}}}}{1}{\}}{{{\color{delim}{\}}}}}
 	{1}{[}{{{\color{delim}{[}}}}{1}{]}{{{\color{delim}{]}}}}{1},
 	tabsize=2
+}
+
+% Julia
+\lstdefinestyle{julia}{
+	keywordsprefix=\@,
+	morecomment=[l]{\#},
+	morekeywords={
+		abstract,Any,applicable,assert,baremodule,begin,bitstype,Bool,break,catch,ccall,Complex64,Complex128,const,continue,convert,dlopen,dlsym,do,edit,else,elseif,end,eps,error,exit,export,finalizer,Float32,Float64,for,function,global,hash,if,im,immutable,import,importall,in,Inf,Int,Int8,Int16,Int32,Int64,invoke,is,isa,isequal,let,load,local,macro,method_exists,module,Nan,new,None,Nothing,ntuple,pi,promote,promote_type,quote,realmax,realmin,return,sizeof,subtype,system,throw,try,tuple,type,typealias,typemax,typemin,typeof,uid,Uint,Uint8,Uint16,Uint32,Uint64,using,while,whos
+	},
+	morestring=[b]',
+	morestring=[b]",
+	sensitive=true
 }
 
 % Kotlin
@@ -4226,9 +4265,14 @@
 	morekeywords={if}
 }
 
+% LLVM
+\lstdefinestyle{llvm}{
+	language=LLVM
+}
+
 % Lua
 \lstdefinestyle{lua}{
-	language={[5.2]Lua}
+	language={[5.3]Lua}
 }
 
 % Make
@@ -4265,6 +4309,16 @@
 	morekeywords={
 		addOptional,box,break,catch,cell,classdef,continue,deal,double,end,factorial,for,gradient,hessian,if,isa,ltitr,matlab2tikz,methods,minor,movegui,normcdf,normpdf,on,ones,parse,persistent,poissrnd,properties,repmat,solve,strcat,subs,syms,try,var,warning,xlim,ylim
 	}
+}
+
+% Mercury
+\lstdefinestyle{mercury}{
+	language=Mercury
+}
+
+% Modula-2
+\lstdefinestyle{modula2}{
+	language=Modula-2
 }
 
 % Octave
@@ -4355,6 +4409,16 @@
 	keepspaces=true
 }
 
+% Promela
+\lstdefinestyle{promela}{
+	language=Promela
+}
+
+% Prolog
+\lstdefinestyle{prolog}{
+	language=Prolog
+}
+
 % Pseudocódigo
 \lstdefinestyle{pseudocode}{
 	language={},
@@ -4389,9 +4453,6 @@
 	morekeywords={
 		as,assert,close,listdir,self,sorted,split,strip,with
 	}
-}
-\lstdefinestyle{py}{
-	language=pythonEXTENDED
 }
 \lstdefinestyle{python}{
 	language=pythonEXTENDED
@@ -4433,6 +4494,17 @@
 	sensitive=true
 }
 
+% Reil
+\lstdefinestyle{reil}{
+	comment=[l]{;},
+	keywords=[1]{
+		ADD,add,and,AND,BISZ,bisz,bsh,BSH,div,DIV,jcc,JCC,LDM,ldm,MOD,mod,mul,MUL,nop,NOP,or,OR,stm,STM,STR,str,sub,SUB,undef,UNDEF,unkn,UNKN,XOR,xor
+	},
+	keywords=[3]{
+		ah,AH,al,AL,AX,ax,bh,BH,BL,bl,bp,BP,bpl,BPL,BX,bx,ch,CH,cl,CL,cx,CX,DH,dh,di,DI,dil,DIL,dl,DL,DX,dx,EAX,eax,EBP,ebp,ebx,EBX,ECX,ecx,EDI,edi,edx,EDX,esi,ESI,esp,ESP,r8,R8,r8b,R8B,r8d,R8D,r8w,R8W,r9,R9,R9B,r9b,R9D,r9d,r9w,R9W,r10,R10,R10B,r10b,R10D,r10d,r10w,R10W,r11,R11,r11b,R11B,r11d,R11D,R11W,r11w,R12,r12,R12B,r12b,r12d,R12D,r12w,R12W,R13,r13,r13b,R13B,R13D,r13d,R13W,r13w,r14,R14,R14B,r14b,r14d,R14D,R14W,r14w,r15,R15,r15b,R15B,r15d,R15D,R15W,r15w,RAX,rax,rbp,RBP,rbx,RBX,RCX,rcx,RDI,rdi,rdx,RDX,RSI,rsi,RSP,rsp,SI,si,SIL,sil,SP,sp,spl,SPL
+	},
+	sensitive=true
+}
 
 % Ruby
 \lstdefinestyle{ruby}{
@@ -4520,6 +4592,21 @@
 		and,begin,case,case-lambda,cond,cond-expand,define,delay,delay-force,do,else,force,guard,if,lambda,let,let*,let*-values,let-syntax,let-values,letrec,letrec*,letrec-syntax,make-parameter,make-promise,map,or,parameterize,promise?,quasiquote,quote,set!,syntax-rules,unless,when
 	},
 	morestring=[b]"
+}
+
+% Scilab
+\lstdefinestyle{scilab}{
+	language=Scilab
+}
+
+% Simula
+\lstdefinestyle{simula}{
+	language=Simula
+}
+
+% SPARQL
+\lstdefinestyle{sparql}{
+	language=SPARQL
 }
 
 % SQL
@@ -4659,11 +4746,15 @@
 % Chequeo de estilos, cualquier nuevo estilo añadirlo a esta lista
 % -----------------------------------------------------------------------------
 \newcommand{\checkvalidsourcecodestyle}[1]{%
+	\ifthenelse{\equal{#1}{abap}}{}{%
+	\ifthenelse{\equal{#1}{ada}}{}{%
 	\ifthenelse{\equal{#1}{assemblerx64}}{}{%
 	\ifthenelse{\equal{#1}{assemblerx86}}{}{%
+	\ifthenelse{\equal{#1}{awk}}{}{%
 	\ifthenelse{\equal{#1}{bash}}{}{%
 	\ifthenelse{\equal{#1}{basic}}{}{%
 	\ifthenelse{\equal{#1}{c}}{}{%
+	\ifthenelse{\equal{#1}{caml}}{}{%
 	\ifthenelse{\equal{#1}{cmake}}{}{%
 	\ifthenelse{\equal{#1}{cobol}}{}{%
 	\ifthenelse{\equal{#1}{cpp}}{}{%
@@ -4672,25 +4763,30 @@
 	\ifthenelse{\equal{#1}{csv}}{}{%
 	\ifthenelse{\equal{#1}{cuda}}{}{%
 	\ifthenelse{\equal{#1}{docker}}{}{%
+	\ifthenelse{\equal{#1}{elisp}}{}{%
+	\ifthenelse{\equal{#1}{erlang}}{}{%
 	\ifthenelse{\equal{#1}{fortran}}{}{%
 	\ifthenelse{\equal{#1}{glsl}}{}{%
 	\ifthenelse{\equal{#1}{gnuplot}}{}{%
 	\ifthenelse{\equal{#1}{go}}{}{%
 	\ifthenelse{\equal{#1}{haskell}}{}{%
-	\ifthenelse{\equal{#1}{html5}}{}{%
+	\ifthenelse{\equal{#1}{html}}{}{%
 	\ifthenelse{\equal{#1}{ini}}{}{%
 	\ifthenelse{\equal{#1}{java}}{}{%
 	\ifthenelse{\equal{#1}{javascript}}{}{%
-	\ifthenelse{\equal{#1}{js}}{}{%
 	\ifthenelse{\equal{#1}{json}}{}{%
+	\ifthenelse{\equal{#1}{julia}}{}{%
 	\ifthenelse{\equal{#1}{kotlin}}{}{%
 	\ifthenelse{\equal{#1}{latex}}{}{%
 	\ifthenelse{\equal{#1}{lisp}}{}{%
+	\ifthenelse{\equal{#1}{llvm}}{}{%
 	\ifthenelse{\equal{#1}{lua}}{}{%
 	\ifthenelse{\equal{#1}{make}}{}{%
 	\ifthenelse{\equal{#1}{maple}}{}{%
 	\ifthenelse{\equal{#1}{mathematica}}{}{%
 	\ifthenelse{\equal{#1}{matlab}}{}{%
+	\ifthenelse{\equal{#1}{mercury}}{}{%
+	\ifthenelse{\equal{#1}{modula2}}{}{%
 	\ifthenelse{\equal{#1}{octave}}{}{%
 	\ifthenelse{\equal{#1}{opencl}}{}{%
 	\ifthenelse{\equal{#1}{opensees}}{}{%
@@ -4699,15 +4795,20 @@
 	\ifthenelse{\equal{#1}{php}}{}{%
 	\ifthenelse{\equal{#1}{plaintext}}{}{%
 	\ifthenelse{\equal{#1}{postscript}}{}{%
+	\ifthenelse{\equal{#1}{prolog}}{}{%
+	\ifthenelse{\equal{#1}{promela}}{}{%
 	\ifthenelse{\equal{#1}{pseudocode}}{}{%
-	\ifthenelse{\equal{#1}{py}}{}{%
 	\ifthenelse{\equal{#1}{python}}{}{%
 	\ifthenelse{\equal{#1}{r}}{}{%
 	\ifthenelse{\equal{#1}{racket}}{}{%
+	\ifthenelse{\equal{#1}{reil}}{}{%
 	\ifthenelse{\equal{#1}{ruby}}{}{%
 	\ifthenelse{\equal{#1}{rust}}{}{%
 	\ifthenelse{\equal{#1}{scala}}{}{%
 	\ifthenelse{\equal{#1}{scheme}}{}{%
+	\ifthenelse{\equal{#1}{scilab}}{}{%
+	\ifthenelse{\equal{#1}{simula}}{}{%
+	\ifthenelse{\equal{#1}{sparql}}{}{%
 	\ifthenelse{\equal{#1}{sql}}{}{%
 	\ifthenelse{\equal{#1}{swift}}{}{%
 	\ifthenelse{\equal{#1}{tcl}}{}{%
@@ -4715,9 +4816,9 @@
 	\ifthenelse{\equal{#1}{verilog}}{}{%
 	\ifthenelse{\equal{#1}{vhdl}}{}{%
 	\ifthenelse{\equal{#1}{xml}}{}{%
-		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: assemblerx64,assemblerx86,bash,basic,c,cmake,cobol,cpp,csharp,css,csv,cuda,docker,fortran,glsl,gnuplot,go,haskell,html5,ini,java,javascript,js,json,kotlin,latex,lisp,lua,make,maple,mathematica,matlab,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,pseudocode,py,python,r,racket,ruby,rust,scala,scheme,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
+		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: abap,ada,assemblerx64,assemblerx86,awk,bash,basic,c,caml,cmake,cobol,cpp,csharp,css,csv,cuda,docker,elisp,erlang,fortran,glsl,gnuplot,go,haskell,html,ini,java,javascript,json,julia,kotlin,latex,lisp,llvm,lua,make,maple,mathematica,matlab,mercury,modula2,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,promela,prolog,pseudocode,python,r,racket,reil,ruby,rust,scala,scilab,scheme,simula,sparql,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
 		\stop%
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
 }
 
 % Crea un entorno de código inline
@@ -4933,15 +5034,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={25/08/2021},
+		Template.Fecha={30/08/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.3.9-1},
-		Template.Version.Hash={4C0A8B0FBFE01A3F30BDAA252BA20019},
-		Template.Version.Release={7.3.9},
+		Template.Version.Dev={7.4.0},
+		Template.Version.Hash={72B3B8BEDC775CC2D06F3132C667A0B2},
+		Template.Version.Release={7.4.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -4953,7 +5054,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.3.9 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.4.0 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
