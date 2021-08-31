@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.4.0 (30/08/2021)
+% Versión:      7.4.0 (31/08/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -4071,6 +4071,17 @@
 	moredelim=[s][\ttfamily]{<<<}{>>>}
 }
 
+% Dart
+\lstdefinestyle{dart}{
+	language=Java,
+	emph=[2]{
+		findAllElements,findElements
+	},
+	morekeywords={
+		*,get,library,List,num,set,String,var
+	}
+}
+
 % Docker
 \lstdefinelanguage{docker}{
 	comment=[l]{\#},
@@ -4090,6 +4101,21 @@
 	language=elisp
 }
 
+% Elixir
+\lstdefinestyle{elixir}{
+	 morekeywords={
+		 case,catch,def,do,else,false,use,alias,receive,timeout,defmacro,defp,for,if,import,defmodule,defprotocol,nil,defmacrop,defoverridable,defimpl,super,fn,raise,true,try,end,with,unless
+	},
+	otherkeywords={
+		<-,->, |>, \%\{, \}, \{, \, (, )
+	},
+	morecomment=[l]{\#},
+	morecomment=[n]{/*}{*/},
+	morecomment=[s][\color{purple}]{:}{\ },
+	morestring=[s][\color{mauve}]"",
+	sensitive=true
+}
+
 % Erlang
 \lstdefinestyle{erlang}{
 	language=erlang
@@ -4099,6 +4125,21 @@
 \lstdefinestyle{fortran}{
 	language=[95]Fortran,
 	breakatwhitespace=false
+}
+
+% F#
+\lstdefinestyle{fsharp}{
+	morecomment=[l][\color{dkgreen}]{///},
+	morecomment=[l][\color{dkgreen}]{//},
+	morecomment=[s][\color{dkgreen}]{{(*}{*)}},
+	morestring=[b]",
+	morekeywords={
+		abstract,and,Application,Array,Async,async,begin,cloud,do,else,end,false,finally,for,fun,function,if,in,inherit,interface,let,List,match,member,module,mutable,namespace,new,of,open,rec,return,Seq,static,System,then,true,try,type,use,while,with,yield
+	},
+	otherkeywords={
+		by,do!,from,let!,order,return!,select,use!,var,where,yield!
+	},
+	sensitive=true
 }
 
 % GLSL
@@ -4321,6 +4362,19 @@
 	language=Modula-2
 }
 
+% Objective-C
+\lstdefinestyle{objectivec}{
+	language=[Objective]C,
+	breakatwhitespace=false,
+	keepspaces=true,
+	moredirectives={
+		import
+	},
+	morekeywords={
+		@catch,@class,@dynamic,@encode,@end,@finally,@implementation,@interface,@package,@private,@property,@protected,@protocol,@public,@selector,@synchronized,@synthesize,@throw,@try,assign,BOOL,bycopy,byref,Class,copy,id,IMP,in,inout,Nil,nil,NO,nonatomic,oneway,out,readonly,readwrite,retain,SEL,self,super,YES,_cmd
+	}
+}
+
 % Octave
 \lstdefinestyle{octave}{
 	language=Octave,
@@ -4409,14 +4463,33 @@
 	keepspaces=true
 }
 
-% Promela
-\lstdefinestyle{promela}{
-	language=Promela
+% Powershell
+% https://github.com/rmainer/latex-listings-powershell/blob/master/src/latex-listings-powershell.tex
+\lstdefinestyle{powershell}{
+	alsodigit={-},
+	morecomment=[l]{\#},
+	morecomment=[n]{<\#}{\#>},
+	morekeywords={
+		Add-Content,Add-PSSnapin,Clear-Content,Clear-History,Clear-Host,Clear-Item,Clear-ItemProperty,Clear-Variable,Compare-Object,Connect-PSSession,Convert-Path,ConvertFrom-String,Copy-Item,Copy-ItemProperty,Disable-PSBreakpoint,Disconnect-PSSession,Enable-PSBreakpoint,Enter-PSSession,Exit-PSSession,Export-Alias,Export-Csv,Export-PSSession,ForEach-Object,Format-Custom,Format-Hex,Format-List,Format-Table,Format-Wide,Get-Alias,Get-ChildItem,Get-Clipboard,Get-Command,Get-ComputerInfo,Get-Content,Get-History,Get-Item,Get-ItemProperty,Get-ItemPropertyValue,Get-Job,Get-Location,Get-Member,Get-Module,Get-Process,Get-PSBreakpoint,Get-PSCallStack,Get-PSDrive,Get-PSSession,Get-PSSnapin,Get-Service,Get-TimeZone,Get-Unique,Get-Variable,Get-WmiObject,Group-Object,help,Import-Alias,Import-Csv,Import-Module,Import-PSSession,Invoke-Command,Invoke-Expression,Invoke-History,Invoke-Item,Invoke-RestMethod,Invoke-WebRequest,Invoke-WmiMethod,Measure-Object,mkdir,Move-Item,Move-ItemProperty,New-Alias,New-Item,New-Module,New-PSDrive,New-PSSession,New-PSSessionConfigurationFile,New-Variable,Out-GridView,Out-Host,Out-Printer,Pop-Location,powershell_ise.exe,Push-Location,Receive-Job,Receive-PSSession,Remove-Item,Remove-ItemProperty,Remove-Job,Remove-Module,Remove-PSBreakpoint,Remove-PSDrive,Remove-PSSession,Remove-PSSnapin,Remove-Variable,Remove-WmiObject,Rename-Item,Rename-ItemProperty,Resolve-Path,Resume-Job,Select-Object,Select-String,Set-Alias,Set-Clipboard,Set-Content,Set-Item,Set-ItemProperty,Set-Location,Set-PSBreakpoint,Set-TimeZone,Set-Variable,Set-WmiInstance,Show-Command,Sort-Object,Start-Job,Start-Process,Start-Service,Start-Sleep,Stop-Job,Stop-Process,Stop-Service,Suspend-Job,Tee-Object,Trace-Command,Wait-Job,Where-Object,Write-Output
+	},
+	morekeywords={
+		Do,Else,For,ForEach,Function,If,In,Until,While
+	},
+	morestring=[b]{"},
+	morestring=[b]{'},
+	morestring=[s]{@'}{'@},
+	morestring=[s]{@"}{"@},
+	sensitive=false
 }
 
 % Prolog
 \lstdefinestyle{prolog}{
 	language=Prolog
+}
+
+% Promela
+\lstdefinestyle{promela}{
+	language=Promela
 }
 
 % Pseudocódigo
@@ -4456,6 +4529,20 @@
 }
 \lstdefinestyle{python}{
 	language=pythonEXTENDED
+}
+
+% Q#
+\lstdefinestyle{qsharp}{
+	mathescape=true,
+	morecomment=[l]{//},
+	morecomment=[l][\color{dkgreen}]{///},
+	morekeywords={
+		Adj,Adjoint,adjoint,and,apply,as,auto,BigInt,body,Bool,borrowing,Controlled,controlled,Ctl,distribute,Double,elif,else,fail,false,fixup,for,function,if,in,Int,intrinsic,invert,is,let,mutable,namespace,new,newtype,not,One,open,operation,or,Pauli,PauliI,PauliX,PauliY,PauliZ,Qubit,Range,repeat,Result,return,self,set,String,true,Unit,until,using,while,within,Zero
+	},
+	morekeywords=[2]{
+		Assert,AssertProb,CCNOT,CNOT,Exp,ExpFrac,H,I,M,Measure,Message,R,R1,R1Frac,Random,Reset,ResetAll,RFrac,Rx,Ry,Rz,S,SWAP,T,X,Y,Z
+	},
+	sensitive=true
 }
 
 % R
@@ -4729,7 +4816,7 @@
 		{ϋ}{{$\ddot \upsilon$}}1 {ΰ}{{$\dddot \upsilon$}}1
 		{Φ}{{$\Phi$}}1 {φ}{{$\phi$}}1 {Ψ}{{$\Psi$}}1 {ψ}{{$\psi$}}1
 		{Ω}{{$\Omega$}}1 {ω}{{$\omega$}}1 {ώ}{{$\dot \omega$}}1
-		{“}{{``}}1 {”}{{''}}1 {…}{{$\ldots$}}1,
+		{“}{{``}}1 {”}{{''}}1 {…}{{$\ldots$}}1 {`}{\`}1,
 	numbers=left,
 	numbersep={\sourcecodenumbersep pt},
 	numberstyle=\tiny\color{dkgray},
@@ -4762,10 +4849,13 @@
 	\ifthenelse{\equal{#1}{css}}{}{%
 	\ifthenelse{\equal{#1}{csv}}{}{%
 	\ifthenelse{\equal{#1}{cuda}}{}{%
+	\ifthenelse{\equal{#1}{dart}}{}{%
 	\ifthenelse{\equal{#1}{docker}}{}{%
 	\ifthenelse{\equal{#1}{elisp}}{}{%
+	\ifthenelse{\equal{#1}{elixir}}{}{%
 	\ifthenelse{\equal{#1}{erlang}}{}{%
 	\ifthenelse{\equal{#1}{fortran}}{}{%
+	\ifthenelse{\equal{#1}{fsharp}}{}{%
 	\ifthenelse{\equal{#1}{glsl}}{}{%
 	\ifthenelse{\equal{#1}{gnuplot}}{}{%
 	\ifthenelse{\equal{#1}{go}}{}{%
@@ -4787,6 +4877,7 @@
 	\ifthenelse{\equal{#1}{matlab}}{}{%
 	\ifthenelse{\equal{#1}{mercury}}{}{%
 	\ifthenelse{\equal{#1}{modula2}}{}{%
+	\ifthenelse{\equal{#1}{objectivec}}{}{%
 	\ifthenelse{\equal{#1}{octave}}{}{%
 	\ifthenelse{\equal{#1}{opencl}}{}{%
 	\ifthenelse{\equal{#1}{opensees}}{}{%
@@ -4795,10 +4886,12 @@
 	\ifthenelse{\equal{#1}{php}}{}{%
 	\ifthenelse{\equal{#1}{plaintext}}{}{%
 	\ifthenelse{\equal{#1}{postscript}}{}{%
+	\ifthenelse{\equal{#1}{powershell}}{}{%
 	\ifthenelse{\equal{#1}{prolog}}{}{%
 	\ifthenelse{\equal{#1}{promela}}{}{%
 	\ifthenelse{\equal{#1}{pseudocode}}{}{%
 	\ifthenelse{\equal{#1}{python}}{}{%
+	\ifthenelse{\equal{#1}{qsharp}}{}{%
 	\ifthenelse{\equal{#1}{r}}{}{%
 	\ifthenelse{\equal{#1}{racket}}{}{%
 	\ifthenelse{\equal{#1}{reil}}{}{%
@@ -4816,9 +4909,9 @@
 	\ifthenelse{\equal{#1}{verilog}}{}{%
 	\ifthenelse{\equal{#1}{vhdl}}{}{%
 	\ifthenelse{\equal{#1}{xml}}{}{%
-		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: abap,ada,assemblerx64,assemblerx86,awk,bash,basic,c,caml,cmake,cobol,cpp,csharp,css,csv,cuda,docker,elisp,erlang,fortran,glsl,gnuplot,go,haskell,html,ini,java,javascript,json,julia,kotlin,latex,lisp,llvm,lua,make,maple,mathematica,matlab,mercury,modula2,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,promela,prolog,pseudocode,python,r,racket,reil,ruby,rust,scala,scilab,scheme,simula,sparql,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
+		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: abap,ada,assemblerx64,assemblerx86,awk,bash,basic,c,caml,cmake,cobol,cpp,csharp,css,csv,cuda,dart,docker,elisp,elixir,erlang,fortran,fsharp,glsl,gnuplot,go,haskell,html,ini,java,javascript,json,julia,kotlin,latex,lisp,llvm,lua,make,maple,mathematica,matlab,mercury,modula2,objectivec,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,powershell,prolog,promela,pseudocode,python,qsharp,r,racket,reil,ruby,rust,scala,scheme,scilab,simula,sparql,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
 		\stop%
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
 }
 
 % Crea un entorno de código inline
@@ -5034,14 +5127,14 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={30/08/2021},
+		Template.Fecha={31/08/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.4.0},
-		Template.Version.Hash={72B3B8BEDC775CC2D06F3132C667A0B2},
+		Template.Version.Dev={7.4.0-2},
+		Template.Version.Hash={5904AE0A6616A6F43E71A13A2A433BA7},
 		Template.Version.Release={7.4.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
