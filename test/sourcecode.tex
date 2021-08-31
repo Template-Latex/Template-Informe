@@ -1376,7 +1376,7 @@ Elemento E5: 33.7093        COMPRESION
 Elemento E6: 137.6807       COMPRESION
 \end{sourcecode}
 
-\begin{sourcecode}[\label{codigo-html5}]{html5}{Ejemplo en HTML5.}
+\begin{sourcecode}[\label{codigo-html}]{html}{Ejemplo en HTML.}
 <!DOCTYPE html>
 <html>
 <head>
@@ -1458,7 +1458,7 @@ public class Hola extends GenericServlet {
 }
 \end{sourcecode}
 
-\begin{sourcecode}{js}{Ejemplo en Javascript.}
+\begin{sourcecode}{javascript}{Ejemplo en Javascript.}
 $.urlParam = function (name) {
 	let results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 	if (results == null) {
@@ -2980,6 +2980,253 @@ foreach(CHAPTER ${CHAPTERS})
 endforeach(CHAPTER)
 
 include_directories(${CMAKE_SOURCE_DIR}/includes)
+\end{sourcecode}
+
+\begin{sourcecode}{prolog}{Ejemplo en prolog.}
+somePredicate(_, B) :-
+    arbitraryPredicate(A, _variable, 1, 2),
+    predicateWithAtom(someAtom),
+    anotherPredicate(B, someAtom, myPredicate(A, _)),
+    findall(X, ('testString'(X), myPredicate(A, X)), L1),
+    member(A, L1),
+    !.
+    /*
+    block comment: blah blah blah
+    */
+    % to-end-of-line comment: blah blah blah
+\end{sourcecode}
+
+\begin{sourcecode}{scilab}{Ejemplo en scilab.}
+function y = f(x)
+	y = 1/sqrt(2*\%pi) * exp(-x^2/2)
+endfunction
+
+// A simple plot of z = f(x,y)
+t=[0:0.3:2*%pi]';
+z=sin(t) * cos(t');
+plot3d(t, t', z)
+\end{sourcecode}
+
+\begin{sourcecode}{promela}{Ejemplo promela.}
+mtype = {M_UP, M_DW};
+chan Chan_data_down = [0] of {mtype};
+chan Chan_data_up   = [0] of {mtype};
+proctype P1 (chan Chan_data_in, Chan_data_out)
+{
+    do
+    ::  Chan_data_in  ? M_UP -> skip;
+    ::  Chan_data_out ! M_DW -> skip;
+    od;
+};
+proctype P2 (chan Chan_data_in, Chan_data_out)
+{
+    do
+    ::  Chan_data_in  ? M_DW -> skip;
+    ::  Chan_data_out ! M_UP -> skip;
+    od;
+};
+init
+{
+    atomic
+    {
+        run P1 (Chan_data_up,   Chan_data_down);
+        run P2 (Chan_data_down, Chan_data_up);
+    }
+}
+\end{sourcecode}
+
+\begin{sourcecode}{simula}{Ejemplo en simula.}
+Real Procedure Sigma (k, m, n, u);
+   Name k, u;
+   Integer k, m, n; Real u;
+Begin
+   Real s;
+   k:= m;
+   While k <= n Do Begin s:= s + u; k:= k + 1; End;
+   Sigma:= s;
+End;
+\end{sourcecode}
+
+\begin{sourcecode}{elisp}{Ejemplo en elisp.}
+(defun my-split-window-func ()
+  (interactive)
+  (split-window-below)
+  (set-window-buffer (next-window) (other-buffer)))
+
+(global-set-key (kbd "C-x 2") #'my-split-window-func)
+\end{sourcecode}
+
+\begin{sourcecode}{sparql}{Ejemplo en SPARQL.}
+PREFIX ex: <http://example.com/exampleOntology#>
+SELECT ?capital
+       ?country
+WHERE
+  {
+    ?x  ex:cityname       ?capital   ;
+        ex:isCapitalOf    ?y         .
+    ?y  ex:countryname    ?country   ;
+        ex:isInContinent  ex:Africa  .
+  }
+\end{sourcecode}
+
+\begin{sourcecode}{llvm}{Ejemplo en LLVM.}
+target triple = "x86_64-unknown-linux-gnu"
+
+@s = private constant [13 x i8] c"hello world\0A\00"
+
+; main prints "hello world" to standard output.
+define i32 @main(i32 %argc, i8** %argv) {
+	%1 = getelementptr [13 x i8]* @s, i32 0, i32 0
+	call i32 (i8*, ...)* @printf(i8* %1)
+	ret i32 0
+}
+
+declare i32 @printf(i8*, ...)
+\end{sourcecode}
+
+\begin{sourcecode}{reil}{Ejemplo en REIL.}
+bisz t8, , ZF
+str t8, , esp
+ldm 16815620, , t0
+str t0, , eax
+sub esp, 4, esp
+and esp, 4294967295, esp
+stm esi, , esp
+sub esp, 4, esp
+and esp, 4294967295, esp
+stm t2, , esp
+add -4, ebp, t0
+and t0, 4294967295, t1
+stm eax, , t1
+sub esp, 4, t0
+and t0, 4294967295, esp
+stm 16805479, , esp
+jcc 1, , 16805367
+\end{sourcecode}
+
+\begin{sourcecode}{modula2}{Ejemplo en Modula-2.}
+type Day_type   is range    1 ..   31;
+type Month_type is range    1 ..   12;
+type Year_type  is range 1800 .. 2100;
+type Hours is mod 24;
+type Weekday is (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday);
+
+type Date is
+   record
+     Day   : Day_type;
+     Month : Month_type;
+     Year  : Year_type;
+   end record;
+\end{sourcecode}
+
+\begin{sourcecode}{abap}{Ejemplo en ABAP.}
+* Primitive types:
+DATA: COUNTER      TYPE I,
+      VALIDITY     TYPE I VALUE 60,
+      TAXRATE(3)   TYPE P DECIMALS 1,
+      LASTNAME(20) TYPE C,
+      DESCRIPTION  TYPE STRING.
+
+* Dictionary types:
+DATA: ORIGIN       TYPE COUNTRY.
+
+* Internal table:
+DATA: T_FLIGHTS    TYPE TABLE OF FLIGHTINFO,
+      T_LOOKUP     TYPE HASHED TABLE OF FLT_LOOKUP.
+
+* Objects:
+DATA: BOOKING      TYPE REF TO CL_FLT_BOOKING.
+\end{sourcecode}
+
+\begin{sourcecode}{awk}{Ejemplo en Awk.}
+BEGIN {
+    FS="[^a-zA-Z]+"
+}
+{
+    for (i=1; i<=NF; i++)
+        words[tolower($i)]++
+}
+END {
+    for (i in words)
+        print i, words[i]
+}
+\end{sourcecode}
+
+\begin{sourcecode}{ada}{Ejemplo en Ada.}
+MODULE Hello;
+FROM STextIO IMPORT WriteString;
+BEGIN
+  WriteString("Hello World!");
+END Hello.
+\end{sourcecode}
+
+\begin{sourcecode}{caml}{Ejemplo en Caml.}
+# let haar l =
+   let rec aux l s d = 
+     match l, s, d with
+       [s], [], d -> s :: d
+     | [], s, d -> aux s [] d
+     | h1 :: h2 :: t, s, d -> aux t (h1 + h2 :: s) (h1 - h2 :: d)
+     | _ -> invalid_arg "haar" 
+     in aux l [] [];;
+val haar : int list -> int list = <fun>
+\end{sourcecode}
+
+\begin{sourcecode}{mercury}{Ejemplo en Mercury.}
+ :- module fib.
+ :- interface.
+ :- import_module io.
+ :- pred main(io::di, io::uo) is det.
+ 
+ :- implementation.
+ :- import_module int.
+
+ :- func fib(int) = int.
+ fib(N) = (if N =< 2 then 1 else fib(N - 1) + fib(N - 2)).
+
+ main(!IO) :-
+        io.write_string("fib(10) = ", !IO),
+        io.write_int(fib(10), !IO),
+        io.nl(!IO).
+        % Could instead use io.format("fib(10) = %d\n", [i(fib(10))], !IO).
+\end{sourcecode}
+
+\begin{sourcecode}{erlang}{Ejemplo en erlang.}
+% This is file 'listsort.erl' (the compiler is made this way)
+-module(listsort).
+% Export 'by_length' with 1 parameter (don't care about the type and name)
+-export([by_length/1]).
+
+by_length(Lists) -> % Use 'qsort/2' and provides an anonymous function as a parameter
+   qsort(Lists, fun(A,B) -> length(A) < length(B) end).
+
+qsort([], _)-> []; % If list is empty, return an empty list (ignore the second parameter)
+qsort([Pivot|Rest], Smaller) ->
+    % Partition list with 'Smaller' elements in front of 'Pivot' and not-'Smaller' elements
+    % after 'Pivot' and sort the sublists.
+    qsort([X || X <- Rest, Smaller(X,Pivot)], Smaller)
+    ++ [Pivot] ++
+    qsort([Y || Y <- Rest, not(Smaller(Y, Pivot))], Smaller).
+\end{sourcecode}
+
+\begin{sourcecode}{julia}{Ejemplo en Julia.}
+#= This is a code sample for the Julia language
+(adapted from http://julialang.org) =#
+function mandel(z)
+    c = z
+    maxiter = 80
+    for n = 1:maxiter
+        if abs(z) > 2
+            return n-1
+        end
+        z = z^2 + c
+    end
+    return maxiter
+end
+
+function helloworld()
+    println("Hello, World!") # Bye bye, MATLAB!
+end
 \end{sourcecode}
 
 % \clearpage
