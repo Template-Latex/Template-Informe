@@ -3229,6 +3229,334 @@ function helloworld()
 end
 \end{sourcecode}
 
+\begin{sourcecode}{dart}{Ejemplo en Dart.}
+// Import the math library to get access to the sqrt function.
+// Imported with `math` as name, so accesses need to use `math.` as prefix.
+import 'dart:math' as math;
+
+// Create a class for Point.
+class Point {
+
+  // Final variables cannot be changed once they are assigned.
+  // Declare two instance variables.
+  final num x, y;
+
+  // A constructor, with syntactic sugar for setting instance variables.
+  // The constructor has two mandatory parameters.
+  Point(this.x, this.y);
+
+  // A named constructor with an initializer list.
+  Point.origin()
+      : x = 0,
+        y = 0;
+
+  // A method.
+  num distanceTo(Point other) {
+    var dx = x - other.x;
+    var dy = y - other.y;
+    return math.sqrt(dx * dx + dy * dy);
+  }
+  
+  // Example of a "getter".
+  // Acts the same as a final variable, but is computed on each access.
+  num get magnitude => math.sqrt(x * x + y * y);
+
+  // Example of operator overloading
+  Point operator +(Point other) => Point(x + other.x, y + other.y);
+  // When you instantiate a class such as Point in Dart 2+, new is 
+  // an optional word
+}
+
+// All Dart programs start with main().
+void main() {
+  // Instantiate point objects.
+  var p1 = Point(10, 10);
+  print(p1.magnitude);
+  var p2 = Point.origin();
+  var distance = p1.distanceTo(p2);
+  print(distance);
+}
+\end{sourcecode}
+
+\begin{sourcecode}{dart}{Ejemplo en Dart.}
+#import('dart:html');
+
+class Contacts {
+
+  Contacts() {
+  }
+
+  void run() {
+    write("Hello World!");
+  }
+
+  void write(String message) {
+    // the HTML library defines a global "document" variable
+    document.query('#status').innerHTML = message;
+  }
+}
+
+void main() {
+  new Contacts().run();
+}
+\end{sourcecode}
+
+\begin{sourcecode}{fsharp}{Ejemplo en F\#.}
+/// Fibonacci Number formula
+let fib n =
+    let rec g n f0 f1 =
+        match n with
+        | 0 -> f0
+        | 1 -> f1
+        | _ -> g (n - 1) f1 (f0 + f1)
+    g n 0 1
+
+/// Another approach - a lazy infinite sequence of Fibonacci numbers
+let fibSeq = Seq.unfold (fun (a,b) -> Some(a+b, (b, a+b))) (0,1)
+
+// Print even fibs
+[1 .. 10]
+|> List.map     fib
+|> List.filter  (fun n -> (n % 2) = 0)
+|> printList
+
+// Same thing, using a list expression
+[ for i in 1..10 do
+    let r = fib i
+    if r % 2 = 0 then yield r ]
+|> printList
+\end{sourcecode}
+
+\begin{sourcecode}{fsharp}{Ejemplo en F\#.}
+// Open the Windows Forms library
+open System.Windows.Forms
+
+// Create a window and set a few properties
+let form = new Form(Visible=true, TopMost=true, Text="Welcome to F#")
+
+// Create a label to show some text in the form
+let label =
+    let x = 3 + (4 * 5)
+    new Label(Text = sprintf "x = %d" x)
+
+// Add the label to the form
+form.Controls.Add(label)
+
+// Finally, run the form
+[<System.STAThread>]
+Application.Run(form)
+
+/// A simple prime number detector
+let isPrime (n:int) =
+   let bound = int (sqrt (float n))
+   seq {2 .. bound} |> Seq.forall (fun x -> n % x <> 0)
+
+// We are using async workflows
+let primeAsync n =
+    async { return (n, isPrime n) }
+
+/// Return primes between m and n using multiple threads
+let primes m n =
+    seq {m .. n}
+        |> Seq.map primeAsync
+        |> Async.Parallel
+        |> Async.RunSynchronously
+        |> Array.filter snd
+        |> Array.map fst
+
+// Run a test
+primes 1000000 1002000
+    |> Array.iter (printfn "%d")
+\end{sourcecode}
+
+\begin{sourcecode}{javascript}{Ejemplo en javascript ES6.}
+/* eslint-env es6 */
+/* eslint-disable no-unused-vars */
+
+import Axios from 'axios'
+import { BASE_URL } from './utils/api'
+import { getAPIToken } from './utils/helpers'
+
+export default class User {
+  constructor () {
+    this.id = null
+    this.username = null
+    this.email = ''
+    this.isActive = false
+    this.lastLogin = ''  // ISO 8601 formatted timestamp.
+    this.lastPWChange = ''  // ISO 8601 formatted timestamp.
+  }
+}
+
+const getUserProfile = async (id) => {
+  let user = new User()
+  await Axios.get(
+    `${BASE_URL}/users/${id}`,
+    {
+      headers: {
+        'Authorization': `Token ${getAPIToken()}`,
+      }
+    }
+  ).then{response => {
+    // ...
+  }).catch(error => {
+    // ...
+  })
+}
+\end{sourcecode}
+
+\begin{sourcecode}{qsharp}{Ejemplo en Q\#.}
+namespace Example {
+	open Microsoft.Quantum.Intrinsic;
+
+	/// # Summary
+	/// Prepares $(\ket{00} + \ket{11}) / \sqrt{2}$.
+	operation PrepareEntangledPair(left : Qubit, right : Qubit) : Unit
+		is Adj + Ctl {
+			H(left);
+			CNOT(left, right);
+		}
+}
+\end{sourcecode}
+
+\begin{sourcecode}{powershell}{Ejemplo en Powershell.}
+# comment
+
+<#
+multi
+line
+comment
+#>
+
+$tmp = 'string'
+$tmp = "string"
+
+$tmp = @'
+mutli
+"line"
+strings
+'@
+
+$tmp = @"
+multi
+'line'
+strings
+"@
+
+If (1 -lt 2) { Write-Output "Hello World!" }
+\end{sourcecode}
+
+\begin{sourcecode}{powershell}{Ejemplo en Powershell.}
+# Extracts PowerShell aliases, cmdlets and functions for the listings package (https://ctan.org/pkg/listings).
+
+$texfile = 'latex-listings-powershell.tex'
+
+$header = @"
+\lstdefinelanguage{PowerShell}{`n
+"@
+
+$footer = @'
+	morekeywords={Do,Else,For,ForEach,Function,If,In,Until,While},
+	alsodigit={-},
+	sensitive=false,
+	morecomment=[l]{\#},
+	morecomment=[n]{<\#}{\#>},
+	morestring=[b]{"},
+	morestring=[b]{'},
+	morestring=[s]{@'}{'@},
+	morestring=[s]{@"}{"@}
+}
+'@
+
+function convert($file) {
+    Get-Content -Path $file | Sort-Object -Unique | Set-Content $file
+    (Get-Content -Path $file) `
+        -replace '[A-Z]:', '' `
+        -replace 'cd(\.\.)?\\?', '' `
+        -replace '\s+$', '' `
+        | Where-Object {$_.trim() -ne "" } | Set-Content $file
+    (Get-Content -Path $file) -join ',' | Set-Content $file
+}
+
+Get-Command -Type Cmdlet | Sort-Object -Property Name -Unique | Format-Table -Property Name -HideTableHeaders > cmdlets.txt
+Get-Command -Type Function | Sort-Object -Property Name -Unique | Format-Table -Property Name -HideTableHeaders > functions.txt
+Get-Command -Type Alias | Select ResolvedCommand | Sort-Object -Property ResolvedCommand -Unique | Format-Table -Property ResolvedCommand -HideTableHeaders > aliases.txt
+
+convert('aliases.txt')
+convert('cmdlets.txt')
+convert('functions.txt')
+
+$aliases = Get-Content 'aliases.txt'
+$cmdlets = Get-Content 'cmdlets.txt'
+$functions = Get-Content 'functions.txt'
+
+$keywords = "`tmorekeywords={`n`t`t" + $aliases + "`n`t},`n"
+$keywords = $keywords + "`tmorekeywords={`n`t`t" + $cmdlets + "`n`t},`n"
+$keywords = $keywords + "`tmorekeywords={`n`t`t" + $functions + "`n`t},`n"
+
+$content = $header + $keywords + $footer
+
+Set-Content -Path $texfile -Value $content
+
+Remove-Item 'aliases.txt', 'cmdlets.txt', 'functions.txt'
+\end{sourcecode}
+
+\begin{sourcecode}{objectivec}{Ejemplo en Objective-C.}
+@interface classname : superclassname {
+    // instance variables
+}
++classMethod1;
++(return_type)classMethod2;
++(return_type)classMethod3:(param1_type)param1_varName;
+
+-(return_type)instanceMethod1:(param1_type)param1_varName :(param2_type)param2_varName;
+-(return_type)instanceMethod2WithParameter:(param1_type)param1_varName andOtherParameter:(param2_type)param2_varName;
+@end
+\end{sourcecode}
+
+\begin{sourcecode}{objectivec}{Ejemplo en Objective-C.}
+#import "Forwarder.h"
+
+@implementation Forwarder
+- (retval_t)forward:(SEL)sel args:(arglist_t)args {
+  /*
+  * Check whether the recipient actually responds to the message.
+  * This may or may not be desirable, for example, if a recipient
+  * in turn does not respond to the message, it might do forwarding
+  * itself.
+  */
+  if ([recipient respondsToSelector:sel]) {
+    return [recipient performv:sel args:args];
+  } else {
+    return [self error:"Recipient does not respond"];
+  }
+}
+
+- (id)setRecipient:(id)_recipient {
+  [recipient autorelease];
+  recipient = [_recipient retain];
+  return self;
+}
+
+- (id)recipient {
+  return recipient;
+}
+@end
+\end{sourcecode}
+
+\begin{sourcecode}{elixir}{Ejemplo en Elixir.}
+# A comment
+defmodule Foo do
+	def bar(x) do
+		string = "hello"
+
+		fc = fn x,y -> x + y end 
+		atom = fc.(!\elsymb{:imanatom}!)
+		atom = fc.(!\elsymb{:because_the_parser_is_not_good_enough}! )
+	end
+end
+\end{sourcecode}
+
 % \clearpage
 % \importsourcecode{latex}{test/general.tex}{Carga código fuente archivo LaTeX.}
 % \importsourcecode{latex}{lib/etc/example.tex}{Carga código fuente ejemplo LaTeX.}
