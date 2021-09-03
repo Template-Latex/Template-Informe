@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Archivo de estilos simple + link (doi)
-%% Versión:      1.1.1 (28/06/2020)
+%% Versión:      1.1.2 (02/09/2020)
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -122,7 +122,7 @@ FUNCTION {output.links} {
             url empty$ {
                 skip$
             }{
-                ", \href{" * url * "}{\detokenize{" * url * "}}" * output
+                ", \href{" * url * "}{\nolinkurl{\detokenize{" * url * "}}}" * output
                 urldate empty$ {
                     skip$
                 }{
@@ -133,14 +133,14 @@ FUNCTION {output.links} {
             %% url empty$ {
                 ", \href{https://arxiv.org/abs/" * arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" * output
             %% }{
-            %%     ", \href{" * url * "}{arXiv:\detokenize{" * arxivId * "}}" * output
+            %%     ", \href{" * url * "}{\nolinkurl{arXiv:\detokenize{" * arxivId * "}}}" * output
             %% } if$
         } if$
     }{
         %% url empty$ {
-            ", \href{https://dx.doi.org/" * doi * "}{doi:\detokenize{" * doi * "}}" * output
+            ", \href{https://dx.doi.org/" * doi * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" * output
         %% }{
-        %%     ", \href{" * url * "}{doi:\detokenize{" * doi * "}}" * output
+        %%     ", \href{" * url * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" * output
         %% } if$
     } if$
 }
