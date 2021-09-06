@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.4.1 (01/09/2021)
+% Versión:      7.4.2 (06/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -5027,7 +5027,7 @@
 \checkvardefined{\nombrefacultad}
 \checkvardefined{\nombreuniversidad}
 \checkvardefined{\temaatratar}
-\checkvardefined{\titulodelinforme}
+\checkvardefined{\titulodeldocumento}
 
 % -----------------------------------------------------------------------------
 % Se añade \xspace a las variables
@@ -5041,7 +5041,7 @@
 	\g@addto@macro\nombrefacultad\xspace
 	\g@addto@macro\nombreuniversidad\xspace
 	\g@addto@macro\temaatratar\xspace
-	\g@addto@macro\titulodelinforme\xspace
+	\g@addto@macro\titulodeldocumento\xspace
 \makeatother
 
 % -----------------------------------------------------------------------------
@@ -5052,10 +5052,13 @@
 	\def\tablaintegrantes {}}{
 }
 
-\ifthenelse{\equal{\subtituloinforme}{}}{
-	\def\tituloinformehf {\titulodelinforme}
+\ifthenelse{\equal{\subtitulodocumento}{}}{
+	\def\titulodeldocumentohf {\titulodeldocumento}
 }{
-	\def\tituloinformehf {\subtituloinforme}
+	\makeatletter
+		\g@addto@macro\subtitulodocumento\xspace
+	\makeatother
+	\def\titulodeldocumentohf {\subtitulodocumento}
 }
 
 % -----------------------------------------------------------------------------
@@ -5084,7 +5087,7 @@
 	\def\pdfmetainfocodigodelcurso {\codigodelcurso}
 	\def\pdfmetainfonombredelcurso {\nombredelcurso}
 	\def\pdfmetainfotema {\temaatratar}
-	\def\pdfmetainfotitulo {\titulodelinforme}
+	\def\pdfmetainfotitulo {\titulodeldocumento}
 	\def\pdfmetainfounidepto {\departamentouniversidad}
 	\def\pdfmetainfounifacultad {\nombrefacultad}
 	\def\pdfmetainfouninombre {\nombreuniversidad}
@@ -5125,15 +5128,15 @@
 		Template.Autor.Nombre={Pablo Pizarro R.},
 		Template.Autor.Web={https://ppizarror.com},
 		Template.Codificacion={UTF-8},
-		Template.Fecha={01/09/2021},
+		Template.Fecha={06/09/2021},
 		Template.Latex.Compilador={pdflatex},
 		Template.Licencia.Tipo={MIT},
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.4.1-1},
-		Template.Version.Hash={8C9D801D06F417418D42052E47C320E1},
-		Template.Version.Release={7.4.1},
+		Template.Version.Dev={7.4.2},
+		Template.Version.Hash={E3F51E8A6968CE4513E0E9062EEB576F},
+		Template.Version.Release={7.4.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		Universidad.Departamento={\pdfmetainfounidepto},
@@ -5145,7 +5148,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.4.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.4.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5813,7 +5816,7 @@
 		\vfill
 		\begin{center}
 			\textcolor{\portraittitlecolor}{
-				{\noindent \Huge{\titulodelinforme} \vspace{0.5cm}} ~ \\
+				{\noindent \Huge{\titulodeldocumento} \vspace{0.5cm}} ~ \\
 				{\noindent \large{\temaatratar}}
 			}
 		\end{center}
@@ -5856,7 +5859,7 @@
 			{\noindent \LARGE{\nombredelcurso} \vspace{0.3cm}} ~ \\
 			\vspace*{1.5cm}
 			\textcolor{\portraittitlecolor}{
-				{\centering \noindent \Huge{\titulodelinforme} \vspace{0.3cm}} ~ \\
+				{\centering \noindent \Huge{\titulodeldocumento} \vspace{0.3cm}} ~ \\
 				{\noindent \large{\temaatratar}}
 			}
 		\end{center}
@@ -5901,7 +5904,7 @@
 			{\noindent \large{Código del curso: \codigodelcurso}} ~ \\
 			\vspace*{1.8cm}
 			\textcolor{\portraittitlecolor}{
-				{\noindent \Huge{\titulodelinforme} \vspace{0.3cm}} ~ \\
+				{\noindent \Huge{\titulodeldocumento} \vspace{0.3cm}} ~ \\
 				{\noindent \large{\temaatratar}}
 			}
 		\end{center}
@@ -5941,7 +5944,7 @@
 		\vfill
 		\begin{center}
 			{\fontsize{22pt}{10pt} \selectfont
-				\noindent \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace*{0.35cm}} ~ \\
+				\noindent \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace*{0.35cm}} ~ \\
 			{\noindent \fontsize{10pt}{5pt} \selectfont \textcolor{\portraittitlecolor}{\codigodelcurso\ \hfpdashcharstyle\ \nombredelcurso}} ~ \\
 			\vspace*{3cm}
 		\end{center}
@@ -5981,7 +5984,7 @@
 		\begin{center}
 			\fontsize{8mm}{9mm}\selectfont
 			\textcolor{\portraittitlecolor}{
-				\noindent \titulodelinforme ~ \\
+				\noindent \titulodeldocumento ~ \\
 			}
 			\vspace*{0.35cm}
 			\Large{\noindent \textcolor{\portraittitlecolor}{\temaatratar}} ~ \\
@@ -6040,7 +6043,7 @@
 			\vspace*{0.5cm}
 			{\color{dkgray} \Large \textbf{\MakeUppercase{\temaatratar}}} ~ \\
 			\noindent \rule{\linewidth}{0.3mm} ~ \\
-			\Huge \textup \bfseries \textsc{\textcolor{\portraittitlecolor}{\titulodelinforme}} ~ \\
+			\Huge \textup \bfseries \textsc{\textcolor{\portraittitlecolor}{\titulodeldocumento}} ~ \\
 			\noindent \rule{\linewidth}{0.3mm} ~ \\
 		\end{center}
 		\begin{minipage}{.5\linewidth}
@@ -6081,7 +6084,7 @@
 		\vfill
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
-			{\huge \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} ~ \\}
+			{\huge \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace{0.2cm} ~ \\}
 			\noindent \rule{\linewidth}{0.4mm} ~ \\ \vspace{0cm}
 			{\large \textcolor{\portraittitlecolor}{\temaatratar} ~ \\}
 		\end{center}
@@ -6117,7 +6120,7 @@
 		\vfill
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
-			{\huge \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} ~ \\}
+			{\huge \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace{0.2cm} ~ \\}
 			\noindent \rule{\linewidth}{0.4mm} ~ \\ \vspace{0cm}
 			{\large \textcolor{\portraittitlecolor}{\temaatratar} ~ \\}
 		\end{center}
@@ -6143,7 +6146,7 @@
 		\vfill
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
-			{\huge \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
+			{\huge \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace{0.2cm} \\}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.35cm}
 			{\large \textcolor{\portraittitlecolor}{\temaatratar} \\}
 		\end{center}
@@ -6193,7 +6196,7 @@
 				\noindent {\large \scshape{\codigodelcurso}} \vspace{0.5cm} ~ \\
 			}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
-			{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
+			{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace{0.2cm} \\}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{2.5cm}
 		\end{center}
 		
@@ -6229,7 +6232,7 @@
 		% Título informe
 		\vfill
 		\begin{center}
-			{\setstretch{1.2} \fontsize{21pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\titulodelinforme}} \vspace{0.5cm}} ~ \\
+			{\setstretch{1.2} \fontsize{21pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\titulodeldocumento}} \vspace{0.5cm}} ~ \\
 			{\fontsize{13pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\temaatratar}}}
 		\end{center}
 		
@@ -6255,7 +6258,7 @@
 		% Título informe
 		\vfill
 		\begin{center}
-			{\bf \Huge \scshape{\textcolor{\portraittitlecolor}{\titulodelinforme}} \vspace{0.3cm}} \\
+			{\bf \Huge \scshape{\textcolor{\portraittitlecolor}{\titulodeldocumento}} \vspace{0.3cm}} \\
 			{\bf \Large \textcolor{\portraittitlecolor}{\temaatratar}}
 		\end{center}
 		
@@ -6314,7 +6317,7 @@
 				\begin{framed}
 					\LARGE
 					\vspace{1cm}
-					\centering \textcolor{\portraittitlecolor}{\textbf{\titulodelinforme}}
+					\centering \textcolor{\portraittitlecolor}{\textbf{\titulodeldocumento}}
 					\vspace{1cm}
 				\end{framed}
 			\end{minipage}
@@ -6342,7 +6345,7 @@
 		
 		% Título del informe
 		\vfill
-		{\bf \huge \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\titulodelinforme}} \vspace*{0.05cm}}} \\
+		{\bf \huge \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\titulodeldocumento}} \vspace*{0.05cm}}} \\
 		{\bf \large \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\temaatratar}}}} \\
 		
 		% Tabla de integrantes
@@ -6402,7 +6405,7 @@
 		% Título informe
 		\vfill
 		\begin{center}
-			{\fontsize{25pt}{15pt} \selectfont \textcolor{\portraittitlecolor}{\textbf{\titulodelinforme}} \vspace{0.7cm}} \\
+			{\fontsize{25pt}{15pt} \selectfont \textcolor{\portraittitlecolor}{\textbf{\titulodeldocumento}} \vspace{0.7cm}} \\
 			{\Large \textcolor{\portraittitlecolor}{\temaatratar}}
 		\end{center}
 		
@@ -6425,7 +6428,7 @@
 			\begin{tikzpicture}[remember picture,overlay]
 				\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\portraitbackgroundimageB}};
 				\draw (current page.center) node [fill=\portraitbackgroundcolorB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
-						\centering \textcolor{\portraittitlecolor}{\titulodelinforme} \\ [10pt]
+						\centering \textcolor{\portraittitlecolor}{\titulodeldocumento} \\ [10pt]
 						{\Large \textcolor{\portraittitlecolor}{\temaatratar}} \\ [25pt]
 						{\huge \autordeldocumento}}};
 			\end{tikzpicture}
@@ -6463,7 +6466,7 @@
 		\vfill
 		\begin{center}
 			\textcolor{\portraittitlecolor}{
-				{\noindent \Huge{\titulodelinforme} \vspace{0.5cm}} ~ \\
+				{\noindent \Huge{\titulodeldocumento} \vspace{0.5cm}} ~ \\
 				{\noindent \large{\temaatratar}}
 			}
 		\end{center}
@@ -6539,7 +6542,7 @@
 		\vfill
 		\begin{center}
 			\textcolor{\portraittitlecolor}{
-				{\noindent \Huge{\titulodelinforme} \vspace{0.5cm}} ~ \\
+				{\noindent \Huge{\titulodeldocumento} \vspace{0.5cm}} ~ \\
 				{\noindent \large{\temaatratar}}
 			}
 		\end{center}
@@ -6564,7 +6567,7 @@
 		\vspace*{1.5cm}
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
-			{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodelinforme} \vspace{0.2cm} \\}
+			{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace{0.2cm} \\}
 			\noindent \rule{\linewidth}{0.4mm}
 		\end{center}
 		
@@ -6600,7 +6603,7 @@
 		\noindent \rule{1pt}{\textheight}
 		\hspace{0.05\linewidth}
 		\parbox[b]{0.75\linewidth}{
-			{\Huge\bfseries \textcolor{\portraittitlecolor}{\titulodelinforme}}\\[2\baselineskip]
+			{\Huge\bfseries \textcolor{\portraittitlecolor}{\titulodeldocumento}}\\[2\baselineskip]
 			{\large\textit{\textcolor{\portraittitlecolor}{\temaatratar}}}\\[4\baselineskip]
 			\vspace*{2cm}
 			{\textsc{
@@ -6690,7 +6693,7 @@
 		\end{center}
 		\begin{center}
 			\vspace*{-6cm}
-			{\setstretch{1.2} \fontsize{25pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\titulodelinforme}} \vspace{0.5cm}} \\
+			{\setstretch{1.2} \fontsize{25pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\titulodeldocumento}} \vspace{0.5cm}} \\
 			{\fontsize{15pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\temaatratar}}}
 		\end{center}
 		\vfill
@@ -6843,7 +6846,7 @@
 				\fancyfoot[L]{
 					\begin{minipage}[t]{\hfwidthtitle\linewidth}
 						\begin{flushleft}
-							\small \textit{\tituloinformehf}
+							\small \textit{\titulodeldocumentohf}
 						\end{flushleft}
 					\end{minipage}
 				}
@@ -6855,7 +6858,7 @@
 					\end{minipage}
 				}
 			}{
-				\fancyfoot[L]{\small \textit{\tituloinformehf}}
+				\fancyfoot[L]{\small \textit{\titulodeldocumentohf}}
 				\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
 			}
 			\renewcommand{\headrulewidth}{0.5pt}
@@ -6876,7 +6879,7 @@
 				\fancyfoot[L]{
 					\begin{minipage}[t]{\hfwidthtitle\linewidth}
 						\begin{flushleft}
-							\small \textit{\tituloinformehf}
+							\small \textit{\titulodeldocumentohf}
 						\end{flushleft}
 					\end{minipage}
 				}
@@ -6888,7 +6891,7 @@
 					\end{minipage}
 				}
 			}{
-				\fancyfoot[L]{\small \textit{\tituloinformehf}}
+				\fancyfoot[L]{\small \textit{\titulodeldocumentohf}}
 				\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
 			}
 			\renewcommand{\headrulewidth}{0.5pt}
@@ -6909,7 +6912,7 @@
 				\fancyfoot[L]{
 					\begin{minipage}[t]{\hfwidthtitle\linewidth}
 						\begin{flushleft}
-							\small \textit{\tituloinformehf}
+							\small \textit{\titulodeldocumentohf}
 						\end{flushleft}
 					\end{minipage}
 				}
@@ -6921,7 +6924,7 @@
 					\end{minipage}
 				}
 			}{
-				\fancyfoot[L]{\small \textit{\tituloinformehf}}
+				\fancyfoot[L]{\small \textit{\titulodeldocumentohf}}
 				\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
 			}
 			\renewcommand{\headrulewidth}{0.5pt}
@@ -6942,7 +6945,7 @@
 				\fancyfoot[L]{
 					\begin{minipage}[t]{\hfwidthtitle\linewidth}
 						\begin{flushleft}
-							\small \textit{\tituloinformehf}
+							\small \textit{\titulodeldocumentohf}
 						\end{flushleft}
 					\end{minipage}
 				}
@@ -6954,7 +6957,7 @@
 					\end{minipage}
 				}
 			}{
-				\fancyfoot[L]{\small \textit{\tituloinformehf}}
+				\fancyfoot[L]{\small \textit{\titulodeldocumentohf}}
 				\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
 			}
 			\renewcommand{\headrulewidth}{0.5pt}
@@ -6975,7 +6978,7 @@
 				\fancyfoot[L]{
 					\begin{minipage}[t]{\hfwidthtitle\linewidth}
 						\begin{flushleft}
-							\small \textit{\tituloinformehf}
+							\small \textit{\titulodeldocumentohf}
 						\end{flushleft}
 					\end{minipage}
 				}
@@ -6987,7 +6990,7 @@
 					\end{minipage}
 				}
 			}{
-				\fancyfoot[L]{\small \textit{\tituloinformehf}}
+				\fancyfoot[L]{\small \textit{\titulodeldocumentohf}}
 				\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
 			}
 			\renewcommand{\headrulewidth}{0.5pt}
@@ -7008,7 +7011,7 @@
 				\fancyfoot[L]{
 					\begin{minipage}[t]{\hfwidthtitle\linewidth}
 						\begin{flushleft}
-							\small \textit{\tituloinformehf}
+							\small \textit{\titulodeldocumentohf}
 						\end{flushleft}
 					\end{minipage}
 				}
@@ -7020,7 +7023,7 @@
 					\end{minipage}
 				}
 			}{
-				\fancyfoot[L]{\small \textit{\tituloinformehf}}
+				\fancyfoot[L]{\small \textit{\titulodeldocumentohf}}
 				\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
 			}
 			\renewcommand{\headrulewidth}{0.5pt}
@@ -7239,7 +7242,7 @@
 				\fancyhead[L]{\nouppercase{\rightmark}}
 			}{}
 			\fancyhead[R]{}
-			\fancyfoot[L]{\small \textit{\tituloinformehf}}
+			\fancyfoot[L]{\small \textit{\titulodeldocumentohf}}
 			\fancyfoot[R]{\small \thepage}
 			\renewcommand{\headrulewidth}{0.5pt}
 			\renewcommand{\footrulewidth}{0.5pt}
@@ -7255,7 +7258,7 @@
 				\fancyhead[L]{\nouppercase{\rightmark}}
 			}{}
 			\fancyhead[R]{}
-			\fancyfoot[RE,LO]{\small \textit{\tituloinformehf}}
+			\fancyfoot[RE,LO]{\small \textit{\titulodeldocumentohf}}
 			\fancyfoot[RO,LE]{\small \thepage}
 			\renewcommand{\headrulewidth}{0.5pt}
 			\renewcommand{\footrulewidth}{0.5pt}
@@ -7271,7 +7274,7 @@
 				\fancyhead[L]{\nouppercase{\rightmark}}
 			}{}
 			\fancyhead[R]{}
-			\fancyfoot[RO,LE]{\small \textit{\tituloinformehf}}
+			\fancyfoot[RO,LE]{\small \textit{\titulodeldocumentohf}}
 			\fancyfoot[RE,LO]{\small \thepage}
 			\renewcommand{\headrulewidth}{0.5pt}
 			\renewcommand{\footrulewidth}{0.5pt}
@@ -7296,7 +7299,7 @@
 				\fancyhead[R]{
 					\begin{minipage}[t]{\hfwidthcourse\linewidth}
 						\begin{flushright}
-							\small \textit{\tituloinformehf}
+							\small \textit{\titulodeldocumentohf}
 						\end{flushright}
 					\end{minipage}
 				}
@@ -7304,7 +7307,7 @@
 				\ifthenelse{\equal{\disablehfrightmark}{false}}{
 					\fancyhead[L]{\nouppercase{\rightmark}}
 				}{}
-				\fancyhead[R]{\small \textit{\tituloinformehf}}
+				\fancyhead[R]{\small \textit{\titulodeldocumentohf}}
 			}
 			\fancyfoot[L]{}
 			\fancyfoot[R]{\small \thepage}
@@ -7331,7 +7334,7 @@
 				\fancyhead[R]{
 					\begin{minipage}[t]{\hfwidthcourse\linewidth}
 						\begin{flushright}
-							\small \textit{\tituloinformehf}
+							\small \textit{\titulodeldocumentohf}
 						\end{flushright}
 					\end{minipage}
 				}
@@ -7339,7 +7342,7 @@
 				\ifthenelse{\equal{\disablehfrightmark}{false}}{
 					\fancyhead[L]{\nouppercase{\rightmark}}
 				}{}
-				\fancyhead[R]{\small \textit{\tituloinformehf}}
+				\fancyhead[R]{\small \textit{\titulodeldocumentohf}}
 			}
 			\fancyfoot[L]{}
 			\fancyfoot[RE,LO]{\small \thepage}
@@ -7366,7 +7369,7 @@
 				\fancyhead[R]{
 					\begin{minipage}[t]{\hfwidthcourse\linewidth}
 						\begin{flushright}
-							\small \textit{\tituloinformehf}
+							\small \textit{\titulodeldocumentohf}
 						\end{flushright}
 					\end{minipage}
 				}
@@ -7374,7 +7377,7 @@
 				\ifthenelse{\equal{\disablehfrightmark}{false}}{
 					\fancyhead[L]{\nouppercase{\rightmark}}
 				}{}
-				\fancyhead[R]{\small \textit{\tituloinformehf}}
+				\fancyhead[R]{\small \textit{\titulodeldocumentohf}}
 			}
 			\fancyfoot[L]{}
 			\fancyfoot[LE,RO]{\small \thepage}
@@ -7396,7 +7399,7 @@
 				\fancyfoot[L]{
 					\begin{minipage}[t]{\hfwidthtitle\linewidth}
 						\begin{flushleft}
-							\small \textit{\tituloinformehf}
+							\small \textit{\titulodeldocumentohf}
 						\end{flushleft}
 					\end{minipage}
 				}
@@ -7408,7 +7411,7 @@
 					\end{minipage}
 				}
 			}{
-				\fancyfoot[L]{\small \textit{\tituloinformehf}}
+				\fancyfoot[L]{\small \textit{\titulodeldocumentohf}}
 				\fancyfoot[R]{\small \textit{\codigodelcurso \nombredelcurso}}
 			}
 			\renewcommand{\headrulewidth}{0.5pt}

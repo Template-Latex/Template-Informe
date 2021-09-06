@@ -19,7 +19,7 @@
 \checkvardefined{\nombrefacultad}
 \checkvardefined{\nombreuniversidad}
 \checkvardefined{\temaatratar}
-\checkvardefined{\titulodelinforme}
+\checkvardefined{\titulodeldocumento}
 
 % -----------------------------------------------------------------------------
 % Se añade \xspace a las variables
@@ -33,7 +33,7 @@
 	\g@addto@macro\nombrefacultad\xspace
 	\g@addto@macro\nombreuniversidad\xspace
 	\g@addto@macro\temaatratar\xspace
-	\g@addto@macro\titulodelinforme\xspace
+	\g@addto@macro\titulodeldocumento\xspace
 \makeatother
 
 % -----------------------------------------------------------------------------
@@ -44,10 +44,13 @@
 	\def\tablaintegrantes {}}{
 }
 
-\ifthenelse{\equal{\subtituloinforme}{}}{
-	\def\tituloinformehf {\titulodelinforme}
+\ifthenelse{\equal{\subtitulodocumento}{}}{
+	\def\titulodeldocumentohf {\titulodeldocumento}
 }{
-	\def\tituloinformehf {\subtituloinforme}
+	\makeatletter
+		\g@addto@macro\subtitulodocumento\xspace
+	\makeatother
+	\def\titulodeldocumentohf {\subtitulodocumento}
 }
 
 % -----------------------------------------------------------------------------
@@ -76,7 +79,7 @@
 	\def\pdfmetainfocodigodelcurso {\codigodelcurso}
 	\def\pdfmetainfonombredelcurso {\nombredelcurso}
 	\def\pdfmetainfotema {\temaatratar}
-	\def\pdfmetainfotitulo {\titulodelinforme}
+	\def\pdfmetainfotitulo {\titulodeldocumento}
 	\def\pdfmetainfounidepto {\departamentouniversidad}
 	\def\pdfmetainfounifacultad {\nombrefacultad}
 	\def\pdfmetainfouninombre {\nombreuniversidad}
