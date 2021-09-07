@@ -44,6 +44,7 @@
 
 % Crea una sección de anexos
 \newenvironment{anexo}{
+	\global\def\GLOBALenvanexo {true}%
 	\begingroup % Inicia el grupo en nueva página y sección
 	% \clearpage
 	\phantomsection
@@ -331,9 +332,10 @@
 	\global\def\GLOBALenvimageinitialized {true}
 	\global\def\GLOBALenvimageadded {false}
 	\checkinsidemulticol%
+	\checkoutsideanexo%
 	
 	% Configura caption y márgenes
-	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
+	\setcaptionmargincm{\captionmarginimagesmc} % Eso es para los wrapfig
 	
 	% Inicia la figura
 	\ifthenelse{\equal{#2}{bottom}}{%
@@ -358,7 +360,7 @@
 	\end{figure*}%
 	
 	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmargin}%
+	\setcaptionmargincm{\captionlrmarginmc}%
 	
 	% Restablece globales
 	\global\def\GLOBALenvimageinitialized {false}
