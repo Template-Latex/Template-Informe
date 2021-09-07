@@ -7394,7 +7394,7 @@
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{
 				\fancyhead[L]{\nouppercase{\rightmark}}
 			}{}
-			\fancyhead[R]{\small \thepage \nomnpageof \pageref{LastPage}}
+			\fancyhead[R]{\small \thepage \nomnpageof \pageref{TotPages}}
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{
 				\fancyfoot[L]{
 					\begin{minipage}[t]{\hfwidthtitle\linewidth}
@@ -7425,7 +7425,7 @@
 		\newcommand{\COREstyledefinition}{
 			\fancyhf{}
 			\fancyfoot[L]{\departamentouniversidad}
-			\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
+			\fancyfoot[C]{\thepage \nomnpageof \pageref{TotPages}}
 			\fancyfoot[R]{\nombreuniversidad}
 			\renewcommand{\headrulewidth}{0pt}
 			\renewcommand{\footrulewidth}{0pt}
@@ -7452,7 +7452,7 @@
 				\coreinsertkeyimage{\hfheaderimageparamsA}{\imagendepartamento}%
 				\vspace{-0.15cm}%
 			}
-			\fancyfoot[C]{\thepage \nomnpageof \pageref{LastPage}}
+			\fancyfoot[C]{\thepage \nomnpageof \pageref{TotPages}}
 			\renewcommand{\headrulewidth}{0.5pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
@@ -7466,7 +7466,7 @@
 				\fancyhead[L]{\nouppercase{\rightmark}}
 			}{}
 			\fancyhead[R]{}
-			\fancyfoot[C]{\small \thepage \nomnpageof \pageref{LastPage}}
+			\fancyfoot[C]{\small \thepage \nomnpageof \pageref{TotPages}}
 			\renewcommand{\headrulewidth}{0.5pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
