@@ -743,15 +743,21 @@
 % Parcha el entorno multicols
 % -----------------------------------------------------------------------------
 \let\SOURCEcaptionlrmargin\captionlrmargin
+\newcounter{multicoldepth}
+\setcounter{multicoldepth}{0}
 \BeforeBeginEnvironment{multicols}{%
 	\def\captionlrmargin {\captionlrmarginmc}%
 	\global\def\GLOBALenvmulticol {true}%
 	\setcaptionmargincm{\captionlrmargin}%
+	\addtocounter{multicoldepth}{1}%
 }
 \AfterEndEnvironment{multicols}{%
 	\def\captionlrmargin {\SOURCEcaptionlrmargin}%
-	\global\def\GLOBALenvmulticol {false}%
 	\setcaptionmargincm{\captionlrmargin}%
+	\addtocounter{multicoldepth}{-1}
+	\ifnumequal{\number\value{multicoldepth}}{0}{%
+		\global\def\GLOBALenvmulticol {false}
+	}{}
 }
 
 % -----------------------------------------------------------------------------
