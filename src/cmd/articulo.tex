@@ -13,9 +13,179 @@
 \def\predocpageromannumber {false}
 \def\predocresetpagenumber {false}
 
+% Crea archivos temporales
+\newwrite\fileauthornames
+\newwrite\fileauthordata
+\newwrite\fileauthornamesdata
+
+\immediate\openout\fileauthornames=\jobname.authn
+\immediate\openout\fileauthordata=\jobname.authd
+\immediate\openout\fileauthornamesdata=\jobname.authnd
+\AtBeginDocument{%
+	\immediate\closeout\fileauthornames
+	\immediate\closeout\fileauthordata
+	\immediate\closeout\fileauthornamesdata
+}   
+
+\def\LOCALauthorpercentchar#1{}
+\edef\LOCALauthorpercentchar{\expandafter\LOCALauthorpercentchar\string\%}
+
+% Define contadores
+\newcounter{authornumber}
+\setcounter{authornumber}{1}
+
 % Inserta un autor
-%	#1	ORCID
-%	#2	Nombre del autor (opcional)
-%	#4	Correo (opcional)
+%	#1	ORCID (opcional)
+%	#2	Nombre del autor
+%	#3	Institución del autor
+%	#4	Correo
 \newcommand{\addauthor}[4][]{
+	\immediate\write\fileauthornames{\unexpanded{\titleauthorname}[\theauthornumber]\unexpanded{{#2}}\LOCALauthorpercentchar}
+	\immediate\write\fileauthordata{\unexpanded{\titleauthordata}[\theauthornumber]\unexpanded{{#3}{#4}{#1}}\LOCALauthorpercentchar}%
+	\immediate\write\fileauthornamesdata{\unexpanded{\titleauthornamedata}[\theauthornumber]\unexpanded{{#2}{#3}{#4}{#1}}\LOCALauthorpercentchar}%
+	\stepcounter{authornumber}
+}
+
+% Define funciones de los estilos de títulos
+\ifthenelse{\equal{\titlestyle}{style1}}{
+	\def\LOCALhasname {false}
+	\newcommand{\titleauthorname}[2][]{%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{0.25cm}}{}%
+		\normalsize{#2} \textsuperscript{(#1)}%
+		\def\LOCALhasname {true}%
+	}
+	\newcommand{\titleauthordata}[4][]{%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\\}{}%
+		\indent \footnotesize{\textsuperscript{(#1)} #2%
+		\ifthenelse{\equal{#3}{}}{}{, \insertemail{#3}}%
+		\ifthenelse{\equal{#4}{}}{}{, ORCID \href{https://orcid.org/#4}{#4}}}%
+		\def\LOCALhasname {true}%
+	}
+	\newcommand{\inserttitle}{%
+		\begin{center}%
+			\ifthenelse{\equal{\titlebold}{true}}{%
+				\textbf{\Large{\titulodeldocumento}} \\%
+			}{%
+				\Large{\titulodeldocumento} \\%
+			}
+			\vspace{0.6cm}%
+			\input{\jobname.authn}%
+			\vspace{0.2cm}%
+		\end{center}%
+		\par%
+		\def\LOCALhasname {false}%
+		\input{\jobname.authd}%
+		\vspace{0.3cm}%
+		\normalsize%
+	}
+}{
+\ifthenelse{\equal{\titlestyle}{style2}}{
+	\def\LOCALhasname {false}
+	\newcommand{\titleauthorname}[2][]{%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{0.25cm}}{}%
+		\normalsize{#2} \textsuperscript{(#1)}%
+		\def\LOCALhasname {true}%
+	}
+	\newcommand{\titleauthordata}[4][]{%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\\}{}%
+		\indent \footnotesize{\textsuperscript{(#1)} #2%
+			\ifthenelse{\equal{#3}{}}{}{, \insertemail{#3}}%
+			\ifthenelse{\equal{#4}{}}{}{, ORCID \href{https://orcid.org/#4}{#4}}}%
+		\def\LOCALhasname {true}%
+	}
+	\newcommand{\inserttitle}{%
+		\begin{center}%
+			\ifthenelse{\equal{\titlebold}{true}}{%
+				\textbf{\Large{\titulodeldocumento}} \\%
+			}{%
+				\Large{\titulodeldocumento} \\%
+			}
+			\vspace{0.7cm}%
+			\input{\jobname.authn}%
+			\vspace{0.3cm}%
+			\def\LOCALhasname {false}%
+			~ \\%
+			\input{\jobname.authd}%
+		\end{center}%
+		\vspace{0.05cm}%
+		\normalsize%
+	}
+}{
+\ifthenelse{\equal{\titlestyle}{style3}}{
+	\def\LOCALhasname {false}
+	\newcommand{\titleauthorname}[2][]{%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{,\ }{}%
+		\normalsize{#2}%
+		\def\LOCALhasname {true}%
+	}
+	\newcommand{\inserttitle}{%
+		\begin{center}%
+			\ifthenelse{\equal{\titlebold}{true}}{%
+				\textbf{\Large{\titulodeldocumento}} \\%
+			}{%
+				\Large{\titulodeldocumento} \\%
+			}
+			\vspace{0.7cm}%
+			\input{\jobname.authn}%
+			\vspace{0.3cm}%
+			\def\LOCALhasname {false}%
+		\end{center}%
+		\normalsize%
+	}
+}{
+\ifthenelse{\equal{\titlestyle}{style4}}{
+	\def\LOCALhasname {false}
+	\newcommand{\titleauthorname}[2][]{%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{,\ }{}%
+		\normalsize{#2}%
+		\def\LOCALhasname {true}%
+	}
+	\newcommand{\inserttitle}{%
+		\begin{center}%
+			\ifthenelse{\equal{\titlebold}{true}}{%
+				\textbf{\Large{\titulodeldocumento}} \\%
+			}{%
+				\Large{\titulodeldocumento} \\%
+			}
+			\vspace{0.7cm}%
+			\input{\jobname.authn}%
+			\vspace{0.3cm}%
+			\def\LOCALhasname {false}%
+			\vspace{0.1cm}%
+			~ \\%
+			\normalsize{\fechadocumento} \\
+			\vspace{0.3cm}%
+		\end{center}%
+		\normalsize%
+	}
+}{
+\ifthenelse{\equal{\titlestyle}{style5}}{
+	\def\LOCALhasname {false}
+	\newcommand{\titleauthornamedata}[5][]{%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{0.25cm}}{}%
+		\begin{tabular}{c}
+			\normalsize{#2} \\
+			#3 \\
+			\ifthenelse{\equal{#4}{}}{}{\insertemail{#4} \\}
+			\ifthenelse{\equal{#5}{}}{}{ORCID \href{https://orcid.org/#5}{#5} \\}
+		\end{tabular}
+		\def\LOCALhasname {true}%
+	}
+	\newcommand{\inserttitle}{%
+		\begin{center}%
+			\ifthenelse{\equal{\titlebold}{true}}{%
+				\textbf{\Large{\titulodeldocumento}} \\%
+			}{%
+				\Large{\titulodeldocumento} \\%
+			}
+			\vspace{0.9cm}%
+			\input{\jobname.authnd}%
+			\vspace{0.3cm}%
+			\def\LOCALhasname {false}%
+			\vspace{0.1cm}%
+		\end{center}%
+		\normalsize%
+	}
+}{
+	\throwbadconfig{Valor configuracion incorrecto}{\titlestyle}{style1 .. style5}}}}}
 }
