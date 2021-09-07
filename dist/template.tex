@@ -242,19 +242,6 @@
 }
 
 % -----------------------------------------------------------------------------
-% Estilo portada
-% -----------------------------------------------------------------------------
-\ifthenelse{\equal{\hfstyle}{style11}}{
-	\usepackage{lastpage}}{}
-\ifthenelse{\equal{\hfstyle}{style12}}{
-	\usepackage{lastpage}}{}
-\ifthenelse{\equal{\hfstyle}{style13}}{
-	\usepackage{lastpage}}{}
-\ifthenelse{\equal{\hfstyle}{style14}}{
-	\usepackage{lastpage}}{
-}
-
-% -----------------------------------------------------------------------------
 % Librerías dependientes
 % -----------------------------------------------------------------------------
 \usepackage{bookmark}      % Administración de marcadores en pdf
@@ -841,6 +828,7 @@
 % Definición de variables globales
 \global\def\GLOBALcaptiondefn {EMPTY-VAR}       % Definición del caption
 \global\def\GLOBALchapternumenabled {false}     % Numeración de capítulos empezó
+\global\def\GLOBALenvanexo {false}              % Indica que el entorno anexo está activo
 \global\def\GLOBALenvimageadded {false}         % Indica que una imagen ha sido añadida
 \global\def\GLOBALenvimageinitialized {false}   % Entorno images activo
 \global\def\GLOBALenvmulticol {false}           % Indica que el entorno multicol está activo
@@ -1003,6 +991,14 @@
 \newcommand{\checkinsidemulticol}{%
 	\ifthenelse{\equal{\GLOBALenvmulticol}{false}}{%
 		\throwwarning{Esta funcion solo puede usarse dentro de multicols}%
+		\stop}{%
+	}
+}
+
+% Chequea que las funciones puedan usarse fuera del entorno anexo
+\newcommand{\checkoutsideanexo}{%
+	\ifthenelse{\equal{\GLOBALenvanexo}{true}}{%
+		\throwwarning{Esta funcion solo puede usarse fuera de anexo}%
 		\stop}{%
 	}
 }
@@ -2097,6 +2093,7 @@
 	\emptyvarerr{\insertimageboxedmc}{#5}{Posicion de la imagen no definida}%
 	\checkoutsideenvimage%
 	\checkinsidemulticol%
+	\checkoutsideanexo%
 	\setcaptionmargincm{\captionlrmarginmc}%
 	\ifthenelse{\equal{#5}{bottom}}{%
 		\begin{samepage}%
@@ -3612,6 +3609,7 @@
 
 % Crea una sección de anexos
 \newenvironment{anexo}{
+	\global\def\GLOBALenvanexo {true}%
 	\begingroup % Inicia el grupo en nueva página y sección
 	% \clearpage
 	\phantomsection
@@ -3861,7 +3859,7 @@
 	
 	% Configura caption y márgenes
 	\vspace{\marginimagetop cm}%
-	\setcaptionmargincm{\captionmarginmultimg}%
+	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
 	
 	% Inicia la figura
 	\begin{samepage}%
@@ -3899,6 +3897,7 @@
 	\global\def\GLOBALenvimageinitialized {true}
 	\global\def\GLOBALenvimageadded {false}
 	\checkinsidemulticol%
+	\checkoutsideanexo%
 	
 	% Configura caption y márgenes
 	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
@@ -3926,7 +3925,7 @@
 	\end{figure*}%
 	
 	% Restablece caption y márgenes
-	\setcaptionmargincm{\captionlrmargin}%
+	\setcaptionmargincm{\captionlrmarginmc}%
 	
 	% Restablece globales
 	\global\def\GLOBALenvimageinitialized {false}
@@ -5134,8 +5133,8 @@
 		Template.Licencia.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
 		Template.Tipo={Normal},
-		Template.Version.Dev={7.4.2},
-		Template.Version.Hash={785A19123A12A9DF9F3A3ECB99EDB118},
+		Template.Version.Dev={7.4.2-1},
+		Template.Version.Hash={DEBB43E33A492827D4514C9FA56459ED},
 		Template.Version.Release={7.4.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
@@ -5751,15 +5750,21 @@
 % Parcha el entorno multicols
 % -----------------------------------------------------------------------------
 \let\SOURCEcaptionlrmargin\captionlrmargin
+\newcounter{multicoldepth}
+\setcounter{multicoldepth}{0}
 \BeforeBeginEnvironment{multicols}{%
 	\def\captionlrmargin {\captionlrmarginmc}%
 	\global\def\GLOBALenvmulticol {true}%
 	\setcaptionmargincm{\captionlrmargin}%
+	\addtocounter{multicoldepth}{1}%
 }
 \AfterEndEnvironment{multicols}{%
 	\def\captionlrmargin {\SOURCEcaptionlrmargin}%
-	\global\def\GLOBALenvmulticol {false}%
 	\setcaptionmargincm{\captionlrmargin}%
+	\addtocounter{multicoldepth}{-1}
+	\ifnumequal{\number\value{multicoldepth}}{0}{%
+		\global\def\GLOBALenvmulticol {false}
+	}{}
 }
 
 % -----------------------------------------------------------------------------
