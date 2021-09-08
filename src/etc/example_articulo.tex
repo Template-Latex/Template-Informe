@@ -134,7 +134,7 @@
 	\lipsum[6]
 	
 	% Inserta una imagen simple dentro del párrafo
-	\insertimage{test-image-wrap}{width=4cm}{Imagen dentro de párrafo.}
+	\insertimage{test-image-wrap}{width=4.5cm}{Imagen dentro de párrafo.}
 	
 	% Párrafo 3 del multicols
 	\lipsum[11-13]
@@ -182,8 +182,10 @@ public class Hola extends GenericServlet {
 \begin{sourcecode}{matlab}{Ejemplo en Matlab.}
 % Se crea gráfico
 f = figure(1);
+
 hold on;
 movegui(f, 'center');
+
 xlabel('td/Tn');
 ylabel('FAD=Umax/Uf0');
 
@@ -311,11 +313,11 @@ function NMS(B,c)
 	\section{Cálculos realizados}
 
 	\subsection{Metodología}
-	\lipsum[1-3]
+	\lipsum[1-2]
 
 	% Imagen, se numerará automáticamente con la letra del anexo según
 	% la configuración \appendixindepobjnum
-	\insertimage[\label{img:anexo-2}]{test-image.png}{scale=0.19}{Imagen en anexo.}
+	\insertimage[\label{img:anexo-2}]{test-image.png}{width=1\linewidth}{Imagen en anexo.}
 
 	\subsection{Resultados}
 	\lipsum[10]
