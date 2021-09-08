@@ -833,7 +833,7 @@
 % Definición de variables globales
 \global\def\GLOBALcaptiondefn {EMPTY-VAR}       % Definición del caption
 \global\def\GLOBALchapternumenabled {false}     % Numeración de capítulos empezó
-\global\def\GLOBALenvappendix {false}              % Indica que el entorno anexo está activo
+\global\def\GLOBALenvappendix {false}           % Indica que el entorno anexo está activo
 \global\def\GLOBALenvimageadded {false}         % Indica que una imagen ha sido añadida
 \global\def\GLOBALenvimageinitialized {false}   % Entorno images activo
 \global\def\GLOBALenvmulticol {false}           % Indica que el entorno multicol está activo
@@ -5029,8 +5029,8 @@
 \checkvardefined{\coursecode}
 \checkvardefined{\coursename}
 \checkvardefined{\documentauthor}
+\checkvardefined{\documentsubject}
 \checkvardefined{\documenttitle}
-\checkvardefined{\documenttopic}
 \checkvardefined{\universitydepartment}
 \checkvardefined{\universitydepartmentimagecfg}
 \checkvardefined{\universityfaculty}
@@ -5044,8 +5044,8 @@
 	\g@addto@macro\coursecode\xspace
 	\g@addto@macro\coursename\xspace
 	\g@addto@macro\documentauthor\xspace
+	\g@addto@macro\documentsubject\xspace
 	\g@addto@macro\documenttitle\xspace
-	\g@addto@macro\documenttopic\xspace
 	\g@addto@macro\universitydepartment\xspace
 	\g@addto@macro\universityfaculty\xspace
 	\g@addto@macro\universitylocation\xspace
@@ -5094,8 +5094,8 @@
 	\def\pdfmetainfoauthor {\documentauthor}
 	\def\pdfmetainfocoursecode {\coursecode}
 	\def\pdfmetainfocoursename {\coursename}
+	\def\pdfmetainfosubject {\documentsubject}
 	\def\pdfmetainfotitle {\documenttitle}
-	\def\pdfmetainfotopic {\documenttopic}
 	\def\pdfmetainfouniversity {\universityname}
 	\def\pdfmetainfouniversitydepartment {\universitydepartment}
 	\def\pdfmetainfouniversityfaculty {\universityfaculty}
@@ -5106,8 +5106,8 @@
 	\def\pdfmetainfoauthor {}
 	\def\pdfmetainfocoursecode {}
 	\def\pdfmetainfocoursename {}
+	\def\pdfmetainfosubject {}
 	\def\pdfmetainfotitle {}
-	\def\pdfmetainfotopic {}
 	\def\pdfmetainfouniversity {}
 	\def\pdfmetainfouniversitydepartment {}
 	\def\pdfmetainfouniversityfaculty {}
@@ -5129,8 +5129,8 @@
 		Course.Code={\pdfmetainfocoursecode},
 		Course.Name={\pdfmetainfocoursename},
 		Document.Author={\pdfmetainfoauthor},
+		Document.Subject={\pdfmetainfosubject},
 		Document.Title={\pdfmetainfotitle},
-		Document.Topic={\pdfmetainfotopic},
 		Template.Author.Alias={ppizarror},
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
@@ -5140,10 +5140,10 @@
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
-		Template.Nombre={Template-Informe},
+		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.4.3-1},
-		Template.Version.Hash={5927ED3E48D135452536E8D1DDA5C681},
+		Template.Version.Dev={7.4.3-4},
+		Template.Version.Hash={16AD473C152521EB1256752C37738C79},
 		Template.Version.Release={7.4.3},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
@@ -5160,7 +5160,7 @@
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
-	pdfsubject={\pdfmetainfotopic},
+	pdfsubject={\pdfmetainfosubject},
 	pdftitle={\pdfmetainfotitle},
 	pdftoolbar={\cfgpdftoolbar}
 }
@@ -5831,7 +5831,7 @@
 		\begin{center}
 			\textcolor{\portraittitlecolor}{
 				{\noindent \Huge{\documenttitle} \vspace{0.5cm}} ~ \\
-				{\noindent \large{\documenttopic}}
+				{\noindent \large{\documentsubject}}
 			}
 		\end{center}
 		
@@ -5874,7 +5874,7 @@
 			\vspace*{1.5cm}
 			\textcolor{\portraittitlecolor}{
 				{\centering \noindent \Huge{\documenttitle} \vspace{0.3cm}} ~ \\
-				{\noindent \large{\documenttopic}}
+				{\noindent \large{\documentsubject}}
 			}
 		\end{center}
 		
@@ -5919,7 +5919,7 @@
 			\vspace*{1.8cm}
 			\textcolor{\portraittitlecolor}{
 				{\noindent \Huge{\documenttitle} \vspace{0.3cm}} ~ \\
-				{\noindent \large{\documenttopic}}
+				{\noindent \large{\documentsubject}}
 			}
 		\end{center}
 		
@@ -6001,7 +6001,7 @@
 				\noindent \documenttitle ~ \\
 			}
 			\vspace*{0.35cm}
-			\Large{\noindent \textcolor{\portraittitlecolor}{\documenttopic}} ~ \\
+			\Large{\noindent \textcolor{\portraittitlecolor}{\documentsubject}} ~ \\
 			\vspace*{1cm}
 			\footnotesize{\coursecode\ \hfpdashcharstyle\ \coursename} ~ \\
 			\vspace*{1.4cm}
@@ -6055,7 +6055,7 @@
 		\vfill
 		\begin{center}
 			\vspace*{0.5cm}
-			{\color{dkgray} \Large \textbf{\MakeUppercase{\documenttopic}}} ~ \\
+			{\color{dkgray} \Large \textbf{\MakeUppercase{\documentsubject}}} ~ \\
 			\noindent \rule{\linewidth}{0.3mm} ~ \\
 			\Huge \textup \bfseries \textsc{\textcolor{\portraittitlecolor}{\documenttitle}} ~ \\
 			\noindent \rule{\linewidth}{0.3mm} ~ \\
@@ -6100,7 +6100,7 @@
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
 			{\huge \textcolor{\portraittitlecolor}{\documenttitle} \vspace{0.2cm} ~ \\}
 			\noindent \rule{\linewidth}{0.4mm} ~ \\ \vspace{0cm}
-			{\large \textcolor{\portraittitlecolor}{\documenttopic} ~ \\}
+			{\large \textcolor{\portraittitlecolor}{\documentsubject} ~ \\}
 		\end{center}
 		
 		% Tabla de integrantes
@@ -6136,7 +6136,7 @@
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
 			{\huge \textcolor{\portraittitlecolor}{\documenttitle} \vspace{0.2cm} ~ \\}
 			\noindent \rule{\linewidth}{0.4mm} ~ \\ \vspace{0cm}
-			{\large \textcolor{\portraittitlecolor}{\documenttopic} ~ \\}
+			{\large \textcolor{\portraittitlecolor}{\documentsubject} ~ \\}
 		\end{center}
 		
 		% Tabla de integrantes
@@ -6162,7 +6162,7 @@
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
 			{\huge \textcolor{\portraittitlecolor}{\documenttitle} \vspace{0.2cm} \\}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.35cm}
-			{\large \textcolor{\portraittitlecolor}{\documenttopic} \\}
+			{\large \textcolor{\portraittitlecolor}{\documentsubject} \\}
 		\end{center}
 		
 		% Nombre universidad - departamento
@@ -6247,7 +6247,7 @@
 		\vfill
 		\begin{center}
 			{\setstretch{1.2} \fontsize{21pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\documenttitle}} \vspace{0.5cm}} ~ \\
-			{\fontsize{13pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\documenttopic}}}
+			{\fontsize{13pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\documentsubject}}}
 		\end{center}
 		
 		% Tabla de integrantes
@@ -6273,7 +6273,7 @@
 		\vfill
 		\begin{center}
 			{\bf \Huge \scshape{\textcolor{\portraittitlecolor}{\documenttitle}} \vspace{0.3cm}} \\
-			{\bf \Large \textcolor{\portraittitlecolor}{\documenttopic}}
+			{\bf \Large \textcolor{\portraittitlecolor}{\documentsubject}}
 		\end{center}
 		
 		% Tabla de integrantes
@@ -6360,7 +6360,7 @@
 		% Título del informe
 		\vfill
 		{\bf \huge \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\documenttitle}} \vspace*{0.05cm}}} \\
-		{\bf \large \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\documenttopic}}}} \\
+		{\bf \large \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\documentsubject}}}} \\
 		
 		% Tabla de integrantes
 		\vfill
@@ -6420,7 +6420,7 @@
 		\vfill
 		\begin{center}
 			{\fontsize{25pt}{15pt} \selectfont \textcolor{\portraittitlecolor}{\textbf{\documenttitle}} \vspace{0.7cm}} \\
-			{\Large \textcolor{\portraittitlecolor}{\documenttopic}}
+			{\Large \textcolor{\portraittitlecolor}{\documentsubject}}
 		\end{center}
 		
 		% Tabla de integrantes
@@ -6443,7 +6443,7 @@
 				\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\portraitbackgroundimageB}};
 				\draw (current page.center) node [fill=\portraitbackgroundcolorB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
 						\centering \textcolor{\portraittitlecolor}{\documenttitle} \\ [10pt]
-						{\Large \textcolor{\portraittitlecolor}{\documenttopic}} \\ [25pt]
+						{\Large \textcolor{\portraittitlecolor}{\documentsubject}} \\ [25pt]
 						{\huge \documentauthor}}};
 			\end{tikzpicture}
 			\vfill
@@ -6481,7 +6481,7 @@
 		\begin{center}
 			\textcolor{\portraittitlecolor}{
 				{\noindent \Huge{\documenttitle} \vspace{0.5cm}} ~ \\
-				{\noindent \large{\documenttopic}}
+				{\noindent \large{\documentsubject}}
 			}
 		\end{center}
 		
@@ -6557,7 +6557,7 @@
 		\begin{center}
 			\textcolor{\portraittitlecolor}{
 				{\noindent \Huge{\documenttitle} \vspace{0.5cm}} ~ \\
-				{\noindent \large{\documenttopic}}
+				{\noindent \large{\documentsubject}}
 			}
 		\end{center}
 		\vfill
@@ -6618,7 +6618,7 @@
 		\hspace{0.05\linewidth}
 		\parbox[b]{0.75\linewidth}{
 			{\Huge\bfseries \textcolor{\portraittitlecolor}{\documenttitle}}\\[2\baselineskip]
-			{\large\textit{\textcolor{\portraittitlecolor}{\documenttopic}}}\\[4\baselineskip]
+			{\large\textit{\textcolor{\portraittitlecolor}{\documentsubject}}}\\[4\baselineskip]
 			\vspace*{2cm}
 			{\textsc{
 			\begin{flushleft}
@@ -6708,7 +6708,7 @@
 		\begin{center}
 			\vspace*{-6cm}
 			{\setstretch{1.2} \fontsize{25pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\documenttitle}} \vspace{0.5cm}} \\
-			{\fontsize{15pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\documenttopic}}}
+			{\fontsize{15pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\documentsubject}}}
 		\end{center}
 		\vfill
 		\begin{flushright}

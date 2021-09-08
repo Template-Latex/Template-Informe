@@ -1,5 +1,5 @@
 %% Template:     Template LaTeX
-%% Documento:    Archivo de estilos simple + link (doi)
+%% Documento:    Archivo de estilos simple + url (doi, arxivId)
 %% Versión:      1.1.2 (02/09/2020)
 %% Codificación: UTF-8
 %%
@@ -120,28 +120,28 @@ FUNCTION {output.links} {
     doi empty$ {
         arxivId empty$ {
             url empty$ {
-                skip$
+                "" *
             }{
-                ", \href{" * url * "}{\nolinkurl{\detokenize{" * url * "}}}" * output
+                ", \href{" * url * "}{\nolinkurl{\detokenize{" * url * "}}}" *
                 urldate empty$ {
-                    skip$
+                    "" *
                 }{
-                    " (visited on " * urldate * ")" * output
+                    " (visited on " * urldate * ")" *
                 } if$
             } if$
         }{
-            %% url empty$ {
-                ", \href{https://arxiv.org/abs/" * arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" * output
-            %% }{
-            %%     ", \href{" * url * "}{\nolinkurl{arXiv:\detokenize{" * arxivId * "}}}" * output
-            %% } if$
+            url empty$ {
+                ", \href{https://arxiv.org/abs/" * arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" *
+            }{
+                ", \href{" * url * "}{\nolinkurl{arXiv:\detokenize{" * arxivId * "}}}" *
+            } if$
         } if$
     }{
-        %% url empty$ {
-            ", \href{https://dx.doi.org/" * doi * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" * output
-        %% }{
-        %%     ", \href{" * url * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" * output
-        %% } if$
+        url empty$ {
+            ", \href{https://dx.doi.org/" * doi * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
+        }{
+            ", \href{" * url * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
+        } if$
     } if$
 }
 
