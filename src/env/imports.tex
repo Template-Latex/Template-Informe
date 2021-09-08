@@ -173,6 +173,11 @@
 	\usepackage{listingsutf8}}{
 }
 
+% Footnotes en dos columnas
+\ifthenelse{\equal{\footnotetwocolumn}{true}}{
+	\usepackage{dblfnote}}{
+}
+
 % Regla superior
 \ifthenelse{\equal{\footnotepagetoprule}{true}}{
 	\usepackage[bottom,hang]{footmisc} % Estilo pie de página
