@@ -22,6 +22,10 @@
 \global\def\GLOBALtablerowcolorindex {2}        % Índice tabla colores
 \global\def\GLOBALtablerowcolorswitch {false}   % Tabla con colores cambiados
 
+% Signo porcentaje para archivos
+\def\LOCALpercentchar#1{}
+\edef\LOCALpercentchar{\expandafter\LOCALpercentchar\string\%}
+
 % Contador global de objetos
 \newcounter{templateEquations}      % Ecuaciones
 \newcounter{templateFigures}        % Figuras

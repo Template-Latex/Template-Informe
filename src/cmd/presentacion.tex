@@ -24,9 +24,6 @@
 \def\LOCALtabularframeinit {false}
 \def\LOCALtabularframestorevar {true}
 
-\def\LOCALtabularframepercentchar#1{}
-\edef\LOCALtabularframepercentchar{\expandafter\LOCALtabularframepercentchar\string\%}
-
 % Archivo que guarda el código generado del framehead
 \newwrite\filetabularframehead
 
@@ -116,7 +113,7 @@
 	\emptyvarerr{\addtfheadcolumn}{#1}{Tamano de la columna no definido}%
 	\emptyvarerr{\addtfheadcolumn}{#2}{Texto de la columna no definido}%
 	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
-		\immediate\write\filetabularframehead{\unexpanded{\addtfheadcolumn{#1}{#2}}\LOCALtabularframepercentchar}%
+		\immediate\write\filetabularframehead{\unexpanded{\addtfheadcolumn{#1}{#2}}\LOCALpercentchar}%
 	}{}%
 	\stepcounter{tabularcolnumber}%
 	\column{#1\linewidth}%

@@ -18,33 +18,33 @@
 ]{beamer}
 
 % INFORMACIÓN DEL DOCUMENTO
-\def\titulodeldocumento {Título de la presentación en portada}
-\def\subtitulodocumento {Título de la presentación}
-\def\temaatratar {Tema a tratar}
+\def\documenttitle {Título de la presentación en portada}
+\def\documentsubtitle {Título de la presentación}
+\def\documenttopic {Tema a tratar}
 
-\def\autordeldocumento {Nombre del autor}
-\def\nombredelcurso {Curso}
-\def\codigodelcurso {CO-1234}
+\def\documentauthor {Nombre del autor}
+\def\coursename {Curso}
+\def\coursecode {CO-1234}
 
-\def\nombreuniversidad {Universidad de Chile}
-\def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}
-\def\departamentouniversidad {Departamento de la Universidad}
-\def\imagendepartamento {departamentos/fcfm}
-\def\localizacionuniversidad {Santiago de Chile}
+\def\universityname {Universidad de Chile}
+\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
+\def\universitydepartment {Departamento de la Universidad}
+\def\universitydepartmentimage {departamentos/fcfm}
+\def\universitylocation {Santiago de Chile}
 
 % CONFIGURACIÓN DATOS BEAMER
-\title[\subtitulodocumento]{\titulodeldocumento}
-\subtitle{\temaatratar}
-\author[\autordeldocumento]{
-	\autordeldocumento,
+\title[\documentsubtitle]{\documenttitle}
+\subtitle{\documenttopic}
+\author[\documentauthor]{
+	\documentauthor,
 	\footnotesize \href{mailto:pablo@ppizarror.com}{pablo@ppizarror.com}
 }
 \institute[UChile]{
-	\includegraphics[height=1.1cm]{\imagendepartamento} \\
+	\includegraphics[height=1.1cm]{\universitydepartmentimage} \\
 	\medskip
-	\nombreuniversidad \\
-	\nombrefacultad \\
-	\departamentouniversidad
+	\universityname \\
+	\universityfaculty \\
+	\universitydepartment
 }
 \date[\today]{\footnotesize{\today}}
 

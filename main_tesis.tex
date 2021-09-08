@@ -13,34 +13,34 @@
 \documentclass[letterpaper,oneside]{book}
 
 % INFORMACIÓN DEL DOCUMENTO
-\def\titulodeldocumento {Título de la tesis}
-\def\subtitulodocumento {}
+\def\documenttitle {Título de la tesis}
+\def\documentsubtitle {}
 \def\titulogrado {
 	Tesis para optar al grado de magíster en ciencias de la ingeniería, mención área de la ingeniería
 	\bigbreak\vspace{0.3cm}
 	Memoria para optar al título de ingeniero
 }
 
-\def\nombreuniversidad {Universidad de Chile}
-\def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}
-\def\departamentouniversidad {Departamento de la Universidad}
-\def\imagendepartamento {departamentos/uchile2}
-\def\imagendepartamentoparams {height=3cm}
-\def\localizacionuniversidad {Santiago de Chile}
+\def\universityname {Universidad de Chile}
+\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
+\def\universitydepartment {Departamento de la Universidad}
+\def\universitydepartmentimage {departamentos/uchile2}
+\def\universitydepartmentimagecfg {height=3cm}
+\def\universitylocation {Santiago de Chile}
 
 % INTEGRANTES, PROFESORES Y FECHAS
-\def\autordeldocumento {Nombre del autor}
+\def\documentauthor {Nombre del autor}
 \def\fechadocumento {\the\year}
 
 \def\portada {
 \begin{center}
 	\vspace{1.5cm} ~ \\
-	\MakeUppercase{\textbf{\titulodeldocumento}} ~ \\
+	\MakeUppercase{\textbf{\documenttitle}} ~ \\
 	\vspace{1.5cm}
 	\MakeUppercase{\titulogrado} ~ \\
 	\vfill
 	\begin{tabular}{c}
-		\MakeUppercase{\autordeldocumento} \\
+		\MakeUppercase{\documentauthor} \\
 		\vspace{1.0cm} \\
 		PROFESOR GUÍA: \\
 		PROFESOR 1 \\
@@ -52,7 +52,7 @@
 		Este trabajo ha sido parcialmente financiado por: \\
 		NOMBRE INSTITUCIÓN \\
 		\vspace{0.5cm} \\
-		\MakeUppercase{\localizacionuniversidad} \\
+		\MakeUppercase{\universitylocation} \\
 		\MakeUppercase{\fechadocumento}
 	\end{tabular}
 \end{center}}{
@@ -62,7 +62,7 @@
 	RESUMEN DE LA MEMORIA PARA OPTAR \\
 	AL TÍTULO DE MAGÍSTER EN CIENCIAS \\
 	DE LA INGENIERÍA \\
-	POR: \MakeUppercase{\autordeldocumento} \\
+	POR: \MakeUppercase{\documentauthor} \\
 	FECHA: \MakeUppercase{\fechadocumento} \\
 	PROF. GUÍA: NOMBRE PROFESOR
 \end{tabular}}{

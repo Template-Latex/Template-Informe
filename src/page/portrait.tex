@@ -26,14 +26,14 @@
 		\fancypagestyle{portraitstyle}{
 			\fancyhf{}
 			\fancyhead[L]{
-				\COREwriteheaderitem{\nombreuniversidad}
-				\COREwriteheaderitem{\nombrefacultad}
-				\COREwriteheaderitem{\departamentouniversidad}
+				\COREwriteheaderitem{\universityname}
+				\COREwriteheaderitem{\universityfaculty}
+				\COREwriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -45,8 +45,8 @@
 		\vfill
 		\begin{center}
 			\textcolor{\portraittitlecolor}{
-				{\noindent \Huge{\titulodeldocumento} \vspace{0.5cm}} ~ \\
-				{\noindent \large{\temaatratar}}
+				{\noindent \Huge{\documenttitle} \vspace{0.5cm}} ~ \\
+				{\noindent \large{\documenttopic}}
 			}
 		\end{center}
 		
@@ -55,7 +55,7 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\tablaintegrantes
+				\authortable
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
@@ -67,14 +67,14 @@
 		\fancypagestyle{portraitstyle}{
 			\fancyhf{}
 			\fancyhead[L]{
-				\COREwriteheaderitem{\nombreuniversidad}
-				\COREwriteheaderitem{\nombrefacultad}
-				\COREwriteheaderitem{\departamentouniversidad}
+				\COREwriteheaderitem{\universityname}
+				\COREwriteheaderitem{\universityfaculty}
+				\COREwriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -85,11 +85,11 @@
 		~ \\
 		\vfill
 		\begin{center}
-			{\noindent \LARGE{\nombredelcurso} \vspace{0.3cm}} ~ \\
+			{\noindent \LARGE{\coursename} \vspace{0.3cm}} ~ \\
 			\vspace*{1.5cm}
 			\textcolor{\portraittitlecolor}{
-				{\centering \noindent \Huge{\titulodeldocumento} \vspace{0.3cm}} ~ \\
-				{\noindent \large{\temaatratar}}
+				{\centering \noindent \Huge{\documenttitle} \vspace{0.3cm}} ~ \\
+				{\noindent \large{\documenttopic}}
 			}
 		\end{center}
 		
@@ -98,7 +98,7 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\tablaintegrantes
+				\authortable
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
@@ -110,14 +110,14 @@
 		\fancypagestyle{portraitstyle}{
 			\fancyhf{}
 			\fancyhead[L]{
-				\COREwriteheaderitem{\nombreuniversidad}
-				\COREwriteheaderitem{\nombrefacultad}
-				\COREwriteheaderitem{\departamentouniversidad}
+				\COREwriteheaderitem{\universityname}
+				\COREwriteheaderitem{\universityfaculty}
+				\COREwriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -129,12 +129,12 @@
 		\vfill
 		\begin{center}
 			\vspace*{-1.0cm}
-			{\noindent \huge{\nombredelcurso} \vspace{0.3cm}} ~ \\
-			{\noindent \large{Código del curso: \codigodelcurso}} ~ \\
+			{\noindent \huge{\coursename} \vspace{0.3cm}} ~ \\
+			{\noindent \large{Código del curso: \coursecode}} ~ \\
 			\vspace*{1.8cm}
 			\textcolor{\portraittitlecolor}{
-				{\noindent \Huge{\titulodeldocumento} \vspace{0.3cm}} ~ \\
-				{\noindent \large{\temaatratar}}
+				{\noindent \Huge{\documenttitle} \vspace{0.3cm}} ~ \\
+				{\noindent \large{\documenttopic}}
 			}
 		\end{center}
 		
@@ -143,7 +143,7 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\tablaintegrantes
+				\authortable
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
@@ -163,9 +163,9 @@
 		\hspace*{-0.15cm}
 		\begin{tabular}{l}
 			% Inserta nuevas lineas independiente de si tiene texto o no
-			\COREwriteheaderitemsc[~ \\]{\nombreuniversidad}
-			\COREwriteheaderitemsc[~ \\]{\nombrefacultad}
-			\COREwriteheaderitemsc[~ \\]{\departamentouniversidad}
+			\COREwriteheaderitemsc[~ \\]{\universityname}
+			\COREwriteheaderitemsc[~ \\]{\universityfaculty}
+			\COREwriteheaderitemsc[~ \\]{\universitydepartment}
 			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
 		
@@ -173,8 +173,8 @@
 		\vfill
 		\begin{center}
 			{\fontsize{22pt}{10pt} \selectfont
-				\noindent \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace*{0.35cm}} ~ \\
-			{\noindent \fontsize{10pt}{5pt} \selectfont \textcolor{\portraittitlecolor}{\codigodelcurso\ \hfpdashcharstyle\ \nombredelcurso}} ~ \\
+				\noindent \textcolor{\portraittitlecolor}{\documenttitle} \vspace*{0.35cm}} ~ \\
+			{\noindent \fontsize{10pt}{5pt} \selectfont \textcolor{\portraittitlecolor}{\coursecode\ \hfpdashcharstyle\ \coursename}} ~ \\
 			\vspace*{3cm}
 		\end{center}
 		
@@ -183,7 +183,7 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\tablaintegrantes
+				\authortable
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
@@ -202,9 +202,9 @@
 		\hspace{-0.2cm}
 		\begin{tabular}{l}
 			% Inserta nuevas lineas independiente de si tiene texto o no
-			\COREwriteheaderitemsc[~ \\]{\nombreuniversidad}
-			\COREwriteheaderitemsc[~ \\]{\nombrefacultad}
-			\COREwriteheaderitemsc[~ \\]{\departamentouniversidad}
+			\COREwriteheaderitemsc[~ \\]{\universityname}
+			\COREwriteheaderitemsc[~ \\]{\universityfaculty}
+			\COREwriteheaderitemsc[~ \\]{\universitydepartment}
 			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
 		
@@ -213,19 +213,19 @@
 		\begin{center}
 			\fontsize{8mm}{9mm}\selectfont
 			\textcolor{\portraittitlecolor}{
-				\noindent \titulodeldocumento ~ \\
+				\noindent \documenttitle ~ \\
 			}
 			\vspace*{0.35cm}
-			\Large{\noindent \textcolor{\portraittitlecolor}{\temaatratar}} ~ \\
+			\Large{\noindent \textcolor{\portraittitlecolor}{\documenttopic}} ~ \\
 			\vspace*{1cm}
-			\footnotesize{\codigodelcurso\ \hfpdashcharstyle\ \nombredelcurso} ~ \\
+			\footnotesize{\coursecode\ \hfpdashcharstyle\ \coursename} ~ \\
 			\vspace*{1.4cm}
 		\end{center}
 		
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
-			\noindent \normalsize{\tablaintegrantes}
+			\noindent \normalsize{\authortable}
 		\end{center}
 		\end{spacing}
 	}{
@@ -245,24 +245,24 @@
 			\coreinsertkeyimage{\portraitimageparamsH}{\portraitimageH}%
 		\end{wrapfigure}
 		\def\COREstylefirstmargin {-2.2cm}
-		\ifthenelse{\equal{\departamentouniversidad}{\xspace}}{}{
+		\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{
 			\hspace*{0.07cm}
-			\noindent \textsc{\color{red} \hspace{\COREstylefirstmargin} \departamentouniversidad} ~ \\
+			\noindent \textsc{\color{red} \hspace{\COREstylefirstmargin} \universitydepartment} ~ \\
 			\def\COREstylefirstmargin {-1.6cm}
 		}
-		\ifthenelse{\equal{\nombrefacultad}{\xspace}}{}{
+		\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{
 			\hspace*{0cm}
-			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \nombrefacultad} ~ \\
+			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \universityfaculty} ~ \\
 			\def\COREstylefirstmargin {-1.6cm}
 		}
-		\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{}{
+		\ifthenelse{\equal{\universityname}{\xspace}}{}{
 			\hspace*{0cm}
-			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \nombreuniversidad} ~ \\
+			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \universityname} ~ \\
 			\def\COREstylefirstmargin {-1.6cm}
 		}
-		\ifthenelse{\equal{\nombredelcurso}{\xspace}}{}{
+		\ifthenelse{\equal{\coursename}{\xspace}}{}{
 			\hspace*{0cm}
-			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \codigodelcurso \nombredelcurso} ~ \\
+			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \coursecode \coursename} ~ \\
 			\def\COREstylefirstmargin {-1.6cm}
 		}
 		
@@ -270,9 +270,9 @@
 		\vfill
 		\begin{center}
 			\vspace*{0.5cm}
-			{\color{dkgray} \Large \textbf{\MakeUppercase{\temaatratar}}} ~ \\
+			{\color{dkgray} \Large \textbf{\MakeUppercase{\documenttopic}}} ~ \\
 			\noindent \rule{\linewidth}{0.3mm} ~ \\
-			\Huge \textup \bfseries \textsc{\textcolor{\portraittitlecolor}{\titulodeldocumento}} ~ \\
+			\Huge \textup \bfseries \textsc{\textcolor{\portraittitlecolor}{\documenttitle}} ~ \\
 			\noindent \rule{\linewidth}{0.3mm} ~ \\
 		\end{center}
 		\begin{minipage}{.5\linewidth}
@@ -283,7 +283,7 @@
 		\vfill
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\noindent \tablaintegrantes
+				\noindent \authortable
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
@@ -298,13 +298,13 @@
 		\begin{center}
 			\vspace*{-1.5cm}
 			\hspace*{-1.25cm}
-			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}
+			\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
 			\hspace*{-0.25cm}
 			\begin{tabular}{l}
 				\vspace*{0.26cm}\mbox{} ~ \\
-				\COREwriteheaderitemsc{\nombreuniversidad}
-				\COREwriteheaderitemsc{\nombrefacultad}
-				\COREwriteheaderitemsc{\departamentouniversidad}
+				\COREwriteheaderitemsc{\universityname}
+				\COREwriteheaderitemsc{\universityfaculty}
+				\COREwriteheaderitemsc{\universitydepartment}
 				\vspace*{1.25cm}\mbox{}
 			\end{tabular}
 		\end{center}
@@ -313,9 +313,9 @@
 		\vfill
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
-			{\huge \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace{0.2cm} ~ \\}
+			{\huge \textcolor{\portraittitlecolor}{\documenttitle} \vspace{0.2cm} ~ \\}
 			\noindent \rule{\linewidth}{0.4mm} ~ \\ \vspace{0cm}
-			{\large \textcolor{\portraittitlecolor}{\temaatratar} ~ \\}
+			{\large \textcolor{\portraittitlecolor}{\documenttopic} ~ \\}
 		\end{center}
 		
 		% Tabla de integrantes
@@ -323,7 +323,7 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\scshape{\tablaintegrantes}
+				\scshape{\authortable}
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
@@ -338,10 +338,10 @@
 		\begin{center}
 			\vspace*{-1.0cm}
 			\begin{tabular}{c}
-				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0.5cm} ~ \\
-				\COREwriteheaderitemsc{\nombreuniversidad}
-				\COREwriteheaderitemsc{\nombrefacultad}
-				\COREwriteheaderitemsc{\departamentouniversidad}
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0.5cm} ~ \\
+				\COREwriteheaderitemsc{\universityname}
+				\COREwriteheaderitemsc{\universityfaculty}
+				\COREwriteheaderitemsc{\universitydepartment}
 			\end{tabular}
 		\end{center}
 		
@@ -349,9 +349,9 @@
 		\vfill
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
-			{\huge \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace{0.2cm} ~ \\}
+			{\huge \textcolor{\portraittitlecolor}{\documenttitle} \vspace{0.2cm} ~ \\}
 			\noindent \rule{\linewidth}{0.4mm} ~ \\ \vspace{0cm}
-			{\large \textcolor{\portraittitlecolor}{\temaatratar} ~ \\}
+			{\large \textcolor{\portraittitlecolor}{\documenttopic} ~ \\}
 		\end{center}
 		
 		% Tabla de integrantes
@@ -359,7 +359,7 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\scshape{\tablaintegrantes}
+				\scshape{\authortable}
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
@@ -371,29 +371,29 @@
 		\begin{spacing}{1.025}
 		
 		% Título del informe
-		\noindent \hspace{-0.10cm} \coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}
+		\noindent \hspace{-0.10cm} \coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
 		\vfill
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
-			{\huge \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace{0.2cm} \\}
+			{\huge \textcolor{\portraittitlecolor}{\documenttitle} \vspace{0.2cm} \\}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.35cm}
-			{\large \textcolor{\portraittitlecolor}{\temaatratar} \\}
+			{\large \textcolor{\portraittitlecolor}{\documenttopic} \\}
 		\end{center}
 		
 		% Nombre universidad - departamento
 		\vfill
 		\begin{center}
 			\begin{tabular}{c}
-				\COREwriteheaderitemsc{\nombreuniversidad}
-				\COREwriteheaderitemsc{\nombrefacultad}
-				\COREwriteheaderitemsc{\departamentouniversidad}
+				\COREwriteheaderitemsc{\universityname}
+				\COREwriteheaderitemsc{\universityfaculty}
+				\COREwriteheaderitemsc{\universitydepartment}
 			\end{tabular}
 		\end{center}
 		
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
-			\indent \scshape{\tablaintegrantes}
+			\indent \scshape{\authortable}
 		\end{center}
 		\end{spacing}
 	}{
@@ -407,10 +407,10 @@
 		~ \\
 		\vfill
 		\begin{center}
-			\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{
-				\noindent {\large \textsc{\departamentouniversidad}}
+			\ifthenelse{\equal{\universityname}{\xspace}}{
+				\noindent {\large \textsc{\universitydepartment}}
 			}{
-				\noindent {\large \textsc{\nombreuniversidad, \departamentouniversidad}}
+				\noindent {\large \textsc{\universityname, \universitydepartment}}
 			}
 			\vspace{1.0cm}
 		\end{center}
@@ -418,21 +418,21 @@
 		% Título informe
 		\vfill
 		\begin{center}
-			\ifthenelse{\equal{\nombredelcurso}{\xspace}}{}{
-				\noindent {\large \scshape{\nombredelcurso}} \vspace{0.5cm} ~ \\
+			\ifthenelse{\equal{\coursename}{\xspace}}{}{
+				\noindent {\large \scshape{\coursename}} \vspace{0.5cm} ~ \\
 			}
-			\ifthenelse{\equal{\codigodelcurso}{\xspace}}{}{
-				\noindent {\large \scshape{\codigodelcurso}} \vspace{0.5cm} ~ \\
+			\ifthenelse{\equal{\coursecode}{\xspace}}{}{
+				\noindent {\large \scshape{\coursecode}} \vspace{0.5cm} ~ \\
 			}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
-			{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace{0.2cm} \\}
+			{\huge \bfseries \textcolor{\portraittitlecolor}{\documenttitle} \vspace{0.2cm} \\}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{2.5cm}
 		\end{center}
 		
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
-			\indent \tablaintegrantes
+			\indent \authortable
 		\end{center}
 		\vfill
 		~ \\
@@ -447,28 +447,28 @@
 		% Header
 		\begin{center}
 			\vspace*{-1.0cm}
-			\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{}{
-				\scshape{\nombreuniversidad} ~ \\
+			\ifthenelse{\equal{\universityname}{\xspace}}{}{
+				\scshape{\universityname} ~ \\
 			}
-			\ifthenelse{\equal{\nombrefacultad}{\xspace}}{}{
-				\scshape{\nombrefacultad} ~ \\
+			\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{
+				\scshape{\universityfaculty} ~ \\
 			}
-			\ifthenelse{\equal{\departamentouniversidad}{\xspace}}{}{
-				\scshape{\departamentouniversidad}
+			\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{
+				\scshape{\universitydepartment}
 			}
 		\end{center}
 		
 		% Título informe
 		\vfill
 		\begin{center}
-			{\setstretch{1.2} \fontsize{21pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\titulodeldocumento}} \vspace{0.5cm}} ~ \\
-			{\fontsize{13pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\temaatratar}}}
+			{\setstretch{1.2} \fontsize{21pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\documenttitle}} \vspace{0.5cm}} ~ \\
+			{\fontsize{13pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\documenttopic}}}
 		\end{center}
 		
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
-			\indent \tablaintegrantes
+			\indent \authortable
 		\end{center}
 		\end{spacing}
 	}{
@@ -481,32 +481,32 @@
 		% Imagen departamento
 		\begin{center}
 			\vspace*{-1.0cm}
-			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}
+			\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
 		\end{center}
 		
 		% Título informe
 		\vfill
 		\begin{center}
-			{\bf \Huge \scshape{\textcolor{\portraittitlecolor}{\titulodeldocumento}} \vspace{0.3cm}} \\
-			{\bf \Large \textcolor{\portraittitlecolor}{\temaatratar}}
+			{\bf \Huge \scshape{\textcolor{\portraittitlecolor}{\documenttitle}} \vspace{0.3cm}} \\
+			{\bf \Large \textcolor{\portraittitlecolor}{\documenttopic}}
 		\end{center}
 		
 		% Tabla de integrantes
 		\vfill
 		\begin{flushright}%
-			\noindent \tablaintegrantes
+			\noindent \authortable
 		\end{flushright}
 		
 		% Footer
 		\vspace{0.5cm}
 		\noindent \rule{\linewidth}{0.4mm}
 		\begin{center}
-			\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{
-				\scshape{\nombrefacultad} \\
+			\ifthenelse{\equal{\universityname}{\xspace}}{
+				\scshape{\universityfaculty} \\
 			}{
-				\scshape{\nombreuniversidad, \nombrefacultad} \\
+				\scshape{\universityname, \universityfaculty} \\
 			}
-			\scshape{\departamentouniversidad}
+			\scshape{\universitydepartment}
 		\end{center}
 		\end{spacing}
 	}{
@@ -522,12 +522,12 @@
 		\begin{flushleft}
 			\begin{minipage}{0.625\linewidth}
 				% Aqui no se puede hacer nada con departamentouniversidad
-				\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{
-					{\fontsize{3.5mm}{0.5mm} \selectfont \noindent \textsf{\nombrefacultad}} ~ \\
+				\ifthenelse{\equal{\universityname}{\xspace}}{
+					{\fontsize{3.5mm}{0.5mm} \selectfont \noindent \textsf{\universityfaculty}} ~ \\
 				}{
-					{\fontsize{3.5mm}{0.5mm} \selectfont \noindent \textsf{\nombreuniversidad, \nombrefacultad}} ~ \\
+					{\fontsize{3.5mm}{0.5mm} \selectfont \noindent \textsf{\universityname, \universityfaculty}} ~ \\
 				}
-				\noindent {\fontsize{3.0mm}{0.5mm} \selectfont \textsf{\departamentouniversidad} \vspace{-0.3cm}} ~ \\
+				\noindent {\fontsize{3.0mm}{0.5mm} \selectfont \textsf{\universitydepartment} \vspace{-0.3cm}} ~ \\
 				\noindent \textcolor{gray}{\rule{\linewidth}{0.2mm}}
 			\end{minipage}
 		\end{flushleft}
@@ -535,7 +535,7 @@
 		\begin{flushright}%
 			\begin{minipage}{0.3\linewidth}%
 				\hspace*{-0.255cm}%
-				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 			\end{minipage}
 		\end{flushright}
 		
@@ -546,7 +546,7 @@
 				\begin{framed}
 					\LARGE
 					\vspace{1cm}
-					\centering \textcolor{\portraittitlecolor}{\textbf{\titulodeldocumento}}
+					\centering \textcolor{\portraittitlecolor}{\textbf{\documenttitle}}
 					\vspace{1cm}
 				\end{framed}
 			\end{minipage}
@@ -555,7 +555,7 @@
 		% Tabla de integrantes
 		\vfill
 		\begin{flushright}%
-			\noindent \textsf{\tablaintegrantes}
+			\noindent \textsf{\authortable}
 		\end{flushright}
 		\end{spacing}
 	}{
@@ -569,18 +569,18 @@
 		\noindent
 		\begin{flushleft}%
 			\vspace*{-1.0cm}%
-			\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \\
+			\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \\
 		\end{flushleft}
 		
 		% Título del informe
 		\vfill
-		{\bf \huge \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\titulodeldocumento}} \vspace*{0.05cm}}} \\
-		{\bf \large \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\temaatratar}}}} \\
+		{\bf \huge \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\documenttitle}} \vspace*{0.05cm}}} \\
+		{\bf \large \noindent \textcolor{\portraittitlecolor}{\textsf{\MakeUppercase{\documenttopic}}}} \\
 		
 		% Tabla de integrantes
 		\vfill
 		\begin{flushright}%
-			\noindent \textsf{\tablaintegrantes}
+			\noindent \textsf{\authortable}
 		\end{flushright}
 		\end{spacing}
 	}{
@@ -607,14 +607,14 @@
 					\vspace*{-0.05cm}
 					\textsc{
 					\begin{tabular}{l}
-						\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{}{
-							{\small \nombreuniversidad} ~ \\
+						\ifthenelse{\equal{\universityname}{\xspace}}{}{
+							{\small \universityname} ~ \\
 						}
-						\ifthenelse{\equal{\nombrefacultad}{\xspace}}{}{
-							{\small \nombrefacultad} ~ \\
+						\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{
+							{\small \universityfaculty} ~ \\
 						}
-						\ifthenelse{\equal{\departamentouniversidad}{\xspace}}{}{
-							{\small \departamentouniversidad}
+						\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{
+							{\small \universitydepartment}
 						}
 					\end{tabular}
 					}
@@ -634,14 +634,14 @@
 		% Título informe
 		\vfill
 		\begin{center}
-			{\fontsize{25pt}{15pt} \selectfont \textcolor{\portraittitlecolor}{\textbf{\titulodeldocumento}} \vspace{0.7cm}} \\
-			{\Large \textcolor{\portraittitlecolor}{\temaatratar}}
+			{\fontsize{25pt}{15pt} \selectfont \textcolor{\portraittitlecolor}{\textbf{\documenttitle}} \vspace{0.7cm}} \\
+			{\Large \textcolor{\portraittitlecolor}{\documenttopic}}
 		\end{center}
 		
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
-			\noindent \tablaintegrantes
+			\noindent \authortable
 		\end{center}
 		\end{spacing}
 	}{
@@ -657,9 +657,9 @@
 			\begin{tikzpicture}[remember picture,overlay]
 				\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\portraitbackgroundimageB}};
 				\draw (current page.center) node [fill=\portraitbackgroundcolorB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
-						\centering \textcolor{\portraittitlecolor}{\titulodeldocumento} \\ [10pt]
-						{\Large \textcolor{\portraittitlecolor}{\temaatratar}} \\ [25pt]
-						{\huge \autordeldocumento}}};
+						\centering \textcolor{\portraittitlecolor}{\documenttitle} \\ [10pt]
+						{\Large \textcolor{\portraittitlecolor}{\documenttopic}} \\ [25pt]
+						{\huge \documentauthor}}};
 			\end{tikzpicture}
 			\vfill
 		\endgroup
@@ -676,14 +676,14 @@
 		\fancypagestyle{portraitstyle}{
 			\fancyhf{}
 			\fancyhead[L]{
-				\COREwriteheaderitem{\nombreuniversidad}
-				\COREwriteheaderitem{\nombrefacultad}
-				\COREwriteheaderitem{\departamentouniversidad}
+				\COREwriteheaderitem{\universityname}
+				\COREwriteheaderitem{\universityfaculty}
+				\COREwriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -695,8 +695,8 @@
 		\vfill
 		\begin{center}
 			\textcolor{\portraittitlecolor}{
-				{\noindent \Huge{\titulodeldocumento} \vspace{0.5cm}} ~ \\
-				{\noindent \large{\temaatratar}}
+				{\noindent \Huge{\documenttitle} \vspace{0.5cm}} ~ \\
+				{\noindent \large{\documenttopic}}
 			}
 		\end{center}
 		
@@ -721,7 +721,7 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\tablaintegrantes
+				\authortable
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
@@ -738,14 +738,14 @@
 		\fancypagestyle{portraitstyle}{
 			\fancyhf{}
 			\fancyhead[L]{
-				\COREwriteheaderitem{\nombreuniversidad}
-				\COREwriteheaderitem{\nombrefacultad}
-				\COREwriteheaderitem{\departamentouniversidad}
+				\COREwriteheaderitem{\universityname}
+				\COREwriteheaderitem{\universityfaculty}
+				\COREwriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -771,8 +771,8 @@
 		\vfill
 		\begin{center}
 			\textcolor{\portraittitlecolor}{
-				{\noindent \Huge{\titulodeldocumento} \vspace{0.5cm}} ~ \\
-				{\noindent \large{\temaatratar}}
+				{\noindent \Huge{\documenttitle} \vspace{0.5cm}} ~ \\
+				{\noindent \large{\documenttopic}}
 			}
 		\end{center}
 		\vfill
@@ -781,7 +781,7 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\tablaintegrantes
+				\authortable
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
@@ -796,18 +796,18 @@
 		\vspace*{1.5cm}
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
-			{\huge \bfseries \textcolor{\portraittitlecolor}{\titulodeldocumento} \vspace{0.2cm} \\}
+			{\huge \bfseries \textcolor{\portraittitlecolor}{\documenttitle} \vspace{0.2cm} \\}
 			\noindent \rule{\linewidth}{0.4mm}
 		\end{center}
 		
 		% Nombre universidad
 		~ \\
 		\begin{center}
-			\noindent {\large \scshape{\codigodelcurso} \large \scshape{\nombredelcurso}} \vspace{0.5cm} ~ \\
-			\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{
-				\noindent {\large \textsc{\departamentouniversidad}}
+			\noindent {\large \scshape{\coursecode} \large \scshape{\coursename}} \vspace{0.5cm} ~ \\
+			\ifthenelse{\equal{\universityname}{\xspace}}{
+				\noindent {\large \textsc{\universitydepartment}}
 			}{
-				\noindent {\large \textsc{\nombreuniversidad, \departamentouniversidad}}
+				\noindent {\large \textsc{\universityname, \universitydepartment}}
 			}
 			\vspace{1.0cm}
 		\end{center}
@@ -815,7 +815,7 @@
 		% Tabla de integrantes
 		\vfill
 		\begin{center}
-			\indent \tablaintegrantes
+			\indent \authortable
 		\end{center}
 		~ \\
 		\end{spacing}
@@ -832,20 +832,20 @@
 		\noindent \rule{1pt}{\textheight}
 		\hspace{0.05\linewidth}
 		\parbox[b]{0.75\linewidth}{
-			{\Huge\bfseries \textcolor{\portraittitlecolor}{\titulodeldocumento}}\\[2\baselineskip]
-			{\large\textit{\textcolor{\portraittitlecolor}{\temaatratar}}}\\[4\baselineskip]
+			{\Huge\bfseries \textcolor{\portraittitlecolor}{\documenttitle}}\\[2\baselineskip]
+			{\large\textit{\textcolor{\portraittitlecolor}{\documenttopic}}}\\[4\baselineskip]
 			\vspace*{2cm}
 			{\textsc{
 			\begin{flushleft}
-				\noindent\hspace{-0.36cm}\tablaintegrantes
+				\noindent\hspace{-0.36cm}\authortable
 			\end{flushleft}
 			}}
 			
 			\vspace*{\portraitverticalspaceE}
 			
-			{\noindent \nombreuniversidad ~ \\
-			\nombrefacultad ~ \\
-			\departamentouniversidad}\\[\baselineskip]
+			{\noindent \universityname ~ \\
+			\universityfaculty ~ \\
+			\universitydepartment}\\[\baselineskip]
 		}}
 		\end{spacing}
 	}{
@@ -861,14 +861,14 @@
 		\fancypagestyle{portraitstyle}{
 			\fancyhf{}
 			\fancyhead[L]{
-				\COREwriteheaderitem{\nombreuniversidad}
-				\COREwriteheaderitem{\nombrefacultad}
-				\COREwriteheaderitem{\departamentouniversidad}
+				\COREwriteheaderitem{\universityname}
+				\COREwriteheaderitem{\universityfaculty}
+				\COREwriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -894,7 +894,7 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\tablaintegrantes
+				\authortable
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
@@ -906,14 +906,14 @@
 		\begin{spacing}{1.025}
 		\begin{center}
 			\vspace*{-1.0cm}
-			\ifthenelse{\equal{\nombreuniversidad}{\xspace}}{}{
-				\scshape{\nombreuniversidad} ~ \\
+			\ifthenelse{\equal{\universityname}{\xspace}}{}{
+				\scshape{\universityname} ~ \\
 			}
-			\ifthenelse{\equal{\nombrefacultad}{\xspace}}{}{
-				\scshape{\nombrefacultad} ~ \\
+			\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{
+				\scshape{\universityfaculty} ~ \\
 			}
-			\ifthenelse{\equal{\departamentouniversidad}{\xspace}}{}{
-				\scshape{\departamentouniversidad}
+			\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{
+				\scshape{\universitydepartment}
 			}
 		\end{center}
 		~ \\
@@ -922,12 +922,12 @@
 		\end{center}
 		\begin{center}
 			\vspace*{-6cm}
-			{\setstretch{1.2} \fontsize{25pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\titulodeldocumento}} \vspace{0.5cm}} \\
-			{\fontsize{15pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\temaatratar}}}
+			{\setstretch{1.2} \fontsize{25pt}{22pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\documenttitle}} \vspace{0.5cm}} \\
+			{\fontsize{15pt}{10pt} \selectfont \textcolor{\portraittitlecolor}{\scshape{\documenttopic}}}
 		\end{center}
 		\vfill
 		\begin{flushright}
-			\noindent \tablaintegrantes
+			\noindent \authortable
 		\end{flushright}
 		\end{spacing}
 		\clearpage

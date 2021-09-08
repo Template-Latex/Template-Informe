@@ -25,10 +25,7 @@
 	\immediate\closeout\fileauthornames
 	\immediate\closeout\fileauthordata
 	\immediate\closeout\fileauthornamesdata
-}   
-
-\def\LOCALauthorpercentchar#1{}
-\edef\LOCALauthorpercentchar{\expandafter\LOCALauthorpercentchar\string\%}
+}
 
 % Define contadores
 \newcounter{authornumber}
@@ -40,9 +37,9 @@
 %	#3	Institución del autor
 %	#4	Correo
 \newcommand{\addauthor}[4][]{
-	\immediate\write\fileauthornames{\unexpanded{\titleauthorname}[\theauthornumber]\unexpanded{{#2}}\LOCALauthorpercentchar}
-	\immediate\write\fileauthordata{\unexpanded{\titleauthordata}[\theauthornumber]\unexpanded{{#3}{#4}{#1}}\LOCALauthorpercentchar}%
-	\immediate\write\fileauthornamesdata{\unexpanded{\titleauthornamedata}[\theauthornumber]\unexpanded{{#2}{#3}{#4}{#1}}\LOCALauthorpercentchar}%
+	\immediate\write\fileauthornames{\unexpanded{\titleauthorname}[\theauthornumber]\unexpanded{{#2}}\LOCALpercentchar}
+	\immediate\write\fileauthordata{\unexpanded{\titleauthordata}[\theauthornumber]\unexpanded{{#3}{#4}{#1}}\LOCALpercentchar}%
+	\immediate\write\fileauthornamesdata{\unexpanded{\titleauthornamedata}[\theauthornumber]\unexpanded{{#2}{#3}{#4}{#1}}\LOCALpercentchar}%
 	\stepcounter{authornumber}
 }
 
@@ -64,9 +61,9 @@
 	\newcommand{\inserttitle}{%
 		\begin{center}%
 			\ifthenelse{\equal{\titlebold}{true}}{%
-				\textbf{\Large{\titulodeldocumento}} \\%
+				\textbf{\Large{\documenttitle}} \\%
 			}{%
-				\Large{\titulodeldocumento} \\%
+				\Large{\documenttitle} \\%
 			}
 			\vspace{0.6cm}%
 			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}
@@ -103,9 +100,9 @@
 	\newcommand{\inserttitle}{%
 		\begin{center}%
 			\ifthenelse{\equal{\titlebold}{true}}{%
-				\textbf{\Large{\titulodeldocumento}} \\%
+				\textbf{\Large{\documenttitle}} \\%
 			}{%
-				\Large{\titulodeldocumento} \\%
+				\Large{\documenttitle} \\%
 			}
 			\vspace{0.7cm}%
 			\input{\jobname.authn}%
@@ -130,9 +127,9 @@
 	\newcommand{\inserttitle}{%
 		\begin{center}%
 			\ifthenelse{\equal{\titlebold}{true}}{%
-				\textbf{\Large{\titulodeldocumento}} \\%
+				\textbf{\Large{\documenttitle}} \\%
 			}{%
-				\Large{\titulodeldocumento} \\%
+				\Large{\documenttitle} \\%
 			}
 			\vspace{0.7cm}%
 			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
@@ -155,9 +152,9 @@
 	\newcommand{\inserttitle}{%
 		\begin{center}%
 			\ifthenelse{\equal{\titlebold}{true}}{%
-				\textbf{\Large{\titulodeldocumento}} \\%
+				\textbf{\Large{\documenttitle}} \\%
 			}{%
-				\Large{\titulodeldocumento} \\%
+				\Large{\documenttitle} \\%
 			}
 			\vspace{0.7cm}%
 			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
@@ -189,9 +186,9 @@
 	\newcommand{\inserttitle}{%
 		\begin{center}%
 			\ifthenelse{\equal{\titlebold}{true}}{%
-				\textbf{\Large{\titulodeldocumento}} \\%
+				\textbf{\Large{\documenttitle}} \\%
 			}{%
-				\Large{\titulodeldocumento} \\%
+				\Large{\documenttitle} \\%
 			}
 			\vspace{0.9cm}%
 			\noindent%

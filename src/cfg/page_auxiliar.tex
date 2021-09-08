@@ -236,7 +236,7 @@
 			\fancyhead[L]{}
 			\fancyhead[R]{}
 			\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
-			\fancyfoot[L]{\small \rm \textit{\titulodeldocumento}} % Footer izq, título del informe
+			\fancyfoot[L]{\small \rm \textit{\documenttitle}} % Footer izq, título del informe
 			\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
@@ -246,7 +246,7 @@
 			\fancyhf{}
 			\renewcommand{\headrulewidth}{0pt}
 			%\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-			\fancyfoot[L]{\small \rm \textit{\titulodeldocumento}} % Footer izq, título
+			\fancyfoot[L]{\small \rm \textit{\documenttitle}} % Footer izq, título
 			\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
@@ -259,12 +259,12 @@
 				\hspace{-0.45cm}~
 				\begin{minipage}[t]{1\linewidth}
 					\vspace{-4.65em}
-					\nombreuniversidad ~ \\
-					\nombrefacultad ~ \\
-					\departamentouniversidad ~ \\
-					\codigodelcurso\ \hfpdashcharstyle\ \nombredelcurso ~ \\
+					\universityname ~ \\
+					\universityfaculty ~ \\
+					\universitydepartment ~ \\
+					\coursecode\ \hfpdashcharstyle\ \coursename ~ \\
 					\begin{flushright}%
-						\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm} ~
+						\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm} ~
 					\end{flushright}
 				\end{minipage}
 				\\
@@ -276,10 +276,10 @@
 		\noindent \rule{1\linewidth}{0.5pt}
 		\begin{center} % Tabla de datos
 			\vspace*{0.35cm}
-			\huge {\titulodeldocumento} ~ \\
-			\ifthenelse{\equal{\temaatratar}{\xspace}}{}{
+			\huge {\documenttitle} ~ \\
+			\ifthenelse{\equal{\documenttopic}{\xspace}}{}{
 				\vspace{0.2cm}
-				\large {\temaatratar} ~ \\
+				\large {\documenttopic} ~ \\
 			}
 			\ifdefempty{\equipodocente}{\vspace{0.4cm}}{
 				\vspace{0.7cm}
@@ -321,7 +321,7 @@
 				\hspace{-0.60cm}
 				\begin{minipage}[t]{1.0\linewidth}
 					\begin{flushleft}
-						\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm}
+						\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm}
 					\end{flushleft}
 				\end{minipage}
 				\\
@@ -332,12 +332,12 @@
 		\vspace*{-1.25cm}
 		\begin{center} % Tabla de datos
 			\vspace*{0.35cm}
-			\LARGE {\textbf{\titulodeldocumento}} ~ \\
+			\LARGE {\textbf{\documenttitle}} ~ \\
 			\vspace{0.3cm}
-			\Large {\codigodelcurso \nombredelcurso} ~ \\
-			\ifthenelse{\equal{\temaatratar}{\xspace}}{}{
+			\Large {\coursecode \coursename} ~ \\
+			\ifthenelse{\equal{\documenttopic}{\xspace}}{}{
 				\vspace{0.2cm}
-				\large {\temaatratar} ~ \\
+				\large {\documenttopic} ~ \\
 			}
 			\ifdefempty{\equipodocente}{\vspace{0.4cm}}{
 				\vspace{0.5cm}
@@ -379,7 +379,7 @@
 				\hspace{-0.33cm}
 				\begin{minipage}[t]{1.0\linewidth}
 					\begin{flushright}
-						\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm}
+						\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm}
 					\end{flushright}
 				\end{minipage}
 				\\
@@ -390,12 +390,12 @@
 		\vspace*{-1.25cm}
 		\begin{center} % Tabla de datos
 			\vspace*{0.35cm}
-			\LARGE {\textbf{\titulodeldocumento}} ~ \\
+			\LARGE {\textbf{\documenttitle}} ~ \\
 			\vspace{0.3cm}
-			\Large {\codigodelcurso \nombredelcurso} ~ \\
-			\ifthenelse{\equal{\temaatratar}{\xspace}}{}{
+			\Large {\coursecode \coursename} ~ \\
+			\ifthenelse{\equal{\documenttopic}{\xspace}}{}{
 				\vspace{0.2cm}
-				\large {\temaatratar} ~ \\
+				\large {\documenttopic} ~ \\
 			}
 			\ifdefempty{\equipodocente}{\vspace{0.4cm}}{
 				\vspace{0.5cm}
@@ -412,7 +412,7 @@
 			\fancyhead[L]{}
 			\fancyhead[R]{}
 			\renewcommand{\headrulewidth}{0pt} % Ancho de la barra del header
-			\fancyfoot[L]{\small \rm \textit{\titulodeldocumento}} % Footer izq, título del informe
+			\fancyfoot[L]{\small \rm \textit{\documenttitle}} % Footer izq, título del informe
 			\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
@@ -422,7 +422,7 @@
 			\fancyhf{}
 			\renewcommand{\headrulewidth}{0pt}
 			%\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
-			\fancyfoot[L]{\small \rm \textit{\titulodeldocumento}} % Footer izq, título
+			\fancyfoot[L]{\small \rm \textit{\documenttitle}} % Footer izq, título
 			\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
@@ -435,12 +435,12 @@
 				\hspace{-0.45cm}~
 				\begin{minipage}[t]{1\linewidth}
 					\vspace{-4.65em}
-					\nombreuniversidad ~ \\
-					\nombrefacultad ~ \\
-					\departamentouniversidad ~ \\
-					\codigodelcurso\ \hfpdashcharstyle\ \nombredelcurso ~ \\
+					\universityname ~ \\
+					\universityfaculty ~ \\
+					\universitydepartment ~ \\
+					\coursecode\ \hfpdashcharstyle\ \coursename ~ \\
 					\begin{flushright}%
-						\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\imagendepartamentoparams}{\imagendepartamento} \vspace{0cm} ~
+						\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm} ~
 					\end{flushright}
 				\end{minipage}
 				\\

@@ -10,47 +10,47 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % Se revisa si las variables no han sido borradas
-\checkvardefined{\autordeldocumento}
-\checkvardefined{\codigodelcurso}
-\checkvardefined{\departamentouniversidad}
-\checkvardefined{\imagendepartamentoparams}
-\checkvardefined{\localizacionuniversidad}
-\checkvardefined{\nombredelcurso}
-\checkvardefined{\nombrefacultad}
-\checkvardefined{\nombreuniversidad}
-\checkvardefined{\temaatratar}
-\checkvardefined{\titulodeldocumento}
+\checkvardefined{\coursecode}
+\checkvardefined{\coursename}
+\checkvardefined{\documentauthor}
+\checkvardefined{\documenttitle}
+\checkvardefined{\documenttopic}
+\checkvardefined{\universitydepartment}
+\checkvardefined{\universitydepartmentimagecfg}
+\checkvardefined{\universityfaculty}
+\checkvardefined{\universitylocation}
+\checkvardefined{\universityname}
 
 % -----------------------------------------------------------------------------
 % Se añade \xspace a las variables
 % -----------------------------------------------------------------------------
 \makeatletter
-	\g@addto@macro\autordeldocumento\xspace
-	\g@addto@macro\codigodelcurso\xspace
-	\g@addto@macro\departamentouniversidad\xspace
-	\g@addto@macro\localizacionuniversidad\xspace
-	\g@addto@macro\nombredelcurso\xspace
-	\g@addto@macro\nombrefacultad\xspace
-	\g@addto@macro\nombreuniversidad\xspace
-	\g@addto@macro\temaatratar\xspace
-	\g@addto@macro\titulodeldocumento\xspace
+	\g@addto@macro\coursecode\xspace
+	\g@addto@macro\coursename\xspace
+	\g@addto@macro\documentauthor\xspace
+	\g@addto@macro\documenttitle\xspace
+	\g@addto@macro\documenttopic\xspace
+	\g@addto@macro\universitydepartment\xspace
+	\g@addto@macro\universityfaculty\xspace
+	\g@addto@macro\universitylocation\xspace
+	\g@addto@macro\universityname\xspace
 \makeatother
 
 % -----------------------------------------------------------------------------
 % Se crean variables si se borraron
 % -----------------------------------------------------------------------------
-\ifthenelse{\isundefined{\tablaintegrantes}}{
-	\errmessage{LaTeX Warning: Se borro la variable \noexpand\tablaintegrantes, creando una vacia}
-	\def\tablaintegrantes {}}{
+\ifthenelse{\isundefined{\authortable}}{
+	\errmessage{LaTeX Warning: Se borro la variable \noexpand\authortable, creando una vacia}
+	\def\authortable {}}{
 }
 
-\ifthenelse{\equal{\subtitulodocumento}{}}{
-	\def\titulodeldocumentohf {\titulodeldocumento}
+\ifthenelse{\equal{\documentsubtitle}{}}{
+	\def\documenttitlehf {\documenttitle}
 }{
 	\makeatletter
-		\g@addto@macro\subtitulodocumento\xspace
+		\g@addto@macro\documentsubtitle\xspace
 	\makeatother
-	\def\titulodeldocumentohf {\subtitulodocumento}
+	\def\documenttitlehf {\documentsubtitle}
 }
 
 % -----------------------------------------------------------------------------
@@ -75,34 +75,34 @@
 	\def\cfgpdfpagemode {UseNone}
 }
 \ifthenelse{\equal{\usepdfmetadata}{true}}{
-	\def\pdfmetainfoautor {\autordeldocumento}
-	\def\pdfmetainfocodigodelcurso {\codigodelcurso}
-	\def\pdfmetainfonombredelcurso {\nombredelcurso}
-	\def\pdfmetainfotema {\temaatratar}
-	\def\pdfmetainfotitulo {\titulodeldocumento}
-	\def\pdfmetainfounidepto {\departamentouniversidad}
-	\def\pdfmetainfounifacultad {\nombrefacultad}
-	\def\pdfmetainfouninombre {\nombreuniversidad}
-	\def\pdfmetainfouniubicacion {\localizacionuniversidad}
-	\author{\pdfmetainfoautor}
-	\title{\pdfmetainfotitulo}
+	\def\pdfmetainfoauthor {\documentauthor}
+	\def\pdfmetainfocoursecode {\coursecode}
+	\def\pdfmetainfocoursename {\coursename}
+	\def\pdfmetainfotitle {\documenttitle}
+	\def\pdfmetainfotopic {\documenttopic}
+	\def\pdfmetainfouniversity {\universityname}
+	\def\pdfmetainfouniversitydepartment {\universitydepartment}
+	\def\pdfmetainfouniversityfaculty {\universityfaculty}
+	\def\pdfmetainfouniversitylocation {\universitylocation}
+	\author{\pdfmetainfoauthor}
+	\title{\pdfmetainfotitle}
 }{
-	\def\pdfmetainfoautor {}
-	\def\pdfmetainfocodigodelcurso {}
-	\def\pdfmetainfonombredelcurso {}
-	\def\pdfmetainfotema {}
-	\def\pdfmetainfotitulo {}
-	\def\pdfmetainfounidepto {}
-	\def\pdfmetainfounifacultad {}
-	\def\pdfmetainfouninombre {}
-	\def\pdfmetainfouniubicacion {}
+	\def\pdfmetainfoauthor {}
+	\def\pdfmetainfocoursecode {}
+	\def\pdfmetainfocoursename {}
+	\def\pdfmetainfotitle {}
+	\def\pdfmetainfotopic {}
+	\def\pdfmetainfouniversity {}
+	\def\pdfmetainfouniversitydepartment {}
+	\def\pdfmetainfouniversityfaculty {}
+	\def\pdfmetainfouniversitylocation {}
 }
 \hypersetup{
 	keeppdfinfo,
 	bookmarksopen={\cfgpdfbookmarkopen},
 	bookmarksopenlevel={\cfgbookmarksopenlevel},
 	bookmarkstype={toc},
-	pdfauthor={\pdfmetainfoautor},
+	pdfauthor={\pdfmetainfoauthor},
 	pdfcenterwindow={\cfgpdfcenterwindow},
 	pdfcopyright={\cfgpdfcopyright},
 	pdfcreator={LaTeX},
@@ -110,31 +110,31 @@
 	pdfencoding={unicode},
 	pdffitwindow={\cfgpdffitwindow},
 	pdfinfo={
-		Curso.Codigo={\pdfmetainfocodigodelcurso},
-		Curso.Nombre={\pdfmetainfonombredelcurso},
-		Documento.Autor={\pdfmetainfoautor},
-		Documento.Tema={\pdfmetainfotema},
-		Documento.Titulo={\pdfmetainfotitulo},
-		Template.Autor.Alias={ppizarror},
-		Template.Autor.Email={pablo@ppizarror.com},
-		Template.Autor.Nombre={Pablo Pizarro R.},
-		Template.Autor.Web={https://ppizarror.com},
-		Template.Codificacion={UTF-8},
-		Template.Fecha={DEV},
-		Template.Latex.Compilador={pdflatex},
-		Template.Licencia.Tipo={MIT},
-		Template.Licencia.Web={https://opensource.org/licenses/MIT},
+		Course.Code={\pdfmetainfocoursecode},
+		Course.Name={\pdfmetainfocoursename},
+		Document.Author={\pdfmetainfoauthor},
+		Document.Title={\pdfmetainfotitle},
+		Document.Topic={\pdfmetainfotopic},
+		Template.Author.Alias={ppizarror},
+		Template.Author.Email={pablo@ppizarror.com},
+		Template.Author.Web={https://ppizarror.com},
+		Template.Author={Pablo Pizarro R.},
+		Template.Date={DEV},
+		Template.Encoding={UTF-8},
+		Template.Latex.Compiler={pdflatex},
+		Template.License.Type={MIT},
+		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Nombre={Template-Informe},
-		Template.Tipo={Normal},
+		Template.Type={Normal},
 		Template.Version.Dev={DEV},
 		Template.Version.Hash={DEV},
 		Template.Version.Release={DEV},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
-		Universidad.Departamento={\pdfmetainfounidepto},
-		Universidad.Facultad={\pdfmetainfounifacultad},
-		Universidad.Nombre={\pdfmetainfouninombre},
-		Universidad.Ubicacion={\pdfmetainfouniubicacion}
+		University.Department={\pdfmetainfouniversitydepartment},
+		University.Faculty={\pdfmetainfouniversityfaculty},
+		University.Location={\pdfmetainfouniversitylocation},
+		University.Name={\pdfmetainfouniversity}
 	},
 	pdfkeywords={\cfgpdfkeywords},
 	pdfmenubar={\cfgpdfmenubar},
@@ -144,8 +144,8 @@
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
-	pdfsubject={\pdfmetainfotema},
-	pdftitle={\pdfmetainfotitulo},
+	pdfsubject={\pdfmetainfotopic},
+	pdftitle={\pdfmetainfotitle},
 	pdftoolbar={\cfgpdftoolbar}
 }
 
@@ -242,7 +242,6 @@
 	labelfont={color=\captioncolor, \captiontextsubnumbold},
 	labelformat={\subcaptionlabelformat},
 	labelsep={\subcaptionlabelsep},
-	% listofformat={subparens},
 	lofdepth=1,
 	textfont={color=\captiontextcolor},
 	singlelinecheck=on
@@ -252,7 +251,6 @@
 	labelfont={color=\captioncolor, \captiontextsubnumbold},
 	labelformat={\subcaptionlabelformat},
 	labelsep={\subcaptionlabelsep},
-	% listofformat={subparens},
 	lofdepth=1,
 	textfont={color=\captiontextcolor},
 	singlelinecheck=on
