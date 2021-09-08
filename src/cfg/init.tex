@@ -13,8 +13,8 @@
 \checkvardefined{\coursecode}
 \checkvardefined{\coursename}
 \checkvardefined{\documentauthor}
+\checkvardefined{\documentsubject}
 \checkvardefined{\documenttitle}
-\checkvardefined{\documenttopic}
 \checkvardefined{\universitydepartment}
 \checkvardefined{\universitydepartmentimagecfg}
 \checkvardefined{\universityfaculty}
@@ -28,8 +28,8 @@
 	\g@addto@macro\coursecode\xspace
 	\g@addto@macro\coursename\xspace
 	\g@addto@macro\documentauthor\xspace
+	\g@addto@macro\documentsubject\xspace
 	\g@addto@macro\documenttitle\xspace
-	\g@addto@macro\documenttopic\xspace
 	\g@addto@macro\universitydepartment\xspace
 	\g@addto@macro\universityfaculty\xspace
 	\g@addto@macro\universitylocation\xspace
@@ -78,8 +78,8 @@
 	\def\pdfmetainfoauthor {\documentauthor}
 	\def\pdfmetainfocoursecode {\coursecode}
 	\def\pdfmetainfocoursename {\coursename}
+	\def\pdfmetainfosubject {\documentsubject}
 	\def\pdfmetainfotitle {\documenttitle}
-	\def\pdfmetainfotopic {\documenttopic}
 	\def\pdfmetainfouniversity {\universityname}
 	\def\pdfmetainfouniversitydepartment {\universitydepartment}
 	\def\pdfmetainfouniversityfaculty {\universityfaculty}
@@ -90,8 +90,8 @@
 	\def\pdfmetainfoauthor {}
 	\def\pdfmetainfocoursecode {}
 	\def\pdfmetainfocoursename {}
+	\def\pdfmetainfosubject {}
 	\def\pdfmetainfotitle {}
-	\def\pdfmetainfotopic {}
 	\def\pdfmetainfouniversity {}
 	\def\pdfmetainfouniversitydepartment {}
 	\def\pdfmetainfouniversityfaculty {}
@@ -113,8 +113,8 @@
 		Course.Code={\pdfmetainfocoursecode},
 		Course.Name={\pdfmetainfocoursename},
 		Document.Author={\pdfmetainfoauthor},
+		Document.Subject={\pdfmetainfosubject},
 		Document.Title={\pdfmetainfotitle},
-		Document.Topic={\pdfmetainfotopic},
 		Template.Author.Alias={ppizarror},
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
@@ -144,7 +144,7 @@
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
-	pdfsubject={\pdfmetainfotopic},
+	pdfsubject={\pdfmetainfosubject},
 	pdftitle={\pdfmetainfotitle},
 	pdftoolbar={\cfgpdftoolbar}
 }
