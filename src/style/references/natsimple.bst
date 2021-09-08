@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Archivo de estilos simple
-%% Versión:      1.1.0 (27/06/2020)
+%% Versión:      1.1.0 (27/06/2021)
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
