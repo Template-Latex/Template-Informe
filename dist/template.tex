@@ -956,6 +956,7 @@
 % Resetea los caption
 \newcommand{\resetindexcaption}{%
 	\global\def\GLOBALcaptiondefn {EMPTY-VAR}%
+	\hbadness=10000%
 }
 
 % Cambia los márgenes del documento
@@ -1425,6 +1426,11 @@
 	}
 \makeatother
 
+% Función que se ejecuta tras un equation
+\newcommand{\coreafterequationfn}{%
+	\hbadness=10000%
+}
+
 % Redimensiona una ecuación en linewidth
 % 	#1	Tamaño del nuevo objeto (En linewidth)
 %	#2	Ecuación a redimensionar
@@ -1464,6 +1470,7 @@
 		\end{equation}
 		\vspace{\marginequationbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
@@ -1484,6 +1491,7 @@
 	\end{equation*}
 	\vspace{\marginequationbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación en el índice
@@ -1503,6 +1511,7 @@
 	\end{samepage}
 	\coreinsertequationcaption{\textit{#3}}%
 	\addtocounter{templateIndexEquations}{1}%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación alineada a la izquierda
@@ -1518,6 +1527,7 @@
 		\end{equation}
 		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else
@@ -1538,6 +1548,7 @@
 	\end{equation*}
 	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación alineada a la derecha
@@ -1553,6 +1564,7 @@
 		\end{equation}
 		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else
@@ -1573,6 +1585,7 @@
 	\end{equation*}
 	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación con leyenda
@@ -1594,6 +1607,7 @@
 			\coreinsertequationcaption{#3}%
 			\vspace{\margineqncaptionbottom cm}%
 			\end{samepage}
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -1621,6 +1635,7 @@
 		\coreinsertequationcaption{#2}%
 		\vspace{\margineqncaptionbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	\fi
 }
 
@@ -1636,6 +1651,7 @@
 		\end{gather}
 		\vspace{\margingatherbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\insertgatheranum{#1}%
 	}
@@ -1652,6 +1668,7 @@
 	\end{gather*}
 	\vspace{\margingatherbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (gather) con leyenda
@@ -1672,6 +1689,7 @@
 			\coreinsertequationcaption{#2}%
 			\vspace{\margingathercaptbottom cm}%
 			\end{samepage}
+			\coreafterequationfn%
 		}{%
 			\insertgathercaptionedanum{#1}{#2}%
 		}
@@ -1695,6 +1713,7 @@
 		\coreinsertequationcaption{#2}%
 		\vspace{\margingathercaptbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	\fi
 }
 
@@ -1726,6 +1745,7 @@
 		\vspace{\margingatheredbottom cm}%
 		\end{samepage}
 	}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación con el ambiente gathered sin número
@@ -1739,6 +1759,7 @@
 	\end{gather*}
 	\vspace{\dimexpr-0.15cm + \margingatheredbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (gathered) con leyenda
@@ -1762,6 +1783,7 @@
 			\coreinsertequationcaption{#3}%
 			\vspace{\margingatheredcaptbottom cm}%
 			\end{samepage}
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -1789,6 +1811,7 @@
 		\coreinsertequationcaption{#2}%
 		\vspace{\dimexpr-0.05cm + \margingatheredcaptbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	\fi
 }
 
@@ -1804,6 +1827,7 @@
 		\end{align}
 		\vspace{\marginalignbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\insertalignanum{#1}%
 	}
@@ -1820,6 +1844,7 @@
 	\end{align*}
 	\vspace{\marginalignbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (align) con leyenda
@@ -1840,6 +1865,7 @@
 			\coreinsertequationcaption{#2}%
 			\vspace{\marginaligncaptbottom cm}%
 			\end{samepage}
+			\coreafterequationfn%
 		}{%
 			\insertaligncaptionedanum{#1}{#2}%
 		}
@@ -1863,6 +1889,7 @@
 		\coreinsertequationcaption{#2}%
 		\vspace{\marginaligncaptbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	\fi
 }
 
@@ -1881,6 +1908,7 @@
 		\end{equation}
 		\vspace{\marginalignedbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz
 		\else
@@ -1901,6 +1929,7 @@
 	\end{align*}
 	\vspace{\dimexpr-0.2cm + \marginalignedbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (aligned) con leyenda
@@ -1924,6 +1953,7 @@
 			\coreinsertequationcaption{#3}%
 			\vspace{\marginalignedcaptbottom cm}%
 			\end{samepage}
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -1953,6 +1983,7 @@
 		\coreinsertequationcaption{#2}%
 		\vspace{\marginalignedcaptbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	\fi
 }
 
@@ -2204,8 +2235,8 @@
 		\begin{multicols}{4}
 	}{
 	}}}}}}}}}
-	\setcaptionmargincm{\captionlrmargin}
-	\resetindexcaption
+	\setcaptionmargincm{\captionlrmargin}%
+	\resetindexcaption%
 }
 
 % Insertar una imagen dentro de una tabla
@@ -2993,6 +3024,11 @@
 	\vspace {0.5cm} \\
 	\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}
 	\markboth{#1}{}
+}
+
+% Insertar párrafo
+\newcommand{\newp}{%
+	\hbadness=10000 \vspace{\baselineskip} \par%
 }
 
 % Crea un salto de columna en el entorno multicol
@@ -5125,8 +5161,8 @@
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.4.4-1},
-		Template.Version.Hash={71806114D6C5859C2AF7197571E60920},
+		Template.Version.Dev={7.4.4-2},
+		Template.Version.Hash={F58310652CCC175D3990F359C90A3F6F},
 		Template.Version.Release={7.4.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
