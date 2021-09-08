@@ -50,7 +50,45 @@
 \ifthenelse{\equal{\titlestyle}{style1}}{
 	\def\LOCALhasname {false}
 	\newcommand{\titleauthorname}[2][]{%
-		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{0.25cm}}{}%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{\titleauthorspacing cm}}{}%
+		\normalsize{#2} \textsuperscript{(#1)}%
+		\def\LOCALhasname {true}%
+	}
+	\newcommand{\titleauthordata}[4][]{%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\\}{}%
+		\indent \footnotesize{\textsuperscript{(#1)} #2%
+			\ifthenelse{\equal{#3}{}}{}{, \insertemail{#3}}%
+			\ifthenelse{\equal{#4}{}}{}{, ORCID \href{https://orcid.org/#4}{#4}}}%
+		\def\LOCALhasname {true}%
+	}
+	\newcommand{\inserttitle}{%
+		\begin{center}%
+			\ifthenelse{\equal{\titlebold}{true}}{%
+				\textbf{\Large{\titulodeldocumento}} \\%
+			}{%
+				\Large{\titulodeldocumento} \\%
+			}
+			\vspace{0.6cm}%
+			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}
+				\centering
+				\input{\jobname.authn}%
+			\end{minipage}
+			\vspace{0.3cm}%
+			\def\LOCALhasname {false}%
+			~ \\%
+			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
+				\centering%
+				\input{\jobname.authd}%
+			\end{minipage}
+		\end{center}%
+		\vspace{0.05cm}%
+		\normalsize%
+	}
+}{
+\ifthenelse{\equal{\titlestyle}{style2}}{
+	\def\LOCALhasname {false}
+	\newcommand{\titleauthorname}[2][]{%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{\titleauthorspacing cm}}{}%
 		\normalsize{#2} \textsuperscript{(#1)}%
 		\def\LOCALhasname {true}%
 	}
@@ -69,46 +107,16 @@
 			}{%
 				\Large{\titulodeldocumento} \\%
 			}
-			\vspace{0.6cm}%
+			\vspace{0.7cm}%
 			\input{\jobname.authn}%
 			\vspace{0.2cm}%
 		\end{center}%
 		\par%
 		\def\LOCALhasname {false}%
-		\input{\jobname.authd}%
-		\vspace{0.3cm}%
-		\normalsize%
-	}
-}{
-\ifthenelse{\equal{\titlestyle}{style2}}{
-	\def\LOCALhasname {false}
-	\newcommand{\titleauthorname}[2][]{%
-		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{0.25cm}}{}%
-		\normalsize{#2} \textsuperscript{(#1)}%
-		\def\LOCALhasname {true}%
-	}
-	\newcommand{\titleauthordata}[4][]{%
-		\ifthenelse{\equal{\LOCALhasname}{true}}{\\}{}%
-		\indent \footnotesize{\textsuperscript{(#1)} #2%
-			\ifthenelse{\equal{#3}{}}{}{, \insertemail{#3}}%
-			\ifthenelse{\equal{#4}{}}{}{, ORCID \href{https://orcid.org/#4}{#4}}}%
-		\def\LOCALhasname {true}%
-	}
-	\newcommand{\inserttitle}{%
-		\begin{center}%
-			\ifthenelse{\equal{\titlebold}{true}}{%
-				\textbf{\Large{\titulodeldocumento}} \\%
-			}{%
-				\Large{\titulodeldocumento} \\%
-			}
-			\vspace{0.7cm}%
-			\input{\jobname.authn}%
-			\vspace{0.3cm}%
-			\def\LOCALhasname {false}%
-			~ \\%
+		\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
 			\input{\jobname.authd}%
-		\end{center}%
-		\vspace{0.05cm}%
+		\end{minipage}
+		\vspace{0.3cm}%
 		\normalsize%
 	}
 }{
@@ -127,7 +135,10 @@
 				\Large{\titulodeldocumento} \\%
 			}
 			\vspace{0.7cm}%
-			\input{\jobname.authn}%
+			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
+				\centering%
+				\input{\jobname.authn}%
+			\end{minipage}
 			\vspace{0.3cm}%
 			\def\LOCALhasname {false}%
 		\end{center}%
@@ -149,12 +160,15 @@
 				\Large{\titulodeldocumento} \\%
 			}
 			\vspace{0.7cm}%
-			\input{\jobname.authn}%
+			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
+				\centering%
+				\input{\jobname.authn}%
+			\end{minipage}
 			\vspace{0.3cm}%
 			\def\LOCALhasname {false}%
 			\vspace{0.1cm}%
 			~ \\%
-			\normalsize{\fechadocumento} \\
+			\small{\fechadocumento} \\
 			\vspace{0.3cm}%
 		\end{center}%
 		\normalsize%
@@ -163,12 +177,12 @@
 \ifthenelse{\equal{\titlestyle}{style5}}{
 	\def\LOCALhasname {false}
 	\newcommand{\titleauthornamedata}[5][]{%
-		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{0.25cm}}{}%
-		\begin{tabular}{c}
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{\titleauthorspacing cm}}{}%
+		\begin{tabular}[t]{C{4cm}}
 			\normalsize{#2} \\
-			#3 \\
-			\ifthenelse{\equal{#4}{}}{}{\insertemail{#4} \\}
-			\ifthenelse{\equal{#5}{}}{}{ORCID \href{https://orcid.org/#5}{#5} \\}
+			\small{#3} \\
+			\ifthenelse{\equal{#4}{}}{}{\small{\insertemail{#4}} \\}
+			\ifthenelse{\equal{#5}{}}{}{\small{ORCID \href{https://orcid.org/#5}{#5}}}
 		\end{tabular}
 		\def\LOCALhasname {true}%
 	}
@@ -180,8 +194,15 @@
 				\Large{\titulodeldocumento} \\%
 			}
 			\vspace{0.9cm}%
-			\input{\jobname.authnd}%
-			\vspace{0.3cm}%
+			\noindent%
+			\settablecellpadding{0}{1.5}%
+			\linespread{0.6}\selectfont{%
+				\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
+					\centering%
+					\input{\jobname.authnd}%
+				\end{minipage}
+			}
+			\resettablecellpadding%
 			\def\LOCALhasname {false}%
 			\vspace{0.1cm}%
 		\end{center}%
