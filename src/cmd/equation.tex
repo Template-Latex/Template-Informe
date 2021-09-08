@@ -9,6 +9,11 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
+% Función que se ejecuta tras un equation
+\newcommand{\coreafterequationfn}{%
+	\hbadness=10000%
+}
+
 % Redimensiona una ecuación en linewidth
 % 	#1	Tamaño del nuevo objeto (En linewidth)
 %	#2	Ecuación a redimensionar
@@ -48,6 +53,7 @@
 		\end{equation}
 		\vspace{\marginequationbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
@@ -68,6 +74,7 @@
 	\end{equation*}
 	\vspace{\marginequationbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación en el índice
@@ -87,6 +94,7 @@
 	\end{samepage}
 	\coreinsertequationcaption{\textit{#3}}%
 	\addtocounter{templateIndexEquations}{1}%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación alineada a la izquierda
@@ -102,6 +110,7 @@
 		\end{equation}
 		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else
@@ -122,6 +131,7 @@
 	\end{equation*}
 	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación alineada a la derecha
@@ -137,6 +147,7 @@
 		\end{equation}
 		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else
@@ -157,6 +168,7 @@
 	\end{equation*}
 	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación con leyenda
@@ -178,6 +190,7 @@
 			\coreinsertequationcaption{#3}%
 			\vspace{\margineqncaptionbottom cm}%
 			\end{samepage}
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -205,6 +218,7 @@
 		\coreinsertequationcaption{#2}%
 		\vspace{\margineqncaptionbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	\fi
 }
 
@@ -220,6 +234,7 @@
 		\end{gather}
 		\vspace{\margingatherbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\insertgatheranum{#1}%
 	}
@@ -236,6 +251,7 @@
 	\end{gather*}
 	\vspace{\margingatherbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (gather) con leyenda
@@ -256,6 +272,7 @@
 			\coreinsertequationcaption{#2}%
 			\vspace{\margingathercaptbottom cm}%
 			\end{samepage}
+			\coreafterequationfn%
 		}{%
 			\insertgathercaptionedanum{#1}{#2}%
 		}
@@ -279,6 +296,7 @@
 		\coreinsertequationcaption{#2}%
 		\vspace{\margingathercaptbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	\fi
 }
 
@@ -310,6 +328,7 @@
 		\vspace{\margingatheredbottom cm}%
 		\end{samepage}
 	}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación con el ambiente gathered sin número
@@ -323,6 +342,7 @@
 	\end{gather*}
 	\vspace{\dimexpr-0.15cm + \margingatheredbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (gathered) con leyenda
@@ -346,6 +366,7 @@
 			\coreinsertequationcaption{#3}%
 			\vspace{\margingatheredcaptbottom cm}%
 			\end{samepage}
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -373,6 +394,7 @@
 		\coreinsertequationcaption{#2}%
 		\vspace{\dimexpr-0.05cm + \margingatheredcaptbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	\fi
 }
 
@@ -388,6 +410,7 @@
 		\end{align}
 		\vspace{\marginalignbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\insertalignanum{#1}%
 	}
@@ -404,6 +427,7 @@
 	\end{align*}
 	\vspace{\marginalignbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (align) con leyenda
@@ -424,6 +448,7 @@
 			\coreinsertequationcaption{#2}%
 			\vspace{\marginaligncaptbottom cm}%
 			\end{samepage}
+			\coreafterequationfn%
 		}{%
 			\insertaligncaptionedanum{#1}{#2}%
 		}
@@ -447,6 +472,7 @@
 		\coreinsertequationcaption{#2}%
 		\vspace{\marginaligncaptbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	\fi
 }
 
@@ -465,6 +491,7 @@
 		\end{equation}
 		\vspace{\marginalignedbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz
 		\else
@@ -485,6 +512,7 @@
 	\end{align*}
 	\vspace{\dimexpr-0.2cm + \marginalignedbottom cm}%
 	\end{samepage}
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (aligned) con leyenda
@@ -508,6 +536,7 @@
 			\coreinsertequationcaption{#3}%
 			\vspace{\marginalignedcaptbottom cm}%
 			\end{samepage}
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz
 			\else
@@ -537,6 +566,7 @@
 		\coreinsertequationcaption{#2}%
 		\vspace{\marginalignedcaptbottom cm}%
 		\end{samepage}
+		\coreafterequationfn%
 	\fi
 }
 
