@@ -24,8 +24,7 @@
 \newcommand{\newboxquestion}[1]{%
 	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}%
 	\phantomsection%
-	~\\%
-	\fbox{\ \textbf{#1}.-\ } \noindent%
+	\newp \fbox{\ \textbf{#1}.-\ } \noindent%
 	\pdfbookmark[1]{#1}{question}%
 }
 

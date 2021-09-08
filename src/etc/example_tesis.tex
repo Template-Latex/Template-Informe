@@ -51,7 +51,7 @@
 	% Notar que no se requiere añadir un salto de línea después de insertar una imagen
 	Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online\scite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}.
 
-	Este es un nuevo párrafo. Para crear un nuevo párrafo basta con usar \textbackslash\textbackslash\ en el anterior, lo que fuerza una nueva línea. También se insertar un nuevo párrafo con el comando \texttt{\textbackslash par}. A partir de la versión 8 del template, los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} y \texttt{\textbackslash newparnl} fueron eliminados. \\
+	Este es un nuevo párrafo. Para crear un nuevo párrafo basta con usar \textbackslash\textbackslash\ en el anterior, lo que fuerza una nueva línea. También se insertar un nuevo párrafo con el comando \texttt{\textbackslash newp} si el compilador de latex arroja una alerta del tipo \textit{Underfull \textbackslash hbox (badness 10000) in paragraph at lines ...} \\
 
 	\lipsum[4] \\
 
@@ -124,10 +124,10 @@ A continuación se detallan algunos links de ayuda para el uso de las referencia
 	% mismos parámetros
 	\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.27}{Apolo flotando a la izquierda.}
 
-	~ \lipsum[6] \\
+	~ \lipsum[6] \newp
 
 	% Párrafos de ejemplo
-	\lipsum[115]
+	~ \lipsum[115]
 
 	% Agrega una ecuación con leyenda
 	\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
@@ -310,6 +310,7 @@ end
 \chapter{Conclusiones}
 
 \lipsum[1] \\
+
 \lipsum[2]
 
 

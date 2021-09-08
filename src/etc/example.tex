@@ -49,7 +49,7 @@
 	% Notar que no se requiere añadir un salto de línea después de insertar una imagen
 	Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online\scite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}. \\
 
-	Este es un nuevo párrafo. Para crear un nuevo párrafo basta con usar \textbackslash\textbackslash\ en el anterior, lo que fuerza una nueva línea. También se insertar un nuevo párrafo con el comando \texttt{\textbackslash par}. A partir de la versión 8 del template, los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} y \texttt{\textbackslash newparnl} fueron eliminados.
+	Este es un nuevo párrafo. Para crear un nuevo párrafo basta con usar \textbackslash\textbackslash\ en el anterior, lo que fuerza una nueva línea. También se insertar un nuevo párrafo con el comando \texttt{\textbackslash newp} si el compilador de latex arroja una alerta del tipo \textit{Underfull \textbackslash hbox (badness 10000) in paragraph at lines ...}
 
 % SUB-SECCIÓN
 \subsection{Añadiendo tablas}
@@ -196,14 +196,14 @@ end
 
 	El template ofrece el entorno \href{https://latex.ppizarror.com/informe#hlp-images}{images} que permite insertar múltiples imágenes de una manera muy sencilla. Para crear imágenes múltiples se deben usar las siguientes instrucciones:
 
-	\begin{sourcecode}{latex}{}
+\begin{sourcecode}{latex}{}
 \begin{images}[\label{imagenmultiple}]{Ejemplo de imagen múltiple.}
 	\addimage[\label{ciudadfoto}]{ejemplos/test-image}{width=6.5cm}{Ciudad}
 	\addimageanum{ejemplos/test-image-wrap}{width=5cm}
 	\imagesnewline
 	\addimage{ejemplos/test-image}{width=12cm}{Ciudad más grande}
 \end{images}
-	\end{sourcecode}
+\end{sourcecode}
 
 	Obteniendo así:
 

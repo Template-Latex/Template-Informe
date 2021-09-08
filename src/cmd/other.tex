@@ -9,6 +9,11 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
+% Insertar párrafo
+\newcommand{\newp}{%
+	\hbadness=10000 \vspace{\baselineskip} \par%
+}
+
 % Crea un salto de columna en el entorno multicol
 \newcommand{\newcolumn}{%
 	\checkinsidemulticol\vfill\null\columnbreak%
