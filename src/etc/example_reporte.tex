@@ -40,11 +40,9 @@
 	\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 
 	% Notar que no se requiere añadir un salto de línea después de insertar una imagen
-	Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online\scite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}.
+	Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online\scite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}. \\
 
-	% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar
-	% errores y warnings por parte del compilador de LaTeX
-	\newp Este es un nuevo párrafo insertado con el comando \href{https://latex.ppizarror.com/informe.html#hlp-parrafo}{\textbackslash newp}. Si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales acompañado de \texttt{\textbackslash par}.
+	Este es un nuevo párrafo. Para crear un nuevo párrafo basta con usar \textbackslash\textbackslash\ en el anterior, lo que fuerza una nueva línea. También se insertar un nuevo párrafo con el comando \texttt{\textbackslash par}. A partir de la versión 8 del template, los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} y \texttt{\textbackslash newparnl} fueron eliminados.
 
 % SUB-SECCIÓN
 \subsection{Añadiendo tablas}
@@ -85,18 +83,16 @@
 	% mismos parámetros
 	\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
 
-	~ \lipsum[1]
+	~ \lipsum[1] \\
 
 	% Párrafos de ejemplo
-	\newp \lipsum[115]
-	\newp \lipsum[2]
+	\lipsum[115] \\
+	\lipsum[2]
 
 	% Agrega una ecuación con leyenda
 	% Recordar que como no existe un índice, \insertindexequation no está disponible
 	\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
 
-	% Aquí no es necesario usar \newp dado que todas las funciones \insert...
-	% añaden un párrafo nuevo por defecto
 	\lipsum[1]
 
 % Inserta un subtítulo sin número
@@ -360,10 +356,8 @@ function NMS(B,c)
 	\section{Más cálculos}
 
 	% Párrafo
-	\lipsum[1]
-
-	% Nuevo párrafo con identación
-	\newp \lipsum[4]
+	\lipsum[1] \\
+	\lipsum[4]
 
 	% Tabla de encuestas
 	\begin{table}[H]

@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      7.4.3 (08/09/2021)
+% Versión:      7.4.4 (08/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -47,11 +47,9 @@
 	\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 
 	% Notar que no se requiere añadir un salto de línea después de insertar una imagen
-	Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online\scite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}.
+	Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online\scite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}. \\
 
-	% Los párrafos se pueden añadir con \newp, esta función se hizo para evitar
-	% errores y warnings por parte del compilador de LaTeX
-	\newp Este es un nuevo párrafo insertado con el comando \href{https://latex.ppizarror.com/informe.html#hlp-parrafo}{\textbackslash newp}. Si no te gustan los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} o \texttt{\textbackslash newparnl} simplemente puedes usar los salto de línea convencionales acompañado de \texttt{\textbackslash par}.
+	Este es un nuevo párrafo. Para crear un nuevo párrafo basta con usar \textbackslash\textbackslash\ en el anterior, lo que fuerza una nueva línea. También se insertar un nuevo párrafo con el comando \texttt{\textbackslash par}. A partir de la versión 8 del template, los comandos \texttt{\textbackslash newp}, \texttt{\textbackslash newpar} y \texttt{\textbackslash newparnl} fueron eliminados.
 
 % SUB-SECCIÓN
 \subsection{Añadiendo tablas}
@@ -92,10 +90,10 @@
 	% mismos parámetros
 	\insertimageleft[\label{img:imagen-izquierda}]{ejemplos/test-image-wrap}{0.3}{Apolo flotando a la izquierda.}
 
-	~ \lipsum[1]
+	~ \lipsum[1] \\
 
 	% Párrafos de ejemplo
-	\newp \lipsum[115]
+	\lipsum[115]
 
 	% Agrega una ecuación en el índice
 	\insertindexequation[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
@@ -106,17 +104,17 @@
 		$$\frac{d}{dx}\int_a^xf(y)dy=f(x)$$
 	\end{defn}
 
-	% Aquí no es necesario usar \newp dado que todas las funciones \insert...
-	% añaden un párrafo nuevo por defecto
-	\lipsum[115]
-	\newp \lipsum[116]
+	\lipsum[115] \\
+	
+	\lipsum[116]
 
 % Inserta un subtítulo sin número
 \subsection{Otros párrafos más normales}
 
 	% Párrafos
-	\lipsum[7]
-	\newp \lipsum[2]
+	\lipsum[7] \\
+	
+	\lipsum[2]
 
 	% Se inserta una ecuación larga con el entorno gathered (1 solo número de ecuación)
 	\insertgathered[\label{eqn:eqn-larga}]{

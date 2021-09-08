@@ -88,7 +88,7 @@ end
 u = @(z, t) (ab / cosval) * exp(1i*w*t) * cos(w*z/Vs);
 \end{sourcecodep}
 
-\newp Al tener $u(z,t)$ la generación del gráfico animado es trivial, ya que se mantiene un ciclo \textit{for} en donde se calcula la posición para un arreglo de $z$ en un determinado $t_i$, al finalizar la instancia del ciclo se actualiza el tiempo $t_{i+1} = t_{i} + \dd t$. Para mantener la velocidad de la animación se hace uso de la instrucción \textit{pause(t)} el cual permite pausar la ejecución del programa en un determinado tiempo $t$. La función que se encarga de graficar la animación corresponde a \texttt{quake\_elt}.
+Al tener $u(z,t)$ la generación del gráfico animado es trivial, ya que se mantiene un ciclo \textit{for} en donde se calcula la posición para un arreglo de $z$ en un determinado $t_i$, al finalizar la instancia del ciclo se actualiza el tiempo $t_{i+1} = t_{i} + \dd t$. Para mantener la velocidad de la animación se hace uso de la instrucción \textit{pause(t)} el cual permite pausar la ejecución del programa en un determinado tiempo $t$. La función que se encarga de graficar la animación corresponde a \texttt{quake\_elt}.
 
 \subsectionanum{Validación de la metodología}
 
