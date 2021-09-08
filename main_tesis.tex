@@ -15,7 +15,7 @@
 % INFORMACIÓN DEL DOCUMENTO
 \def\documenttitle {Título de la tesis}
 \def\documentsubtitle {}
-\def\titulogrado {
+\def\degreetitle {
 	Tesis para optar al grado de magíster en ciencias de la ingeniería, mención área de la ingeniería
 	\bigbreak\vspace{0.3cm}
 	Memoria para optar al título de ingeniero
@@ -30,14 +30,14 @@
 
 % INTEGRANTES, PROFESORES Y FECHAS
 \def\documentauthor {Nombre del autor}
-\def\fechadocumento {\the\year}
+\def\documentdate {\the\year}
 
-\def\portada {
+\def\portrait {
 \begin{center}
 	\vspace{1.5cm} ~ \\
 	\MakeUppercase{\textbf{\documenttitle}} ~ \\
 	\vspace{1.5cm}
-	\MakeUppercase{\titulogrado} ~ \\
+	\MakeUppercase{\degreetitle} ~ \\
 	\vfill
 	\begin{tabular}{c}
 		\MakeUppercase{\documentauthor} \\
@@ -53,17 +53,17 @@
 		NOMBRE INSTITUCIÓN \\
 		\vspace{0.5cm} \\
 		\MakeUppercase{\universitylocation} \\
-		\MakeUppercase{\fechadocumento}
+		\MakeUppercase{\documentdate}
 	\end{tabular}
 \end{center}}{
 }
-\def\tablaresumen { % Para activar, cambiar configuración \showtableresumenenv
+\def\abstracttable { % Para activar, cambiar configuración \showabstracttable
 \begin{tabular}{l}
 	RESUMEN DE LA MEMORIA PARA OPTAR \\
 	AL TÍTULO DE MAGÍSTER EN CIENCIAS \\
 	DE LA INGENIERÍA \\
 	POR: \MakeUppercase{\documentauthor} \\
-	FECHA: \MakeUppercase{\fechadocumento} \\
+	FECHA: \MakeUppercase{\documentdate} \\
 	PROF. GUÍA: NOMBRE PROFESOR
 \end{tabular}}{
 }
@@ -81,21 +81,21 @@
 \templatePagecfg
 
 % RESUMEN O ABSTRACT
-\begin{resumen}
+\begin{abstractd}
 	\lipsum[1]
-\end{resumen}
+\end{abstractd}
 
 % DEDICATORIA
-\begin{dedicatoria}
+\begin{dedicatory}
 	Una frase de dedicatoria, \\
 	pueden ser dos líneas. \newp
 	\textbf{Saludos}
-\end{dedicatoria}
+\end{dedicatory}
 
 % AGRADECIMIENTOS
-\begin{agradecimientos}
+\begin{acknowledgments}
 	\lipsum[1]
-\end{agradecimientos}
+\end{acknowledgments}
 
 % TABLA DE CONTENIDOS - ÍNDICE
 \templateIndex

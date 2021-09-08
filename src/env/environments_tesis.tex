@@ -42,7 +42,7 @@
 		\pdfbookmark{#3}{#4}}{
 	}
 	% Inserta la tabla resumen
-	\ifthenelse{\equal{\showtableresumenenv}{true}}{
+	\ifthenelse{\equal{\showabstracttable}{true}}{
 		\begin{flushright}
 			\small
 			#1
@@ -55,7 +55,7 @@
 	\begin{center}
 		\textcolor{\titlecolor}{\MakeUppercase{\textbf{#2}}}
 	\end{center} \newp
-	\ifthenelse{\equal{\showtableresumenenv}{true}}{
+	\ifthenelse{\equal{\showabstracttable}{true}}{
 		\vspace{-\baselineskip}
 	}{
 		\vspace{-0.5\baselineskip}
@@ -73,14 +73,14 @@
 	}
 }
 % Llama al entorno de resumen
-\newenvironment{resumen}{
-	\begin{resumenenv}{\tablaresumen}{\documenttitle}{\nameabstract}{abstractbookmark}
+\newenvironment{abstractd}{
+	\begin{resumenenv}{\abstracttable}{\documenttitle}{\nameabstract}{abstractbookmark}
 	}{
 	\end{resumenenv}
 }
 
 % Crea una sección de dedicatoria
-\newenvironment{dedicatoria}{
+\newenvironment{dedicatory}{
 	\clearpage\null
 	\phantomsection
 	% \ifthenelse{\equal{\adddedictobookmarks}{true}}{
@@ -98,7 +98,7 @@
 }
 
 % Crea una sección de agradecimientos
-\newenvironment{agradecimientos}{
+\newenvironment{acknowledgments}{
 	\clearpage
 	\chapter*{\nameagradec}
 	\ifthenelse{\equal{\addagradectobookmarks}{true}}{

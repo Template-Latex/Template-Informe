@@ -833,7 +833,7 @@
 % Definición de variables globales
 \global\def\GLOBALcaptiondefn {EMPTY-VAR}       % Definición del caption
 \global\def\GLOBALchapternumenabled {false}     % Numeración de capítulos empezó
-\global\def\GLOBALenvanexo {false}              % Indica que el entorno anexo está activo
+\global\def\GLOBALenvappendix {false}              % Indica que el entorno anexo está activo
 \global\def\GLOBALenvimageadded {false}         % Indica que una imagen ha sido añadida
 \global\def\GLOBALenvimageinitialized {false}   % Entorno images activo
 \global\def\GLOBALenvmulticol {false}           % Indica que el entorno multicol está activo
@@ -1005,8 +1005,8 @@
 }
 
 % Chequea que las funciones puedan usarse fuera del entorno anexo
-\newcommand{\checkoutsideanexo}{%
-	\ifthenelse{\equal{\GLOBALenvanexo}{true}}{%
+\newcommand{\checkoutsideappendix}{%
+	\ifthenelse{\equal{\GLOBALenvappendix}{true}}{%
 		\throwwarning{Esta funcion solo puede usarse fuera de anexo}%
 		\stop}{%
 	}
@@ -2102,7 +2102,7 @@
 	\emptyvarerr{\insertimageboxedmc}{#5}{Posicion de la imagen no definida}%
 	\checkoutsideenvimage%
 	\checkinsidemulticol%
-	\checkoutsideanexo%
+	\checkoutsideappendix%
 	\setcaptionmargincm{\captionlrmarginmc}%
 	\ifthenelse{\equal{#5}{bottom}}{%
 		\begin{samepage}%
@@ -3618,7 +3618,7 @@
 
 % Crea una sección de anexos
 \newenvironment{anexo}{
-	\global\def\GLOBALenvanexo {true}%
+	\global\def\GLOBALenvappendix {true}%
 	\begingroup % Inicia el grupo en nueva página y sección
 	% \clearpage
 	\phantomsection
@@ -3848,7 +3848,7 @@
 }
 
 % Crea una sección de resumen
-\newenvironment{resumen}{
+\newenvironment{abstractd}{
 	% Tipo de título para abstract
 	\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
 	% Inserta un título sin número, sin cabecera y sin aparecer en el índice,
@@ -3906,7 +3906,7 @@
 	\global\def\GLOBALenvimageinitialized {true}
 	\global\def\GLOBALenvimageadded {false}
 	\checkinsidemulticol%
-	\checkoutsideanexo%
+	\checkoutsideappendix%
 	
 	% Configura caption y márgenes
 	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
