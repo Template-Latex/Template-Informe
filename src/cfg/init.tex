@@ -167,9 +167,8 @@
 % -----------------------------------------------------------------------------
 % Definición de valores e dimensiones
 % -----------------------------------------------------------------------------
-\renewcommand{\baselinestretch}{\documentinterline} % Ajuste del entrelineado
+\setstretch{\documentinterline} % Ajuste del entrelineado
 \setlength{\headheight}{64 pt} % Tamaño de la cabecera sin fancyhdr
-\setstretch{\documentparsep} % Define tamaño entre párrafos (setspace)
 \setlength{\footnotemargin}{\marginfootnote pt} % Margen del footnote
 \setlength{\columnsep}{\columnsepwidth em} % Separación entre columnas
 \ifthenelse{\equal{\showlinenumbers}{true}}{
@@ -775,5 +774,14 @@
 \renewcommand{\labelitemii}{\sitemizeii}
 \renewcommand{\labelitemiii}{\sitemizeiii}
 \renewcommand{\labelitemiv}{\sitemizeiv}
+
+% -----------------------------------------------------------------------------
+% Configura métodos aplicados al iniciar el documento
+% -----------------------------------------------------------------------------
+\AtBeginDocument{%
+	 \normalfont%
+	 \setlength{\parindent}{\documentparindent pt}%
+	 \setlength{\parskip}{\documentparskip pt}%
+}
 
 % END
