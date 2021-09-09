@@ -169,7 +169,7 @@
 % -----------------------------------------------------------------------------
 \renewcommand{\baselinestretch}{\documentinterline} % Ajuste del entrelineado
 \setlength{\headheight}{64 pt} % Tamaño de la cabecera sin fancyhdr
-% \setcounter{MaxMatrixCols}{20} % Número máximo de columnas en matrices
+\setstretch{\documentparsep} % Define tamaño entre párrafos (setspace)
 \setlength{\footnotemargin}{\marginfootnote pt} % Margen del footnote
 \setlength{\columnsep}{\columnsepwidth em} % Separación entre columnas
 \ifthenelse{\equal{\showlinenumbers}{true}}{
@@ -617,6 +617,7 @@
 }{
 	\throwbadconfig{Formato reinicio numero footnote desconocido}{\footnoterestart}{none,chap,page,sec,ssec,sssec,ssssec}}}}}}}
 }
+
 % Previene footnote en otras páginas
 \interfootnotelinepenalty=10000
 
