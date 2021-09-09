@@ -236,9 +236,9 @@
 %	#1	Label (opcional)
 %	#2	Estilo de código
 %	#3	Caption
-\lstnewenvironment{sourcecode}[3][]{
+\lstnewenvironment{sourcecode}[3][]{%
 	\coreinitsourcecode{#1}{#2}{#3}
-}{
+}{%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{
 	}
@@ -249,11 +249,11 @@
 %	#2	Estilo de código
 %	#3	Archivo de código fuente
 %	#4	Caption
-\newcommand{\importsourcecode}[4][]{
-	\coreinitsourcecode{#1}{#2}{#4}
-	\lstinputlisting{#3}
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
+\newcommand{\importsourcecode}[4][]{%
+	\coreinitsourcecode{#1}{#2}{#4}%
+	\lstinputlisting{#3}%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
 	}
 }
 
