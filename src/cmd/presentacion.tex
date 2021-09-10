@@ -120,7 +120,7 @@
 	\ifthenelse{\equal{\thetabularcolnumber}{\LOCALtabularframecolumnselected}}{%
 		\transparent{1.0}%
 	}{%
-		\transparent{\opacitytabularframe}%
+		\transparent{\tabularframeopacity}%
 	}
 	\usebeamercolor[fg]{frametitle}\colorbox{bg}{\begin{minipage}[t][\GLOBALtabularframebarheight\textheight][t]{\dimexpr\linewidth - 15\fboxrule}%
 		\usebeamercolor[fg]{frametitle}{%
@@ -143,25 +143,34 @@
 		\throwwarning{Funcion \noexpand\tabularframecontent no puede usarse sin haber inicializado \noexpand\tabularframehead}\stop}%
 	\emptyvarerr{\tabularframecontent}{#1}{Columna izquierda no definida}%
 	\emptyvarerr{\tabularframecontent}{#2}{Columna derecha no definida}%
-	\vspace{-2.5\fboxrule}
+	\vspace{-2.5\fboxrule}%
 	\begin{columns}[t,onlytextwidth]%
 		\column{\GLOBALtabularframecontentwidthleft\linewidth}%
-		\usebeamercolor[fg]{block body}\colorbox{bg}{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 15\fboxrule}%
-			\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
-				#1%
-			}{%
-				\verticallycentertext{#1}%
-			}
+		\usebeamercolor[fg]{block body}\colorbox{bg}%
+		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 15\fboxrule}%
+			\vspace{\tabularframepaddingtop em}%
+			\hspace{\tabularframepaddingleft em}%
+			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth-\tabularframepaddingleft em-\tabularframepaddingright em}
+				\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
+					#1%
+				}{%
+					\verticallycentertext{#1}%
+				}
+			\end{minipage}%
 		\end{minipage}}%
 		\column{\GLOBALtabularframecontentwidthright\linewidth}%
 		\centering
 		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 10\fboxrule}%
-			\ifthenelse{\equal{\GLOBALtabularframecontentrightcentered}{false}}{%
-				#2%
-			}{%
-				\vspace{-1\baselineskip}%
-				\verticallycentertext{#2}%
-			}
+			\vspace{\tabularframepaddingtop em}%
+			\hspace{\tabularframepaddingleft em}%
+			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth-\tabularframepaddingleft em-\tabularframepaddingright em}
+				\ifthenelse{\equal{\GLOBALtabularframecontentrightcentered}{false}}{%
+					#2%
+				}{%
+					\vspace{-0.5\baselineskip}%
+					\verticallycentertext{#2}%
+				}
+			\end{minipage}%
 		\end{minipage}}%
 	\end{columns}%
 	\def\LOCALtabularframeinit {false}%
@@ -174,7 +183,7 @@
 	\ifthenelse{\equal{\thetabularcolnumber}{-1}}{}{%
 		\throwwarning{Funcion \noexpand\tabularframesinglecontent no puede usarse sin haber inicializado \noexpand\tabularframehead}\stop}%
 	\emptyvarerr{\tabularframesinglecontent}{#2}{Contenido no definido}%
-	\vspace{-2.5\fboxrule}
+	\vspace{-2.5\fboxrule}%
 	\ifx\hfuzz#1\hfuzz
 		\def\tabularframesinglecontentemptycolor {bg}
 		\usebeamercolor[fg]{block body}
@@ -183,12 +192,17 @@
 	\fi
 	\begin{columns}[t,onlytextwidth]%
 		\column{1\linewidth}%
-		\colorbox{\tabularframesinglecontentemptycolor}{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 15\fboxrule}%
+		\colorbox{\tabularframesinglecontentemptycolor}%
+		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 15\fboxrule}%
+			\vspace{\tabularframepaddingtop em}%
+			\hspace{\tabularframepaddingleft em}%
+			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth-\tabularframepaddingleft em-\tabularframepaddingright em}
 				\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
 					#2%
 				}{%
 					\verticallycentertext{#2}%
 				}
+			\end{minipage}%
 		\end{minipage}}%
 	\end{columns}%
 	\def\LOCALtabularframeinit {false}%
