@@ -52,7 +52,7 @@
 		\def\LOCALhasname {true}%
 	}
 	\newcommand{\titleauthordata}[4][]{%
-		\ifthenelse{\equal{\LOCALhasname}{true}}{\\}{}%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\vspace{0.025cm}\\}{}%
 		\indent \footnotesize{\textsuperscript{(#1)} #2%
 			\ifthenelse{\equal{#3}{}}{}{, \insertemail{#3}}%
 			\ifthenelse{\equal{#4}{}}{}{, ORCID \href{https://orcid.org/#4}{#4}}}%
@@ -90,7 +90,7 @@
 		\def\LOCALhasname {true}%
 	}
 	\newcommand{\titleauthordata}[4][]{%
-		\ifthenelse{\equal{\LOCALhasname}{true}}{\\}{}%
+		\ifthenelse{\equal{\LOCALhasname}{true}}{\vspace{0.025cm}\\}{}%
 		\indent \footnotesize{\textsuperscript{(#1)} #2%
 		\ifthenelse{\equal{#3}{}}{}{, \insertemail{#3}}%
 		\ifthenelse{\equal{#4}{}}{}{, ORCID \href{https://orcid.org/#4}{#4}}}%
@@ -201,7 +201,6 @@
 			}
 			\resettablecellpadding%
 			\def\LOCALhasname {false}%
-			\vspace{0.1cm}%
 		\end{center}%
 		\normalsize%
 	}
