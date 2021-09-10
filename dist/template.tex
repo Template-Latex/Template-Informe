@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.4.5 (09/09/2021)
+% Versión:      7.4.6 (10/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -4952,6 +4952,11 @@
 %	#2	Estilo de código
 %	#3	Código a insertar
 \newcommand{\inlinesourcecodeboxed}[3][]{%
+	\emptyvarerr{\inlinesourcecodeboxed}{#2}{Estilo de codigo no definido}%
+	\emptyvarerr{\inlinesourcecodeboxed}{#3}{Codigo no definido}%
+	\lstset{%
+		basicstyle={\sourcecodeilfonts\sourcecodeilfontf\color{\maintextcolor}}%
+	}
 	\checkvalidsourcecodestyle{#2}%
 	\ifthenelse{\equal{#1}{}}{%
 		\Colorbox{\sourcecodebgcolor}{\lstinline[style=#2]!#3!}%
@@ -4961,18 +4966,21 @@
 	}{%
 		\Colorbox{#1}{\lstinline[style=#2]!#3!}%
 	}}%
+	\lstset{%
+		basicstyle={\sourcecodefonts\sourcecodefontf\color{\maintextcolor}}%
+	}
 }
 
 % Inserta una referencia en un código fuente
 % 	#1	Referencia
 \newcommand{\coderef}[1]{%
-	\ensuremath{\text{\ref{#1}}}
+	\ensuremath{\text{\ref{#1}}}%
 }
 
 % Inserta una referencia en un código fuente
 % 	#1	Referencia
 \newcommand{\codeeqref}[1]{%
-	\ensuremath{\text{(\ref{#1})}}
+	\ensuremath{\text{(\ref{#1})}}%
 }
 
 % -----------------------------------------------------------------------------
@@ -5155,16 +5163,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={09/09/2021},
+		Template.Date={10/09/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.4.5},
-		Template.Version.Hash={E5FA921B45DF72BC43757F2382B888B6},
-		Template.Version.Release={7.4.5},
+		Template.Version.Dev={7.4.6},
+		Template.Version.Hash={A54283554A504396EB0EB3FD5285B983},
+		Template.Version.Release={7.4.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5176,7 +5184,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.4.5 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.4.6 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
