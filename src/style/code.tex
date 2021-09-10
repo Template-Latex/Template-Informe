@@ -985,6 +985,11 @@
 %	#2	Estilo de código
 %	#3	Código a insertar
 \newcommand{\inlinesourcecodeboxed}[3][]{%
+	\emptyvarerr{\inlinesourcecodeboxed}{#2}{Estilo de codigo no definido}%
+	\emptyvarerr{\inlinesourcecodeboxed}{#3}{Codigo no definido}%
+	\lstset{%
+		basicstyle={\sourcecodeilfonts\sourcecodeilfontf\color{\maintextcolor}}%
+	}
 	\checkvalidsourcecodestyle{#2}%
 	\ifthenelse{\equal{#1}{}}{%
 		\Colorbox{\sourcecodebgcolor}{\lstinline[style=#2]!#3!}%
@@ -994,18 +999,21 @@
 	}{%
 		\Colorbox{#1}{\lstinline[style=#2]!#3!}%
 	}}%
+	\lstset{%
+		basicstyle={\sourcecodefonts\sourcecodefontf\color{\maintextcolor}}%
+	}
 }
 
 % Inserta una referencia en un código fuente
 % 	#1	Referencia
 \newcommand{\coderef}[1]{%
-	\ensuremath{\text{\ref{#1}}}
+	\ensuremath{\text{\ref{#1}}}%
 }
 
 % Inserta una referencia en un código fuente
 % 	#1	Referencia
 \newcommand{\codeeqref}[1]{%
-	\ensuremath{\text{(\ref{#1})}}
+	\ensuremath{\text{(\ref{#1})}}%
 }
 
 % END
