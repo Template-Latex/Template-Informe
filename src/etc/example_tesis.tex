@@ -6,8 +6,8 @@
 % Autor: Pablo Pizarro R.
 %        pablo@ppizarror.com
 %
-% Sitio web:    [https://latex.ppizarror.com/tesis]
-% Licencia MIT: [https://opensource.org/licenses/MIT]
+% Manual template: [https://latex.ppizarror.com/tesis]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % ------------------------------------------------------------------------------
 % NUEVO CAPÍTULO
@@ -338,21 +338,29 @@ end
 	\lipsum[10]
 
 	% Tablas
+	\enabletablerowcolor[2] % Activa el color de celda
 	\begin{table}[H]
+		\begin{threeparttable}
 		\centering
 		\caption{Tabla de cálculo.}
-		\begin{tabular}{ccc}
+		\begin{tabular}{cccC{4cm}}
 			\hline
-			\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
+			\textbf{Elemento} & $\epsilon_i$ & \textbf{Valor} & \textbf{Descripción} \bigstrut \\
 			\hline
-			A     & 10    & 3,14$\pi$ \bigstrut[t]\\
-			B     & 20    & 6 \\
-			C     & 30    & 7 \\
-			D     & 150    & 10 \\
-			E     & 0    & 0 \\
+			A     & 10    & 3,14$\pi$ & Valor muy interesante\tnote{a} \\
+			B     & 20    & 6 & Segundo elemento \\
+			C     & 30    & 7 & Tercer elemento\tnote{1} \\
+			D     & 150    & 10 & Sin descripción \\
+			E     & 0    & 0 & Cero \\
 			\hline
 			\end{tabular}
+		\begin{tablenotes}
+			\item[a] Este elemento tiene una descripción debajo de la tabla
+			\item[1] Más comentarios
+		\end{tablenotes}
+		\end{threeparttable}
 		\label{tab:anexo-1}
 	\end{table}
+	\disabletablerowcolor % Desactiva el color de celda
 
 \end{appendixd}

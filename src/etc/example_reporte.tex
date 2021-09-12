@@ -6,8 +6,8 @@
 % Autor: Pablo Pizarro R.
 %        pablo@ppizarror.com
 %
-% Sitio web:    [https://latex.ppizarror.com/reporte]
-% Licencia MIT: [https://opensource.org/licenses/MIT]
+% Manual template: [https://latex.ppizarror.com/reporte]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % ------------------------------------------------------------------------------
 % NUEVA SECCIÓN
@@ -69,7 +69,6 @@
 % ------------------------------------------------------------------------------
 % NUEVA SECCIÓN
 % ------------------------------------------------------------------------------
-\clearpage
 \section{Aquí un nuevo tema}
 
 % SUB-SECCIÓN
@@ -97,7 +96,6 @@
 	\lipsum[1]
 
 % Inserta un subtítulo sin número
-\clearpage
 \subsection{Otros párrafos más normales}
 
 	% Párrafos
@@ -122,13 +120,13 @@
 		\insertequation[]{ \boxed{f(x) = \fracdpartial{u}{t}} }
 		
 		% Párrafo 2
-		\lipsum[6]
+		\lipsum[3]
 		
 		% Inserta una imagen simple dentro del párrafo
-		\insertimage{ejemplos/test-image-wrap}{width=4cm}{Imagen dentro de párrafo.}
+		\insertimage{ejemplos/test-image-wrap}{width=3.9cm}{Imagen dentro de párrafo.}
 		
 		% Párrafo 3 del multicols
-		\lipsum[11-14]
+		\lipsum[11-13]
 
 	\end{multicols}
 
@@ -141,7 +139,7 @@
 	% identificador en el manual
 	\newcommand{\insertsrcmanual}[2]{\href{https://latex.ppizarror.com/informe.html?srctype=#1\#hlp-srccode}{#2}}
 
-	El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{abap}{ABAP}, \insertsrcmanual{ada}{Ada}, \insertsrcmanual{assemblerx64}{Assembler x64}, \insertsrcmanual{assemblerx86}{Assembler x86[masm]}, \insertsrcmanual{awk}{Awk}, \insertsrcmanual{bash}{Bash}, \insertsrcmanual{basic}{Basic}, \insertsrcmanual{c}{C}, \insertsrcmanual{caml}{Caml}, \insertsrcmanual{cmake}{CMake}, \insertsrcmanual{cobol}{Cobol}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{css}{CSS}, \insertsrcmanual{csv}{CSV}, \insertsrcmanual{cuda}{CUDA}, \insertsrcmanual{dart}{Dart}, \insertsrcmanual{docker}{Docker}, \insertsrcmanual{elisp}{Elisp}, \insertsrcmanual{elixir}{Elixir}, \insertsrcmanual{erlang}{Erlang}, \insertsrcmanual{fortran}{Fortran}, \insertsrcmanual{fsharp}{F\#}, \insertsrcmanual{glsl}{GLSL}, \insertsrcmanual{gnuplot}{Gnuplot}, \insertsrcmanual{go}{Go}, \insertsrcmanual{haskell}{Haskell}, \insertsrcmanual{html}{HTML}, \insertsrcmanual{ini}{INI}, \insertsrcmanual{java}{Java}, \insertsrcmanual{javascript}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{julia}{Julia}, \insertsrcmanual{kotlin}{Kotlin}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{lisp}{Lisp}, \insertsrcmanual{llvm}{LLVM}, \insertsrcmanual{lua}{Lua}, \insertsrcmanual{make}{Make}, \insertsrcmanual{maple}{Maple}, \insertsrcmanual{mathematica}{Mathematica}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{mercury}{Mercury}, \insertsrcmanual{modula2}{Modula-2}, \insertsrcmanual{objectivec}{Objective-C}, \insertsrcmanual{octave}{Octave}, \insertsrcmanual{opencl}{OpenCL}, \insertsrcmanual{opensees}{OpenSees}, \insertsrcmanual{pascal}{Pascal}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{postscript}{PostScript}, \insertsrcmanual{powershell}{Powershell}, \insertsrcmanual{prolog}{Prolog}, \insertsrcmanual{promela}{Promela}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{qsharp}{Q\#}, \insertsrcmanual{r}{R}, \insertsrcmanual{racket}{Racket}, \insertsrcmanual{reil}{Reil}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{rust}{Rust}, \insertsrcmanual{scala}{Scala}, \insertsrcmanual{scheme}{Scheme}, \insertsrcmanual{scilab}{Scilab}, \insertsrcmanual{simula}{Simula}, \insertsrcmanual{sparql}{SPARQL}, \insertsrcmanual{sql}{SQL}, \insertsrcmanual{swift}{Swift}, \insertsrcmanual{tcl}{TCL}, \insertsrcmanual{vbscript}{VBScript}, \insertsrcmanual{verilog}{Verilog}, \insertsrcmanual{vhdl}{VHDL} y \insertsrcmanual{xml}{XML}.
+	El template permite la inserción de los siguientes lenguajes de programación de forma nativa: \insertsrcmanual{abap}{ABAP}, \insertsrcmanual{ada}{Ada}, \insertsrcmanual{assemblerx64}{Assembler x64}, \insertsrcmanual{assemblerx86}{Assembler x86[masm]}, \insertsrcmanual{awk}{Awk}, \insertsrcmanual{bash}{Bash}, \insertsrcmanual{basic}{Basic}, \insertsrcmanual{c}{C}, \insertsrcmanual{caml}{Caml}, \insertsrcmanual{cmake}{CMake}, \insertsrcmanual{cobol}{Cobol}, \insertsrcmanual{cpp}{C++}, \insertsrcmanual{csharp}{C\#}, \insertsrcmanual{css}{CSS}, \insertsrcmanual{csv}{CSV}, \insertsrcmanual{cuda}{CUDA}, \insertsrcmanual{dart}{Dart}, \insertsrcmanual{docker}{Docker}, \insertsrcmanual{elisp}{Elisp}, \insertsrcmanual{elixir}{Elixir}, \insertsrcmanual{erlang}{Erlang}, \insertsrcmanual{fortran}{Fortran}, \insertsrcmanual{fsharp}{F\#}, \insertsrcmanual{glsl}{GLSL}, \insertsrcmanual{gnuplot}{Gnuplot}, \insertsrcmanual{go}{Go}, \insertsrcmanual{haskell}{Haskell}, \insertsrcmanual{html}{HTML}, \insertsrcmanual{ini}{INI}, \insertsrcmanual{java}{Java}, \insertsrcmanual{javascript}{Javascript}, \insertsrcmanual{json}{JSON}, \insertsrcmanual{julia}{Julia}, \insertsrcmanual{kotlin}{Kotlin}, \insertsrcmanual{latex}{LaTeX}, \insertsrcmanual{lisp}{Lisp}, \insertsrcmanual{llvm}{LLVM}, \insertsrcmanual{lua}{Lua}, \insertsrcmanual{make}{Make}, \insertsrcmanual{maple}{Maple}, \insertsrcmanual{mathematica}{Mathematica}, \insertsrcmanual{matlab}{Matlab}, \insertsrcmanual{mercury}{Mercury}, \insertsrcmanual{modula2}{Modula-2}, \insertsrcmanual{objectivec}{Objective-C}, \insertsrcmanual{octave}{Octave}, \insertsrcmanual{opencl}{OpenCL}, \insertsrcmanual{opensees}{OpenSees}, \insertsrcmanual{pascal}{Pascal}, \insertsrcmanual{perl}{Perl}, \insertsrcmanual{php}{PHP}, \insertsrcmanual{plaintext}{Texto plano}, \insertsrcmanual{postscript}{PostScript}, \insertsrcmanual{powershell}{Powershell}, \insertsrcmanual{prolog}{Prolog}, \insertsrcmanual{promela}{Promela}, \insertsrcmanual{pseudocode}{Pseudocódigo}, \insertsrcmanual{python}{Python}, \insertsrcmanual{qsharp}{Q\#}, \insertsrcmanual{r}{R}, \insertsrcmanual{racket}{Racket}, \insertsrcmanual{reil}{Reil}, \insertsrcmanual{ruby}{Ruby}, \insertsrcmanual{rust}{Rust}, \insertsrcmanual{scala}{Scala}, \insertsrcmanual{scheme}{Scheme}, \insertsrcmanual{scilab}{Scilab}, \insertsrcmanual{simula}{Simula}, \insertsrcmanual{sparql}{SPARQL}, \insertsrcmanual{sql}{SQL}, \insertsrcmanual{swift}{Swift}, \insertsrcmanual{tcl}{TCL}, \insertsrcmanual{vbscript}{VBScript}, \insertsrcmanual{verilog}{Verilog}, \insertsrcmanual{vhdl}{VHDL} y \insertsrcmanual{xml}{XML}. \\
 
 	Para insertar un código fuente se debe usar el entorno \texttt{sourcecode}, o el entorno \texttt{sourcecodep} si es que se quiere utilizar parámetros adicionales. A continuación se presenta un ejemplo de inserción de código fuente en Python (Código \ref{codigo-python}), Java y Matlab:
 
@@ -174,7 +172,8 @@ public class Hola extends GenericServlet {
 
 \begin{sourcecode}{matlab}{Ejemplo en Matlab.}
 % Se crea gráfico
-f = figure(1); hold on; movegui(f, 'center');
+f = figure(1); hold on;
+movegui(f, 'center');
 xlabel('td/Tn');
 ylabel('FAD=Umax/Uf0');
 title('Espectro de pulso de desplazamiento');
@@ -205,7 +204,7 @@ function NMS(B,c)
 	\addimage[\label{ciudadfoto}]{ejemplos/test-image}{width=6.5cm}{Ciudad}
 	\addimageanum{ejemplos/test-image-wrap}{height=4cm}
 	\imagesnewline
-	\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande}
+	\addimage{ejemplos/test-image}{width=7.6cm}{Ciudad más grande}
 \end{images}
 \end{sourcecode}
 
@@ -215,15 +214,13 @@ function NMS(B,c)
 		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
 		\addimageanum{ejemplos/test-image-wrap}{height=4cm}
 		\imagesnewline
-		\addimage{ejemplos/test-image}{width=11cm}{Ciudad más grande}
+		\addimage{ejemplos/test-image}{width=7.6cm}{Ciudad más grande}
 	\end{images}
 
 
 % ------------------------------------------------------------------------------
 % NUEVA SECCIÓN
 % ------------------------------------------------------------------------------
-\clearpage
-
 % Inserta una sección sin número
 \sectionanum{Más ejemplos}
 
@@ -318,7 +315,6 @@ function NMS(B,c)
 % ------------------------------------------------------------------------------
 % ANEXO
 % ------------------------------------------------------------------------------
-\clearpage
 \begin{appendixd}
 
 	\section{Cálculos realizados}
@@ -328,7 +324,7 @@ function NMS(B,c)
 
 	% Imagen, se numerará automáticamente con la letra del anexo según
 	% la configuración \appendixindepobjnum
-	\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.19}{Imagen en anexo.}
+	\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.16}{Imagen en anexo.}
 
 	\subsection{Resultados}
 	\lipsum[10]
@@ -336,24 +332,29 @@ function NMS(B,c)
 	% Tablas
 	\enabletablerowcolor[2] % Activa el color de celda
 	\begin{table}[H]
+		\begin{threeparttable}
 		\centering
 		\caption{Tabla de cálculo.}
-		\begin{tabular}{ccc}
+		\begin{tabular}{cccC{4cm}}
 			\hline
-			\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
+			\textbf{Elemento} & $\epsilon_i$ & \textbf{Valor} & \textbf{Descripción} \bigstrut \\
 			\hline
-			A     & 10    & 3,14$\pi$ \bigstrut[t]\\
-			B     & 20    & 6 \\
-			C     & 30    & 7 \\
-			D     & 150    & 10 \\
-			E     & 0    & 0 \\
+			A     & 10    & 3,14$\pi$ & Valor muy interesante\tnote{a} \\
+			B     & 20    & 6 & Segundo elemento \\
+			C     & 30    & 7 & Tercer elemento\tnote{1} \\
+			D     & 150    & 10 & Sin descripción \\
+			E     & 0    & 0 & Cero \\
 			\hline
 			\end{tabular}
+		\begin{tablenotes}
+			\item[a] Este elemento tiene una descripción debajo de la tabla
+			\item[1] Más comentarios
+		\end{tablenotes}
+		\end{threeparttable}
 		\label{tab:anexo-1}
 	\end{table}
 	\disabletablerowcolor % Desactiva el color de celda
-
-	\clearpage
+	
 	\section{Más cálculos}
 
 	% Párrafo
