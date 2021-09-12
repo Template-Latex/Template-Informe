@@ -169,7 +169,6 @@
 % -----------------------------------------------------------------------------
 \setstretch{\documentinterline} % Ajuste del entrelineado
 \setlength{\headheight}{64 pt} % Tamaño de la cabecera sin fancyhdr
-\setlength{\footnotemargin}{\marginfootnote pt} % Margen del footnote
 \setlength{\columnsep}{\columnsepwidth em} % Separación entre columnas
 \ifthenelse{\equal{\showlinenumbers}{true}}{
 	\setlength{\linenumbersep}{0.50cm}
@@ -591,8 +590,9 @@
 \setcounter{tocdepth}{\indexdepth}
 
 % -----------------------------------------------------------------------------
-% Restauración número footnote
+% Configuración footnotes
 % -----------------------------------------------------------------------------
+% Restaura número
 \ifthenelse{\equal{\footnoterestart}{none}}{
 	% \counterwithout*{footnote}{chapter}
 }{
@@ -617,8 +617,19 @@
 	\throwbadconfig{Formato reinicio numero footnote desconocido}{\footnoterestart}{none,chap,page,sec,ssec,sssec,ssssec}}}}}}}
 }
 
+% Define el tamaño del margen
+\setlength{\footnotemargin}{\footnotelmargin pt}
+
 % Previene footnote en otras páginas
 \interfootnotelinepenalty=10000
+
+% Configura tablas y figuras
+\ifthenelse{\equal{\footnoterulefigure}{false}}{
+	\floatsetup[figure]{footnoterule=none}}{
+}
+\ifthenelse{\equal{\footnoteruletable}{false}}{
+	\floatsetup[table]{footnoterule=none}}{
+}
 
 % -----------------------------------------------------------------------------
 % Restauración número ecuación, NOTA: NO hace nada, sólo se modifica en title.tex
@@ -738,6 +749,16 @@
 \newcolumntype{\HColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
 \newcolumntype{G}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
 \newcolumntype{\GColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
+
+% -----------------------------------------------------------------------------
+% Parcha el entorno tablenotes
+% -----------------------------------------------------------------------------
+\BeforeBeginEnvironment{tablenotes}{%
+	\tablenotesfontsize\selectfont%
+}
+\AfterEndEnvironment{tablenotes}{%
+	\normalsize\selectfont%
+}
 
 % -----------------------------------------------------------------------------
 % Parcha el entorno multicols

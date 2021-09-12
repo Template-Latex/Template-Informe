@@ -179,7 +179,7 @@
 }
 
 % Regla superior
-\ifthenelse{\equal{\footnotepagetoprule}{true}}{
+\ifthenelse{\equal{\footnoterulepage}{true}}{
 	\usepackage[bottom,hang]{footmisc} % Estilo pie de página
 }{
 	\usepackage[bottom,norule,hang]{footmisc}
@@ -228,6 +228,13 @@
 	\usepackage[top=\pagemargintop cm,bottom=\pagemarginbottom cm,margin=\pagemarginleft cm]{geometry}
 }{ % pdf2latex, xelatex
 	\usepackage{geometry}
+}
+
+% Notas en tablas
+\ifthenelse{\equal{\tablenotesameline}{true}}{
+	\usepackage[para]{threeparttable}
+}{
+	\usepackage{threeparttable}
 }
 
 % -----------------------------------------------------------------------------

@@ -24,7 +24,7 @@
 % numerar y sin aparecer en el índice
 \subsection{Una breve introducción}
 	
-	Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} como \eqref{eqn:identidad-imposible} ó (\ref{img:anexo-2}). A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\textbackslash insertimage}:
+	Este es un párrafo, puede contener múltiples \quotes{Expresiones} así como fórmulas o referencias\footnote{Las referencias se hacen utilizando la expresión \texttt{\textbackslash label}\{etiqueta\}.} como \eqref{eqn:identidad-imposible} o (\ref{img:anexo-2}). A continuación se muestra un ejemplo de inserción de imágenes (como la Figura \ref{img:testimage}) con el comando \href{https://latex.ppizarror.com/informe.html#hlp-imagen}{\textbackslash insertimage}:
 
 	% Esta instrucción, añadida en la v6.5.5 permite cambiar el título de cada
 	% objeto en el índice de cada objeto. Este título es solo válido hasta el
@@ -313,14 +313,13 @@ end
 % ------------------------------------------------------------------------------
 % ANEXO
 % ------------------------------------------------------------------------------
-\clearpage
 \begin{appendixd}
 
 	\section{Cálculos realizados}
 
 	\subsection{Metodología}
 
-	\lipsum[1] \eqref{eqn:identidad-imposible}
+	\lipsum[1-2] \eqref{eqn:identidad-imposible}
 
 	% Imagen, se numerará automáticamente con la letra del anexo según
 	% la configuración \appendixindepobjnum
@@ -333,21 +332,26 @@ end
 	% Tablas
 	\enabletablerowcolor[2] % Activa el color de celda
 	\begin{table}[H]
+		\begin{threeparttable}
 		\centering
 		\caption{Tabla de cálculo.}
-		\begin{tabular}{ccc}
+		\begin{tabular}{cccC{4cm}}
 			\hline
-			\textbf{Elemento} & $\epsilon_i$ & \boldmath{}\textbf{Valor}\unboldmath{} \bigstrut\\
+			\textbf{Elemento} & $\epsilon_i$ & \textbf{Valor} & \textbf{Descripción} \bigstrut \\
 			\hline
-			A     & 10    & 3,14$\pi$ \bigstrut[t]\\
-			B     & 20    & 6 \\
-			C     & 30    & 7 \\
-			D     & 150    & 10 \\
-			E     & 0    & 0 \\
+			A     & 10    & 3,14$\pi$ & Valor muy interesante\tnote{a} \\
+			B     & 20    & 6 & Segundo elemento \\
+			C     & 30    & 7 & Tercer elemento\tnote{1} \\
+			D     & 150    & 10 & Sin descripción \\
+			E     & 0    & 0 & Cero \\
 			\hline
 			\end{tabular}
+		\begin{tablenotes}
+			\item[a] Este elemento tiene una descripción debajo de la tabla
+			\item[1] Más comentarios
+		\end{tablenotes}
+		\end{threeparttable}
 		\label{tab:anexo-1}
 	\end{table}
 	\disabletablerowcolor % Desactiva el color de celda
-
 \end{appendixd}

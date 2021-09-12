@@ -133,9 +133,12 @@
 \def\defaultimagefolder {img/}     % Carpeta raíz de las imágenes
 \def\equationleftalign {false}     % Ecuaciones alineadas a la izquierda
 \def\equationrestart {none}        % Reinicio n° {none,chap,(s/ss/sss/ssss)ec}
-\def\footnotetwocolumn {false}     % Footnote en dos columnas
-\def\footnotepagetoprule {false}   % Footnote en pag. tienen separador superior
+\def\footnotelmargin {10}          % Margen entre footnote y el número [pt]
 \def\footnoterestart {none}        % N° footnote {none,chap,page,(s/ss/sss/ssss)ec}
+\def\footnoterulefigure {false}    % Footnote en figuras tienen línea superior
+\def\footnoterulepage {false}      % Footnote en páginas tienen línea superior
+\def\footnoteruletable {false}     % Footnote en tablas tienen línea superior
+\def\footnotetwocolumn {false}     % Footnote en dos columnas
 \def\fpremovetopbottomcenter{true} % Elimina espacio vertical al centrar con b!,t!
 \def\hfpdashcharstyle {--}         % Estilo del guión en portadas,header-footer,etc
 \def\imagedefaultplacement {H}     % Posición por defecto de las imágenes
@@ -147,8 +150,7 @@
 \def\margineqnindextop {0}         % Margen superior ecuaciones índice [cm]
 \def\marginequationbottom {-0.2}   % Margen inferior ecuaciones [cm]
 \def\marginequationtop {0}         % Margen superior ecuaciones [cm]
-\def\marginfloatimages {-13}       % Margen sup. figuras insertimageleft/right [pt]
-\def\marginfootnote {10}           % Margen derecho footnote [pt]
+\def\marginfloatimages {-13}       % Margen sup. figuras insertimageleft/right [pt]        
 \def\margingatherbottom {-0.2}     % Margen inferior entorno gather [cm]
 \def\margingatheredbottom {-0.1}   % Margen inferior entorno gathered [cm]
 \def\margingatheredtop {-0.4}      % Margen superior entorno gathered [cm]
@@ -174,6 +176,8 @@
 \def\sourcecodenumbersep {6}       % Separación entre número línea y código [pt]
 \def\sourcecodetabsize {3}         % Tamaño tabulación código fuente
 \def\tabledefaultplacement {H}     % Posición por defecto de las tablas
+\def\tablenotesameline {true}      % Notas en tablas en una sola línea
+\def\tablenotesfontsize {\small}   % Tamaño de fuente de las notas en tablas
 \def\tablepaddingh {0.75}          % Espaciado horizontal de celda de las tablas
 \def\tablepaddingv {1.15}          % Espaciado vertical de celda de las tablas
 \def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
