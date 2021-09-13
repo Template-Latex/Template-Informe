@@ -143,15 +143,6 @@
 	}
 	
 	% -------------------------------------------------------------------------
-	% Estilo de títulos - restablece estilos por el índice
-	% -------------------------------------------------------------------------
-	\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
-	\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
-	\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
-	\titleformat{\subsubsubsection}{\color{\ssstitlecolor} \normalfont \fontsizessstitle \stylessstitle}{\thesubsubsubsection}{1em}{}
-	\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-	
-	% -------------------------------------------------------------------------
 	% Crea funciones para numerar objetos
 	% -------------------------------------------------------------------------
 	% Numeración de la sección en los objetos código fuente
@@ -168,7 +159,7 @@
 		\def\sectionobjectnumcode {\thesubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{
-		\ifthenelse{\equal{\showdotaftersnum}{true}}{
+		\ifthenelse{\equal{\dotaftersnum}{true}}{
 			\def\sectionobjectnumcode {\thesubsubsubsection}
 		}{
 			\def\sectionobjectnumcode {\thesubsubsubsection\sectioncaptiondelimiter}
@@ -194,7 +185,7 @@
 		\def\sectionobjectnumeqn {\thesubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{
-		\ifthenelse{\equal{\showdotaftersnum}{true}}{
+		\ifthenelse{\equal{\dotaftersnum}{true}}{
 			\def\sectionobjectnumeqn {\thesubsubsubsection}
 		}{
 			\def\sectionobjectnumeqn {\thesubsubsubsection\sectioncaptiondelimiter}
@@ -220,7 +211,7 @@
 		\def\sectionobjectnumfig {\thesubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{
-		\ifthenelse{\equal{\showdotaftersnum}{true}}{
+		\ifthenelse{\equal{\dotaftersnum}{true}}{
 			\def\sectionobjectnumfig {\thesubsubsubsection}
 		}{
 			\def\sectionobjectnumfig {\thesubsubsubsection\sectioncaptiondelimiter}
@@ -246,7 +237,7 @@
 		\def\sectionobjectnumtab {\thesubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{
-		\ifthenelse{\equal{\showdotaftersnum}{true}}{
+		\ifthenelse{\equal{\dotaftersnum}{true}}{
 			\def\sectionobjectnumtab {\thesubsubsubsection}
 		}{
 			\def\sectionobjectnumtab {\thesubsubsubsection\sectioncaptiondelimiter}

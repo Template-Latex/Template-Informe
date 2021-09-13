@@ -58,11 +58,15 @@
 	% -------------------------------------------------------------------------
 	% Estilo de títulos
 	% -------------------------------------------------------------------------
-	\sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
-	\subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}
-	\subsubsectionfont{\color{\subsubtitlecolor} \fontsizesubsubtitle \stylesubsubtitle \selectfont}
-	\titleformat{\subsubsubsection}{\color{\ssstitlecolor} \normalfont \fontsizessstitle \stylessstitle}{\thesubsubsubsection}{1em}{}
-	\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+	\sectionfont{%
+		\color{\sectioncolor} \sectionfontsize \sectionfontstyle \selectfont}
+	\subsectionfont{%
+		\color{\ssectioncolor} \ssectionfontsize \ssectionfontstyle \selectfont}
+	\subsubsectionfont{%
+		\color{\sssectioncolor} \sssectionfontsize \sssectionfontstyle \selectfont}
+	\titleformat{\subsubsubsection}{%
+		\color{\ssssectioncolor} \ssssectionfontsz \ssssectionfontstyle
+	}{\thesubsubsubsection}{1em}{}
 	\def\bibfont {\fontsizerefbibl} % Tamaño de fuente de las referencias
 	
 	% -------------------------------------------------------------------------

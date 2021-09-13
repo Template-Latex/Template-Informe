@@ -206,8 +206,8 @@
 		urlcolor=\urlcolor
 	}
 }
-\ifthenelse{\equal{\colorpage}{white}}{}{
-	\pagecolor{\colorpage}
+\ifthenelse{\equal{\pagescolor}{white}}{}{
+	\pagecolor{\pagescolor}
 }
 
 % -----------------------------------------------------------------------------
@@ -421,7 +421,7 @@
 % -----------------------------------------------------------------------------
 % Configuración anexo
 % -----------------------------------------------------------------------------
-\patchcmd{\appendices}{\quad}{\sectionappendixlastchar\quad}{}{}
+\patchcmd{\appendices}{\quad}{\appendixsectionlastchar\quad}{}{}
 
 % -----------------------------------------------------------------------------
 % Se añade listings (código fuente) a tocloft
@@ -489,12 +489,6 @@
 \strictpagecheck
 
 % -----------------------------------------------------------------------------
-% Actualización margen títulos
-% -----------------------------------------------------------------------------
-\titlespacing{\section}{0pt}{20pt}{10pt}
-\titlespacing{\subsection}{0pt}{15pt}{10pt}
-
-% -----------------------------------------------------------------------------
 % Se activa el word-wrap para textos con \texttt{}
 % -----------------------------------------------------------------------------
 \ttfamily \hyphenchar\the\font=`\-
@@ -549,7 +543,7 @@
 % Crea las sub-sub-sub-secciones
 % -----------------------------------------------------------------------------
 \newcounter{subsubsubsection}[subsubsection]
-\ifthenelse{\equal{\showdotaftersnum}{true}}{ % Agrega punto tras el número
+\ifthenelse{\equal{\dotaftersnum}{true}}{ % Agrega punto tras el número
 	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
 	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}.}
 }{
@@ -565,15 +559,7 @@
 	\def\toclevel@subsubsubsection {4}
 	\def\toclevel@paragraph {5}
 	\def\toclevel@subparagraph {6}
-	\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}
-		{3.25ex \@plus 1ex \@minus .2ex}
-		{-1em}
-		{\normalfont\normalsize\bfseries}}
-	\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}
-		{3.25ex \@plus 1ex \@minus .2ex}
-		{-1em}
-		{\normalfont\normalsize\bfseries}}
-	\ifthenelse{\equal{\showdotaftersnum}{true}}{
+	\ifthenelse{\equal{\dotaftersnum}{true}}{
 		\def\l@subsubsubsection {\@dottedtocline{4}{7.83em}{4.15em}} % Incremento 0.77+3.35 a 3.35
 		\def\l@paragraph {\@dottedtocline{5}{11.98em}{4.92em}}
 		\def\l@subparagraph {\@dottedtocline{6}{14.65em}{5.69em}}
@@ -582,6 +568,24 @@
 		\def\l@paragraph {\@dottedtocline{5}{10.97em}{5em}}
 		\def\l@subparagraph {\@dottedtocline{6}{14em}{6em}}
 	}
+\makeatother
+
+% -----------------------------------------------------------------------------
+% Actualización margen títulos
+% -----------------------------------------------------------------------------
+\titlespacing{\section}{\sectionspacingleft pt}{\sectionspacingtop pt plus 0pt minus 4pt}{\sectionspacingbottom pt plus 0pt minus 2pt}
+\titlespacing{\subsection}{\ssectionspacingleft pt}{\ssectionspacingtop pt plus 0pt minus 2pt}{\ssectionspacingbottom pt plus 0pt minus 2pt}
+\titlespacing{\subsubsection}{\sssectionspacingleft pt}{\sssectionspacingtop pt plus 0pt minus 2pt}{\sssectionspacingbottom pt plus 0pt minus 2pt}
+\titlespacing*{\subsubsubsection}{\ssssectionspacingleft pt}{\ssssectionspacingtop pt plus 0pt minus 2pt}{\ssssectionspacingbottom pt plus 0pt minus 2pt}
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\paragspacingleft pt}
+	{\paragspacingtop pt \@plus 0pt \@minus 2pt}
+	{\paragspacingbottom pt \@plus 0pt \@minus 2pt}
+	{\color{\paragcolor}\normalfont\paragfontsize\paragfontstyle}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\paragsubspacingleft pt}
+	{\paragsubspacingtop pt \@plus 0pt \@minus 2pt}
+	{\paragsubspacingbottom pt \@plus 0pt \@minus 2pt}
+	{\color{\paragsubcolor}\normalfont\paragsubfontsize\paragsubfontstyle}}
 \makeatother
 
 % -----------------------------------------------------------------------------

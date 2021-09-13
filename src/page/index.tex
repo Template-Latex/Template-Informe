@@ -16,7 +16,7 @@
 	% -------------------------------------------------------------------------
 	\clearpage
 	\begingroup
-	\sectionfont{\color{\indextitlecolor} \fontsizetitlei \styletitlei \selectfont}
+	\sectionfont{\color{\indextitlecolor} \indexsectionfontsize \indexsectionstyle \selectfont}
 	
 	% -------------------------------------------------------------------------
 	% Salta de página si está imprimiendo por ambas caras
@@ -45,7 +45,7 @@
 	% -------------------------------------------------------------------------
 	% Configuración del punto en índice
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\showdotaftersnum}{true}}{
+	\ifthenelse{\equal{\dotaftersnum}{true}}{
 		% Agrega los puntos
 		\def\cftchapaftersnum {.}
 		\def\cftsecaftersnum {.}
@@ -534,6 +534,7 @@
 	% -------------------------------------------------------------------------
 	% Termina el bloque de índice
 	% -------------------------------------------------------------------------
+	\sectionfont{\color{\sectioncolor} \sectionfontsize \sectionfontstyle \selectfont}
 	\endgroup
 	
 	% -------------------------------------------------------------------------

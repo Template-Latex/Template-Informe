@@ -124,7 +124,6 @@
 \def\natbibrefcitetype {numbers}   % Tipo citación {authoryear,numbers,super}
 \def\natbibrefsep {6}              % Separación entre referencia {natbib} [pt]
 \def\natbibrefstyle {ieeetr}       % Formato referencias natbib {apa,ieeetr,etc...}
-\def\sectionappendixlastchar {.}   % Caracter entre n° de sec. anexo y título
 \def\stylecitereferences {bibtex}  % Estilo cita/ref {apacite,bibtex,natbib,custom}
 \def\twocolumnreferences {false}   % Referencias en dos columnas
 
@@ -150,7 +149,7 @@
 \def\margineqnindextop {0}         % Margen superior ecuaciones índice [cm]
 \def\marginequationbottom {-0.2}   % Margen inferior ecuaciones [cm]
 \def\marginequationtop {0}         % Margen superior ecuaciones [cm]
-\def\marginfloatimages {-13}       % Margen sup. figuras insertimageleft/right [pt]        
+\def\marginfloatimages {-13}       % Margen sup. figuras insertimageleft/right [pt]
 \def\margingatherbottom {-0.2}     % Margen inferior entorno gather [cm]
 \def\margingatheredbottom {-0.1}   % Margen inferior entorno gathered [cm]
 \def\margingatheredtop {-0.4}      % Margen superior entorno gathered [cm]
@@ -184,36 +183,61 @@
 
 % CONFIGURACIÓN DE LOS TÍTULOS
 \def\anumsecaddtocounter {false}   % Insertar títulos anum. aumenta n° de sec
-\def\fontsizessstitle{\normalsize} % Tamaño sub-sub-subtítulos
-\def\fontsizesubsubtitle {\large}  % Tamaño sub-subtítulos
-\def\fontsizesubtitle {\Large}     % Tamaño subtítulos
-\def\fontsizetitle {\LARGE}        % Tamaño títulos
-\def\fontsizetitlei {\LARGE}       % Tamaño títulos en el índice
-\def\showdotaftersnum {true}       % Punto al final de n° (s/ss/sss/ssss)ection
-\def\stylessstitle {\bfseries}     % Estilo sub-sub-subtítulos
-\def\stylesubsubtitle {\bfseries}  % Estilo sub-subtítulos
-\def\stylesubtitle {\bfseries}     % Estilo subtítulos
-\def\styletitle {\bfseries}        % Estilo títulos
-\def\styletitlei {\bfseries}       % Estilo títulos en el índice
+\def\appendixsectionlastchar {.}   % Caracter entre n° de seccción anexo y título
+\def\dotaftersnum {true}           % Punto al final de n° (s/ss/sss/ssss)ection
+\def\indexsectionfontsize {\LARGE} % Tamaño section en el índice
+\def\indexsectionstyle {\bfseries} % Estilo section en el índice
+\def\paragfontsize {\normalsize}   % Tamaño fuente paragraph
+\def\paragfontstyle {\bfseries}    % Estilo fuente paragraph
+\def\paragspacingbottom {4}        % Espaciado inferior en paragraph [pt]
+\def\paragspacingleft {0}          % Espaciado izq. en paragraph [pt]
+\def\paragspacingtop {8}           % Espaciado superior en paragraph [pt]
+\def\paragsubfontsize{\normalsize} % Tamaño fuente subparagraph
+\def\paragsubfontstyle {\bfseries} % Estilo fuente subparagraph
+\def\paragsubspacingbottom {4}     % Espaciado inferior en subparagraph [pt]
+\def\paragsubspacingleft {0}       % Espaciado izq. en subparagraph [pt]
+\def\paragsubspacingtop {8}        % Espaciado superior en subparagraph [pt]
+\def\sectionfontsize {\LARGE}      % Tamaño fuente section
+\def\sectionfontstyle {\bfseries}  % Estilo fuente section
+\def\sectionspacingbottom {10}     % Espaciado inferior en section [pt]
+\def\sectionspacingleft {0}        % Espaciado izq. en section [pt]
+\def\sectionspacingtop {20}        % Espaciado superior en section [pt]
+\def\ssectionfontsize {\Large}     % Tamaño fuente subtítulos
+\def\ssectionfontstyle {\bfseries} % Estilo fuente subsection
+\def\ssectionspacingbottom {8}     % Espaciado inferior en subsection [pt]
+\def\ssectionspacingleft {0}       % Espaciado izq. en subsection [pt]
+\def\ssectionspacingtop {12}       % Espaciado superior en subsection [pt]
+\def\sssectionfontsize {\large}    % Tamaño fuente subsubsection
+\def\sssectionfontstyle{\bfseries} % Estilo fuente subsubsection
+\def\sssectionspacingbottom {6}    % Espaciado inferior en subsubsection [pt]
+\def\sssectionspacingleft {0}      % Espaciado izq. en subsubsection [pt]
+\def\sssectionspacingtop {10}      % Espaciado superior en subsubsection [pt]
+\def\ssssectionfontsz{\normalsize} % Tamaño fuente subsubsubsection
+\def\ssssectionfontstyle{\bfseries}% Estilo fuente subsubsubsection
+\def\ssssectionspacingbottom {4}   % Espaciado inferior en subsubsubsection [pt]
+\def\ssssectionspacingleft {0}     % Espaciado izq. en subsubsubsection [pt]
+\def\ssssectionspacingtop {8}      % Espaciado superior en subsubsubsection [pt]
 
 % CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
-\def\colorpage {white}             % Color de la página
 \def\highlightcolor {yellow}       % Color del subrayado con \hl
 \def\indextitlecolor {black}       % Color de los títulos del índice
 \def\linenumbercolor {gray}        % Color del n° de línea (\showlinenumbers)
 \def\linkcolor {black}             % Color de los links del documento
 \def\maintextcolor {black}         % Color principal del texto
 \def\numcitecolor {black}          % Color del n° de las referencias o citas
+\def\pagescolor {white}            % Color de la página
+\def\paragcolor {black}            % Color de los paragraph
+\def\paragsubcolor {black}         % Color de los subparagraph
 \def\portraittitlecolor {black}    % Color de los títulos de la portada
+\def\sectioncolor {black}          % Color de los section
 \def\showborderonlinks {false}     % Color de un link por un recuadro de color
 \def\sourcecodebgcolor {lgray}     % Color de fondo del código fuente
-\def\ssstitlecolor {black}         % Color de los sub-sub-subtítulos
-\def\subsubtitlecolor {black}      % Color de los sub-subtítulos
-\def\subtitlecolor {black}         % Color de los subtítulos
+\def\ssectioncolor {black}         % Color de los subsection
+\def\sssectioncolor {black}        % Color de los subsubsection
+\def\ssssectioncolor {black}       % Color de los subsubsubsection
 \def\tablelinecolor {black}        % Color de las líneas de las tablas
 \def\tablerowfirstcolor {none}     % Primer color de celda de las tablas
 \def\tablerowsecondcolor {gray!20} % Segundo color de celda de las tablas
-\def\titlecolor {black}            % Color de los títulos
 \def\urlcolor {magenta}            % Color de los enlaces web (\href,\url)
 
 % MÁRGENES DE PÁGINA
