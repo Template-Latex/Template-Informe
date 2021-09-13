@@ -77,10 +77,10 @@
 	% Se inserta una imagen flotante en la izquierda del documento con
 	% \insertimageleft, al igual que las demás funciones, el primer parámetro
 	% es opcional, luego viene la ubicación de la imagen, seguido de la escala
-	% (un 35% del ancho de página) y por último su leyenda. Para insertar una
+	% (un 40% del ancho de página) y por último su leyenda. Para insertar una
 	% imagen flotante en la derecha se utiliza \insertimageright usando los
 	% mismos parámetros
-	\insertimageleft[\label{img:imagen-izquierda}]{test-image-wrap}{0.35}{Apolo flotando a la izquierda.}
+	\insertimageleft[\label{img:imagen-izquierda}]{test-image-wrap}{0.4}{Apolo flotando a la izquierda.}
 
 	~ \lipsum[1]
 
@@ -198,6 +198,7 @@ for j = 1:length(BETA)
 		[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
 		t2 = t * cos(r(i)) ./ BETA;
 		fad(i) = max(abs(u_t)) / uf0;
+		BETA(j) *= 0.6;
 	end
 end
 \end{sourcecode}
