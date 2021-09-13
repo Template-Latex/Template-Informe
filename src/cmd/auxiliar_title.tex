@@ -129,14 +129,14 @@
 	}{
 		\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
 			% Se ocultan las secciones
-			\ifthenelse{\equal{\showdotaftersnum}{true}}{
+			\ifthenelse{\equal{\dotaftersnum}{true}}{
 				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}
 			}{
 				\renewcommand{\thesubsubsubsection}{\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
 			}
 		}{
 			% Se muestra la ruta completa
-			\ifthenelse{\equal{\showdotaftersnum}{true}}{
+			\ifthenelse{\equal{\dotaftersnum}{true}}{
 				\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
 					\renewcommand{\thesubsubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}.}	
 				}{

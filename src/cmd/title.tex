@@ -39,13 +39,13 @@
 	}
 	% Subsubsubsection
 	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
-		\ifthenelse{\equal{\showdotaftersnum}{true}}{
+		\ifthenelse{\equal{\dotaftersnum}{true}}{
 			\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}.}
 		}{
 			\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}
 		}
 	}{
-		\ifthenelse{\equal{\showdotaftersnum}{true}}{
+		\ifthenelse{\equal{\dotaftersnum}{true}}{
 			\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
 		}{
 			\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
@@ -269,7 +269,7 @@
 	\addcontentsline{toc}{subsubsection}{#1}%
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}%
 	\setcounter{subsubsubsection}{0}%
-	\ifthenelse{\equal{\showdotaftersnum}{true}}{%
+	\ifthenelse{\equal{\dotaftersnum}{true}}{%
 		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}.}%
 	}{%
 		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}%
@@ -283,7 +283,7 @@
 	\subsubsection*{#1}%
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}%
 	\setcounter{subsubsubsection}{0}%
-	\ifthenelse{\equal{\showdotaftersnum}{true}}{%
+	\ifthenelse{\equal{\dotaftersnum}{true}}{%
 		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}.}%
 	}{%
 		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}%
