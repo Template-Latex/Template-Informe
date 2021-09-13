@@ -68,7 +68,7 @@
 \newcommand{\imagesnewline}{%
 	\checkonlyonenvimage%
 	\global\def\GLOBALenvimageadded {false}%
-	\vspace{\marginimagemultbottom cm}%
+	\corevspacevarcm{\marginimagemultbottom}%
 	\linebreak\noindent%
 }
 
@@ -108,7 +108,7 @@
 	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}%
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}%
 	\checkoutsideenvimage%
-	\vspace{\marginimagetop cm}%
+	\corevspacevarcm{\marginimagetop}%
 	\begin{samepage}%
 	\begin{figure}[H]%
 		\thisfloatpagestyle{fancy}%
@@ -119,14 +119,14 @@
 			\fbox{\includegraphics[#3]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#5\hfuzz%
-			\vspace{\captionlessmarginimage cm}
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\hspace{0cm}%
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi
 	\end{figure}
-	\vspace{\marginimagebottom cm}%
+	\corevspacevarcm{\marginimagebottom}%
 	\end{samepage}
 	\resetindexcaption%
 }
@@ -221,10 +221,10 @@
 			\fbox{\includegraphics[#3]{#2}}%
 		\endgroup
 		\ifx\hfuzz#6\hfuzz%
-			\vspace{\captionlessmarginimage cm}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else
 			\hspace{0cm}
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
 		\fi
 	\end{figure*}
@@ -311,22 +311,22 @@
 	\par%
 	\begin{wrapfigure}{l}{#3\linewidth}%
 		% \thisfloatpagestyle{fancy} no funciona bien
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}
-		}
-		\begingroup
-			\setlength{\fboxsep}{0 pt}
-			\setlength{\fboxrule}{#4 pt}
-			\centering
+		\setcaptionmargincm{0}%
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
+			\vspace{\marginfloatimages pt}%
+		}%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#4 pt}%
+			\centering%
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
-		\endgroup
-		\ifx\hfuzz#5\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}
-		\fi
+		\endgroup%
+		\ifx\hfuzz#5\hfuzz%
+			\corevspacevarcm{\captionlessmarginimage}%
+		\else%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
+		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
 	\resetindexcaption%
@@ -359,20 +359,20 @@
 	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#5]{l}{#3\linewidth}%
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}}
-		\begingroup
-			\setlength{\fboxsep}{0 pt}
-			\setlength{\fboxrule}{#4 pt}
-			\centering
+		\setcaptionmargincm{0}%
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
+			\vspace{\marginfloatimages pt}}%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#4 pt}%
+			\centering%
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
-		\endgroup
-		\ifx\hfuzz#6\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
+		\endgroup%
+		\ifx\hfuzz#6\hfuzz%
+			\corevspacevarcm{\captionlessmarginimage}%
+		\else%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -403,22 +403,22 @@
 	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{r}{#3\linewidth}%
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}
-		}
-		\begingroup
-			\setlength{\fboxsep}{0 pt}
-			\setlength{\fboxrule}{#4 pt}
-			\centering
+		\setcaptionmargincm{0}%
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
+			\vspace{\marginfloatimages pt}%
+		}%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#4 pt}%
+			\centering%
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
-		\endgroup
-		\ifx\hfuzz#5\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}
-		\fi
+		\endgroup%
+		\ifx\hfuzz#5\hfuzz%
+			\corevspacevarcm{\captionlessmarginimage}%
+		\else%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
+		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
 	\resetindexcaption%
@@ -451,22 +451,22 @@
 	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#5]{r}{#3\linewidth}%
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}
-		}
-		\begingroup
-			\setlength{\fboxsep}{0 pt}
-			\setlength{\fboxrule}{#4 pt}
-			\centering
+		\setcaptionmargincm{0}%
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
+			\vspace{\marginfloatimages pt}%
+		}%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#4 pt}%
+			\centering%
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
-		\endgroup
-		\ifx\hfuzz#6\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
-		\fi
+		\endgroup%
+		\ifx\hfuzz#6\hfuzz%
+			\corevspacevarcm{\captionlessmarginimage}%
+		\else%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
 	\resetindexcaption%
@@ -502,22 +502,22 @@
 	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{l}{#3}%
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}
-		}
-		\begingroup
-			\setlength{\fboxsep}{0 pt}
-			\setlength{\fboxrule}{#5 pt}
-			\centering
+		\setcaptionmargincm{0}%
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
+			\vspace{\marginfloatimages pt}%
+		}%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#5 pt}%
+			\centering%
 			\fbox{\includegraphics[#4]{#2}}%
-		\endgroup
-		\ifx\hfuzz#6\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
-		\fi
+		\endgroup%
+		\ifx\hfuzz#6\hfuzz%
+			\corevspacevarcm{\captionlessmarginimage}%
+		\else%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
 	\resetindexcaption%
@@ -553,22 +553,22 @@
 	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#6]{l}{#3}%
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}
-		}
-		\begingroup
-			\setlength{\fboxsep}{0 pt}
-			\setlength{\fboxrule}{#5 pt}
-			\centering
+		\setcaptionmargincm{0}%
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
+			\vspace{\marginfloatimages pt}%
+		}%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#5 pt}%
+			\centering%
 			\fbox{\includegraphics[#4]{#2}}%
-		\endgroup
-		\ifx\hfuzz#7\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}
-		\fi
+		\endgroup%
+		\ifx\hfuzz#7\hfuzz%
+			\corevspacevarcm{\captionlessmarginimage}%
+		\else%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
+		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
 	\resetindexcaption%
@@ -604,22 +604,22 @@
 	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{r}{#3}%
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}
-		}
-		\begingroup
-			\setlength{\fboxsep}{0 pt}
-			\setlength{\fboxrule}{#5 pt}
-			\centering
+		\setcaptionmargincm{0}%
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
+			\vspace{\marginfloatimages pt}%
+		}%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#5 pt}%
+			\centering%
 			\fbox{\includegraphics[#4]{#2}}%
-		\endgroup
-		\ifx\hfuzz#6\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}
-		\fi
+		\endgroup%
+		\ifx\hfuzz#6\hfuzz%
+			\corevspacevarcm{\captionlessmarginimage}%
+		\else%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
 	\resetindexcaption%
@@ -655,22 +655,22 @@
 	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}[#6]{r}{#3}%
-		\setcaptionmargincm{0}
-		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{
-			\vspace{\marginfloatimages pt}
-		}
-		\begingroup
-			\setlength{\fboxsep}{0 pt}
-			\setlength{\fboxrule}{#5 pt}
-			\centering
+		\setcaptionmargincm{0}%
+		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
+			\vspace{\marginfloatimages pt}%
+		}%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#5 pt}%
+			\centering%
 			\fbox{\includegraphics[#4]{#2}}%
-		\endgroup
-		\ifx\hfuzz#7\hfuzz
-			\vspace{\captionlessmarginimage cm}
-		\else
-			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\vspace{\captionmarginimage cm}}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}
-		\fi
+		\endgroup%
+		\ifx\hfuzz#7\hfuzz%
+			\corevspacevarcm{\captionlessmarginimage}%
+		\else%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
+		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
 	\resetindexcaption%
