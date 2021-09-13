@@ -39,27 +39,27 @@
 	\def\GLOBALenvimageadded {false}
 	
 	% Configura caption y márgenes
-	\vspace{\marginimagetop cm}%
+	\corevspacevarcm{\marginimagetop}%
 	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
 	
 	% Inicia la figura
 	\begin{samepage}%
 	\begin{figure}[H] \centering%
 	\thisfloatpagestyle{fancy}%
-		\vspace{\marginimagemulttop cm}%
+		\corevspacevarcm{\marginimagemulttop}%
 		}{
 		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
-			\vspace{\captionlessmarginimage cm}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
-			\ifthenelse{\equal{\captionmarginimages}{0}}{}{\vspace{\captionmarginimages cm}}%
+			\ifthenelse{\equal{\captionmarginimages}{0}}{}{\corevspacevarcm{\captionmarginimages}}%
 			\caption{\envimagescaptionvar\envimageslabelvar}%
 		}%
 	\end{figure}%
 
 	% Restablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}%
-	\vspace{\marginimagebottom cm}%
+	\corevspacevarcm{\marginimagebottom}%
 	\end{samepage}
 	
 	% Restablece globales
@@ -94,13 +94,13 @@
 		\stop
 	}}%
 		\thisfloatpagestyle{fancy}%
-		\vspace{\marginimagemulttop cm}%
+		\corevspacevarcm{\marginimagemulttop}%
 	}{%
 		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
-			\vspace{\captionlessmarginimage cm}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
-			\ifthenelse{\equal{\captionmarginimagesmc}{0}}{}{\vspace{\captionmarginimagesmc cm}}
+			\ifthenelse{\equal{\captionmarginimagesmc}{0}}{}{\corevspacevarcm{\captionmarginimagesmc}}
 			\caption{\envimagescaptionvar\envimageslabelvar}%
 		}%
 	\end{figure*}%
