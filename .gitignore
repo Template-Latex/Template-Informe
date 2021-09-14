@@ -12,6 +12,7 @@
 *.blg
 *.equ
 *(busy)*
+*._**
 
 # Releases
 *.zip
