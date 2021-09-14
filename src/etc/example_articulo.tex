@@ -90,7 +90,7 @@
 
 	% Agrega una ecuación con leyenda
 	% Recordar que como no existe un índice, \insertindexequation no está disponible
-	\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
+	\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido \cite{einstein}.}
 
 	\lipsum[1]
 
@@ -301,13 +301,13 @@ function NMS(B,c)
 % Inserta un subtítulo sin número
 \subsectionanum{Otros}
 
-	Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{https://latex.ppizarror.com/reporte} \cite{templateinforme}. Si encuentras un error en el template, puedes abrir un nuevo issue a través de su página en GitHub.
+	Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{https://latex.ppizarror.com/reporte} \cite{template}. Si encuentras un error en el template, puedes abrir un nuevo issue a través de su página en GitHub.
 
 
 % ------------------------------------------------------------------------------
-% REFERENCIAS (ESTILO BIBTEX), revisar configuración \stylecitereferences
+% REFERENCIAS, revisar configuración \stylecitereferences
 % ------------------------------------------------------------------------------
-\bibliography{library} 
+\bibliography{library}
 
 
 % ------------------------------------------------------------------------------

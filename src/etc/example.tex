@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      7.5.0 (14/09/2021)
+% Versión:      7.5.1 (14/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -47,7 +47,7 @@
 	\insertequation[\label{eqn:identidad-imposible}]{\pow{a}{k}=\pow{b}{k}+\pow{c}{k} \quad \forall k>2}
 
 	% Notar que no se requiere añadir un salto de línea después de insertar una imagen
-	Este template ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online\scite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}. \\
+	Este template \cite{template} ha sido diseñado para que sea completamente compatible con editores \LaTeX\ para escritorio y de manera online\scite{overleaf}. La compilación es realizada siempre usando las últimas versiones de las librerías, además se incluyen los parches oficiales para corregir eventuales \textit{warnings}. \\
 
 	Este es un nuevo párrafo. Para crear un nuevo párrafo basta con usar \textbackslash\textbackslash\ en el anterior, lo que fuerza una nueva línea. También se insertar un nuevo párrafo con el comando \texttt{\textbackslash newp} si el compilador de latex arroja una alerta del tipo \textit{Underfull \textbackslash hbox (badness 10000) in paragraph at lines ...}
 
@@ -99,7 +99,7 @@
 	\insertindexequation[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
 
 	% Inserta una definición, compatibilidad con otros templates
-	\begin{defn}[ver \cite{templateinforme}]
+	\begin{defn}[ver \cite{einstein}]
 		Definición definitiva
 		$$\frac{d}{dx}\int_a^xf(y)dy=f(x)$$
 	\end{defn}
@@ -284,30 +284,10 @@ end
 
 
 % ------------------------------------------------------------------------------
-% REFERENCIAS (ESTILO BIBTEX), revisar configuración \stylecitereferences
+% REFERENCIAS, revisar configuración \stylecitereferences
 % ------------------------------------------------------------------------------
-\clearpage % Salto de página
-\begin{references}
-	\bibitem{templateinforme}
-	Template Informe en \LaTeX.
-	\textit{¡Revisa el manual online de este template!} \\
-	\url{https://latex.ppizarror.com/informe}
-
-	\bibitem{excel2latex}
-	Excel2Latex.
-	\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
-	\url{https://www.ctan.org/tex-archive/support/excel2latex/}
-
-	\bibitem{overleaf}
-	Overleaf.
-	\textit{Uno de los mejores editores online para \LaTeX, renovado con su versión 2.0.} \\
-	\href{https://www.overleaf.com?r=298b935f&rm=d&rs=b}{https://es.overleaf.com/}
-	
-	\bibitem{tablesgenerator}
-	Tables Generator.
-	\textit{Creador de tablas online para \LaTeX.}\\
-	\url{https://www.tablesgenerator.com}
-\end{references}
+\clearpage
+\bibliography{library}
 
 
 % ------------------------------------------------------------------------------
@@ -323,7 +303,7 @@ end
 
 	% Imagen, se numerará automáticamente con la letra del anexo según
 	% la configuración \appendixindepobjnum
-	\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.2}{Imagen en anexo.}
+	\insertimage[\label{img:anexo-2}]{ejemplos/test-image.png}{scale=0.19}{Imagen en anexo.}
 
 	\subsection{Resultados}
 

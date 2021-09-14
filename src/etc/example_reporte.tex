@@ -91,7 +91,7 @@
 
 	% Agrega una ecuación con leyenda
 	% Recordar que como no existe un índice, \insertindexequation no está disponible
-	\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido.}
+	\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido \cite{einstein}.}
 
 	\lipsum[1]
 
@@ -123,7 +123,7 @@
 		\lipsum[1]
 		
 		% Inserta una imagen simple dentro del párrafo
-		\insertimage{ejemplos/test-image-wrap}{width=3.9cm}{Imagen dentro de párrafo.}
+		\insertimage{ejemplos/test-image-wrap}{width=3.9cm}{Imagen en párrafo.}
 		
 		% Párrafo 3 del multicols
 		\lipsum[11-13]
@@ -282,34 +282,14 @@ function NMS(B,c)
 % Inserta un subtítulo sin número
 \subsectionanum{Otros}
 
-	Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{https://latex.ppizarror.com/reporte} \cite{templateinforme}. Si encuentras un error en el template, puedes abrir un nuevo issue a través de su página en GitHub.
+	Recuerda revisar el manual de todas las funciones y configuraciones de este template visitando el siguiente link: \url{https://latex.ppizarror.com/reporte} \cite{template}. Si encuentras un error en el template, puedes abrir un nuevo issue a través de su página en GitHub.
 
 
 % ------------------------------------------------------------------------------
-% REFERENCIAS (ESTILO BIBTEX), revisar configuración \stylecitereferences
+% REFERENCIAS, revisar configuración \stylecitereferences
 % ------------------------------------------------------------------------------
-\clearpage % Salto de página
-\begin{references}
-	\bibitem{templateinforme}
-	Template Informe en \LaTeX.
-	\textit{¡Revisa el manual online de este template!} \\
-	\url{https://latex.ppizarror.com/informe}
-
-	\bibitem{excel2latex}
-	Excel2Latex.
-	\textit{Importa de forma sencilla tus tablas de Excel a \LaTeX.} \\
-	\url{https://www.ctan.org/tex-archive/support/excel2latex/}
-
-	\bibitem{overleaf}
-	Overleaf.
-	\textit{Uno de los mejores editores online para \LaTeX, renovado con su versión 2.0.} \\
-	\href{https://www.overleaf.com?r=298b935f&rm=d&rs=b}{https://es.overleaf.com/}
-	
-	\bibitem{tablesgenerator}
-	Tables Generator.
-	\textit{Creador de tablas online para \LaTeX.}\\
-	\url{https://www.tablesgenerator.com}
-\end{references}
+\clearpage
+\bibliography{library}
 
 
 % ------------------------------------------------------------------------------
