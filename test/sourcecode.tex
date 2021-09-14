@@ -1414,7 +1414,7 @@ end
 \begin{sourcecode}[]{xml}{Ejemplo xml.}
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-xmlns:xs="http://www.w3.org/2001/XMLSchema">
+xmlns:xs="https://www.w3.org/2001/XMLSchema">
 	<xs:element name="points">
 		<xs:complexType>
 			<xs:sequence>
@@ -1640,7 +1640,7 @@ interface FunctionLike {
 \begin{sourcecodep}{xml}{firstnumber=100, basicstyle={\fontsize{7}{10}\selectfont\ttfamily}}{}
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   xmlns:xs="https://www.w3.org/2001/XMLSchema">
   <xs:element name="points">
     <xs:complexType>
       <xs:sequence>
@@ -3532,7 +3532,7 @@ End;
 \end{sourcecode}
 
 \begin{sourcecode}{sparql}{Ejemplo en SPARQL.}
-PREFIX ex: <http://example.com/exampleOntology#>
+PREFIX ex: <https://example.com/exampleOntology#>
 SELECT ?capital
        ?country
 WHERE
@@ -3686,7 +3686,7 @@ qsort([Pivot|Rest], Smaller) ->
 
 \begin{sourcecode}{julia}{Ejemplo en Julia.}
 #= This is a code sample for the Julia language
-(adapted from http://julialang.org) =#
+(adapted from https://julialang.org) =#
 function mandel(z)
     c = z
     maxiter = 80
