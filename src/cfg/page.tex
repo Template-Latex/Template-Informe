@@ -752,10 +752,14 @@
 	}{
 		\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style16}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 	}
+	% Aplica el estilo de página
 	\fancypagestyle{plain}{
 		\fancyheadoffset{0pt}
 		\COREstyledefinition
 	}
+	% Define estilos por defecto en flotantes
+	\floatpagestyle{plain}
+	\rotfloatpagestyle{plain}
 	
 	% -------------------------------------------------------------------------
 	% Muestra los números de línea

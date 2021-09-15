@@ -111,7 +111,6 @@
 	\corevspacevarcm{\marginimagetop}%
 	\begin{samepage}%
 	\begin{figure}[H]%
-		\thisfloatpagestyle{fancy}%
 		\begingroup%
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
@@ -213,7 +212,6 @@
 		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top,fixed2,fixed2b,fixed2t,fixed3,fixed3b,fixed3t,fixed4,fixed4b,fixed4t}
 		\stop}}}}}}}}}}
 	}
-		\thisfloatpagestyle{fancy}%
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
 			\setlength{\fboxrule}{#4 pt}
@@ -310,7 +308,6 @@
 	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{l}{#3\linewidth}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}%
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
 			\vspace{\marginfloatimages pt}%
