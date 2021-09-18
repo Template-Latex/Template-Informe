@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.5.1 (14/09/2021)
+% Versión:      7.5.2 (18/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -119,7 +119,7 @@
 \usepackage{chngcntr}      % Añade números a las leyendas
 \usepackage{color}         % Colores
 \usepackage{datetime}      % Fechas
-\usepackage{floatpag}      % Maneja números de páginas
+\usepackage{floatpag}      % Maneja estilos de páginas introducidos por obj. flotantes
 \usepackage{floatrow}      % Permite administrar posiciones en los caption
 \usepackage{framed}        % Permite creación de recuadros
 \usepackage{gensymb}       % Simbología común
@@ -139,6 +139,7 @@
 \usepackage{selinput}      % Compatibilidad con acentos
 \usepackage{setspace}      % Cambia el espacio entre líneas
 \usepackage{soul}          % Permite subrayar texto
+\usepackage{stfloats}      % Permite cambiar posición de flotantes con [b] y [t]
 \usepackage{subfig}        % Permite agrupar imágenes
 \usepackage{textcomp}      % Simbología común
 \usepackage{wrapfig}       % Posición de imágenes
@@ -213,7 +214,11 @@
 %	- Option clash for package hyperref
 % 	- name has been referenced but does not exist, replaced by a fixed one
 % Desde v6.5.6 se carga después de las referencias (apacite, natbib, bibtex)
-\usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
+\ifthenelse{\equal{\backrefpagecite}{true}}{
+	\usepackage[pdfencoding=auto,psdextra,backref=page]{hyperref} % Enlaces, referencias
+}{
+	\usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
+}
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{ % Formato citas natbib
 	\usepackage[nottoc,notlof,notlot]{tocbibind}
 	\ifthenelse{\equal{\natbibrefcitecompress}{true}}{
@@ -2105,7 +2110,6 @@
 	\corevspacevarcm{\marginimagetop}%
 	\begin{samepage}%
 	\begin{figure}[H]%
-		\thisfloatpagestyle{fancy}%
 		\begingroup%
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
@@ -2153,11 +2157,11 @@
 	\setcaptionmargincm{\captionlrmarginmc}%
 	\ifthenelse{\equal{#5}{bottom}}{%
 		\begin{samepage}%
-		\begin{figure*}[hb]
+		\begin{figure*}[b]
 	}{
 	\ifthenelse{\equal{#5}{top}}{%
 		\begin{samepage}%
-		\begin{figure*}[ht]
+		\begin{figure*}[t]
 	}{
 	\ifthenelse{\equal{#5}{fixed2}}{%
 		\end{multicols}
@@ -2207,7 +2211,6 @@
 		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top,fixed2,fixed2b,fixed2t,fixed3,fixed3b,fixed3t,fixed4,fixed4b,fixed4t}
 		\stop}}}}}}}}}}
 	}
-		\thisfloatpagestyle{fancy}%
 		\begingroup
 			\setlength{\fboxsep}{0 pt}
 			\setlength{\fboxrule}{#4 pt}
@@ -2304,7 +2307,6 @@
 	\vspace{-\baselineskip}%
 	\par%
 	\begin{wrapfigure}{l}{#3\linewidth}%
-		% \thisfloatpagestyle{fancy} no funciona bien
 		\setcaptionmargincm{0}%
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
 			\vspace{\marginfloatimages pt}%
@@ -3909,7 +3911,6 @@
 	% Inicia la figura
 	\begin{samepage}%
 	\begin{figure}[H] \centering%
-		\thisfloatpagestyle{fancy}%
 		\corevspacevarcm{\marginimagemulttop}%
 		}{%
 		\setcaptionmargincm{\captionlrmargin}%
@@ -3949,15 +3950,14 @@
 	
 	% Inicia la figura
 	\ifthenelse{\equal{#2}{bottom}}{%
-		\begin{figure*}[hb] \centering%
+		\begin{figure*}[b] \centering%
 	}{%
 	\ifthenelse{\equal{#2}{top}}{%
-		\begin{figure*}[ht] \centering%
+		\begin{figure*}[t] \centering%
 	}{%
 		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
 		\stop
 	}}%
-		\thisfloatpagestyle{fancy}%
 		\corevspacevarcm{\marginimagemulttop}%
 	}{%
 		\setcaptionmargincm{\captionlrmargin}%
@@ -5173,16 +5173,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={14/09/2021},
+		Template.Date={18/09/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.5.1},
-		Template.Version.Hash={265D26EF814FA53BBFDEB96EA225F9F1},
-		Template.Version.Release={7.5.1},
+		Template.Version.Dev={7.5.2-1},
+		Template.Version.Hash={1CA32F7A11F9717271BA933AE4626EAE},
+		Template.Version.Release={7.5.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5194,7 +5194,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.5.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.5.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -7589,10 +7589,14 @@
 	}{
 		\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style16}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 	}
+	% Aplica el estilo de página
 	\fancypagestyle{plain}{
 		\fancyheadoffset{0pt}
 		\COREstyledefinition
 	}
+	% Define estilos por defecto en flotantes
+	\floatpagestyle{plain}
+	\rotfloatpagestyle{plain}
 	
 	% -------------------------------------------------------------------------
 	% Muestra los números de línea
