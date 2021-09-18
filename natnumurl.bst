@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Archivo de estilos simple numerados + url (doi, arxivId)
-%% Versión:      1.2.1 (14/09/2021)
+%% Versión:      1.2.2 (18/09/2021)
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -147,6 +147,7 @@ FUNCTION {output.links} {
 
 FUNCTION {output.bibitem} {
     newline$
+    "\backrefparscanfalse" write$ newline$
     "\bibitem{" write$
     cite$ write$
     "}" write$
@@ -165,6 +166,7 @@ FUNCTION {fin.entry} {
     'add.period$
     if$
     write$
+    newline$ "\backrefprint\backrefparscantrue" write$
     newline$
 }
 
@@ -924,7 +926,14 @@ FUNCTION {begin.bib} {
     preamble$ empty$ 'skip$ {
         preamble$ write$ newline$
     } if$
-    "\begin{thebibliography}{" longest.label * "}" * write$ newline$
+    "\begin{thebibliography}{" longest.label * "}" *
+    write$ newline$
+    "  \providecommand\backrefparscanfalse{}"
+    write$ newline$
+    "  \providecommand\backrefparscantrue{}"
+    write$ newline$
+    "  \providecommand\backrefprint{}"
+    write$ newline$
 }
 
 FUNCTION {end.bib} {
