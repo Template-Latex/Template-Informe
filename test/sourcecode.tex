@@ -1134,7 +1134,7 @@ recorder Element -file $dataDir/SSconcEle1sec1.out -time -ele $FirstColumn secti
 recorder Element -file $dataDir/SSreinfEle1sec1.out -time -ele $FirstColumn section $numIntgrPts fiber $yFiber $zFiber $IDSteel  stressStrain;	# steel fiber stress-strain, node i
 
 # Define DISPLAY -------------------------------------------------------------
-DisplayModel3D DeformedShape ;	 # options: DeformedShape NodeNumbers ModeShape
+DisplayModel3D DeformedShape ; # options: DeformedShape NodeNumbers ModeShape
 
 # GRAVITY -------------------------------------------------------------
 # define GRAVITY load applied to beams and columns -- eleLoad applies loads in local coordinate axis
@@ -2122,20 +2122,20 @@ End Function
 \begin{sourcecode}{lisp}{Ejemplo en Lisp.}
 (defun find-symbol-between-sigma-sets (sigma-a sigma-b scan-node symbols g)
 	(let* ((scan-node-set-in-sigma-a (find-scan-node sigma-a scan-node))
-		   (next-scan-node-set-in-sigma-b 
+		(next-scan-node-set-in-sigma-b 
 			(get-next-node-set-from-scan-node-set 
-			 scan-node-set-in-sigma-a sigma-b g))
-		   (union-node-set-in-sigma-a 
+			scan-node-set-in-sigma-a sigma-b g))
+		(union-node-set-in-sigma-a 
 			(get-previous-nodes next-scan-node-set-in-sigma-b g)))
-	  (if 
-	   (and 
+	(if 
+		(and 
 		(memberp union-node-set-in-sigma-a scan-node-set-in-sigma-a)
 		(path-exists-between-set-a-and-set-b 
-		 union-node-set-in-sigma-a next-scan-node-set-in-sigma-b g))
-	   (car 
+		union-node-set-in-sigma-a next-scan-node-set-in-sigma-b g))
+		(car 
 		(unique-get-symbols 
-		 union-node-set-in-sigma-a next-scan-node-set-in-sigma-b symbols))
-	   nil)))
+		union-node-set-in-sigma-a next-scan-node-set-in-sigma-b symbols))
+	nil)))
 \end{sourcecode}
 
 \begin{sourcecode}{scheme}{Ejemplo en Scheme.}
@@ -2833,7 +2833,7 @@ endif ()
 if (MINGW_TARGET_NT5_1)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_WIN32_WINNT=0x501")
 	if (STATIC)
-	    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DCURL_STATICLIB=1 -DZIP_STATIC=1 -static")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DCURL_STATICLIB=1 -DZIP_STATIC=1 -static")
 	endif ()
 endif ()
 
