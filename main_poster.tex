@@ -18,37 +18,29 @@
 ]{beamer}
 
 % INFORMACIÓN DEL DOCUMENTO
-\def\documenttitle {Título de la presentación en portada}
-\def\documentsubject {Tema a tratar}
-
-\def\documentauthor {Nombre del autor}
-\def\coursename {Curso}
-\def\coursecode {CO-1234}
-
-\def\universityname {Universidad de Chile}
-\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
-\def\universitydepartment {Departamento de la Universidad}
-\def\universitydepartmentimage {departamentos/fcfm}
-\def\universitylocation {Santiago de Chile}
-
-% CONFIGURACIÓN DATOS BEAMER
-\title[\documentsubtitle]{\documenttitle}
-\subtitle{\documentsubject}
-\author[\documentauthor]{
-	\documentauthor,
-	\footnotesize \href{mailto:pablo@ppizarror.com}{pablo@ppizarror.com}
-}
-\institute[UChile]{
-	\includegraphics[height=1.1cm]{\universitydepartmentimage} \\
-	\medskip
-	\universityname \\
-	\universityfaculty \\
-	\universitydepartment
-}
-\date[\today]{\footnotesize{\today}}
+\def\documenttitle {Título del poster}
 
 % IMPORTACIÓN DEL TEMPLATE
 \input{template}
+
+% CONFIGURA BEAMER
+\author{
+	Pablo N. Pizarro \inst{a},
+	John Doe \inst{b}
+}
+\institute[shortinst]{
+	\inst{a} Universidad de Chile \\
+	\inst{c} Universidad 2
+}
+
+% \logoright{height=3.5cm}{logo2.pdf}
+% \logoleft{height=3.5cm{logo2.pdf}
+
+\footercontent{
+	\href{https://www.example.com}{https://www.example.com} \hfill
+	Título de la Conferencia, Santiago, Chile \hfill
+	\insertemail{pablo@ppizarror.com}
+}
 
 % INICIO DE LAS PÁGINAS
 \begin{document}
