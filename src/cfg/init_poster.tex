@@ -21,7 +21,7 @@
 % (N+1)*\sepwidth + N*\colwidth = \paperwidth
 \newlength{\sepwidth}
 \newlength{\colwidth}
-\setlength{\sepwidth}{0.025\paperwidth}
-\setlength{\colwidth}{0.4625\paperwidth}
+\setlength{\sepwidth}{\colseparation}
+\setlength{\colwidth}{\dimexpr(\paperwidth -\colnumbers\sepwidth -\sepwidth)/\colnumbers}
 
 % END
