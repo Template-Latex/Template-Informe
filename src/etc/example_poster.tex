@@ -9,13 +9,6 @@
 % Manual template: [https://latex.ppizarror.com/poster]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-\begin{frame}[fragile,t]
-\vspace{\baselineskip}%
-\begin{columns}[t]
-\separatorcolumn
-
-\begin{column}{\colwidth}
-
 \begin{block}{Introducción}
 	Este template permite crear pósters usando las funciones y entornos de toda la suite \href{https://latex.ppizarror.com/}{Template-Latex}. Los entornos para insertar imágenes, códigos fuente, tablas y otros elementos son las mismas que todos los demás, lo que facilita el uso y la migración entre estilos.
 	
@@ -34,6 +27,7 @@
 		
 	\end{alertblock}
 \end{block}
+
 
 \begin{block}{Insertar tablas}
 	Insertar tablas es muy fácil, para ello se deben usar exactamente los mismos comandos que en todo el resto de templates, dando soporte a celdas de colores, notas al pie, entre otros. También funcionan los plugins \cite{tablesgenerator, excel2latex}.
@@ -83,14 +77,12 @@
 	\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido \cite{einstein}.}
 \end{block}
 
-\end{column}
 
+% CREA UNA NUEVA COLUMNA
 \separatorcolumn
 
-\begin{column}{\colwidth}
 
 \begin{block}{Párrafos e imágenes múltiples}
-	
 	El entorno \textbf{imagesmc} ofrece funciones para insertar imágenes múltiples:
 	
 	\begin{images}{Ejemplo de imagen múltiple.}
@@ -121,31 +113,26 @@
 			\item Filosofía
 		\end{enumerate}
 	\end{multicols}
-	
-Para insertar códigos fuente el procedimiento es diferente, ya que los bloques insertados deben tener la etiqueta \textbf{[fragile]}, al igual que \href{https://latex.ppizarror.com/presentacion}{Template-Presentacion}.
+
+	Para insertar códigos fuente el procedimiento es diferente, ya que los bloques insertados deben tener la etiqueta \textbf{[fragile]}, al igual que \href{https://latex.ppizarror.com/presentacion}{Template-Presentacion}. Se recomienda no poner un código fuente dentro de \textbf{block} ya que ocurren errores a nivel de distancias para el caption.
+\end{block}
 
 \begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
-	import numpy as np
-	
-	def incmatrix(genl1, genl2):
-	m = len(genl1)
-	n = len(genl2)
-	M = None # Comentario 1
-	VT = np.zeros((n*m, 1), int) # Comentario 2
+import numpy as np
+
+def incmatrix(genl1, genl2):
+m = len(genl1)
+n = len(genl2)
+M = None # Comentario 1
+VT = np.zeros((n*m, 1), int) # Comentario 2
 \end{sourcecode}
 
-\lipsum[3]
 
+\begin{block}{}
+	\lipsum[6]
 \end{block}
+
 
 \begin{block}{Referencias}
-	
-	\small{\bibliography{library}}
-	
+	\bibliography{library}
 \end{block}
-
-\end{column}
-
-\separatorcolumn
-\end{columns}
-\end{frame}
