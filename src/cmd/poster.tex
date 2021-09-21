@@ -12,9 +12,24 @@
 % Configura el poster
 \title{\documenttitle}
 
+% Entorno del poster
+\newenvironment{poster}[1][]{%
+	\begin{frame}[fragile,t,environment=poster,#1]%
+	\begin{columns}[t]%
+	\begin{column}{\sepwidth}\end{column}%
+	\begin{column}{\colwidth}%
+	}{
+	\end{column}
+	\begin{column}{\sepwidth}\end{column}%
+	\end{columns}%Ç
+	\end{frame}%
+}
+
 % Separador de columnas
 \newcommand{\separatorcolumn}{%
+	\end{column}%
 	\begin{column}{\sepwidth}\end{column}%
+	\begin{column}{\colwidth}%
 }
 
 % Importa librerías
@@ -118,9 +133,9 @@
 % Bloques
 \setbeamertemplate{block begin}{%
 	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block title}%
-		% \vskip 0pt%
-		\usebeamerfont*{block title}\insertblocktitle%
+		\vskip 0pt%
 		\ifthenelse{\equal{\insertblocktitle}{}}{}{%
+			\usebeamerfont*{block title}\insertblocktitle%
 			\vskip -1.25ex%
 			\begin{beamercolorbox}[colsep=0.025ex]{block separator}\end{beamercolorbox}%
 		}
@@ -139,7 +154,7 @@
 	\setbeamertemplate{block end}%
 	{%
 	\end{beamercolorbox}%
-	% \vskip 0pt%
+	\vskip 0pt%
 	\vspace*{2ex}%
 }
 
@@ -147,7 +162,6 @@
 \setbeamertemplate{block alerted begin}{%
 	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block alerted title}%
 		% \vskip 0pt%
-		\usebeamerfont{block title}\insertblocktitle%
 		\ifthenelse{\equal{\insertblocktitle}{}}{}{%
 			\usebeamerfont{block title}\insertblocktitle%
 			\vskip -1.25ex%
