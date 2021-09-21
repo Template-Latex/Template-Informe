@@ -10,3 +10,180 @@
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
 % Configura el poster
+\title{\documenttitle}
+
+% Separador de columnas
+\newcommand{\separatorcolumn}{%
+	\begin{column}{\sepwidth}\end{column}%
+}
+
+% Importa librerías
+\usepackage[size=custom,width=\posterwidth,height=\posterheight,scale=1.0]{beamerposter}
+\usepackage{exscale}
+\changefontsizes{\documentfontsize pt}
+
+% Macros generales
+\newcommand{\samelineand}{%
+	\qquad%
+}
+
+% Heading
+%	#1	Contenido
+\newcommand{\heading}[1]{%
+	\par\bigskip%
+	{\usebeamerfont{heading}\usebeamercolor[fg]{heading}#1}%
+	\par%
+	\smallskip%
+}
+
+% Configura los logos
+\newlength{\logoleftwidth}
+\setlength{\logoleftwidth}{0cm}
+\newlength{\logorightwidth}
+\setlength{\logorightwidth}{0cm}
+\newlength{\maxlogowidth}
+\setlength{\maxlogowidth}{0cm}
+
+% Define logo izquierdo
+%	#1	Parámetros de la imagen
+%	#2	Archivo de imagen
+\newcommand{\logoleft}[2]{%
+	\newcommand{\insertlogoleft}{\includegraphics[#1]{#2}}%
+	\settowidth{\logoleftwidth}{\insertlogoleft}%
+	\addtolength{\logoleftwidth}{10ex}%
+	\setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}%
+}
+
+% Define logo derecho
+%	#1	Parámetros de la imagen
+%	#2	Archivo de imagen
+\newcommand{\logoright}[2]{%
+	\newcommand{\insertlogoright}{\includegraphics[#1]{#2}}%
+	\settowidth{\logorightwidth}{\insertlogoright}%
+	\addtolength{\logorightwidth}{10ex}%
+	\setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}%
+}
+
+% Define el headline
+\setbeamertemplate{headline}{%
+\begin{beamercolorbox}{headline}%
+	\begin{columns}%
+		\begin{column}{\maxlogowidth}%
+			\vskip5ex%
+			\centering%
+			\ifdefined%
+				\insertlogoleft%
+				\vspace*{\fill}%
+				\hspace*{0ex}%
+				% \raggedright
+				\insertlogoleft%
+				\vspace*{\fill}%
+			\else\fi%
+		\end{column}%
+		\begin{column}{\dimexpr\paperwidth-\maxlogowidth-\maxlogowidth}%
+			\usebeamerfont{headline}%
+			\vskip3ex%
+			\centering%
+			{\usebeamerfont{headline title}\usebeamercolor[fg]{headline title}%
+				\inserttitle\\[0.5ex]%
+			}%
+			\vspace{1cm}%
+			{\usebeamerfont{headline author}\usebeamercolor[fg]{headline author}%
+				\insertauthor\\[1ex]%
+			}%
+			\vspace{0.1cm}%
+			{\usebeamerfont{headline institute}\usebeamercolor[fg]{headline institute}%
+				\insertinstitute\\[1ex]%
+			}%
+		\end{column}
+		\begin{column}{\maxlogowidth}%
+			\centering%
+			\vskip5ex%
+			\ifdefined\insertlogoright%
+				\vspace*{\fill}%
+				% \raggedleft%
+				\insertlogoright%
+				\hspace{10ex}%
+				\vspace*{\fill}%
+			\else\fi%
+		\end{column}
+	\end{columns}
+	\vspace{3.5ex}%
+	\ifbeamercolorempty[bg]{headline rule}{}{%
+		\begin{beamercolorbox}[wd=\paperwidth,colsep=0.5ex]{headline rule}\end{beamercolorbox}%
+	}%
+\end{beamercolorbox}%
+}
+
+% Bloques
+\setbeamertemplate{block begin}{%
+	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block title}%
+		\vskip 0pt%
+		\usebeamerfont*{block title}\insertblocktitle%
+		\vskip -1.25ex%
+		\begin{beamercolorbox}[colsep=0.025ex]{block separator}\end{beamercolorbox}%
+	\end{beamercolorbox}%
+	{\parskip 0pt \par}%
+	\usebeamerfont{block body}%
+	\vskip -0.5ex%
+	\begin{beamercolorbox}[colsep*=0ex]{block body}%
+		\justifying%
+		\setlength{\parskip}{1ex}%
+		\vskip -2ex%
+	}%
+	\setbeamertemplate{block end}%
+	{%
+	\end{beamercolorbox}%
+	\vskip 0pt%
+	\vspace*{2ex}%
+}
+
+% Alertas
+\def\alerttopbar{true}
+\setbeamertemplate{block alerted begin}{%
+	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block alerted title}%
+		\vskip 0pt%
+		\usebeamerfont{block title}\insertblocktitle%
+		\vskip -1.25ex%
+		\begin{beamercolorbox}[colsep=0.025ex]{block alerted separator}\end{beamercolorbox}%
+	\end{beamercolorbox}%
+	{\parskip 0pt \par}%
+	\usebeamerfont{block body}%
+	\vskip -0.5ex%
+	\begin{beamercolorbox}[colsep*=0ex]{block alerted body}%
+		\justifying%
+		\begin{adjustwidth}{1ex}{1ex}%
+			\setlength{\parskip}{1ex}%
+			\vskip-2ex%
+		}%
+		\setbeamertemplate{block alerted end}%
+		{%
+		\end{adjustwidth}%
+		\vskip 1ex%
+	\end{beamercolorbox}%
+	\vskip 0pt%
+	\vspace*{2ex}%
+}
+
+% Footer
+%	#1	Contenido del footer
+\newcommand{\footercontent}[1]{%
+	\newcommand{\insertfootercontent}{#1}%
+}
+
+\setbeamertemplate{footline}{%
+	\ifdefined\insertfootercontent%
+	\begin{beamercolorbox}[vmode]{headline}%
+		\ifbeamercolorempty[bg]{headline rule}{}{%
+			\begin{beamercolorbox}[wd=\paperwidth,colsep=0.25ex]{headline rule}\end{beamercolorbox}%
+		}%
+		\vspace{1.5ex} % 0.5ex
+		\hspace{\sepwidth}%
+		\usebeamerfont{footline}%
+		\centering%
+		\insertfootercontent%
+		\hspace{\sepwidth}%
+		\vspace{1.5ex} %0.75ex
+	\end{beamercolorbox}%
+	\else\fi%
+}
