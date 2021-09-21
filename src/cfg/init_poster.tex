@@ -1,0 +1,32 @@
+% Configura las listas
+% -----------------------------------------------------------------------------
+\makeatletter
+\def\@listi{\leftmargin\leftmarginii
+	\topsep 1ex % espaciado anterior
+	\parsep 0\p@ \@plus\p@
+	\itemsep 0.5ex} % espaciado ítem
+\makeatother
+
+% Configura las ecuaciones
+% -----------------------------------------------------------------------------
+\setlength\belowdisplayshortskip{2ex}
+
+% Configura los caption
+% -----------------------------------------------------------------------------
+\setlength{\abovecaptionskip}{2ex}
+\setlength{\belowcaptionskip}{1ex}
+
+% Define el tamaño de las columnas
+% -----------------------------------------------------------------------------
+\setlength{\abovecaptionskip}{2ex}
+\setlength{\belowcaptionskip}{1ex}
+
+% Define el tamaño de página
+% -----------------------------------------------------------------------------
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.4625\paperwidth}
+
+% END

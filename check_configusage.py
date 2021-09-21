@@ -1,5 +1,6 @@
 # Chequea el total de configuraciones utilizados
-# uso: py -3 check_configusage.py ..\Template-Tesis
+# uso (win): py -3 check_configusage.py ..\Template-Tesis
+# uso (mac): python3 Template-Informe/check_configusage.py Template-Poster
 import sys
 assert len(sys.argv) == 2, 'Debe pasar path'
 p = sys.argv[1]
