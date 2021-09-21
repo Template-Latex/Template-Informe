@@ -108,7 +108,7 @@
 			\else\fi%
 		\end{column}
 	\end{columns}
-	\vspace{3.5ex}%
+	\vspace*{3.5ex}%
 	\ifbeamercolorempty[bg]{headline rule}{}{%
 		\begin{beamercolorbox}[wd=\paperwidth,colsep=0.5ex]{headline rule}\end{beamercolorbox}%
 	}%
@@ -118,12 +118,17 @@
 % Bloques
 \setbeamertemplate{block begin}{%
 	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block title}%
-		\vskip 0pt%
+		% \vskip 0pt%
 		\usebeamerfont*{block title}\insertblocktitle%
-		\vskip -1.25ex%
-		\begin{beamercolorbox}[colsep=0.025ex]{block separator}\end{beamercolorbox}%
+		\ifthenelse{\equal{\insertblocktitle}{}}{}{%
+			\vskip -1.25ex%
+			\begin{beamercolorbox}[colsep=0.025ex]{block separator}\end{beamercolorbox}%
+		}
 	\end{beamercolorbox}%
 	{\parskip 0pt \par}%
+	\ifthenelse{\equal{\insertblocktitle}{}}{%
+		\vspace{-1.25\baselineskip}%
+	}{}
 	\usebeamerfont{block body}%
 	\vskip -0.5ex%
 	\begin{beamercolorbox}[colsep*=0ex]{block body}%
@@ -134,18 +139,20 @@
 	\setbeamertemplate{block end}%
 	{%
 	\end{beamercolorbox}%
-	\vskip 0pt%
+	% \vskip 0pt%
 	\vspace*{2ex}%
 }
 
 % Alertas
-\def\alerttopbar{true}
 \setbeamertemplate{block alerted begin}{%
 	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block alerted title}%
-		\vskip 0pt%
+		% \vskip 0pt%
 		\usebeamerfont{block title}\insertblocktitle%
-		\vskip -1.25ex%
-		\begin{beamercolorbox}[colsep=0.025ex]{block alerted separator}\end{beamercolorbox}%
+		\ifthenelse{\equal{\insertblocktitle}{}}{}{%
+			\usebeamerfont{block title}\insertblocktitle%
+			\vskip -1.25ex%
+			\begin{beamercolorbox}[colsep=0.025ex]{block alerted separator}\end{beamercolorbox}%
+		}
 	\end{beamercolorbox}%
 	{\parskip 0pt \par}%
 	\usebeamerfont{block body}%
@@ -161,7 +168,7 @@
 		\end{adjustwidth}%
 		\vskip 1ex%
 	\end{beamercolorbox}%
-	\vskip 0pt%
+	% \vskip 0pt%
 	\vspace*{2ex}%
 }
 
