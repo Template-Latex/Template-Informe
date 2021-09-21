@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.5.3 (19/09/2021)
+% Versión:      7.5.4 (21/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -681,6 +681,21 @@
 \ifthenelse{\equal{\fontdocument}{raleway}}{
 	\usepackage[default]{raleway}
 }{
+\ifthenelse{\equal{\fontdocument}{ralewayblack}}{
+	\usepackage[black]{raleway}
+}{
+\ifthenelse{\equal{\fontdocument}{ralewayextralight}}{
+	\usepackage[extralight]{raleway}
+}{
+\ifthenelse{\equal{\fontdocument}{ralewaymedium}}{
+	\usepackage[medium]{raleway}
+}{
+\ifthenelse{\equal{\fontdocument}{ralewaylight}}{
+	\usepackage[light]{raleway}
+}{
+\ifthenelse{\equal{\fontdocument}{ralewaythin}}{
+	\usepackage[thin]{raleway}
+}{
 \ifthenelse{\equal{\fontdocument}{roboto}}{
 	\usepackage[sfdefault]{roboto}
 }{
@@ -737,8 +752,8 @@
 	\throwbadconfig[nostop]{Fuente desconocida}{\fontdocument}{(Fuentes recomendadas) lmodern,carial,arial2,times,mathptmx,helvet,opensans,mathpazo,cambria,libertine,custom}
 	\throwbadconfig[noheader-nostop]{Fuente desconocida}{\fontdocument}{(Fuentes adicionales) accanthis,alegreya,alegreyasans,algolrevived,almendra,antpolt,antpoltlight,anttor,anttorcondensed,anttorlight,anttorlightcondensed,arev,arimo,arvo,baskervald,baskervaldx,berasans,beraserif,biolinum,bitter,boisik,bookman,cabin,cabincondensed,cantarell,caladea,carlito,charterbt,chivolight,chivoregular,clara,clearsans,cochineal,coelacanth,coelacanthextralight,coelacanthlight,comfortaa,comicneue,comicneueangular,computerconcrete,computerconcreteeuler,computermodern,computermodernbright,crimson,crimsonpro,crimsonproextralight,crimsonprolight,crimsonpromedium,cyklop}
 	\throwbadconfig[noheader-nostop]{Fuente desconocida}{\fontdocument}{dejavusans,dejavusanscondensed,domitian,droidsans,electrum,erewhon,fbb,fetamont,firasans,firasansnewtxsf,fourier,fouriernc,gfsartemisia,gfsartemisiaeuler,heuristica,iwona,iwonacondensed,iwonalight,iwonalightcondensed,kerkis,kurier,kuriercondensed,kurierlight,kurierlightcondensed,lato,libertinus,librebaskerville,librebodoni,librecaslon,libris,lxfonts}
-	\throwbadconfig[noheader]{Fuente desconocida}{\fontdocument}{merriweather,merriweatherlight,mintspirit,mlmodern,montserratalternatesextralight,montserratalternatesregular,montserratalternatesthin,montserratextralight,montserratlight,montserratregular,montserratthin,newpx,nimbussans,noto,notoserif,opensansserif,overlock,paratype,paratypesanscaption,paratypesansnarrow,pxfonts,quattrocento,raleway,roboto,robotolight,robotolightcondensed,robotothin,rosario,sourcesanspro,step,stickstoo,uarial,texgyrebonum,txfonts,ugq,universalis,universaliscondensed,venturis}
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+	\throwbadconfig[noheader]{Fuente desconocida}{\fontdocument}{merriweather,merriweatherlight,mintspirit,mlmodern,montserratalternatesextralight,montserratalternatesregular,montserratalternatesthin,montserratextralight,montserratlight,montserratregular,montserratthin,newpx,nimbussans,noto,notoserif,opensansserif,overlock,paratype,paratypesanscaption,paratypesansnarrow,pxfonts,quattrocento,raleway,ralewayblack,ralewayextralight,ralewaymedium,ralewaylight,ralewaythin,roboto,robotolight,robotolightcondensed,robotothin,rosario,sourcesanspro,step,stickstoo,uarial,texgyrebonum,txfonts,ugq,universalis,universaliscondensed,venturis}
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 
 % -----------------------------------------------------------------------------
@@ -4145,8 +4160,8 @@
 
 % Elixir
 \lstdefinestyle{elixir}{
-	 morekeywords={
-		 case,catch,def,do,else,false,use,alias,receive,timeout,defmacro,defp,for,if,import,defmodule,defprotocol,nil,defmacrop,defoverridable,defimpl,super,fn,raise,true,try,end,with,unless
+	morekeywords={
+		case,catch,def,do,else,false,use,alias,receive,timeout,defmacro,defp,for,if,import,defmodule,defprotocol,nil,defmacrop,defoverridable,defimpl,super,fn,raise,true,try,end,with,unless
 	},
 	otherkeywords={
 		<-,->, |>, \%\{, \}, \{, \, (, )
@@ -4861,7 +4876,7 @@
 		{“}{{``}}1 {”}{{''}}1 {…}{{$\ldots$}}1 {`}{\`}1 {–}{{--}}1,
 	numbers=left,
 	numbersep={\sourcecodenumbersep pt},
-	numberstyle=\tiny\color{dkgray},
+	numberstyle=\sourcecodenumbersize\color{dkgray},
 	postbreak=\mbox{$\hookrightarrow$\space},
 	showspaces=false,
 	showstringspaces=false,
@@ -5173,16 +5188,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={19/09/2021},
+		Template.Date={21/09/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.5.3},
-		Template.Version.Hash={EFA27FD67FFA141DE5D5BA27F48E9729},
-		Template.Version.Release={7.5.3},
+		Template.Version.Dev={7.5.4},
+		Template.Version.Hash={5A2EC44AF4E1158C4A0D1CC305A2CFE4},
+		Template.Version.Release={7.5.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5194,7 +5209,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.5.3 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.5.4 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5852,9 +5867,9 @@
 % Configura métodos aplicados al iniciar el documento
 % -----------------------------------------------------------------------------
 \AtBeginDocument{%
-	 \normalfont%
-	 \setlength{\parindent}{\documentparindent pt}%
-	 \setlength{\parskip}{\documentparskip pt}%
+	\normalfont%
+	\setlength{\parindent}{\documentparindent pt}%
+	\setlength{\parskip}{\documentparskip pt}%
 }
 
 % -----------------------------------------------------------------------------

@@ -2,7 +2,7 @@
   <a href="https://latex.ppizarror.com/informe" title="Template-Informe">
     <img alt="Template-Informe" src="https://latex.ppizarror.com/res/favicon-informe/icon.png" width="200px" height="200px" />
   </a>
-  <br /><br />
+  <br><br>
   Template-Informe</h1>
 <p align="center">Template de informe en LaTeX para tareas y trabajos</p>
 <div align="center"><a href="https://ppizarror.com"><img alt="@ppizarror" src="https://latex.ppizarror.com/res/badges/autor.svg" /></a>
@@ -19,7 +19,7 @@
 <a href="https://github.com/Template-Latex/Template-Tesis/"><img alt="Template-Tesis" src="https://latex.ppizarror.com/res/badges/tesis.svg" /></a>
 <a href="https://github.com/Template-Latex/Professional-CV/"><img alt="Professional-CV" src="https://latex.ppizarror.com/res/badges/professionalcv.svg" /></a>
 
-</div><br />
+</div><br>
 
 Este corresponde a un template para confeccionar informes en Latex, contiene funciones básicas para agregar imágenes, párrafos, fórmulas, etc.
 
