@@ -10,10 +10,6 @@
 	\def\itemizedeleteleftmargin {true}
 	\def\posterheight {83}
 	\def\posterwidth {66}
-	\def\tabularframeopacity {0.4}
-	\def\tabularframepaddingleft {0.2}
-	\def\tabularframepaddingright {0.2}
-	\def\tabularframepaddingtop {0.15}
 	
 	% CONFIGURA LOS BLOQUES, VALORES EN [EM]
 	\def\blockmarginbottom {1}
@@ -36,6 +32,7 @@
 	\setbeamercolor{bibliography entry title}{fg=black}
 	\setbeamercolor{bibliography entry location}{fg=black}
 	\setbeamercolor{bibliography entry note}{fg=black}
+	\setbeamertemplate{bibliography item}[text]
 	
 	% Bloque
 	\setbeamercolor{block title}{fg=mitred,bg=white}
@@ -60,10 +57,23 @@
 	
 	% Caption
 	\setbeamerfont{caption}{size=\small}
+	\setbeamertemplate{caption}[numbered]
+	\setbeamertemplate{caption label separator}[period]
 	
 	% Ítems
 	\setbeamercolor{item}{fg=mitred}
+	\setbeamertemplate{itemize item}{\raise0.5ex \hbox{\vrule width 0.5ex height 0.5ex}}
+	\setbeamertemplate{itemize subitem}{\raise0.3ex \hbox{\vrule width 0.5ex height 0.5ex}}
+	\setbeamertemplate{itemize subsubitem}{\raise0.2ex \hbox{\vrule width 0.5ex height 0.5ex}}
 	
+	% Enumerate
+	\setbeamertemplate{enumerate item}{\insertenumlabel.}
+	\setbeamertemplate{enumerate subitem}{\insertsubenumlabel.}
+	\setbeamertemplate{enumerate subsubitem}{\insertsubsubenumlabel.}
+	
+	% Navegación
+	\beamertemplatenavigationsymbolsempty
+
 	% Pie de página
 	\setbeamerfont{footline}{size=\normalsize}
 	
