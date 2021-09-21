@@ -1,0 +1,76 @@
+% Template:     Poster LaTeX
+% Documento:    Núcleo del template
+% Versión:      DEV
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/poster]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% -----------------------------------------------------------------------------
+% CONFIGURACIONES
+% -----------------------------------------------------------------------------
+% Definiciones previas
+\definecolor{beige}{RGB}{210,194,149}
+\definecolor{beigegray}{RGB}{95,87,79}
+\definecolor{boxgray}{RGB}{238,235,233}
+\definecolor{cardinalred}{RGB}{140,21,21}
+\definecolor{coolgray}{RGB}{77,79,83}
+\definecolor{darkbeige}{RGB}{179,153,93}
+\definecolor{darkcardinal}{RGB}{94,48,50}
+\definecolor{darkcyan}{RGB}{0,124,146}
+\definecolor{darkorange}{RGB}{168,101,12}
+\definecolor{darkpurple}{RGB}{83,40,79}
+\definecolor{footergray}{RGB}{199,209,197}
+\definecolor{lightcardinal}{RGB}{141,60,30}
+\definecolor{lightgray}{RGB}{240,240,240}
+\definecolor{mitdarkgray}{cmyk}{0.48,0.39,0.39,0.04}
+\definecolor{mitlightgray}{cmyk}{0.24,0.20,0.20,0}
+\definecolor{mitred}{cmyk}{0.24,1,0.78,0.17}
+\definecolor{skyblue}{RGB}{0,152,219}
+\definecolor{treegreen}{RGB}{0,155,118}
+\input{src/defs}
+
+% Ajustes usuario
+\input{src/config}
+
+% -----------------------------------------------------------------------------
+% IMPORTACIÓN DE LIBRERÍAS
+% -----------------------------------------------------------------------------
+\input{src/env/imports}
+
+% -----------------------------------------------------------------------------
+% IMPORTACIÓN DE FUNCIONES Y ENTORNOS
+% -----------------------------------------------------------------------------
+\input{src/cmd/core}
+\input{src/cmd/math}
+\input{src/cmd/equation}
+\input{src/cmd/image}
+\input{src/cmd/title}
+\input{src/cmd/other}
+\input{src/cmd/column}
+\input{src/env/environments}
+
+% -----------------------------------------------------------------------------
+% IMPORTACIÓN DE ESTILOS
+% -----------------------------------------------------------------------------
+\input{src/style/color}
+\input{src/style/code}
+\input{src/style/other}
+
+% -----------------------------------------------------------------------------
+% CONFIGURACIÓN INICIAL DEL DOCUMENTO
+% -----------------------------------------------------------------------------
+\input{src/cfg/init}
+
+% -----------------------------------------------------------------------------
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+% -----------------------------------------------------------------------------
+\input{src/cfg/page}
+
+% -----------------------------------------------------------------------------
+% CONFIGURACIONES FINALES
+% -----------------------------------------------------------------------------
+\input{src/cfg/final}
