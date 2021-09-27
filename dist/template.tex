@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.5.4 (21/09/2021)
+% Versión:      7.5.5 (27/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -53,10 +53,11 @@
 \usepackage{ifthen}
 
 % Carga el idioma
-\ifthenelse{\equal{\usespanishbabel}{true}}{
-	\usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel}}{
-\ifthenelse{\equal{\useenglishbabel}{true}}{
-	\usepackage[english]{babel}}{}
+\usepackage{tracklang}
+\IfTrackedLanguage{spanish}{
+	\usepackage[es-nosectiondot,es-lcroman,es-noquoting]{babel}
+}{ % english, otros
+	\usepackage{babel}
 }
 
 % Cambia el estilo de los títulos
@@ -3052,7 +3053,7 @@
 	\phantomsection%
 	\needspace{3\baselineskip}%
 	\vspace* {3cm}%
-	\noindent {\huge{\textbf{\nomchapter\ \thesection}}} \\%
+	\noindent {\huge{\textbf{\namechapter\ \thesection}}} \\%
 	\vspace* {0.5cm} \\%
 	\noindent {\Huge{\textbf{#1}}} \\%
 	\vspace {0.5cm} \\%
@@ -3675,7 +3676,7 @@
 	\begingroup % Inicia el grupo en nueva página y sección
 	% \clearpage
 	\phantomsection
-	\changeheadertitle{\nomltappendixsection} % Cambia el nombre del header
+	\changeheadertitle{\nameltappendixsection} % Cambia el nombre del header
 	\global\def\GLOBALsectionalph {true} % Modifica formato de secciones con sección alph
 	\bookmarksetup{
 		numbered={true},
@@ -3793,12 +3794,12 @@
 %	#2	Estilo de código
 %	#3	Parámetros
 %	#4	Caption
-\lstnewenvironment{sourcecodep}[4][]{
-	\coreinitsourcecodep{#1}{#2}{#3}{#4}
-}{
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
+\lstnewenvironment{sourcecodep}[4][]{%
+	\coreinitsourcecodep{#1}{#2}{#3}{#4}%
+}{%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
+	}%
 }
 
 % Importa código fuente desde un archivo con parámetros
@@ -3807,12 +3808,12 @@
 %	#3	Parámetros
 %	#4	Archivo de código fuente
 %	#5	Caption
-\newcommand{\importsourcecodep}[5][]{
-	\coreinitsourcecodep{#1}{#2}{#3}{#5}
-	\inputlisting{#4}
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
+\newcommand{\importsourcecodep}[5][]{%
+	\coreinitsourcecodep{#1}{#2}{#3}{#5}%
+	\inputlisting{#4}%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
+	}%
 }
 
 % Inicia código fuente sin parámetros
@@ -3864,11 +3865,11 @@
 %	#2	Estilo de código
 %	#3	Caption
 \lstnewenvironment{sourcecode}[3][]{%
-	\coreinitsourcecode{#1}{#2}{#3}
+	\coreinitsourcecode{#1}{#2}{#3}%
 }{%
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
+	}%
 }
 
 % Importa código fuente desde un archivo sin parámetros
@@ -4815,15 +4816,18 @@
 % Configuración de códigos fuente
 % -----------------------------------------------------------------------------
 \lstset{
-	aboveskip=0.75em,
+	aboveskip=\sourcecodeskipabove em,
 	basicstyle={\sourcecodefonts\sourcecodefontf\color{\maintextcolor}},
-	belowskip=1em,
+	belowskip=\sourcecodeskipbelow em,
 	breaklines=true,
 	columns=fullflexible,
 	commentstyle=\color{dkgreen}\upshape,
 	extendedchars=true,
 	fontadjust=true,
-	% fancyvrb=false,
+	frame=ltb,
+	framerule=0pt,
+	framexleftmargin=\sourcecodebtmargin pt,
+	framextopmargin=\sourcecodebtmargin pt,
 	identifierstyle=\color{\maintextcolor},
 	keepspaces=true,
 	keywordstyle=\color{blue},
@@ -5188,16 +5192,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={21/09/2021},
+		Template.Date={27/09/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.5.4},
-		Template.Version.Hash={5A2EC44AF4E1158C4A0D1CC305A2CFE4},
-		Template.Version.Release={7.5.4},
+		Template.Version.Dev={7.5.5},
+		Template.Version.Hash={67CE40E08E55AE68D13C0F59FDDAD53D},
+		Template.Version.Release={7.5.5},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5209,7 +5213,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.5.4 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.5.5 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5509,7 +5513,7 @@
 % -----------------------------------------------------------------------------
 % Crea índice de ecuaciones
 % -----------------------------------------------------------------------------
-\newcommand{\listindexequationsname}{\nomlteqn}
+\newcommand{\listindexequationsname}{\namelteqn}
 \newlistof{myindexequations}{equ}{\listindexequationsname}
 \newcommand{\myindexequations}[1]{
 	\addcontentsline{equ}{myindexequations}{\protect\numberline{\theequation}#1}
@@ -6894,18 +6898,19 @@
 	% -------------------------------------------------------------------------
 	% Definición de nombres de objetos
 	% -------------------------------------------------------------------------
-	\renewcommand{\appendixname}{\nomltappendixsection} % Nombre del anexo (título)
+	\renewcommand{\abstractname}{\nameabstract} % Nombre del abstract
+	\renewcommand{\appendixname}{\nameltappendixsection} % Nombre del anexo (título)
 	\renewcommand{\appendixpagename}{\nameappendixsection} % Nombre del anexo en índice
 	\renewcommand{\appendixtocname}{\nameappendixsection} % Nombre del anexo en índice
-	\renewcommand{\contentsname}{\nomltcont} % Nombre del índice
-	\renewcommand{\figurename}{\nomltwfigure} % Nombre de la leyenda de las fig.
-	\renewcommand{\listfigurename}{\nomltfigure} % Nombre del índice de figuras
-	\renewcommand{\listtablename}{\nomlttable} % Nombre del índice de tablas
-	\renewcommand{\lstlistingname}{\nomltwsrc} % Nombre leyenda del código fuente
-	\renewcommand{\lstlistlistingname}{\nomltsrc} % Nombre índice código fuente
+	\renewcommand{\contentsname}{\nameltcont} % Nombre del índice
+	\renewcommand{\figurename}{\nameltwfigure} % Nombre de la leyenda de las fig.
+	\renewcommand{\listfigurename}{\nameltfigure} % Nombre del índice de figuras
+	\renewcommand{\listtablename}{\namelttable} % Nombre del índice de tablas
+	\renewcommand{\lstlistingname}{\nameltwsrc} % Nombre leyenda del código fuente
+	\renewcommand{\lstlistlistingname}{\nameltsrc} % Nombre índice código fuente
 	\renewcommand{\refname}{\namereferences} % Nombre de las referencias (bibtex)
 	\renewcommand{\bibname}{\namereferences} % Nombre de las referencias (natbib)
-	\renewcommand{\tablename}{\nomltwtable} % Nombre de la leyenda de tablas
+	\renewcommand{\tablename}{\nameltwtable} % Nombre de la leyenda de tablas
 	
 	% -------------------------------------------------------------------------
 	% Estilo de títulos
@@ -7493,7 +7498,7 @@
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{
 				\fancyhead[L]{\nouppercase{\rightmark}}
 			}{}
-			\fancyhead[R]{\small \thepage \nomnpageof \pageref{TotPages}}
+			\fancyhead[R]{\small \thepage \namepageof \pageref{TotPages}}
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{
 				\fancyfoot[L]{
 					\begin{minipage}[t]{\hfwidthtitle\linewidth}
@@ -7524,7 +7529,7 @@
 		\newcommand{\COREstyledefinition}{
 			\fancyhf{}
 			\fancyfoot[L]{\universitydepartment}
-			\fancyfoot[C]{\thepage \nomnpageof \pageref{TotPages}}
+			\fancyfoot[C]{\thepage \namepageof \pageref{TotPages}}
 			\fancyfoot[R]{\universityname}
 			\renewcommand{\headrulewidth}{0pt}
 			\renewcommand{\footrulewidth}{0pt}
@@ -7551,7 +7556,7 @@
 				\coreinsertkeyimage{\hfheaderimageparamsA}{\universitydepartmentimage}%
 				\vspace{-0.15cm}%
 			}
-			\fancyfoot[C]{\thepage \nomnpageof \pageref{TotPages}}
+			\fancyfoot[C]{\thepage \namepageof \pageref{TotPages}}
 			\renewcommand{\headrulewidth}{0.5pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
@@ -7565,7 +7570,7 @@
 				\fancyhead[L]{\nouppercase{\rightmark}}
 			}{}
 			\fancyhead[R]{}
-			\fancyfoot[C]{\small \thepage \nomnpageof \pageref{TotPages}}
+			\fancyfoot[C]{\small \thepage \namepageof \pageref{TotPages}}
 			\renewcommand{\headrulewidth}{0.5pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
@@ -7620,16 +7625,6 @@
 		\linenumbers}{
 	}
 	
-	% -------------------------------------------------------------------------
-	% Configura el nombre del abstract
-	% -------------------------------------------------------------------------
-	\ifthenelse{\isundefined{\abstractname}}{
-		\newcommand{\abstractname}{\nameabstract}
-		\throwwarning{La variable \noexpand\abstractname no existe, lo que indica que la libreria babel no se ha cargado. Si ha desactivado la configuracion \noexpand\usespanishbabel debe cargar manualmente la libreria babel con algun otro idioma, como por ejemplo \noexpand\usepackage[english]{babel}, o bien define en true la configuracion \noexpand\useenglishbabel}
-	}{
-		\renewcommand{\abstractname}{\nameabstract}
-	}
-	
 }
 
 % -----------------------------------------------------------------------------
@@ -7664,7 +7659,7 @@
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\addindextobookmarks}{true}}{
 		\phantomsection
-		\belowpdfbookmark{\nomltcont}{contents}}{
+		\belowpdfbookmark{\nameltcont}{contents}}{
 	}
 	\tocloftpagestyle{fancy}
 	
@@ -7911,7 +7906,7 @@
 			\ifthenelse{\equal{\addindextobookmarks}{true}}{
 				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{
 					\phantomsection
-					\belowpdfbookmark{\nomltfigure}{clof}}{}}{
+					\belowpdfbookmark{\nameltfigure}{clof}}{}}{
 			}
 			\listoffigures
 		\fi
@@ -7922,7 +7917,7 @@
 			\ifthenelse{\equal{\addindextobookmarks}{true}}{
 				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{
 					\phantomsection
-					\belowpdfbookmark{\nomlttable}{clot}}{}}{
+					\belowpdfbookmark{\namelttable}{clot}}{}}{
 			}
 			\listoftables
 		\fi
@@ -7933,7 +7928,7 @@
 			\ifthenelse{\equal{\addindextobookmarks}{true}}{
 				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{
 					\phantomsection
-					\belowpdfbookmark{\nomltsrc}{clsrc}}{}}{
+					\belowpdfbookmark{\nameltsrc}{clsrc}}{}}{
 			}
 			\lstlistoflistings
 		\fi
@@ -7944,7 +7939,7 @@
 			\ifthenelse{\equal{\addindextobookmarks}{true}}{
 				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{
 					\phantomsection
-					\belowpdfbookmark{\nomlteqn}{cleqn}}{}}{
+					\belowpdfbookmark{\namelteqn}{cleqn}}{}}{
 			}
 			\listofmyindexequations
 		\fi
