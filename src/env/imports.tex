@@ -37,10 +37,11 @@
 \usepackage{ifthen}
 
 % Carga el idioma
-\ifthenelse{\equal{\usespanishbabel}{true}}{
-	\usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel}}{
-\ifthenelse{\equal{\useenglishbabel}{true}}{
-	\usepackage[english]{babel}}{}
+\usepackage{tracklang}
+\IfTrackedLanguage{spanish}{
+	\usepackage[es-nosectiondot,es-lcroman,es-noquoting]{babel}
+}{ % english, otros
+	\usepackage{babel}
 }
 
 % Cambia el estilo de los títulos
