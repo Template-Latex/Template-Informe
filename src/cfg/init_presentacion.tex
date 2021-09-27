@@ -48,24 +48,57 @@
 % -----------------------------------------------------------------------------
 % \let\Tiny=\tiny % https://tex.stackexchange.com/q/58087/5764
 \renewcommand{\insertshorttitle}{\documentsubtitle}
+\setbeamercolor{background canvas}{bg=\pagescolor}
 
 % Configura los bloques
 % -----------------------------------------------------------------------------
-\addtobeamertemplate{block begin}{
-}{
+% Normal
+\addtobeamertemplate{block begin}{}{
 	\setlength\abovedisplayskip{0pt}%
-	\vspace{\dimexpr-0.7em + \blockpaddingtop em} % Padding superior
+	\vspace{\dimexpr-0.7em + \blockpaddingtop em} % Padding superior bloque
 	\begin{adjustwidth}{%
-		\dimexpr-0.4em + \blockpaddingleft em % Padding izquierdo
+		\dimexpr-0.4em + \blockpaddingleft em % Padding izquierdo bloque
 	}{
-		\dimexpr-0.4em + \blockpaddingright em % Padding derecho
+		\dimexpr-0.4em + \blockpaddingright em % Padding derecho bloque
 	}
 }
 \addtobeamertemplate{block end}{
 	\end{adjustwidth}
-	\vspace{\dimexpr-0.6em + \blockpaddingbottom em} % Padding inferior
+	\vspace{\dimexpr-0.6em + \blockpaddingbottom em} % Padding inferior bloque
 }{
-	\vspace{\dimexpr-1em + \blockmarginbottom em} % Margen inferior de los bloques
+	\vspace{\dimexpr-1.07em + \blockmarginbottom em} % Margen inferior bloque
+}
+% Alerta
+\addtobeamertemplate{block alerted begin}{}{
+	\setlength\abovedisplayskip{0pt}%
+	\vspace{\dimexpr-0.7em + \blockpaddingtop em} % Padding superior alerta
+	\begin{adjustwidth}{%
+			\dimexpr-0.4em + \blockpaddingleft em % Padding izquierdo alerta
+		}{
+			\dimexpr-0.4em + \blockpaddingright em % Padding derecho alerta
+		}
+	}
+\addtobeamertemplate{block alerted end}{
+	\end{adjustwidth}
+	\vspace{\dimexpr-0.6em + \blockpaddingbottom em} % Padding inferior alerta
+}{
+	\vspace{\dimexpr-1.07em + \blockmarginbottom em} % Margen inferior alerta
+}
+% Ejemplo
+\addtobeamertemplate{block example begin}{}{
+	\setlength\abovedisplayskip{0pt}%
+	\vspace{\dimexpr-0.7em + \blockpaddingtop em} % Padding superior ejemplo
+	\begin{adjustwidth}{%
+			\dimexpr-0.4em + \blockpaddingleft em % Padding izquierdo ejemplo
+		}{
+			\dimexpr-0.4em + \blockpaddingright em % Padding derecho ejemplo
+		}
+	}
+\addtobeamertemplate{block example end}{
+	\end{adjustwidth}
+	\vspace{\dimexpr-0.6em + \blockpaddingbottom em} % Padding inferior ejemplo
+}{
+	\vspace{\dimexpr-1.07em + \blockmarginbottom em} % Margen inferior ejemplo
 }
 
 % Definición de entornos beamer
@@ -74,6 +107,16 @@
 	\begin{block}#2{#1}\justifying
 }{%
 	\end{block}
+}
+\newenvironment<>{alertblockjustified}[1]{%
+	\begin{alertblock}#2{#1}\justifying
+}{%
+	\end{alertblock}
+}
+\newenvironment<>{exampleblockjustified}[1]{%
+	\begin{exampleblock}#2{#1}\justifying
+}{%
+	\end{exampleblock}
 }
 
 % Reinicia número de subfiguras y subtablas
