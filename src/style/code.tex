@@ -817,15 +817,18 @@
 % Configuración de códigos fuente
 % -----------------------------------------------------------------------------
 \lstset{
-	aboveskip=0.75em,
+	aboveskip=\sourcecodeskipabove em,
 	basicstyle={\sourcecodefonts\sourcecodefontf\color{\maintextcolor}},
-	belowskip=1em,
+	belowskip=\sourcecodeskipbelow em,
 	breaklines=true,
 	columns=fullflexible,
 	commentstyle=\color{dkgreen}\upshape,
 	extendedchars=true,
 	fontadjust=true,
-	% fancyvrb=false,
+	frame=ltb,
+	framerule=0pt,
+	framexleftmargin=\sourcecodebtmargin pt,
+	framextopmargin=\sourcecodebtmargin pt,
 	identifierstyle=\color{\maintextcolor},
 	keepspaces=true,
 	keywordstyle=\color{blue},
