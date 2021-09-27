@@ -2,14 +2,10 @@
 % https://latex.ppizarror.com/doc/beameruserguide.pdf
 \mode<presentation> {
 	
-	% IDIOMA
-	\uselanguage{spanish}
-	\languagepath{spanish}
-	
 	% CONFIGURACIONES GENERALES
 	\def\colnumbers {2}
 	\def\colseparation {0.03\paperwidth}
-	\def\posterheight {83}
+	\def\posterheight {82}
 	\def\posterwidth {66}
 	
 	% CONFIGURA LOS BLOQUES, VALORES EN [EM]
@@ -18,6 +14,13 @@
 	\def\blockpaddingleft {0.6}
 	\def\blockpaddingright {0.6}
 	\def\blockpaddingtop {0.75}
+	
+	% ESTILO BLOQUES ALERT/EXAMPLE
+	\def\blockaemarginbottom {1}
+	\def\blockaepaddingbottom {0.6}
+	\def\blockaepaddingleft {0.6}
+	\def\blockaepaddingright {0.6}
+	\def\blockaepaddingtop {0.75}
 	
 	% CONFIGURACIÓN DE COLORES Y FUENTES
 	% Básicos
@@ -42,13 +45,17 @@
 	\setbeamerfont{block title}{size=\Large,series=\bfseries}
 	
 	% Bloque de alerta
-	\setbeamercolor{block alerted title}{fg=mitred,bg=lightgray}
-	\setbeamercolor{block alerted separator}{bg=black}
-	\setbeamercolor{block alerted body}{fg=black,bg=lightgray}
-	\setbeamercolor{block example body}{fg=black,bg=lightgray}
+	\setbeamercolor{block alerted title}{fg=white,bg=mitred}
+	\setbeamercolor{block alerted separator}{bg=white}
+	\setbeamercolor{block alerted body}{fg=white,bg=mitred}
+	
+	% Bloque de ejemplo
+	\setbeamercolor{block example title}{fg=mitred,bg=lgray}
+	\setbeamercolor{block example separator}{bg=black}
+	\setbeamercolor{block example body}{fg=black,bg=lgray}
 	
 	% Cabecera y Títulos
-	\setbeamercolor{headline}{fg=black,bg=lightgray}
+	\setbeamercolor{headline}{fg=black,bg=lgray}
 	\setbeamercolor{heading}{fg=black}
 	\setbeamerfont{headline}{}
 	\setbeamerfont{headline title}{size=\huge,series=\bfseries}
