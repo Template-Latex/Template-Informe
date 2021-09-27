@@ -166,12 +166,12 @@
 %	#2	Estilo de código
 %	#3	Parámetros
 %	#4	Caption
-\lstnewenvironment{sourcecodep}[4][]{
-	\coreinitsourcecodep{#1}{#2}{#3}{#4}
-}{
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
+\lstnewenvironment{sourcecodep}[4][]{%
+	\coreinitsourcecodep{#1}{#2}{#3}{#4}%
+}{%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
+	}%
 }
 
 % Importa código fuente desde un archivo con parámetros
@@ -180,12 +180,12 @@
 %	#3	Parámetros
 %	#4	Archivo de código fuente
 %	#5	Caption
-\newcommand{\importsourcecodep}[5][]{
-	\coreinitsourcecodep{#1}{#2}{#3}{#5}
-	\inputlisting{#4}
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
+\newcommand{\importsourcecodep}[5][]{%
+	\coreinitsourcecodep{#1}{#2}{#3}{#5}%
+	\inputlisting{#4}%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
+	}%
 }
 
 % Inicia código fuente sin parámetros
@@ -237,11 +237,11 @@
 %	#2	Estilo de código
 %	#3	Caption
 \lstnewenvironment{sourcecode}[3][]{%
-	\coreinitsourcecode{#1}{#2}{#3}
+	\coreinitsourcecode{#1}{#2}{#3}%
 }{%
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
+	}%
 }
 
 % Importa código fuente desde un archivo sin parámetros

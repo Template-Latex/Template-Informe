@@ -10,13 +10,13 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 \begin{block}{Introducción}
-	Este template permite crear pósters usando las funciones y entornos de toda la suite \href{https://latex.ppizarror.com/}{Template-Latex}. Los entornos para insertar imágenes, códigos fuente, tablas y otros elementos son las mismas que todos los demás, lo que facilita el uso y la migración entre estilos.
+	Este template permite crear pósters usando las funciones y entornos de toda la suite \href{https://latex.ppizarror.com/}{Template-Latex}. Los entornos para insertar imágenes, códigos fuente, tablas y otros elementos son exactamente los mismos, lo que facilita el uso y la migración entre estilos.
 	
 	\insertimage{test-image}{width=0.75\colwidth}{Ejemplo de imagen.}
 	
 	\begin{alertblock}{}
 		
-		Template-Poster, basado en el proyecto \href{https://github.com/anishathalye/gemini}{gemini}, ofrece la posibilidad de ser compilado en múltiples sistemas, como overleaf o texstudio sin requerir de comandos por terminal ni makefiles.
+		Template-Poster, basado en el proyecto \href{https://github.com/anishathalye/gemini}{gemini}, ofrece la posibilidad de ser compilado en múltiples sistemas, como overleaf o texstudio sin requerir de complicados comandos por terminal ni de makefiles.
 		
 		\begin{itemize}
 			\item Fácil de usar \cite{template}
@@ -114,21 +114,22 @@
 		\end{enumerate}
 	\end{multicols}
 
-	Para insertar códigos fuente el procedimiento es diferente, ya que los bloques insertados deben tener la etiqueta \textbf{[fragile]}, al igual que \href{https://latex.ppizarror.com/presentacion}{Template-Presentacion}. Se recomienda no poner un código fuente dentro de \textbf{block} ya que ocurren errores a nivel de distancias para el caption.
-\end{block}
+	Para insertar códigos fuente el procedimiento es igual que el resto de templates:
 
-\begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
-import numpy as np
+\begin{sourcecode}{matlab}{Ejemplo en Matlab.}
+% Se crea gráfico
+f = figure(1); hold on; movegui(f, 'center');
+xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
 
-def incmatrix(genl1, genl2):
-m = len(genl1)
-n = len(genl2)
-M = None # Comentario 1
-VT = np.zeros((n*m, 1), int) # Comentario 2
+for j = 1:length(BETA)
+	fad = ones(1, NDATOS); % Arreglo para el FAD
+	for i = 1:NDATOS
+		[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
+		fad(i) = max(abs(u_t)) / uf0;
+	end
+end
 \end{sourcecode}
 
-
-\begin{block}{}
 	\lipsum[6]
 \end{block}
 
