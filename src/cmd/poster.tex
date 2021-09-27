@@ -11,6 +11,7 @@
 
 % Configura el poster
 \title{\documenttitle}
+\setbeamercolor{background canvas}{bg=\pagescolor}
 
 % Entorno del poster
 \newenvironment{poster}[1][]{%
@@ -142,7 +143,7 @@
 	\end{beamercolorbox}%
 	{\parskip 0pt \par}%
 	\ifthenelse{\equal{\insertblocktitle}{}}{%
-		\vspace{-1.25\baselineskip}%
+		\vspace{-1.65\baselineskip}%
 	}{}
 	\usebeamerfont{block body}%
 	\vskip -0.5ex%
@@ -158,29 +159,65 @@
 	\vspace*{2ex}%
 }
 
-% Alertas
+% Bloque Alerta
 \setbeamertemplate{block alerted begin}{%
 	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block alerted title}%
-		% \vskip 0pt%
+		\vskip 0pt%
 		\ifthenelse{\equal{\insertblocktitle}{}}{}{%
 			\usebeamerfont{block title}\insertblocktitle%
 			\vskip -1.25ex%
 			\begin{beamercolorbox}[colsep=0.025ex]{block alerted separator}\end{beamercolorbox}%
+			\vskip -0.75ex%
 		}
 	\end{beamercolorbox}%
 	{\parskip 0pt \par}%
+	\ifthenelse{\equal{\insertblocktitle}{}}{%
+		\vspace{-1.65\baselineskip}%
+	}{}
 	\usebeamerfont{block body}%
 	\vskip -0.5ex%
 	\begin{beamercolorbox}[colsep*=0ex]{block alerted body}%
 		\justifying%
 		\begin{adjustwidth}{1ex}{1ex}%
 			\setlength{\parskip}{1ex}%
-			\vskip-2ex%
+			\vskip -0.35ex%
 		}%
 		\setbeamertemplate{block alerted end}%
 		{%
 		\end{adjustwidth}%
-		\vskip 1ex%
+		\vskip 1.25ex%
+	\end{beamercolorbox}%
+	% \vskip 0pt%
+	\vspace*{2ex}%
+}
+
+% Bloque Ejemplo
+\setbeamertemplate{block example begin}{%
+	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block example title}%
+		\vskip 0pt%
+		\ifthenelse{\equal{\insertblocktitle}{}}{}{%
+			\usebeamerfont{block title}\insertblocktitle%
+			\vskip -1.25ex%
+			\begin{beamercolorbox}[colsep=0.025ex]{block example separator}\end{beamercolorbox}%
+			\vskip -0.75ex%
+		}
+	\end{beamercolorbox}%
+	{\parskip 0pt \par}%
+	\ifthenelse{\equal{\insertblocktitle}{}}{%
+		\vspace{-1.65\baselineskip}%
+	}{}
+	\usebeamerfont{block body}%
+	\vskip -0.5ex%
+	\begin{beamercolorbox}[colsep*=0ex]{block example body}%
+		\justifying%
+		\begin{adjustwidth}{1ex}{1ex}%
+			\setlength{\parskip}{1ex}%
+			\vskip -0.35ex%
+		}%
+		\setbeamertemplate{block example end}%
+		{%
+		\end{adjustwidth}%
+		\vskip 1.25ex%
 	\end{beamercolorbox}%
 	% \vskip 0pt%
 	\vspace*{2ex}%
