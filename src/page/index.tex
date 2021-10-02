@@ -45,20 +45,19 @@
 	% -------------------------------------------------------------------------
 	% Configuración del punto en índice
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\dotaftersnum}{true}}{
-		% Agrega los puntos
-		\def\cftchapaftersnum {.}
-		\def\cftsecaftersnum {.}
-		\def\cftsubsecaftersnum {.}
-		\def\cftsubsubsecaftersnum {.}
-		\def\cftsubsubsubsecaftersnum {.}
-		% Modifica los márgenes
+	% Agrega los puntos
+	\def\cftchapaftersnum {\charaftersectionnum}
+	\def\cftsecaftersnum {\charaftersectionnum}
+	\def\cftsubsecaftersnum {\charaftersectionnum}
+	\def\cftsubsubsecaftersnum {\charaftersectionnum}
+	\def\cftsubsubsubsecaftersnum {\charaftersectionnum}
+	% Modifica los márgenes
+	\ifthenelse{\equal{\charaftersectionnum}{}}{}{
 		\def\cftsecnumwidth {1.9em}
 		\def\cftsubsecnumwidth {2.57em} % Incremento 0.67
 		\renewcommand\cftsubsubsecnumwidth{3.35em} % Incremento 0.78
 		\setlength{\cftsubsecindent}{1.91em}
 		\setlength{\cftsubsubsecindent}{4.48em} % Incremento 2.57
-		}{
 	}
 	
 	% -------------------------------------------------------------------------

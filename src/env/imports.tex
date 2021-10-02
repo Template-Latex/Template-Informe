@@ -187,13 +187,6 @@
 	\usepackage[bottom,norule,hang]{footmisc}
 }
 
-% Agrega punto a títulos/subtítulos
-\ifthenelse{\equal{\dotaftersnum}{true}}{
-	\usepackage{secdot}
-	\sectiondot{subsection}
-	\sectiondot{subsubsection}}{
-}
-
 % Referencias
 % Desde v6.2.8 se debe cargar al final para evitar errores:
 %	- Option clash for package hyperref

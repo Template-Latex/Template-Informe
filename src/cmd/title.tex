@@ -10,47 +10,39 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % Activa la numeración en las secciones
-\def\coreintializetitlenumbering {
+\def\coreintializetitlenumbering {%
 	% Section
-	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{
-		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
-			\renewcommand{\thesection}{\Alph{section}}
-		}{
-			\renewcommand{\thesection}{\arabic{section}}
-		}
-	}{
-		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
-			\renewcommand{\thesection}{\thechapter.\Alph{section}}
-		}{
-			\renewcommand{\thesection}{\thechapter.\arabic{section}}
-		}
-	}
+	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{%
+		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{%
+			\renewcommand{\thesection}{\Alph{section}}%
+		}{%
+			\renewcommand{\thesection}{\arabic{section}}%
+		}%
+	}{%
+		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{%
+			\renewcommand{\thesection}{\thechapter.\Alph{section}}%
+		}{%
+			\renewcommand{\thesection}{\thechapter.\arabic{section}}%
+		}%
+	}%
 	% Subsection
-	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
-		\renewcommand{\thesubsection}{\arabic{subsection}}
-	}{
-		\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-	}
+	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{%
+		\renewcommand{\thesubsection}{\arabic{subsection}}%
+	}{%
+		\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}%
+	}%
 	% Subsubsection
-	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
-		\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
-	}{
-		\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
-	}
+	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
+		\renewcommand{\thesubsubsection}{\arabic{subsubsection}}%
+	}{%
+		\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}%
+	}%
 	% Subsubsubsection
-	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
-		\ifthenelse{\equal{\dotaftersnum}{true}}{
-			\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}.}
-		}{
-			\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}
-		}
-	}{
-		\ifthenelse{\equal{\dotaftersnum}{true}}{
-			\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
-		}{
-			\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
-		}
-	}
+	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
+		\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}%
+	}{%
+		\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}%
+	}%
 	\hbadness=10000%
 }
 
@@ -269,11 +261,7 @@
 	\addcontentsline{toc}{subsubsection}{#1}%
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}%
 	\setcounter{subsubsubsection}{0}%
-	\ifthenelse{\equal{\dotaftersnum}{true}}{%
-		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}.}%
-	}{%
-		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}%
-	}
+	\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}%
 }
 
 % Insertar un sub-subtítulo sin número y sin indexar
@@ -283,11 +271,7 @@
 	\subsubsection*{#1}%
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}%
 	\setcounter{subsubsubsection}{0}%
-	\ifthenelse{\equal{\dotaftersnum}{true}}{%
-		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}.}%
-	}{%
-		\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}%
-	}
+	\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}%
 }
 
 % Insertar un sub-sub-subtítulo sin número

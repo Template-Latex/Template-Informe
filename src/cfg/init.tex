@@ -417,7 +417,7 @@
 % -----------------------------------------------------------------------------
 % Configuración anexo
 % -----------------------------------------------------------------------------
-\patchcmd{\appendices}{\quad}{\appendixsectionlastchar\quad}{}{}
+\patchcmd{\appendices}{\quad}{\charappendixsection\spacingaftersection}{}{}
 
 % -----------------------------------------------------------------------------
 % Se añade listings (código fuente) a tocloft
@@ -531,13 +531,6 @@
 % Crea las sub-sub-sub-secciones
 % -----------------------------------------------------------------------------
 \newcounter{subsubsubsection}[subsubsection]
-\ifthenelse{\equal{\dotaftersnum}{true}}{ % Agrega punto tras el número
-	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
-	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}.}
-}{
-	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
-	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}}
-}
 
 % Límite máximo profundidad
 \setcounter{secnumdepth}{4}
@@ -547,15 +540,35 @@
 	\def\toclevel@subsubsubsection {4}
 	\def\toclevel@paragraph {5}
 	\def\toclevel@subparagraph {6}
-	\ifthenelse{\equal{\dotaftersnum}{true}}{
-		\def\l@subsubsubsection {\@dottedtocline{4}{7.83em}{4.15em}} % Incremento 0.77+3.35 a 3.35
-		\def\l@paragraph {\@dottedtocline{5}{11.98em}{4.92em}}
-		\def\l@subparagraph {\@dottedtocline{6}{14.65em}{5.69em}}
-	}{
+	\ifthenelse{\equal{\charaftersectionnum}{}}{ % Sin caracter
 		\def\l@subsubsubsection {\@dottedtocline{4}{6.97em}{4em}}
 		\def\l@paragraph {\@dottedtocline{5}{10.97em}{5em}}
 		\def\l@subparagraph {\@dottedtocline{6}{14em}{6em}}
+	}{ % Posee caracter, Incremento 0.77+3.35 a 3.35
+		\def\l@subsubsubsection {\@dottedtocline{4}{7.83em}{4.15em}}
+		\def\l@paragraph {\@dottedtocline{5}{11.98em}{4.92em}}
+		\def\l@subparagraph {\@dottedtocline{6}{14.65em}{5.69em}}
 	}
+\makeatother
+
+% -----------------------------------------------------------------------------
+% Configura el número de las secciones
+% -----------------------------------------------------------------------------
+% Funciones de bajo nivel
+\makeatletter
+\newcommand\sectionpunct[2]{%
+	\expandafter\def\csname @seccntfmt@#1\endcsname##1{%
+		\csname the##1\endcsname#2%
+	}%
+}
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+	{\csname the#1\endcsname} % Default
+	{\csname #1@cntformat\endcsname} % Control individual
+}
+% Configura secciones
+\newcommand\section@cntformat{\thesection\charaftersectionnum\spacingaftersection}
+\newcommand\subsection@cntformat{\thesubsection\charaftersectionnum\spacingaftersection}
+\newcommand\subsubsection@cntformat{\thesubsubsection\charaftersectionnum\spacingaftersection}
 \makeatother
 
 % -----------------------------------------------------------------------------

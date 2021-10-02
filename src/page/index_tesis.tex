@@ -7,14 +7,11 @@
 	
 	% Configuración del punto en índice
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\dotaftersnum}{true}}{
-		\def\cftchapaftersnum {.}
-		\def\cftsecaftersnum {.}
-		\def\cftsubsecaftersnum {.}
-		\def\cftsubsubsecaftersnum {.}
-		\def\cftsubsubsubsecaftersnum {.}
-		}{
-	}{}
+	\def\cftchapaftersnum {\charaftersectionnum}
+	\def\cftsecaftersnum {\charaftersectionnum}
+	\def\cftsubsecaftersnum {\charaftersectionnum}
+	\def\cftsubsubsecaftersnum {\charaftersectionnum}
+	\def\cftsubsubsubsecaftersnum {\charaftersectionnum}
 	
 	% Cambia tabulación índice de objetos para alinear con contenidos
 	% -------------------------------------------------------------------------
