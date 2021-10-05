@@ -6,8 +6,8 @@
 %% Autor: Pablo Pizarro R.
 %%        pablo@ppizarror.com
 %%
-%% Sitio web:    [https://latex.ppizarror.com]
-%% Licencia MIT: [https://opensource.org/licenses/MIT]
+%% Manual template: [https://latex.ppizarror.com]
+%% Licencia MIT:   [https://opensource.org/licenses/MIT]
 
 ENTRY {
     address

@@ -6,8 +6,8 @@
 % Autor: Pablo Pizarro R.
 %        pablo@ppizarror.com
 %
-% Sitio web:    [https://latex.ppizarror.com/auxiliares]
-% Licencia MIT: [https://opensource.org/licenses/MIT]
+% Manual template: [https://latex.ppizarror.com/auxiliares]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % COMPILACION
 % - Reemplaza cada bloque en lib/cfg/page.tex
@@ -263,13 +263,16 @@
 			\huge {\documenttitle} ~ \\
 			\ifthenelse{\equal{\documentsubject}{\xspace}}{}{
 				\vspace{0.2cm}
-				\large {\documentsubject} ~ \\
+				\normalsize {\documentsubject} ~ \\
 			}
 			\ifdefempty{\teachingstaff}{\vspace{0.4cm}}{
-				\vspace{0.7cm}
-				\begin{normalsize}
-					\teachingstaff
-				\end{normalsize}
+				\vspace{0.5cm}
+				\begin{spacing}{0.95}
+					\begin{normalsize}
+						\teachingstaff
+					\end{normalsize}
+				\end{spacing}
+				\vspace{0.4cm}
 			}
 		\end{center}
 	}{
@@ -318,16 +321,19 @@
 			\vspace*{0.35cm}
 			\LARGE {\textbf{\documenttitle}} ~ \\
 			\vspace{0.3cm}
-			\Large {\coursecode \coursename} ~ \\
+			\large {\coursecode \coursename} ~ \\
 			\ifthenelse{\equal{\documentsubject}{\xspace}}{}{
-				\vspace{0.2cm}
-				\large {\documentsubject} ~ \\
+				\vspace{0.1cm}
+				\normalsize {\documentsubject} ~ \\
 			}
 			\ifdefempty{\teachingstaff}{\vspace{0.4cm}}{
 				\vspace{0.5cm}
-				\begin{normalsize}
-					\teachingstaff
-				\end{normalsize}
+				\begin{spacing}{0.95}
+					\begin{normalsize}
+						\teachingstaff
+					\end{normalsize}
+				\end{spacing}
+				\vspace{0.4cm}
 			}
 		\end{center}
 	}{
@@ -376,16 +382,19 @@
 			\vspace*{0.35cm}
 			\LARGE {\textbf{\documenttitle}} ~ \\
 			\vspace{0.3cm}
-			\Large {\coursecode \coursename} ~ \\
+			\large {\coursecode \coursename} ~ \\
 			\ifthenelse{\equal{\documentsubject}{\xspace}}{}{
-				\vspace{0.2cm}
-				\large {\documentsubject} ~ \\
+				\vspace{0.1cm}
+				\normalsize {\documentsubject} ~ \\
 			}
 			\ifdefempty{\teachingstaff}{\vspace{0.4cm}}{
 				\vspace{0.5cm}
-				\begin{normalsize}
-					\teachingstaff
-				\end{normalsize}
+				\begin{spacing}{0.95}
+					\begin{normalsize}
+						\teachingstaff
+					\end{normalsize}
+				\end{spacing}
+				\vspace{0.4cm}
 			}
 		\end{center}
 	}{
