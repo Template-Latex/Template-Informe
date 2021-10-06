@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.5.6 (06/10/2021)
+% Versión:      7.5.7 (06/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -3078,7 +3078,6 @@
 \newcommand{\insertemptypage}{%
 	\clearpage
 	\thispagestyle{empty}
-	\addtocounter{page}{-1}
 	\null
 	\clearpage
 }
@@ -3090,8 +3089,16 @@
 	\clearpage
 }
 
-% Define cuál función se ejecuta al insertar páginas en blanco
-\let\addemptypagespredocformat\insertblankpage
+% Función personalizada \cleardoublepage
+\def\corecleardoublepage {%
+	\clearpage %
+	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
+		\ifodd\thepage %
+		\else%
+			\emptypagespredocformat%
+		\fi%
+	}{}
+}%
 
 % Ejecuta una función dependiendo si la página es par o impar
 %	#1	Par
@@ -5199,9 +5206,9 @@
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.5.6-2},
-		Template.Version.Hash={BEFB044689773A86170253B04BE6F2BD},
-		Template.Version.Release={7.5.6},
+		Template.Version.Dev={7.5.7},
+		Template.Version.Hash={1A00C403D8215E12BCACC4096EA5CFF5},
+		Template.Version.Release={7.5.7},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5213,7 +5220,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.5.6 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.5.7 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5255,12 +5262,6 @@
 \floatplacement{figure}{\imagedefaultplacement}
 \floatplacement{table}{\tabledefaultplacement}
 \floatplacement{tikz}{\tikzdefaultplacement}
-
-% -----------------------------------------------------------------------------
-% Modifica comportamiento nuevas páginas en formato twosides
-% -----------------------------------------------------------------------------
-\let\oldcleardoublepage\cleardoublepage
-\let\cleardoublepage\clearpage
 
 % -----------------------------------------------------------------------------
 % Configuración de los colores
@@ -5794,6 +5795,26 @@
 \theoremstyle{miobs}
 \newtheorem*{ej}{\namemathej}
 \newtheorem*{obs}{\namemathobs}
+
+% -----------------------------------------------------------------------------
+% Configura el formato oneside/twoside
+% -----------------------------------------------------------------------------
+% Normaliza el formato de páginas
+\raggedbottom
+
+% Desactiva \cleardoublepage hasta el inicio del documento
+\let\oldcleardoublepage\cleardoublepage
+\let\cleardoublepage\clearpage
+
+% Modifica el formato de nuevas páginas predoc y \cleardoublepage 
+\ifthenelse{\equal{\twopagesclearformat}{blank}}{
+	\let\emptypagespredocformat\insertblankpage
+}{
+\ifthenelse{\equal{\twopagesclearformat}{empty}}{
+	\let\emptypagespredocformat\insertemptypage
+}{
+	\throwbadconfig{Valor configuracion incorrecto}{\twopagesclearformat}{blank,empty}}
+}
 
 % -----------------------------------------------------------------------------
 % Configuraciones del idioma
@@ -6828,8 +6849,9 @@
 	% -------------------------------------------------------------------------
 	% Añade una página en blanco al imprimir por las dos caras
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
-		\insertemptypage}{
+	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
+		\insertemptypage%
+		\addtocounter{page}{-1}}{
 	}
 	
 }
@@ -7662,8 +7684,8 @@
 	% -------------------------------------------------------------------------
 	% Salta de página si está imprimiendo por ambas caras
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-		\coretriggeronpage{\addemptypagespredocformat}{}%
+	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
+		\coretriggeronpage{\emptypagespredocformat}{}%
 	}{}
 	
 	% -------------------------------------------------------------------------
@@ -8519,12 +8541,14 @@
 	% Agrega páginas dependiendo del formato
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
-		% \coretriggeronpage{\addemptypagespredocformat}{}%
-	}{
-		\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-			\coretriggeronpage{\addemptypagespredocformat}{}%
-		}{}
+		\coretriggeronpage{\emptypagespredocformat}{}}{
 	}
+	
+	% -------------------------------------------------------------------------
+	% Reestablece \cleardoublepage
+	% -------------------------------------------------------------------------
+	% \let\cleardoublepage\oldcleardoublepage
+	\let\cleardoublepage\corecleardoublepage
 	
 	% -------------------------------------------------------------------------
 	% Se restablecen números de página y secciones
@@ -8541,11 +8565,6 @@
 	
 	\setcounter{section}{0}
 	\setcounter{footnote}{0}
-
-	% -----------------------------------------------------------------------------
-	% Modifica comportamiento nuevas páginas en formato twosides
-	% -----------------------------------------------------------------------------
-	\let\cleardoublepage\oldcleardoublepage
 	
 	% -------------------------------------------------------------------------
 	% Muestra los números de línea
