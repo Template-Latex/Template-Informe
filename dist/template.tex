@@ -3090,6 +3090,9 @@
 	\clearpage
 }
 
+% Define cuál función se ejecuta al insertar páginas en blanco
+\let\addemptypagespredocformat\insertblankpage
+
 % Ejecuta una función dependiendo si la página es par o impar
 %	#1	Par
 %	#2	Impar
@@ -5196,8 +5199,8 @@
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.5.6},
-		Template.Version.Hash={9ADD4BBEFC675C53D83F282A1697AFDE},
+		Template.Version.Dev={7.5.6-2},
+		Template.Version.Hash={BEFB044689773A86170253B04BE6F2BD},
 		Template.Version.Release={7.5.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
@@ -7660,7 +7663,7 @@
 	% Salta de página si está imprimiendo por ambas caras
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-		\coretriggeronpage{\insertemptypage}{}%
+		\coretriggeronpage{\addemptypagespredocformat}{}%
 	}{}
 	
 	% -------------------------------------------------------------------------
@@ -8516,10 +8519,10 @@
 	% Agrega páginas dependiendo del formato
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
-		% \coretriggeronpage{\insertemptypage}{}%
+		% \coretriggeronpage{\addemptypagespredocformat}{}%
 	}{
 		\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-			\coretriggeronpage{\insertemptypage}{}%
+			\coretriggeronpage{\addemptypagespredocformat}{}%
 		}{}
 	}
 	
