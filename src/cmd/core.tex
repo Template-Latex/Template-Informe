@@ -21,6 +21,15 @@
 \global\def\GLOBALsubsectionanumenabled {false} % Subsección sin numeración
 \global\def\GLOBALtablerowcolorindex {2}        % Índice tabla colores
 \global\def\GLOBALtablerowcolorswitch {false}   % Tabla con colores cambiados
+\global\def\GLOBALtwoside {false}               % Indica que el documento es twoside
+
+% Configura si el documento es twoside
+\makeatletter
+\if@twoside
+\global\def\GLOBALtwoside {true}
+\else
+\fi 
+\makeatother
 
 % Signo porcentaje para archivos
 \def\LOCALpercentchar#1{}
@@ -38,6 +47,10 @@
 \newcounter{templateBookmarksLevelPrev}
 \setcounter{templateBookmarksLevelPrev}{\cfgbookmarksopenlevel}
 \addtocounter{templateBookmarksLevelPrev}{-1}
+
+% Aumenta contador de páginas
+\stepcounter{templatePageCounter}
+\AtBeginShipout{\stepcounter{templatePageCounter}}
 
 % Para la compatibilidad con template-tesis se define el capítulo
 \newcounter{chapter}
