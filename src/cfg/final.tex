@@ -354,7 +354,7 @@
 	% Agrega páginas dependiendo del formato
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
-		% \coretriggeronpage{\addemptypagespredocformat}{}%
+		\coretriggeronpage{\addemptypagespredocformat}{}%
 	}{
 		\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
 			\coretriggeronpage{\addemptypagespredocformat}{}%
