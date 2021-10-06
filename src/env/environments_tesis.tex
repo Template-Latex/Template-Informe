@@ -33,7 +33,7 @@
 \newenvironment{abstractenv}[4]{
 	\clearpage%
 	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-		\coretriggeronpage{\insertemptypage}{}%
+		\coretriggeronpage{\addemptypagespredocformat}{}%
 	}{}%
 	\emptyvarerr{\abstractenv}{#1}{Tabla resumen no definida}
 	\emptyvarerr{\abstractenv}{#2}{Titulo tesis no definido}
@@ -77,7 +77,7 @@
 \newenvironment{dedicatory}{
 	\clearpage%
 	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-		\coretriggeronpage{\insertemptypage}{}%
+		\coretriggeronpage{\addemptypagespredocformat}{}%
 	}{}%
 	\null
 	\phantomsection
@@ -96,7 +96,7 @@
 \newenvironment{acknowledgments}{
 	\clearpage%
 	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-		\coretriggeronpage{\insertemptypage}{}%
+		\coretriggeronpage{\addemptypagespredocformat}{}%
 	}{}%
 	\chapter*{\nameagradec}
 	\ifthenelse{\equal{\addagradectobookmarks}{true}}{

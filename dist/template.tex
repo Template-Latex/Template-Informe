@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.5.5 (02/10/2021)
+% Versión:      7.5.6 (06/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -116,7 +116,6 @@
 \usepackage{bm}            % Caracteres en negrita en ecuaciones
 \usepackage{booktabs}      % Permite manejar elementos visuales en tablas
 \usepackage{caption}       % Leyendas
-\usepackage{changepage}    % Condicionales para administrar páginas
 \usepackage{chngcntr}      % Añade números a las leyendas
 \usepackage{color}         % Colores
 \usepackage{datetime}      % Fechas
@@ -863,6 +862,15 @@
 \global\def\GLOBALsubsectionanumenabled {false} % Subsección sin numeración
 \global\def\GLOBALtablerowcolorindex {2}        % Índice tabla colores
 \global\def\GLOBALtablerowcolorswitch {false}   % Tabla con colores cambiados
+\global\def\GLOBALtwoside {false}               % Indica que el documento es twoside
+
+% Configura si el documento es twoside
+\makeatletter
+\if@twoside
+\global\def\GLOBALtwoside {true}
+\else
+\fi 
+\makeatother
 
 % Signo porcentaje para archivos
 \def\LOCALpercentchar#1{}
@@ -880,6 +888,10 @@
 \newcounter{templateBookmarksLevelPrev}
 \setcounter{templateBookmarksLevelPrev}{\cfgbookmarksopenlevel}
 \addtocounter{templateBookmarksLevelPrev}{-1}
+
+% Aumenta contador de páginas
+\stepcounter{templatePageCounter}
+\AtBeginShipout{\stepcounter{templatePageCounter}}
 
 % Para la compatibilidad con template-tesis se define el capítulo
 \newcounter{chapter}
@@ -3065,13 +3077,10 @@
 % Crea una página vacía sin header o footer
 \newcommand{\insertemptypage}{%
 	\clearpage
-	\setcounter{templatePageCounter}{\thepage}
-	\pagenumbering{gobble}
-	\null
 	\thispagestyle{empty}
+	\addtocounter{page}{-1}
+	\null
 	\clearpage
-	\pagenumbering{arabic}
-	\setcounter{page}{\thetemplatePageCounter}
 }
 
 % Inserta una página vacía, aunque conserva header, footer y numeración
@@ -3079,6 +3088,17 @@
 	\clearpage
 	\null
 	\clearpage
+}
+
+% Ejecuta una función dependiendo si la página es par o impar
+%	#1	Par
+%	#2	Impar
+\newcommand{\coretriggeronpage}[2]{%
+	\ifthenelse{\isodd{\value{templatePageCounter}}}{%
+		#2%
+	}{%
+		#1%
+	}
 }
 
 % Añade un archivo pdf con el header
@@ -5169,16 +5189,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={02/10/2021},
+		Template.Date={06/10/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.5.5-2},
-		Template.Version.Hash={E1327393940EEC24BDDB531D104E7540},
-		Template.Version.Release={7.5.5},
+		Template.Version.Dev={7.5.6},
+		Template.Version.Hash={9ADD4BBEFC675C53D83F282A1697AFDE},
+		Template.Version.Release={7.5.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5190,7 +5210,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.5.5 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.5.6 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5232,6 +5252,12 @@
 \floatplacement{figure}{\imagedefaultplacement}
 \floatplacement{table}{\tabledefaultplacement}
 \floatplacement{tikz}{\tikzdefaultplacement}
+
+% -----------------------------------------------------------------------------
+% Modifica comportamiento nuevas páginas en formato twosides
+% -----------------------------------------------------------------------------
+\let\oldcleardoublepage\cleardoublepage
+\let\cleardoublepage\clearpage
 
 % -----------------------------------------------------------------------------
 % Configuración de los colores
@@ -5536,11 +5562,6 @@
 \makeatother
 
 % -----------------------------------------------------------------------------
-% Se activa el modo estricto de revisión de números de página
-% -----------------------------------------------------------------------------
-\strictpagecheck
-
-% -----------------------------------------------------------------------------
 % Se activa el word-wrap para textos con \texttt{}
 % -----------------------------------------------------------------------------
 \ttfamily \hyphenchar\the\font=`\-
@@ -5582,6 +5603,11 @@
 }{
 	\throwbadconfig{Compilador desconocido}{\compilertype}{pdf2latex,xelatex,lualatex}}}
 }
+
+% -----------------------------------------------------------------------------
+% Declaración caracteres unicode adicionales
+% -----------------------------------------------------------------------------
+\DeclareUnicodeCharacter{2212}{-}
 
 % -----------------------------------------------------------------------------
 % Crea las sub-sub-sub-secciones
@@ -6799,12 +6825,8 @@
 	% -------------------------------------------------------------------------
 	% Añade una página en blanco al imprimir por las dos caras
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
-		\clearpage
-		\null
-		\thispagestyle{empty}
-		\renewcommand{\thepage}{}
-		\clearpage}{
+	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
+		\insertemptypage}{
 	}
 	
 }
@@ -7630,24 +7652,16 @@
 	% -------------------------------------------------------------------------
 	% Crea nueva página y establece estilo de títulos
 	% -------------------------------------------------------------------------
-	\clearpage
-	\begingroup
+	\clearpage%
+	\begingroup%
 	\sectionfont{\color{\indextitlecolor} \indexsectionfontsize \indexsectionstyle \selectfont}
 	
 	% -------------------------------------------------------------------------
 	% Salta de página si está imprimiendo por ambas caras
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
-		\checkoddpage
-		\ifoddpage
-		\else
-			\clearpage
-			\null
-			\thispagestyle{empty}
-			\clearpage
-			\addtocounter{page}{-1}
-		\fi}{
-	}
+	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
+		\coretriggeronpage{\insertemptypage}{}%
+	}{}
 	
 	% -------------------------------------------------------------------------
 	% Añade la entrada del índice a los marcadores del pdf
@@ -8152,23 +8166,6 @@
 	\sectionfont{\color{\sectioncolor} \sectionfontsize \sectionfontstyle \selectfont}
 	\endgroup
 	
-	% -------------------------------------------------------------------------
-	% Se añade una página en blanco
-	% -------------------------------------------------------------------------
-	\clearpage
-	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
-		\vfill
-		\checkoddpage
-		\ifoddpage
-			\clearpage
-			\null
-			\thispagestyle{empty}
-			\clearpage
-			\addtocounter{page}{-1}
-		\else
-		\fi}{
-	}
-	
 }
 
 % -----------------------------------------------------------------------------
@@ -8516,6 +8513,17 @@
 	}
 	
 	% -------------------------------------------------------------------------
+	% Agrega páginas dependiendo del formato
+	% -------------------------------------------------------------------------
+	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
+		% \coretriggeronpage{\insertemptypage}{}%
+	}{
+		\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
+			\coretriggeronpage{\insertemptypage}{}%
+		}{}
+	}
+	
+	% -------------------------------------------------------------------------
 	% Se restablecen números de página y secciones
 	% -------------------------------------------------------------------------
 	% Se usa número de páginas en arábigo si es que se tenía activado los números romanos
@@ -8530,6 +8538,11 @@
 	
 	\setcounter{section}{0}
 	\setcounter{footnote}{0}
+
+	% -----------------------------------------------------------------------------
+	% Modifica comportamiento nuevas páginas en formato twosides
+	% -----------------------------------------------------------------------------
+	\let\cleardoublepage\oldcleardoublepage
 	
 	% -------------------------------------------------------------------------
 	% Muestra los números de línea

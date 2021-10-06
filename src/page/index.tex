@@ -22,7 +22,7 @@
 	% Salta de página si está imprimiendo por ambas caras
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-		\coretriggeronpage{\insertemptypage}{}%
+		\coretriggeronpage{\addemptypagespredocformat}{}%
 	}{}
 	
 	% -------------------------------------------------------------------------

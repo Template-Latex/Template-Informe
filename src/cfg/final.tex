@@ -354,10 +354,10 @@
 	% Agrega páginas dependiendo del formato
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
-		% \coretriggeronpage{\insertemptypage}{}%
+		% \coretriggeronpage{\addemptypagespredocformat}{}%
 	}{
 		\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-			\coretriggeronpage{\insertemptypage}{}%
+			\coretriggeronpage{\addemptypagespredocformat}{}%
 		}{}
 	}
 	
