@@ -178,6 +178,12 @@
 \floatplacement{tikz}{\tikzdefaultplacement}
 
 % -----------------------------------------------------------------------------
+% Modifica comportamiento nuevas páginas en formato twosides
+% -----------------------------------------------------------------------------
+\let\oldcleardoublepage\cleardoublepage
+\let\cleardoublepage\clearpage
+
+% -----------------------------------------------------------------------------
 % Configuración de los colores
 % -----------------------------------------------------------------------------
 \color{\maintextcolor} % Color principal
@@ -478,11 +484,6 @@
 \preto\tabular{\global\rownum=\z@}
 \preto\tabularx{\global\rownum=\z@}
 \makeatother
-
-% -----------------------------------------------------------------------------
-% Se activa el modo estricto de revisión de números de página
-% -----------------------------------------------------------------------------
-\strictpagecheck
 
 % -----------------------------------------------------------------------------
 % Se activa el word-wrap para textos con \texttt{}
