@@ -32,6 +32,9 @@
 %	#4	Etiqueta del marcador del pdf
 \newenvironment{abstractenv}[4]{
 	\clearpage%
+	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
+		\coretriggeronpage{\insertemptypage}{}%
+	}{}%
 	\emptyvarerr{\abstractenv}{#1}{Tabla resumen no definida}
 	\emptyvarerr{\abstractenv}{#2}{Titulo tesis no definido}
 	\emptyvarerr{\abstractenv}{#3}{Titulo seccion no definida}
@@ -61,16 +64,7 @@
 		\vspace{-0.5\baselineskip}
 	}
 	}{%
-	\vfill\null
-	\clearpage
-	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
-		\vfill
-		\checkoddpage
-		\ifoddpage
-		\else
-			\insertblankpage
-		\fi}{
-	}
+	\vfill\null%
 }
 % Llama al entorno de resumen
 \newenvironment{abstractd}{
@@ -81,7 +75,11 @@
 
 % Crea una sección de dedicatoria
 \newenvironment{dedicatory}{
-	\clearpage\null
+	\clearpage%
+	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
+		\coretriggeronpage{\insertemptypage}{}%
+	}{}%
+	\null
 	\phantomsection
 	% \ifthenelse{\equal{\adddedictobookmarks}{true}}{
 	% 	\pdfbookmark{\nameadedic}{contents}}{
@@ -92,14 +90,14 @@
 	\end{flushright}
 	\vspace{\stretch{2}}
 	\null
-	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
-		\insertblankpage}{
-	}
 }
 
 % Crea una sección de agradecimientos
 \newenvironment{acknowledgments}{
-	\clearpage
+	\clearpage%
+	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
+		\coretriggeronpage{\insertemptypage}{}%
+	}{}%
 	\chapter*{\nameagradec}
 	\ifthenelse{\equal{\addagradectobookmarks}{true}}{
 		\phantomsection
@@ -107,10 +105,6 @@
 	}
 	\forceindent
 	}{
-	\clearpage
-	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
-		\insertblankpage}{
-	}
 }
 
 % END
