@@ -36,13 +36,10 @@
 % Crea una página vacía sin header o footer
 \newcommand{\insertemptypage}{%
 	\clearpage
-	\setcounter{templatePageCounter}{\thepage}
-	\pagenumbering{gobble}
-	\null
 	\thispagestyle{empty}
+	\addtocounter{page}{-1}
+	\null
 	\clearpage
-	\pagenumbering{arabic}
-	\setcounter{page}{\thetemplatePageCounter}
 }
 
 % Inserta una página vacía, aunque conserva header, footer y numeración
@@ -50,6 +47,17 @@
 	\clearpage
 	\null
 	\clearpage
+}
+
+% Ejecuta una función dependiendo si la página es par o impar
+%	#1	Par
+%	#2	Impar
+\newcommand{\coretriggeronpage}[2]{%
+	\ifthenelse{\isodd{\value{templatePageCounter}}}{%
+		#2%
+	}{%
+		#1%
+	}
 }
 
 % Añade un archivo pdf con el header
