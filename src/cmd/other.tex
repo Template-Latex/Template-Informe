@@ -37,7 +37,6 @@
 \newcommand{\insertemptypage}{%
 	\clearpage
 	\thispagestyle{empty}
-	\addtocounter{page}{-1}
 	\null
 	\clearpage
 }
@@ -49,8 +48,16 @@
 	\clearpage
 }
 
-% Define cuál función se ejecuta al insertar páginas en blanco
-\let\addemptypagespredocformat\insertblankpage
+% Función personalizada \cleardoublepage
+\def\corecleardoublepage {%
+	\clearpage %
+	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
+		\ifodd\thepage %
+		\else%
+			\emptypagespredocformat%
+		\fi%
+	}{}
+}%
 
 % Ejecuta una función dependiendo si la página es par o impar
 %	#1	Par

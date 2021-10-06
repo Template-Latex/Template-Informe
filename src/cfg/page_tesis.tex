@@ -1,6 +1,7 @@
 	% Añade página en blanco
-	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
-		\insertemptypage}{
+	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
+		\insertemptypage%
+		\addtocounter{page}{-1}}{
 	}
 
 % END

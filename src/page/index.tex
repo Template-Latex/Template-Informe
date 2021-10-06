@@ -21,8 +21,8 @@
 	% -------------------------------------------------------------------------
 	% Salta de página si está imprimiendo por ambas caras
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-		\coretriggeronpage{\addemptypagespredocformat}{}%
+	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
+		\coretriggeronpage{\emptypagespredocformat}{}%
 	}{}
 	
 	% -------------------------------------------------------------------------

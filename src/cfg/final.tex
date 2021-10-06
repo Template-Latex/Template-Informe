@@ -354,12 +354,14 @@
 	% Agrega páginas dependiendo del formato
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
-		\coretriggeronpage{\addemptypagespredocformat}{}%
-	}{
-		\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
-			\coretriggeronpage{\addemptypagespredocformat}{}%
-		}{}
+		\coretriggeronpage{\emptypagespredocformat}{}}{
 	}
+	
+	% -------------------------------------------------------------------------
+	% Reestablece \cleardoublepage
+	% -------------------------------------------------------------------------
+	% \let\cleardoublepage\oldcleardoublepage
+	\let\cleardoublepage\corecleardoublepage
 	
 	% -------------------------------------------------------------------------
 	% Se restablecen números de página y secciones
@@ -376,11 +378,6 @@
 	
 	\setcounter{section}{0}
 	\setcounter{footnote}{0}
-
-	% -----------------------------------------------------------------------------
-	% Modifica comportamiento nuevas páginas en formato twosides
-	% -----------------------------------------------------------------------------
-	\let\cleardoublepage\oldcleardoublepage
 	
 	% -------------------------------------------------------------------------
 	% Muestra los números de línea

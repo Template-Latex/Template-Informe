@@ -178,12 +178,6 @@
 \floatplacement{tikz}{\tikzdefaultplacement}
 
 % -----------------------------------------------------------------------------
-% Modifica comportamiento nuevas páginas en formato twosides
-% -----------------------------------------------------------------------------
-\let\oldcleardoublepage\cleardoublepage
-\let\cleardoublepage\clearpage
-
-% -----------------------------------------------------------------------------
 % Configuración de los colores
 % -----------------------------------------------------------------------------
 \color{\maintextcolor} % Color principal
@@ -717,9 +711,24 @@
 \newtheorem*{obs}{\namemathobs}
 
 % -----------------------------------------------------------------------------
-% Páginas definen texto al inicio de página por defecto (normaliza one/twoside)
+% Configura el formato oneside/twoside
 % -----------------------------------------------------------------------------
+% Normaliza el formato de páginas
 \raggedbottom
+
+% Desactiva \cleardoublepage hasta el inicio del documento
+\let\oldcleardoublepage\cleardoublepage
+\let\cleardoublepage\clearpage
+
+% Modifica el formato de nuevas páginas predoc y \cleardoublepage 
+\ifthenelse{\equal{\twopagesclearformat}{blank}}{
+	\let\emptypagespredocformat\insertblankpage
+}{
+\ifthenelse{\equal{\twopagesclearformat}{empty}}{
+	\let\emptypagespredocformat\insertemptypage
+}{
+	\throwbadconfig{Valor configuracion incorrecto}{\twopagesclearformat}{blank,empty}}
+}
 
 % -----------------------------------------------------------------------------
 % Configuraciones del idioma

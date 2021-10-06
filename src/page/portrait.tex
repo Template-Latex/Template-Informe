@@ -939,8 +939,9 @@
 	% -------------------------------------------------------------------------
 	% Añade una página en blanco al imprimir por las dos caras
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
-		\insertemptypage}{
+	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
+		\insertemptypage%
+		\addtocounter{page}{-1}}{
 	}
 	
 }
