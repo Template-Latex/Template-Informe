@@ -939,12 +939,8 @@
 	% -------------------------------------------------------------------------
 	% Añade una página en blanco al imprimir por las dos caras
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
-		\clearpage
-		\null
-		\thispagestyle{empty}
-		\renewcommand{\thepage}{}
-		\clearpage}{
+	\ifthenelse{\equal{\addemptypagespredoc}{true}}{
+		\insertemptypage}{
 	}
 	
 }

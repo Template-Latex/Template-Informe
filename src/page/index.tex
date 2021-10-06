@@ -14,24 +14,16 @@
 	% -------------------------------------------------------------------------
 	% Crea nueva página y establece estilo de títulos
 	% -------------------------------------------------------------------------
-	\clearpage
-	\begingroup
+	\clearpage%
+	\begingroup%
 	\sectionfont{\color{\indextitlecolor} \indexsectionfontsize \indexsectionstyle \selectfont}
 	
 	% -------------------------------------------------------------------------
 	% Salta de página si está imprimiendo por ambas caras
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
-		\checkoddpage
-		\ifoddpage
-		\else
-			\clearpage
-			\null
-			\thispagestyle{empty}
-			\clearpage
-			\addtocounter{page}{-1}
-		\fi}{
-	}
+	\ifthenelse{\equal{\addemptypagespredoc}{true}}{%
+		\coretriggeronpage{\insertemptypage}{}%
+	}{}
 	
 	% -------------------------------------------------------------------------
 	% Añade la entrada del índice a los marcadores del pdf
@@ -535,23 +527,6 @@
 	% -------------------------------------------------------------------------
 	\sectionfont{\color{\sectioncolor} \sectionfontsize \sectionfontstyle \selectfont}
 	\endgroup
-	
-	% -------------------------------------------------------------------------
-	% Se añade una página en blanco
-	% -------------------------------------------------------------------------
-	\clearpage
-	\ifthenelse{\equal{\addemptypagetwosides}{true}}{
-		\vfill
-		\checkoddpage
-		\ifoddpage
-			\clearpage
-			\null
-			\thispagestyle{empty}
-			\clearpage
-			\addtocounter{page}{-1}
-		\else
-		\fi}{
-	}
 	
 }
 
