@@ -198,6 +198,7 @@ for j = 1:length(BETA)
 		t2 = t * cos(r(i)) ./ BETA;
 		fad(i) = max(abs(u_t)) / uf0;
 		BETA(j) *= 0.6;
+		fad(i) = fad(i) .* t2;
 	end
 end
 \end{sourcecode}
@@ -205,6 +206,7 @@ end
 \begin{sourcecode}{pseudocode}{Algoritmo Non-Max supression.}
 function NMS(B,c)
 	$B_{nms} \leftarrow \emptyset$
+	
 	for $b_i \in B$ do
 		$discard \leftarrow$ False
 		for $b_j \in B$ do
@@ -213,6 +215,7 @@ function NMS(B,c)
 					$discard \leftarrow$ True
 		if not $discard$ then
 			$B_{nms} \leftarrow B_{nms} \bigcup b_i$
+	
 	return $B_{nms}$
 \end{sourcecode}
 
