@@ -95,3 +95,43 @@ Ahora con propiedades:
 \insertimagerightlinep[]{\img}{5cm}{width=5cm, height=2cm}{8}{Example} \lipsum[1] \\
 
 \insertimagerightlineboxedp[]{\img}{5cm}{width=5cm, height=2cm}{5}{8}{Example} \lipsum[1] \\
+
+\newpage
+\section{Imágenes animadas}
+
+\insertanimatedimage[\label{img:testanimado}]{test/img/Thanks}{width=4cm}{10}{6}{Ejemplo animación.}
+
+\lipsum[1]
+
+\insertanimatedimageboxed[\label{img:testanimadobox}]{test/img/Thanks}{width=4cm}{10}{6}{1}{Ejemplo animación.}
+
+\lipsum[1]
+
+Sin texto:
+
+\insertanimatedimageboxed{test/img/Thanks}{width=4cm}{10}{6}{1}{}
+
+En collage:
+
+\begin{images}{Ejemplo collage}
+	\addimage{\img}{width=\wc}{Example}
+	\addimageanum{\img}{width=\wc}
+	\addimageboxed{\img}{width=\wc}{5}{Example}
+	\addimageanumboxed{\img}{width=\wc}{5}
+	
+	\imagesnewline
+	
+	% Con links
+	\addimagelink{\img}{width=\wc}{\link}{Example}
+	\addimageanumlink{\img}{width=\wc}{\link}
+	\addimageboxedlink{\img}{width=\wc}{5}{\link}{Example}
+	\addimageanumboxedlink{\img}{width=\wc}{5}{\link}
+	
+	\imagesnewline
+	
+	\addimageanimated{test/img/Thanks}{width=\wc}{10}{6}{Example}
+	\addimageanimatedboxed{test/img/Thanks}{width=\wc}{10}{6}{2}{Example}
+	\addimageanimatedanum{test/img/Thanks}{width=\wc}{10}{6}
+	\addimageanimatedanumboxed{test/img/Thanks}{width=\wc}{10}{6}{2}
+	
+\end{images}

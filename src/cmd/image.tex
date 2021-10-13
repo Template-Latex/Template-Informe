@@ -9,7 +9,7 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-\global\def\GLOBALimagelink {}     % Almacena el link de la imagen
+\global\def\GLOBALimagelink {} % Almacena el link de la imagen
 
 % Añade una imagen a un env "image" con borde
 % 	#1	Label (opcional)
@@ -69,6 +69,88 @@
 %	#3	Ancho de la línea (en pt)
 \newcommand{\addimageanumboxed}[3]{%
 	\addimageboxed{#1}{#2}{#3}{}%
+}
+
+% Añade una imagen a un env "image" con borde animada
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen animada
+%	#3	Parámetros de la imagen
+%	#4	FPS de la imagen
+%	#5	Total imágenes no definido
+%	#6	Leyenda de la imagen (opcional)
+\newcommand{\addimageanimated}[6][]{%
+	\addimageanimatedboxed[#1]{#2}{#3}{#4}{#5}{0}{#6}%
+}
+
+% Añade una imagen a un env "image" con borde animada
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen animada
+%	#3	Parámetros de la imagen
+%	#4	FPS de la imagen
+%	#5	Total imágenes no definido
+%	#6	Ancho de la línea (en pt)
+%	#7	Leyenda de la imagen (opcional)
+\newcommand{\addimageanimatedboxed}[7][]{%
+	\checkonlyonenvimage%
+	\begingroup%
+	\setlength{\fboxsep}{0 pt}%
+	\setlength{\fboxrule}{#6 pt}%
+	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
+		\hspace{\marginimagemultright cm}%
+		\hspace{-0.125cm}%
+	}{}%
+	\ifthenelse{\equal{#7}{}}{% Sin label
+		\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
+			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+				\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
+			}{ % Sin autoplay
+				\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
+			}%
+		}{ % Sin loop
+			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+				\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
+			}{ % Sin autoplay
+				\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
+			}%
+		}%
+	}{% Con label
+		\subfloat[#7]{%
+			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
+				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+					\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+				}{ % Sin autoplay
+					\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
+				}%
+			}{ % Sin loop
+				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+					\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+				}{ % Sin autoplay
+					\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
+				}%
+			}%
+		}%
+	}%
+	\endgroup%
+	\global\def\GLOBALenvimageadded {true}%
+}
+
+% Añade una imagen a un env "image" con borde sin leyenda animada
+%	#1	Dirección de la imagen animada
+%	#2	Parámetros de la imagen
+%	#3	FPS de la imagen
+%	#4	Total imágenes no definido
+\newcommand{\addimageanimatedanum}[4]{%
+	\addimageanimatedboxed{#1}{#2}{#3}{#4}{0}{}%
+}
+
+% Añade una imagen a un env "image" con borde sin leyenda animada
+%	#1	Dirección de la imagen animada
+%	#2	Parámetros de la imagen
+%	#3	FPS de la imagen
+%	#4	Total imágenes no definido
+%	#5	Ancho de la línea (en pt)
+\newcommand{\addimageanimatedanumboxed}[5]{%
+	\addimageanimatedboxed{#1}{#2}{#3}{#4}{#5}{}%
 }
 
 % Añade una imagen a un env "image" con borde y un link
@@ -162,9 +244,9 @@
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
 			\centering%
-			\ifthenelse{\equal{\GLOBALimagelink}{}}{% Sin link
+			\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
 				\fbox{\includegraphics[#3]{#2}}%
-			}{% Con link
+			}{ % Con link
 				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
 			}%
 		\endgroup%
@@ -174,6 +256,82 @@
 			\hspace{0cm}%
 			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
+		\fi
+	\end{figure}
+	\corevspacevarcm{\marginimagebottom}%
+	\end{samepage}
+	\resetindexcaption%
+}
+
+% Insertar una imagen animada
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen animada
+%	#3	Parámetros de la imagen
+%	#4	FPS de la imagen
+%	#5	Total imágenes no definido
+%	#6	Leyenda de la imagen (opcional)
+\newcommand{\insertanimatedimage}[6][]{%
+	\insertanimatedimageboxed[#1]{#2}{#3}{#4}{#5}{0}{#6}%
+}
+
+% Insertar una imagen animada
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen animada
+%	#3	Parámetros de la imagen
+%	#4	FPS de la imagen
+%	#5	Total imágenes no definido
+%	#6	Ancho de la línea (en pt)
+%	#7	Leyenda de la imagen (opcional)
+\newcommand{\insertanimatedimageboxed}[7][]{%
+	\emptyvarerr{\insertanimatedimage}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertanimatedimage}{#3}{Parametros de la imagen no definidos}%
+	\emptyvarerr{\insertanimatedimage}{#4}{FPS no definido}%
+	\emptyvarerr{\insertanimatedimage}{#5}{Total imagenes no definido}%
+	\emptyvarerr{\insertanimatedimage}{#6}{Ancho de la línea no definido}%
+	\checkoutsideenvimage%
+	\corevspacevarcm{\marginimagetop}%
+	\begin{samepage}%
+	\begin{figure}[H]%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#6 pt}%
+			\centering%
+			\ifthenelse{\equal{\animatedimagecontrols}{true}}{ % Muestra los controles
+				\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+						\fbox{\animategraphics[controls,loop,autoplay,#3]{#4}{#2-}{0}{#5}}%	
+					}{ % Sin autoplay
+						\fbox{\animategraphics[controls,loop,#3]{#4}{#2-}{0}{#5}}%
+					}%
+				}{ % Sin loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+						\fbox{\animategraphics[controls,autoplay,#3]{#4}{#2-}{0}{#5}}%
+					}{ % Sin autoplay
+						\fbox{\animategraphics[controls,#3]{#4}{#2-}{0}{#5}}%
+					}%
+				}%
+			}{ % Sin controles
+				\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
+					}{ % Sin autoplay
+						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
+					}%
+				}{ % Sin loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
+					}{ % Sin autoplay
+						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
+					}%
+				}%
+			}%
+		\endgroup%
+		\ifx\hfuzz#7\hfuzz%
+			\corevspacevarcm{\captionlessmarginimage}%
+		\else%
+			\hspace{0cm}%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi
 	\end{figure}
 	\corevspacevarcm{\marginimagebottom}%
