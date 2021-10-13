@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.5.8 (08/10/2021)
+% Versión:      7.5.9 (13/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -109,6 +109,7 @@
 % -----------------------------------------------------------------------------
 % Librerías independientes
 % -----------------------------------------------------------------------------
+\usepackage{animate}       % Imágenes animadas
 \usepackage{amssymb}       % Librerías matemáticas
 \usepackage{amsthm}        % Definición de teoremas
 \usepackage{array}         % Nuevas características a las tablas
@@ -2029,6 +2030,8 @@
 	\fi
 }
 
+\global\def\GLOBALimagelink {} % Almacena el link de la imagen
+
 % Añade una imagen a un env "image" con borde
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
@@ -2053,8 +2056,23 @@
 		\hspace{\marginimagemultright cm}%
 		\hspace{-0.125cm}%
 	}{}%
-	\subfloat[#5]{%
-		\fbox{\includegraphics[#3]{#2}}#1}%
+	\ifthenelse{\equal{#5}{}}{% Sin label
+		\ifthenelse{\equal{\GLOBALimagelink}{}}{% Sin link
+			\fbox{\includegraphics[#3]{#2}}%
+		}{% Con link
+			\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
+		}%
+	}{% Con label
+		\ifthenelse{\equal{\GLOBALimagelink}{}}{% Sin link
+			\subfloat[#5]{%
+				\fbox{\includegraphics[#3]{#2}}#1%
+			}%
+		}{% Con link
+			\subfloat[#5]{%
+				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
+			}%
+		}%
+	}%
 	\endgroup%
 	\global\def\GLOBALenvimageadded {true}%
 }
@@ -2063,25 +2081,137 @@
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 \newcommand{\addimageanum}[2]{%
-	\addimageboxedanum{#1}{#2}{0}%
+	\addimageboxed{#1}{#2}{0}{}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
-\newcommand{\addimageboxedanum}[3]{%
+\newcommand{\addimageanumboxed}[3]{%
+	\addimageboxed{#1}{#2}{#3}{}%
+}
+
+% Añade una imagen a un env "image" con borde animada
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen animada
+%	#3	Parámetros de la imagen
+%	#4	FPS de la imagen
+%	#5	Total imágenes no definido
+%	#6	Leyenda de la imagen (opcional)
+\newcommand{\addimageanimated}[6][]{%
+	\addimageanimatedboxed[#1]{#2}{#3}{#4}{#5}{0}{#6}%
+}
+
+% Añade una imagen a un env "image" con borde animada
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen animada
+%	#3	Parámetros de la imagen
+%	#4	FPS de la imagen
+%	#5	Total imágenes no definido
+%	#6	Ancho de la línea (en pt)
+%	#7	Leyenda de la imagen (opcional)
+\newcommand{\addimageanimatedboxed}[7][]{%
 	\checkonlyonenvimage%
 	\begingroup%
 	\setlength{\fboxsep}{0 pt}%
-	\setlength{\fboxrule}{#3 pt}%
+	\setlength{\fboxrule}{#6 pt}%
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\marginimagemultright cm}%
 		\hspace{-0.125cm}%
 	}{}%
-	\fbox{\includegraphics[#2]{#1}}%
+	\ifthenelse{\equal{#7}{}}{% Sin label
+		\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
+			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+				\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
+			}{ % Sin autoplay
+				\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
+			}%
+		}{ % Sin loop
+			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+				\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
+			}{ % Sin autoplay
+				\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
+			}%
+		}%
+	}{% Con label
+		\subfloat[#7]{%
+			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
+				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+					\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+				}{ % Sin autoplay
+					\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
+				}%
+			}{ % Sin loop
+				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+					\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+				}{ % Sin autoplay
+					\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
+				}%
+			}%
+		}%
+	}%
 	\endgroup%
 	\global\def\GLOBALenvimageadded {true}%
+}
+
+% Añade una imagen a un env "image" con borde sin leyenda animada
+%	#1	Dirección de la imagen animada
+%	#2	Parámetros de la imagen
+%	#3	FPS de la imagen
+%	#4	Total imágenes no definido
+\newcommand{\addimageanimatedanum}[4]{%
+	\addimageanimatedboxed{#1}{#2}{#3}{#4}{0}{}%
+}
+
+% Añade una imagen a un env "image" con borde sin leyenda animada
+%	#1	Dirección de la imagen animada
+%	#2	Parámetros de la imagen
+%	#3	FPS de la imagen
+%	#4	Total imágenes no definido
+%	#5	Ancho de la línea (en pt)
+\newcommand{\addimageanimatedanumboxed}[5]{%
+	\addimageanimatedboxed{#1}{#2}{#3}{#4}{#5}{}%
+}
+
+% Añade una imagen a un env "image" con borde y un link
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Link de la imagen
+%	#5	Leyenda de la imagen (opcional)
+\newcommand{\addimagelink}[5][]{%
+	\addimageboxedlink[#1]{#2}{#3}{0}{#4}{#5}%
+}
+
+% Añade una imagen a un env "image" con borde
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Ancho de la línea (en pt)
+%	#5	Link de la imagen
+%	#6	Leyenda de la imagen (opcional)
+\newcommand{\addimageboxedlink}[6][]{%
+	\global\def\GLOBALimagelink {#5}%
+	\addimageboxed[#1]{#2}{#3}{#4}{#6}%
+	\global\def\GLOBALimagelink {}%
+}
+
+% Añade una imagen a un env "image" con borde sin leyenda
+%	#1	Dirección de la imagen
+%	#2	Parámetros de la imagen
+%	#3	Link de la imagen
+\newcommand{\addimageanumlink}[3]{%
+	\addimagelink{#1}{#2}{#3}{}%
+}
+
+% Añade una imagen a un env "image" con borde sin leyenda
+%	#1	Dirección de la imagen
+%	#2	Parámetros de la imagen
+%	#3	Ancho de la línea (en pt)
+%	#4	Link de la imagen
+\newcommand{\addimageanumboxedlink}[4]{%
+	\addimageboxedlink{#1}{#2}{#3}{#4}{}%
 }
 
 % Añade un salto de línea en las imágenes
@@ -2089,7 +2219,7 @@
 	\checkonlyonenvimage%
 	\global\def\GLOBALenvimageadded {false}%
 	\corevspacevarcm{\marginimagemultbottom}%
-	\linebreak\noindent%
+	~\linebreak\noindent%
 }
 
 % Agrega un espacio horizontal a las imágenes
@@ -2135,7 +2265,11 @@
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
 			\centering%
-			\fbox{\includegraphics[#3]{#2}}%
+			\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
+				\fbox{\includegraphics[#3]{#2}}%
+			}{ % Con link
+				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
+			}%
 		\endgroup%
 		\ifx\hfuzz#5\hfuzz%
 			\corevspacevarcm{\captionlessmarginimage}%
@@ -2148,6 +2282,105 @@
 	\corevspacevarcm{\marginimagebottom}%
 	\end{samepage}
 	\resetindexcaption%
+}
+
+% Insertar una imagen animada
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen animada
+%	#3	Parámetros de la imagen
+%	#4	FPS de la imagen
+%	#5	Total imágenes no definido
+%	#6	Leyenda de la imagen (opcional)
+\newcommand{\insertanimatedimage}[6][]{%
+	\insertanimatedimageboxed[#1]{#2}{#3}{#4}{#5}{0}{#6}%
+}
+
+% Insertar una imagen animada
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen animada
+%	#3	Parámetros de la imagen
+%	#4	FPS de la imagen
+%	#5	Total imágenes no definido
+%	#6	Ancho de la línea (en pt)
+%	#7	Leyenda de la imagen (opcional)
+\newcommand{\insertanimatedimageboxed}[7][]{%
+	\emptyvarerr{\insertanimatedimage}{#2}{Direccion de la imagen no definida}%
+	\emptyvarerr{\insertanimatedimage}{#3}{Parametros de la imagen no definidos}%
+	\emptyvarerr{\insertanimatedimage}{#4}{FPS no definido}%
+	\emptyvarerr{\insertanimatedimage}{#5}{Total imagenes no definido}%
+	\emptyvarerr{\insertanimatedimage}{#6}{Ancho de la línea no definido}%
+	\checkoutsideenvimage%
+	\corevspacevarcm{\marginimagetop}%
+	\begin{samepage}%
+	\begin{figure}[H]%
+		\begingroup%
+			\setlength{\fboxsep}{0 pt}%
+			\setlength{\fboxrule}{#6 pt}%
+			\centering%
+			\ifthenelse{\equal{\animatedimagecontrols}{true}}{ % Muestra los controles
+				\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+						\fbox{\animategraphics[controls,loop,autoplay,#3]{#4}{#2-}{0}{#5}}%	
+					}{ % Sin autoplay
+						\fbox{\animategraphics[controls,loop,#3]{#4}{#2-}{0}{#5}}%
+					}%
+				}{ % Sin loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+						\fbox{\animategraphics[controls,autoplay,#3]{#4}{#2-}{0}{#5}}%
+					}{ % Sin autoplay
+						\fbox{\animategraphics[controls,#3]{#4}{#2-}{0}{#5}}%
+					}%
+				}%
+			}{ % Sin controles
+				\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
+					}{ % Sin autoplay
+						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
+					}%
+				}{ % Sin loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
+					}{ % Sin autoplay
+						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
+					}%
+				}%
+			}%
+		\endgroup%
+		\ifx\hfuzz#7\hfuzz%
+			\corevspacevarcm{\captionlessmarginimage}%
+		\else%
+			\hspace{0cm}%
+			\ifthenelse{\equal{\captionmarginimage}{0}}{}{\corevspacevarcm{\captionmarginimage}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
+		\fi
+	\end{figure}
+	\corevspacevarcm{\marginimagebottom}%
+	\end{samepage}
+	\resetindexcaption%
+}
+
+% Insertar una imagen con link
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Link de la imagen
+%	#5	Leyenda de la imagen (opcional)
+\newcommand{\insertimagelink}[5][]{%
+	\insertimagelinkboxed[#1]{#2}{#3}{0}{#4}{#5}%
+}
+
+% Insertar una imagen con recuadro con link
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Ancho de la línea (en pt)
+%	#5	Link de la imagen
+%	#6	Leyenda de la imagen (opcional)
+\newcommand{\insertimagelinkboxed}[6][]{%
+	\global\def\GLOBALimagelink {#5}%
+	\insertimageboxed[#1]{#2}{#3}{#4}{#6}%
+	\global\def\GLOBALimagelink {}%
 }
 
 % Insertar una imagen completa en un entorno multicol
@@ -4558,12 +4791,10 @@
 }
 
 % Pseudocódigo
-\lstdefinestyle{pseudocode}{
+\lstdefinelanguage{Pseudocode}{
 	language={},
-	backgroundcolor=\color{white},
 	breakatwhitespace=false,
 	commentstyle=\color{gray}\upshape,
-	frame=tb,
 	keepspaces=true,
 	keywords={
 		and,be,begin,break,datatype,do,elif,else,end,for,foreach,fun,function,if,in,input,let,not,null,or,output,pop,procedure,push,repeat,return,swap,until,while,xor
@@ -4576,6 +4807,15 @@
 	morecomment=[s]{/**}{*/},
 	sensitive=false,
 	stringstyle=\color{dkgray}\bfseries\em
+}
+\lstdefinestyle{pseudocode}{
+	language=Pseudocode,
+	backgroundcolor=\color{white},
+	frame=tb,
+	numbers=none
+}
+\lstdefinestyle{pseudocodecolor}{
+	language=Pseudocode
 }
 
 % Python
@@ -4960,6 +5200,7 @@
 	\ifthenelse{\equal{#1}{prolog}}{}{%
 	\ifthenelse{\equal{#1}{promela}}{}{%
 	\ifthenelse{\equal{#1}{pseudocode}}{}{%
+	\ifthenelse{\equal{#1}{pseudocodecolor}}{}{%
 	\ifthenelse{\equal{#1}{python}}{}{%
 	\ifthenelse{\equal{#1}{qsharp}}{}{%
 	\ifthenelse{\equal{#1}{r}}{}{%
@@ -4979,9 +5220,9 @@
 	\ifthenelse{\equal{#1}{verilog}}{}{%
 	\ifthenelse{\equal{#1}{vhdl}}{}{%
 	\ifthenelse{\equal{#1}{xml}}{}{%
-		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: abap,ada,assemblerx64,assemblerx86,awk,bash,basic,c,caml,cmake,cobol,cpp,csharp,css,csv,cuda,dart,docker,elisp,elixir,erlang,fortran,fsharp,glsl,gnuplot,go,haskell,html,ini,java,javascript,json,julia,kotlin,latex,lisp,llvm,lua,make,maple,mathematica,matlab,mercury,modula2,objectivec,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,powershell,prolog,promela,pseudocode,python,qsharp,r,racket,reil,ruby,rust,scala,scheme,scilab,simula,sparql,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
+		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: abap,ada,assemblerx64,assemblerx86,awk,bash,basic,c,caml,cmake,cobol,cpp,csharp,css,csv,cuda,dart,docker,elisp,elixir,erlang,fortran,fsharp,glsl,gnuplot,go,haskell,html,ini,java,javascript,json,julia,kotlin,latex,lisp,llvm,lua,make,maple,mathematica,matlab,mercury,modula2,objectivec,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,powershell,prolog,promela,pseudocode,pseudocodecolor,python,qsharp,r,racket,reil,ruby,rust,scala,scheme,scilab,simula,sparql,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
 		\stop%
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
 }
 
 % Crea un entorno de código inline
@@ -5201,16 +5442,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={08/10/2021},
+		Template.Date={13/10/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.5.8},
-		Template.Version.Hash={D04345612D495B0FAE2407E82469ADD6},
-		Template.Version.Release={7.5.8},
+		Template.Version.Dev={7.5.9},
+		Template.Version.Hash={C2677D794B62D6E8C0A781859677DA67},
+		Template.Version.Release={7.5.9},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5222,7 +5463,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.5.8 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.5.9 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
