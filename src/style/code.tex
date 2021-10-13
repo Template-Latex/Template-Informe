@@ -552,12 +552,10 @@
 }
 
 % Pseudocódigo
-\lstdefinestyle{pseudocode}{
+\lstdefinelanguage{Pseudocode}{
 	language={},
-	backgroundcolor=\color{white},
 	breakatwhitespace=false,
 	commentstyle=\color{gray}\upshape,
-	frame=tb,
 	keepspaces=true,
 	keywords={
 		and,be,begin,break,datatype,do,elif,else,end,for,foreach,fun,function,if,in,input,let,not,null,or,output,pop,procedure,push,repeat,return,swap,until,while,xor
@@ -570,6 +568,14 @@
 	morecomment=[s]{/**}{*/},
 	sensitive=false,
 	stringstyle=\color{dkgray}\bfseries\em
+}
+\lstdefinestyle{pseudocode}{
+	language=Pseudocode,
+	backgroundcolor=\color{white},
+	frame=tb,
+}
+\lstdefinestyle{pseudocodecolor}{
+	language=Pseudocode
 }
 
 % Python
@@ -954,6 +960,7 @@
 	\ifthenelse{\equal{#1}{prolog}}{}{%
 	\ifthenelse{\equal{#1}{promela}}{}{%
 	\ifthenelse{\equal{#1}{pseudocode}}{}{%
+	\ifthenelse{\equal{#1}{pseudocodecolor}}{}{%
 	\ifthenelse{\equal{#1}{python}}{}{%
 	\ifthenelse{\equal{#1}{qsharp}}{}{%
 	\ifthenelse{\equal{#1}{r}}{}{%
@@ -973,9 +980,9 @@
 	\ifthenelse{\equal{#1}{verilog}}{}{%
 	\ifthenelse{\equal{#1}{vhdl}}{}{%
 	\ifthenelse{\equal{#1}{xml}}{}{%
-		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: abap,ada,assemblerx64,assemblerx86,awk,bash,basic,c,caml,cmake,cobol,cpp,csharp,css,csv,cuda,dart,docker,elisp,elixir,erlang,fortran,fsharp,glsl,gnuplot,go,haskell,html,ini,java,javascript,json,julia,kotlin,latex,lisp,llvm,lua,make,maple,mathematica,matlab,mercury,modula2,objectivec,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,powershell,prolog,promela,pseudocode,python,qsharp,r,racket,reil,ruby,rust,scala,scheme,scilab,simula,sparql,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
+		\errmessage{LaTeX Warning: Estilo de codigo desconocido. Valores esperados: abap,ada,assemblerx64,assemblerx86,awk,bash,basic,c,caml,cmake,cobol,cpp,csharp,css,csv,cuda,dart,docker,elisp,elixir,erlang,fortran,fsharp,glsl,gnuplot,go,haskell,html,ini,java,javascript,json,julia,kotlin,latex,lisp,llvm,lua,make,maple,mathematica,matlab,mercury,modula2,objectivec,octave,opencl,opensees,pascal,perl,php,plaintext,postscript,powershell,prolog,promela,pseudocode,pseudocodecolor,python,qsharp,r,racket,reil,ruby,rust,scala,scheme,scilab,simula,sparql,sql,swift,tcl,vbscript,verilog,vhdl,xml}%
 		\stop%
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
+	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}%
 }
 
 % Crea un entorno de código inline
