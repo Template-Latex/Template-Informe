@@ -111,44 +111,18 @@
 
 %---------------------------------------------------------------------
 
-\begin{frame}[fragile]{Código fuente (Template)}
-	Al igual que \href{https://latex.ppizarror.com/informe}{Template-Informe}, Template-Presentación ofrece el soporte a todos los lenguajes de programación con el entorno \texttt{sourcecode}. Para usarlo, al igual que \textit{vervatim}, el objeto frame debe tener el argumento opcional \textbf{[fragile]}.
-
-\begin{sourcecode}{python}{Ejemplo en Python.}
-import numpy as np
-
-def incmatrix(genl1, genl2):
-	m = len(genl1)
-	n = len(genl2)
-	M = None # Comentario 1
-	VT = np.zeros((n*m, 1), int) # Comentario 2
-\end{sourcecode}
-	
-	También se pueden usar códigos inline \inlinesourcecodeboxed{javascript}{let a = (b) => \{return b*2\};} o sin recuadro de color como \inlinesourcecode{bash}{git commit -m "Este ejemplo"}.
-\end{frame}
-
-%---------------------------------------------------------------------
-
-\begin{frame}[fragile]{Código fuente (Verbatim)}
-	\begin{example}[Código sencillo en Python]
-		\begin{verbatim}
-		import numpy as np
-		
-		def incmatrix(genl1, genl2):
-			m = len(genl1)
-			n = len(genl2)
-			M = None # Comentario 1
-			VT = np.zeros((n*m, 1), int) # Comentario 2
-		\end{verbatim}
-	\end{example}
-\end{frame}
-
-%---------------------------------------------------------------------
-
 \begin{frame}{Figuras}
 	La Figura \ref{img:testimage} ilustra una imagen insertada con las funciones propias del template, mismas compartidas con todos los subtemplates.
 	
 	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}{Figuras animadas!}
+	La Figura \ref{img:testanimado} muestra un ejemplo de figuras animadas. Éste carga imágenes del estilo \texttt{ejemplos/animacion-0} a \texttt{ejemplos/animacion-N} con \texttt{N=19} (parámetro de la función). Notar que esta característica no es posible reproducirla en todos los visualizadores. En Adobe Acrobat se puede visualizar sin problemas $\smiley$.
+	
+	\insertanimatedimage[\label{img:testanimado}]{ejemplos/animacion}{width=4cm}{10}{19}{Ejemplo animación.}
 \end{frame}
 
 %---------------------------------------------------------------------
@@ -186,6 +160,40 @@ def incmatrix(genl1, genl2):
 			\item Lenguaje
 		\end{enumerate}
 	\end{columns}
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}[fragile]{Código fuente (Template)}
+	Al igual que \href{https://latex.ppizarror.com/informe}{Template-Informe}, Template-Presentación ofrece el soporte a todos los lenguajes de programación con el entorno \texttt{sourcecode}. Para usarlo, al igual que \textit{vervatim}, el objeto frame debe tener el argumento opcional \textbf{[fragile]}.
+
+\begin{sourcecode}{python}{Ejemplo en Python.}
+import numpy as np
+
+def incmatrix(genl1, genl2):
+	m = len(genl1)
+	n = len(genl2)
+	M = None # Comentario 1
+	VT = np.zeros((n*m, 1), int) # Comentario 2
+\end{sourcecode}
+	
+	También se pueden usar códigos inline \inlinesourcecodeboxed{javascript}{let a = (b) => \{return b*2\};} o sin recuadro de color como \inlinesourcecode{bash}{git commit -m "Este ejemplo"}.
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}[fragile]{Código fuente (Verbatim)}
+	\begin{example}[Código sencillo en Python]
+		\begin{verbatim}
+		import numpy as np
+		
+		def incmatrix(genl1, genl2):
+			m = len(genl1)
+			n = len(genl2)
+			M = None # Comentario 1
+			VT = np.zeros((n*m, 1), int) # Comentario 2
+		\end{verbatim}
+	\end{example}
 \end{frame}
 
 %---------------------------------------------------------------------
