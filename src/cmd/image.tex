@@ -9,6 +9,8 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
+\global\def\GLOBALimagelink {}     % Almacena el link de la imagen
+
 % Añade una imagen a un env "image" con borde
 % 	#1	Label (opcional)
 %	#2	Dirección de la imagen
@@ -33,8 +35,23 @@
 		\hspace{\marginimagemultright cm}%
 		\hspace{-0.125cm}%
 	}{}%
-	\subfloat[#5]{%
-		\fbox{\includegraphics[#3]{#2}}#1}%
+	\ifthenelse{\equal{#5}{}}{% Sin label
+		\ifthenelse{\equal{\GLOBALimagelink}{}}{% Sin link
+			\fbox{\includegraphics[#3]{#2}}%
+		}{% Con link
+			\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
+		}%
+	}{% Con label
+		\ifthenelse{\equal{\GLOBALimagelink}{}}{% Sin link
+			\subfloat[#5]{%
+				\fbox{\includegraphics[#3]{#2}}#1%
+			}%
+		}{% Con link
+			\subfloat[#5]{%
+				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
+			}%
+		}%
+	}%
 	\endgroup%
 	\global\def\GLOBALenvimageadded {true}%
 }
@@ -43,25 +60,55 @@
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 \newcommand{\addimageanum}[2]{%
-	\addimageboxedanum{#1}{#2}{0}%
+	\addimageboxed{#1}{#2}{0}{}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
-\newcommand{\addimageboxedanum}[3]{%
-	\checkonlyonenvimage%
-	\begingroup%
-	\setlength{\fboxsep}{0 pt}%
-	\setlength{\fboxrule}{#3 pt}%
-	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
-		\hspace{\marginimagemultright cm}%
-		\hspace{-0.125cm}%
-	}{}%
-	\fbox{\includegraphics[#2]{#1}}%
-	\endgroup%
-	\global\def\GLOBALenvimageadded {true}%
+\newcommand{\addimageanumboxed}[3]{%
+	\addimageboxed{#1}{#2}{#3}{}%
+}
+
+% Añade una imagen a un env "image" con borde y un link
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Link de la imagen
+%	#5	Leyenda de la imagen (opcional)
+\newcommand{\addimagelink}[5][]{%
+	\addimageboxedlink[#1]{#2}{#3}{0}{#4}{#5}%
+}
+
+% Añade una imagen a un env "image" con borde
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Ancho de la línea (en pt)
+%	#5	Link de la imagen
+%	#6	Leyenda de la imagen (opcional)
+\newcommand{\addimageboxedlink}[6][]{%
+	\global\def\GLOBALimagelink {#5}%
+	\addimageboxed[#1]{#2}{#3}{#4}{#6}%
+	\global\def\GLOBALimagelink {}%
+}
+
+% Añade una imagen a un env "image" con borde sin leyenda
+%	#1	Dirección de la imagen
+%	#2	Parámetros de la imagen
+%	#3	Link de la imagen
+\newcommand{\addimageanumlink}[3]{%
+	\addimagelink{#1}{#2}{#3}{}%
+}
+
+% Añade una imagen a un env "image" con borde sin leyenda
+%	#1	Dirección de la imagen
+%	#2	Parámetros de la imagen
+%	#3	Ancho de la línea (en pt)
+%	#4	Link de la imagen
+\newcommand{\addimageanumboxedlink}[4]{%
+	\addimageboxedlink{#1}{#2}{#3}{#4}{}%
 }
 
 % Añade un salto de línea en las imágenes
@@ -69,7 +116,7 @@
 	\checkonlyonenvimage%
 	\global\def\GLOBALenvimageadded {false}%
 	\corevspacevarcm{\marginimagemultbottom}%
-	\linebreak\noindent%
+	~\linebreak\noindent%
 }
 
 % Agrega un espacio horizontal a las imágenes
@@ -115,7 +162,11 @@
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
 			\centering%
-			\fbox{\includegraphics[#3]{#2}}%
+			\ifthenelse{\equal{\GLOBALimagelink}{}}{% Sin link
+				\fbox{\includegraphics[#3]{#2}}%
+			}{% Con link
+				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
+			}%
 		\endgroup%
 		\ifx\hfuzz#5\hfuzz%
 			\corevspacevarcm{\captionlessmarginimage}%
@@ -128,6 +179,29 @@
 	\corevspacevarcm{\marginimagebottom}%
 	\end{samepage}
 	\resetindexcaption%
+}
+
+% Insertar una imagen con link
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Link de la imagen
+%	#5	Leyenda de la imagen (opcional)
+\newcommand{\insertimagelink}[5][]{%
+	\insertimagelinkboxed[#1]{#2}{#3}{0}{#4}{#5}%
+}
+
+% Insertar una imagen con recuadro con link
+% 	#1	Label (opcional)
+%	#2	Dirección de la imagen
+%	#3	Parámetros de la imagen
+%	#4	Ancho de la línea (en pt)
+%	#5	Link de la imagen
+%	#6	Leyenda de la imagen (opcional)
+\newcommand{\insertimagelinkboxed}[6][]{%
+	\global\def\GLOBALimagelink {#5}%
+	\insertimageboxed[#1]{#2}{#3}{#4}{#6}%
+	\global\def\GLOBALimagelink {}%
 }
 
 % Insertar una imagen completa en un entorno multicol
