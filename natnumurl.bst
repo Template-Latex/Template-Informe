@@ -59,9 +59,9 @@ INTEGERS {
 }
 
 STRINGS {
-	s
-	t
-	longest.label
+    s
+    t
+    longest.label
 }
 
 FUNCTION {init.state.consts} {
