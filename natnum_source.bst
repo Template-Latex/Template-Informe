@@ -1,13 +1,13 @@
 %% Template:     Template LaTeX
-%% Documento:    Archivo de estilos simple numerados + url (doi, arxivId)
-%% Versión:      DEV
+%% Documento:    [NATNUM_DESCRIPTION]
+%% Versión:      1.3.0
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
 %%        pablo@ppizarror.com
 %%
 %% Manual template: [https://latex.ppizarror.com]
-%% Licencia MIT:   [https://opensource.org/licenses/MIT]
+%% Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 ENTRY {
     address
@@ -126,7 +126,7 @@ FUNCTION {output.links} {
                 urldate empty$ {
                     "" *
                 }{
-                    " (visited on " * urldate * ")" *
+                    " ([VISITED_ON] " * urldate * ")" *
                 } if$
             } if$
         }{
@@ -261,9 +261,9 @@ FUNCTION {format.names} {
                     "," *
                 } 'skip$ if$
                 t "others" = { 
-                    " {\em et~al.}" *
+                    " {\em [LANG_ET_AL]}" *
                 }{
-                    " and " * t *
+                    "[LANG_AND]" * t *
                 } if$
             } if$
         } 't if$
@@ -286,9 +286,9 @@ FUNCTION {format.editors} {
     }{
         editor format.names
         editor num.names$ #1 > {
-            ", eds." *
+            "[EDITORS]" *
         }{
-            ", ed." *
+            "[EDITOR]" *
         } if$
     } if$
 }
@@ -372,10 +372,10 @@ FUNCTION {format.bvolume} {
     volume empty$ {
         ""
     }{
-        "vol.~" volume *
+        "[VOLUME]" volume *
         series empty$
         'skip$ {
-            " of " * series emphasize *
+            "[OF]" * series emphasize *
         } if$
         "volume and number" number either.or.check
     } if$
@@ -387,15 +387,15 @@ FUNCTION {format.number.series} {
             series field.or.null
         }{
             output.state mid.sentence = {
-                "no.~"
+                "[NO._MID]"
             }{
-                "No.~"
+                "[NO._IN]"
             } if$
             number *
             series empty$ {
                 "there's a number but no series in " cite$ * warning$
             }{
-                " in " * series *
+                "[IN]" * series *
             } if$
         } if$
     }{
@@ -436,9 +436,9 @@ FUNCTION {format.pages} {
         ""
     }{
         pages multi.page.check {
-            "pp.~" pages n.dashify *
+            "[PAGES]" pages n.dashify *
         }{
-            "p.~" pages *
+            "[PAGE]" pages *
         } if$
     } if$
 }
@@ -447,7 +447,7 @@ FUNCTION {format.volume} {
     volume empty$ {
         ""
     }{
-        "vol.~" volume *
+        "[VOLUME]" volume *
     } if$
 }
 
@@ -455,14 +455,14 @@ FUNCTION {format.number} {
     number empty$ {
         ""
     }{
-        "no.~" number *
+        "[NO._MID]" number *
     } if$
 }
 
 FUNCTION {format.chapter.pages} {
     chapter empty$ 'format.pages {
         type empty$ {
-            "ch.~" chapter *
+            "[CHAPTER]" chapter *
         }{
             type "l" change.case$ chapter tie.or.space.connect
         } if$
@@ -476,7 +476,7 @@ FUNCTION {format.in.ed.booktitle} {
     booktitle empty$ {
         ""
     }{
-        "in " booktitle emphasize *
+        "[IN_OBJECT]" booktitle emphasize *
         editor empty$
         'skip$ {
             " (" * format.editors * ")" *
@@ -506,7 +506,7 @@ FUNCTION {empty.misc.check} {
 
 FUNCTION {format.tr.number} {
     type empty$ {
-        "Tech. Rep."
+        "[TECH_REP]"
     } 'type if$
     number empty$ {
         "l" change.case$
@@ -543,10 +543,10 @@ FUNCTION {format.article.crossref} {
             warning$
             ""
         }{
-            "in { " journal * "\/}" *
+            "[IN_OBJECT]{ " journal * "\/}" *
         } if$
     }{
-        "in " key *
+        "[IN_OBJECT]" key *
     } if$
     " \cite{" * crossref * "}" *
 }
@@ -555,13 +555,13 @@ FUNCTION {format.crossref.editor} {
     editor #1 "{vv~}{ll}" format.name$
     editor num.names$ duplicate$
     #2 > {
-        pop$ " {\em et~al.}" *
+        pop$ " {\em [LANG_ET_AL]}" *
     }{
         #2 < 'skip$ {
             editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" = {
-                " {\em et~al.}" *
+                " {\em [LANG_ET_AL]}" *
             }{
-                " and " * editor #2 "{vv~}{ll}" format.name$ *
+                "[LANG_AND]" * editor #2 "{vv~}{ll}" format.name$ *
             } if$
         } if$
     } if$
@@ -570,10 +570,10 @@ FUNCTION {format.crossref.editor} {
 FUNCTION {format.book.crossref} {
     volume empty$ {
         "empty volume in " cite$ * "'s crossref of " * crossref * warning$
-        "In "
+        "[IN_OBJECT_M]"
     }{
-        "Vol.~" volume *
-        " of " *
+        "[VOLUME_M]" volume *
+        "[OF]" *
     } if$
     editor empty$
     editor field.or.null author field.or.null = or {
@@ -603,13 +603,13 @@ FUNCTION {format.incoll.inproc.crossref} {
                 crossref * warning$
                 ""
             }{
-                "in { " booktitle * "\/}" *
+                "[IN_OBJECT]{ " booktitle * "\/}" *
             } if$
         }{
-            "in " key *
+            "[IN_OBJECT]" key *
         } if$
     }{
-        "in " format.crossref.editor *
+        "[IN_OBJECT]" format.crossref.editor *
     } if$
     " \cite{" * crossref * "}" *
 }

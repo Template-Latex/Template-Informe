@@ -1,5 +1,5 @@
 %% Template:     Template LaTeX
-%% Documento:    Archivo de estilos simple numerados [es]
+%% Documento:    Archivo de estilos simple numerados [en]
 %% Versión:      1.3.0 (14/10/2021)
 %% Codificación: UTF-8
 %%
@@ -126,7 +126,7 @@ FUNCTION {output.links} {
                 urldate empty$ {
                     "" *
                 }{
-                    " (visitado el " * urldate * ")" *
+                    " (visited on " * urldate * ")" *
                 } if$
             } if$
         }{
@@ -263,7 +263,7 @@ FUNCTION {format.names} {
                 t "others" = { 
                     " {\em et~al.}" *
                 }{
-                    " y " * t *
+                    " and " * t *
                 } if$
             } if$
         } 't if$
@@ -375,7 +375,7 @@ FUNCTION {format.bvolume} {
         "vol.~" volume *
         series empty$
         'skip$ {
-            " de " * series emphasize *
+            " of " * series emphasize *
         } if$
         "volume and number" number either.or.check
     } if$
@@ -395,7 +395,7 @@ FUNCTION {format.number.series} {
             series empty$ {
                 "there's a number but no series in " cite$ * warning$
             }{
-                " en " * series *
+                " in " * series *
             } if$
         } if$
     }{
@@ -462,7 +462,7 @@ FUNCTION {format.number} {
 FUNCTION {format.chapter.pages} {
     chapter empty$ 'format.pages {
         type empty$ {
-            "cap.~" chapter *
+            "ch.~" chapter *
         }{
             type "l" change.case$ chapter tie.or.space.connect
         } if$
@@ -476,7 +476,7 @@ FUNCTION {format.in.ed.booktitle} {
     booktitle empty$ {
         ""
     }{
-        "en " booktitle emphasize *
+        "in " booktitle emphasize *
         editor empty$
         'skip$ {
             " (" * format.editors * ")" *
@@ -506,7 +506,7 @@ FUNCTION {empty.misc.check} {
 
 FUNCTION {format.tr.number} {
     type empty$ {
-        "Rep. Tec."
+        "Tech. Rep."
     } 'type if$
     number empty$ {
         "l" change.case$
@@ -543,10 +543,10 @@ FUNCTION {format.article.crossref} {
             warning$
             ""
         }{
-            "en { " journal * "\/}" *
+            "in { " journal * "\/}" *
         } if$
     }{
-        "en " key *
+        "in " key *
     } if$
     " \cite{" * crossref * "}" *
 }
@@ -561,7 +561,7 @@ FUNCTION {format.crossref.editor} {
             editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" = {
                 " {\em et~al.}" *
             }{
-                " y " * editor #2 "{vv~}{ll}" format.name$ *
+                " and " * editor #2 "{vv~}{ll}" format.name$ *
             } if$
         } if$
     } if$
@@ -570,10 +570,10 @@ FUNCTION {format.crossref.editor} {
 FUNCTION {format.book.crossref} {
     volume empty$ {
         "empty volume in " cite$ * "'s crossref of " * crossref * warning$
-        "En "
+        "In "
     }{
         "Vol.~" volume *
-        " de " *
+        " of " *
     } if$
     editor empty$
     editor field.or.null author field.or.null = or {
@@ -603,13 +603,13 @@ FUNCTION {format.incoll.inproc.crossref} {
                 crossref * warning$
                 ""
             }{
-                "en { " booktitle * "\/}" *
+                "in { " booktitle * "\/}" *
             } if$
         }{
-            "en " key *
+            "in " key *
         } if$
     }{
-        "en " format.crossref.editor *
+        "in " format.crossref.editor *
     } if$
     " \cite{" * crossref * "}" *
 }
