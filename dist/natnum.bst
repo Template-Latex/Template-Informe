@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
-%% Documento:    Archivo de estilos simple numerados
-%% Versión:      1.1.2 (18/09/2021)
+%% Documento:    Archivo de estilos simple numerados [es]
+%% Versión:      1.3.0 (14/10/2021)
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -32,6 +32,10 @@ ENTRY {
     type
     volume
     year
+    doi
+    arxivId
+    url
+    urldate
 }
 {}
 {
@@ -99,10 +103,10 @@ FUNCTION {output.nonnull} {
 }
 
 FUNCTION {output} {
-    duplicate$ empty$
-    'pop$
-    'output.nonnull
-    if$
+	duplicate$ empty$
+	'pop$
+	'output.nonnull
+	if$
 }
 
 FUNCTION {output.check} {
@@ -110,6 +114,35 @@ FUNCTION {output.check} {
     duplicate$ empty$ {
         pop$ "empty " t * " in " * cite$ * warning$
     } 'output.nonnull if$
+}
+
+FUNCTION {output.links} {
+    doi empty$ {
+        arxivId empty$ {
+            url empty$ {
+                "" *
+            }{
+                ", \href{" * url * "}{\nolinkurl{\detokenize{" * url * "}}}" *
+                urldate empty$ {
+                    "" *
+                }{
+                    " (visitado el " * urldate * ")" *
+                } if$
+            } if$
+        }{
+            url empty$ {
+                ", \href{https://arxiv.org/abs/" * arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" *
+            }{
+                ", \href{" * url * "}{\nolinkurl{arXiv:\detokenize{" * arxivId * "}}}" *
+            } if$
+        } if$
+    }{
+        url empty$ {
+            ", \href{https://dx.doi.org/" * doi * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
+        }{
+            ", \href{" * url * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
+        } if$
+    } if$
 }
 
 FUNCTION {output.bibitem} {
@@ -230,7 +263,7 @@ FUNCTION {format.names} {
                 t "others" = { 
                     " {\em et~al.}" *
                 }{
-                    " and " * t *
+                    " y " * t *
                 } if$
             } if$
         } 't if$
@@ -342,7 +375,7 @@ FUNCTION {format.bvolume} {
         "vol.~" volume *
         series empty$
         'skip$ {
-            " of " * series emphasize *
+            " de " * series emphasize *
         } if$
         "volume and number" number either.or.check
     } if$
@@ -362,7 +395,7 @@ FUNCTION {format.number.series} {
             series empty$ {
                 "there's a number but no series in " cite$ * warning$
             }{
-                " in " * series *
+                " en " * series *
             } if$
         } if$
     }{
@@ -429,7 +462,7 @@ FUNCTION {format.number} {
 FUNCTION {format.chapter.pages} {
     chapter empty$ 'format.pages {
         type empty$ {
-            "ch.~" chapter *
+            "cap.~" chapter *
         }{
             type "l" change.case$ chapter tie.or.space.connect
         } if$
@@ -443,7 +476,7 @@ FUNCTION {format.in.ed.booktitle} {
     booktitle empty$ {
         ""
     }{
-        "in " booktitle emphasize *
+        "en " booktitle emphasize *
         editor empty$
         'skip$ {
             " (" * format.editors * ")" *
@@ -473,7 +506,7 @@ FUNCTION {empty.misc.check} {
 
 FUNCTION {format.tr.number} {
     type empty$ {
-        "Tech. Rep."
+        "Rep. Tec."
     } 'type if$
     number empty$ {
         "l" change.case$
@@ -510,10 +543,10 @@ FUNCTION {format.article.crossref} {
             warning$
             ""
         }{
-            "in { " journal * "\/}" *
+            "en { " journal * "\/}" *
         } if$
     }{
-        "in " key *
+        "en " key *
     } if$
     " \cite{" * crossref * "}" *
 }
@@ -528,7 +561,7 @@ FUNCTION {format.crossref.editor} {
             editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" = {
                 " {\em et~al.}" *
             }{
-                " and " * editor #2 "{vv~}{ll}" format.name$ *
+                " y " * editor #2 "{vv~}{ll}" format.name$ *
             } if$
         } if$
     } if$
@@ -537,10 +570,10 @@ FUNCTION {format.crossref.editor} {
 FUNCTION {format.book.crossref} {
     volume empty$ {
         "empty volume in " cite$ * "'s crossref of " * crossref * warning$
-        "In "
+        "En "
     }{
         "Vol.~" volume *
-        " of " *
+        " de " *
     } if$
     editor empty$
     editor field.or.null author field.or.null = or {
@@ -570,13 +603,13 @@ FUNCTION {format.incoll.inproc.crossref} {
                 crossref * warning$
                 ""
             }{
-                "in { " booktitle * "\/}" *
+                "en { " booktitle * "\/}" *
             } if$
         }{
-            "in " key *
+            "en " key *
         } if$
     }{
-        "in " format.crossref.editor *
+        "en " format.crossref.editor *
     } if$
     " \cite{" * crossref * "}" *
 }
