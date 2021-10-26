@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      7.5.9 (13/10/2021)
+% Versión:      7.6.0 (25/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -110,6 +110,7 @@
 % Librerías independientes
 % -----------------------------------------------------------------------------
 \usepackage{animate}       % Imágenes animadas
+\usepackage{amsbsy}        % Símbolos matemáticos en negrita
 \usepackage{amssymb}       % Librerías matemáticas
 \usepackage{amsthm}        % Definición de teoremas
 \usepackage{array}         % Nuevas características a las tablas
@@ -5442,16 +5443,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={13/10/2021},
+		Template.Date={25/10/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={7.5.9-1},
-		Template.Version.Hash={56290CB3B8B7702E6DA3C960766A6680},
-		Template.Version.Release={7.5.9},
+		Template.Version.Dev={7.6.0-1},
+		Template.Version.Hash={F36CFEB33CFC76087AB5A5982115D013},
+		Template.Version.Release={7.6.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5463,7 +5464,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v7.5.9 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v7.6.0 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -6149,6 +6150,12 @@
 \renewcommand{\labelitemii}{\sitemizeii}
 \renewcommand{\labelitemiii}{\sitemizeiii}
 \renewcommand{\labelitemiv}{\sitemizeiv}
+
+% Márgenes
+\setlength\leftmargini{\sitemsmargini pt}
+\setlength\leftmarginii{\sitemsmarginii pt}
+\setlength\leftmarginiii{\sitemsmarginiii pt}
+\setlength\leftmarginiv{\sitemsmarginiv pt}
 
 % -----------------------------------------------------------------------------
 % Configura métodos aplicados al iniciar el documento
