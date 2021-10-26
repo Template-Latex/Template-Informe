@@ -305,7 +305,7 @@
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
-			\ifthenelse{\equal{\captionmarginimages}{0}}{}{\corevspacevarcm{\captionmarginimages}}%
+			\corevspacevarcm{\captionmarginimages}%
 			\caption{\envimagescaptionvar\envimageslabelvar}%
 		}%
 	\end{figure}%
@@ -352,7 +352,7 @@
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
-			\ifthenelse{\equal{\captionmarginimagesmc}{0}}{}{\corevspacevarcm{\captionmarginimagesmc}}
+			\corevspacevarcm{\captionmarginimagesmc}%
 			\caption{\envimagescaptionvar\envimageslabelvar}%
 		}%
 	\end{figure*}%
