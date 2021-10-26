@@ -14,40 +14,60 @@
 	% Section
 	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{%
 		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{%
-			\renewcommand{\thesection}{\Alph{section}}%
+			\renewcommand{\thesection}{%
+				\Alph{section}%
+			}%
 		}{%
-			\renewcommand{\thesection}{\arabic{section}}%
+			\renewcommand{\thesection}{%
+				\arabic{section}%
+			}%
 		}%
 	}{%
 		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{%
-			\renewcommand{\thesection}{\thechapter.\Alph{section}}%
+			\renewcommand{\thesection}{%
+				\thechapter\charbetwchaptersection\Alph{section}%
+			}%
 		}{%
-			\renewcommand{\thesection}{\thechapter.\arabic{section}}%
+			\renewcommand{\thesection}{%
+				\thechapter\charbetwchaptersection\arabic{section}%
+			}%
 		}%
 	}%
 	% Subsection
 	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{%
-		\renewcommand{\thesubsection}{\arabic{subsection}}%
+		\renewcommand{\thesubsection}{%
+			\arabic{subsection}%
+		}%
 	}{%
-		\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}%
+		\renewcommand{\thesubsection}{%
+			\thesection\charbetwsectionsubsection\arabic{subsection}%
+		}%
 	}%
 	% Subsubsection
 	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
-		\renewcommand{\thesubsubsection}{\arabic{subsubsection}}%
+		\renewcommand{\thesubsubsection}{%
+			\arabic{subsubsection}%
+		}%
 	}{%
-		\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}%
+		\renewcommand{\thesubsubsection}{%
+			\thesubsection\charbetwsubsectionssect\arabic{subsubsection}%
+		}%
 	}%
 	% Subsubsubsection
-	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
-		\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}%
+	\ifthenelse{\equal{\GLOBALsubsubsectionanumenabled}{true}}{%
+		\renewcommand{\thesubsubsubsection}{%
+			\arabic{subsubsubsection}%
+		}%
 	}{%
-		\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}%
+		\renewcommand{\thesubsubsubsection}{%
+			\thesubsubsection\charbetwssectionsssect\arabic{subsubsubsection}%
+		}%
 	}%
 	\hbadness=10000%
 }
 
 % Parcha el formato de capítulos
-\pretocmd{\chapter}{
+\pretocmd{\chapter}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -69,12 +89,15 @@
 		\setcounter{table}{0}%
 	}{}
 	\global\def\GLOBALchapternumenabled {true}%
+	\global\def\GLOBALsectionanumenabled {false}%
+	\global\def\GLOBALsubsectionanumenabled {false}%
+	\global\def\GLOBALsubsubsectionanumenabled {false}%
 	\coreintializetitlenumbering%
 }{}{}
 
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
 % de la sección
-\pretocmd{\section}{
+\pretocmd{\section}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -97,12 +120,13 @@
 	}{}
 	\global\def\GLOBALsectionanumenabled {false}%
 	\global\def\GLOBALsubsectionanumenabled {false}%
+	\global\def\GLOBALsubsubsectionanumenabled {false}%
 	\coreintializetitlenumbering%
 }{}{}
 
 % Comienza nueva subsección, si está dentro de una sectionanum entonces no dibuja el
 % número de sección, si no entonces dibuja el número de forma normal
-\pretocmd{\subsection}{
+\pretocmd{\subsection}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -124,6 +148,7 @@
 		\setcounter{table}{0}%
 	}{}
 	\global\def\GLOBALsubsectionanumenabled {false}%
+	\global\def\GLOBALsubsubsectionanumenabled {false}%
 	\coreintializetitlenumbering%
 }{}{}
 
@@ -131,7 +156,7 @@
 %	- si está dentro de una subsección sin número ignora la sección
 %	- si no, entonces puede estar dentro de una sección sin número o no, en ese caso
 %	  debe evaluar ambas posibilidades
-\pretocmd{\subsubsection}{
+\pretocmd{\subsubsection}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -152,10 +177,12 @@
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}
+	\global\def\GLOBALsubsubsectionanumenabled {false}%
 	\coreintializetitlenumbering%
 }{}{}
 
-\pretocmd{\subsubsubsection}{
+% Parcha sub-sub-subsecciones
+\pretocmd{\subsubsubsection}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -189,8 +216,8 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}%
 	\changeheadertitle{#1}%
 	\setcounter{subsection}{0}%
-	\renewcommand{\thesubsection}{\arabic{subsection}}%
 	\global\def\GLOBALsectionanumenabled {true}%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un título sin número y sin indexar
@@ -203,8 +230,8 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}%
 	\changeheadertitle{#1}%
 	\setcounter{subsection}{0}%
-	\renewcommand{\thesubsection}{\arabic{subsection}}%
 	\global\def\GLOBALsectionanumenabled {true}%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un título sin número sin cambiar el título del header
@@ -215,8 +242,8 @@
 	\addcontentsline{toc}{section}{#1}%
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}%
 	\setcounter{subsection}{0}%
-	\renewcommand{\thesubsection}{\arabic{subsection}}%
 	\global\def\GLOBALsectionanumenabled {true}%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un título sin número, sin indexar y sin cambiar el título del header
@@ -226,8 +253,8 @@
 	\section*{#1}%
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}%
 	\setcounter{subsection}{0}%
-	\renewcommand{\thesubsection}{\arabic{subsection}}%
 	\global\def\GLOBALsectionanumenabled {true}%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un subtítulo sin número
@@ -238,8 +265,8 @@
 	\addcontentsline{toc}{subsection}{#1}
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}%
 	\setcounter{subsubsection}{0}%
-	\renewcommand{\thesubsubsection}{\arabic{subsubsection}}%
 	\global\def\GLOBALsubsectionanumenabled {true}%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un subtítulo sin número y sin indexar
@@ -249,8 +276,8 @@
 	\subsection*{#1}%
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}%
 	\setcounter{subsubsection}{0}%
-	\renewcommand{\thesubsubsection}{\arabic{subsubsection}}%
 	\global\def\GLOBALsubsectionanumenabled {true}%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un sub-subtítulo sin número
@@ -261,7 +288,8 @@
 	\addcontentsline{toc}{subsubsection}{#1}%
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}%
 	\setcounter{subsubsubsection}{0}%
-	\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}%
+	\global\def\GLOBALsubsubsectionanumenabled {true}%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un sub-subtítulo sin número y sin indexar
@@ -271,7 +299,8 @@
 	\subsubsection*{#1}%
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}%
 	\setcounter{subsubsubsection}{0}%
-	\renewcommand{\thesubsubsubsection}{\arabic{subsubsubsection}}%
+	\global\def\GLOBALsubsubsectionanumenabled {true}%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un sub-sub-subtítulo sin número
