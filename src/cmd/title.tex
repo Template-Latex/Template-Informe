@@ -11,56 +11,46 @@
 
 % Activa la numeración en las secciones
 \def\coreintializetitlenumbering {%
+	% Capítulo
+	\renewcommand{\thechapter}{\GLOBALformatnumchapter{chapter}}
 	% Section
 	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{%
-		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{%
-			\renewcommand{\thesection}{%
-				\Alph{section}%
-			}%
-		}{%
-			\renewcommand{\thesection}{%
-				\arabic{section}%
-			}%
+		\renewcommand{\thesection}{%
+			\GLOBALformatnumsection{section}%
 		}%
 	}{%
-		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{%
-			\renewcommand{\thesection}{%
-				\thechapter\charbetwchaptersection\Alph{section}%
-			}%
-		}{%
-			\renewcommand{\thesection}{%
-				\thechapter\charbetwchaptersection\arabic{section}%
-			}%
+		\renewcommand{\thesection}{%
+			\thechapter\charbetwchaptersection\GLOBALformatnumsection{section}%
 		}%
 	}%
 	% Subsection
 	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{%
 		\renewcommand{\thesubsection}{%
-			\arabic{subsection}%
+			\GLOBALformatnumssection{subsection}%
 		}%
 	}{%
 		\renewcommand{\thesubsection}{%
-			\thesection\charbetwsectionsubsection\arabic{subsection}%
+			\thesection\charbetwsectionsubsection\GLOBALformatnumssection{subsection}%
 		}%
 	}%
 	% Subsubsection
 	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
 		\renewcommand{\thesubsubsection}{%
-			\arabic{subsubsection}%
+			\GLOBALformatnumsssection{subsubsection}%
 		}%
 	}{%
 		\renewcommand{\thesubsubsection}{%
-			\thesubsection\charbetwsubsectionssect\arabic{subsubsection}%
+			\thesubsection\charbetwsubsectionssect\GLOBALformatnumsssection{subsubsection}%
 		}%
 	}%
 	% Subsubsubsection
 	\ifthenelse{\equal{\GLOBALsubsubsectionanumenabled}{true}}{%
 		\renewcommand{\thesubsubsubsection}{%
-			\arabic{subsubsubsection}%
+			\GLOBALformatnumssssection{subsubsubsection}%
 		}%
 	}{%
 		\renewcommand{\thesubsubsubsection}{%
-			\thesubsubsection\charbetwssectionsssect\arabic{subsubsubsection}%
+			\thesubsubsection\charbetwssectionsssect\GLOBALformatnumssssection{subsubsubsection}%
 		}%
 	}%
 	\hbadness=10000%

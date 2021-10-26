@@ -49,7 +49,11 @@
 	% \clearpage
 	\phantomsection
 	\changeheadertitle{\nameltappendixsection} % Cambia el nombre del header
-	\global\def\GLOBALsectionalph {true} % Modifica formato de secciones con sección alph
+	% Define formato números para appendix
+	\global\def\GLOBALformatnumsection {\formatnumapsection}
+	\global\def\GLOBALformatnumssection {\formatnumapssection}
+	\global\def\GLOBALformatnumsssection {\formatnumapsssection}
+	\global\def\GLOBALformatnumssssection {\formatnumapssssection}
 	\bookmarksetup{
 		numbered={true},
 		openlevel={\thetemplateBookmarksLevelPrev}
@@ -72,7 +76,11 @@
 		}
 	}{
 	\end{appendices}
-	\global\def\GLOBALsectionalph {false} % Desactiva formato de secciones con sección alph
+	% Restablece formato de números
+	\global\def\GLOBALformatnumsection {\formatnumsection}
+	\global\def\GLOBALformatnumssection {\formatnumssection}
+	\global\def\GLOBALformatnumsssection {\formatnumsssection}
+	\global\def\GLOBALformatnumssssection {\formatnumssssection}
 	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Restablece índice marcador
 	\bookmarksetup{
 		numbered={\cfgpdfsecnumbookmarks},

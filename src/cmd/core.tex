@@ -16,13 +16,19 @@
 \global\def\GLOBALenvimageadded {false}           % Indica que una imagen ha sido añadida
 \global\def\GLOBALenvimageinitialized {false}     % Entorno images activo
 \global\def\GLOBALenvmulticol {false}             % Indica que el entorno multicol está activo
-\global\def\GLOBALsectionalph {false}             % Sección con numeración de letras
 \global\def\GLOBALsectionanumenabled {false}      % Sección sin numeración
 \global\def\GLOBALsubsectionanumenabled {false}   % Subsección sin numeración
 \global\def\GLOBALsubsubsectionanumenabled{false} % Sub-subsección sin numeración
 \global\def\GLOBALtablerowcolorindex {2}          % Índice tabla colores
 \global\def\GLOBALtablerowcolorswitch {false}     % Tabla con colores cambiados
 \global\def\GLOBALtwoside {false}                 % Indica que el documento es twoside
+
+% Definición de formato de secciones
+\global\def\GLOBALformatnumchapter {\formatnumchapter}
+\global\def\GLOBALformatnumsection {\formatnumsection}
+\global\def\GLOBALformatnumssection {\formatnumssection}
+\global\def\GLOBALformatnumsssection {\formatnumsssection}
+\global\def\GLOBALformatnumssssection {\formatnumssssection}
 
 % Configura si el documento es twoside
 \makeatletter
