@@ -1,0 +1,588 @@
+% Template:     Informe LaTeX
+% Documento:    Caracteres Unicode
+% Versión:      DEV
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/informe]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% -----------------------------------------------------------------------------
+% Declaración caracteres unicode adicionales
+% -----------------------------------------------------------------------------
+\def\Alpha{A}
+\def\Beta{B}
+\def\Epsilon{E}
+\def\Zeta{Z}
+\def\Eta{H}
+\def\Iota{I}
+\def\Kappa{K}
+\def\Mu{M}
+\def\Nu{N}
+\def\Omicron{O}
+\def\Rho{P}
+\def\Tau{T}
+\def\Chi{X}
+\def\omicron{o}
+\ifx\mapsfrom\undefined
+	\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+\fi
+
+\makeatletter
+\newsavebox{\@brxanglelr}
+\newcommand{\llangle}[1][]{\savebox{\@brxanglelr}{\(\m@th{#1\langle}\)}%
+	\mathopen{\copy\@brxanglelr\kern-0.5\wd\@brxanglelr\usebox{\@brxanglelr}}}
+\newcommand{\rrangle}[1][]{\savebox{\@brxanglelr}{\(\m@th{#1\rangle}\)}%
+	\mathclose{\copy\@brxanglelr\kern-0.5\wd\@brxanglelr\usebox{\@brxanglelr}}}
+\makeatother
+\ifdefined\DeclareUnicodeCharacter
+\DeclareUnicodeCharacter{00A0}{~}
+\DeclareUnicodeCharacter{00A1}{\textexclamdown}
+\DeclareUnicodeCharacter{00A2}{\textcent}
+\DeclareUnicodeCharacter{00A3}{\pounds}
+\DeclareUnicodeCharacter{00A4}{\textcurrency}
+\DeclareUnicodeCharacter{00A5}{\textyen}
+\DeclareUnicodeCharacter{00A6}{\textbrokenbar}
+\DeclareUnicodeCharacter{00A7}{{\mathhexbox 278}}
+\DeclareUnicodeCharacter{00A8}{\"{ }}
+\DeclareUnicodeCharacter{00A9}{\copyright}
+\DeclareUnicodeCharacter{00AA}{\textordfeminine}
+\DeclareUnicodeCharacter{00AB}{\guillemotleft}
+\DeclareUnicodeCharacter{00AC}{\ensuremath{\neg}}
+\DeclareUnicodeCharacter{00AE}{\textregistered}
+\DeclareUnicodeCharacter{00AF}{\textasciimacron­}
+\DeclareUnicodeCharacter{00B0}{\textsuperscript{o}}
+\DeclareUnicodeCharacter{00B1}{\ensuremath{\pm}}
+\DeclareUnicodeCharacter{00B2}{\textsuperscript{2}}
+\DeclareUnicodeCharacter{00B3}{\textsuperscript{3}}
+\DeclareUnicodeCharacter{00B5}{\textmu}
+\DeclareUnicodeCharacter{00B6}{{\mathhexbox 27B}}
+\DeclareUnicodeCharacter{00B7}{\ensuremath{\cdot}}
+\DeclareUnicodeCharacter{00B9}{\textsuperscript{1}}
+\DeclareUnicodeCharacter{00BA}{\textordmasculine}
+\DeclareUnicodeCharacter{00BB}{\guillemotright}
+\DeclareUnicodeCharacter{00BC}{\ensuremath{\frac{1}{4}}}
+\DeclareUnicodeCharacter{00BD}{\ensuremath{\frac{1}{2}}}
+\DeclareUnicodeCharacter{00BE}{\ensuremath{\frac{3}{4}}}
+\DeclareUnicodeCharacter{00BF}{\textquestiondown}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{00F7}{\ensuremath{\div}}
+\DeclareUnicodeCharacter{0131}{\ensuremath{\imath}}
+\DeclareUnicodeCharacter{0237}{\ensuremath{\jmath}}
+\DeclareUnicodeCharacter{0391}{\ensuremath{\Alpha}}
+\DeclareUnicodeCharacter{0392}{\ensuremath{\Beta}}
+\DeclareUnicodeCharacter{0393}{\ensuremath{\Gamma}}
+\DeclareUnicodeCharacter{0394}{\ensuremath{\Delta}}
+\DeclareUnicodeCharacter{0395}{\ensuremath{\Epsilon}}
+\DeclareUnicodeCharacter{0396}{\ensuremath{\Zeta}}
+\DeclareUnicodeCharacter{0397}{\ensuremath{\Eta}}
+\DeclareUnicodeCharacter{0398}{\ensuremath{\Theta}}
+\DeclareUnicodeCharacter{0399}{\Iota}
+\DeclareUnicodeCharacter{039A}{\Kappa}
+\DeclareUnicodeCharacter{039B}{\ensuremath{\Lambda}}
+\DeclareUnicodeCharacter{039C}{\Mu}
+\DeclareUnicodeCharacter{039D}{\Nu}
+\DeclareUnicodeCharacter{039E}{\ensuremath{\Xi}}
+\DeclareUnicodeCharacter{039F}{\Omicron}
+\DeclareUnicodeCharacter{03A0}{\ensuremath{\Pi}}
+\DeclareUnicodeCharacter{03A1}{\Rho}
+\DeclareUnicodeCharacter{03A3}{\ensuremath{\Sigma}}
+\DeclareUnicodeCharacter{03A4}{\Tau}
+\DeclareUnicodeCharacter{03A5}{\ensuremath{\Upsilon}}
+\DeclareUnicodeCharacter{03A6}{\ensuremath{\Phi}}
+\DeclareUnicodeCharacter{03A7}{\Chi}
+\DeclareUnicodeCharacter{03A8}{\ensuremath{\Psi}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B1}{\ensuremath{\alpha}}
+\DeclareUnicodeCharacter{03B2}{\ensuremath{\beta}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B5}{\ensuremath{\varepsilon}}
+\DeclareUnicodeCharacter{03B6}{\ensuremath{\zeta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{03B8}{\ensuremath{\theta}}
+\DeclareUnicodeCharacter{03B9}{\ensuremath{\iota}}
+\DeclareUnicodeCharacter{03BA}{\ensuremath{\kappa}}
+\DeclareUnicodeCharacter{03BB}{\ensuremath{\lambda}}
+\DeclareUnicodeCharacter{03BC}{\ensuremath{\mu}}
+\DeclareUnicodeCharacter{03BD}{\ensuremath{\nu}}
+\DeclareUnicodeCharacter{03BE}{\ensuremath{\xi}}
+\DeclareUnicodeCharacter{03BF}{\omicron}
+\DeclareUnicodeCharacter{03C0}{\ensuremath{\pi}}
+\DeclareUnicodeCharacter{03C1}{\ensuremath{\rho}}
+\DeclareUnicodeCharacter{03C2}{\ensuremath{\varsigma}}
+\DeclareUnicodeCharacter{03C3}{\ensuremath{\sigma}}
+\DeclareUnicodeCharacter{03C4}{\ensuremath{\tau}}
+\DeclareUnicodeCharacter{03C5}{\ensuremath{\upsilon}}
+\DeclareUnicodeCharacter{03C6}{\ensuremath{\phi}}
+\DeclareUnicodeCharacter{03C7}{\ensuremath{\chi}}
+\DeclareUnicodeCharacter{03C8}{\ensuremath{\psi}}
+\DeclareUnicodeCharacter{03C9}{\ensuremath{\omega}}
+\DeclareUnicodeCharacter{03D0}{\ensuremath{\beta}}
+\DeclareUnicodeCharacter{03D1}{\ensuremath{\theta}}
+\DeclareUnicodeCharacter{03D5}{\ensuremath{\phi}}
+\DeclareUnicodeCharacter{03D6}{\ensuremath{\pi}}
+% \DeclareUnicodeCharacter{03D8}{\ensuremath{\Qoppa}}
+% \DeclareUnicodeCharacter{03D9}{\ensuremath{\qoppa}}
+% \DeclareUnicodeCharacter{03DA}{\ensuremath{\Stigma}}
+% \DeclareUnicodeCharacter{03DB}{\ensuremath{\stigma}}
+% \DeclareUnicodeCharacter{03DC}{\ensuremath{\Digamma}}
+\DeclareUnicodeCharacter{03DD}{\ensuremath{\digamma}}
+% \DeclareUnicodeCharacter{03DE}{\ensuremath{\Koppa}}
+% \DeclareUnicodeCharacter{03DF}{\ensuremath{\koppa}}
+% \DeclareUnicodeCharacter{03E0}{\ensuremath{\Sampi}}
+% \DeclareUnicodeCharacter{03E1}{\ensuremath{\sampi}}
+\DeclareUnicodeCharacter{03F0}{\ensuremath{\varkappa}}
+\DeclareUnicodeCharacter{03F1}{\ensuremath{\rho}}
+\DeclareUnicodeCharacter{03F5}{\ensuremath{\epsilon}}
+\DeclareUnicodeCharacter{03F6}{\ensuremath{\backepsilon}}
+\DeclareUnicodeCharacter{1D62}{\ensuremath{_i}}
+\DeclareUnicodeCharacter{1D63}{\ensuremath{_r}}
+\DeclareUnicodeCharacter{1D64}{\ensuremath{_u}}
+\DeclareUnicodeCharacter{1D65}{\ensuremath{_v}}
+\DeclareUnicodeCharacter{2013}{--}
+\DeclareUnicodeCharacter{2014}{---}
+\DeclareUnicodeCharacter{2016}{\textbardbl}
+\DeclareUnicodeCharacter{2018}{\textquoteleft}
+\DeclareUnicodeCharacter{2019}{\textquoteright}
+\DeclareUnicodeCharacter{201A}{\quotesinglbase}
+\DeclareUnicodeCharacter{201C}{\textquotedblleft}
+\DeclareUnicodeCharacter{201D}{\textquotedblright}
+\DeclareUnicodeCharacter{201E}{\quotedblbase}
+\DeclareUnicodeCharacter{2020}{\ensuremath{\dagger}}
+\DeclareUnicodeCharacter{2021}{\ddag}
+\DeclareUnicodeCharacter{2022}{\ensuremath{\bullet}}
+\DeclareUnicodeCharacter{2023}{\ensuremath{\RHD}}
+\DeclareUnicodeCharacter{2026}{\ensuremath{\ldots}}
+\DeclareUnicodeCharacter{2030}{\textperthousand}
+\DeclareUnicodeCharacter{2031}{\textpertenthousand}
+\DeclareUnicodeCharacter{2032}{\ensuremath{\prime}}
+% \DeclareUnicodeCharacter{2033}{\ensuremath{\second}}
+% \DeclareUnicodeCharacter{2034}{\ensuremath{\third}}
+\DeclareUnicodeCharacter{2035}{\ensuremath{\backprime}}
+\DeclareUnicodeCharacter{2038}{\ifmmode\widehat{}\else\textasciicircum\fi}
+\DeclareUnicodeCharacter{2039}{\guilsinglleft}
+\DeclareUnicodeCharacter{203A}{\guilsinglright}
+\DeclareUnicodeCharacter{203B}{\textreferencemark}
+\DeclareUnicodeCharacter{203C}{{!\kern -.5ex!}}
+\DeclareUnicodeCharacter{203D}{\textinterrobang}
+\DeclareUnicodeCharacter{203E}{\ensuremath{\overline{0}}}
+% \DeclareUnicodeCharacter{2042}{\ensuremath{\asterism}}
+\DeclareUnicodeCharacter{2045}{\textlquill}
+\DeclareUnicodeCharacter{2046}{\textrquill}
+\DeclareUnicodeCharacter{2047}{{?\kern -.5ex?}}
+\DeclareUnicodeCharacter{2048}{{?\kern -.5ex!}}
+\DeclareUnicodeCharacter{2049}{{!\kern -.5ex?}}
+\DeclareUnicodeCharacter{2052}{\textdiscount}
+\DeclareUnicodeCharacter{2062}{{}}
+\DeclareUnicodeCharacter{2070}{\ensuremath{^0}}
+\DeclareUnicodeCharacter{2074}{\ensuremath{^4}}
+\DeclareUnicodeCharacter{2075}{\ensuremath{^5}}
+\DeclareUnicodeCharacter{2076}{\ensuremath{^6}}
+\DeclareUnicodeCharacter{2077}{\ensuremath{^7}}
+\DeclareUnicodeCharacter{2078}{\ensuremath{^8}}
+\DeclareUnicodeCharacter{2079}{\ensuremath{^9}}
+\DeclareUnicodeCharacter{207F}{\ensuremath{^n}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_0}}
+\DeclareUnicodeCharacter{2081}{\ensuremath{_1}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_2}}
+\DeclareUnicodeCharacter{2083}{\ensuremath{_3}}
+\DeclareUnicodeCharacter{2084}{\ensuremath{_4}}
+\DeclareUnicodeCharacter{2085}{\ensuremath{_5}}
+\DeclareUnicodeCharacter{2086}{\ensuremath{_6}}
+\DeclareUnicodeCharacter{2087}{\ensuremath{_7}}
+\DeclareUnicodeCharacter{2088}{\ensuremath{_8}}
+\DeclareUnicodeCharacter{2089}{\ensuremath{_9}}
+\DeclareUnicodeCharacter{208A}{\ensuremath{_+}}
+\DeclareUnicodeCharacter{208B}{\ensuremath{_-}}
+\DeclareUnicodeCharacter{208C}{\ensuremath{_=}}
+\DeclareUnicodeCharacter{208D}{\ensuremath{_(}}
+\DeclareUnicodeCharacter{208E}{\ensuremath{_)}}
+\DeclareUnicodeCharacter{2090}{\ensuremath{_a}}
+\DeclareUnicodeCharacter{2091}{\ensuremath{_e}}
+\DeclareUnicodeCharacter{2092}{\ensuremath{_o}}
+\DeclareUnicodeCharacter{2093}{\ensuremath{_x}}
+\DeclareUnicodeCharacter{2095}{\ensuremath{_h}}
+\DeclareUnicodeCharacter{2096}{\ensuremath{_k}}
+\DeclareUnicodeCharacter{2097}{\ensuremath{_l}}
+\DeclareUnicodeCharacter{2098}{\ensuremath{_m}}
+\DeclareUnicodeCharacter{2099}{\ensuremath{_n}}
+\DeclareUnicodeCharacter{209A}{\ensuremath{_p}}
+\DeclareUnicodeCharacter{209B}{\ensuremath{_s}}
+\DeclareUnicodeCharacter{209C}{\ensuremath{_t}}
+\DeclareUnicodeCharacter{2102}{\ensuremath{\mathbb{C}}}
+% \DeclareUnicodeCharacter{2107}{\ensuremath{\Euler}}
+\DeclareUnicodeCharacter{210A}{\ensuremath{\mathcal g}}
+% \DeclareUnicodeCharacter{210B}{\ensuremath{\mathrsfs H}}
+\DeclareUnicodeCharacter{210C}{\ensuremath{\mathfrak H}}
+\DeclareUnicodeCharacter{210D}{\ensuremath{\mathbb{H}}}
+\DeclareUnicodeCharacter{210F}{\ensuremath{\hbar}}
+% \DeclareUnicodeCharacter{2110}{\ensuremath{\mathrsfs I}}
+\DeclareUnicodeCharacter{2111}{\ensuremath{\IM}}
+% \DeclareUnicodeCharacter{2112}{\ensuremath{\mathrsfs L}}
+\DeclareUnicodeCharacter{2113}{\ensuremath{\ell}}
+\DeclareUnicodeCharacter{2115}{\ensuremath{\mathbb{N}}}
+\DeclareUnicodeCharacter{2118}{\ensuremath{\wp}}
+\DeclareUnicodeCharacter{2119}{\ensuremath{\mathbb{P}}}
+\DeclareUnicodeCharacter{211A}{\ensuremath{\mathbb{Q}}}
+\DeclareUnicodeCharacter{211D}{\ensuremath{\mathbb{R}}}
+\DeclareUnicodeCharacter{2122}{\texttrademark}
+\DeclareUnicodeCharacter{2124}{\ensuremath{\mathbb{Z}}}
+\DeclareUnicodeCharacter{2126}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{2127}{\ensuremath{\mho}}
+\DeclareUnicodeCharacter{2128}{\ensuremath{\mathfrak Z}}
+\DeclareUnicodeCharacter{212A}{\ensuremath{\mathrm K}}
+\DeclareUnicodeCharacter{212B}{\ensuremath{\mathring{\mathrm A}}}
+% \DeclareUnicodeCharacter{212C}{\ensuremath{\mathrsfs B}}
+\DeclareUnicodeCharacter{212D}{\ensuremath{\mathfrak C}}
+\DeclareUnicodeCharacter{212E}{\textestimated}
+% \DeclareUnicodeCharacter{212F}{\ensuremath{\mathrsfs e}}
+% \DeclareUnicodeCharacter{2130}{\ensuremath{\mathrsfs E}}
+% \DeclareUnicodeCharacter{2131}{\ensuremath{\mathrsfs F}}
+\DeclareUnicodeCharacter{2132}{\ensuremath{\Finv}}
+\DeclareUnicodeCharacter{2135}{\ensuremath{\aleph}}
+\DeclareUnicodeCharacter{2136}{\ensuremath{\beth}}
+\DeclareUnicodeCharacter{2137}{\ensuremath{\gimel}}
+\DeclareUnicodeCharacter{2138}{\ensuremath{\daleth}}
+\DeclareUnicodeCharacter{213C}{\ensuremath{\mathbb{\pi}}}
+\DeclareUnicodeCharacter{213D}{\ensuremath{\mathbb{\gamma}}}
+\DeclareUnicodeCharacter{213E}{\ensuremath{\mathbb{\Pi}}}
+\DeclareUnicodeCharacter{213F}{\ensuremath{\mathbb{\Gamma}}}
+\DeclareUnicodeCharacter{2140}{\ensuremath{\mathbb{\Sigma}}}
+\DeclareUnicodeCharacter{2141}{\ensuremath{\Game}}
+% \DeclareUnicodeCharacter{2144}{\ensuremath{\Yup}}
+\DeclareUnicodeCharacter{2146}{\ensuremath{\mathrm{d}}}
+\DeclareUnicodeCharacter{2148}{\ensuremath{\imath}}
+\DeclareUnicodeCharacter{2149}{\ensuremath{\jmath}}
+% \DeclareUnicodeCharacter{214B}{\ensuremath{\invamp}}
+\DeclareUnicodeCharacter{2190}{\ensuremath{\leftarrow}}
+\DeclareUnicodeCharacter{2191}{\ensuremath{\uparrow}}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{2193}{\ensuremath{\downarrow}}
+\DeclareUnicodeCharacter{2194}{\ensuremath{\leftrightarrow}}
+\DeclareUnicodeCharacter{2195}{\ensuremath{\updownarrow}}
+\DeclareUnicodeCharacter{2196}{\ensuremath{\nwarrow}}
+\DeclareUnicodeCharacter{2197}{\ensuremath{\nearrow}}
+\DeclareUnicodeCharacter{2198}{\ensuremath{\searrow}}
+\DeclareUnicodeCharacter{2199}{\ensuremath{\swarrow}}
+\DeclareUnicodeCharacter{219A}{\ensuremath{\nleftarrow}}
+\DeclareUnicodeCharacter{219B}{\ensuremath{\nrightarrow}}
+\DeclareUnicodeCharacter{219E}{\ensuremath{\twoheadleftarrow}}
+\DeclareUnicodeCharacter{21A0}{\ensuremath{\twoheadrightarrow}}
+\DeclareUnicodeCharacter{21A2}{\ensuremath{\leftarrowtail}}
+\DeclareUnicodeCharacter{21A3}{\ensuremath{\rightarrowtail}}
+\DeclareUnicodeCharacter{21A4}{\ensuremath{\mapsfrom}}
+\DeclareUnicodeCharacter{21A6}{\ensuremath{\mapsto}}
+\DeclareUnicodeCharacter{21A9}{\ensuremath{\hookleftarrow}}
+\DeclareUnicodeCharacter{21AA}{\ensuremath{\hookrightarrow}}
+\DeclareUnicodeCharacter{21AB}{\ensuremath{\looparrowleft}}
+\DeclareUnicodeCharacter{21AC}{\ensuremath{\looparrowright}}
+\DeclareUnicodeCharacter{21AD}{\ensuremath{\leftrightsquigarrow}}
+\DeclareUnicodeCharacter{21AE}{\ensuremath{\nleftrightarrow}}
+\DeclareUnicodeCharacter{21AF}{\ensuremath{\lightning}}
+\DeclareUnicodeCharacter{21B0}{\ensuremath{\Lsh}}
+\DeclareUnicodeCharacter{21B1}{\ensuremath{\Rsh}}
+\DeclareUnicodeCharacter{21B6}{\ensuremath{\curvearrowleft}}
+\DeclareUnicodeCharacter{21B7}{\ensuremath{\curvearrowright}}
+\DeclareUnicodeCharacter{21BA}{\ensuremath{\circlearrowleft}}
+\DeclareUnicodeCharacter{21BB}{\ensuremath{\circlearrowright}}
+\DeclareUnicodeCharacter{21BC}{\ensuremath{\leftharpoonup}}
+\DeclareUnicodeCharacter{21BD}{\ensuremath{\leftharpoondown}}
+\DeclareUnicodeCharacter{21BE}{\ensuremath{\upharpoonright}}
+\DeclareUnicodeCharacter{21BF}{\ensuremath{\upharpoonleft}}
+\DeclareUnicodeCharacter{21C0}{\ensuremath{\rightharpoonup}}
+\DeclareUnicodeCharacter{21C1}{\ensuremath{\rightharpoondown}}
+\DeclareUnicodeCharacter{21C2}{\ensuremath{\downharpoonright}}
+\DeclareUnicodeCharacter{21C3}{\ensuremath{\downharpoonleft}}
+\DeclareUnicodeCharacter{21C4}{\ensuremath{\rightleftarrows}}
+%\DeclareUnicodeCharacter{21C5}{\ensuremath{\updownarrows}}
+\DeclareUnicodeCharacter{21C6}{\ensuremath{\leftrightarrows}}
+\DeclareUnicodeCharacter{21C7}{\ensuremath{\leftleftarrows}}
+\DeclareUnicodeCharacter{21C8}{\ensuremath{\upuparrows}}
+\DeclareUnicodeCharacter{21C9}{\ensuremath{\rightrightarrows}}
+\DeclareUnicodeCharacter{21CA}{\ensuremath{\downdownarrows}}
+\DeclareUnicodeCharacter{21CB}{\ensuremath{\leftrightharpoons}}
+\DeclareUnicodeCharacter{21CC}{\ensuremath{\rightleftharpoons}}
+\DeclareUnicodeCharacter{21CD}{\ensuremath{\nLeftarrow}}
+\DeclareUnicodeCharacter{21CE}{\ensuremath{\nLeftrightarrow}}
+\DeclareUnicodeCharacter{21CF}{\ensuremath{\nRightarrow}}
+\DeclareUnicodeCharacter{21D0}{\ensuremath{\Leftarrow}}
+\DeclareUnicodeCharacter{21D1}{\ensuremath{\Uparrow}}
+\DeclareUnicodeCharacter{21D2}{\ensuremath{\Rightarrow}}
+\DeclareUnicodeCharacter{21D3}{\ensuremath{\Downarrow}}
+\DeclareUnicodeCharacter{21D4}{\ensuremath{\Leftrightarrow}}
+\DeclareUnicodeCharacter{21D5}{\ensuremath{\Updownarrow}}
+\DeclareUnicodeCharacter{21D6}{\ensuremath{\nwarrow}}
+\DeclareUnicodeCharacter{21D7}{\ensuremath{\nearrow}}
+\DeclareUnicodeCharacter{21D8}{\ensuremath{\searrow}}
+\DeclareUnicodeCharacter{21D9}{\ensuremath{\swarrow}}
+\DeclareUnicodeCharacter{21DA}{\ensuremath{\Lleftarrow}}
+\DeclareUnicodeCharacter{21DB}{\ensuremath{\Rrightarrow}}
+% \DeclareUnicodeCharacter{21DC}{\ensuremath{\leftsquigarrow}}
+\DeclareUnicodeCharacter{21DD}{\ensuremath{\rightsquigarrow}}
+\DeclareUnicodeCharacter{21E0}{\ensuremath{\dashleftarrow}}
+\DeclareUnicodeCharacter{21E2}{\ensuremath{\dashrightarrow}}
+% \DeclareUnicodeCharacter{21E4}{\ensuremath{\LeftArrowBar}}
+% \DeclareUnicodeCharacter{21E5}{\ensuremath{\RightArrowBar}}
+% \DeclareUnicodeCharacter{21F0}{\ensuremath{\Mapsto}}
+% \DeclareUnicodeCharacter{21FD}{\ensuremath{\leftarrowtriangle}}
+% \DeclareUnicodeCharacter{21FE}{\ensuremath{\rightarrowtriangle}}
+% \DeclareUnicodeCharacter{21FF}{\ensuremath{\leftrightarrowtriangle}}
+\DeclareUnicodeCharacter{2200}{\ensuremath{\forall}}
+\DeclareUnicodeCharacter{2201}{\ensuremath{\complement}}
+\DeclareUnicodeCharacter{2202}{\ensuremath{\partial}}
+\DeclareUnicodeCharacter{2203}{\ensuremath{\exists}}
+% \DeclareUnicodeCharacter{2204}{\ensuremath{\nexists}
+\DeclareUnicodeCharacter{2205}{\ensuremath{\varnothing}}
+\DeclareUnicodeCharacter{2207}{\ensuremath{\nabla}}
+\DeclareUnicodeCharacter{2208}{\ensuremath{\in}}
+\DeclareUnicodeCharacter{2209}{\ensuremath{\notin}}
+\DeclareUnicodeCharacter{220B}{\ensuremath{\ni}}
+% \DeclareUnicodeCharacter{220C}{\ensuremath{\notni}}
+% \DeclareUnicodeCharacter{220D}{\ensuremath{\sqbullet}}
+\DeclareUnicodeCharacter{220F}{\ensuremath{\prod}}
+\DeclareUnicodeCharacter{2210}{\ensuremath{\coprod}}
+\DeclareUnicodeCharacter{2211}{\ensuremath{\sum}}
+\DeclareUnicodeCharacter{2212}{-}
+\DeclareUnicodeCharacter{2213}{\ensuremath{\mp}}
+\DeclareUnicodeCharacter{2214}{\ensuremath{\dotplus}}
+\DeclareUnicodeCharacter{2216}{\ensuremath{\smallsetminus}}
+\DeclareUnicodeCharacter{2217}{\ensuremath{\star}}
+\DeclareUnicodeCharacter{2218}{\ensuremath{\circ}}
+\DeclareUnicodeCharacter{2219}{\ensuremath{\bullet}}
+\DeclareUnicodeCharacter{221A}{\ensuremath{\sqrt{}}}
+\DeclareUnicodeCharacter{221B}{\ensuremath{\sqrt[3]{}}}
+\DeclareUnicodeCharacter{221C}{\ensuremath{\sqrt[4]{}}}
+\DeclareUnicodeCharacter{221D}{\ensuremath{\propto}}
+\DeclareUnicodeCharacter{221E}{\ensuremath{\infty}}
+\DeclareUnicodeCharacter{2220}{\ensuremath{\angle}}
+\DeclareUnicodeCharacter{2221}{\ensuremath{\measuredangle}}
+\DeclareUnicodeCharacter{2222}{\ensuremath{\sphericalangle}}
+\DeclareUnicodeCharacter{2223}{\ensuremath{\mid}}
+\DeclareUnicodeCharacter{2224}{\ensuremath{\nmid}}
+\DeclareUnicodeCharacter{2225}{\ensuremath{\parallel}}
+\DeclareUnicodeCharacter{2226}{\ensuremath{\nparallel}}
+\DeclareUnicodeCharacter{2227}{\ensuremath{\wedge}}
+\DeclareUnicodeCharacter{2228}{\ensuremath{\vee}}
+\DeclareUnicodeCharacter{2229}{\ensuremath{\cap}}
+\DeclareUnicodeCharacter{222A}{\ensuremath{\cup}}
+\DeclareUnicodeCharacter{222B}{\ensuremath{\int}}
+\DeclareUnicodeCharacter{222C}{\ensuremath{\iint}}
+\DeclareUnicodeCharacter{222D}{\ensuremath{\iiint}}
+\DeclareUnicodeCharacter{222E}{\ensuremath{\oint}}
+% \DeclareUnicodeCharacter{222F}{\ensuremath{\oiint}}
+% \DeclareUnicodeCharacter{2230}{\ensuremath{\oiiint}}
+% \DeclareUnicodeCharacter{2232}{\ensuremath{\ointclockwise}}
+% \DeclareUnicodeCharacter{2233}{\ensuremath{\oiintctrclockwise}}
+\DeclareUnicodeCharacter{2234}{\ensuremath{\therefore}}
+\DeclareUnicodeCharacter{2235}{\ensuremath{\because}}
+\DeclareUnicodeCharacter{2236}{:}
+% \DeclareUnicodeCharacter{2237}{\ensuremath{\Proportion}}
+% \DeclareUnicodeCharacter{2238}{\ensuremath{\dotminus}}
+\DeclareUnicodeCharacter{2239}{\ensuremath{\eqcolon}}
+\DeclareUnicodeCharacter{223C}{\ensuremath{\sim}}
+\DeclareUnicodeCharacter{223D}{\ensuremath{\backsim}}
+\DeclareUnicodeCharacter{223F}{\AC}
+\DeclareUnicodeCharacter{2240}{\ensuremath{\wr}}
+\DeclareUnicodeCharacter{2241}{\ensuremath{\nsim}}
+\DeclareUnicodeCharacter{2243}{\ensuremath{\simeq}}
+\DeclareUnicodeCharacter{2244}{\ensuremath{\not\simeq}}
+\DeclareUnicodeCharacter{2245}{\ensuremath{\cong}}
+\DeclareUnicodeCharacter{2247}{\ensuremath{\ncong}}
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{2249}{\ensuremath{\not\approx}}
+\DeclareUnicodeCharacter{224A}{\ensuremath{\approxeq}}
+\DeclareUnicodeCharacter{224D}{\ensuremath{\asymp}}
+\DeclareUnicodeCharacter{224E}{\ensuremath{\Bumpeq}}
+\DeclareUnicodeCharacter{224F}{\ensuremath{\bumpeq}}
+\DeclareUnicodeCharacter{2250}{\ensuremath{\doteq}}
+\DeclareUnicodeCharacter{2251}{\ensuremath{\doteqdot}}
+\DeclareUnicodeCharacter{2252}{\ensuremath{\fallingdotseq}}
+\DeclareUnicodeCharacter{2253}{\ensuremath{\risingdotseq}}
+\DeclareUnicodeCharacter{2254}{\ensuremath{\coloneqq}}
+\DeclareUnicodeCharacter{2255}{\ensuremath{\eqqcolon}}
+\DeclareUnicodeCharacter{2256}{\ensuremath{\eqcirc}}
+\DeclareUnicodeCharacter{2257}{\ensuremath{\circeq}}
+\DeclareUnicodeCharacter{2258}{\ensuremath{\stackrel{\frown}{=}}}
+\DeclareUnicodeCharacter{2259}{\ensuremath{\stackrel{\wedge}{=}}}
+\DeclareUnicodeCharacter{225A}{\ensuremath{\stackrel{\vee}{=}}}
+\DeclareUnicodeCharacter{225B}{\ensuremath{\stackrel{\star}{=}}}
+\DeclareUnicodeCharacter{225C}{\ensuremath{\triangleq}}
+\DeclareUnicodeCharacter{225D}{\ensuremath{\stackrel{\text{\tiny def}}{=}}}
+\DeclareUnicodeCharacter{225F}{\ensuremath{\stackrel{\text{\tiny ?}}{=}}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\ne}}
+\DeclareUnicodeCharacter{2261}{\ensuremath{\equiv}}
+\DeclareUnicodeCharacter{2262}{\ensuremath{\not\equiv}}
+\DeclareUnicodeCharacter{2263}{\ensuremath{\stackrel{=}{=}}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\DeclareUnicodeCharacter{2266}{\ensuremath{\leqq}}
+\DeclareUnicodeCharacter{2267}{\ensuremath{\geqq}}
+\DeclareUnicodeCharacter{2268}{\ensuremath{\lneqq}}
+\DeclareUnicodeCharacter{2269}{\ensuremath{\gneqq}}
+\DeclareUnicodeCharacter{226A}{\ensuremath{\ll}}
+\DeclareUnicodeCharacter{226B}{\ensuremath{\gg}}
+\DeclareUnicodeCharacter{226C}{\ensuremath{\between}}
+\DeclareUnicodeCharacter{226D}{\ensuremath{\not\asymp}}
+\DeclareUnicodeCharacter{226E}{\ensuremath{\nless}}
+\DeclareUnicodeCharacter{226F}{\ensuremath{\ngtr}}
+\DeclareUnicodeCharacter{2270}{\ensuremath{\nleq}}
+\DeclareUnicodeCharacter{2271}{\ensuremath{\ngeq}}
+\DeclareUnicodeCharacter{2272}{\ensuremath{\lesssim}}
+\DeclareUnicodeCharacter{2273}{\ensuremath{\gtrsim}}
+\DeclareUnicodeCharacter{2274}{\ensuremath{\not\lesssim}}
+\DeclareUnicodeCharacter{2275}{\ensuremath{\not\gtrsim}}
+\DeclareUnicodeCharacter{2276}{\ensuremath{\lessgtr}}
+\DeclareUnicodeCharacter{2277}{\ensuremath{\gtrless}}
+\DeclareUnicodeCharacter{2278}{\ensuremath{\not\lessgtr}}
+\DeclareUnicodeCharacter{2279}{\ensuremath{\not\gtrless}}
+\DeclareUnicodeCharacter{227A}{\ensuremath{\prec}}
+\DeclareUnicodeCharacter{227B}{\ensuremath{\succ}}
+\DeclareUnicodeCharacter{227C}{\ensuremath{\preccurlyeq}}
+% \DeclareUnicodeCharacter{227D}{\ensuremath{\succccurlyeq}}
+\DeclareUnicodeCharacter{227E}{\ensuremath{\precsim}}
+\DeclareUnicodeCharacter{227F}{\ensuremath{\succsim}}
+\DeclareUnicodeCharacter{2280}{\ensuremath{\nprec}}
+\DeclareUnicodeCharacter{2281}{\ensuremath{\nsucc}}
+\DeclareUnicodeCharacter{2282}{\ensuremath{\subset}}
+\DeclareUnicodeCharacter{2283}{\ensuremath{\supset}}
+\DeclareUnicodeCharacter{2284}{\ensuremath{\not\subset}}
+\DeclareUnicodeCharacter{2285}{\ensuremath{\not\supset}}
+\DeclareUnicodeCharacter{2286}{\ensuremath{\subseteq}}
+\DeclareUnicodeCharacter{2287}{\ensuremath{\supseteq}}
+\DeclareUnicodeCharacter{2288}{\ensuremath{\nsubseteq}}
+\DeclareUnicodeCharacter{2289}{\ensuremath{\nsupseteq}}
+\DeclareUnicodeCharacter{228A}{\ensuremath{\subsetneq}}
+\DeclareUnicodeCharacter{228B}{\ensuremath{\supsetneq}}
+\DeclareUnicodeCharacter{228E}{\ensuremath{\uplus}}
+\DeclareUnicodeCharacter{228F}{\ensuremath{\sqsubset}}
+\DeclareUnicodeCharacter{2290}{\ensuremath{\sqsupset}}
+\DeclareUnicodeCharacter{2291}{\ensuremath{\sqsubseteq}}
+\DeclareUnicodeCharacter{2292}{\ensuremath{\ensuremath{\to}}}
+\DeclareUnicodeCharacter{2293}{\ensuremath{\sqcap}}
+\DeclareUnicodeCharacter{2294}{\ensuremath{\sqcup}}
+\DeclareUnicodeCharacter{2295}{\ensuremath{\oplus}}
+\DeclareUnicodeCharacter{2296}{\ensuremath{\ominus}}
+\DeclareUnicodeCharacter{2297}{\ensuremath{\otimes}}
+\DeclareUnicodeCharacter{2298}{\ensuremath{\oslash}}
+\DeclareUnicodeCharacter{2299}{\ensuremath{\odot}}
+\DeclareUnicodeCharacter{229A}{\ensuremath{\circledcirc}}
+\DeclareUnicodeCharacter{229B}{\ensuremath{\circledast}}
+\DeclareUnicodeCharacter{229D}{\ensuremath{\circleddash}}
+\DeclareUnicodeCharacter{229E}{\ensuremath{\boxplus}}
+\DeclareUnicodeCharacter{229F}{\ensuremath{\boxminus}}
+\DeclareUnicodeCharacter{22A0}{\ensuremath{\boxtimes}}
+\DeclareUnicodeCharacter{22A1}{\ensuremath{\boxdot}}
+\DeclareUnicodeCharacter{22A2}{\ensuremath{\vdash}}
+\DeclareUnicodeCharacter{22A3}{\ensuremath{\dashv}}
+\DeclareUnicodeCharacter{22A4}{\ensuremath{\top}}
+\DeclareUnicodeCharacter{22A5}{\ensuremath{\bot}}
+\DeclareUnicodeCharacter{22A6}{\ensuremath{\vdash}}
+\DeclareUnicodeCharacter{22A7}{\ensuremath{\models}}
+\DeclareUnicodeCharacter{22A9}{\ensuremath{\Vdash}}
+\DeclareUnicodeCharacter{22AA}{\ensuremath{\Vvdash}}
+% \DeclareUnicodeCharacter{22AB}{\ensuremath{\VDash}}
+\DeclareUnicodeCharacter{22AC}{\ensuremath{\not\vdash}}
+\DeclareUnicodeCharacter{22AD}{\ensuremath{\not\vDash}}
+\DeclareUnicodeCharacter{22AE}{\ensuremath{\not\Vdash}}
+% \DeclareUnicodeCharacter{22AF}{\ensuremath{\not\VDash}}
+\DeclareUnicodeCharacter{22B2}{\ensuremath{\triangleleft}}
+\DeclareUnicodeCharacter{22B3}{\ensuremath{\triangleright}}
+\DeclareUnicodeCharacter{22B4}{\ensuremath{\unlhd}}
+\DeclareUnicodeCharacter{22B5}{\ensuremath{\unrhd}}
+\DeclareUnicodeCharacter{22B8}{\ensuremath{\multimap}}
+\DeclareUnicodeCharacter{22BA}{\ensuremath{\intercal}}
+\DeclareUnicodeCharacter{22BB}{\ensuremath{\veebar}}
+\DeclareUnicodeCharacter{22BC}{\ensuremath{\barwedge}}
+\DeclareUnicodeCharacter{22C0}{\ensuremath{\bigwedge}}
+\DeclareUnicodeCharacter{22C1}{\ensuremath{\bigvee}}
+\DeclareUnicodeCharacter{22C2}{\ensuremath{\bigcap}}
+\DeclareUnicodeCharacter{22C3}{\ensuremath{\bigcup}}
+\DeclareUnicodeCharacter{22C4}{\ensuremath{\diamond}}
+\DeclareUnicodeCharacter{22C5}{\ensuremath{\cdot}}
+\DeclareUnicodeCharacter{22C6}{\ensuremath{\star}}
+\DeclareUnicodeCharacter{22C7}{\ensuremath{\divideontimes}}
+\DeclareUnicodeCharacter{22C8}{\ensuremath{\bowtie}}
+\DeclareUnicodeCharacter{22C9}{\ensuremath{\ltimes}}
+\DeclareUnicodeCharacter{22CA}{\ensuremath{\rtimes}}
+\DeclareUnicodeCharacter{22CB}{\ensuremath{\leftthreetimes}}
+\DeclareUnicodeCharacter{22CC}{\ensuremath{\rightthreetimes}}
+\DeclareUnicodeCharacter{22CD}{\ensuremath{\backsimeq}}
+\DeclareUnicodeCharacter{22CE}{\ensuremath{\curlyvee}}
+\DeclareUnicodeCharacter{22CF}{\ensuremath{\curlywedge}}
+\DeclareUnicodeCharacter{22D0}{\ensuremath{\Subset}}
+\DeclareUnicodeCharacter{22D1}{\ensuremath{\Supset}}
+\DeclareUnicodeCharacter{22D2}{\ensuremath{\Cap}}
+\DeclareUnicodeCharacter{22D3}{\ensuremath{\Cup}}
+\DeclareUnicodeCharacter{22D4}{\ensuremath{\pitchfork}}
+\DeclareUnicodeCharacter{22D6}{\ensuremath{\lessdot}}
+\DeclareUnicodeCharacter{22D7}{\ensuremath{\gtrdot}}
+\DeclareUnicodeCharacter{22D8}{\ensuremath{\lll}}
+\DeclareUnicodeCharacter{22D9}{\ensuremath{\ggg}}
+\DeclareUnicodeCharacter{22DA}{\ensuremath{\lesseqgtr}}
+\DeclareUnicodeCharacter{22DB}{\ensuremath{\gtreqless}}
+\DeclareUnicodeCharacter{22DE}{\ensuremath{\curlyeqprec}}
+\DeclareUnicodeCharacter{22DF}{\ensuremath{\curlyeqsucc}}
+\DeclareUnicodeCharacter{22E0}{\ensuremath{\not\preceq}}
+\DeclareUnicodeCharacter{22E1}{\ensuremath{\not\succeq}}
+\DeclareUnicodeCharacter{22E2}{\ensuremath{\not\sqsubseteq}}
+\DeclareUnicodeCharacter{22E3}{\ensuremath{\not\sqsupseteq}}
+% \DeclareUnicodeCharacter{22E4}{\ensuremath{\sqsubsetneq}}
+% \DeclareUnicodeCharacter{22E5}{\ensuremath{\sqsupsetneq}}
+\DeclareUnicodeCharacter{22E6}{\ensuremath{\lnsim}}
+\DeclareUnicodeCharacter{22E7}{\ensuremath{\gnsim}}
+\DeclareUnicodeCharacter{22E8}{\ensuremath{\precnsim}}
+\DeclareUnicodeCharacter{22E9}{\ensuremath{\succnsim}}
+\DeclareUnicodeCharacter{22EA}{\ensuremath{\not\triangleleft}}
+\DeclareUnicodeCharacter{22EB}{\ensuremath{\not\triangleright}}
+\DeclareUnicodeCharacter{22EC}{\ensuremath{\not\trianglelefteq}}
+\DeclareUnicodeCharacter{22ED}{\ensuremath{\not\trianglerighteq}}
+\DeclareUnicodeCharacter{22EE}{\ensuremath{\vdots}}
+\DeclareUnicodeCharacter{22EF}{\ensuremath{\cdots}}
+% \DeclareUnicodeCharacter{22F0}{\ensuremath{\iddots}}
+\DeclareUnicodeCharacter{22F1}{\ensuremath{\ddots}}
+\DeclareUnicodeCharacter{2300}{\ensuremath{\diameter}}
+\DeclareUnicodeCharacter{2308}{\ensuremath{\lceil}}
+\DeclareUnicodeCharacter{2309}{\ensuremath{\rceil}}
+\DeclareUnicodeCharacter{230A}{\ensuremath{\lfloor}}
+\DeclareUnicodeCharacter{230B}{\ensuremath{\rfloor}}
+\DeclareUnicodeCharacter{2322}{\ensuremath{\frown}}
+\DeclareUnicodeCharacter{2323}{\ensuremath{\smile}}
+\DeclareUnicodeCharacter{2329}{\ensuremath{\langle}}
+\DeclareUnicodeCharacter{232A}{\ensuremath{\rangle}}
+\DeclareUnicodeCharacter{25A1}{\ensuremath{\square}}
+\DeclareUnicodeCharacter{25B3}{\ensuremath{\triangle}}
+\DeclareUnicodeCharacter{2615}{NONE hot beverage}
+% \DeclareUnicodeCharacter{2621}{\ensuremath{\dbend}}
+\DeclareUnicodeCharacter{2627}{NONE labarum}
+\DeclareUnicodeCharacter{2639}{\ensuremath{\frownie}}
+\DeclareUnicodeCharacter{263A}{\ensuremath{\smiley}}
+\DeclareUnicodeCharacter{2660}{\ensuremath{\spadesuit}}
+\DeclareUnicodeCharacter{2661}{\ensuremath{\heartsuit}}
+\DeclareUnicodeCharacter{2662}{\ensuremath{\diamondsuit}}
+\DeclareUnicodeCharacter{2663}{\ensuremath{\clubsuit}}
+\DeclareUnicodeCharacter{266D}{\ensuremath{\flat}}
+\DeclareUnicodeCharacter{266E}{\ensuremath{\natural}}
+\DeclareUnicodeCharacter{266F}{\ensuremath{\sharp}}
+\DeclareUnicodeCharacter{26A0}{\ensuremath{\lower .25ex\hbox{\Large $\triangle$\hskip -1.25ex}!\;\,}}
+\DeclareUnicodeCharacter{2713}{\ensuremath{\checkmark}}
+\DeclareUnicodeCharacter{27C2}{\ensuremath{\perp}}
+\DeclareUnicodeCharacter{27E8}{\ensuremath{\langle}}
+\DeclareUnicodeCharacter{27E9}{\ensuremath{\rangle}}
+\DeclareUnicodeCharacter{27EA}{\ensuremath{\llangle}}
+\DeclareUnicodeCharacter{27EB}{\ensuremath{\rrangle}}
+\DeclareUnicodeCharacter{2A00}{\ensuremath{\bigodot}}
+\DeclareUnicodeCharacter{2A01}{\ensuremath{\bigoplus}}
+\DeclareUnicodeCharacter{2A02}{\ensuremath{\bigotimes}}
+% \DeclareUnicodeCharacter{2A05}{\ensuremath{\bigsqcap}}
+\DeclareUnicodeCharacter{2A06}{\ensuremath{\bigsqcup}}
+\DeclareUnicodeCharacter{2A1D}{\ensuremath{\Join}}
+\DeclareUnicodeCharacter{2A3F}{\ensuremath{\amalg}}
+\DeclareUnicodeCharacter{2A7D}{\ensuremath{\leqslant}}
+\DeclareUnicodeCharacter{2A7E}{\ensuremath{\geqslant}}
+\DeclareUnicodeCharacter{2E18}{\textinterrobangdown}
+% \DeclareUnicodeCharacter{301A}{\ensuremath{\llbracket}}
+% \DeclareUnicodeCharacter{301B}{\ensuremath{\rrbracket}}
+\fi
