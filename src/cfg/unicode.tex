@@ -29,6 +29,7 @@
 \ifx\mapsfrom\undefined
 	\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
 \fi
+\def\LOCALunknownchar {\ensuremath{\mathrm{UNKNOWN\;CHAR}}}
 
 \makeatletter
 \newsavebox{\@brxanglelr}
@@ -37,6 +38,7 @@
 \newcommand{\rrangle}[1][]{\savebox{\@brxanglelr}{\(\m@th{#1\rangle}\)}%
 	\mathclose{\copy\@brxanglelr\kern-0.5\wd\@brxanglelr\usebox{\@brxanglelr}}}
 \makeatother
+
 \ifdefined\DeclareUnicodeCharacter
 \DeclareUnicodeCharacter{00A0}{~}
 \DeclareUnicodeCharacter{00A1}{\textexclamdown}
@@ -70,7 +72,25 @@
 \DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
 \DeclareUnicodeCharacter{00F7}{\ensuremath{\div}}
 \DeclareUnicodeCharacter{0131}{\ensuremath{\imath}}
+\DeclareUnicodeCharacter{02102}{\ensuremath{\mathbb{C}}}
+\DeclareUnicodeCharacter{0210D}{\ensuremath{\mathbb{H}}}
+\DeclareUnicodeCharacter{02115}{\ensuremath{\mathbb{N}}}
+\DeclareUnicodeCharacter{02119}{\ensuremath{\mathbb{P}}}
+\DeclareUnicodeCharacter{0211A}{\ensuremath{\mathbb{Q}}}
+\DeclareUnicodeCharacter{0211D}{\ensuremath{\mathbb{R}}}
+\DeclareUnicodeCharacter{02124}{\ensuremath{\mathbb{Z}}}
 \DeclareUnicodeCharacter{0237}{\ensuremath{\jmath}}
+\DeclareUnicodeCharacter{02B0}{\ensuremath{^h}}
+\DeclareUnicodeCharacter{02B2}{\ensuremath{^j}}
+\DeclareUnicodeCharacter{02B3}{\ensuremath{^r}}
+\DeclareUnicodeCharacter{02B7}{\ensuremath{^w}}
+\DeclareUnicodeCharacter{02B8}{\ensuremath{^y}}
+\DeclareUnicodeCharacter{02E1}{\ensuremath{^l}}
+\DeclareUnicodeCharacter{02E2}{\ensuremath{^s}}
+\DeclareUnicodeCharacter{02E3}{\ensuremath{^x}}
+\DeclareUnicodeCharacter{0302}{\ensuremath{\hat{\phantom{x}}}}
+\DeclareUnicodeCharacter{0308}{\ensuremath{\ddot{\phantom{x}}}}
+\DeclareUnicodeCharacter{0332}{\ensuremath{\underline{\phantom{x}}}}
 \DeclareUnicodeCharacter{0391}{\ensuremath{\Alpha}}
 \DeclareUnicodeCharacter{0392}{\ensuremath{\Beta}}
 \DeclareUnicodeCharacter{0393}{\ensuremath{\Gamma}}
@@ -124,24 +144,124 @@
 \DeclareUnicodeCharacter{03D1}{\ensuremath{\theta}}
 \DeclareUnicodeCharacter{03D5}{\ensuremath{\phi}}
 \DeclareUnicodeCharacter{03D6}{\ensuremath{\pi}}
-% \DeclareUnicodeCharacter{03D8}{\ensuremath{\Qoppa}}
-% \DeclareUnicodeCharacter{03D9}{\ensuremath{\qoppa}}
-% \DeclareUnicodeCharacter{03DA}{\ensuremath{\Stigma}}
-% \DeclareUnicodeCharacter{03DB}{\ensuremath{\stigma}}
-% \DeclareUnicodeCharacter{03DC}{\ensuremath{\Digamma}}
-\DeclareUnicodeCharacter{03DD}{\ensuremath{\digamma}}
-% \DeclareUnicodeCharacter{03DE}{\ensuremath{\Koppa}}
-% \DeclareUnicodeCharacter{03DF}{\ensuremath{\koppa}}
-% \DeclareUnicodeCharacter{03E0}{\ensuremath{\Sampi}}
-% \DeclareUnicodeCharacter{03E1}{\ensuremath{\sampi}}
+\DeclareUnicodeCharacter{03D8}{\ensuremath{Q}}
+\DeclareUnicodeCharacter{03D9}{\ensuremath{q}}
+\DeclareUnicodeCharacter{03DA}{\ensuremath{S}}
+\DeclareUnicodeCharacter{03DB}{\ensuremath{s}}
+\DeclareUnicodeCharacter{03DC}{\ensuremath{D}}
+\DeclareUnicodeCharacter{03DD}{\ensuremath{d}}
+\DeclareUnicodeCharacter{03DE}{\ensuremath{K}}
+\DeclareUnicodeCharacter{03DF}{\ensuremath{k}}
+\DeclareUnicodeCharacter{03E0}{\ensuremath{S}}
+\DeclareUnicodeCharacter{03E1}{\ensuremath{s}}
 \DeclareUnicodeCharacter{03F0}{\ensuremath{\varkappa}}
 \DeclareUnicodeCharacter{03F1}{\ensuremath{\rho}}
 \DeclareUnicodeCharacter{03F5}{\ensuremath{\epsilon}}
 \DeclareUnicodeCharacter{03F6}{\ensuremath{\backepsilon}}
+\DeclareUnicodeCharacter{041F}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{0432}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{0435}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{0438}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{043C}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{0440}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{0442}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{0BA8}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{0BBF}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{1100}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{11F9}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{1D2C}{\ensuremath{^A}}
+\DeclareUnicodeCharacter{1D2E}{\ensuremath{^B}}
+\DeclareUnicodeCharacter{1D30}{\ensuremath{^D}}
+\DeclareUnicodeCharacter{1D31}{\ensuremath{^E}}
+\DeclareUnicodeCharacter{1D33}{\ensuremath{^G}}
+\DeclareUnicodeCharacter{1D34}{\ensuremath{^H}}
+\DeclareUnicodeCharacter{1D35}{\ensuremath{^I}}
+\DeclareUnicodeCharacter{1D36}{\ensuremath{^J}}
+\DeclareUnicodeCharacter{1D37}{\ensuremath{^K}}
+\DeclareUnicodeCharacter{1D38}{\ensuremath{^L}}
+\DeclareUnicodeCharacter{1D39}{\ensuremath{^M}}
+\DeclareUnicodeCharacter{1D3A}{\ensuremath{^N}}
+\DeclareUnicodeCharacter{1D3C}{\ensuremath{^O}}
+\DeclareUnicodeCharacter{1D3E}{\ensuremath{^P}}
+\DeclareUnicodeCharacter{1D3F}{\ensuremath{^R}}
+\DeclareUnicodeCharacter{1D40}{\ensuremath{^T}}
+\DeclareUnicodeCharacter{1D41}{\ensuremath{^U}}
+\DeclareUnicodeCharacter{1D42}{\ensuremath{^W}}
+\DeclareUnicodeCharacter{1D43}{\ensuremath{^a}}
+\DeclareUnicodeCharacter{1D47}{\ensuremath{^b}}
+\DeclareUnicodeCharacter{1D48}{\ensuremath{^d}}
+\DeclareUnicodeCharacter{1D49}{\ensuremath{^e}}
+\DeclareUnicodeCharacter{1D4D}{\ensuremath{^g}}
+\DeclareUnicodeCharacter{1D4F}{\ensuremath{^k}}
+\DeclareUnicodeCharacter{1D50}{\ensuremath{^m}}
+\DeclareUnicodeCharacter{1D52}{\ensuremath{^o}}
+\DeclareUnicodeCharacter{1D538}{\ensuremath{\mathbb{A}}}
+\DeclareUnicodeCharacter{1D539}{\ensuremath{\mathbb{B}}}
+\DeclareUnicodeCharacter{1D53B}{\ensuremath{\mathbb{D}}}
+\DeclareUnicodeCharacter{1D53C}{\ensuremath{\mathbb{E}}}
+\DeclareUnicodeCharacter{1D53D}{\ensuremath{\mathbb{F}}}
+\DeclareUnicodeCharacter{1D53E}{\ensuremath{\mathbb{G}}}
+\DeclareUnicodeCharacter{1D540}{\ensuremath{\mathbb{I}}}
+\DeclareUnicodeCharacter{1D541}{\ensuremath{\mathbb{J}}}
+\DeclareUnicodeCharacter{1D542}{\ensuremath{\mathbb{K}}}
+\DeclareUnicodeCharacter{1D543}{\ensuremath{\mathbb{L}}}
+\DeclareUnicodeCharacter{1D544}{\ensuremath{\mathbb{M}}}
+\DeclareUnicodeCharacter{1D546}{\ensuremath{\mathbb{O}}}
+\DeclareUnicodeCharacter{1D54A}{\ensuremath{\mathbb{S}}}
+\DeclareUnicodeCharacter{1D54B}{\ensuremath{\mathbb{T}}}
+\DeclareUnicodeCharacter{1D54C}{\ensuremath{\mathbb{U}}}
+\DeclareUnicodeCharacter{1D54D}{\ensuremath{\mathbb{V}}}
+\DeclareUnicodeCharacter{1D54E}{\ensuremath{\mathbb{W}}}
+\DeclareUnicodeCharacter{1D54F}{\ensuremath{\mathbb{X}}}
+\DeclareUnicodeCharacter{1D550}{\ensuremath{\mathbb{Y}}}
+\DeclareUnicodeCharacter{1D552}{\ensuremath{\mathbb{a}}}
+\DeclareUnicodeCharacter{1D553}{\ensuremath{\mathbb{b}}}
+\DeclareUnicodeCharacter{1D554}{\ensuremath{\mathbb{c}}}
+\DeclareUnicodeCharacter{1D555}{\ensuremath{\mathbb{d}}}
+\DeclareUnicodeCharacter{1D556}{\ensuremath{\mathbb{e}}}
+\DeclareUnicodeCharacter{1D557}{\ensuremath{\mathbb{f}}}
+\DeclareUnicodeCharacter{1D558}{\ensuremath{\mathbb{g}}}
+\DeclareUnicodeCharacter{1D559}{\ensuremath{\mathbb{h}}}
+\DeclareUnicodeCharacter{1D55A}{\ensuremath{\mathbb{i}}}
+\DeclareUnicodeCharacter{1D55B}{\ensuremath{\mathbb{j}}}
+\DeclareUnicodeCharacter{1D55C}{\ensuremath{\mathbb{k}}}
+\DeclareUnicodeCharacter{1D55D}{\ensuremath{\mathbb{l}}}
+\DeclareUnicodeCharacter{1D55E}{\ensuremath{\mathbb{m}}}
+\DeclareUnicodeCharacter{1D55F}{\ensuremath{\mathbb{n}}}
+\DeclareUnicodeCharacter{1D56}{\ensuremath{^p}}
+\DeclareUnicodeCharacter{1D560}{\ensuremath{\mathbb{o}}}
+\DeclareUnicodeCharacter{1D561}{\ensuremath{\mathbb{p}}}
+\DeclareUnicodeCharacter{1D562}{\ensuremath{\mathbb{q}}}
+\DeclareUnicodeCharacter{1D563}{\ensuremath{\mathbb{r}}}
+\DeclareUnicodeCharacter{1D564}{\ensuremath{\mathbb{s}}}
+\DeclareUnicodeCharacter{1D565}{\ensuremath{\mathbb{t}}}
+\DeclareUnicodeCharacter{1D566}{\ensuremath{\mathbb{u}}}
+\DeclareUnicodeCharacter{1D567}{\ensuremath{\mathbb{v}}}
+\DeclareUnicodeCharacter{1D568}{\ensuremath{\mathbb{w}}}
+\DeclareUnicodeCharacter{1D569}{\ensuremath{\mathbb{x}}}
+\DeclareUnicodeCharacter{1D56A}{\ensuremath{\mathbb{y}}}
+\DeclareUnicodeCharacter{1D56B}{\ensuremath{\mathbb{z}}}
+\DeclareUnicodeCharacter{1D57}{\ensuremath{^t}}
+\DeclareUnicodeCharacter{1D58}{\ensuremath{^u}}
+\DeclareUnicodeCharacter{1D5B}{\ensuremath{^v}}
 \DeclareUnicodeCharacter{1D62}{\ensuremath{_i}}
 \DeclareUnicodeCharacter{1D63}{\ensuremath{_r}}
 \DeclareUnicodeCharacter{1D64}{\ensuremath{_u}}
 \DeclareUnicodeCharacter{1D65}{\ensuremath{_v}}
+\DeclareUnicodeCharacter{1D7D8}{\ensuremath{\mathbb{0}}}
+\DeclareUnicodeCharacter{1D7D9}{\ensuremath{\mathbb{1}}}
+\DeclareUnicodeCharacter{1D7DA}{\ensuremath{\mathbb{2}}}
+\DeclareUnicodeCharacter{1D7DB}{\ensuremath{\mathbb{3}}}
+\DeclareUnicodeCharacter{1D7DC}{\ensuremath{\mathbb{4}}}
+\DeclareUnicodeCharacter{1D7DD}{\ensuremath{\mathbb{5}}}
+\DeclareUnicodeCharacter{1D7DE}{\ensuremath{\mathbb{6}}}
+\DeclareUnicodeCharacter{1D7DF}{\ensuremath{\mathbb{7}}}
+\DeclareUnicodeCharacter{1D7E0}{\ensuremath{\mathbb{8}}}
+\DeclareUnicodeCharacter{1D7E1}{\ensuremath{\mathbb{9}}}
+\DeclareUnicodeCharacter{1D9C}{\ensuremath{^c}}
+\DeclareUnicodeCharacter{1DA0}{\ensuremath{^f}}
+\DeclareUnicodeCharacter{1DBB}{\ensuremath{^z}}
+\DeclareUnicodeCharacter{1F329}{\ensuremath{\lightning}}
 \DeclareUnicodeCharacter{2013}{--}
 \DeclareUnicodeCharacter{2014}{---}
 \DeclareUnicodeCharacter{2016}{\textbardbl}
@@ -156,11 +276,12 @@
 \DeclareUnicodeCharacter{2022}{\ensuremath{\bullet}}
 \DeclareUnicodeCharacter{2023}{\ensuremath{\RHD}}
 \DeclareUnicodeCharacter{2026}{\ensuremath{\ldots}}
+\DeclareUnicodeCharacter{202F}{\,}
 \DeclareUnicodeCharacter{2030}{\textperthousand}
 \DeclareUnicodeCharacter{2031}{\textpertenthousand}
 \DeclareUnicodeCharacter{2032}{\ensuremath{\prime}}
-% \DeclareUnicodeCharacter{2033}{\ensuremath{\second}}
-% \DeclareUnicodeCharacter{2034}{\ensuremath{\third}}
+\DeclareUnicodeCharacter{2033}{\ensuremath{''}}
+\DeclareUnicodeCharacter{2034}{\ensuremath{'''}}
 \DeclareUnicodeCharacter{2035}{\ensuremath{\backprime}}
 \DeclareUnicodeCharacter{2038}{\ifmmode\widehat{}\else\textasciicircum\fi}
 \DeclareUnicodeCharacter{2039}{\guilsinglleft}
@@ -169,7 +290,7 @@
 \DeclareUnicodeCharacter{203C}{{!\kern -.5ex!}}
 \DeclareUnicodeCharacter{203D}{\textinterrobang}
 \DeclareUnicodeCharacter{203E}{\ensuremath{\overline{0}}}
-% \DeclareUnicodeCharacter{2042}{\ensuremath{\asterism}}
+\DeclareUnicodeCharacter{2042}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{2045}{\textlquill}
 \DeclareUnicodeCharacter{2046}{\textrquill}
 \DeclareUnicodeCharacter{2047}{{?\kern -.5ex?}}
@@ -178,12 +299,18 @@
 \DeclareUnicodeCharacter{2052}{\textdiscount}
 \DeclareUnicodeCharacter{2062}{{}}
 \DeclareUnicodeCharacter{2070}{\ensuremath{^0}}
+\DeclareUnicodeCharacter{2071}{\ensuremath{^i}}
 \DeclareUnicodeCharacter{2074}{\ensuremath{^4}}
 \DeclareUnicodeCharacter{2075}{\ensuremath{^5}}
 \DeclareUnicodeCharacter{2076}{\ensuremath{^6}}
 \DeclareUnicodeCharacter{2077}{\ensuremath{^7}}
 \DeclareUnicodeCharacter{2078}{\ensuremath{^8}}
 \DeclareUnicodeCharacter{2079}{\ensuremath{^9}}
+\DeclareUnicodeCharacter{207A}{\ensuremath{^+}}
+\DeclareUnicodeCharacter{207B}{\ensuremath{^-}}
+\DeclareUnicodeCharacter{207C}{\ensuremath{^=}}
+\DeclareUnicodeCharacter{207D}{\ensuremath{^(}}
+\DeclareUnicodeCharacter{207E}{\ensuremath{^)}}
 \DeclareUnicodeCharacter{207F}{\ensuremath{^n}}
 \DeclareUnicodeCharacter{2080}{\ensuremath{_0}}
 \DeclareUnicodeCharacter{2081}{\ensuremath{_1}}
@@ -212,21 +339,23 @@
 \DeclareUnicodeCharacter{209A}{\ensuremath{_p}}
 \DeclareUnicodeCharacter{209B}{\ensuremath{_s}}
 \DeclareUnicodeCharacter{209C}{\ensuremath{_t}}
+\DeclareUnicodeCharacter{20AC}{\euro}
 \DeclareUnicodeCharacter{2102}{\ensuremath{\mathbb{C}}}
-% \DeclareUnicodeCharacter{2107}{\ensuremath{\Euler}}
+\DeclareUnicodeCharacter{2107}{\ensuremath{\mathbb{E}}}
 \DeclareUnicodeCharacter{210A}{\ensuremath{\mathcal g}}
-% \DeclareUnicodeCharacter{210B}{\ensuremath{\mathrsfs H}}
+\DeclareUnicodeCharacter{210B}{\ensuremath{\mathcal H}}
 \DeclareUnicodeCharacter{210C}{\ensuremath{\mathfrak H}}
 \DeclareUnicodeCharacter{210D}{\ensuremath{\mathbb{H}}}
 \DeclareUnicodeCharacter{210F}{\ensuremath{\hbar}}
-% \DeclareUnicodeCharacter{2110}{\ensuremath{\mathrsfs I}}
+\DeclareUnicodeCharacter{2110}{\ensuremath{\mathcal I}}
 \DeclareUnicodeCharacter{2111}{\ensuremath{\IM}}
-% \DeclareUnicodeCharacter{2112}{\ensuremath{\mathrsfs L}}
+\DeclareUnicodeCharacter{2112}{\ensuremath{\mathcal L}}
 \DeclareUnicodeCharacter{2113}{\ensuremath{\ell}}
 \DeclareUnicodeCharacter{2115}{\ensuremath{\mathbb{N}}}
 \DeclareUnicodeCharacter{2118}{\ensuremath{\wp}}
 \DeclareUnicodeCharacter{2119}{\ensuremath{\mathbb{P}}}
 \DeclareUnicodeCharacter{211A}{\ensuremath{\mathbb{Q}}}
+\DeclareUnicodeCharacter{211C}{\ensuremath{\Re}}
 \DeclareUnicodeCharacter{211D}{\ensuremath{\mathbb{R}}}
 \DeclareUnicodeCharacter{2122}{\texttrademark}
 \DeclareUnicodeCharacter{2124}{\ensuremath{\mathbb{Z}}}
@@ -235,12 +364,12 @@
 \DeclareUnicodeCharacter{2128}{\ensuremath{\mathfrak Z}}
 \DeclareUnicodeCharacter{212A}{\ensuremath{\mathrm K}}
 \DeclareUnicodeCharacter{212B}{\ensuremath{\mathring{\mathrm A}}}
-% \DeclareUnicodeCharacter{212C}{\ensuremath{\mathrsfs B}}
+\DeclareUnicodeCharacter{212C}{\ensuremath{\mathcal B}}
 \DeclareUnicodeCharacter{212D}{\ensuremath{\mathfrak C}}
 \DeclareUnicodeCharacter{212E}{\textestimated}
-% \DeclareUnicodeCharacter{212F}{\ensuremath{\mathrsfs e}}
-% \DeclareUnicodeCharacter{2130}{\ensuremath{\mathrsfs E}}
-% \DeclareUnicodeCharacter{2131}{\ensuremath{\mathrsfs F}}
+\DeclareUnicodeCharacter{212F}{\ensuremath{\mathcal e}}
+\DeclareUnicodeCharacter{2130}{\ensuremath{\mathcal E}}
+\DeclareUnicodeCharacter{2131}{\ensuremath{\mathcal F}}
 \DeclareUnicodeCharacter{2132}{\ensuremath{\Finv}}
 \DeclareUnicodeCharacter{2135}{\ensuremath{\aleph}}
 \DeclareUnicodeCharacter{2136}{\ensuremath{\beth}}
@@ -252,11 +381,22 @@
 \DeclareUnicodeCharacter{213F}{\ensuremath{\mathbb{\Gamma}}}
 \DeclareUnicodeCharacter{2140}{\ensuremath{\mathbb{\Sigma}}}
 \DeclareUnicodeCharacter{2141}{\ensuremath{\Game}}
-% \DeclareUnicodeCharacter{2144}{\ensuremath{\Yup}}
+\DeclareUnicodeCharacter{2144}{\ensuremath{Y}}
 \DeclareUnicodeCharacter{2146}{\ensuremath{\mathrm{d}}}
 \DeclareUnicodeCharacter{2148}{\ensuremath{\imath}}
 \DeclareUnicodeCharacter{2149}{\ensuremath{\jmath}}
-% \DeclareUnicodeCharacter{214B}{\ensuremath{\invamp}}
+\DeclareUnicodeCharacter{214B}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2153}{\ensuremath{\frac{1}{3}}}
+\DeclareUnicodeCharacter{2154}{\ensuremath{\frac{2}{3}}}
+\DeclareUnicodeCharacter{2155}{\ensuremath{\frac{1}{5}}}
+\DeclareUnicodeCharacter{2156}{\ensuremath{\frac{2}{5}}}
+\DeclareUnicodeCharacter{2157}{\ensuremath{\frac{3}{5}}}
+\DeclareUnicodeCharacter{2158}{\ensuremath{\frac{4}{5}}}
+\DeclareUnicodeCharacter{2159}{\ensuremath{\frac{1}{6}}}
+\DeclareUnicodeCharacter{215A}{\ensuremath{\frac{5}{6}}}
+\DeclareUnicodeCharacter{215B}{\ensuremath{\frac{1}{8}}}
+\DeclareUnicodeCharacter{215D}{\ensuremath{\frac{5}{8}}}
+\DeclareUnicodeCharacter{215E}{\ensuremath{\frac{7}{8}}}
 \DeclareUnicodeCharacter{2190}{\ensuremath{\leftarrow}}
 \DeclareUnicodeCharacter{2191}{\ensuremath{\uparrow}}
 \DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
@@ -297,7 +437,7 @@
 \DeclareUnicodeCharacter{21C2}{\ensuremath{\downharpoonright}}
 \DeclareUnicodeCharacter{21C3}{\ensuremath{\downharpoonleft}}
 \DeclareUnicodeCharacter{21C4}{\ensuremath{\rightleftarrows}}
-%\DeclareUnicodeCharacter{21C5}{\ensuremath{\updownarrows}}
+\DeclareUnicodeCharacter{21C5}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{21C6}{\ensuremath{\leftrightarrows}}
 \DeclareUnicodeCharacter{21C7}{\ensuremath{\leftleftarrows}}
 \DeclareUnicodeCharacter{21C8}{\ensuremath{\upuparrows}}
@@ -320,34 +460,36 @@
 \DeclareUnicodeCharacter{21D9}{\ensuremath{\swarrow}}
 \DeclareUnicodeCharacter{21DA}{\ensuremath{\Lleftarrow}}
 \DeclareUnicodeCharacter{21DB}{\ensuremath{\Rrightarrow}}
-% \DeclareUnicodeCharacter{21DC}{\ensuremath{\leftsquigarrow}}
+\DeclareUnicodeCharacter{21DC}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{21DD}{\ensuremath{\rightsquigarrow}}
 \DeclareUnicodeCharacter{21E0}{\ensuremath{\dashleftarrow}}
 \DeclareUnicodeCharacter{21E2}{\ensuremath{\dashrightarrow}}
-% \DeclareUnicodeCharacter{21E4}{\ensuremath{\LeftArrowBar}}
-% \DeclareUnicodeCharacter{21E5}{\ensuremath{\RightArrowBar}}
-% \DeclareUnicodeCharacter{21F0}{\ensuremath{\Mapsto}}
-% \DeclareUnicodeCharacter{21FD}{\ensuremath{\leftarrowtriangle}}
-% \DeclareUnicodeCharacter{21FE}{\ensuremath{\rightarrowtriangle}}
-% \DeclareUnicodeCharacter{21FF}{\ensuremath{\leftrightarrowtriangle}}
+\DeclareUnicodeCharacter{21E4}{\ensuremath{\Leftarrow}}
+\DeclareUnicodeCharacter{21E5}{\ensuremath{\Rightarrow}}
+\DeclareUnicodeCharacter{21F0}{\ensuremath{\mapsto}}
+\DeclareUnicodeCharacter{21FD}{\ensuremath{\leftarrow}}
+\DeclareUnicodeCharacter{21FE}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{21FF}{\ensuremath{\leftrightarrow}}
 \DeclareUnicodeCharacter{2200}{\ensuremath{\forall}}
 \DeclareUnicodeCharacter{2201}{\ensuremath{\complement}}
 \DeclareUnicodeCharacter{2202}{\ensuremath{\partial}}
 \DeclareUnicodeCharacter{2203}{\ensuremath{\exists}}
-% \DeclareUnicodeCharacter{2204}{\ensuremath{\nexists}
+\DeclareUnicodeCharacter{2204}{\ensuremath{\not\exists}}
 \DeclareUnicodeCharacter{2205}{\ensuremath{\varnothing}}
 \DeclareUnicodeCharacter{2207}{\ensuremath{\nabla}}
 \DeclareUnicodeCharacter{2208}{\ensuremath{\in}}
 \DeclareUnicodeCharacter{2209}{\ensuremath{\notin}}
 \DeclareUnicodeCharacter{220B}{\ensuremath{\ni}}
-% \DeclareUnicodeCharacter{220C}{\ensuremath{\notni}}
-% \DeclareUnicodeCharacter{220D}{\ensuremath{\sqbullet}}
+\DeclareUnicodeCharacter{220C}{\ensuremath{!\ni}}
+\DeclareUnicodeCharacter{220D}{\ensuremath{\bullet}}
+\DeclareUnicodeCharacter{220E}{{\tiny \ensuremath{\blacksquare}}}
 \DeclareUnicodeCharacter{220F}{\ensuremath{\prod}}
 \DeclareUnicodeCharacter{2210}{\ensuremath{\coprod}}
 \DeclareUnicodeCharacter{2211}{\ensuremath{\sum}}
 \DeclareUnicodeCharacter{2212}{-}
 \DeclareUnicodeCharacter{2213}{\ensuremath{\mp}}
 \DeclareUnicodeCharacter{2214}{\ensuremath{\dotplus}}
+\DeclareUnicodeCharacter{2215}{\ensuremath{/}}
 \DeclareUnicodeCharacter{2216}{\ensuremath{\smallsetminus}}
 \DeclareUnicodeCharacter{2217}{\ensuremath{\star}}
 \DeclareUnicodeCharacter{2218}{\ensuremath{\circ}}
@@ -372,15 +514,15 @@
 \DeclareUnicodeCharacter{222C}{\ensuremath{\iint}}
 \DeclareUnicodeCharacter{222D}{\ensuremath{\iiint}}
 \DeclareUnicodeCharacter{222E}{\ensuremath{\oint}}
-% \DeclareUnicodeCharacter{222F}{\ensuremath{\oiint}}
-% \DeclareUnicodeCharacter{2230}{\ensuremath{\oiiint}}
-% \DeclareUnicodeCharacter{2232}{\ensuremath{\ointclockwise}}
-% \DeclareUnicodeCharacter{2233}{\ensuremath{\oiintctrclockwise}}
+\DeclareUnicodeCharacter{222F}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2230}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2232}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2233}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{2234}{\ensuremath{\therefore}}
 \DeclareUnicodeCharacter{2235}{\ensuremath{\because}}
 \DeclareUnicodeCharacter{2236}{:}
-% \DeclareUnicodeCharacter{2237}{\ensuremath{\Proportion}}
-% \DeclareUnicodeCharacter{2238}{\ensuremath{\dotminus}}
+\DeclareUnicodeCharacter{2237}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2238}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{2239}{\ensuremath{\eqcolon}}
 \DeclareUnicodeCharacter{223C}{\ensuremath{\sim}}
 \DeclareUnicodeCharacter{223D}{\ensuremath{\backsim}}
@@ -441,7 +583,7 @@
 \DeclareUnicodeCharacter{227A}{\ensuremath{\prec}}
 \DeclareUnicodeCharacter{227B}{\ensuremath{\succ}}
 \DeclareUnicodeCharacter{227C}{\ensuremath{\preccurlyeq}}
-% \DeclareUnicodeCharacter{227D}{\ensuremath{\succccurlyeq}}
+\DeclareUnicodeCharacter{227D}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{227E}{\ensuremath{\precsim}}
 \DeclareUnicodeCharacter{227F}{\ensuremath{\succsim}}
 \DeclareUnicodeCharacter{2280}{\ensuremath{\nprec}}
@@ -483,11 +625,11 @@
 \DeclareUnicodeCharacter{22A7}{\ensuremath{\models}}
 \DeclareUnicodeCharacter{22A9}{\ensuremath{\Vdash}}
 \DeclareUnicodeCharacter{22AA}{\ensuremath{\Vvdash}}
-% \DeclareUnicodeCharacter{22AB}{\ensuremath{\VDash}}
+\DeclareUnicodeCharacter{22AB}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{22AC}{\ensuremath{\not\vdash}}
 \DeclareUnicodeCharacter{22AD}{\ensuremath{\not\vDash}}
 \DeclareUnicodeCharacter{22AE}{\ensuremath{\not\Vdash}}
-% \DeclareUnicodeCharacter{22AF}{\ensuremath{\not\VDash}}
+\DeclareUnicodeCharacter{22AF}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{22B2}{\ensuremath{\triangleleft}}
 \DeclareUnicodeCharacter{22B3}{\ensuremath{\triangleright}}
 \DeclareUnicodeCharacter{22B4}{\ensuremath{\unlhd}}
@@ -529,8 +671,8 @@
 \DeclareUnicodeCharacter{22E1}{\ensuremath{\not\succeq}}
 \DeclareUnicodeCharacter{22E2}{\ensuremath{\not\sqsubseteq}}
 \DeclareUnicodeCharacter{22E3}{\ensuremath{\not\sqsupseteq}}
-% \DeclareUnicodeCharacter{22E4}{\ensuremath{\sqsubsetneq}}
-% \DeclareUnicodeCharacter{22E5}{\ensuremath{\sqsupsetneq}}
+\DeclareUnicodeCharacter{22E4}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{22E5}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{22E6}{\ensuremath{\lnsim}}
 \DeclareUnicodeCharacter{22E7}{\ensuremath{\gnsim}}
 \DeclareUnicodeCharacter{22E8}{\ensuremath{\precnsim}}
@@ -541,7 +683,7 @@
 \DeclareUnicodeCharacter{22ED}{\ensuremath{\not\trianglerighteq}}
 \DeclareUnicodeCharacter{22EE}{\ensuremath{\vdots}}
 \DeclareUnicodeCharacter{22EF}{\ensuremath{\cdots}}
-% \DeclareUnicodeCharacter{22F0}{\ensuremath{\iddots}}
+\DeclareUnicodeCharacter{22F0}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{22F1}{\ensuremath{\ddots}}
 \DeclareUnicodeCharacter{2300}{\ensuremath{\diameter}}
 \DeclareUnicodeCharacter{2308}{\ensuremath{\lceil}}
@@ -552,11 +694,24 @@
 \DeclareUnicodeCharacter{2323}{\ensuremath{\smile}}
 \DeclareUnicodeCharacter{2329}{\ensuremath{\langle}}
 \DeclareUnicodeCharacter{232A}{\ensuremath{\rangle}}
+\DeclareUnicodeCharacter{23CE}{\ensuremath{\hookleftarrow}}
+\DeclareUnicodeCharacter{2460}{\ensuremath{\text{1}}}
+\DeclareUnicodeCharacter{2461}{\ensuremath{\text{2}}}
+\DeclareUnicodeCharacter{2462}{\ensuremath{\text{3}}}
+\DeclareUnicodeCharacter{2463}{\ensuremath{\text{4}}}
+\DeclareUnicodeCharacter{2464}{\ensuremath{\text{5}}}
+\DeclareUnicodeCharacter{2465}{\ensuremath{\text{6}}}
+\DeclareUnicodeCharacter{2466}{\ensuremath{\text{7}}}
+\DeclareUnicodeCharacter{2467}{\ensuremath{\text{8}}}
+\DeclareUnicodeCharacter{2468}{\ensuremath{\text{9}}}
 \DeclareUnicodeCharacter{25A1}{\ensuremath{\square}}
 \DeclareUnicodeCharacter{25B3}{\ensuremath{\triangle}}
-\DeclareUnicodeCharacter{2615}{NONE hot beverage}
-% \DeclareUnicodeCharacter{2621}{\ensuremath{\dbend}}
-\DeclareUnicodeCharacter{2627}{NONE labarum}
+\DeclareUnicodeCharacter{25C5}{\ensuremath{\triangleleft}}
+\DeclareUnicodeCharacter{2610}{\fbox{\ensuremath{\phantom{{\checkmark}}}}}
+\DeclareUnicodeCharacter{2611}{\fbox{\ensuremath{\checkmark}}}
+\DeclareUnicodeCharacter{2615}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2621}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2627}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{2639}{\ensuremath{\frownie}}
 \DeclareUnicodeCharacter{263A}{\ensuremath{\smiley}}
 \DeclareUnicodeCharacter{2660}{\ensuremath{\spadesuit}}
@@ -569,22 +724,40 @@
 \DeclareUnicodeCharacter{26A0}{\ensuremath{\lower .25ex\hbox{\Large $\triangle$\hskip -1.25ex}!\;\,}}
 \DeclareUnicodeCharacter{2713}{\ensuremath{\checkmark}}
 \DeclareUnicodeCharacter{27C2}{\ensuremath{\perp}}
+\DeclareUnicodeCharacter{27E6}{\ensuremath{[}}
+\DeclareUnicodeCharacter{27E7}{\ensuremath{]}}
 \DeclareUnicodeCharacter{27E8}{\ensuremath{\langle}}
 \DeclareUnicodeCharacter{27E9}{\ensuremath{\rangle}}
 \DeclareUnicodeCharacter{27EA}{\ensuremath{\llangle}}
 \DeclareUnicodeCharacter{27EB}{\ensuremath{\rrangle}}
 \DeclareUnicodeCharacter{27F5}{\ensuremath{\longleftarrow}}
 \DeclareUnicodeCharacter{27F6}{\ensuremath{\longrightarrow}}
+\DeclareUnicodeCharacter{2983}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2984}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2985}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2986}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2987}{\ensuremath{(}}
+\DeclareUnicodeCharacter{2988}{\ensuremath{)}}
+\DeclareUnicodeCharacter{29F5}{\ensuremath{\setminus}}
 \DeclareUnicodeCharacter{2A00}{\ensuremath{\bigodot}}
 \DeclareUnicodeCharacter{2A01}{\ensuremath{\bigoplus}}
 \DeclareUnicodeCharacter{2A02}{\ensuremath{\bigotimes}}
-% \DeclareUnicodeCharacter{2A05}{\ensuremath{\bigsqcap}}
+\DeclareUnicodeCharacter{2A05}{\LOCALunknownchar}
 \DeclareUnicodeCharacter{2A06}{\ensuremath{\bigsqcup}}
+\DeclareUnicodeCharacter{2A0C}{\ensuremath{\iiiint}}
 \DeclareUnicodeCharacter{2A1D}{\ensuremath{\Join}}
 \DeclareUnicodeCharacter{2A3F}{\ensuremath{\amalg}}
 \DeclareUnicodeCharacter{2A7D}{\ensuremath{\leqslant}}
 \DeclareUnicodeCharacter{2A7E}{\ensuremath{\geqslant}}
+\DeclareUnicodeCharacter{2AA8}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2AA9}{\LOCALunknownchar}
+\DeclareUnicodeCharacter{2AAF}{\ensuremath{\preceq}}
+\DeclareUnicodeCharacter{2AB0}{\ensuremath{\succeq}}
+\DeclareUnicodeCharacter{2C7C}{\ensuremath{_j}}
 \DeclareUnicodeCharacter{2E18}{\textinterrobangdown}
-% \DeclareUnicodeCharacter{301A}{\ensuremath{\llbracket}}
-% \DeclareUnicodeCharacter{301B}{\ensuremath{\rrbracket}}
+\DeclareUnicodeCharacter{301A}{\ensuremath{[}}
+\DeclareUnicodeCharacter{301B}{\ensuremath{]}}
+\DeclareUnicodeCharacter{33D1}{\ensuremath{\ln}}
+\DeclareUnicodeCharacter{33D2}{\ensuremath{\log}}
+\DeclareUnicodeCharacter{D7B0}{\LOCALunknownchar}
 \fi
