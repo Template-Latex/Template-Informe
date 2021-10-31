@@ -34,7 +34,21 @@
 % Librerías del núcleo
 % -----------------------------------------------------------------------------
 % Manejo de condicionales
+\usepackage{iftex}
 \usepackage{ifthen}
+
+% Verifica el tipo de compilador
+\ifPDFTeX
+	\def\compilertype {pdf2latex}
+\else\ifXeTeX
+	\def\compilertype {xelatex}
+\else\ifLuaTeX
+	\def\compilertype {lualatex}
+\else
+	\errmessage{Compilador no soportado}
+	\stop
+	\fi\fi
+\fi
 
 % Carga el idioma
 \usepackage{tracklang}
