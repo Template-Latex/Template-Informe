@@ -373,7 +373,7 @@
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\ifthenelse{\equal{\apaciterefnumber}{true}}{
 		\newcounter{apaciteNumberCounter}
-		\renewcommand{\theapaciteNumberCounter}{% Formato de número
+		\renewcommand{\theapaciteNumberCounter}{ % Formato de número
 			\apaciterefcitecharopen\arabic{apaciteNumberCounter}\apaciterefcitecharclose
 		}
 		\patchcmd{\@lbibitem}{\item[}{\item[\stepcounter{apaciteNumberCounter}{\hss\llap{\theapaciteNumberCounter}\quad}}{}{}
@@ -462,7 +462,6 @@
 \vfuzz=200pt
 \hbadness=\maxdimen
 \vbadness=\maxdimen
-% \sloppy Sloppy arruina portadas al exigir "justify", desde 6.4.2 se desactiva
 
 % -----------------------------------------------------------------------------
 % Configura las fuentes

@@ -35,18 +35,18 @@
 		\hspace{\marginimagemultright cm}%
 		\hspace{-0.125cm}%
 	}{}%
-	\ifthenelse{\equal{#5}{}}{% Sin label
-		\ifthenelse{\equal{\GLOBALimagelink}{}}{% Sin link
+	\ifthenelse{\equal{#5}{}}{ % Sin label
+		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
 			\fbox{\includegraphics[#3]{#2}}%
-		}{% Con link
+		}{ % Con link
 			\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
 		}%
-	}{% Con label
-		\ifthenelse{\equal{\GLOBALimagelink}{}}{% Sin link
+	}{ % Con label
+		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
 			\subfloat[#5]{%
 				\fbox{\includegraphics[#3]{#2}}#1%
 			}%
-		}{% Con link
+		}{ % Con link
 			\subfloat[#5]{%
 				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
 			}%
@@ -99,7 +99,7 @@
 		\hspace{\marginimagemultright cm}%
 		\hspace{-0.125cm}%
 	}{}%
-	\ifthenelse{\equal{#7}{}}{% Sin label
+	\ifthenelse{\equal{#7}{}}{ % Sin label
 		\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 				\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
@@ -113,7 +113,7 @@
 				\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 			}%
 		}%
-	}{% Con label
+	}{ % Con label
 		\subfloat[#7]{%
 			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
@@ -510,8 +510,7 @@
 	\begingroup%
 	\setlength{\fboxsep}{0 pt}%
 	\setlength{\fboxrule}{#3 pt}%
-	\raisebox{-1\totalheight}{%
-		\fbox{\includegraphics[#2]{#1}}}%
+	\raisebox{-1\totalheight}{\fbox{\includegraphics[#2]{#1}}}%
 	\endgroup%
 	\resetindexcaption%
 }

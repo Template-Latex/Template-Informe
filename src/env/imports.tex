@@ -132,21 +132,6 @@
 \usepackage{xspace}        % Administra espacios en párrafos y líneas
 \usepackage{xurl}          % Permite añadir enlaces
 
-% En v6.3.7 se desactiva cellspace
-% \usepackage{cellspace}
-
-% \usepackage{colortbl}, xcolor al cargar table ya importa colortbl (v6.3.3)
-% El paquete colortbl queda obsoleto con array+xcolor si la versión es inferior
-% a v1.0c, se recomienda actualizar o ocurren errores asociados a @parbox
-
-% Se prefiere no utilizar matlab-prettifier ya que es muy pesada para lo que
-% la librería ofrece
-% \usepackage{matlab-prettifier}
-
-% Tampoco se recomienda el uso de subfigure, posee errores de compatibilidad y
-% está obsoleto
-% \usepackage{subfigure}
-
 % -----------------------------------------------------------------------------
 % Librerías con parámetros
 % -----------------------------------------------------------------------------
@@ -189,10 +174,6 @@
 }
 
 % Referencias
-% Desde v6.2.8 se debe cargar al final para evitar errores:
-%	- Option clash for package hyperref
-% 	- name has been referenced but does not exist, replaced by a fixed one
-% Desde v6.5.6 se carga después de las referencias (apacite, natbib, bibtex)
 \ifthenelse{\equal{\backrefpagecite}{true}}{
 	\usepackage[pdfencoding=auto,psdextra,backref=page]{hyperref} % Enlaces, referencias
 }{
