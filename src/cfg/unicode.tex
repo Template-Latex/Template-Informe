@@ -12,6 +12,7 @@
 % -----------------------------------------------------------------------------
 % Declaración caracteres unicode adicionales
 % -----------------------------------------------------------------------------
+% Definición letras griegas
 \def\Alpha{A}
 \def\Beta{B}
 \def\Chi{X}
@@ -26,11 +27,10 @@
 \def\Rho{P}
 \def\Tau{T}
 \def\Zeta{Z}
-\ifx\mapsfrom\undefined
-	\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
-\fi
+
 \def\LOCALunknownchar {\ensuremath{\mathrm{UNKNOWN\;CHAR}}}
 
+% Definición de símbolos
 \makeatletter
 \newsavebox{\@brxanglelr}
 \newcommand{\llangle}[1][]{\savebox{\@brxanglelr}{\(\m@th{#1\langle}\)}%
@@ -39,6 +39,19 @@
 	\mathclose{\copy\@brxanglelr\kern-0.5\wd\@brxanglelr\usebox{\@brxanglelr}}}
 \makeatother
 
+% Creación de comandos si no existen
+\ifx\DeclareUnicodeCharacter\undefined
+	\def\DeclareUnicodeCharacter#1#2{%
+		\def\tmp{#2}\uccode`\~="#1 \catcode"#1 \active%
+		\uppercase{\global\let~\tmp}%
+		\uccode`\~=0%
+	}
+\fi
+\ifx\mapsfrom\undefined
+	\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+\fi
+
+% Agrega caracteres unicode
 \ifdefined\DeclareUnicodeCharacter
 \DeclareUnicodeCharacter{00A0}{~}
 \DeclareUnicodeCharacter{00A1}{\textexclamdown}
