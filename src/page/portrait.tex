@@ -19,7 +19,7 @@
 	\renewcommand{\thepage}{\nameportraitpage} % !NL
 	
 	% Portada por estilo
-	\ifthenelse{\equal{\portraitstyle}{style1}}{
+	\ifthenelse{\equal{\portraitstyle}{style1}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		% Escribe el header
@@ -55,12 +55,12 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\authortable
+				\authortable%
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style2}}{
+	\ifthenelse{\equal{\portraitstyle}{style2}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		% Escribe el header
@@ -98,12 +98,12 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\authortable
+				\authortable%
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style3}}{
+	\ifthenelse{\equal{\portraitstyle}{style3}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		% Escribe el header
@@ -143,12 +143,12 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\authortable
+				\authortable%
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style4}}{
+	\ifthenelse{\equal{\portraitstyle}{style4}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -183,12 +183,12 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\authortable
+				\authortable%
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style5}}{
+	\ifthenelse{\equal{\portraitstyle}{style5}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -225,11 +225,11 @@
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
-			\noindent \normalsize{\authortable}
+			\noindent \normalsize{\authortable}%
 		\end{center}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style6}}{
+	\ifthenelse{\equal{\portraitstyle}{style6}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -283,12 +283,12 @@
 		\vfill
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\noindent \authortable
+				\noindent \authortable%
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style7}}{
+	\ifthenelse{\equal{\portraitstyle}{style7}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -323,12 +323,12 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\scshape{\authortable}
+				\scshape{\authortable}%
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style8}}{
+	\ifthenelse{\equal{\portraitstyle}{style8}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -359,12 +359,12 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\scshape{\authortable}
+				\scshape{\authortable}%
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style9}}{
+	\ifthenelse{\equal{\portraitstyle}{style9}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -393,11 +393,11 @@
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
-			\indent \scshape{\authortable}
+			\indent \scshape{\authortable}%
 		\end{center}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style10}}{
+	\ifthenelse{\equal{\portraitstyle}{style10}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -432,13 +432,13 @@
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
-			\indent \authortable
+			\indent \authortable%
 		\end{center}
 		\vfill
 		~ \\
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style11}}{
+	\ifthenelse{\equal{\portraitstyle}{style11}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -468,11 +468,11 @@
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
-			\indent \authortable
+			\indent \authortable%
 		\end{center}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style12}}{
+	\ifthenelse{\equal{\portraitstyle}{style12}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -510,7 +510,7 @@
 		\end{center}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style13}}{
+	\ifthenelse{\equal{\portraitstyle}{style13}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -555,11 +555,11 @@
 		% Tabla de integrantes
 		\vfill
 		\begin{flushright}%
-			\noindent \textsf{\authortable}
+			\noindent \textsf{\authortable}%
 		\end{flushright}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style14}}{
+	\ifthenelse{\equal{\portraitstyle}{style14}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -580,11 +580,11 @@
 		% Tabla de integrantes
 		\vfill
 		\begin{flushright}%
-			\noindent \textsf{\authortable}
+			\noindent \textsf{\authortable}%
 		\end{flushright}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style15}}{
+	\ifthenelse{\equal{\portraitstyle}{style15}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -641,11 +641,11 @@
 		% Tabla de integrantes
 		\vfill
 		\begin{center}%
-			\noindent \authortable
+			\noindent \authortable%
 		\end{center}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style16}}{
+	\ifthenelse{\equal{\portraitstyle}{style16}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\checkextravarexist{\portraitbackgroundimageB}{[portrait-style16] Defina la ubicacion del fondo de la portada}
@@ -664,7 +664,7 @@
 			\vfill
 		\endgroup
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style17}}{
+	\ifthenelse{\equal{\portraitstyle}{style17}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\checkextravarexist{\portraitimageC}{[portrait-style17] Defina la ubicacion de la imagen extra de la portada}
@@ -721,12 +721,12 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\authortable
+				\authortable%
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style18}}{
+	\ifthenelse{\equal{\portraitstyle}{style18}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\checkextravarexist{\portraitimageD}{[portrait-style18] Defina la ubicacion de la imagen extra de la portada}
@@ -781,12 +781,12 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\authortable
+				\authortable%
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style19}}{
+	\ifthenelse{\equal{\portraitstyle}{style19}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -815,12 +815,12 @@
 		% Tabla de integrantes
 		\vfill
 		\begin{center}
-			\indent \authortable
+			\indent \authortable%
 		\end{center}
 		~ \\
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style20}}{
+	\ifthenelse{\equal{\portraitstyle}{style20}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		\thispagestyle{empty}
@@ -849,7 +849,7 @@
 		}}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{style21}}{
+	\ifthenelse{\equal{\portraitstyle}{style21}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 			
 		\checkextravarexist{\portraitimageI}{[portrait-style21] Defina la ubicacion de la imagen extra de la portada}
@@ -894,12 +894,12 @@
 		\noindent
 		\begin{minipage}{1.0\linewidth}%
 			\begin{flushright}%
-				\authortable
+				\authortable%
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
 	}{
-	\ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{
+	\ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\pagestyle{empty}
 		\pagecolor{lbrown}
@@ -927,12 +927,12 @@
 		\end{center}
 		\vfill
 		\begin{flushright}
-			\noindent \authortable
+			\noindent \authortable%
 		\end{flushright}
 		\end{spacing}
 		\clearpage
 		\pagecolor{\pagescolor}
-	}{
+	}{%
 		\throwbadconfigondoc{Estilo de portada incorrecto}{\portraitstyle}{style1 .. style21}}}}}}}}}}}}}}}}}}}}}}
 	}
 	
@@ -941,7 +941,7 @@
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
 		\insertemptypage%
-		\addtocounter{page}{-1}}{
+		\addtocounter{page}{-1}}{%
 	}
 	
 }
