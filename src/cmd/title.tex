@@ -17,42 +17,42 @@
 	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{%
 		\renewcommand{\thesection}{%
 			\GLOBALformatnumsection{section}%
-		}%
+		}
 	}{%
 		\renewcommand{\thesection}{%
 			\thechapter\charbetwchaptersection\GLOBALformatnumsection{section}%
-		}%
-	}%
+		}
+	}
 	% Subsection
 	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{%
 		\renewcommand{\thesubsection}{%
 			\GLOBALformatnumssection{subsection}%
-		}%
+		}
 	}{%
 		\renewcommand{\thesubsection}{%
 			\thesection\charbetwsectionsubsection\GLOBALformatnumssection{subsection}%
-		}%
-	}%
+		}
+	}
 	% Subsubsection
 	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
 		\renewcommand{\thesubsubsection}{%
 			\GLOBALformatnumsssection{subsubsection}%
-		}%
+		}
 	}{%
 		\renewcommand{\thesubsubsection}{%
 			\thesubsection\charbetwsubsectionssect\GLOBALformatnumsssection{subsubsection}%
-		}%
-	}%
+		}
+	}
 	% Subsubsubsection
 	\ifthenelse{\equal{\GLOBALsubsubsectionanumenabled}{true}}{%
 		\renewcommand{\thesubsubsubsection}{%
 			\GLOBALformatnumssssection{subsubsubsection}%
-		}%
+		}
 	}{%
 		\renewcommand{\thesubsubsubsection}{%
 			\thesubsubsection\charbetwssectionsssect\GLOBALformatnumssssection{subsubsubsection}%
-		}%
-	}%
+		}
+	}
 	\hbadness=10000%
 }
 

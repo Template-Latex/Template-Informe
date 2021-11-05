@@ -56,8 +56,8 @@
 		}{%
 			\corevspacevarcm{\captionmarginimages}%
 			\caption{\envimagescaptionvar\envimageslabelvar}%
-		}%
-	\end{figure}%
+		}
+	\end{figure}
 
 	% Restablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}%
@@ -103,14 +103,14 @@
 		}{%
 			\ifthenelse{\equal{\captionmarginimagesmc}{0}}{}{\corevspacevarcm{\captionmarginimagesmc}}
 			\caption{\envimagescaptionvar\envimageslabelvar}%
-		}%
-	\end{figure*}%
+		}
+	\end{figure*}
 	
 	% Restablece caption y márgenes
 	\setcaptionmargincm{\captionlrmarginmc}%
 	
 	% Restablece globales
-	\global\def\GLOBALenvimageinitialized {false}
+	\global\def\GLOBALenvimageinitialized {false}%
 }
 
 % END

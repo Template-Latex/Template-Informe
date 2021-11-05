@@ -94,7 +94,7 @@
 	\ifthenelse{\isundefined{#1}}{%
 		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}%
 		\stop}{%
-	}%
+	}
 }
 
 % Escribe un mensaje en la consola
@@ -169,7 +169,7 @@
 \let\endchangemargin=\endlist
 
 % Imagen de prueba tikz
-\newcommand{\bgtemplatetestimg}{
+\newcommand{\bgtemplatetestimg}{%
 	\definecolor{c040302}{RGB}{4, 3, 2}
 	\definecolor{cb26929}{RGB}{178,105, 41}
 	\definecolor{cfa943c}{RGB}{250, 148, 60}
@@ -185,7 +185,7 @@
 \newcommand{\checkonlyonenvimage}{%
 	\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{}{%
 		\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}\stop%
-	}%
+	}
 }
 
 % Chequea que las funciones sólo puedan usarse fuera del entorno images
@@ -193,7 +193,7 @@
 	\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{%
 		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}%
 		\stop}{%
-	}%
+	}
 }
 
 % Chequea que las funciones puedan usarse solo en el entorno multicol
@@ -218,7 +218,7 @@
 	\ifthenelse{\equal{#1}{true}}{}{%
 	\ifthenelse{\equal{#1}{false}}{}{%
 		\throwwarning{Variable debe ser true o false}\stop%
-	}}%
+	}}
 }
 
 % Centra verticalmente un texto
@@ -267,8 +267,8 @@
 	\ifthenelse{\equal{#1}{tiny}}{}{%
 		\errmessage{LaTeX Warning: Tamano de fuente incorrecto (\noexpand #1= #1). Valores esperados: tiny,scriptsize,footnotesize,small,normalisize,large,Large,LARGE,huge,Huge,HUGE}%
 		\stop%
-		}}}}}}}}}}%
-	}%
+		}}}}}}}}}}
+	}
 }
 
 % END

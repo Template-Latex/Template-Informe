@@ -25,8 +25,8 @@
 	}{
 	\end{column}
 	\begin{column}{\sepwidth}\end{column}%
-	\end{columns}%Ç
-	\end{frame}%
+	\end{columns}
+	\end{frame}
 }
 
 % Separador de columnas
@@ -98,22 +98,22 @@
 				\insertlogoleft%
 				\vspace*{\fill}%
 			\else\fi%
-		\end{column}%
+		\end{column}
 		\begin{column}{\dimexpr\paperwidth-\maxlogowidth-\maxlogowidth}%
 			\usebeamerfont{headline}%
 			\vskip3ex%
 			\centering%
 			{\usebeamerfont{headline title}\usebeamercolor[fg]{headline title}%
 				\inserttitle\\[0.5ex]%
-			}%
+			}
 			\vspace{1cm}%
 			{\usebeamerfont{headline author}\usebeamercolor[fg]{headline author}%
 				\insertauthor\\[1ex]%
-			}%
+			}
 			\vspace{0.1cm}%
 			{\usebeamerfont{headline institute}\usebeamercolor[fg]{headline institute}%
 				\insertinstitute\\[1ex]%
-			}%
+			}
 		\end{column}
 		\begin{column}{\maxlogowidth}%
 			\centering%
@@ -130,8 +130,8 @@
 	\vspace*{3.5ex}%
 	\ifbeamercolorempty[bg]{headline rule}{}{%
 		\begin{beamercolorbox}[wd=\paperwidth,colsep=0.5ex]{headline rule}\end{beamercolorbox}%
-	}%
-\end{beamercolorbox}%
+	}
+\end{beamercolorbox}
 }
 
 % Bloques
@@ -143,7 +143,7 @@
 			\vskip -1.25ex%
 			\begin{beamercolorbox}[colsep=0.025ex]{block separator}\end{beamercolorbox}%
 		}
-	\end{beamercolorbox}%
+	\end{beamercolorbox}
 	{\parskip 0pt \par}%
 	\ifthenelse{\equal{\insertblocktitle}{}}{%
 		\vspace{-1.65\baselineskip}%
@@ -154,10 +154,10 @@
 		\justifying%
 		\setlength{\parskip}{1ex}%
 		\vskip -2ex%
-	}%
+	}
 	\setbeamertemplate{block end}%
 	{%
-	\end{beamercolorbox}%
+	\end{beamercolorbox}
 	\vskip 0pt%
 	\vspace*{2ex}%
 }
@@ -172,7 +172,7 @@
 			\begin{beamercolorbox}[colsep=0.025ex]{block alerted separator}\end{beamercolorbox}%
 			\vskip -0.75ex%
 		}
-	\end{beamercolorbox}%
+	\end{beamercolorbox}
 	{\parskip 0pt \par}%
 	\ifthenelse{\equal{\insertblocktitle}{}}{%
 		\vspace{-1.65\baselineskip}%
@@ -184,12 +184,12 @@
 		\begin{adjustwidth}{1ex}{1ex}%
 			\setlength{\parskip}{1ex}%
 			\vskip -0.35ex%
-		}%
+		}
 		\setbeamertemplate{block alerted end}%
 		{%
 		\end{adjustwidth}%
 		\vskip 1.25ex%
-	\end{beamercolorbox}%
+	\end{beamercolorbox}
 	% \vskip 0pt%
 	\vspace*{2ex}%
 }
@@ -216,10 +216,10 @@
 		\begin{adjustwidth}{1ex}{1ex}%
 			\setlength{\parskip}{1ex}%
 			\vskip -0.35ex%
-		}%
+		}
 		\setbeamertemplate{block example end}%
 		{%
-		\end{adjustwidth}%
+		\end{adjustwidth}
 		\vskip 1.25ex%
 	\end{beamercolorbox}%
 	% \vskip 0pt%
@@ -237,7 +237,7 @@
 	\begin{beamercolorbox}[vmode]{headline}%
 		\ifbeamercolorempty[bg]{headline rule}{}{%
 			\begin{beamercolorbox}[wd=\paperwidth,colsep=0.25ex]{headline rule}\end{beamercolorbox}%
-		}%
+		}
 		\vspace{1.5ex} % 0.5ex
 		\hspace{\sepwidth}%
 		\usebeamerfont{footline}%
@@ -245,6 +245,6 @@
 		\insertfootercontent%
 		\hspace{\sepwidth}%
 		\vspace{1.5ex} %0.75ex
-	\end{beamercolorbox}%
+	\end{beamercolorbox}
 	\else\fi%
 }

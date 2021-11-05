@@ -34,24 +34,24 @@
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\marginimagemultright cm}%
 		\hspace{-0.125cm}%
-	}{}%
+	}{}
 	\ifthenelse{\equal{#5}{}}{ % Sin label
 		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
 			\fbox{\includegraphics[#3]{#2}}%
 		}{ % Con link
 			\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
-		}%
+		}
 	}{ % Con label
 		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
 			\subfloat[#5]{%
 				\fbox{\includegraphics[#3]{#2}}#1%
-			}%
+			}
 		}{ % Con link
 			\subfloat[#5]{%
 				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
-			}%
-		}%
-	}%
+			}
+		}
+	}
 	\endgroup%
 	\global\def\GLOBALenvimageadded {true}%
 }
@@ -98,21 +98,21 @@
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\marginimagemultright cm}%
 		\hspace{-0.125cm}%
-	}{}%
+	}{}
 	\ifthenelse{\equal{#7}{}}{ % Sin label
 		\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 				\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
 			}{ % Sin autoplay
 				\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
-			}%
+			}
 		}{ % Sin loop
 			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 				\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
 			}{ % Sin autoplay
 				\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
-			}%
-		}%
+			}
+		}
 	}{ % Con label
 		\subfloat[#7]{%
 			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
@@ -120,16 +120,16 @@
 					\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
 				}{ % Sin autoplay
 					\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
-				}%
+				}
 			}{ % Sin loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 					\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
 				}{ % Sin autoplay
 					\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
-				}%
-			}%
-		}%
-	}%
+				}
+			}
+		}
+	}
 	\endgroup%
 	\global\def\GLOBALenvimageadded {true}%
 }
@@ -248,7 +248,7 @@
 				\fbox{\includegraphics[#3]{#2}}%
 			}{ % Con link
 				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
-			}%
+			}
 		\endgroup%
 		\ifx\hfuzz#5\hfuzz%
 			\corevspacevarcm{\captionlessmarginimage}%
@@ -302,29 +302,29 @@
 						\fbox{\animategraphics[controls,loop,autoplay,#3]{#4}{#2-}{0}{#5}}%	
 					}{ % Sin autoplay
 						\fbox{\animategraphics[controls,loop,#3]{#4}{#2-}{0}{#5}}%
-					}%
+					}
 				}{ % Sin loop
 					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 						\fbox{\animategraphics[controls,autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}{ % Sin autoplay
 						\fbox{\animategraphics[controls,#3]{#4}{#2-}{0}{#5}}%
-					}%
-				}%
+					}
+				}
 			}{ % Sin controles
 				\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}{ % Sin autoplay
 						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
-					}%
+					}
 				}{ % Sin loop
 					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}{ % Sin autoplay
 						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
-					}%
-				}%
-			}%
+					}
+				}
+			}
 		\endgroup%
 		\ifx\hfuzz#7\hfuzz%
 			\corevspacevarcm{\captionlessmarginimage}%
@@ -542,7 +542,7 @@
 		\setcaptionmargincm{0}%
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
 			\vspace{\marginfloatimages pt}%
-		}%
+		}
 		\begingroup%
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
@@ -634,7 +634,7 @@
 		\setcaptionmargincm{0}%
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
 			\vspace{\marginfloatimages pt}%
-		}%
+		}
 		\begingroup%
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
@@ -682,7 +682,7 @@
 		\setcaptionmargincm{0}%
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
 			\vspace{\marginfloatimages pt}%
-		}%
+		}
 		\begingroup%
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
@@ -733,7 +733,7 @@
 		\setcaptionmargincm{0}%
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
 			\vspace{\marginfloatimages pt}%
-		}%
+		}
 		\begingroup%
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#5 pt}%
@@ -784,7 +784,7 @@
 		\setcaptionmargincm{0}%
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
 			\vspace{\marginfloatimages pt}%
-		}%
+		}
 		\begingroup%
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#5 pt}%
@@ -835,7 +835,7 @@
 		\setcaptionmargincm{0}%
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
 			\vspace{\marginfloatimages pt}%
-		}%
+		}
 		\begingroup%
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#5 pt}%
@@ -886,7 +886,7 @@
 		\setcaptionmargincm{0}%
 		\ifthenelse{\equal{\figurecaptiontop}{true}}{}{%
 			\vspace{\marginfloatimages pt}%
-		}%
+		}
 		\begingroup%
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#5 pt}%

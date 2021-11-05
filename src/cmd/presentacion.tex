@@ -82,7 +82,7 @@
 	\setcounter{tabularcolnumber}{0}%
 	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\openout\filetabularframehead=\jobname.tframeh%
-	}{}%
+	}{}
 	\vspace{-\GLOBALtabularframebarheight\textheight}%
 	\begin{columns}[t,onlytextwidth]%
 	}{
@@ -91,7 +91,7 @@
 	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\closeout\filetabularframehead%
 		\global\def\GLOBALtabularframebarcreated {true}%
-	}{}%
+	}{}
 }
 
 % Función que repite el último entorno tabular frames
@@ -103,7 +103,7 @@
 	\def\LOCALtabularframestorevar {false}
 	\begin{tabularframehead}{#1}%
 		\input{\jobname.tframeh}%
-	\end{tabularframehead}%
+	\end{tabularframehead}
 	\def\LOCALtabularframestorevar {true}
 }
 
@@ -117,7 +117,7 @@
 	\emptyvarerr{\addtfheadcolumn}{#2}{Texto de la columna no definido}%
 	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\write\filetabularframehead{\unexpanded{\addtfheadcolumn{#1}{#2}}\LOCALpercentchar}%
-	}{}%
+	}{}
 	\stepcounter{tabularcolnumber}%
 	\column{#1\linewidth}%
 	\ifthenelse{\equal{\thetabularcolnumber}{\LOCALtabularframecolumnselected}}{%
@@ -132,10 +132,10 @@
 			}{%
 				\begin{center}%
 					\verticallycentertext{\GLOBALtabularframebarfontsize{#2}}%
-				\end{center}%
-			}%
-		}%
-	\end{minipage}}%
+				\end{center}
+			}
+		}
+	\end{minipage}}
 }
 
 % Inicia el contenido de un tabular frame
@@ -159,8 +159,8 @@
 				}{%
 					\verticallycentertext{#1}%
 				}
-			\end{minipage}%
-		\end{minipage}}%
+			\end{minipage}
+		\end{minipage}}
 		\column{\GLOBALtabularframecontentwidthright\linewidth}%
 		\centering
 		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 10\fboxrule}%
@@ -173,9 +173,9 @@
 					\vspace{-0.5\baselineskip}%
 					\verticallycentertext{#2}%
 				}
-			\end{minipage}%
-		\end{minipage}}%
-	\end{columns}%
+			\end{minipage}
+		\end{minipage}}
+	\end{columns}
 	\def\LOCALtabularframeinit {false}%
 }
 
@@ -205,8 +205,8 @@
 				}{%
 					\verticallycentertext{#2}%
 				}
-			\end{minipage}%
-		\end{minipage}}%
-	\end{columns}%
+			\end{minipage}
+		\end{minipage}}
+	\end{columns}
 	\def\LOCALtabularframeinit {false}%
 }

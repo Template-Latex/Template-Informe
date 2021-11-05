@@ -553,7 +553,7 @@
 \newcommand\sectionpunct[2]{%
 	\expandafter\def\csname @seccntfmt@#1\endcsname##1{%
 		\csname the##1\endcsname#2%
-	}%
+	}
 }
 \def\@seccntformat#1{\@ifundefined{#1@cntformat}%
 	{\csname the#1\endcsname} % Default
