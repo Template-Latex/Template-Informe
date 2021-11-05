@@ -1,26 +1,26 @@
 % Crea una sección de referencias solo para bibtex
 \newenvironment{references}{
 	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Verifica configuraciones
-	}{
+	}{%
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
-	}
+	}%
 	\phantomsection
 	\addcontentsline{toc}{chapter}{\namereferences}
 	\begin{thebibliography}{} % Inicia la bibliografía
 		\ifthenelse{\equal{\bibtextextalign}{justify}}{ % Formato ajuste de línea
-		}{
+		}{%
 		\ifthenelse{\equal{\bibtextextalign}{left}}{
 			\raggedright
-		}{
+		}{%
 		\ifthenelse{\equal{\bibtextextalign}{right}}{
 			\raggedleft
-		}{
+		}{%
 		\ifthenelse{\equal{\bibtextextalign}{center}}{
 			\centering
-		}{
+		}{%
 			\throwbadconfig{Ajuste de linea referencias bibtex desconocido}{\bibtextextalign}{justified,left,right,center}}}}
-		}
-	}
+		}%
+	}%
 	{
 	\end{thebibliography}
 }
@@ -35,34 +35,34 @@
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
 		\coretriggeronpage{\emptypagespredocformat}{}%
 	}{}%
-	\emptyvarerr{\abstractenv}{#1}{Tabla resumen no definida}
-	\emptyvarerr{\abstractenv}{#2}{Titulo tesis no definido}
-	\emptyvarerr{\abstractenv}{#3}{Titulo seccion no definida}
-	\emptyvarerr{\abstractenv}{#4}{Etiqueta marcador del pdf}
+	\emptyvarerr{\abstractenv}{#1}{Tabla resumen no definida}%
+	\emptyvarerr{\abstractenv}{#2}{Titulo tesis no definido}%
+	\emptyvarerr{\abstractenv}{#3}{Titulo seccion no definida}%
+	\emptyvarerr{\abstractenv}{#4}{Etiqueta marcador del pdf}%
 	% Añade a los marcadores
-	\ifthenelse{\equal{\addabstracttobookmarks}{true}}{
-		\phantomsection
-		\pdfbookmark{#3}{#4}}{
-	}
+	\ifthenelse{\equal{\addabstracttobookmarks}{true}}{%
+		\phantomsection%
+		\pdfbookmark{#3}{#4}}{%
+	}%
 	% Inserta la tabla resumen
-	\ifthenelse{\equal{\showabstracttable}{true}}{
-		\begin{flushright}
-			\small
-			#1
-		\end{flushright}
-		\vspace{0.75\baselineskip}
-	}{
-		\vspace*{0.5\baselineskip}
-	}
+	\ifthenelse{\equal{\showabstracttable}{true}}{%
+		\begin{flushright}%
+			\small%
+			#1%
+		\end{flushright}%
+		\vspace{0.75\baselineskip}%
+	}{%
+		\vspace*{0.5\baselineskip}%
+	}%
 	% Título
-	\begin{center}
-		\textcolor{\sectioncolor}{\MakeUppercase{\textbf{#2}}}
-	\end{center} \newp
-	\ifthenelse{\equal{\showabstracttable}{true}}{
-		\vspace{-\baselineskip}
+	\begin{center}%
+		\textcolor{\sectioncolor}{\MakeUppercase{\textbf{#2}}}%
+	\end{center} \newp%
+	\ifthenelse{\equal{\showabstracttable}{true}}{%
+		\vspace{-\baselineskip}%
 	}{
-		\vspace{-0.5\baselineskip}
-	}
+		\vspace{-0.5\baselineskip}%
+	}%
 	}{%
 	\vfill\null%
 }
@@ -102,9 +102,9 @@
 	\ifthenelse{\equal{\addagradectobookmarks}{true}}{
 		\phantomsection
 		\pdfbookmark{\nameagradec}{acknowledgments}}{
-	}
+	}%
 	\forceindent
-	}{
+	}{%
 }
 
 % END

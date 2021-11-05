@@ -49,14 +49,14 @@
 	\begin{samepage}%
 	\begin{figure}[H] \centering%
 		\corevspacevarcm{\marginimagemulttop}%
-		}{
+		}{%
 		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
 			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
 			\corevspacevarcm{\captionmarginimages}%
 			\caption{\envimagescaptionvar\envimageslabelvar}%
-		}
+		}%
 	\end{figure}
 
 	% Restablece caption y márgenes
@@ -103,7 +103,7 @@
 		}{%
 			\ifthenelse{\equal{\captionmarginimagesmc}{0}}{}{\corevspacevarcm{\captionmarginimagesmc}}
 			\caption{\envimagescaptionvar\envimageslabelvar}%
-		}
+		}%
 	\end{figure*}
 	
 	% Restablece caption y márgenes

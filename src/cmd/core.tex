@@ -85,7 +85,7 @@
 %	#3	Valores esperados
 \newcommand{\throwbadconfigondoc}[3]{%
 	\errmessage{#1 \noexpand #2=#2. Valores esperados: #3}%
-	\stop
+	\stop%
 }
 
 % Comprueba si una variable está definida
@@ -94,7 +94,7 @@
 	\ifthenelse{\isundefined{#1}}{%
 		\errmessage{LaTeX Warning: Variable \noexpand#1 no definida}%
 		\stop}{%
-	}
+	}%
 }
 
 % Escribe un mensaje en la consola
@@ -114,7 +114,7 @@
 		\else%
 			\errmessage{LaTeX Warning: #2}%
 		\fi}{%
-	}
+	}%
 }
 
 % Lanza un mensaje de error si una variable no ha sido definida
@@ -185,7 +185,7 @@
 \newcommand{\checkonlyonenvimage}{%
 	\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{}{%
 		\throwwarning{Funciones \noexpand\addimage o \noexpand\addimageboxed no pueden usarse fuera del entorno \noexpand\images}\stop%
-	}
+	}%
 }
 
 % Chequea que las funciones sólo puedan usarse fuera del entorno images
@@ -193,7 +193,7 @@
 	\ifthenelse{\equal{\GLOBALenvimageinitialized}{true}}{%
 		\throwwarning{Esta funcion solo puede usarse fuera del entorno \noexpand\images}%
 		\stop}{%
-	}
+	}%
 }
 
 % Chequea que las funciones puedan usarse solo en el entorno multicol
@@ -201,7 +201,7 @@
 	\ifthenelse{\equal{\GLOBALenvmulticol}{false}}{%
 		\throwwarning{Esta funcion solo puede usarse dentro de multicols}%
 		\stop}{%
-	}
+	}%
 }
 
 % Chequea que las funciones puedan usarse fuera del entorno anexo
@@ -209,7 +209,7 @@
 	\ifthenelse{\equal{\GLOBALenvappendix}{true}}{%
 		\throwwarning{Esta funcion solo puede usarse fuera de anexo}%
 		\stop}{%
-	}
+	}%
 }
 
 % Verifica que una variable sea del estilo "true" o "false"
@@ -218,7 +218,7 @@
 	\ifthenelse{\equal{#1}{true}}{}{%
 	\ifthenelse{\equal{#1}{false}}{}{%
 		\throwwarning{Variable debe ser true o false}\stop%
-	}}
+	}}%
 }
 
 % Centra verticalmente un texto
@@ -240,7 +240,7 @@
 	\ifthenelse{\equal{#1}{0}}{}{%
 	\ifthenelse{\equal{#1}{0.0}}{}{%
 		\vspace{\dimexpr#1 cm plus #1\coregluevarcm minus #1\coregluevarcm}%
-	}}
+	}}%
 }
 
 % Agrega una carpeta al path de imágenes
@@ -267,8 +267,8 @@
 	\ifthenelse{\equal{#1}{tiny}}{}{%
 		\errmessage{LaTeX Warning: Tamano de fuente incorrecto (\noexpand #1= #1). Valores esperados: tiny,scriptsize,footnotesize,small,normalisize,large,Large,LARGE,huge,Huge,HUGE}%
 		\stop%
-		}}}}}}}}}}
-	}
+		}}}}}}}}}}%
+	}%
 }
 
 % END

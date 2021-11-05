@@ -82,16 +82,16 @@
 	\setcounter{tabularcolnumber}{0}%
 	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\openout\filetabularframehead=\jobname.tframeh%
-	}{}
+	}{}%
 	\vspace{-\GLOBALtabularframebarheight\textheight}%
 	\begin{columns}[t,onlytextwidth]%
-	}{
+	}{%
 	\end{columns}
 	\setcounter{tabularcolnumber}{-1}
 	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\closeout\filetabularframehead%
 		\global\def\GLOBALtabularframebarcreated {true}%
-	}{}
+	}{}%
 }
 
 % Función que repite el último entorno tabular frames
@@ -117,14 +117,14 @@
 	\emptyvarerr{\addtfheadcolumn}{#2}{Texto de la columna no definido}%
 	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\write\filetabularframehead{\unexpanded{\addtfheadcolumn{#1}{#2}}\LOCALpercentchar}%
-	}{}
+	}{}%
 	\stepcounter{tabularcolnumber}%
 	\column{#1\linewidth}%
 	\ifthenelse{\equal{\thetabularcolnumber}{\LOCALtabularframecolumnselected}}{%
 		\transparent{1.0}%
 	}{%
 		\transparent{\tabularframeopacity}%
-	}
+	}%
 	\usebeamercolor[fg]{frametitle}\colorbox{bg}{\begin{minipage}[t][\GLOBALtabularframebarheight\textheight][t]{\dimexpr\linewidth - 15\fboxrule}%
 		\usebeamercolor[fg]{frametitle}{%
 			\ifthenelse{\equal{\GLOBALtabularframebartextcentered}{false}}{%
@@ -133,9 +133,9 @@
 				\begin{center}%
 					\verticallycentertext{\GLOBALtabularframebarfontsize{#2}}%
 				\end{center}
-			}
-		}
-	\end{minipage}}
+			}%
+		}%
+	\end{minipage}}%
 }
 
 % Inicia el contenido de un tabular frame
@@ -158,7 +158,7 @@
 					#1%
 				}{%
 					\verticallycentertext{#1}%
-				}
+				}%
 			\end{minipage}
 		\end{minipage}}
 		\column{\GLOBALtabularframecontentwidthright\linewidth}%
@@ -172,7 +172,7 @@
 				}{%
 					\vspace{-0.5\baselineskip}%
 					\verticallycentertext{#2}%
-				}
+				}%
 			\end{minipage}
 		\end{minipage}}
 	\end{columns}
@@ -187,24 +187,24 @@
 		\throwwarning{Funcion \noexpand\tabularframesinglecontent no puede usarse sin haber inicializado \noexpand\tabularframehead}\stop}%
 	\emptyvarerr{\tabularframesinglecontent}{#2}{Contenido no definido}%
 	\vspace{-2.5\fboxrule}%
-	\ifx\hfuzz#1\hfuzz
-		\def\tabularframesinglecontentemptycolor {bg}
-		\usebeamercolor[fg]{block body}
-	\else
-		\def\tabularframesinglecontentemptycolor {#1}
-	\fi
+	\ifx\hfuzz#1\hfuzz%
+		\def\tabularframesinglecontentemptycolor {bg}%
+		\usebeamercolor[fg]{block body}%
+	\else%
+		\def\tabularframesinglecontentemptycolor {#1}%
+	\fi%
 	\begin{columns}[t,onlytextwidth]%
 		\column{1\linewidth}%
 		\colorbox{\tabularframesinglecontentemptycolor}%
 		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 15\fboxrule}%
 			\vspace{\tabularframepaddingtop em}%
 			\hspace{\tabularframepaddingleft em}%
-			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth-\tabularframepaddingleft em-\tabularframepaddingright em}
+			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth-\tabularframepaddingleft em-\tabularframepaddingright em}%
 				\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
 					#2%
 				}{%
 					\verticallycentertext{#2}%
-				}
+				}%
 			\end{minipage}
 		\end{minipage}}
 	\end{columns}

@@ -46,10 +46,10 @@
 		\uppercase{\global\let~\tmp}%
 		\uccode`\~=0%
 	}
-\fi
-\ifx\mapsfrom\undefined
-	\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
-\fi
+\fi%
+\ifx\mapsfrom\undefined%
+	\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}%
+\fi%
 
 % Agrega caracteres unicode
 \ifdefined\DeclareUnicodeCharacter

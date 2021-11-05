@@ -28,7 +28,7 @@
 	\ifthenelse{\equal{#1}{t}}{}{%
 	\ifthenelse{\equal{#1}{b}}{}{%
 		\errmessage{LaTeX Warning: Posicion vertical columna invalido, valores esperados: c,t,b}%
-	}}}
+	}}}%
 }
 
 % Chequea alineación columna
@@ -38,7 +38,7 @@
 	\ifthenelse{\equal{#1}{l}}{}{%
 	\ifthenelse{\equal{#1}{r}}{}{%
 		\errmessage{LaTeX Warning: Alineacion columna invalida, valores esperados: c,l,r}%
-	}}}
+	}}}%
 }
 
 % Configura las columnas dobles
@@ -113,7 +113,7 @@
 					\hfill\begin{raggedleft}#5\end{raggedleft}%
 				}{%
 					\errmessage{LaTeX Warning: Alineacion columna izquierda incorrecta, valores esperados: c,l,r}
-				}}}
+				}}}%
 			\end{minipage}%
 			\hspace{#4 cm}%
 			\begin{minipage}[t][#1][\GLOBALtwocolumnbv]{#3\linewidth}%
@@ -127,7 +127,7 @@
 					\hfill\begin{raggedleft}#6\end{raggedleft}%
 				}{%
 					\errmessage{LaTeX Warning: Alineacion columna derecha incorrecta, valores esperados: c,l,r}
-				}}}
+				}}}%
 			\end{minipage}
 		\end{minipage}
 	\end{flushleft}
@@ -171,7 +171,7 @@
 					\hfill\begin{raggedleft}#7\end{raggedleft}%
 				}{%
 					\errmessage{LaTeX Warning: Alineacion columna izquierda incorrecta, valores esperados: c,l,r}
-				}}}
+				}}}%
 			\end{minipage}
 			\hspace{#5 cm}%
 			\begin{minipage}[t][#1][\GLOBALthreecolumnbv]{#3\linewidth}%
@@ -185,7 +185,7 @@
 					\hfill\begin{raggedleft}#8\end{raggedleft}%
 				}{%
 					\errmessage{LaTeX Warning: Alineacion columna central incorrecta, valores esperados: c,l,r}
-				}}}
+				}}}%
 			\end{minipage}
 			\hspace{#6 cm}%
 			\begin{minipage}[t][#1][\GLOBALthreecolumncv]{#4\linewidth}%
@@ -199,7 +199,7 @@
 					\hfill\begin{raggedleft}#9\end{raggedleft}%
 				}{%
 					\errmessage{LaTeX Warning: Alineacion columna derecha incorrecta, valores esperados: c,l,r}
-				}}}
+				}}}%
 			\end{minipage}
 		\end{minipage}
 	\end{flushleft}

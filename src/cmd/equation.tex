@@ -29,14 +29,14 @@
 	\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}%
 		\ifthenelse{\equal{\equationcaptioncenter}{true}}{%
 			\centering%
-		}{
+		}{%
 			\justifying%
 		}%
 		\textcolor{\captiontextcolor}{%
 			\linespread{0.5}\selectfont{%
 				\begin{\captionfontsize}#1\end{\captionfontsize}%
-			}
-		}
+			}%
+		}%
 	\end{changemargin}
 }
 
@@ -57,10 +57,10 @@
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
-			\throwwarning{Label invalido en ecuacion sin numero}
-		\fi
+			\throwwarning{Label invalido en ecuacion sin numero}%
+		\fi%
 		\insertequationanum{#2}%
-	}
+	}%
 }
 
 % Insertar una ecuación sin número
@@ -113,11 +113,11 @@
 		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
-		\else
-			\throwwarning{Label invalido en ecuacion sin numero}
-		\fi
+		\else%
+			\throwwarning{Label invalido en ecuacion sin numero}%
+		\fi%
 		\insertequationleftanum{#2}%
-	}
+	}%
 }
 
 % Insertar una ecuación sin número alineada a la izquierda
@@ -150,11 +150,11 @@
 		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
-		\else
-			\throwwarning{Label invalido en ecuacion sin numero}
-		\fi
+		\else%
+			\throwwarning{Label invalido en ecuacion sin numero}%
+		\fi%
 		\insertequationrightanum{#2}%
-	}
+	}%
 }
 
 % Insertar una ecuación sin número alineada a la derecha
@@ -179,7 +179,7 @@
 	\emptyvarerr{\insertequationcaptioned}{#2}{Ecuacion no definida}%
 	\ifx\hfuzz#3\hfuzz%
 		\insertequation[#1]{#2}%
-	\else
+	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
 			\corevspacevarcm{\marginequationtop}%
 			\begin{samepage}%
@@ -192,13 +192,13 @@
 			\end{samepage}
 			\coreafterequationfn%
 		}{%
-			\ifx\hfuzz#1\hfuzz
-			\else
-				\throwwarning{Label invalido en ecuacion sin numero}
-			\fi
-			\insertequationcaptionedanum{#2}{#3}
-		}
-	\fi
+			\ifx\hfuzz#1\hfuzz%
+			\else%
+				\throwwarning{Label invalido en ecuacion sin numero}%
+			\fi%
+			\insertequationcaptionedanum{#2}{#3}%
+		}%
+	\fi%
 }
 
 % Insertar una ecuación con leyenda sin número
@@ -208,7 +208,7 @@
 	\emptyvarerr{\insertequationcaptionedanum}{#1}{Ecuacion no definida}%
 	\ifx\hfuzz#2\hfuzz%
 		\insertequationanum{#1}%
-	\else
+	\else%
 		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation*}
@@ -219,7 +219,7 @@
 		\corevspacevarcm{\margineqncaptionbottom}%
 		\end{samepage}
 		\coreafterequationfn%
-	\fi
+	\fi%
 }
 
 % Insertar una ecuación con el ambiente gather
@@ -237,7 +237,7 @@
 		\coreafterequationfn%
 	}{%
 		\insertgatheranum{#1}%
-	}
+	}%
 }
 
 % Insertar una ecuación con el ambiente gather sin número
@@ -261,7 +261,7 @@
 	\emptyvarerr{\insertgathercaptioned}{#1}{Ecuacion no definida}%
 	\ifx\hfuzz#2\hfuzz%
 		\insertgather{#1}%
-	\else
+	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
 			\corevspacevarcm{\margingathertop}%
 			\begin{samepage}%
@@ -275,8 +275,8 @@
 			\coreafterequationfn%
 		}{%
 			\insertgathercaptionedanum{#1}{#2}%
-		}
-	\fi
+		}%
+	\fi%
 }
 
 % Insertar una ecuación (gather) con leyenda sin número
@@ -286,7 +286,7 @@
 	\emptyvarerr{\insertgathercaptionedanum}{#1}{Ecuacion no definida}%
 	\ifx\hfuzz#2\hfuzz%
 		\insertgatheranum{#1}%
-	\else
+	\else%
 		\corevspacevarcm{\margingathertop}%
 		\begin{samepage}%
 		\begin{gather*}%
@@ -297,7 +297,7 @@
 		\corevspacevarcm{\margingathercaptbottom}%
 		\end{samepage}
 		\coreafterequationfn%
-	\fi
+	\fi%
 }
 
 % Insertar una ecuación con el ambiente gathered
@@ -316,10 +316,10 @@
 		\corevspacevarcm{\margingatheredbottom}%
 		\end{samepage}
 	}{%
-		\ifx\hfuzz#1\hfuzz
-		\else
-			\throwwarning{Label invalido en ecuacion (gathered) sin numero}
-		\fi
+		\ifx\hfuzz#1\hfuzz%
+		\else%
+			\throwwarning{Label invalido en ecuacion (gathered) sin numero}%
+		\fi%
 		\corevspacevarcm{\margingatheredtop}%
 		\begin{samepage}%
 		\begin{gather*}%
@@ -327,7 +327,7 @@
 		\end{gather*}
 		\corevspacevarcm{\margingatheredbottom}%
 		\end{samepage}
-	}
+	}%
 	\coreafterequationfn%
 }
 
@@ -353,7 +353,7 @@
 	\emptyvarerr{\insertgatheredcaptioned}{#2}{Ecuacion no definida}%
 	\ifx\hfuzz#3\hfuzz%
 		\insertgathered[#1]{#2}%
-	\else
+	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
 			\corevspacevarcm{\marginequationtop}%
 			\begin{samepage}%
@@ -368,13 +368,13 @@
 			\end{samepage}
 			\coreafterequationfn%
 		}{%
-			\ifx\hfuzz#1\hfuzz
-			\else
+			\ifx\hfuzz#1\hfuzz%
+			\else%
 				\throwwarning{Label invalido en ecuacion (gathered) sin numero}
-			\fi
+			\fi%
 			\insertgatheredcaptionedanum{#2}{#3}%
-		}
-		\fi
+		}%
+		\fi%
 }
 
 % Insertar una ecuación (gathered) con leyenda sin número
@@ -384,7 +384,7 @@
 	\emptyvarerr{\insertgatheredcaptionedanum}{#1}{Ecuacion no definida}
 	\ifx\hfuzz#2\hfuzz%
 		\insertgatheredanum{#1}%
-	\else
+	\else%
 		\corevspacevarcm{\margingatheredtop}%
 		\begin{samepage}%
 		\begin{gather*}
@@ -395,7 +395,7 @@
 		\vspace{\dimexpr-0.05cm + \margingatheredcaptbottom cm}%
 		\end{samepage}
 		\coreafterequationfn%
-	\fi
+	\fi%
 }
 
 % Insertar una ecuación con el ambiente align
@@ -413,7 +413,7 @@
 		\coreafterequationfn%
 	}{%
 		\insertalignanum{#1}%
-	}
+	}%
 }
 
 % Insertar una ecuación con el ambiente align sin número
@@ -437,7 +437,7 @@
 	\emptyvarerr{\insertaligncaptioned}{#1}{Ecuacion no definida}%
 	\ifx\hfuzz#2\hfuzz%
 		\insertalign{#1}%
-	\else
+	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
 			\corevspacevarcm{\marginaligntop}%
 			\begin{samepage}%
@@ -451,8 +451,8 @@
 			\coreafterequationfn%
 		}{%
 			\insertaligncaptionedanum{#1}{#2}%
-		}
-	\fi
+		}%
+	\fi%
 }
 
 % Insertar una ecuación (align) con leyenda sin número
@@ -462,7 +462,7 @@
 	\emptyvarerr{\insertaligncaptionedanum}{#1}{Ecuacion no definida}%
 	\ifx\hfuzz#2\hfuzz%
 		\insertalignanum{#1}%
-	\else
+	\else%
 		\corevspacevarcm{\marginaligntop}%
 		\begin{samepage}%
 		\begin{align*}
@@ -473,7 +473,7 @@
 		\corevspacevarcm{\marginaligncaptbottom}%
 		\end{samepage}
 		\coreafterequationfn%
-	\fi
+	\fi%
 }
 
 % Insertar una ecuación con el ambiente aligned
@@ -493,12 +493,12 @@
 		\end{samepage}
 		\coreafterequationfn%
 	}{%
-		\ifx\hfuzz#1\hfuzz
-		\else
-			\throwwarning{Label invalido en ecuacion (aligned) sin numero}
-		\fi
+		\ifx\hfuzz#1\hfuzz%
+		\else%
+			\throwwarning{Label invalido en ecuacion (aligned) sin numero}%
+		\fi%
 		\insertalignedanum{#2}%
-	}
+	}%
 }
 
 % Insertar una ecuación con el ambiente aligned sin número
@@ -523,7 +523,7 @@
 	\emptyvarerr{\insertalignedcaptioned}{#2}{Ecuacion no definida}%
 	\ifx\hfuzz#3\hfuzz%
 		\insertaligned[#1]{#2}%
-	\else
+	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
 			\corevspacevarcm{\marginequationtop}%
 			\begin{samepage}%
@@ -538,13 +538,13 @@
 			\end{samepage}
 			\coreafterequationfn%
 		}{%
-			\ifx\hfuzz#1\hfuzz
-			\else
-				\throwwarning{Label invalido en ecuacion (aligned) sin numero}
-			\fi
+			\ifx\hfuzz#1\hfuzz%
+			\else%
+				\throwwarning{Label invalido en ecuacion (aligned) sin numero}%
+			\fi%
 			\insertalignedcaptionedanum{#2}{#3}%
-		}
-	\fi
+		}%
+	\fi%
 }
 
 % Insertar una ecuación (aligned) con leyenda sin número
@@ -554,7 +554,7 @@
 	\emptyvarerr{\insertalignedcaptionedanum}{#1}{Ecuacion no definida}%
 	\ifx\hfuzz#2\hfuzz%
 		\insertalignedanum{#1}%
-	\else
+	\else%
 		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation}
@@ -567,7 +567,7 @@
 		\corevspacevarcm{\marginalignedcaptbottom}%
 		\end{samepage}
 		\coreafterequationfn%
-	\fi
+	\fi%
 }
 
 % END

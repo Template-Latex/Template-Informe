@@ -17,42 +17,42 @@
 	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{%
 		\renewcommand{\thesection}{%
 			\GLOBALformatnumsection{section}%
-		}
+		}%
 	}{%
 		\renewcommand{\thesection}{%
 			\thechapter\charbetwchaptersection\GLOBALformatnumsection{section}%
-		}
-	}
+		}%
+	}%
 	% Subsection
 	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{%
 		\renewcommand{\thesubsection}{%
 			\GLOBALformatnumssection{subsection}%
-		}
+		}%
 	}{%
 		\renewcommand{\thesubsection}{%
 			\thesection\charbetwsectionsubsection\GLOBALformatnumssection{subsection}%
-		}
-	}
+		}%
+	}%
 	% Subsubsection
 	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
 		\renewcommand{\thesubsubsection}{%
 			\GLOBALformatnumsssection{subsubsection}%
-		}
+		}%
 	}{%
 		\renewcommand{\thesubsubsection}{%
 			\thesubsection\charbetwsubsectionssect\GLOBALformatnumsssection{subsubsection}%
-		}
-	}
+		}%
+	}%
 	% Subsubsubsection
 	\ifthenelse{\equal{\GLOBALsubsubsectionanumenabled}{true}}{%
 		\renewcommand{\thesubsubsubsection}{%
 			\GLOBALformatnumssssection{subsubsubsection}%
-		}
+		}%
 	}{%
 		\renewcommand{\thesubsubsubsection}{%
 			\thesubsubsection\charbetwssectionsssect\GLOBALformatnumssssection{subsubsubsection}%
-		}
-	}
+		}%
+	}%
 	\hbadness=10000%
 }
 
@@ -61,23 +61,23 @@
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptioneqn}{chap}}{ % Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\equationrestart}{chap}}{ % Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptionfig}{chap}}{ % Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptiontab}{chap}}{ % Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
-	}{}
+	}{}%
 	\global\def\GLOBALchapternumenabled {true}%
 	\global\def\GLOBALsectionanumenabled {false}%
 	\global\def\GLOBALsubsectionanumenabled {false}%
@@ -91,23 +91,23 @@
 	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptioneqn}{sec}}{ % Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\equationrestart}{sec}}{ % Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{ % Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{ % Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
-	}{}
+	}{}%
 	\global\def\GLOBALsectionanumenabled {false}%
 	\global\def\GLOBALsubsectionanumenabled {false}%
 	\global\def\GLOBALsubsubsectionanumenabled {false}%
@@ -120,23 +120,23 @@
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptioneqn}{ssec}}{ % Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\equationrestart}{ssec}}{ % Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{ % Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{ % Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
-	}{}
+	}{}%
 	\global\def\GLOBALsubsectionanumenabled {false}%
 	\global\def\GLOBALsubsubsectionanumenabled {false}%
 	\coreintializetitlenumbering%
@@ -150,23 +150,23 @@
 	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptioneqn}{sssec}}{ % Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\equationrestart}{sssec}}{ % Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{ % Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{ % Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
-	}{}
+	}{}%
 	\global\def\GLOBALsubsubsectionanumenabled {false}%
 	\coreintializetitlenumbering%
 }{}{}
@@ -176,23 +176,23 @@
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{ % Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\equationrestart}{ssssec}}{ % Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{ % Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
-	}{}
+	}{}%
 	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{ % Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
-	}{}
+	}{}%
 }{}{}
 
 % Insertar un título sin número
