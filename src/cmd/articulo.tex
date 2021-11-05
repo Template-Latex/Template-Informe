@@ -36,11 +36,11 @@
 %	#2	Nombre del autor
 %	#3	Institución del autor
 %	#4	Correo
-\newcommand{\addauthor}[4][]{
-	\immediate\write\fileauthornames{\unexpanded{\titleauthorname}[\theauthornumber]\unexpanded{{#2}}\LOCALpercentchar}
+\newcommand{\addauthor}[4][]{%
+	\immediate\write\fileauthornames{\unexpanded{\titleauthorname}[\theauthornumber]\unexpanded{{#2}}\LOCALpercentchar}%
 	\immediate\write\fileauthordata{\unexpanded{\titleauthordata}[\theauthornumber]\unexpanded{{#3}{#4}{#1}}\LOCALpercentchar}%
 	\immediate\write\fileauthornamesdata{\unexpanded{\titleauthornamedata}[\theauthornumber]\unexpanded{{#2}{#3}{#4}{#1}}\LOCALpercentchar}%
-	\stepcounter{authornumber}
+	\stepcounter{authornumber}%
 }
 
 % Define funciones de los estilos de títulos
@@ -175,11 +175,11 @@
 	\def\LOCALhasname {false}
 	\newcommand{\titleauthornamedata}[5][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{\titleauthorspacing cm}}{}%
-		\begin{tabular}[t]{C{4cm}}
-			\normalsize{#2} \\
-			\small{#3} \\
-			\ifthenelse{\equal{#4}{}}{}{\small{\insertemail{#4}} \\}
-			\ifthenelse{\equal{#5}{}}{}{\small{ORCID \href{https://orcid.org/#5}{#5}}}
+		\begin{tabular}[t]{C{4cm}}%
+			\normalsize{#2} \\%
+			\small{#3} \\%
+			\ifthenelse{\equal{#4}{}}{}{\small{\insertemail{#4}} \\}%
+			\ifthenelse{\equal{#5}{}}{}{\small{ORCID \href{https://orcid.org/#5}{#5}}}%
 		\end{tabular}
 		\def\LOCALhasname {true}%
 	}%
