@@ -35,17 +35,17 @@
 
 % Crea una página vacía sin header o footer
 \newcommand{\insertemptypage}{%
-	\clearpage
-	\thispagestyle{empty}
-	\null
-	\clearpage
+	\clearpage%
+	\thispagestyle{empty}%
+	\null%
+	\clearpage%
 }
 
 % Inserta una página vacía, aunque conserva header, footer y numeración
 \newcommand{\insertblankpage}{%
-	\clearpage
-	\null
-	\clearpage
+	\clearpage%
+	\null%
+	\clearpage%
 }
 
 % Función personalizada \cleardoublepage
@@ -56,7 +56,7 @@
 		\else%
 			\emptypagespredocformat%
 		\fi%
-	}{}
+	}{}%
 }
 
 % Ejecuta una función dependiendo si la página es par o impar
@@ -141,7 +141,7 @@
 	}{%
 	\ifthenelse{\equal{\fonturl}{sf}}{%
 		\textsf{#1}%
-	}{}}}}
+	}{}}}}%
 }
 
 % Inserta un email con un link cliqueable
@@ -311,7 +311,7 @@
 %	#1	Indica la rotación, puede ser 0 o 90
 %	#2	Formato de la pagina
 \newcommand{\changepagesizeformat}[2][]{%
-	\emptyvarerr{\changepagesizeformat}{#2}{Formato de pagina no definido}
+	\emptyvarerr{\changepagesizeformat}{#2}{Formato de pagina no definido}%
 	\ifthenelse{\equal{#2}{4A0}}{%
 		\changepagesize[#1]{168.2}{237.8}%
 	}{%

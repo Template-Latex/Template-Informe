@@ -40,7 +40,7 @@
 \makeatother
 
 % Creación de comandos si no existen
-\ifx\DeclareUnicodeCharacter\undefined
+\ifx\DeclareUnicodeCharacter\undefined%
 	\def\DeclareUnicodeCharacter#1#2{%
 		\def\tmp{#2}\uccode`\~="#1 \catcode"#1 \active%
 		\uppercase{\global\let~\tmp}%

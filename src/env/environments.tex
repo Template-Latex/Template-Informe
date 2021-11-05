@@ -269,27 +269,27 @@
 
 % Itemize en negrita
 %	#1	Parámetros opcionales
-\newenvironment{itemizebf}[1][]{
-	\begin{itemize}[font=\bfseries,#1]
+\newenvironment{itemizebf}[1][]{%
+	\begin{itemize}[font=\bfseries,#1]%
 	}{%
 	\end{itemize}
 }
 
 % Enumerate en negrita
 %	#1	Parámetros opcionales
-\newenvironment{enumeratebf}[1][]{
-	\begin{enumerate}[font=\bfseries,#1]
+\newenvironment{enumeratebf}[1][]{%
+	\begin{enumerate}[font=\bfseries,#1]%
 	}{%
 	\end{enumerate}
 }
 
 % Crea una sección de resumen
-\newenvironment{abstractd}{
+\newenvironment{abstractd}{%
 	% Tipo de título para abstract
-	\sectionfont{\color{\sectioncolor} \sectionfontsize \sectionfontstyle \selectfont}
+	\sectionfont{\color{\sectioncolor} \sectionfontsize \sectionfontstyle \selectfont}%
 	% Inserta un título sin número, sin cabecera y sin aparecer en el índice,
 	% para que aparezca en el índice utilizar la función \sectionanumheadless
-	\sectionanumnoiheadless{\nameabstract}}{
+	\sectionanumnoiheadless{\nameabstract}}{%
 }
 
 % Crea una sección de imágenes múltiples
