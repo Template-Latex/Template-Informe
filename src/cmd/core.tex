@@ -65,6 +65,12 @@
 % Define latex para uso en referencias
 \let\latex\LaTeX
 
+% Nuevas dimensiones
+\newlength{\coregluevarcm}
+\setlength{\coregluevarcm}{0.25 cm}
+\newlength{\corefontwidth}
+\settowidth{\corefontwidth}{template}
+
 % Lanza un mensaje de error
 % 	#1	Función del error
 %	#2	Mensaje
@@ -230,9 +236,6 @@
 	#1%
 	\vspace*{\fill}%
 }
-
-\newlength{\coregluevarcm}
-\setlength{\coregluevarcm}{0.25 cm}
 
 % Inserta un espacio vertical en cm con una variación +/-
 %	#1	Espacio (en cm)
