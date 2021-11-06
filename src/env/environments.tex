@@ -47,48 +47,48 @@
 	\global\def\GLOBALenvappendix {true}%
 	\begingroup % Inicia el grupo en nueva página y sección
 	% \clearpage
-	\phantomsection
+	\phantomsection%
 	\changeheadertitle{\nameltappendixsection} % Cambia el nombre del header
 	% Define formato números para appendix
-	\global\def\GLOBALformatnumchapter {\formatnumapchapter}
-	\global\def\GLOBALformatnumsection {\formatnumapsection}
-	\global\def\GLOBALformatnumssection {\formatnumapssection}
-	\global\def\GLOBALformatnumsssection {\formatnumapsssection}
-	\global\def\GLOBALformatnumssssection {\formatnumapssssection}
-	\bookmarksetup{
+	\global\def\GLOBALformatnumchapter {\formatnumapchapter}%
+	\global\def\GLOBALformatnumsection {\formatnumapsection}%
+	\global\def\GLOBALformatnumssection {\formatnumapssection}%
+	\global\def\GLOBALformatnumsssection {\formatnumapsssection}%
+	\global\def\GLOBALformatnumssssection {\formatnumapssssection}%
+	\bookmarksetup{%
 		numbered={true},
 		openlevel={\thetemplateBookmarksLevelPrev}
 	}%
-	\appendixtitleon
-	\appendixtitletocon
+	\appendixtitleon%
+	\appendixtitletocon%
 	% \addappheadtotoc
-	\bookmarksetupnext{level=part}
+	\bookmarksetupnext{level=part}%
 	\begin{appendices} % Crea la sección
-		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
+		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{%
 			\pdfbookmark{\nameappendixsection}{appendix} % Si false
 		}%
 		% \setcounter{secnumdepth}{4}
 		% \setcounter{tocdepth}{4}
-		\ifthenelse{\equal{\appendixindepobjnum}{true}}{
-			\counterwithin{equation}{section}
-			\counterwithin{figure}{section}
-			\counterwithin{lstlisting}{section}
-			\counterwithin{table}{section}}{
+		\ifthenelse{\equal{\appendixindepobjnum}{true}}{%
+			\counterwithin{equation}{section}%
+			\counterwithin{figure}{section}%
+			\counterwithin{lstlisting}{section}%
+			\counterwithin{table}{section}}{%
 		}%
 	}{%
 	\end{appendices}
 	% Restablece formato de números
-	\global\def\GLOBALformatnumchapter {\formatnumchapter}
-	\global\def\GLOBALformatnumsection {\formatnumsection}
-	\global\def\GLOBALformatnumssection {\formatnumssection}
-	\global\def\GLOBALformatnumsssection {\formatnumsssection}
-	\global\def\GLOBALformatnumssssection {\formatnumssssection}
+	\global\def\GLOBALformatnumchapter {\formatnumchapter}%
+	\global\def\GLOBALformatnumsection {\formatnumsection}%
+	\global\def\GLOBALformatnumssection {\formatnumssection}%
+	\global\def\GLOBALformatnumsssection {\formatnumsssection}%
+	\global\def\GLOBALformatnumssssection {\formatnumssssection}%
 	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Restablece índice marcador
-	\bookmarksetup{
+	\bookmarksetup{%
 		numbered={\cfgpdfsecnumbookmarks},
 		openlevel={\cfgbookmarksopenlevel}
 	}%
-	\endgroup
+	\endgroup%
 }
 
 % Inicia código fuente con parámetros

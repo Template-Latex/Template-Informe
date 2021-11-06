@@ -1,27 +1,27 @@
 % Crea una sección de referencias solo para bibtex
-\newenvironment{references}{
+\newenvironment{references}{%
 	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Verifica configuraciones
 	}{%
-		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
+		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}%
 	}%
-	\phantomsection
-	\addcontentsline{toc}{chapter}{\namereferences}
+	\phantomsection%
+	\addcontentsline{toc}{chapter}{\namereferences}%
 	\begin{thebibliography}{} % Inicia la bibliografía
 		\ifthenelse{\equal{\bibtextextalign}{justify}}{ % Formato ajuste de línea
 		}{%
-		\ifthenelse{\equal{\bibtextextalign}{left}}{
-			\raggedright
+		\ifthenelse{\equal{\bibtextextalign}{left}}{%
+			\raggedright%
 		}{%
-		\ifthenelse{\equal{\bibtextextalign}{right}}{
-			\raggedleft
+		\ifthenelse{\equal{\bibtextextalign}{right}}{%
+			\raggedleft%
 		}{%
-		\ifthenelse{\equal{\bibtextextalign}{center}}{
-			\centering
+		\ifthenelse{\equal{\bibtextextalign}{center}}{%
+			\centering%
 		}{%
-			\throwbadconfig{Ajuste de linea referencias bibtex desconocido}{\bibtextextalign}{justified,left,right,center}}}}
+			\throwbadconfig{Ajuste de linea referencias bibtex desconocido}{\bibtextextalign}{justified,left,right,center}}}}%
 		}%
 	}%
-	{
+	{%
 	\end{thebibliography}
 }
 
@@ -30,7 +30,7 @@
 %	#2	Título de la tesis
 %	#3	Título de la sección
 %	#4	Etiqueta del marcador del pdf
-\newenvironment{abstractenv}[4]{
+\newenvironment{abstractenv}[4]{%
 	\clearpage%
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
 		\coretriggeronpage{\emptypagespredocformat}{}%
@@ -50,60 +50,58 @@
 			\small%
 			#1%
 		\end{flushright}%
-		\vspace{0.75\baselineskip}%
-	}{%
-		\vspace*{0.5\baselineskip}%
-	}%
+	}{}%
+	\vspace*{0.5\baselineskip}%
 	% Título
 	\begin{center}%
 		\textcolor{\sectioncolor}{\MakeUppercase{\textbf{#2}}}%
 	\end{center} \newp%
 	\ifthenelse{\equal{\showabstracttable}{true}}{%
 		\vspace{-\baselineskip}%
-	}{
+	}{%
 		\vspace{-0.5\baselineskip}%
 	}%
 	}{%
 	\vfill\null%
 }
 % Llama al entorno de resumen
-\newenvironment{abstractd}{
-	\begin{abstractenv}{\abstracttable}{\documenttitle}{\nameabstract}{abstractbookmark}
-	}{
+\newenvironment{abstractd}{%
+	\begin{abstractenv}{\abstracttable}{\documenttitle}{\nameabstract}{abstractbookmark}%
+	}{%
 	\end{abstractenv}
 }
 
 % Crea una sección de dedicatoria
-\newenvironment{dedicatory}{
+\newenvironment{dedicatory}{%
 	\clearpage%
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
 		\coretriggeronpage{\emptypagespredocformat}{}%
 	}{}%
-	\null
-	\phantomsection
+	\null%
+	\phantomsection%
 	% \ifthenelse{\equal{\adddedictobookmarks}{true}}{
 	% 	\pdfbookmark{\nameadedic}{contents}}{
 	% }
-	\vspace{\stretch{1}}
-	\begin{flushright}
-		\itshape}{
-	\end{flushright}
-	\vspace{\stretch{2}}
-	\null
+	\vspace{\stretch{1}}%
+	\begin{flushright}%
+		\itshape}{%
+	\end{flushright}%
+	\vspace{\stretch{2}}%
+	\null%
 }
 
 % Crea una sección de agradecimientos
-\newenvironment{acknowledgments}{
+\newenvironment{acknowledgments}{%
 	\clearpage%
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
 		\coretriggeronpage{\emptypagespredocformat}{}%
 	}{}%
-	\chapter*{\nameagradec}
-	\ifthenelse{\equal{\addagradectobookmarks}{true}}{
-		\phantomsection
-		\pdfbookmark{\nameagradec}{acknowledgments}}{
+	\chapter*{\nameagradec}%
+	\ifthenelse{\equal{\addagradectobookmarks}{true}}{%
+		\phantomsection%
+		\pdfbookmark{\nameagradec}{acknowledgments}}{%
 	}%
-	\forceindent
+	\forceindent%
 	}{%
 }
 
