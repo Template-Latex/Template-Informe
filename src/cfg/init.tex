@@ -651,9 +651,9 @@
 % -----------------------------------------------------------------------------
 % Configuración elementos matemáticos
 % -----------------------------------------------------------------------------
-\newtheoremstyle{miestilo}{\baselineskip}{3pt}{\itshape}{}{\bfseries}{}{.5em}{}
-\newtheoremstyle{miobs}{\baselineskip}{3pt}{}{}{\bfseries}{}{.5em}{}
-\theoremstyle{miestilo}
+\newtheoremstyle{templatetheorem}{\baselineskip}{3pt}{\itshape}{}{\bfseries}{}{.5em}{}
+\newtheoremstyle{templateobs}{\baselineskip}{3pt}{}{}{\bfseries}{}{.5em}{}
+\theoremstyle{templatetheorem}
 
 % Configura números
 \ifthenelse{\equal{\showsectioncaptionmat}{none}}{
@@ -700,7 +700,7 @@
 }{
 	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionmat}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 }
-\theoremstyle{miobs}
+\theoremstyle{templateobs}
 \newtheorem*{ej}{\namemathej}
 \newtheorem*{obs}{\namemathobs}
 
