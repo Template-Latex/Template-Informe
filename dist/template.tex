@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.0.0 (05/11/2021)
+% Versión:      8.0.1 (09/11/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -246,6 +246,11 @@
 	\usepackage[para]{threeparttable}
 }{
 	\usepackage{threeparttable}
+}
+
+% Indentación del primer párrafo
+\ifthenelse{\equal{\indentfirst}{true}}{
+	\usepackage{indentfirst}}{
 }
 
 % -----------------------------------------------------------------------------
@@ -5477,16 +5482,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={05/11/2021},
+		Template.Date={09/11/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.0.0-1},
-		Template.Version.Hash={638DD018E3254F216DA92E3011BD4D38},
-		Template.Version.Release={8.0.0},
+		Template.Version.Dev={8.0.1},
+		Template.Version.Hash={3AD1487B8C87B36BBDEA832E11F8FA54},
+		Template.Version.Release={8.0.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5498,7 +5503,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.0.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.0.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5932,9 +5937,9 @@
 % -----------------------------------------------------------------------------
 % Actualización margen títulos
 % -----------------------------------------------------------------------------
-\titlespacing{\section}{\sectionspacingleft pt}{\sectionspacingtop pt plus 0pt minus 4pt}{\sectionspacingbottom pt plus 0pt minus 2pt}
-\titlespacing{\subsection}{\ssectionspacingleft pt}{\ssectionspacingtop pt plus 0pt minus 2pt}{\ssectionspacingbottom pt plus 0pt minus 2pt}
-\titlespacing{\subsubsection}{\sssectionspacingleft pt}{\sssectionspacingtop pt plus 0pt minus 2pt}{\sssectionspacingbottom pt plus 0pt minus 2pt}
+\titlespacing*{\section}{\sectionspacingleft pt}{\sectionspacingtop pt plus 0pt minus 4pt}{\sectionspacingbottom pt plus 0pt minus 2pt}
+\titlespacing*{\subsection}{\ssectionspacingleft pt}{\ssectionspacingtop pt plus 0pt minus 2pt}{\ssectionspacingbottom pt plus 0pt minus 2pt}
+\titlespacing*{\subsubsection}{\sssectionspacingleft pt}{\sssectionspacingtop pt plus 0pt minus 2pt}{\sssectionspacingbottom pt plus 0pt minus 2pt}
 \titlespacing*{\subsubsubsection}{\ssssectionspacingleft pt}{\ssssectionspacingtop pt plus 0pt minus 2pt}{\ssssectionspacingbottom pt plus 0pt minus 2pt}
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{5}{\paragspacingleft pt}
