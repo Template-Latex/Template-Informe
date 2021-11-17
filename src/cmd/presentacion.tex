@@ -13,15 +13,16 @@
 \usepackage{changepage}
 
 % Crea variables para guardar configuraciones del tabularframe
+\global\def\GLOBALtabularframebarcreated {false}
 \global\def\GLOBALtabularframebarfontsize {\normalsize}
 \global\def\GLOBALtabularframebarheight {0.05}
+\global\def\GLOBALtabularframebarheightmargin {0}
 \global\def\GLOBALtabularframebartextcentered {true}
 \global\def\GLOBALtabularframecontentheight {0.65}
 \global\def\GLOBALtabularframecontentleftcentered {false}
 \global\def\GLOBALtabularframecontentrightcentered {false}
 \global\def\GLOBALtabularframecontentwidthleft {0.4}
 \global\def\GLOBALtabularframecontentwidthright {0.6}
-\global\def\GLOBALtabularframebarcreated {false}
 
 \def\LOCALtabularframecolumnselected {1}
 \def\LOCALtabularframeinit {false}
@@ -33,6 +34,9 @@
 % Define contadores
 \newcounter{tabularcolnumber}
 \setcounter{tabularcolnumber}{0}
+
+% Define tamaños
+\newlength{\coretabularheightsize}
 
 % Función que configura el texto de la barra superior del tabular frame
 % 	#1 Tamaño de letra
@@ -46,19 +50,24 @@
 }
 
 % Función que configura el entorno tabular frames
-%	#1	Altura de head en porcentaje (0-1)
-%	#2	Altura de content en porcentaje (0-1)
-%	#3	Ancho de la barra izquierda de contenidos (coloreada)
-%	#4	Ancho de la barra derecha de contenidos
-\newcommand{\tabularframecfg}[4]{%
-	\emptyvarerr{\tabularframecfg}{#1}{Altura de head no definido}%
-	\emptyvarerr{\tabularframecfg}{#2}{Altura de content no definido}%
-	\emptyvarerr{\tabularframecfg}{#3}{Ancho de la barra izquierda de contenidos}%
-	\emptyvarerr{\tabularframecfg}{#4}{Ancho de la barra derecha de contenidos}%
-	\global\def\GLOBALtabularframebarheight {#1}%
-	\global\def\GLOBALtabularframecontentheight {#2}%
-	\global\def\GLOBALtabularframecontentwidthleft {#3}%
-	\global\def\GLOBALtabularframecontentwidthright {#4}%
+%	#1	Margen superior del head en porcentaje del alto de la página
+%	#2	Altura de head en porcentaje (0-1)
+%	#3	Altura de content en porcentaje (0-1)
+%	#4	Ancho de la barra izquierda de contenidos (coloreada)
+%	#5	Ancho de la barra derecha de contenidos
+\newcommand{\tabularframecfg}[5][]{%
+	\emptyvarerr{\tabularframecfg}{#2}{Altura de head no definido}%
+	\emptyvarerr{\tabularframecfg}{#3}{Altura de content no definido}%
+	\emptyvarerr{\tabularframecfg}{#4}{Ancho de la barra izquierda de contenidos}%
+	\emptyvarerr{\tabularframecfg}{#5}{Ancho de la barra derecha de contenidos}%
+	\ifthenelse{\equal{#1}{}}{}{%
+		\global\def\GLOBALtabularframebarheightmargin {#1}%
+	}%
+	\global\def\GLOBALtabularframebarheight {#2}%
+	\global\def\GLOBALtabularframecontentheight {#3}%
+	\global\def\GLOBALtabularframecontentwidthleft {#4}%
+	\global\def\GLOBALtabularframecontentwidthright {#5}%
+	\setlength{\coretabularheightsize}{\GLOBALtabularframebarheight\textheight}%
 }
 
 % Función que configura la alineación del entorno tabular frames
@@ -83,7 +92,7 @@
 	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\openout\filetabularframehead=\jobname.tframeh%
 	}{}%
-	\vspace{-\GLOBALtabularframebarheight\textheight}%
+	\vspace{\dimexpr-0.5\coretabularheightsize + \GLOBALtabularframebarheightmargin\textheight}%
 	\begin{columns}[t,onlytextwidth]%
 	}{%
 	\end{columns}
@@ -153,7 +162,7 @@
 		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 15\fboxrule}%
 			\vspace{\tabularframepaddingtop em}%
 			\hspace{\tabularframepaddingleft em}%
-			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth-\tabularframepaddingleft em-\tabularframepaddingright em}
+			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth - \tabularframepaddingleft em - \tabularframepaddingright em}
 				\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
 					#1%
 				}{%
@@ -166,7 +175,7 @@
 		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 10\fboxrule}%
 			\vspace{\tabularframepaddingtop em}%
 			\hspace{\tabularframepaddingleft em}%
-			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth-\tabularframepaddingleft em-\tabularframepaddingright em}
+			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth - \tabularframepaddingleft em - \tabularframepaddingright em}
 				\ifthenelse{\equal{\GLOBALtabularframecontentrightcentered}{false}}{%
 					#2%
 				}{%
@@ -199,7 +208,7 @@
 		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 15\fboxrule}%
 			\vspace{\tabularframepaddingtop em}%
 			\hspace{\tabularframepaddingleft em}%
-			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth-\tabularframepaddingleft em-\tabularframepaddingright em}%
+			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth - \tabularframepaddingleft em - \tabularframepaddingright em}%
 				\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
 					#2%
 				}{%
