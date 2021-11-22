@@ -15,8 +15,14 @@
 }
 
 % Crea un salto de columna en el entorno multicol
-\newcommand{\newcolumn}{%
-	\checkinsidemulticol\vfill\null\columnbreak%
+\ifthenelse{\isundefined{\newcolumn}}{
+	\newcommand{\newcolumn}{%
+		\checkinsidemulticol\vfill\null\columnbreak%
+	}
+}{
+	\renewcommand{\newcolumn}{%
+		\checkinsidemulticol\vfill\null\columnbreak%
+	}
 }
 
 % Salto de página en entorno multicol
