@@ -9,6 +9,13 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
+\global\def\GLOBALtitlerequirechapter {false}
+\global\def\GLOBALtitleinitchapter {false}
+\global\def\GLOBALtitleinitsection {false}
+\global\def\GLOBALtitleinitsubsection {false}
+\global\def\GLOBALtitleinitsubsubsection {false}
+\global\def\GLOBALtitleinitsubsubsubsection {false}
+
 % Activa la numeración en las secciones
 \def\coreintializetitlenumbering {%
 	% Capítulo
@@ -56,6 +63,36 @@
 	\hbadness=10000%
 }
 
+% Chequea si los capítulos han sido iniciados
+\def\corecheckchapterinitialized {%
+	\ifthenelse{\equal{\GLOBALtitlerequirechapter}{true}}{%
+		\ifthenelse{\equal{\GLOBALtitleinitchapter}{false}}{%
+			\throwwarning{Se requiere un nuevo capitulo para iniciar las secciones}%
+		}{}%
+	}{}%
+}
+
+% Chequea si una sección han sido iniciada
+\def\corechecksectioninitialized {%
+	\ifthenelse{\equal{\GLOBALtitleinitsection}{false}}{%
+		\throwwarning{Se requiere una nueva seccion}%
+	}{}%
+}
+
+% Chequea si una subsección han sido iniciada
+\def\corechecksubsectioninitialized {%
+	\ifthenelse{\equal{\GLOBALtitleinitsubsection}{false}}{%
+		\throwwarning{Se requiere una nueva subseccion}%
+	}{}%
+}
+
+% Chequea si una subsubsección han sido iniciada
+\def\corechecksubsubsectioninitialized {%
+	\ifthenelse{\equal{\GLOBALtitleinitsubsubsection}{false}}{%
+		\throwwarning{Se requiere una nueva subsubseccion}%
+	}{}%
+}
+
 % Parcha el formato de capítulos
 \pretocmd{\chapter}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
@@ -82,6 +119,11 @@
 	\global\def\GLOBALsectionanumenabled {false}%
 	\global\def\GLOBALsubsectionanumenabled {false}%
 	\global\def\GLOBALsubsubsectionanumenabled {false}%
+	\global\def\GLOBALtitleinitchapter {true}%
+	\global\def\GLOBALtitleinitsection {false}%
+	\global\def\GLOBALtitleinitsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	\coreintializetitlenumbering%
 }{}{}
 
@@ -111,6 +153,11 @@
 	\global\def\GLOBALsectionanumenabled {false}%
 	\global\def\GLOBALsubsectionanumenabled {false}%
 	\global\def\GLOBALsubsubsectionanumenabled {false}%
+	\global\def\GLOBALtitleinitsection {true}%
+	\global\def\GLOBALtitleinitsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsubsection {false}%
+	\corecheckchapterinitialized%
 	\coreintializetitlenumbering%
 }{}{}
 
@@ -139,6 +186,11 @@
 	}{}%
 	\global\def\GLOBALsubsectionanumenabled {false}%
 	\global\def\GLOBALsubsubsectionanumenabled {false}%
+	\global\def\GLOBALtitleinitsubsection {true}%
+	\global\def\GLOBALtitleinitsubsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsubsection {false}%
+	\corecheckchapterinitialized%
+	\corechecksectioninitialized%
 	\coreintializetitlenumbering%
 }{}{}
 
@@ -168,11 +220,16 @@
 		\setcounter{table}{0}%
 	}{}%
 	\global\def\GLOBALsubsubsectionanumenabled {false}%
+	\global\def\GLOBALtitleinitsubsubsection {true}%
+	\global\def\GLOBALtitleinitsubsubsubsection {false}%
+	\corecheckchapterinitialized%
+	\corechecksectioninitialized%
+	\corechecksubsectioninitialized%
 	\coreintializetitlenumbering%
 }{}{}
 
 % Parcha sub-sub-subsecciones
-\pretocmd{\subsubsubsection}{%
+\def\corepatchaftersubsubsubsection {%
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -193,7 +250,12 @@
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%
-}{}{}
+	\global\def\GLOBALtitleinitsubsubsubsection {true}%
+	\corecheckchapterinitialized%
+	\corechecksectioninitialized%
+	\corechecksubsectioninitialized%
+	\corechecksubsubsectioninitialized%
+}
 
 % Insertar un título sin número
 % 	#1	Título

@@ -45,6 +45,7 @@
 % Crea una sección de anexos
 \newenvironment{appendixd}{%
 	\global\def\GLOBALenvappendix {true}%
+	\global\def\GLOBALtitlerequirechapter {false}%
 	\begingroup % Inicia el grupo en nueva página y sección
 	% \clearpage
 	\phantomsection%
@@ -55,6 +56,12 @@
 	\global\def\GLOBALformatnumssection {\formatnumapssection}%
 	\global\def\GLOBALformatnumsssection {\formatnumapsssection}%
 	\global\def\GLOBALformatnumssssection {\formatnumapssssection}%
+	% Define estado de numeración
+	\global\def\GLOBALtitleinitchapter {false}%
+	\global\def\GLOBALtitleinitsection {false}%
+	\global\def\GLOBALtitleinitsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	\bookmarksetup{%
 		numbered={true},
 		openlevel={\thetemplateBookmarksLevelPrev}
@@ -83,12 +90,20 @@
 	\global\def\GLOBALformatnumssection {\formatnumssection}%
 	\global\def\GLOBALformatnumsssection {\formatnumsssection}%
 	\global\def\GLOBALformatnumssssection {\formatnumssssection}%
+	% Reestablece estado de numeración
+	\global\def\GLOBALtitleinitchapter {false}%
+	\global\def\GLOBALtitleinitsection {false}%
+	\global\def\GLOBALtitleinitsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Restablece índice marcador
 	\bookmarksetup{%
 		numbered={\cfgpdfsecnumbookmarks},
 		openlevel={\cfgbookmarksopenlevel}
 	}%
 	\endgroup%
+	\global\def\GLOBALenvappendix {false}%
+	\global\def\GLOBALtitlerequirechapter {false}%
 }
 
 % Inicia código fuente con parámetros

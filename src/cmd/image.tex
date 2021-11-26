@@ -10,6 +10,7 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 \global\def\GLOBALimagelink {} % Almacena el link de la imagen
+\global\def\GLOBALimagenextmarginv {0 cm} % Almacena el margen vertical de las imágenes
 
 % Calcula largo hspace
 % Regresión entre 35,46446->9 y 52,68402->13,5
@@ -41,23 +42,32 @@
 	}{}%
 	\ifthenelse{\equal{#5}{}}{ % Sin label
 		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
-			\fbox{\includegraphics[#3]{#2}}%
+			\raisebox{\GLOBALimagenextmarginv}{%
+				\fbox{\includegraphics[#3]{#2}}
+			}%
 		}{ % Con link
-			\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
+			\raisebox{\GLOBALimagenextmarginv}{%
+				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
+			}%
 		}%
 	}{ % Con label
 		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
 			\subfloat[#5]{%
-				\fbox{\includegraphics[#3]{#2}}#1%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\includegraphics[#3]{#2}}#1%
+				}%
 			}%
 		}{ % Con link
 			\subfloat[#5]{%
-				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
+				}%
 			}%
 		}%
 	}%
 	\endgroup%
 	\global\def\GLOBALenvimageadded {true}%
+	\global\def\GLOBALimagenextmarginv {0 cm}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -105,36 +115,53 @@
 	\ifthenelse{\equal{#7}{}}{ % Sin label
 		\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
-				\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
+				}%
 			}{ % Sin autoplay
-				\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
+				}%
 			}%
 		}{ % Sin loop
 			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
-				\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
+				}%
 			}{ % Sin autoplay
-				\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
+				}%
 			}%
 		}%
 	}{ % Con label
 		\subfloat[#7]{%
 			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
-					\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+					\raisebox{\GLOBALimagenextmarginv}{%
+						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+					}%
 				}{ % Sin autoplay
-					\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
+					\raisebox{\GLOBALimagenextmarginv}{%
+						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
+					}%
 				}%
 			}{ % Sin loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
-					\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+					\raisebox{\GLOBALimagenextmarginv}{%
+						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+					}%
 				}{ % Sin autoplay
-					\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
+					\raisebox{\GLOBALimagenextmarginv}{%
+						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
+					}%
 				}%
 			}%
 		}%
 	}%
 	\endgroup%
 	\global\def\GLOBALenvimageadded {true}%
+	\global\def\GLOBALimagenextmarginv {0 cm}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda animada
@@ -218,6 +245,13 @@
 	\checkonlyonenvimage%
 	\global\def\GLOBALenvimageadded {false}%
 	~ \\ \vspace*{#1}%
+}
+
+% Establece el margen vertical de la siguiente imagen
+%	#1	Margen vertical
+\newcommand{\setnextimagevmargin}[1]{%
+	\emptyvarerr{\setimagesvmargin}{#1}{Tamaño del margen}%
+	\global\def\GLOBALimagenextmarginv {#1}%
 }
 
 % Insertar una imagen

@@ -69,17 +69,19 @@
 		\color{\sssectioncolor} \sssectionfontsize \sssectionfontstyle \selectfont%
 	}
 	\titleformat{\subsubsubsection}{%
-		\color{\ssssectioncolor} \ssssectionfontsz \ssssectionfontstyle
-		}{%
-		\thesubsubsubsection\charaftersectionnum\spacingaftersection}{0em}{%
+		\color{\ssssectioncolor} \ssssectionfontsz \ssssectionfontstyle%
+	}{%
+		\thesubsubsubsection\charaftersectionnum\spacingaftersection%
+		\corepatchaftersubsubsubsection%
+	}{0em}{%
 	}
 	\def\bibfont {\fontsizerefbibl} % Tamaño de fuente de las referencias
 	
 	% -------------------------------------------------------------------------
 	% Estilo citas
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\stylecitereferences}{apacite}}{
-		\renewcommand{\BOthers}[1]{\apacitebothers\hbox{}}
+	\ifthenelse{\equal{\stylecitereferences}{apacite}}{%
+		\renewcommand{\BOthers}[1]{\apacitebothers\hbox{}}%
 	}{}
 	
 	% -------------------------------------------------------------------------
