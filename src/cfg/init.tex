@@ -47,9 +47,6 @@
 \ifthenelse{\equal{\documentsubtitle}{}}{
 	\def\documenttitlehf {\documenttitle}
 }{
-	\makeatletter
-		\g@addto@macro\documentsubtitle\xspace
-	\makeatother
 	\def\documenttitlehf {\documentsubtitle}
 }
 
