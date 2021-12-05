@@ -801,16 +801,16 @@
 % Configura estilos de listas
 % -----------------------------------------------------------------------------
 % Enumerate
-\renewcommand{\labelenumi}{\textcolor{\enumerateitemcolor}{\senumerti}}
-\renewcommand{\labelenumii}{\textcolor{\enumerateitemcolor}{\senumertii}}
-\renewcommand{\labelenumiii}{\textcolor{\enumerateitemcolor}{\senumertiii}}
-\renewcommand{\labelenumiv}{\textcolor{\enumerateitemcolor}{\senumertiv}}
+\def\labelenumi {\textcolor{\enumerateitemcolor}{\senumerti}}
+\def\labelenumii {\textcolor{\enumerateitemcolor}{\senumertii}}
+\def\labelenumiii {\textcolor{\enumerateitemcolor}{\senumertiii}}
+\def\labelenumiv {\textcolor{\enumerateitemcolor}{\senumertiv}}
 
 % Itemize
-\renewcommand{\labelitemi}{\textcolor{\itemizeitemcolor}{\sitemizei}}
-\renewcommand{\labelitemii}{\textcolor{\itemizeitemcolor}{\sitemizeii}}
-\renewcommand{\labelitemiii}{\textcolor{\itemizeitemcolor}{\sitemizeiii}}
-\renewcommand{\labelitemiv}{\textcolor{\itemizeitemcolor}{\sitemizeiv}}
+\def\labelitemi {\textcolor{\itemizeitemcolor}{\sitemizei}}
+\def\labelitemii {\textcolor{\itemizeitemcolor}{\sitemizeii}}
+\def\labelitemiii {\textcolor{\itemizeitemcolor}{\sitemizeiii}}
+\def\labelitemiv {\textcolor{\itemizeitemcolor}{\sitemizeiv}}
 
 % Márgenes
 \setlength\leftmargini{\sitemsmargini pt}
