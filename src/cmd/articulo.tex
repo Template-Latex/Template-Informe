@@ -70,7 +70,7 @@
 				\centering
 				\input{\jobname.authn}%
 			\end{minipage}
-			\vspace{0.3cm}%
+			\vspace{\titleauthormarginbottom cm}%
 			\def\LOCALhasname {false}%
 			~ \\%
 			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
@@ -106,7 +106,7 @@
 			}%
 			\vspace{0.7cm}%
 			\input{\jobname.authn}%
-			\vspace{0.2cm}%
+			\vspace{\titleauthormarginbottom cm}%
 		\end{center}
 		\par%
 		\def\LOCALhasname {false}%
@@ -136,7 +136,7 @@
 				\centering%
 				\input{\jobname.authn}%
 			\end{minipage}
-			\vspace{0.3cm}%
+			\vspace{\titleauthormarginbottom cm}%
 			\def\LOCALhasname {false}%
 		\end{center}
 		\normalsize%
@@ -161,9 +161,8 @@
 				\centering%
 				\input{\jobname.authn}%
 			\end{minipage}
-			\vspace{0.3cm}%
+			\vspace{\titleauthormarginbottom cm}%
 			\def\LOCALhasname {false}%
-			\vspace{0.1cm}%
 			~ \\%
 			\small{\documentdate} \\
 			\vspace{0.3cm}%
@@ -207,3 +206,25 @@
 }{
 	\throwbadconfig{Valor configuracion incorrecto}{\titlestyle}{style1 .. style5}}}}}
 }
+
+% Configura el abstract
+\BeforeBeginEnvironment{abstract}{%
+	\vspace{\abstractmargintop cm}%
+}
+\AfterEndEnvironment{abstract}{%
+	\vspace{\abstractmarginbottom cm}%
+}
+
+% Entorno de keywords
+\newenvironment{keywords}{%
+	\begin{small}%
+		\textbf{Keywords:} %
+		\begin{em}%
+		}{
+		\end{em}%
+	\end{small}%
+	\normalfont\selectfont%
+	\vspace{0.3cm}%
+}
+
+% END
