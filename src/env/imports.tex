@@ -827,7 +827,18 @@
 	\usepackage{showframe}}{
 }
 \ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
-	\usepackage[switch,columnwise,running]{lineno}}{
+	\usepackage[switch,columnwise,running]{lineno}
+	\newcommand*\linenomathpatch[1]{% Parcha entornos
+		\cspreto{#1}{\linenomath}%
+		\cspreto{#1*}{\linenomath}%
+		\csappto{end#1}{\endlinenomath}%
+		\csappto{end#1*}{\endlinenomath}}
+	\linenomathpatch{equation}
+	\linenomathpatch{gather}
+	\linenomathpatch{multline}
+	\linenomathpatch{align}
+	\linenomathpatch{alignat}
+	\linenomathpatch{flalign}}{
 }
 \usepackage{csquotes} % Citas y comillas
 \ifthenelse{\equal{\compilertype}{pdf2latex}}{
