@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.0.7 (05/12/2021)
+% Versión:      8.0.8 (24/12/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -13,11 +13,11 @@
 % CONFIGURACIONES
 % -----------------------------------------------------------------------------
 % Definiciones previas
-\def\iitembcirc {\raisebox{.55\height}{\scriptsize$\bullet$}}
-\def\iitembsquare {\raisebox{.3\height}{\tiny$\blacksquare$}}
-\def\iitemdash {\raisebox{.35\height}{\textendash}}
-\def\iitemcirc {\raisebox{.25\height}{\small$\circ$}}
-\def\iitemdiamond {\raisebox{.25\height}{\small$\diamond$}}
+\def\iitembcirc {\raisebox{0.55\height}{\scriptsize$\bullet$}}
+\def\iitembsquare {\raisebox{0.3\height}{\tiny$\blacksquare$}}
+\def\iitemdash {\raisebox{0.35\height}{\textendash}}
+\def\iitemcirc {\raisebox{0.25\height}{\small$\circ$}}
+\def\iitemdiamond {\raisebox{0.25\height}{\small$\diamond$}}
 
 % Ajustes usuario
 \input{template_config}
@@ -843,7 +843,18 @@
 	\usepackage{showframe}}{
 }
 \ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
-	\usepackage[switch,columnwise,running]{lineno}}{
+	\usepackage[switch,columnwise,running]{lineno}
+	\newcommand*\linenomathpatch[1]{% Parcha entornos
+		\cspreto{#1}{\linenomath}%
+		\cspreto{#1*}{\linenomath}%
+		\csappto{end#1}{\endlinenomath}%
+		\csappto{end#1*}{\endlinenomath}}
+	\linenomathpatch{equation}
+	\linenomathpatch{gather}
+	\linenomathpatch{multline}
+	\linenomathpatch{align}
+	\linenomathpatch{alignat}
+	\linenomathpatch{flalign}}{
 }
 \usepackage{csquotes} % Citas y comillas
 \ifthenelse{\equal{\compilertype}{pdf2latex}}{
@@ -5596,16 +5607,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={05/12/2021},
+		Template.Date={24/12/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.0.7},
-		Template.Version.Hash={EC54109F8C8C9D02056F67162A5F4499},
-		Template.Version.Release={8.0.7},
+		Template.Version.Dev={8.0.8},
+		Template.Version.Hash={4B41DAA6B860116A66D7A75322F7C6C0},
+		Template.Version.Release={8.0.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5617,7 +5628,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.0.7 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.0.8 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5648,7 +5659,7 @@
 \setlength{\headheight}{64 pt} % Tamaño de la cabecera sin fancyhdr
 \setlength{\columnsep}{\columnsepwidth em} % Separación entre columnas
 \ifthenelse{\equal{\showlinenumbers}{true}}{
-	\setlength{\linenumbersep}{0.50cm}
+	\setlength{\linenumbersep}{\marginlinenumbers pt}
 	\renewcommand\linenumberfont{\normalfont\tiny\color{\linenumbercolor}}
 	}{
 }
