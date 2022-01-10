@@ -819,6 +819,12 @@
 \setlength\leftmarginiv{\sitemsmarginiv pt}
 
 % -----------------------------------------------------------------------------
+% Chequea que ciertos módulos no hayan sido cargados antes del inicio del documento
+% -----------------------------------------------------------------------------
+\checkmodulenotloaded{mhchem}
+\checkmodulenotloaded{tcolorbox}
+
+% -----------------------------------------------------------------------------
 % Configura métodos aplicados al iniciar el documento
 % -----------------------------------------------------------------------------
 \AtBeginDocument{%
