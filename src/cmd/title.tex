@@ -16,6 +16,13 @@
 \global\def\GLOBALtitleinitsubsubsection {false}
 \global\def\GLOBALtitleinitsubsubsubsection {false}
 
+% Configura textos a añadir antes de secciones
+\global\def\GLOBALtitleprechapterstr {}
+\global\def\GLOBALtitlepresectionstr {}
+\global\def\GLOBALtitlepresubsectionstr {}
+\global\def\GLOBALtitlepresubsubsectionstr {}
+\global\def\GLOBALtitlepresubsubsubsectionstr {}
+
 % Activa la numeración en las secciones
 \def\coreintializetitlenumbering {%
 	% Capítulo
@@ -255,6 +262,21 @@
 	\corechecksectioninitialized%
 	\corechecksubsectioninitialized%
 	\corechecksubsubsectioninitialized%
+}
+
+% Insertar un capítulo sin número
+% 	#1	Título
+\newcommand{\chapteranum}[1]{%
+	\emptyvarerr{\chapteranum}{#1}{Titulo no definido}%
+	\phantomsection%
+	\needspace{3\baselineskip}%
+	\chapter*{#1}%
+	\addcontentsline{toc}{chapter}{#1}%
+	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{chapter}}{}%
+	\changeheadertitle{#1}%
+	\setcounter{section}{0}%
+	\global\def\GLOBALchapternumenabled {false}%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un título sin número
