@@ -105,4 +105,50 @@
 	}{%
 }
 
+% Entorno simple de apéndices
+\newenvironment{appendixs}{%
+	\global\def\GLOBALenvappendix {true}%
+	\global\def\GLOBALtitlerequirechapter {false}%
+	\begingroup % Inicia el grupo en nueva página y sección
+	\chapteranum{\nameappendixsection}%
+	% Define etiqueta secciones
+	\global\def\GLOBALtitlepresectionstr {\nameltappendixsection~}%
+	\changeheadertitle{\nameltappendixsection} % Cambia el nombre del header
+	% Define formato números para appendix
+	\global\def\GLOBALformatnumchapter {\formatnumapchapter}%
+	\global\def\GLOBALformatnumsection {\formatnumapchapter}%
+	\global\def\GLOBALformatnumssection {\formatnumapsection}%
+	\global\def\GLOBALformatnumsssection {\formatnumapssection}%
+	\global\def\GLOBALformatnumssssection {\formatnumapsssection}%
+	% Define estado de numeración
+	\global\def\GLOBALtitleinitchapter {false}%
+	\global\def\GLOBALtitleinitsection {false}%
+	\global\def\GLOBALtitleinitsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsubsection {false}%
+	\ifthenelse{\equal{\appendixindepobjnum}{true}}{%
+		\counterwithin{equation}{section}
+		\counterwithin{figure}{section}
+		\counterwithin{lstlisting}{section}
+		\counterwithin{table}{section}
+	}%
+	}{%
+	% Restablece formato de números
+	\global\def\GLOBALformatnumchapter {\formatnumchapter}%
+	\global\def\GLOBALformatnumsection {\formatnumsection}%
+	\global\def\GLOBALformatnumssection {\formatnumssection}%
+	\global\def\GLOBALformatnumsssection {\formatnumsssection}%
+	\global\def\GLOBALformatnumssssection {\formatnumssssection}%
+	% Reestablece estado de numeración
+	\global\def\GLOBALtitleinitchapter {false}%
+	\global\def\GLOBALtitleinitsection {false}%
+	\global\def\GLOBALtitleinitsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsection {false}%
+	\global\def\GLOBALtitleinitsubsubsubsection {false}%
+	% Resetea etiqueta secciones
+	\global\def\GLOBALtitlepresectionstr {}%
+	\endgroup%
+	\global\def\GLOBALenvappendix {false}%
+}
+
 % END
