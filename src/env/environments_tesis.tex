@@ -126,6 +126,8 @@
 	\global\def\GLOBALtitleinitsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
+	% Otras configuraciones
+	\global\def\GLOBALtitlechapterenabled {false}%
 	\ifthenelse{\equal{\appendixindepobjnum}{true}}{%
 		\counterwithin{equation}{section}
 		\counterwithin{figure}{section}
@@ -147,6 +149,7 @@
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	% Resetea etiqueta secciones
 	\global\def\GLOBALtitlepresectionstr {}%
+	\global\def\GLOBALtitlechapterenabled {true}%
 	\endgroup%
 	\global\def\GLOBALenvappendix {false}%
 }

@@ -23,6 +23,9 @@
 \global\def\GLOBALtitlepresubsubsectionstr {}
 \global\def\GLOBALtitlepresubsubsubsectionstr {}
 
+% Configura que entornos pueden funcionar
+\global\def\GLOBALtitlechapterenabled {false}
+
 % Activa la numeración en las secciones
 \def\coreintializetitlenumbering {%
 	% Capítulo
@@ -102,6 +105,9 @@
 
 % Parcha el formato de capítulos
 \pretocmd{\chapter}{%
+	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{ % Verifica que el entorno esté activo
+		\throwwarning{La insercion de capitulos esta desactivada}%
+	}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -132,6 +138,7 @@
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	\coreintializetitlenumbering%
+	}%
 }{}{}
 
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
@@ -267,6 +274,9 @@
 % Insertar un capítulo sin número
 % 	#1	Título
 \newcommand{\chapteranum}[1]{%
+	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{ % Verifica que el entorno esté activo
+		\throwwarning{La insercion de capitulos esta desactivada}%
+	}{%
 	\emptyvarerr{\chapteranum}{#1}{Titulo no definido}%
 	\phantomsection%
 	\needspace{3\baselineskip}%
@@ -277,6 +287,7 @@
 	\setcounter{section}{0}%
 	\global\def\GLOBALchapternumenabled {false}%
 	\coreintializetitlenumbering%
+	}%
 }
 
 % Insertar un título sin número
