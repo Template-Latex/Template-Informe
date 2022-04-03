@@ -2,9 +2,9 @@
 Generate unicode tests.
 """
 
-myunicodes=''.join(open('src/cfg/unicode.tex', 'r').readlines())
+myunicodes=''.join(open('src/cfg/unicode.tex', 'r', encoding='utf8').readlines())
 
-f = open('test/unicode.sty', 'r').readlines()
+f = open('test/unicode.sty', 'r', encoding='utf8').readlines()
 newkcodes = []
 for j in f:
 	j = j.strip()
@@ -31,11 +31,11 @@ for j in newkcodes:
 write_test = True
 
 if write_test:
-	f = open('test/unicode.tex', 'w')
+	f = open('test/unicode.tex', 'w', encoding='utf8')
 	f.write('Ejemplos:\n\\begin{itemize}\n')
 	added = []
 	for j in myunicodes.split('\n'):
-		if 'DeclareUnicodeCharacter' not in j or '\\def' in j or '\\ifdefined' in j:
+		if 'DeclareUnicodeCharacter' not in j or '\\def' in j or '\\ifdefined' in j or '\ifx' in j:
 			continue
 		if j[0] == '%':
 			continue
@@ -49,12 +49,12 @@ if write_test:
 	f.write('\end{itemize}')
 	f.close()
 
-f = open('test/unicode_replacer.py', 'w')
+f = open('test/unicode_replacer.py', 'w', encoding='utf8')
 cmd = []
 notcmd = []
 addedjval = []
 for j in myunicodes.split('\n'):
-	if 'DeclareUnicodeCharacter' not in j or '\\def' in j or '\\ifdefined' in j:
+	if 'DeclareUnicodeCharacter' not in j or '\\def' in j or '\\ifdefined' in j or '\ifx' in j:
 		continue
 	jsp = j.split('}{')
 	kcode = jsp.pop(0).split('{')[1]
@@ -70,7 +70,7 @@ for j in myunicodes.split('\n'):
 		continue
 	jval = jval.replace('\\', '\\\\')
 	if jval in addedjval:
-		# print(f'REPEATED {jval}')
+		# print(f'REPEATED {jval}')
 		continue
 	addedjval.append(jval)
 	txt = f"\t('{jval}', '{char}'),\n"
