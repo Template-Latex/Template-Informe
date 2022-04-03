@@ -47,7 +47,22 @@
 % Cambios generales en presentación
 % -----------------------------------------------------------------------------
 % \let\Tiny=\tiny % https://tex.stackexchange.com/q/58087/5764
-\renewcommand{\insertshorttitle}[1][]{\documentsubtitle}
+% Desactiva color links en headline y footline
+\makeatletter
+	\renewcommand\insertshorttitle[1][]{%
+		\beamer@setupshort{#1}%
+		\let\thanks=\@gobble%
+		\ifnum\c@page=1%
+		\hyperlinkpresentationend{\beamer@insertshort{\usebeamercolor*[fg]{title in head/foot}\beamer@shorttitle}}%
+		\else%
+		\hyperlinkpresentationstart{\beamer@insertshort{\usebeamercolor*[fg]{title in head/foot}\beamer@shorttitle}}%
+		\fi%
+	}
+	\newcommand\disablebeamercolorlinks{\def\HyColor@UseColor##1{}}
+\makeatletter
+\addtobeamertemplate{headline}{\disablebeamercolorlinks{}}{}
+\addtobeamertemplate{footline}{\disablebeamercolorlinks{}}{}
+% Modifica color de fondo de la página
 \setbeamercolor{background canvas}{bg=\pagescolor}
 
 % Configura los bloques
