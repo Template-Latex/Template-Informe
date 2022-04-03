@@ -141,4 +141,52 @@
 	\@addtoreset{subtable}{framenumber}
 \makeatother
 
+% Establece temas custom
+% -----------------------------------------------------------------------------
+\makeatletter
+\ifthenelse{\equal{\GLOBALcustombeamertheme}{}}{%
+}{
+\ifthenelse{\equal{\GLOBALcustombeamertheme}{FrankfurtBottom}}{%
+	\usetheme{Frankfurt}%
+	\setbeamertemplate{frametitle}[default][colsep=-4bp,rounded=false,shadow=false]%
+	\setbeamertemplate{headline}{}%
+	\setbeamertemplate{footline}{%
+		\hypersetup{hidelinks}%
+		\pgfuseshading{beamer@barshade}%
+		\vskip-0.05ex%
+		\begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=0ex]{empty}
+			\begin{pgfpicture}
+				\begin{pgfscope}%
+					\ifbeamer@sb@subsection%
+					\pgfsetfillcolor{subsection in head/foot.bg}%
+					\else%
+					\pgfsetfillcolor{section in head/foot.bg}%
+					\fi%
+					\pgfpathrectangle{\pgfpoint{-.5\paperwidth}{-0.5ex}}{\pgfpoint{\paperwidth}{1ex}}%
+					\pgfsetfading{beamer@belowframetitlemask}{}%
+					\pgfusepath{fill}%
+				\end{pgfscope}%
+			\end{pgfpicture}%
+		\end{beamercolorbox}%
+		\ifbeamer@sb@subsection%
+		\vskip-9.75ex%
+		\else%
+		\vskip-6.85ex%
+		\fi%
+		\begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+			\insertnavigation{\paperwidth}
+		\end{beamercolorbox}%
+		\ifbeamer@sb@subsection%
+		\begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+			leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+			\usebeamerfont{subsection in head/foot}\insertsubsectionhead
+		\end{beamercolorbox}%
+		\fi%
+	}
+}{
+	\errmessage{Tema no existe}
+	\stop
+}}
+\makeatother
+
 % END

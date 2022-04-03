@@ -29,6 +29,12 @@
 \definecolor{treegreen}{RGB}{0,155,118}
 \input{src/defs}
 
+% Define temas custom
+\global\def\GLOBALcustombeamertheme {}
+\newcommand{\usethemecustom}[1]{%
+	\global\def\GLOBALcustombeamertheme {#1}
+}
+
 % Ajustes usuario
 \input{src/config}
 
