@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.1.0 (19/03/2022)
+% Versión:      8.1.1 (09/04/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -123,10 +123,10 @@
 % -----------------------------------------------------------------------------
 % Librerías independientes
 % -----------------------------------------------------------------------------
-\usepackage{animate}       % Imágenes animadas
 \usepackage{amsbsy}        % Símbolos matemáticos en negrita
 \usepackage{amssymb}       % Librerías matemáticas
 \usepackage{amsthm}        % Definición de teoremas
+\usepackage{animate}       % Imágenes animadas
 \usepackage{array}         % Nuevas características a las tablas
 \usepackage{bigstrut}      % Líneas horizontales en tablas
 \usepackage{bm}            % Caracteres en negrita en ecuaciones
@@ -143,6 +143,7 @@
 \usepackage{lipsum}        % Permite crear párrafos de prueba
 \usepackage{listings}      % Permite añadir código fuente
 \usepackage{longtable}     % Permite utilizar tablas en varias hojas
+\usepackage{mathrsfs}      % Define más fuentes matemáticas
 \usepackage{mathtools}     % Permite utilizar notaciones matemáticas
 \usepackage{multicol}      % Múltiples columnas
 \usepackage{needspace}     % Maneja los espacios en página
@@ -4538,7 +4539,8 @@
 % C++
 \lstdefinestyle{cpp}{
 	language=C++,
-	breakatwhitespace=false
+	breakatwhitespace=false,
+	morekeywords={NULL}
 }
 
 % C#
@@ -5339,7 +5341,7 @@
 		{ϋ}{{$\ddot \upsilon$}}1 {ΰ}{{$\dddot \upsilon$}}1
 		{Φ}{{$\Phi$}}1 {φ}{{$\phi$}}1 {Ψ}{{$\Psi$}}1 {ψ}{{$\psi$}}1
 		{Ω}{{$\Omega$}}1 {ω}{{$\omega$}}1 {ώ}{{$\dot \omega$}}1
-		{“}{{``}}1 {”}{{''}}1 {…}{{$\ldots$}}1 {`}{\`}1 {–}{{--}}1,
+		{“}{{``}}1 {”}{{''}}1 {…}{{$\ldots$}}1 {`}{\`}1 {–}{{--}}1 { }{{ }}1,
 	numbers=left,
 	numbersep={\sourcecodenumbersep pt},
 	numberstyle=\sourcecodenumbersize\color{dkgray},
@@ -5454,7 +5456,7 @@
 	\emptyvarerr{\inlinesourcecodeboxed}{#3}{Codigo no definido}%
 	\lstset{%
 		basicstyle={\sourcecodeilfonts\sourcecodeilfontf\color{\maintextcolor}}%
-	}
+	}%
 	\checkvalidsourcecodestyle{#2}%
 	\ifthenelse{\equal{#1}{}}{%
 		\Colorbox{\sourcecodebgcolor}{\lstinline[style=#2]!#3!}%
@@ -5466,7 +5468,7 @@
 	}}%
 	\lstset{%
 		basicstyle={\sourcecodefonts\sourcecodefontf\color{\maintextcolor}}%
-	}
+	}%
 }
 
 % Inserta una referencia en un código fuente
@@ -5651,16 +5653,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={19/03/2022},
+		Template.Date={09/04/2022},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.1.0-1},
-		Template.Version.Hash={18A415D1D9BFA8C3BD7A8C3FA996C233},
-		Template.Version.Release={8.1.0},
+		Template.Version.Dev={8.1.1-1},
+		Template.Version.Hash={F43FFD0450DA6EB2983BD303C74D9B48},
+		Template.Version.Release={8.1.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5672,7 +5674,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.1.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.1.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5734,6 +5736,7 @@
 		hidelinks,
 		colorlinks=true,
 		citecolor=\numcitecolor,
+		filecolor=\urlcolor,
 		linkcolor=\linkcolor,
 		urlcolor=\urlcolor
 	}
@@ -6374,7 +6377,7 @@
 }
 
 % -----------------------------------------------------------------------------
-% Declaración caracteres unicode adicionales
+% DECLARACIÓN DE CARACTERES ADICIONALES UNICODE
 % -----------------------------------------------------------------------------
 % Definición letras griegas
 \def\Alpha{A}
@@ -6563,16 +6566,210 @@
 \DeclareUnicodeCharacter{1D3E}{\ensuremath{^P}}
 \DeclareUnicodeCharacter{1D3F}{\ensuremath{^R}}
 \DeclareUnicodeCharacter{1D40}{\ensuremath{^T}}
+\DeclareUnicodeCharacter{1D400}{\ensuremath{\mathbf{A}}}
+\DeclareUnicodeCharacter{1D401}{\ensuremath{\mathbf{B}}}
+\DeclareUnicodeCharacter{1D402}{\ensuremath{\mathbf{C}}}
+\DeclareUnicodeCharacter{1D403}{\ensuremath{\mathbf{D}}}
+\DeclareUnicodeCharacter{1D404}{\ensuremath{\mathbf{E}}}
+\DeclareUnicodeCharacter{1D405}{\ensuremath{\mathbf{F}}}
+\DeclareUnicodeCharacter{1D406}{\ensuremath{\mathbf{G}}}
+\DeclareUnicodeCharacter{1D407}{\ensuremath{\mathbf{H}}}
+\DeclareUnicodeCharacter{1D408}{\ensuremath{\mathbf{I}}}
+\DeclareUnicodeCharacter{1D409}{\ensuremath{\mathbf{J}}}
+\DeclareUnicodeCharacter{1D40A}{\ensuremath{\mathbf{K}}}
+\DeclareUnicodeCharacter{1D40B}{\ensuremath{\mathbf{L}}}
+\DeclareUnicodeCharacter{1D40C}{\ensuremath{\mathbf{M}}}
+\DeclareUnicodeCharacter{1D40D}{\ensuremath{\mathbf{N}}}
+\DeclareUnicodeCharacter{1D40E}{\ensuremath{\mathbf{O}}}
+\DeclareUnicodeCharacter{1D40F}{\ensuremath{\mathbf{P}}}
 \DeclareUnicodeCharacter{1D41}{\ensuremath{^U}}
+\DeclareUnicodeCharacter{1D410}{\ensuremath{\mathbf{Q}}}
+\DeclareUnicodeCharacter{1D411}{\ensuremath{\mathbf{R}}}
+\DeclareUnicodeCharacter{1D412}{\ensuremath{\mathbf{S}}}
+\DeclareUnicodeCharacter{1D413}{\ensuremath{\mathbf{T}}}
+\DeclareUnicodeCharacter{1D414}{\ensuremath{\mathbf{U}}}
+\DeclareUnicodeCharacter{1D415}{\ensuremath{\mathbf{V}}}
+\DeclareUnicodeCharacter{1D416}{\ensuremath{\mathbf{W}}}
+\DeclareUnicodeCharacter{1D417}{\ensuremath{\mathbf{X}}}
+\DeclareUnicodeCharacter{1D418}{\ensuremath{\mathbf{Y}}}
+\DeclareUnicodeCharacter{1D419}{\ensuremath{\mathbf{Z}}}
+\DeclareUnicodeCharacter{1D41A}{\ensuremath{\mathbf{a}}}
+\DeclareUnicodeCharacter{1D41B}{\ensuremath{\mathbf{b}}}
+\DeclareUnicodeCharacter{1D41C}{\ensuremath{\mathbf{c}}}
+\DeclareUnicodeCharacter{1D41D}{\ensuremath{\mathbf{d}}}
+\DeclareUnicodeCharacter{1D41E}{\ensuremath{\mathbf{e}}}
+\DeclareUnicodeCharacter{1D41F}{\ensuremath{\mathbf{f}}}
 \DeclareUnicodeCharacter{1D42}{\ensuremath{^W}}
+\DeclareUnicodeCharacter{1D420}{\ensuremath{\mathbf{g}}}
+\DeclareUnicodeCharacter{1D421}{\ensuremath{\mathbf{h}}}
+\DeclareUnicodeCharacter{1D422}{\ensuremath{\mathbf{i}}}
+\DeclareUnicodeCharacter{1D423}{\ensuremath{\mathbf{j}}}
+\DeclareUnicodeCharacter{1D424}{\ensuremath{\mathbf{k}}}
+\DeclareUnicodeCharacter{1D425}{\ensuremath{\mathbf{l}}}
+\DeclareUnicodeCharacter{1D426}{\ensuremath{\mathbf{m}}}
+\DeclareUnicodeCharacter{1D427}{\ensuremath{\mathbf{n}}}
+\DeclareUnicodeCharacter{1D428}{\ensuremath{\mathbf{o}}}
+\DeclareUnicodeCharacter{1D429}{\ensuremath{\mathbf{p}}}
+\DeclareUnicodeCharacter{1D42A}{\ensuremath{\mathbf{q}}}
+\DeclareUnicodeCharacter{1D42B}{\ensuremath{\mathbf{r}}}
+\DeclareUnicodeCharacter{1D42C}{\ensuremath{\mathbf{s}}}
+\DeclareUnicodeCharacter{1D42D}{\ensuremath{\mathbf{t}}}
+\DeclareUnicodeCharacter{1D42E}{\ensuremath{\mathbf{u}}}
+\DeclareUnicodeCharacter{1D42F}{\ensuremath{\mathbf{v}}}
 \DeclareUnicodeCharacter{1D43}{\ensuremath{^a}}
+\DeclareUnicodeCharacter{1D430}{\ensuremath{\mathbf{w}}}
+\DeclareUnicodeCharacter{1D431}{\ensuremath{\mathbf{x}}}
+\DeclareUnicodeCharacter{1D432}{\ensuremath{\mathbf{y}}}
+\DeclareUnicodeCharacter{1D433}{\ensuremath{\mathbf{z}}}
+\DeclareUnicodeCharacter{1D434}{\ensuremath{\mathit{A}}}
+\DeclareUnicodeCharacter{1D435}{\ensuremath{\mathit{B}}}
+\DeclareUnicodeCharacter{1D436}{\ensuremath{\mathit{C}}}
+\DeclareUnicodeCharacter{1D437}{\ensuremath{\mathit{D}}}
+\DeclareUnicodeCharacter{1D438}{\ensuremath{\mathit{E}}}
+\DeclareUnicodeCharacter{1D439}{\ensuremath{\mathit{F}}}
+\DeclareUnicodeCharacter{1D43A}{\ensuremath{\mathit{G}}}
+\DeclareUnicodeCharacter{1D43B}{\ensuremath{\mathit{H}}}
+\DeclareUnicodeCharacter{1D43C}{\ensuremath{\mathit{I}}}
+\DeclareUnicodeCharacter{1D43D}{\ensuremath{\mathit{J}}}
+\DeclareUnicodeCharacter{1D43E}{\ensuremath{\mathit{K}}}
+\DeclareUnicodeCharacter{1D43F}{\ensuremath{\mathit{L}}}
+\DeclareUnicodeCharacter{1D440}{\ensuremath{\mathit{M}}}
+\DeclareUnicodeCharacter{1D441}{\ensuremath{\mathit{N}}}
+\DeclareUnicodeCharacter{1D442}{\ensuremath{\mathit{O}}}
+\DeclareUnicodeCharacter{1D443}{\ensuremath{\mathit{P}}}
+\DeclareUnicodeCharacter{1D444}{\ensuremath{\mathit{Q}}}
+\DeclareUnicodeCharacter{1D445}{\ensuremath{\mathit{R}}}
+\DeclareUnicodeCharacter{1D446}{\ensuremath{\mathit{S}}}
+\DeclareUnicodeCharacter{1D447}{\ensuremath{\mathit{T}}}
+\DeclareUnicodeCharacter{1D448}{\ensuremath{\mathit{U}}}
+\DeclareUnicodeCharacter{1D449}{\ensuremath{\mathit{V}}}
+\DeclareUnicodeCharacter{1D44A}{\ensuremath{\mathit{W}}}
+\DeclareUnicodeCharacter{1D44B}{\ensuremath{\mathit{X}}}
+\DeclareUnicodeCharacter{1D44C}{\ensuremath{\mathit{Y}}}
+\DeclareUnicodeCharacter{1D44D}{\ensuremath{\mathit{Z}}}
+\DeclareUnicodeCharacter{1D44E}{\ensuremath{\mathit{a}}}
+\DeclareUnicodeCharacter{1D44F}{\ensuremath{\mathit{b}}}
+\DeclareUnicodeCharacter{1D450}{\ensuremath{\mathit{c}}}
+\DeclareUnicodeCharacter{1D451}{\ensuremath{\mathit{d}}}
+\DeclareUnicodeCharacter{1D452}{\ensuremath{\mathit{e}}}
+\DeclareUnicodeCharacter{1D453}{\ensuremath{\mathit{f}}}
+\DeclareUnicodeCharacter{1D454}{\ensuremath{\mathit{g}}}
+\DeclareUnicodeCharacter{1D456}{\ensuremath{\mathit{i}}}
+\DeclareUnicodeCharacter{1D457}{\ensuremath{\mathit{j}}}
+\DeclareUnicodeCharacter{1D458}{\ensuremath{\mathit{k}}}
+\DeclareUnicodeCharacter{1D459}{\ensuremath{\mathit{l}}}
+\DeclareUnicodeCharacter{1D45A}{\ensuremath{\mathit{m}}}
+\DeclareUnicodeCharacter{1D45B}{\ensuremath{\mathit{n}}}
+\DeclareUnicodeCharacter{1D45C}{\ensuremath{\mathit{o}}}
+\DeclareUnicodeCharacter{1D45D}{\ensuremath{\mathit{p}}}
+\DeclareUnicodeCharacter{1D45E}{\ensuremath{\mathit{q}}}
+\DeclareUnicodeCharacter{1D45F}{\ensuremath{\mathit{r}}}
+\DeclareUnicodeCharacter{1D460}{\ensuremath{\mathit{s}}}
+\DeclareUnicodeCharacter{1D461}{\ensuremath{\mathit{t}}}
+\DeclareUnicodeCharacter{1D462}{\ensuremath{\mathit{u}}}
+\DeclareUnicodeCharacter{1D463}{\ensuremath{\mathit{v}}}
+\DeclareUnicodeCharacter{1D464}{\ensuremath{\mathit{w}}}
+\DeclareUnicodeCharacter{1D465}{\ensuremath{\mathit{x}}}
+\DeclareUnicodeCharacter{1D466}{\ensuremath{\mathit{y}}}
+\DeclareUnicodeCharacter{1D467}{\ensuremath{\mathit{z}}}
 \DeclareUnicodeCharacter{1D47}{\ensuremath{^b}}
 \DeclareUnicodeCharacter{1D48}{\ensuremath{^d}}
 \DeclareUnicodeCharacter{1D49}{\ensuremath{^e}}
+\DeclareUnicodeCharacter{1D49C}{\ensuremath{\mathscr{A}}}
+\DeclareUnicodeCharacter{1D49E}{\ensuremath{\mathscr{C}}}
+\DeclareUnicodeCharacter{1D49F}{\ensuremath{\mathscr{D}}}
+\DeclareUnicodeCharacter{1D4A2}{\ensuremath{\mathscr{G}}}
+\DeclareUnicodeCharacter{1D4A5}{\ensuremath{\mathscr{J}}}
+\DeclareUnicodeCharacter{1D4A6}{\ensuremath{\mathscr{K}}}
+\DeclareUnicodeCharacter{1D4A9}{\ensuremath{\mathscr{N}}}
+\DeclareUnicodeCharacter{1D4AA}{\ensuremath{\mathscr{O}}}
+\DeclareUnicodeCharacter{1D4AB}{\ensuremath{\mathscr{P}}}
+\DeclareUnicodeCharacter{1D4AC}{\ensuremath{\mathscr{Q}}}
+\DeclareUnicodeCharacter{1D4AE}{\ensuremath{\mathscr{S}}}
+\DeclareUnicodeCharacter{1D4AF}{\ensuremath{\mathscr{T}}}
+\DeclareUnicodeCharacter{1D4B0}{\ensuremath{\mathscr{U}}}
+\DeclareUnicodeCharacter{1D4B1}{\ensuremath{\mathscr{V}}}
+\DeclareUnicodeCharacter{1D4B2}{\ensuremath{\mathscr{W}}}
+\DeclareUnicodeCharacter{1D4B3}{\ensuremath{\mathscr{X}}}
+\DeclareUnicodeCharacter{1D4B4}{\ensuremath{\mathscr{Y}}}
+\DeclareUnicodeCharacter{1D4B5}{\ensuremath{\mathscr{Z}}}
 \DeclareUnicodeCharacter{1D4D}{\ensuremath{^g}}
+\DeclareUnicodeCharacter{1D4D0}{\ensuremath{\mathcal{A}}}
+\DeclareUnicodeCharacter{1D4D1}{\ensuremath{\mathcal{B}}}
+\DeclareUnicodeCharacter{1D4D2}{\ensuremath{\mathcal{C}}}
+\DeclareUnicodeCharacter{1D4D3}{\ensuremath{\mathcal{D}}}
+\DeclareUnicodeCharacter{1D4D4}{\ensuremath{\mathcal{E}}}
+\DeclareUnicodeCharacter{1D4D5}{\ensuremath{\mathcal{F}}}
+\DeclareUnicodeCharacter{1D4D6}{\ensuremath{\mathcal{G}}}
+\DeclareUnicodeCharacter{1D4D7}{\ensuremath{\mathcal{H}}}
+\DeclareUnicodeCharacter{1D4D8}{\ensuremath{\mathcal{I}}}
+\DeclareUnicodeCharacter{1D4D9}{\ensuremath{\mathcal{J}}}
+\DeclareUnicodeCharacter{1D4DA}{\ensuremath{\mathcal{K}}}
+\DeclareUnicodeCharacter{1D4DB}{\ensuremath{\mathcal{L}}}
+\DeclareUnicodeCharacter{1D4DC}{\ensuremath{\mathcal{M}}}
+\DeclareUnicodeCharacter{1D4DD}{\ensuremath{\mathcal{N}}}
+\DeclareUnicodeCharacter{1D4DE}{\ensuremath{\mathcal{O}}}
+\DeclareUnicodeCharacter{1D4DF}{\ensuremath{\mathcal{P}}}
+\DeclareUnicodeCharacter{1D4E0}{\ensuremath{\mathcal{Q}}}
+\DeclareUnicodeCharacter{1D4E1}{\ensuremath{\mathcal{R}}}
+\DeclareUnicodeCharacter{1D4E2}{\ensuremath{\mathcal{S}}}
+\DeclareUnicodeCharacter{1D4E3}{\ensuremath{\mathcal{T}}}
+\DeclareUnicodeCharacter{1D4E4}{\ensuremath{\mathcal{U}}}
+\DeclareUnicodeCharacter{1D4E5}{\ensuremath{\mathcal{V}}}
+\DeclareUnicodeCharacter{1D4E6}{\ensuremath{\mathcal{W}}}
+\DeclareUnicodeCharacter{1D4E7}{\ensuremath{\mathcal{X}}}
+\DeclareUnicodeCharacter{1D4E8}{\ensuremath{\mathcal{Y}}}
+\DeclareUnicodeCharacter{1D4E9}{\ensuremath{\mathcal{Z}}}
 \DeclareUnicodeCharacter{1D4F}{\ensuremath{^k}}
 \DeclareUnicodeCharacter{1D50}{\ensuremath{^m}}
+\DeclareUnicodeCharacter{1D504}{\ensuremath{\mathfrak{A}}}
+\DeclareUnicodeCharacter{1D505}{\ensuremath{\mathfrak{B}}}
+\DeclareUnicodeCharacter{1D507}{\ensuremath{\mathfrak{D}}}
+\DeclareUnicodeCharacter{1D508}{\ensuremath{\mathfrak{E}}}
+\DeclareUnicodeCharacter{1D509}{\ensuremath{\mathfrak{F}}}
+\DeclareUnicodeCharacter{1D50A}{\ensuremath{\mathfrak{G}}}
+\DeclareUnicodeCharacter{1D50D}{\ensuremath{\mathfrak{J}}}
+\DeclareUnicodeCharacter{1D50E}{\ensuremath{\mathfrak{K}}}
+\DeclareUnicodeCharacter{1D50F}{\ensuremath{\mathfrak{L}}}
+\DeclareUnicodeCharacter{1D510}{\ensuremath{\mathfrak{M}}}
+\DeclareUnicodeCharacter{1D511}{\ensuremath{\mathfrak{N}}}
+\DeclareUnicodeCharacter{1D512}{\ensuremath{\mathfrak{O}}}
+\DeclareUnicodeCharacter{1D513}{\ensuremath{\mathfrak{P}}}
+\DeclareUnicodeCharacter{1D514}{\ensuremath{\mathfrak{Q}}}
+\DeclareUnicodeCharacter{1D516}{\ensuremath{\mathfrak{S}}}
+\DeclareUnicodeCharacter{1D517}{\ensuremath{\mathfrak{T}}}
+\DeclareUnicodeCharacter{1D518}{\ensuremath{\mathfrak{U}}}
+\DeclareUnicodeCharacter{1D519}{\ensuremath{\mathfrak{V}}}
+\DeclareUnicodeCharacter{1D51A}{\ensuremath{\mathfrak{W}}}
+\DeclareUnicodeCharacter{1D51B}{\ensuremath{\mathfrak{X}}}
+\DeclareUnicodeCharacter{1D51C}{\ensuremath{\mathfrak{Y}}}
+\DeclareUnicodeCharacter{1D51E}{\ensuremath{\mathfrak{a}}}
+\DeclareUnicodeCharacter{1D51F}{\ensuremath{\mathfrak{b}}}
 \DeclareUnicodeCharacter{1D52}{\ensuremath{^o}}
+\DeclareUnicodeCharacter{1D520}{\ensuremath{\mathfrak{c}}}
+\DeclareUnicodeCharacter{1D521}{\ensuremath{\mathfrak{d}}}
+\DeclareUnicodeCharacter{1D522}{\ensuremath{\mathfrak{e}}}
+\DeclareUnicodeCharacter{1D523}{\ensuremath{\mathfrak{f}}}
+\DeclareUnicodeCharacter{1D524}{\ensuremath{\mathfrak{g}}}
+\DeclareUnicodeCharacter{1D525}{\ensuremath{\mathfrak{h}}}
+\DeclareUnicodeCharacter{1D526}{\ensuremath{\mathfrak{i}}}
+\DeclareUnicodeCharacter{1D527}{\ensuremath{\mathfrak{j}}}
+\DeclareUnicodeCharacter{1D528}{\ensuremath{\mathfrak{k}}}
+\DeclareUnicodeCharacter{1D529}{\ensuremath{\mathfrak{l}}}
+\DeclareUnicodeCharacter{1D52A}{\ensuremath{\mathfrak{m}}}
+\DeclareUnicodeCharacter{1D52B}{\ensuremath{\mathfrak{n}}}
+\DeclareUnicodeCharacter{1D52C}{\ensuremath{\mathfrak{o}}}
+\DeclareUnicodeCharacter{1D52D}{\ensuremath{\mathfrak{p}}}
+\DeclareUnicodeCharacter{1D52E}{\ensuremath{\mathfrak{q}}}
+\DeclareUnicodeCharacter{1D52F}{\ensuremath{\mathfrak{r}}}
+\DeclareUnicodeCharacter{1D530}{\ensuremath{\mathfrak{s}}}
+\DeclareUnicodeCharacter{1D531}{\ensuremath{\mathfrak{t}}}
+\DeclareUnicodeCharacter{1D532}{\ensuremath{\mathfrak{u}}}
+\DeclareUnicodeCharacter{1D533}{\ensuremath{\mathfrak{v}}}
+\DeclareUnicodeCharacter{1D534}{\ensuremath{\mathfrak{w}}}
+\DeclareUnicodeCharacter{1D535}{\ensuremath{\mathfrak{x}}}
+\DeclareUnicodeCharacter{1D536}{\ensuremath{\mathfrak{y}}}
+\DeclareUnicodeCharacter{1D537}{\ensuremath{\mathfrak{z}}}
 \DeclareUnicodeCharacter{1D538}{\ensuremath{\mathbb{A}}}
 \DeclareUnicodeCharacter{1D539}{\ensuremath{\mathbb{B}}}
 \DeclareUnicodeCharacter{1D53B}{\ensuremath{\mathbb{D}}}
@@ -6623,9 +6820,45 @@
 \DeclareUnicodeCharacter{1D58}{\ensuremath{^u}}
 \DeclareUnicodeCharacter{1D5B}{\ensuremath{^v}}
 \DeclareUnicodeCharacter{1D62}{\ensuremath{_i}}
+\DeclareUnicodeCharacter{1D629}{\ensuremath{\mathit{h}}}
 \DeclareUnicodeCharacter{1D63}{\ensuremath{_r}}
 \DeclareUnicodeCharacter{1D64}{\ensuremath{_u}}
 \DeclareUnicodeCharacter{1D65}{\ensuremath{_v}}
+\DeclareUnicodeCharacter{1D6E4}{\ensuremath{\Gamma}}
+\DeclareUnicodeCharacter{1D6E5}{\ensuremath{\Delta}}
+\DeclareUnicodeCharacter{1D6F1}{\ensuremath{\Pi}}
+\DeclareUnicodeCharacter{1D6F4}{\ensuremath{\Sigma}}
+\DeclareUnicodeCharacter{1D6FA}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{1D6FC}{\ensuremath{\alpha}}
+\DeclareUnicodeCharacter{1D6FD}{\ensuremath{\beta}}
+\DeclareUnicodeCharacter{1D6FE}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{1D6FF}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{1D700}{\ensuremath{\varepsilon}}
+\DeclareUnicodeCharacter{1D701}{\ensuremath{\zeta}}
+\DeclareUnicodeCharacter{1D702}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{1D703}{\ensuremath{\theta}}
+\DeclareUnicodeCharacter{1D704}{\ensuremath{\iota}}
+\DeclareUnicodeCharacter{1D705}{\ensuremath{\kappa}}
+\DeclareUnicodeCharacter{1D706}{\ensuremath{\lambda}}
+\DeclareUnicodeCharacter{1D707}{\ensuremath{\mu}}
+\DeclareUnicodeCharacter{1D708}{\ensuremath{\nu}}
+\DeclareUnicodeCharacter{1D709}{\ensuremath{\xi}}
+\DeclareUnicodeCharacter{1D70A}{\ensuremath{o}}
+\DeclareUnicodeCharacter{1D70B}{\ensuremath{\pi}}
+\DeclareUnicodeCharacter{1D70C}{\ensuremath{\rho}}
+\DeclareUnicodeCharacter{1D70D}{\ensuremath{\varsigma}}
+\DeclareUnicodeCharacter{1D70E}{\ensuremath{\sigma}}
+\DeclareUnicodeCharacter{1D70F}{\ensuremath{\tau}}
+\DeclareUnicodeCharacter{1D710}{\ensuremath{\upsilon}}
+\DeclareUnicodeCharacter{1D711}{\ensuremath{\varphi}}
+\DeclareUnicodeCharacter{1D712}{\ensuremath{\chi}}
+\DeclareUnicodeCharacter{1D713}{\ensuremath{\psi}}
+\DeclareUnicodeCharacter{1D714}{\ensuremath{\omega}}
+\DeclareUnicodeCharacter{1D716}{\ensuremath{\epsilon}}
+\DeclareUnicodeCharacter{1D717}{\ensuremath{\vartheta}}
+\DeclareUnicodeCharacter{1D719}{\ensuremath{\phi}}
+\DeclareUnicodeCharacter{1D71A}{\ensuremath{\varrho}}
+\DeclareUnicodeCharacter{1D71B}{\ensuremath{\varpi}}
 \DeclareUnicodeCharacter{1D7D8}{\ensuremath{\mathbb{0}}}
 \DeclareUnicodeCharacter{1D7D9}{\ensuremath{\mathbb{1}}}
 \DeclareUnicodeCharacter{1D7DA}{\ensuremath{\mathbb{2}}}
@@ -6724,6 +6957,7 @@
 \DeclareUnicodeCharacter{210B}{\ensuremath{\mathcal H}}
 \DeclareUnicodeCharacter{210C}{\ensuremath{\mathfrak H}}
 \DeclareUnicodeCharacter{210D}{\ensuremath{\mathbb{H}}}
+\DeclareUnicodeCharacter{210E}{\ensuremath{\mathit{h}}}
 \DeclareUnicodeCharacter{210F}{\ensuremath{\hbar}}
 \DeclareUnicodeCharacter{2110}{\ensuremath{\mathcal I}}
 \DeclareUnicodeCharacter{2111}{\ensuremath{\IM}}
@@ -6733,6 +6967,7 @@
 \DeclareUnicodeCharacter{2118}{\ensuremath{\wp}}
 \DeclareUnicodeCharacter{2119}{\ensuremath{\mathbb{P}}}
 \DeclareUnicodeCharacter{211A}{\ensuremath{\mathbb{Q}}}
+\DeclareUnicodeCharacter{211B}{\ensuremath{\mathscr{R}}}
 \DeclareUnicodeCharacter{211C}{\ensuremath{\Re}}
 \DeclareUnicodeCharacter{211D}{\ensuremath{\mathbb{R}}}
 \DeclareUnicodeCharacter{2122}{\texttrademark}
@@ -6749,6 +6984,7 @@
 \DeclareUnicodeCharacter{2130}{\ensuremath{\mathcal E}}
 \DeclareUnicodeCharacter{2131}{\ensuremath{\mathcal F}}
 \DeclareUnicodeCharacter{2132}{\ensuremath{\Finv}}
+\DeclareUnicodeCharacter{2133}{\ensuremath{\mathscr{M}}}
 \DeclareUnicodeCharacter{2135}{\ensuremath{\aleph}}
 \DeclareUnicodeCharacter{2136}{\ensuremath{\beth}}
 \DeclareUnicodeCharacter{2137}{\ensuremath{\gimel}}
