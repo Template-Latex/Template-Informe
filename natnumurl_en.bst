@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Archivo de estilos simple numerados + url (doi, arxivId) [en]
-%% Versión:      1.3.0 (14/10/2021)
+%% Versión:      1.4.0
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -257,6 +257,7 @@ FUNCTION {format.names} {
             namesleft #1 > {
                 ", " * t *
             }{
+                "" *
                 numnames #2 > {
                     "," *
                 } 'skip$ if$

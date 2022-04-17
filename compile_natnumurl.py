@@ -1,14 +1,16 @@
 # Compila el archivo de estilo propio
 
+import copy
 import datetime
 
 langs = {
-	# natnum
 	'en': {
 		'[CHAPTER]': 'ch.~',
 		'[EDITOR]': ', ed.',
 		'[EDITORS]': ', eds.',
-		'[FORMAT_NAMES]': '{vv~}{ll}{, jj}{, f.}',
+		'[FORMAT_NAMES_F]': '{vv~}{ll}{, jj}{, f.}',
+		'[FORMAT_NAMES_SEP]': '',
+		'[FORMAT_NAMES_SEP2]': ',',
 		'[IN_OBJECT_M]': 'In ',
 		'[IN_OBJECT]': 'in ',
 		'[IN]': ' in ',
@@ -28,12 +30,13 @@ langs = {
 		'[VOLUME_M]': 'Vol.~',
 		'[VOLUME]': 'vol.~'
 	},
-	# natnum
 	'es': {
 		'[CHAPTER]': 'cap.~',
 		'[EDITOR]': ', ed.',
 		'[EDITORS]': ', eds.',
-		'[FORMAT_NAMES]': '{vv~}{ll}{, jj}{, f.}',
+		'[FORMAT_NAMES_F]': '{vv~}{ll}{, jj}{, f.}',
+		'[FORMAT_NAMES_SEP]': '',
+		'[FORMAT_NAMES_SEP2]': ',',
 		'[IN_OBJECT_M]': 'En ',
 		'[IN_OBJECT]': 'en ',
 		'[IN]': ' en ',
@@ -55,11 +58,27 @@ langs = {
 	}
 }
 
+# Genera elsarticle
+en_els = langs['en_elsarticle'] = copy.copy(langs['en'])
+es_els = langs['es_elsarticle'] = copy.copy(langs['es'])
+
+en_els['[FORMAT_NAMES_F]'] = es_els['[FORMAT_NAMES_F]'] = '{f.~}{vv~}{ll}{, jj}'
+en_els['[FORMAT_NAMES_SEP]'] = es_els['[FORMAT_NAMES_SEP]'] = ','
+en_els['[FORMAT_NAMES_SEP2]'] = es_els['[FORMAT_NAMES_SEP2]'] = ''
+en_els['[LANG_AND]'] = es_els['[LANG_AND]'] = ' '
+en_els['[TITLE_F_END_TITLE.P]'] = es_els['[TITLE_F_END_TITLE.P]'] = '.'
+en_els['[TITLE_F_END_TITLE]'] = es_els['[TITLE_F_END_TITLE]'] = ','
+en_els['[TITLE_F_START]'] = es_els['[TITLE_F_START]'] = ''
+en_els['[VISITED_ON_LAST]'] = es_els['[VISITED_ON_LAST]'] = '.'
+en_els['[VISITED_ON]'] = '. Accessed '
+es_els['[VISITED_ON]'] = '. Visitado el '
+
+# Define formato
 def format(lang, outputfile, url, description):
 	f = open('.natnum_source.bst', 'r')
 	data = f.readlines()
 
-	# Check version
+	# Chequea la versión
 	date = datetime.datetime.now()
 	for w in range(len(data)):
 		if 'Versión:' in data[w]:
@@ -67,22 +86,22 @@ def format(lang, outputfile, url, description):
 			data[w] += f' ({date.day}/{date.month}/{date.year})\n'
 			break
 	
-	# Transform to text
+	# Transforma el texto
 	data = ''.join(data)
 
-	# Remove urls
+	# Elimina urls
 	if not url:
 		data = data.replace('    output.links\n    new.block\n', '')
 
-	# Replace description
+	# Reemplaza la descripción
 	data = data.replace('[NATNUM_DESCRIPTION]', description)
 
-	# Replace tokens
+	# Reemplaza tokens
 	for token in langs[lang].keys():
 		data = data.replace(token, langs[lang][token])
 	f.close()
 
-	# Write
+	# Escribe
 	f = open(outputfile, 'w')
 	for w in data:
 		f.write(w)
@@ -92,6 +111,10 @@ def format(lang, outputfile, url, description):
 # Guarda los formatos
 format('es', 'natnumurl.bst', True, 'Archivo de estilos simple numerados + url (doi, arxivId) [es]')
 format('es', 'natnum.bst', False, 'Archivo de estilos simple numerados [es]')
+format('es_elsarticle', 'elsartnumurl.bst', True, 'Estilo elsarticle numerado + url (doi, arxivId) [es]')
+format('es_elsarticle', 'elsartnum.bst', False, 'Estilo elsarticle numerado [es]')
 
 format('en', 'natnumurl_en.bst', True, 'Archivo de estilos simple numerados + url (doi, arxivId) [en]')
 format('en', 'natnum_en.bst', False, 'Archivo de estilos simple numerados [en]')
+format('en_elsarticle', 'elsartnumurl_en.bst', True, 'Estilo elsarticle numerado + url (doi, arxivId) [en]')
+format('en_elsarticle', 'elsartnum_en.bst', False, 'Estilo elsarticle numerado [en]')

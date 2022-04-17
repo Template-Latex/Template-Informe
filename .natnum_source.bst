@@ -252,13 +252,14 @@ FUNCTION {format.names} {
     numnames 'namesleft := {
         namesleft #0 >
     }{
-        s nameptr "[FORMAT_NAMES]" format.name$ 't :=
+        s nameptr "[FORMAT_NAMES_F]" format.name$ 't :=
         nameptr #1 > {
             namesleft #1 > {
                 ", " * t *
             }{
+                "[FORMAT_NAMES_SEP]" *
                 numnames #2 > {
-                    "," *
+                    "[FORMAT_NAMES_SEP2]" *
                 } 'skip$ if$
                 t "others" = { 
                     " {\em [LANG_ET_AL]}" *

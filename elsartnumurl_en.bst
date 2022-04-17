@@ -1,5 +1,5 @@
 %% Template:     Template LaTeX
-%% Documento:    Archivo de estilos simple numerados [en]
+%% Documento:    Estilo elsarticle numerado + url (doi, arxivId) [en]
 %% Versión:      1.4.0
 %% Codificación: UTF-8
 %%
@@ -126,7 +126,7 @@ FUNCTION {output.links} {
                 urldate empty$ {
                     "" *
                 }{
-                    " (visited on " * urldate * ")" *
+                    ". Accessed " * urldate * "." *
                 } if$
             } if$
         }{
@@ -252,19 +252,19 @@ FUNCTION {format.names} {
     numnames 'namesleft := {
         namesleft #0 >
     }{
-        s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$ 't :=
+        s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't :=
         nameptr #1 > {
             namesleft #1 > {
                 ", " * t *
             }{
-                "" *
+                "," *
                 numnames #2 > {
-                    "," *
+                    "" *
                 } 'skip$ if$
                 t "others" = { 
                     " {\em et~al.}" *
                 }{
-                    " and " * t *
+                    " " * t *
                 } if$
             } if$
         } 't if$
@@ -298,7 +298,7 @@ FUNCTION {format.title} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ",''" *
+        "" title "t" change.case$ * "," *
     } if$
 }
 
@@ -306,7 +306,7 @@ FUNCTION {format.title.p} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ".''" *
+        "" title "t" change.case$ * "." *
     } if$
 }
 
@@ -562,7 +562,7 @@ FUNCTION {format.crossref.editor} {
             editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" = {
                 " {\em et~al.}" *
             }{
-                " and " * editor #2 "{vv~}{ll}" format.name$ *
+                " " * editor #2 "{vv~}{ll}" format.name$ *
             } if$
         } if$
     } if$
@@ -633,6 +633,8 @@ FUNCTION {article} {
         format.pages output
     } if$
     new.block
+    output.links
+    new.block
     note output
     fin.entry
 }
@@ -660,6 +662,8 @@ FUNCTION {book} {
     format.edition output
     format.date "year" output.check
     new.block
+    output.links
+    new.block
     note output
     fin.entry
 }
@@ -683,6 +687,8 @@ FUNCTION {booklet} {
     howpublished output
     address output
     format.date output
+    new.block
+    output.links
     new.block
     note output
     fin.entry
@@ -713,6 +719,8 @@ FUNCTION {inbook} {
     format.edition output
     format.date "year" output.check
     new.block
+    output.links
+    new.block
     note output
     fin.entry
 }
@@ -734,6 +742,8 @@ FUNCTION {incollection} {
         format.incoll.inproc.crossref output.nonnull
         format.chapter.pages output
     } if$
+    new.block
+    output.links
     new.block
     note output
     fin.entry
@@ -757,6 +767,8 @@ FUNCTION {inproceedings} {
         format.incoll.inproc.crossref output.nonnull
         format.pages output
     } if$
+    new.block
+    output.links
     new.block
     note output
     fin.entry
@@ -825,6 +837,8 @@ FUNCTION {misc} {
     } if$
     howpublished output
     format.date output
+    new.block
+    output.links
     new.block
     note output
     fin.entry

@@ -1,5 +1,5 @@
 %% Template:     Template LaTeX
-%% Documento:    Archivo de estilos simple numerados [en]
+%% Documento:    Estilo elsarticle numerado [en]
 %% Versión:      1.4.0
 %% Codificación: UTF-8
 %%
@@ -126,7 +126,7 @@ FUNCTION {output.links} {
                 urldate empty$ {
                     "" *
                 }{
-                    " (visited on " * urldate * ")" *
+                    ". Accessed " * urldate * "." *
                 } if$
             } if$
         }{
@@ -252,19 +252,19 @@ FUNCTION {format.names} {
     numnames 'namesleft := {
         namesleft #0 >
     }{
-        s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$ 't :=
+        s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't :=
         nameptr #1 > {
             namesleft #1 > {
                 ", " * t *
             }{
-                "" *
+                "," *
                 numnames #2 > {
-                    "," *
+                    "" *
                 } 'skip$ if$
                 t "others" = { 
                     " {\em et~al.}" *
                 }{
-                    " and " * t *
+                    " " * t *
                 } if$
             } if$
         } 't if$
@@ -298,7 +298,7 @@ FUNCTION {format.title} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ",''" *
+        "" title "t" change.case$ * "," *
     } if$
 }
 
@@ -306,7 +306,7 @@ FUNCTION {format.title.p} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ".''" *
+        "" title "t" change.case$ * "." *
     } if$
 }
 
@@ -562,7 +562,7 @@ FUNCTION {format.crossref.editor} {
             editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" = {
                 " {\em et~al.}" *
             }{
-                " and " * editor #2 "{vv~}{ll}" format.name$ *
+                " " * editor #2 "{vv~}{ll}" format.name$ *
             } if$
         } if$
     } if$

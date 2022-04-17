@@ -1,5 +1,5 @@
 %% Template:     Template LaTeX
-%% Documento:    Archivo de estilos simple numerados [en]
+%% Documento:    Estilo elsarticle numerado + url (doi, arxivId) [es]
 %% Versión:      1.4.0
 %% Codificación: UTF-8
 %%
@@ -126,7 +126,7 @@ FUNCTION {output.links} {
                 urldate empty$ {
                     "" *
                 }{
-                    " (visited on " * urldate * ")" *
+                    ". Visitado el " * urldate * "." *
                 } if$
             } if$
         }{
@@ -252,19 +252,19 @@ FUNCTION {format.names} {
     numnames 'namesleft := {
         namesleft #0 >
     }{
-        s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$ 't :=
+        s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't :=
         nameptr #1 > {
             namesleft #1 > {
                 ", " * t *
             }{
-                "" *
+                "," *
                 numnames #2 > {
-                    "," *
+                    "" *
                 } 'skip$ if$
                 t "others" = { 
                     " {\em et~al.}" *
                 }{
-                    " and " * t *
+                    " " * t *
                 } if$
             } if$
         } 't if$
@@ -298,7 +298,7 @@ FUNCTION {format.title} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ",''" *
+        "" title "t" change.case$ * "," *
     } if$
 }
 
@@ -306,7 +306,7 @@ FUNCTION {format.title.p} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ".''" *
+        "" title "t" change.case$ * "." *
     } if$
 }
 
@@ -376,7 +376,7 @@ FUNCTION {format.bvolume} {
         "vol.~" volume *
         series empty$
         'skip$ {
-            " of " * series emphasize *
+            " de " * series emphasize *
         } if$
         "volume and number" number either.or.check
     } if$
@@ -396,7 +396,7 @@ FUNCTION {format.number.series} {
             series empty$ {
                 "there's a number but no series in " cite$ * warning$
             }{
-                " in " * series *
+                " en " * series *
             } if$
         } if$
     }{
@@ -463,7 +463,7 @@ FUNCTION {format.number} {
 FUNCTION {format.chapter.pages} {
     chapter empty$ 'format.pages {
         type empty$ {
-            "ch.~" chapter *
+            "cap.~" chapter *
         }{
             type "l" change.case$ chapter tie.or.space.connect
         } if$
@@ -477,7 +477,7 @@ FUNCTION {format.in.ed.booktitle} {
     booktitle empty$ {
         ""
     }{
-        "in " booktitle emphasize *
+        "en " booktitle emphasize *
         editor empty$
         'skip$ {
             " (" * format.editors * ")" *
@@ -507,7 +507,7 @@ FUNCTION {empty.misc.check} {
 
 FUNCTION {format.tr.number} {
     type empty$ {
-        "Tech. Rep."
+        "Rep. Tec."
     } 'type if$
     number empty$ {
         "l" change.case$
@@ -544,10 +544,10 @@ FUNCTION {format.article.crossref} {
             warning$
             ""
         }{
-            "in { " journal * "\/}" *
+            "en { " journal * "\/}" *
         } if$
     }{
-        "in " key *
+        "en " key *
     } if$
     " \cite{" * crossref * "}" *
 }
@@ -562,7 +562,7 @@ FUNCTION {format.crossref.editor} {
             editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" = {
                 " {\em et~al.}" *
             }{
-                " and " * editor #2 "{vv~}{ll}" format.name$ *
+                " " * editor #2 "{vv~}{ll}" format.name$ *
             } if$
         } if$
     } if$
@@ -571,10 +571,10 @@ FUNCTION {format.crossref.editor} {
 FUNCTION {format.book.crossref} {
     volume empty$ {
         "empty volume in " cite$ * "'s crossref of " * crossref * warning$
-        "In "
+        "En "
     }{
         "Vol.~" volume *
-        " of " *
+        " de " *
     } if$
     editor empty$
     editor field.or.null author field.or.null = or {
@@ -604,13 +604,13 @@ FUNCTION {format.incoll.inproc.crossref} {
                 crossref * warning$
                 ""
             }{
-                "in { " booktitle * "\/}" *
+                "en { " booktitle * "\/}" *
             } if$
         }{
-            "in " key *
+            "en " key *
         } if$
     }{
-        "in " format.crossref.editor *
+        "en " format.crossref.editor *
     } if$
     " \cite{" * crossref * "}" *
 }
@@ -632,6 +632,8 @@ FUNCTION {article} {
         format.article.crossref output.nonnull
         format.pages output
     } if$
+    new.block
+    output.links
     new.block
     note output
     fin.entry
@@ -660,6 +662,8 @@ FUNCTION {book} {
     format.edition output
     format.date "year" output.check
     new.block
+    output.links
+    new.block
     note output
     fin.entry
 }
@@ -683,6 +687,8 @@ FUNCTION {booklet} {
     howpublished output
     address output
     format.date output
+    new.block
+    output.links
     new.block
     note output
     fin.entry
@@ -713,6 +719,8 @@ FUNCTION {inbook} {
     format.edition output
     format.date "year" output.check
     new.block
+    output.links
+    new.block
     note output
     fin.entry
 }
@@ -734,6 +742,8 @@ FUNCTION {incollection} {
         format.incoll.inproc.crossref output.nonnull
         format.chapter.pages output
     } if$
+    new.block
+    output.links
     new.block
     note output
     fin.entry
@@ -757,6 +767,8 @@ FUNCTION {inproceedings} {
         format.incoll.inproc.crossref output.nonnull
         format.pages output
     } if$
+    new.block
+    output.links
     new.block
     note output
     fin.entry
@@ -825,6 +837,8 @@ FUNCTION {misc} {
     } if$
     howpublished output
     format.date output
+    new.block
+    output.links
     new.block
     note output
     fin.entry
