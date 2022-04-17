@@ -46,8 +46,7 @@
 \newenvironment{appendixd}{%
 	\global\def\GLOBALenvappendix {true}%
 	\global\def\GLOBALtitlerequirechapter {false}%
-	\begingroup % Inicia el grupo en nueva página y sección
-	% \clearpage
+	\begingroup%
 	\phantomsection%
 	\changeheadertitle{\nameltappendixsection} % Cambia el nombre del header
 	% Define formato números para appendix
@@ -68,7 +67,6 @@
 	}%
 	\appendixtitleon%
 	\appendixtitletocon%
-	% \addappheadtotoc
 	\bookmarksetupnext{level=part}%
 	\begin{appendices} % Crea la sección
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{%
@@ -81,7 +79,7 @@
 			\counterwithin{figure}{section}%
 			\counterwithin{lstlisting}{section}%
 			\counterwithin{table}{section}}{%
-		}%
+		}{}%
 	}{%
 	\end{appendices}
 	% Restablece formato de números

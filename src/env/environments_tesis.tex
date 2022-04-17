@@ -105,11 +105,35 @@
 	}{%
 }
 
+% Entorno capítulos apéndices con título
+\newenvironment{appendixdtitle}[1][style1]{
+	\chapter*{\nameappendixsection}%
+	\let\clearpage\relax%
+	\vspace{-1.75cm}%
+	% Configura el tipo de capítulo
+	\ifthenelse{\equal{#1}{style1}}{ % Default
+	}{%
+	\ifthenelse{\equal{#1}{style2}}{%
+		\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter.\hspace{20pt}}{0pt}{\huge\bfseries}%
+	}{%
+	\ifthenelse{\equal{#1}{style3}}{%
+		\titleformat{\chapter}[hang]{\huge\bfseries}{\nameltappendixsection\ \thechapter.\hspace{20pt}}{0pt}{\huge\bfseries}%
+	}{%
+	\ifthenelse{\equal{#1}{style4}}{%
+		\titleformat{\chapter}[hang]{\LARGE\bfseries}{\nameltappendixsection\ \thechapter.\hspace{20pt}}{0pt}{\LARGE\bfseries}%
+	}{%
+		\throwerror{appendixdtitle}{Estilo capitulo apendice incorrecto. Estilos validos style1..style4}%
+	}{}}}}%
+	\begin{appendixd}%
+		}{%
+	\end{appendixd}%
+}
+
 % Entorno simple de apéndices
 \newenvironment{appendixs}{%
 	\global\def\GLOBALenvappendix {true}%
 	\global\def\GLOBALtitlerequirechapter {false}%
-	\begingroup % Inicia el grupo en nueva página y sección
+	\begingroup%
 	\chapteranum{\nameappendixsection}%
 	% Define etiqueta secciones
 	\global\def\GLOBALtitlepresectionstr {\nameltappendixsection~}%
@@ -127,13 +151,13 @@
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	% Otras configuraciones
-	\global\def\GLOBALtitlechapterenabled {false}%
+	\disablechapter%
 	\ifthenelse{\equal{\appendixindepobjnum}{true}}{%
 		\counterwithin{equation}{section}
 		\counterwithin{figure}{section}
 		\counterwithin{lstlisting}{section}
 		\counterwithin{table}{section}
-	}%
+	}{}%
 	}{%
 	% Restablece formato de números
 	\global\def\GLOBALformatnumchapter {\formatnumchapter}%
@@ -149,7 +173,7 @@
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	% Resetea etiqueta secciones
 	\global\def\GLOBALtitlepresectionstr {}%
-	\global\def\GLOBALtitlechapterenabled {true}%
+	\enablechapter%
 	\endgroup%
 	\global\def\GLOBALenvappendix {false}%
 }

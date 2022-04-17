@@ -73,6 +73,13 @@
 	\hbadness=10000%
 }
 
+% Chequea si los capítulos están activados
+\def\corecheckchapterenabled {%
+	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{ % Verifica que el entorno esté activo
+		\throwwarning{La insercion de capitulos esta desactivada}%
+	}{}%
+}
+
 % Chequea si los capítulos han sido iniciados
 \def\corecheckchapterinitialized {%
 	\ifthenelse{\equal{\GLOBALtitlerequirechapter}{true}}{%
@@ -105,9 +112,7 @@
 
 % Parcha el formato de capítulos
 \pretocmd{\chapter}{%
-	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{ % Verifica que el entorno esté activo
-		\throwwarning{La insercion de capitulos esta desactivada}%
-	}{%
+	\corecheckchapterenabled%
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -138,7 +143,6 @@
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	\coreintializetitlenumbering%
-	}%
 }{}{}
 
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
@@ -271,12 +275,37 @@
 	\corechecksubsubsectioninitialized%
 }
 
+% Entorno que permite desactivar los capítulos
+\makeatletter
+\newcommand*\coredisabledchapter{%
+	\@ifstar{\coredisabledchapterstar}{\@dblarg\coredisabledchapternostar}}
+\newcommand*\coredisabledchapterstar[1]{%
+	\noindent\textcolor{red}{Error!} \newline#1%
+	\throwwarning{La insercion de capitulos esta desactivada}%
+}
+\def\coredisabledchapternostar[#1]#2{%
+	\noindent\textcolor{red}{Error!} #1%
+	\throwwarning{La insercion de capitulos esta desactivada}%
+}
+\makeatother
+\let\oldchapter\chapter
+
+% Desactiva los capítulos
+\newcommand{\disablechapter}{%
+	\let\chapter\coredisabledchapter%
+	\global\def\GLOBALtitlechapterenabled {false}%
+}
+
+% Activa los capítulos
+\newcommand{\enablechapter}{%
+	\let\chapter\oldchapter%
+	\global\def\GLOBALtitlechapterenabled {true}%
+}
+
 % Insertar un capítulo sin número
 % 	#1	Título
 \newcommand{\chapteranum}[1]{%
-	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{ % Verifica que el entorno esté activo
-		\throwwarning{La insercion de capitulos esta desactivada}%
-	}{%
+	\corecheckchapterenabled%
 	\emptyvarerr{\chapteranum}{#1}{Titulo no definido}%
 	\phantomsection%
 	\needspace{3\baselineskip}%
@@ -287,7 +316,6 @@
 	\setcounter{section}{0}%
 	\global\def\GLOBALchapternumenabled {false}%
 	\coreintializetitlenumbering%
-	}%
 }
 
 % Insertar un título sin número
