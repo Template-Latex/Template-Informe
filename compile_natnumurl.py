@@ -3,10 +3,12 @@
 import datetime
 
 langs = {
+	# natnum
 	'en': {
 		'[CHAPTER]': 'ch.~',
 		'[EDITOR]': ', ed.',
 		'[EDITORS]': ', eds.',
+		'[FORMAT_NAMES]': '{vv~}{ll}{, jj}{, f.}',
 		'[IN_OBJECT_M]': 'In ',
 		'[IN_OBJECT]': 'in ',
 		'[IN]': ' in ',
@@ -18,14 +20,20 @@ langs = {
 		'[PAGE]': 'p.~',
 		'[PAGES]': 'pp.~',
 		'[TECH_REP]': 'Tech. Rep.',
-		'[VISITED_ON]': 'visited on',
+		'[TITLE_F_END_TITLE.P]': ".''",
+		'[TITLE_F_END_TITLE]': ",''",
+		'[TITLE_F_START]': '``',
+		'[VISITED_ON_LAST]': ')',
+		'[VISITED_ON]': ' (visited on ',
 		'[VOLUME_M]': 'Vol.~',
 		'[VOLUME]': 'vol.~'
 	},
+	# natnum
 	'es': {
 		'[CHAPTER]': 'cap.~',
 		'[EDITOR]': ', ed.',
 		'[EDITORS]': ', eds.',
+		'[FORMAT_NAMES]': '{vv~}{ll}{, jj}{, f.}',
 		'[IN_OBJECT_M]': 'En ',
 		'[IN_OBJECT]': 'en ',
 		'[IN]': ' en ',
@@ -37,14 +45,18 @@ langs = {
 		'[PAGE]': 'p.~',
 		'[PAGES]': 'pp.~',
 		'[TECH_REP]': 'Rep. Tec.',
-		'[VISITED_ON]': 'visitado el',
+		'[TITLE_F_END_TITLE.P]': ".''",
+		'[TITLE_F_END_TITLE]': ",''",
+		'[TITLE_F_START]': '``',
+		'[VISITED_ON_LAST]': ')',
+		'[VISITED_ON]': ' (visitado el ',
 		'[VOLUME_M]': 'Vol.~',
 		'[VOLUME]': 'vol.~'
 	}
 }
 
 def format(lang, outputfile, url, description):
-	f = open('natnum_source.bst', 'r')
+	f = open('.natnum_source.bst', 'r')
 	data = f.readlines()
 
 	# Check version

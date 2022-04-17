@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    [NATNUM_DESCRIPTION]
-%% Versión:      1.3.0
+%% Versión:      1.4.0
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -126,7 +126,7 @@ FUNCTION {output.links} {
                 urldate empty$ {
                     "" *
                 }{
-                    " ([VISITED_ON] " * urldate * ")" *
+                    "[VISITED_ON]" * urldate * "[VISITED_ON_LAST]" *
                 } if$
             } if$
         }{
@@ -252,7 +252,7 @@ FUNCTION {format.names} {
     numnames 'namesleft := {
         namesleft #0 >
     }{
-        s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$ 't :=
+        s nameptr "[FORMAT_NAMES]" format.name$ 't :=
         nameptr #1 > {
             namesleft #1 > {
                 ", " * t *
@@ -297,7 +297,7 @@ FUNCTION {format.title} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ",''" *
+        "[TITLE_F_START]" title "t" change.case$ * "[TITLE_F_END_TITLE]" *
     } if$
 }
 
@@ -305,7 +305,7 @@ FUNCTION {format.title.p} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ".''" *
+        "[TITLE_F_START]" title "t" change.case$ * "[TITLE_F_END_TITLE.P]" *
     } if$
 }
 
