@@ -33,7 +33,7 @@
 
 % Inserta un autor sin número
 %	#1	Nombre del autor
-\newcommand{\addauthornonum}[1]{%
+\newcommand{\addauthornonumber}[1]{%
 	\immediate\write\fileauthornames{\unexpanded{\titleauthorname}[]\unexpanded{{#1}}\LOCALpercentchar}%
 }
 
@@ -54,9 +54,7 @@
 %	#3	Institución del autor
 %	#4	Correo
 \newcommand{\addauthor}[4][]{%
-	\immediate\write\fileauthornames{\unexpanded{\titleauthorname}[\theauthornumber]\unexpanded{{#2}}\LOCALpercentchar}%
-	\immediate\write\fileauthordata{\unexpanded{\titleauthordata}[\theauthornumber]\unexpanded{{#3}{#4}{#1}}\LOCALpercentchar}%
-	\immediate\write\fileauthornamesdata{\unexpanded{\titleauthornamedata}[\theauthornumber]\unexpanded{{#2}{#3}{#4}{#1}}\LOCALpercentchar}%
+	\addauthorsamenumber[#1]{#2}{#3}{#4}%
 	\stepcounter{authornumber}%
 }
 
