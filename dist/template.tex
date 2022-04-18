@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.1.1 (09/04/2022)
+% Versión:      8.1.2 (17/04/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -3076,6 +3076,13 @@
 	\hbadness=10000%
 }
 
+% Chequea si los capítulos están activados
+\def\corecheckchapterenabled {%
+	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{ % Verifica que el entorno esté activo
+		\throwwarning{La insercion de capitulos esta desactivada}%
+	}{}%
+}
+
 % Chequea si los capítulos han sido iniciados
 \def\corecheckchapterinitialized {%
 	\ifthenelse{\equal{\GLOBALtitlerequirechapter}{true}}{%
@@ -3108,9 +3115,7 @@
 
 % Parcha el formato de capítulos
 \pretocmd{\chapter}{%
-	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{ % Verifica que el entorno esté activo
-		\throwwarning{La insercion de capitulos esta desactivada}%
-	}{%
+	\corecheckchapterenabled%
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -3141,7 +3146,6 @@
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	\coreintializetitlenumbering%
-	}%
 }{}{}
 
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
@@ -3274,12 +3278,37 @@
 	\corechecksubsubsectioninitialized%
 }
 
+% Entorno que permite desactivar los capítulos
+\makeatletter
+\newcommand*\coredisabledchapter{%
+	\@ifstar{\coredisabledchapterstar}{\@dblarg\coredisabledchapternostar}}
+\newcommand*\coredisabledchapterstar[1]{%
+	\noindent\textcolor{red}{Error (chapter):} \newline#1%
+	\throwwarning{La insercion de capitulos esta desactivada}%
+}
+\def\coredisabledchapternostar[#1]#2{%
+	\noindent\textcolor{red}{Error (chapter):} #1%
+	\throwwarning{La insercion de capitulos esta desactivada}%
+}
+\makeatother
+\let\oldchapter\chapter
+
+% Desactiva los capítulos
+\newcommand{\disablechapter}{%
+	\let\chapter\coredisabledchapter%
+	\global\def\GLOBALtitlechapterenabled {false}%
+}
+
+% Activa los capítulos
+\newcommand{\enablechapter}{%
+	\let\chapter\oldchapter%
+	\global\def\GLOBALtitlechapterenabled {true}%
+}
+
 % Insertar un capítulo sin número
 % 	#1	Título
 \newcommand{\chapteranum}[1]{%
-	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{ % Verifica que el entorno esté activo
-		\throwwarning{La insercion de capitulos esta desactivada}%
-	}{%
+	\corecheckchapterenabled%
 	\emptyvarerr{\chapteranum}{#1}{Titulo no definido}%
 	\phantomsection%
 	\needspace{3\baselineskip}%
@@ -3290,7 +3319,6 @@
 	\setcounter{section}{0}%
 	\global\def\GLOBALchapternumenabled {false}%
 	\coreintializetitlenumbering%
-	}%
 }
 
 % Insertar un título sin número
@@ -4103,8 +4131,7 @@
 \newenvironment{appendixd}{%
 	\global\def\GLOBALenvappendix {true}%
 	\global\def\GLOBALtitlerequirechapter {false}%
-	\begingroup % Inicia el grupo en nueva página y sección
-	% \clearpage
+	\begingroup%
 	\phantomsection%
 	\changeheadertitle{\nameltappendixsection} % Cambia el nombre del header
 	% Define formato números para appendix
@@ -4125,7 +4152,6 @@
 	}%
 	\appendixtitleon%
 	\appendixtitletocon%
-	% \addappheadtotoc
 	\bookmarksetupnext{level=part}%
 	\begin{appendices} % Crea la sección
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{%
@@ -4138,7 +4164,7 @@
 			\counterwithin{figure}{section}%
 			\counterwithin{lstlisting}{section}%
 			\counterwithin{table}{section}}{%
-		}%
+		}{}%
 	}{%
 	\end{appendices}
 	% Restablece formato de números
@@ -5653,16 +5679,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={09/04/2022},
+		Template.Date={17/04/2022},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.1.1-1},
-		Template.Version.Hash={F43FFD0450DA6EB2983BD303C74D9B48},
-		Template.Version.Release={8.1.1},
+		Template.Version.Dev={8.1.2-2},
+		Template.Version.Hash={1C0FF67D7541CF523B5A250FF6C2DB3B},
+		Template.Version.Release={8.1.2},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5674,7 +5700,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.1.1 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.1.2 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -9998,6 +10024,11 @@
 	}{
 		\throwbadconfig{Tipo numero subtabla desconocido}{\captionnumsubtable}{arabic,alph,Alph,roman,Roman}}}}}
 	}
+	
+	% -----------------------------------------------------------------------------
+	% Configura capítulos
+	% -----------------------------------------------------------------------------
+	\disablechapter
 	
 	% -------------------------------------------------------------------------
 	% Agrega páginas dependiendo del formato
