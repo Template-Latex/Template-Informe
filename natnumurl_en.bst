@@ -133,14 +133,24 @@ FUNCTION {output.links} {
             url empty$ {
                 ", \href{https://arxiv.org/abs/" * arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" *
             }{
-                ", \href{" * url * "}{\nolinkurl{arXiv:\detokenize{" * arxivId * "}}}" *
+                ", \href{" * url * "}{\nolinkurl{\detokenize{" * url * "}}}" *
+                urldate empty$ {
+                    "" *
+                }{
+                    " (visited on " * urldate * ")" *
+                } if$
             } if$
         } if$
     }{
         url empty$ {
             ", \href{https://dx.doi.org/" * doi * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
         }{
-            ", \href{" * url * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
+            ", \href{" * url * "}{\nolinkurl{\detokenize{" * url * "}}}" *
+            urldate empty$ {
+                "" *
+            }{
+                " (visited on " * urldate * ")" *
+            } if$
         } if$
     } if$
 }
