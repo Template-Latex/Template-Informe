@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Archivo de estilos simple numerados [en]
-%% Versión:      1.4.0
+%% Versión:      1.4.1
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
