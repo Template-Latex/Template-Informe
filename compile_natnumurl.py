@@ -75,7 +75,7 @@ es_els['[VISITED_ON]'] = '. Visitado el '
 
 # Define formato
 def format(lang, outputfile, url, description):
-	f = open('.natnum_source.bst', 'r')
+	f = open('.natnum_source.bst', 'r', encoding='utf8')
 	data = f.readlines()
 
 	# Chequea la versión
@@ -83,7 +83,7 @@ def format(lang, outputfile, url, description):
 	for w in range(len(data)):
 		if 'Versión:' in data[w]:
 			data[w] = data[w].strip()
-			data[w] += f' ({date.day}/{date.month}/{date.year})\n'
+			data[w] += f' ({date.day:02d}/{date.month:02d}/{date.year})\n'
 			break
 	
 	# Transforma el texto
@@ -102,7 +102,7 @@ def format(lang, outputfile, url, description):
 	f.close()
 
 	# Escribe
-	f = open(outputfile, 'w')
+	f = open(outputfile, 'w', encoding='utf8')
 	for w in data:
 		f.write(w)
 	f.close()

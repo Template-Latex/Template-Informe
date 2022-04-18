@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Archivo de estilos simple numerados + url (doi, arxivId) [en]
-%% Versión:      1.4.1
+%% Versión:      1.4.1 (18/04/2022)
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
