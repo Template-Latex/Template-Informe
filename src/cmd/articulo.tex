@@ -31,6 +31,23 @@
 \newcounter{authornumber}
 \setcounter{authornumber}{1}
 
+% Inserta un autor sin número
+%	#1	Nombre del autor
+\newcommand{\addauthornonum}[1]{%
+	\immediate\write\fileauthornames{\unexpanded{\titleauthorname}[]\unexpanded{{#1}}\LOCALpercentchar}%
+}
+
+% Inserta un autor sin aumentar el contador de autores
+%	#1	ORCID (opcional)
+%	#2	Nombre del autor
+%	#3	Institución del autor
+%	#4	Correo
+\newcommand{\addauthorsamenumber}[4][]{%
+	\immediate\write\fileauthornames{\unexpanded{\titleauthorname}[\theauthornumber]\unexpanded{{#2}}\LOCALpercentchar}%
+	\immediate\write\fileauthordata{\unexpanded{\titleauthordata}[\theauthornumber]\unexpanded{{#3}{#4}{#1}}\LOCALpercentchar}%
+	\immediate\write\fileauthornamesdata{\unexpanded{\titleauthornamedata}[\theauthornumber]\unexpanded{{#2}{#3}{#4}{#1}}\LOCALpercentchar}%
+}
+
 % Inserta un autor
 %	#1	ORCID (opcional)
 %	#2	Nombre del autor
@@ -48,7 +65,7 @@
 	\def\LOCALhasname {false}
 	\newcommand{\titleauthorname}[2][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{\titleauthorspacing cm}}{}%
-		\normalsize{#2} \textsuperscript{(#1)}%
+		\normalsize{#2} \ifthenelse{\equal{#1}{}}{}{\textsuperscript{(#1)}}%
 		\def\LOCALhasname {true}%
 	}%
 	\newcommand{\titleauthordata}[4][]{%
@@ -86,7 +103,7 @@
 	\def\LOCALhasname {false}
 	\newcommand{\titleauthorname}[2][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{\titleauthorspacing cm}}{}%
-		\normalsize{#2} \textsuperscript{(#1)}%
+		\normalsize{#2} \ifthenelse{\equal{#1}{}}{}{\textsuperscript{(#1)}}%
 		\def\LOCALhasname {true}%
 	}%
 	\newcommand{\titleauthordata}[4][]{%
