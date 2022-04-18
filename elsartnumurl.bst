@@ -130,28 +130,10 @@ FUNCTION {output.links} {
                 } if$
             } if$
         }{
-            url empty$ {
-                ", \href{https://arxiv.org/abs/" * arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" *
-            }{
-                ", \href{" * url * "}{\nolinkurl{\detokenize{" * url * "}}}" *
-                urldate empty$ {
-                    "" *
-                }{
-                    ". Visitado el " * urldate * "." *
-                } if$
-            } if$
+            ", \href{https://arxiv.org/abs/" * arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" *
         } if$
     }{
-        url empty$ {
-            ", \href{https://dx.doi.org/" * doi * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
-        }{
-            ", \href{" * url * "}{\nolinkurl{\detokenize{" * url * "}}}" *
-            urldate empty$ {
-                "" *
-            }{
-                ". Visitado el " * urldate * "." *
-            } if$
-        } if$
+        ", \href{https://dx.doi.org/" * doi * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
     } if$
 }
 
