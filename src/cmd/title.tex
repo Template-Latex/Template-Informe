@@ -280,11 +280,11 @@
 \newcommand*\coredisabledchapter{%
 	\@ifstar{\coredisabledchapterstar}{\@dblarg\coredisabledchapternostar}}
 \newcommand*\coredisabledchapterstar[1]{%
-	\noindent\textcolor{red}{Error!} \newline#1%
+	\noindent\textcolor{red}{Error (chapter):} \newline#1%
 	\throwwarning{La insercion de capitulos esta desactivada}%
 }
 \def\coredisabledchapternostar[#1]#2{%
-	\noindent\textcolor{red}{Error!} #1%
+	\noindent\textcolor{red}{Error (chapter):} #1%
 	\throwwarning{La insercion de capitulos esta desactivada}%
 }
 \makeatother
