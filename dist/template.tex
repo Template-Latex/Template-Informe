@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.1.2 (18/04/2022)
+% Versión:      8.1.3 (25/04/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -5679,16 +5679,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={18/04/2022},
+		Template.Date={25/04/2022},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.1.2-5},
-		Template.Version.Hash={1B4F640AE90E9B383A344039A17043C0},
-		Template.Version.Release={8.1.2},
+		Template.Version.Dev={8.1.3},
+		Template.Version.Hash={27A9EA6EC2BD9E8400A9D16C51046216},
+		Template.Version.Release={8.1.3},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5700,7 +5700,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.1.2 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.1.3 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -6392,6 +6392,19 @@
 % Chequea que ciertos módulos no hayan sido cargados antes del inicio del documento
 % -----------------------------------------------------------------------------
 \checkmodulenotloaded{tcolorbox}
+
+% -----------------------------------------------------------------------------
+% Da soporte a \hl{} del paquete soul
+% -----------------------------------------------------------------------------
+\soulregister\cite7
+\soulregister\eqref7
+\soulregister\eqref7
+\soulregister\footnote7
+\soulregister\href7
+\soulregister\pageref7
+\soulregister\quotes7
+\soulregister\ref7
+\soulregister\scite7
 
 % -----------------------------------------------------------------------------
 % Configura métodos aplicados al iniciar el documento
