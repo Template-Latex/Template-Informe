@@ -14,6 +14,8 @@
 
 % Configuraciones base
 \def\anumsecaddtocounter {false}
+\newcounter{totalquestions}
+\setcounter{totalquestions}{1}
 
 % Insertar nuevo título de pregunta
 %	#1	Título
@@ -28,7 +30,8 @@
 	\emptyvarerr{\newquestion}{#1}{Titulo pregunta no definido}%
 	\phantomsection%
 	\newp \fbox{\ \textbf{#1}.-\ } \noindent%
-	\pdfbookmark[1]{#1}{question}%
+	\pdfbookmark{#1}{question.\thetotalquestions}%
+	\stepcounter{totalquestions}%
 }
 
 % Crea una sección de imágenes múltiples
