@@ -42,6 +42,14 @@
 	\endgroup % Termina el grupo
 }
 
+% Crea un entorno para definir el tamaño de bloque
+%	#1	Tamaño de fuente en pt
+\newenvironment{fontsizeblock}[1][\documentfontsize]{
+	\changefontsizes{#1 pt}
+}{
+	\changefontsizes{\documentfontsize pt}
+}
+
 % Crea una sección de anexos
 \newenvironment{appendixd}{%
 	\appendix%
