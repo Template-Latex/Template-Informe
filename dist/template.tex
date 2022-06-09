@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.1.4 (04/06/2022)
+% Versión:      8.1.5 (09/06/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -3027,7 +3027,7 @@
 \global\def\GLOBALtitlepresubsubsubsectionstr {}
 
 % Configura que entornos pueden funcionar
-\global\def\GLOBALtitlechapterenabled {false}
+\global\def\GLOBALtitlechapterenabled {true}
 
 % Activa la numeración en las secciones
 \def\coreintializetitlenumbering {%
@@ -4125,6 +4125,14 @@
 	{
 	\end{thebibliography}
 	\endgroup % Termina el grupo
+}
+
+% Crea un entorno para definir el tamaño de bloque
+%	#1	Tamaño de fuente en pt
+\newenvironment{fontsizeblock}[1][\documentfontsize]{
+	\changefontsizes{#1 pt}
+}{
+	\changefontsizes{\documentfontsize pt}
 }
 
 % Crea una sección de anexos
@@ -5680,16 +5688,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={04/06/2022},
+		Template.Date={09/06/2022},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.1.4},
-		Template.Version.Hash={88D2808E2CCE6CC8D54B8B03F5A1A632},
-		Template.Version.Release={8.1.4},
+		Template.Version.Dev={8.1.5-1},
+		Template.Version.Hash={BDEB8353D2BD3FBF73A442CA63234F16},
+		Template.Version.Release={8.1.5},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5701,7 +5709,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.1.4 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.1.5 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -10038,11 +10046,6 @@
 	}{
 		\throwbadconfig{Tipo numero subtabla desconocido}{\captionnumsubtable}{arabic,alph,Alph,roman,Roman}}}}}
 	}
-	
-	% -------------------------------------------------------------------------
-	% Configura capítulos
-	% -------------------------------------------------------------------------
-	\disablechapter
 	
 	% -------------------------------------------------------------------------
 	% Agrega páginas dependiendo del formato

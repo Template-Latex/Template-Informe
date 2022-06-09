@@ -34,6 +34,14 @@
 	\stepcounter{totalquestions}%
 }
 
+% Crea un entorno para definir el tamaño de bloque
+%	#1	Tamaño de fuente en pt
+\newenvironment{fontsizeblock}[1][\documentfontsize]{
+	\changefontsizes{#1 pt}
+}{
+	\changefontsizes{\documentfontsize pt}
+}
+
 % Crea una sección de imágenes múltiples
 %	#1	Label (opcional)
 %	#2	Caption
