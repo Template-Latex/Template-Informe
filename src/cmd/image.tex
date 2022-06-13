@@ -9,7 +9,7 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-\global\def\GLOBALimagelink {} % Almacena el link de la imagen
+\global\def\GLOBALimagelink {\GLOBALemptyvar} % Almacena el link de la imagen
 \global\def\GLOBALimagenextmarginv {0 cm} % Almacena el margen vertical de las imágenes
 
 % Calcula largo hspace
@@ -41,7 +41,7 @@
 		\hspace{\dimexpr \marginimagemultright cm -\coreimageshspace}%
 	}{}%
 	\ifthenelse{\equal{#5}{\GLOBALemptyvar}}{ % Sin label
-		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
+		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
 			\raisebox{\GLOBALimagenextmarginv}{%
 				\fbox{\includegraphics[#3]{#2}}
 			}%
@@ -51,7 +51,7 @@
 			}%
 		}%
 	}{ % Con label
-		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
+		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
 			\subfloat[#5]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\includegraphics[#3]{#2}}#1%
@@ -203,7 +203,7 @@
 \newcommand{\addimagelinkboxed}[6][]{%
 	\global\def\GLOBALimagelink {#5}%
 	\addimageboxed[#1]{#2}{#3}{#4}{#6}%
-	\global\def\GLOBALimagelink {}%
+	\global\def\GLOBALimagelink {\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -281,7 +281,7 @@
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
 			\centering%
-			\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
+			\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
 				\fbox{\includegraphics[#3]{#2}}%
 			}{ % Con link
 				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
@@ -396,7 +396,7 @@
 \newcommand{\insertimagelinkboxed}[6][]{%
 	\global\def\GLOBALimagelink {#5}%
 	\insertimageboxed[#1]{#2}{#3}{#4}{#6}%
-	\global\def\GLOBALimagelink {}%
+	\global\def\GLOBALimagelink {\GLOBALemptyvar}%
 }
 
 % Insertar una imagen completa en un entorno multicol
