@@ -40,7 +40,7 @@
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\dimexpr \marginimagemultright cm -\coreimageshspace}%
 	}{}%
-	\ifthenelse{\equal{#5}{}}{ % Sin label
+	\ifthenelse{\equal{#5}{\GLOBALemptyvar}}{ % Sin label
 		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
 			\raisebox{\GLOBALimagenextmarginv}{%
 				\fbox{\includegraphics[#3]{#2}}
@@ -74,7 +74,7 @@
 %	#1	Dirección de la imagen
 %	#2	Parámetros de la imagen
 \newcommand{\addimageanum}[2]{%
-	\addimageboxed{#1}{#2}{0}{}%
+	\addimageboxed{#1}{#2}{0}{\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -82,7 +82,7 @@
 %	#2	Parámetros de la imagen
 %	#3	Ancho de la línea (en pt)
 \newcommand{\addimageanumboxed}[3]{%
-	\addimageboxed{#1}{#2}{#3}{}%
+	\addimageboxed{#1}{#2}{#3}{\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde animada
@@ -112,7 +112,7 @@
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\dimexpr \marginimagemultright cm - \coreimageshspace}%
 	}{}%
-	\ifthenelse{\equal{#7}{}}{ % Sin label
+	\ifthenelse{\equal{#7}{\GLOBALemptyvar}}{ % Sin label
 		\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 				\raisebox{\GLOBALimagenextmarginv}{%
@@ -170,7 +170,7 @@
 %	#3	FPS de la imagen
 %	#4	Total imágenes no definido
 \newcommand{\addimageanimatedanum}[4]{%
-	\addimageanimatedboxed{#1}{#2}{#3}{#4}{0}{}%
+	\addimageanimatedboxed{#1}{#2}{#3}{#4}{0}{\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda animada
@@ -180,7 +180,7 @@
 %	#4	Total imágenes no definido
 %	#5	Ancho de la línea (en pt)
 \newcommand{\addimageanimatedanumboxed}[5]{%
-	\addimageanimatedboxed{#1}{#2}{#3}{#4}{#5}{}%
+	\addimageanimatedboxed{#1}{#2}{#3}{#4}{#5}{\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde y un link
@@ -211,7 +211,7 @@
 %	#2	Parámetros de la imagen
 %	#3	Link de la imagen
 \newcommand{\addimageanumlink}[3]{%
-	\addimagelink{#1}{#2}{#3}{}%
+	\addimagelink{#1}{#2}{#3}{\GLOBALemptyvar}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -220,7 +220,7 @@
 %	#3	Ancho de la línea (en pt)
 %	#4	Link de la imagen
 \newcommand{\addimageanumlinkboxed}[4]{%
-	\addimagelinkboxed{#1}{#2}{#3}{#4}{}%
+	\addimagelinkboxed{#1}{#2}{#3}{#4}{\GLOBALemptyvar}%
 }
 
 % Añade un salto de línea en las imágenes
@@ -292,7 +292,7 @@
 		\else%
 			\hspace{0cm}%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{figure}
 	\corevspacevarcm{\marginimagebottom}%
@@ -368,7 +368,7 @@
 		\else%
 			\hspace{0cm}%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{figure}
 	\corevspacevarcm{\marginimagebottom}%
@@ -492,7 +492,7 @@
 		\else%
 			\hspace{0cm}%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{figure*}
 	\end{samepage}
@@ -590,7 +590,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -637,7 +637,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -682,7 +682,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -730,7 +730,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -781,7 +781,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -832,7 +832,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -883,7 +883,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
@@ -934,7 +934,7 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\corevspacevarcm{\captionmarginimage}%
-			\ifthenelse{\equal{\GLOBALcaptiondefn}{EMPTY-VAR}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
+			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{wrapfigure}
 	\setcaptionmargincm{\captionlrmargin}%
