@@ -1,0 +1,19 @@
+name: CI
+
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.repository }}-${{ github.workflow }}-${{ github.ref }}
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    uses: ppizarror/workflow-actions/.github/workflows/test_latex.yml@master
+    with:
+      file: main.tex
