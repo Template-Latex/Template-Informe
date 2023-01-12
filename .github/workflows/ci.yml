@@ -18,6 +18,6 @@ jobs:
     with:
       file: main
 
-  delete-artifacts:
+  delete-artifacts: # fix
     needs: test
     uses: ppizarror/workflow-actions/.github/workflows/delete_artifacts.yml@master
