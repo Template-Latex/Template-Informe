@@ -16,4 +16,4 @@ jobs:
   test:
     uses: ppizarror/workflow-actions/.github/workflows/test_latex.yml@master
     with:
-      file: main.tex
+      file: main
