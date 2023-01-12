@@ -17,7 +17,3 @@ jobs:
     uses: ppizarror/workflow-actions/.github/workflows/test_latex.yml@master
     with:
       file: main
-
-  delete-artifacts:
-    needs: test
-    uses: ppizarror/workflow-actions/.github/workflows/delete_artifacts.yml@master
