@@ -90,7 +90,7 @@ Dado que Maple Flow utiliza el lenguaje de programación Maple, tiene la capacid
 
 \href{http://www.maplesoft.com/support/help}{http://www.maplesoft.com/support/help}. Tenga en cuenta que estas páginas están formateadas como páginas de Maple, no como páginas de Maple Flow, por lo que los ejemplos se verán un poco diferentes.
 
-\section{Interfaz}
+\subsection{Interfaz}
 Las diferentes partes de la interfaz Maple Flow, como se ve en la Figura 1.2, son:
 
 \begin{itemize}
@@ -106,72 +106,54 @@ Las diferentes partes de la interfaz Maple Flow, como se ve en la Figura 1.2, so
 
 \item Barra de estado — Muestra información del sistema
 \end{itemize}
+\insertimage[\label{img::1.2}]{ 2022_12_20_3e2ffe6ad124ec91ee5cg-10}{width=17cm}{La interfaz Maple Flow.}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-10}
-\end{center}
+\textbf{Personalizar la interfaz}
+Personalice sus preferencias de Maple Flow utilizando el cuadro de diálogo Opciones.
 
-Figure 1.2: The Maple Flow interface
-
-\section{Customizing the Interface}
-Customize your Maple Flow preferences using the Options Dialog.
-
-To open the Options Dialog:
+Para abrir el cuadro de diálogo Opciones:
 
 \begin{itemize}
-  \item From the toolbar, click the Options icon ( $\boldsymbol{*})$. There are two tabs. Under the Display tab, you can specify the default number of decimal places to use when rounding results. For more information, see Numeric Formatting (page 10).
+  \item En la barra de herramientas, haga clic en el icono Opciones ( $\boldsymbol{*})$. Hay dos pestañas. En la pestaña Mostrar, puede especificar el número predeterminado de lugares decimales para usar al redondear los resultados. Para obtener más información, consulte Formato numérico (página 10).
 \end{itemize}
 
-Under the Interface tab, you can specify the following:
+En la pestaña Interfaz, puede especificar lo siguiente:
 
 \begin{itemize}
-  \item Open worksheets in new tab or new window.
+  \item Abrir hojas de trabajo en una nueva pestaña o nueva ventana.
 
-  \item Open hyperlinks in new tab or new window.
+\item Abrir hipervínculos en una nueva pestaña o nueva ventana.
 
-  \item Default zoom.
-
+\item Zoom predeterminado.
 \end{itemize}
 
-Click Apply to Session to apply for the current Maple Flow session only, or click Apply Globally to apply the setting to the current session an future sessions.
+Haga clic en Aplicar a la sesión para aplicar solo para la sesión actual de Maple Flow, o haga clic en Aplicar globalmente para aplicar la configuración a la sesión actual y a sesiones futuras.
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-11}
-\end{center}
-
-Figure 1.3: Options dialog
+\insertimage[\label{img::2.2}]{2022_12_20_3e2ffe6ad124ec91ee5cg-11}{width=10cm}{Diálogo de opciones.}
 
 \section{Canvas}
 \subsection{Grid}
-When you drag math and text containers, the positions of containers are snapped to a grid. By default, the grid is not displayed.
+Cuando arrastra contenedores matemáticos y de texto, las posiciones de los contenedores se ajustan a una cuadrícula. De forma predeterminada, la cuadrícula no se muestra.
 
-To display the grid, click the Enable/Disable Grid button on the main toolbar.
+Para mostrar la cuadrícula, haga clic en el botón Habilitar/Deshabilitar cuadrícula en la barra de herramientas principal.
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-12}
-\end{center}
+\insertimage[\label{img::2.1}]{2022_12_20_3e2ffe6ad124ec91ee5cg-12}{width=10cm}{botón Activar/Desactivar cuadrícula en la barra de herramientas.}
 
-Figure 2.1: Enable/Disable Grid button on toolbar
+\subsection{Cursor de cuadrícula}
+El cursor de cuadrícula se ilustra en la Figura $\mathbf{2. 2}$ y por defecto aparece en la esquina superior izquierda de cada lienzo nuevo.
 
-\subsection{Grid Cursor}
-The grid cursor is illustrated in Figure $\mathbf{2 . 2}$ and by default appears in the top left corner of every new canvas.
+%Cursor de cuadrícula
+El cursor de la cuadrícula se puede mover apuntando y haciendo clic con el mouse o con las teclas de flecha.
 
-\section{$+$}
-\section{Figure 2.2: Grid cursor}
-The grid cursor can be moved by pointing and clicking with the mouse, or with the arrow keys.
+Los contenedores matemáticos y de texto se crean en la ubicación del cursor de cuadrícula.
 
-Math and text containers are created at the location of the grid cursor.
+\subsection{Contenedores de texto y matemáticas}
+En el lienzo, puede crear cuadros matemáticos o cuadros de texto. Cada caja se puede mover; la posición de un contenedor matemático determina el orden en que se evalúa (como se ilustra en la Figura 3.9).
 
-\subsection{Math and Text Containers}
-On the canvas, you can create math boxes or text boxes. Each box can be moved; the position of a math container determines the order in which it is evaluated (as illustrated in Figure 3.9).
+Un contenedor puede estar en uno de tres estados, como se describe en la Tabla 2.1.
+\insertimage[\label{img::2.1}]{2022_12_20_3e2ffe6ad124ec91ee5cg-12(1)}{width=17cm}{Tabla 2.1: Estados del contenedor.}
 
-A container can be in one of three states, as described in Table 2.1.
 
-Table 2.1: Container states
-
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-12(1)}
-\end{center}
 
 \begin{center}
 \begin{tabular}{|l|l|l|}
