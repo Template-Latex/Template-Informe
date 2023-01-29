@@ -157,332 +157,294 @@ Un contenedor puede estar en uno de tres estados, como se describe en la Tabla 2
 
 \begin{center}
 \begin{tabular}{|l|l|l|}
-\hline
- & Math & Text \\
-\hline
-- One or several containers can be in move &  &  \\
-mode. &  &  \\
-- Move the containers with the mouse. &  &  \\
-- When instead you select using the &  &  \\
-keyboard and Ctrl key, the container has &  &  \\
-a royal blue border. &  &  \\
-- Move the container with Ctrl + arrow &  &  \\
-keys. &  & $\mathrm{x}^{2}=9$ \\
-\hline
+	\hline
+	& Matemáticas & Texto \\
+	\hline
+	- Uno o varios contenedores pueden estar en movimiento & & \\
+	modo. & & \\
+	- Mueve los contenedores con el ratón. & & \\
+	- Cuando en cambio seleccionas usando el & & \\
+	teclado y tecla Ctrl, el contenedor tiene & & \\
+	un borde azul real. & & \\
+	- Mueve el contenedor con Ctrl + flecha & & \\
+	llaves. & & $\mathrm{x}^{2}=9$ \\
+	\hline
 \end{tabular}
 \end{center}
 
-\subsection{Moving Containers}
-\section{Single Container}
-With the mouse
+\subsection{Mover contenedores}
+\textbf{Contenedor único}
+\textbf{con el raton}
 
-To move a container with the mouse:
-
+Para mover un contenedor con el ratón:
 \begin{enumerate}
-  \item Move the mouse pointer over a container.
+  \item Mueve el puntero del ratón sobre un contenedor.
 
-  \item Move the container to another position by click and dragging.
+\item Mueva el contenedor a otra posición haciendo clic y arrastrando.
 
-  \item Release the mouse button when the container is in the desired position.
-
+\item Suelte el botón del mouse cuando el contenedor esté en la posición deseada.
 \end{enumerate}
 
-\section{With the keyboard arrows}
-To move a container with the keyboard:
+\textbf{Con las flechas del teclado}
+Para mover un contenedor con el teclado:
 
 \begin{enumerate}
-  \item Move the grid cursor into a container so that the container is in editing mode.
-
-  \item Do one of the following:
-
+	\item Mueva el cursor de cuadrícula a un contenedor para que el contenedor esté en modo de edición.
+	
+	\item Realice una de las siguientes acciones:
+	
 \end{enumerate}
 
 \begin{itemize}
-  \item Press Ctrl and use the arrow keys to move the container one grid space at a time.
+  \item Presione Ctrl y use las teclas de flecha para mover el contenedor un espacio de cuadrícula a la vez.
 
-  \item Press Ctrl + Shift and use the arrow keys to move the container a single pixel at a time.
-
+\item Presione Ctrl + Shift y use las teclas de flecha para mover el contenedor un solo píxel a la vez.
 \end{itemize}
 
-Note that when you press Ctrl, the container border changes to royal blue to indicate $\mathbf{C t r l}$ has been pressed.
+Tenga en cuenta que cuando presiona Ctrl, el borde del contenedor cambia a azul real para indicar que se presionó $\mathbf{C t r l}$.
 
-\section{Group of Containers}
-To move multiple containers:
+\textbf{Grupo de Contenedores}
+Para mover varios contenedores:
 
 \begin{enumerate}
-  \item Click in a blank part of the canvas.
-
-  \item Drag a selection box around a group of containers.
-
-  \item Release the mouse button.
-
-  \item Move the mouse pointer over one of the selected containers.
-
-  \item Drag the containers to another location.
+  \item Haga clic en una parte en blanco del lienzo.
+ 
+ \item Arrastre un cuadro de selección alrededor de un grupo de contenedores.
+ 
+ \item Suelte el botón del ratón.
+ 
+ \item Mueva el puntero del mouse sobre uno de los contenedores seleccionados.
+ 
+ \item Arrastra los contenedores a otra ubicación.
 
 \end{enumerate}
 
-\section{Bringing Containers from Back to Front, and Vice Versa}
-You can potentially have two containers at the same grid position.You can bring the lower container forward, or send the top container back, by using Flip to Front and Flip to Back buttons.
+\textbf{Llevar contenedores de atrás hacia adelante y viceversa}
+Potencialmente, puede tener dos contenedores en la misma posición de cuadrícula. Puede llevar el contenedor inferior hacia adelante o devolver el contenedor superior utilizando los botones Voltear hacia adelante y Voltear hacia atrás.
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-13}
-\end{center}
+\insertimage[\label{img::2.3}]{2022_12_20_3e2ffe6ad124ec91ee5cg-13}{width=10cm}{Botones Voltear hacia adelante y Voltear hacia atrás.}
 
-Figure 2.3: Flip to Front and Flip to Back buttons
-
-\subsection{Editing an Existing Container}
-To enter editing mode on an existing container, do one of the following:
+\subsection{Editar un contenedor existente}
+Para ingresar al modo de edición en un contenedor existente, realice una de las siguientes acciones:
 
 \begin{itemize}
-  \item With the mouse, click the container.
+  \item Con el ratón, haga clic en el contenedor.
 
-  \item With the arrow keys, move the grid cursor onto the container.
-
+\item Con las teclas de flecha, mueva el cursor de cuadrícula al contenedor.
 \end{itemize}
 
-\subsection{Deleting a Container}
-To remove a container, do one of the following:
+\subsection{Eliminar un contenedor}
+Para eliminar un contenedor, realice una de las siguientes acciones:
 
 \begin{itemize}
-  \item With the mouse, select the container (or containers) and from the toolbar, select Cut (O)
+  \item Con el mouse, seleccione el contenedor (o contenedores) y desde la barra de herramientas, seleccione Cortar (O)
 
-  \item Move the grid cursor into a container so that the container is in editing mode. Then press Ctrl + Delete to delete the in-focus container.
-
+\item Mueva el cursor de cuadrícula a un contenedor para que el contenedor esté en modo de edición. Luego presione Ctrl + Supr para eliminar el contenedor enfocado.
 \end{itemize}
 
-\subsection{Inserting or Removing White Space}
-You can insert or remove space in the canvas (i.e. grid rows) by using the Enter, Backspace, and Delete keys.
+\subsection{Inserción o eliminación de espacios en blanco}
+Puede insertar o eliminar espacios en el lienzo (es decir, filas de la cuadrícula) utilizando las teclas Intro, Retroceso y Eliminar.
 
-\section{Adding Blank Rows}
-To add blank rows, place the grid cursor on a blank part of the canvas and press Enter. This shifts all content on and below the same row as the grid cursor down.
+\textbf{Adición de filas en blanco}
+Para agregar filas en blanco, coloque el cursor de la cuadrícula en una parte en blanco del lienzo y presione Entrar. Esto desplaza todo el contenido en y debajo de la misma fila que el cursor de la cuadrícula hacia abajo.
 
-\section{Deleting Blank Rows}
-To delete blank rows, click on a blank row of the canvas and press one of the following:
+\textbf{Eliminar filas en blanco}
+Para eliminar filas en blanco, haga clic en una fila en blanco del lienzo y presione uno de los siguientes:
 
 \begin{itemize}
-  \item Backspace to remove that blank row and shift the grid cursor and all content below the grid cursor up
-
-  \item Delete to remove that blank row, and shift all content below that row up.
-
+  \item Retroceso para eliminar esa fila en blanco y mover el cursor de la cuadrícula y todo el contenido debajo del cursor de la cuadrícula hacia arriba
+  
+  \item Eliminar para eliminar esa fila en blanco y cambiar todo el contenido debajo de esa fila hacia arriba.
 \end{itemize}
 
-\section{Entering Math}
-\subsection{Creating a Math Container}
-A math container is a box in which you enter math that is to be evaluated.
+\section{Ingresando a Matemáticas}
+\subsection{Crear un contenedor matemático}
+Un contenedor matemático es un cuadro en el que ingresa las matemáticas que se van a evaluar.
 
-To create a math container:
+Para crear un contenedor matemático:
 
 \begin{enumerate}
-  \item Click on a blank part of the canvas.
-
-  \item Begin typing your math. As soon as you enter the first character, a math container is created automatically.
-
+	\item Haga clic en una parte en blanco del lienzo.
+	
+	\item Comience a escribir sus matemáticas. Tan pronto como ingrese el primer carácter, se crea automáticamente un contenedor matemático.
 \end{enumerate}
 
-\subsection{Deleting a Math Container}
-To delete a math container, do one of the following:
+\subsection{Eliminar un contenedor matemático}
+Para eliminar un contenedor matemático, realice una de las siguientes acciones:
 
 \begin{itemize}
-  \item Drag-select the math container and press Delete.
+  \item Arrastre y seleccione el contenedor matemático y presione Eliminar.
 
-  \item In editing mode, press Ctrl + Delete to delete the in-focus container.
-
+\item En el modo de edición, presione Ctrl + Supr para eliminar el contenedor enfocado.
 \end{itemize}
 
-\subsection{Evaluating Math and Displaying Output}
-All math is evaluated in the canvas, using a left-to-right, top-to-bottom order (see Evaluation Order (page 14)). When you need to display results, evaluate and display output.
+\subsection{Evaluación matemática y visualización de resultados}
+Todas las matemáticas se evalúan en el lienzo, utilizando un orden de izquierda a derecha y de arriba a abajo (consulte Orden de evaluación (página 14)). Cuando necesite mostrar resultados, evalúe y muestre la salida.
 
-To evaluate math and display output:
-
+Para evaluar las matemáticas y mostrar la salida:
 \begin{enumerate}
-  \item Enter the expression, then with the cursor at the right end of the expression, press $=$.
+  \item Ingrese la expresión, luego con el cursor en el extremo derecho de la expresión, presione $=$.
 
-  \item Press Enter or the arrow keys. The result is displayed. After evaluation, the focus leaves the math container.
-
+\item Pulse Intro o las teclas de flecha. Se muestra el resultado. Después de la evaluación, el foco sale del contenedor matemático.
 \end{enumerate}
 
-\subsection{Numeric and Symbolic Evaluation Modes}
-Maple Flow offers two math evaluation modes - numeric and symbolic.
+\subsection{Modos de evaluación numéricos y simbólicos}
+Maple Flow ofrece dos modos de evaluación matemática: numérico y simbólico.
 
-Table 3.1: Difference between numeric and symbolic evaluation modes
+\insertimage[\label{tb::3.1}]{2022_12_20_3e2ffe6ad124ec91ee5cg-15}{width=17cm}{Tabla 3.1: Diferencia entre los modos de evaluación numéricos y simbólicos.}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-15}
-\end{center}
-
-The numeric evaluation mode performs as much numeric evaluation as possible. For example:
+El modo de evaluación numérica realiza tanta evaluación numérica como sea posible. Por ejemplo:
 
 \begin{itemize}
-  \item Rational fractions (such as $1 / 2$ ) are converted to floating-point numbers
+  \item Las fracciones racionales (como $1 / 2$) se convierten en números de punto flotante
 
-  \item Pi and $\exp (1)$ evaluate to floating-point numbers
-
+\item Pi y $\exp (1)$ se evalúan como números de punto flotante
 \end{itemize}
 
-Symbolic evaluation mode prevents numeric evaluation (except when requested by the user). For example:
+El modo de evaluación simbólica evita la evaluación numérica (excepto cuando lo solicite el usuario). Por ejemplo:
 
 \begin{itemize}
-  \item Rational fractions are only converted to floating-point numbers if request by the user (e.g. with the evalf command)
-
-  \item Pi evaluates to a symbolic name
-
+  \item Las fracciones racionales solo se convierten en números de punto flotante si el usuario lo solicita (por ejemplo, con el comando evalf)
+  
+  \item Pi se evalúa como un nombre simbólico
 \end{itemize}
 
-In both modes, unassigned names are evaluated symbolically (i.e. in numeric mode, unassigned names do not give an error when evaluated).
+En ambos modos, los nombres no asignados se evalúan simbólicamente (es decir, en el modo numérico, los nombres no asignados no dan error cuando se evalúan).
 
-The current mode of an existing math container is given by clicking inside it, and observing the state of the border or Numeric/Symbolic buttons in the Context toolbar, as illustrated in Table 3.1. By default, new math containers are numeric. Clicking the Symbolic button in the Context toolbar switches the in-focus math container to symbolic mode. Alternatively, use the shortcut key Alt $+\mathbf{S}$.
+El modo actual de un contenedor matemático existente se obtiene haciendo clic dentro de él y observando el estado del borde o los botones Numéricos/Simbólicos en la barra de herramientas Contexto, como se ilustra en la Tabla 3.1. De forma predeterminada, los nuevos contenedores matemáticos son numéricos. Al hacer clic en el botón Simbólico en la barra de herramientas Contexto, el contenedor matemático enfocado cambia al modo simbólico. Alternativamente, use la tecla de método abreviado Alt $+\mathbf{S}$.
 
-Holding down the Symbolic button for a second makes symbolic evaluation mode "sticky". This is indicated with a padlock by the Symbolic button ( 5 Symbolic ${ }^{A}$ ). This means that all future math containers will be symbolic (until symbolic mode is toggled off, by toggling to Numeric, or with another long click on the Symbolic button).
+Si mantiene pulsado el botón Simbólico durante un segundo, el modo de evaluación simbólica se vuelve "pegajoso". Esto se indica con un candado por el botón Simbólico ( 5 Simbólico ${ }^{A}$ ). Esto significa que todos los contenedores matemáticos futuros serán simbólicos (hasta que se desactive el modo simbólico, cambiando a Numérico, o con otro clic prolongado en el botón Simbólico).
 
-\subsection{Numeric Formatting}
-By default, Maple Flow displays numeric results with three decimal places. To customize the numeric formatting:
-
-\begin{enumerate}
-  \item Place the editing cursor on a numeric result.
-
-  \item Use the Number Format options in the Context Panel.
-
-\end{enumerate}
-
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-16}
-\end{center}
-
-Figure 3.1: Numeric formatting
-
-Note that the number format options in the Context Panel only apply to a single math container.
-
-To select a number format and apply it broadly, you can use the Options Dialog to set your desired number format and apply it either to the current session or globally.
+\subsection{Formato numérico}
+Por defecto, Maple Flow muestra resultados numéricos con tres decimales. Para personalizar el formato numérico:
 
 \begin{enumerate}
-  \item From the toolbar, click the Options icon ( 4 ).
+  \item Coloca el cursor de edición en un resultado numérico.
 
-  \item Under the Display tab, select the desired number format.
-
-  \item Click Apply to Session to apply for the current Maple Flow session only, or click Apply Globally to apply the setting to the current session and future sessions.
-
+\item Use las opciones de formato de número en el panel de contexto.
 \end{enumerate}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-16(1)}
-\end{center}
+\insertimage[\label{img::3.1}]{2022_12_20_3e2ffe6ad124ec91ee5cg-16}{width=10cm}{Figura 3.1: Formato numérico.}
 
-Figure 3.2: Setting default numeric formatting
+Tenga en cuenta que las opciones de formato de número en el Panel de contexto solo se aplican a un único contenedor matemático.
 
-Maple Flow supports the following standard number formats:
+Para seleccionar un formato de número y aplicarlo ampliamente, puede usar el cuadro de diálogo Opciones para establecer el formato de número deseado y aplicarlo a la sesión actual o globalmente.
 
+\begin{enumerate}
+  \item En la barra de herramientas, haga clic en el icono Opciones ( 4 ).
+
+\item En la pestaña Mostrar, seleccione el formato de número deseado.
+
+\item Haga clic en Aplicar a la sesión para aplicar solo a la sesión actual de Maple Flow, o haga clic en Aplicar globalmente para aplicar la configuración a la sesión actual y futuras sesiones.
+\end{enumerate}
+
+\insertimage[\label{img::3.2}]{2022_12_20_3e2ffe6ad124ec91ee5cg-16(1)}{width=10cm}{Figura 3.2: Configuración del formato numérico predeterminado.}
+
+Maple Flow admite los siguientes formatos de números estándar:
 \begin{itemize}
-  \item Fixed
+  \item Fijo
 
-  \item Currency
+\item Moneda
 
-  \item Scientific - Engineering
+\item Científico - Ingeniería
 
-  \item Percent
-
+\item Porcentaje
 \end{itemize}
 
-You can also create a Custom format.
+También puede crear un formato personalizado.
 
-To apply a custom format to a single math container:
+Para aplicar un formato personalizado a un único contenedor matemático:
 
 \begin{enumerate}
-  \item Place the cursor in the numeric result to be formatted.
+  \item Coloque el cursor en el resultado numérico a formatear.
 
-  \item In the Context Panel, under Number Format, select Custom. In the custom string field you can enter a string that is specific to your formatting needs.
-
+\item En el Panel de contexto, en Formato de número, seleccione Personalizado. En el campo de cadena personalizada, puede ingresar una cadena que sea específica para sus necesidades de formato.
 \end{enumerate}
 
-Examples include the following:
-
+Los ejemplos incluyen lo siguiente:
 \begin{itemize}
-  \item \#.\#\#\# formats to $3.12$
+  \item \#.\#\#\# formatos a $3.12$
 
-  \item $00.000$ formats to $03.120$
+\item $00.000$ formatos a $03.120$
 
-  \item \#,\#.\# formats to $2,100,320.5$
+\item \#,\#.\# formatos a $2,100,320.5$
 
-  \item $\$ 0.00$ formats to $\$ 123.50$
+\item $\$ 0.00$ formatos a $\$ 123.50$
 
-  \item ??0.00;\href{??0.00}{Red} formats to blue for a positive number, and red for a negative number
+\item??0.00;\href{??0.00}{Red} da formato a azul para un número positivo y rojo para un número negativo
 
-  \item $[<10]$ Low; [>=100]High;Medium formats to "Low" for numbers less than 10,"High" for numbers less than or equal to 100, and "Medium" otherwise
-
+\item $[<10]$ Bajo; [>=100]Alto; Formatos medios a "Bajo" para números menores de 10, "Alto" para números menores o iguales a 100 y "Medio" de lo contrario
 \end{itemize}
 
-\section{To apply a custom format to all numeric results in the current session or globally:}
+\textbf{Para aplicar un formato personalizado a todos los resultados numéricos en la sesión actual o globalmente:}
 \begin{enumerate}
-  \item From the toolbar, click the Options icon ( $\nLeftarrow$ ).
+  \item En la barra de herramientas, haga clic en el icono Opciones. 
 
-  \item Under the Display tab, for Number Format select Custom and enter your specification in the custom string field.
+\item En la pestaña Mostrar, para Formato de número, seleccione Personalizado e ingrese su especificación en el campo de cadena personalizado.
 
-  \item Click Apply to Session to apply for the current Maple Flow session only, or click Apply Globally to apply the setting to the current session an future sessions.
-
+\item Haga clic en Aplicar a sesión para aplicar solo para la sesión actual de Maple Flow, o haga clic en Aplicar globalmente para aplicar la configuración a la sesión actual y sesiones futuras.
 \end{enumerate}
 
-To remove a number format, return to the Number Format dialog and select None.
+Para eliminar un formato de número, vuelva al cuadro de diálogo Formato de número y seleccione Ninguno.
 
-\subsection{Creating a Definition}
-You can assign a numerical value or an expression to a name by using := (a colon, followed by an equal sign).
+\subsection{Crear una definición}
+Puede asignar un valor numérico o una expresión a un nombre usando:= (dos puntos, seguido de un signo igual).
 
-For example, entering a:=4 in a math container assigns the value 4 to the name a.
+Por ejemplo, ingresar a:=4 en un contenedor matemático asigna el valor 4 al nombre a.
 
-\subsection{Basic Arithmetic}
-Equations are entered in typeset math notation, using standard keys such as $/, *,+$ and $-$.
+\subsection{Aritmética básica}
+Las ecuaciones se ingresan en notación matemática tipográfica, usando teclas estándar como $/, *,+$ y $-$.
 
-Note that multiplication must always be explicitly stated. For example, you must enter $3 * \mathrm{x}$, not $3 \mathrm{x}$.
+Tenga en cuenta que la multiplicación siempre debe indicarse explícitamente. Por ejemplo, debe ingresar $3 * \mathrm{x}$, no $3 \mathrm{x}$.
 
-You can also use the Expression palette or Command Completion feature to enter typeset math, as illustrated in Table 3.2. Table 3.2: Using the Command Completion feature and Expression Palette to insert a square root
+También puede utilizar la paleta de Expresión o la característica de finalización de comandos para ingresar matemáticas tipográficas, como se ilustra en la Tabla 3.2. 
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-18}
-\end{center}
+\insertimage[\label{img::tb3.2}]{2022_12_20_3e2ffe6ad124ec91ee5cg-18}{width=17cm}{Tabla 3.2: uso de la función de finalización de comandos y la paleta de expresiones para insertar una raíz cuadrada.}
 
-For more information on command completion, see Command Completion (page 31).
 
-\subsection{Complex Numbers}
-Imaginary numbers are entered with a number followed by the suffix $i$, with no multiplication between the two. For example, $2+2 \mathrm{i}$.
 
-The unit complex number is created with 1i. You cannot just enter i for the unit complex number.
+Para obtener más información sobre la finalización de comandos, consulte Finalización de comandos (página 31).
 
-To create a symbolic multiplier on an imaginary number, you need to enter $\mathrm{x} * 1 \mathrm{i}$.
+\subsection{Números complejos}
+Los números imaginarios se ingresan con un número seguido del sufijo $i$, sin multiplicación entre los dos. Por ejemplo, $2+2 \mathrm{i}$.
 
-\subsection{Units}
-\section{Entering Units}
-You can enter units in several different ways.
+El número complejo unitario se crea con 1i. No puede simplemente ingresar i para el número complejo de la unidad.
 
-\section{Units Palette}
-You can enter units using the Units palette located in the Palettes pane on the left side of the Canvas. Click the desired unit (using the Dimensionality drop-down list to switch to different groups of units), or insert the unit placeholder (as illustrated in Figure 3.3) and overwrite the placeholder.
+Para crear un multiplicador simbólico en un número imaginario, debe ingresar $\mathrm{x} * 1 \mathrm{i}$.
 
-You may want to place a space between the number and the unit.
+\subsection{Unidades}
+\textbf{Introducción de unidades}
+Puede ingresar unidades de varias maneras diferentes.
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-18(1)}
-\end{center}
+\textbf{Paleta de unidades}
+Puede ingresar unidades usando la paleta Unidades ubicada en el panel Paletas en el lado izquierdo del Lienzo. Haga clic en la unidad deseada (usando la lista desplegable Dimensionalidad para cambiar a diferentes grupos de unidades), o inserte el marcador de posición de la unidad (como se ilustra en la Figura 3.3) y sobrescriba el marcador de posición.
 
-Figure 3.3: Inserting a Unit with the Units Palette
 
-\section{Unit function}
-You can use the Unit 0 function to assign a unit.
+\insertimage[\label{img::3.3}]{2022_12_20_3e2ffe6ad124ec91ee5cg-18(1)}{width=10cm}{Figura 3.3: Inserción de una Unidad con la Paleta de Unidades.}
 
-$x:=3.4 \cdot \operatorname{Unit}\left(m^{2}\right)$
 
-Figure 3.4: Using the Unit) function to assign a unit
 
-\section{Keyboard shortcut}
-Press $\mathbf{C t r l}+\mathbf{S h i f t}+\mathbf{U}$ to enter a unit placeholder. Then, replace the placeholder with the desired units.
 
-$\mathrm{x}:=3.4$ unit
+\textbf{Función unidad}
+Puede utilizar la función Unidad 0 para asignar una unidad.
 
-Figure 3.5: Using keyboard shortcuts to insert a unit placeholder
+$x:=3.4 \cdot \operatorname{Unidad}\left(m^{2}\right)$
 
-\section{Editing Existing Units}
-Move the cursor onto the unit. When the unit has focus, it is highlighted by a light blue box. You can now change the unit.
+Figura 3.4: Uso de la función Unidad) para asignar una unidad
 
-Deleting all the characters in a unit placeholder will leave an empty placeholder one character in size. Deleting this empty placeholder will remove the unit placeholder entirely.
+\textbf{Método abreviado de teclado}
+Presione $\mathbf{C t r l}+\mathbf{S h i f t}+\mathbf{U}$ para ingresar un marcador de posición de unidad. Luego, reemplace el marcador de posición con las unidades deseadas.
 
-When the results of your calculations contains units, you can use the units formatting options in the Context Panel to rescale the units to units you'd prefer to see.
+$\mathrm{x}:=3.4$ unidad
+
+Figura 3.5: Uso de métodos abreviados de teclado para insertar un marcador de posición de unidad
+
+\textbf{Editar unidades existentes}
+Mueva el cursor a la unidad. Cuando la unidad tiene foco, se resalta con un cuadro azul claro. Ahora puede cambiar la unidad.
+
+Eliminar todos los caracteres en un marcador de posición de unidad dejará un marcador de posición vacío de un carácter de tamaño. Al eliminar este marcador de posición vacío, se eliminará por completo el marcador de posición de la unidad.
+
+Cuando los resultados de sus cálculos contienen unidades, puede usar las opciones de formato de unidades en el Panel de contexto para cambiar la escala de las unidades a las unidades que preferiría ver.
 
 \begin{equation*}
 \begin{aligned}
@@ -492,15 +454,11 @@ When the results of your calculations contains units, you can use the units form
 \end{aligned}
 \end{equation*}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-19}
-\end{center}
+\insertimage[\label{img::3.6}]{2022_12_20_3e2ffe6ad124ec91ee5cg-19}{width=10cm}{Figura 3.6: Convertir unidades de salida.}
 
-Figure 3.6: Convert output units
-
-\subsection{Notes about Math Input}
-\section{Numerical Evaluation and Accuracy}
-Any purely numerical operations are evaluated to a floating-point approximation.
+\subsection{Notas sobre la entrada matemática}
+\textbf{Evaluación numérica y precisión}
+Cualquier operación puramente numérica se evalúa con una aproximación de punto flotante.
 
 \begin{equation*}
 \begin{aligned}
@@ -510,12 +468,13 @@ Any purely numerical operations are evaluated to a floating-point approximation.
 \end{aligned}
 \end{equation*}
 
-\section{Figure 3.7: Numerical operations}
-The Digits environment variable controls the number of digits that Maple uses when making calculations with software floating-point numbers.
+\textbf{Figura 3.7: Operaciones numéricas}
 
-The default value of Digits is 10 . The value of Digits is changed with the assignment operator (e.g. Digits: $=15$ ).
+La variable de entorno Dígitos controla el número de dígitos que utiliza Maple al realizar cálculos con números de punto flotante de software.
 
-Figure 3.8 illustrates the effect of changing digits from its default value of 10 to 15 on the evaluation of $2^{0.5}$. (Note that numeric formatting on the result of $2^{0.5}$ has been set to Fixed with 20 decimal places.)
+El valor predeterminado de Dígitos es 10. El valor de los dígitos se cambia con el operador de asignación (por ejemplo, dígitos: $=15$).
+
+La Figura 3.8 ilustra el efecto de cambiar los dígitos de su valor predeterminado de 10 a 15 en la evaluación de $2^{0.5}$. (Tenga en cuenta que el formato numérico en el resultado de $2^{0.5}$ se ha establecido en Fijo con 20 decimales).
 
 \begin{equation*}
 \begin{aligned}
@@ -526,225 +485,190 @@ Figure 3.8 illustrates the effect of changing digits from its default value of 1
 \end{aligned}
 \end{equation*}
 
-Figure 3.8: The effect of Digits on numerical accuracy
+\textbf{Figura 3.8: El efecto de los dígitos en la precisión numérica}
 
-\section{Evaluation Order}
-Maple Flow evaluates calculations from left-to-right, top-to-bottom (much like reading a page from a book). This means that downstream calculations only "see" assignments on the left or above. This is illustrated in Figure 3.9.
+\textbf{Orden de evaluación}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-20}
-\end{center}
+Maple Flow evalúa los cálculos de izquierda a derecha y de arriba a abajo (muy parecido a leer una página de un libro). Esto significa que los cálculos posteriores solo "ven" las asignaciones a la izquierda o arriba. Esto se ilustra en la Figura 3.9.
 
-Figure 3.9: Spatial evaluation
+\insertimage[\label{img::3.9}]{2022_12_20_3E2ffe6ad124ec91ee5cg-20}{width=6cm}{Figura 3.9: Evaluación espacial.}
 
-You can change the evaluation order by moving math containers around.
+Puede cambiar el orden de evaluación moviendo los contenedores matemáticos.
 
-\section{Nonexecutable Math and Disabling Evaluation}
-You may want to enter nonexecuting math for documentation purposes. You can do this by entering math into a text container. For details, see Entering Math in a Text Container (page 16).
+\textbf{Matemáticas no ejecutables y evaluación de desactivación}
 
-If you want to author content without any math evaluating in the Maple Flow worksheet, but eventually the math will be executed, you can temporarily disable evaluation.
+Es posible que desee ingresar matemáticas no ejecutables con fines de documentación. Puede hacer esto ingresando matemáticas en un contenedor de texto. Para obtener más información, consulte Introducción de matemáticas en un contenedor de texto (página 16).
 
-To disable evaluation:
+Si desea crear contenido sin ninguna evaluación matemática en la hoja de trabajo de Maple Flow, pero finalmente se ejecutarán las matemáticas, puede desactivar temporalmente la evaluación.
+
+Para deshabilitar la evaluación:
 
 \begin{itemize}
-  \item Click Turn evaluation off $(\overline{+}=$ ) on the toolbar. An indicator will appear at the top of the canvas indicating Evaluation Disabled.
+  \item Haga clic en Desactivar evaluación $(\overline{+}=$ ) en la barra de herramientas. Aparecerá un indicador en la parte superior del lienzo que indica Evaluación deshabilitada.
 \end{itemize}
 
-To enable evaluation:
-
+Para habilitar la evaluación:
 \begin{itemize}
-  \item Click the icon again.
+  \item Vuelva a hacer clic en el icono.
 \end{itemize}
 
-\section{Creating a Polished Document}
-\subsection{Entering Text}
-To enter text:
+\section{Crear un documento pulido}
+\subsection{Introducción de texto}
+Para ingresar texto:
 
 \begin{enumerate}
-  \item Click in a blank part of the canvas.
+  \item Haga clic en una parte en blanco del lienzo.
 
-  \item Press Space to create an empty text container. This will have a blue border.
+\item Presione Espacio para crear un contenedor de texto vacío. Esto tendrá un borde azul.
 
-  \item Type your text.
+\item Escriba su texto.
 
-  \item Use the context toolbar to format your text.
-
+\item Use la barra de herramientas de contexto para dar formato a su texto.
 \end{enumerate}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-22}
-\end{center}
+\insertimage[\label{img::4.1}]{2022_12_20_3E2ffe6ad124ec91ee5cg-22}{width=10cm}{Figura 4.1: Introducción y formato de texto.}
 
-My first text
+\textbf{Ingresar matemáticas en un contenedor de texto}
+Es posible que desee ingresar matemáticas no ejecutables para la documentación. Puede hacer esto ingresando matemáticas en un contenedor de texto.
 
-Figure 4.1: Entering and formatting text
-
-\section{Entering Math in a Text Container}
-You may want to enter nonexecuting math for documentation. You can do this by entering math into a text container.
-
-To enter math in a text container:
+Para ingresar matemáticas en un contenedor de texto:
 
 \begin{enumerate}
-  \item Anywhere inside a text container, press $\mathbf{C t r l}+\mathbf{R}$ to switch into math mode.
-
-  \item Enter your math.
-
-  \item If required, press $\mathbf{C t r l}+\mathbf{T}$ to return to text mode.
-
+  \item En cualquier lugar dentro de un contenedor de texto, presione $\mathbf{C t r l}+\mathbf{R}$ para cambiar al modo matemático.
+ 
+ \item Ingrese sus matemáticas.
+  \item si es necesario, presione $\mathbf{c t r l}+\mathbf{t}$ para volver al modo de texto.
 \end{enumerate}
 
-\subsection{Math and Text Styling}
-\section{Formatting the Content of Single Containers}
-To change font, size, and font color, drag-select the content and use the context bar.
+\subsection{Estilo matemático y de texto}
+\textbf{Dar formato al contenido de contenedores individuales}
+Para cambiar la fuente, el tamaño y el color de la fuente, arrastre y seleccione el contenido y use la barra de contexto.
 
-\section{Applying Background Color to a Math Container}
-Math containers can also have a background color. This can be useful, for instance, to highlight a math container that contains the assignments for the variables that are used in the later calculations.
+\textbf{Aplicar color de fondo a un contenedor matemático}
+Los contenedores matemáticos también pueden tener un color de fondo. Esto puede ser útil, por ejemplo, para resaltar un contenedor matemático que contiene las asignaciones de las variables que se utilizan en los cálculos posteriores.
 
-To apply a background color, right click on a math container.
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-22(1)}
-\end{center}
+\insertimage[\label{img::4.2}]{2022_12_20_3E2ffe6ad124ec91ee5cg-22(1)}{width=5cm}{Figura 4.2: Aplicar color de fondo a un contenedor matemático.}
 
-Figure 4.2: Apply background color to a math container
 
-The color selector dialog appears. Select a color.
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-23}
-\end{center}
 
-Figure 4.3: Select background color
+\insertimage[\label{img::4.3}]{2022_12_20_3E2ffe6ad124ec91ee5cg-23}{width=5cm}{Figura 4.3: Seleccionar color de fondo.}
 
-Figure 4.4 shows the result of using background color on the math containers that define two assignments.
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-23(1)}
-\end{center}
 
-Figure 4.4: A math container with background color
+La figura 4.4 muestra el resultado de usar el color de fondo en los contenedores matemáticos que definen dos tareas.
 
-For information on creating plots, see Plots (page 30).
+\insertimage[\label{img::4.4}]{2022_12_20_3E2ffe6ad124ec91ee5cg-23(1)}{width=5cm}{Figura 4.4: Un contenedor matemático con color de fondo.}
 
-\section{Applying and Changing Styles}
-The style drop-down list contains several formatting styles for text and math.
+Para obtener información sobre la creación de gráficos, consulte Gráficos (página 30).
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-24}
-\end{center}
+\textbf{Aplicar y cambiar estilos}
+La lista desplegable de estilo contiene varios estilos de formato para texto y matemáticas.
 
-Figure 4.5: The Styles drop-down list
+\insertimage[\label{img::4.5}]{2022_12_20_3E2ffe6ad124ec91ee5cg-24}{width=5cm}{Figura 4.5: La lista desplegable estilos.}
 
-By default:
+Por defecto:
 
 \begin{itemize}
-  \item Text is given the Text style.
+  \item Texto recibe el estilo Texto.
 
-  \item Math input is given the 2D Math style.
+\item La entrada matemática recibe el estilo matemático 2D.
 
-  \item Math output is given the 2D Output style.
-
+\item La salida matemática recibe el estilo Salida 2D.
 \end{itemize}
 
-You can apply other styles with the other entries (such as the Title style for text). You will need to drag-select the content of the container and pick the appropriate style.
+Puede aplicar otros estilos con las otras entradas (como el estilo Título para el texto). Deberá arrastrar y seleccionar el contenido del contenedor y elegir el estilo apropiado.
 
-Use the Format $>$ Styles menu to change the typeface of the pre-defined styles.
+Use el menú Formato $>$ Estilos para cambiar el tipo de letra de los estilos predefinidos.
 
-Use the Format > Manage Style Sets menu to:
+Use el menú Formato > Administrar conjuntos de estilos para:
 
 \begin{itemize}
-  \item Export and save the active style set.
+  \item Exporta y guarda el conjunto de estilos activo.
 
-  \item Load and apply an existing style set.
-
+\item Carga y aplica un conjunto de estilos existente.
 \end{itemize}
 
-\subsection{Using Sections}
-You can use sections to organize your document.
+\subsection{Uso de secciones}
+Puede utilizar secciones para organizar su documento.
 
-To create a section:
+Para crear una sección:
 
 \begin{enumerate}
-  \item Select Insert $>$ Section.
+  \item Seleccione Insertar sección $>$.
 \end{enumerate}
 
-If you select some content and then use Insert $>$ Section, the selection will be enclosed in the section.
+Si selecciona algún contenido y luego usa Insertar $>$ Sección, la selección se incluirá en la sección.
 
 \begin{enumerate}
-  \setcounter{enumi}{1}
-  \item Enter a title for the section. You can modify the font/style for the title.
+	\setcounter{enumi}{1}
+  \item Introduzca un título para la sección. Puede modificar la fuente/estilo del título.
 \end{enumerate}
 
-To change the size of the section, you can drag the bottom boundary line. If you drag the section boundary past additional content, the section now encloses that content.
+Para cambiar el tamaño de la sección, puede arrastrar la línea límite inferior. Si arrastra el límite de la sección más allá del contenido adicional, la sección ahora encierra ese contenido.
 
-To collapse a section:
-
-\begin{itemize}
-  \item Click the collapse button (-).
-\end{itemize}
-
-To expand a section:
+Para colapsar una sección:
 
 \begin{itemize}
-  \item Click the expand button ( $)$.
+	  \item haga clic en el botón colapsar (-).
 \end{itemize}
 
-Figure 4.6 shows an example of a Maple Flow worksheet with sections. The first section is collapsed and the second section is expanded.
-
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-25}
-\end{center}
-
-Figure 4.6: Sections in a worksheet
-
-Evaluation order still applies as it normally does, and content in a section is evaluated even if a section is collapsed.
-
-\section{Controlling the Display of Sections}
-You can edit a section title by clicking in the text box for the title, or by clicking on the top boundary line.
-
-Tip: If a section does not have a title, click on the top boundary line. This opens the title text box for editing.
-
-You can control the display of sections using Format $>$ Section Style. From this dialog, you can
+Para expandir una sección:
 
 \begin{itemize}
-  \item Control whether to display the top and bottom boundary lines.
-
-  \item Control whether boundaries are displayed on only the left-most page.
-
-  \item Specify margins.
-
-  \item Specify boundary line thickness.
-
-  \item Specify boundary line color.
-
-  \item Specify boundary opacity.
-
-  \item Control whether to display the expand button.
-
+  \item Haga clic en el botón expandir ( $)$.
 \end{itemize}
 
-Note that if the section style is set up so the expand/collapse button is not displayed, you can expand or collapse a section by doing one of the following:
+La Figura 4.6 muestra un ejemplo de una hoja de trabajo de Maple Flow con secciones. La primera sección está colapsada y la segunda sección está expandida.
+
+\insertimage[\label{img::4.6}]{2022_12_20_3E2ffe6ad124ec91ee5cg-25}{width=5cm}{Figura 4.6: Secciones en una hoja de cálculo.}
+
+El orden de evaluación aún se aplica como lo hace normalmente, y el contenido de una sección se evalúa incluso si una sección está contraída.
+
+\textbf{Controlando la visualización de las secciones}
+Puede editar el título de una sección haciendo clic en el cuadro de texto del título o haciendo clic en la línea de límite superior.
+
+Sugerencia: si una sección no tiene título, haga clic en la línea de límite superior. Esto abre el cuadro de texto del título para su edición.
+
+Puede controlar la visualización de las secciones usando Formato $>$ Estilo de sección. Desde este cuadro de diálogo, puede
 
 \begin{itemize}
-  \item Click the left most part of the top section boundary line
+  \item Controla si mostrar las líneas límite superior e inferior.
 
-  \item Double-click anywhere along the top section boundary line.
+\item Controla si los límites se muestran solo en la página más a la izquierda.
 
+\item Especificar márgenes.
+
+\item Especifique el grosor de la línea límite.
+
+\item Especifique el color de la línea límite.
+
+\item Especifique la opacidad de los límites.
+
+\item Controla si mostrar el botón de expandir.
 \end{itemize}
 
-For information on controlling the display of sections when printing or exporting to PDF, see Printing a Worksheet with Sections (page 33).
+Tenga en cuenta que si el estilo de la sección está configurado para que no se muestre el botón expandir/contraer, puede expandir o contraer una sección realizando una de las siguientes acciones:
+\begin{itemize}
+  \item Haga clic en la parte más a la izquierda de la línea límite de la sección superior
 
-\section{Removing a Section}
-To remove a section:
+\item Haga doble clic en cualquier lugar a lo largo de la línea límite de la sección superior.
+\end{itemize}
+
+Para obtener información sobre cómo controlar la visualización de las secciones al imprimir o exportar a PDF, consulte Impresión de una hoja de trabajo con secciones (página 33).
+
+\textbf{Quitar una sección}
+Para eliminar una sección:
 
 \begin{itemize}
-  \item Use Edit > Remove Section. The content remains in the canvas, and the section boundaries are removed.
+  \item Use Editar > Eliminar sección. El contenido permanece en el lienzo y se eliminan los límites de la sección.
 \end{itemize}
 
-\subsection{Hide Commands}
-When creating a document, you have control over the display of the content of math containers. You can hide the input expression and just show the resulting output by right-clicking on the math container and selecting Hide commands from the context menu.
+\subsection{Ocultar comandos}
+Al crear un documento, tiene control sobre la visualización del contenido de los contenedores matemáticos. Puede ocultar la expresión de entrada y simplemente mostrar la salida resultante haciendo clic con el botón derecho en el contenedor matemático y seleccionando Ocultar comandos en el menú contextual.
 
-In the case of an assignment, you can select either Hide commands or Hide commands and name.
+En el caso de una asignación, puede seleccionar Ocultar comandos u Ocultar comandos y nombre.
 
 \begin{equation*}
 \begin{aligned}
@@ -757,16 +681,15 @@ In the case of an assignment, you can select either Hide commands or Hide comman
 \end{aligned}
 \end{equation*}
 
-Hide commands
+Ocultar comandos
 
-Hide commands and name
+Ocultar comandos y nombre
 
-Background Color
+Color de fondo
 
-Figure 4.7: Hide commands
+Figura 4.7: Ocultar comandos
 
-There is an option to display a visual indicator for math containers that have hidden commands. To enable this setting, select View > Visual Indicators. When Visual Indicators is selected, a math container with hidden commands is drawn with a gray circle at the top left corner.
-
+Hay una opción para mostrar un indicador visual para contenedores matemáticos que tienen comandos ocultos. Para habilitar esta configuración, seleccione Ver > Indicadores visuales. Cuando se selecciona Indicadores visuales, se dibuja un contenedor matemático con comandos ocultos con un círculo gris en la esquina superior izquierda.
 \begin{equation*}
 \begin{aligned}
 & b:=15 \\
@@ -775,237 +698,227 @@ There is an option to display a visual indicator for math containers that have h
 \end{aligned}
 \end{equation*}
 
-Figure 4.8: Marker indicates hidden command
+Figura 4.8: El marcador indica un comando oculto
 
-To show the command again, right-click and select Show commands from the context menu.
+Para volver a mostrar el comando, haga clic con el botón derecho y seleccione Mostrar comandos en el menú contextual.
 
-\subsection{Including Images and Drawings}
-You can insert images into your worksheet using Insert > Image.
+\subsection{Incluir imágenes y dibujos}
+Puede insertar imágenes en su hoja de trabajo usando Insertar > Imagen.
 
-You can also use the drawing tools on an image.
+También puede utilizar las herramientas de dibujo en una imagen.
 
-\section{Drawing Tools}
-To view the drawing tools, select an image in your Maple Flow worksheet. The Context toolbar displays the Drawing toolbar.
+\textbf{Herramientas de dibujo}
+Para ver las herramientas de dibujo, seleccione una imagen en su hoja de trabajo Maple Flow. La barra de herramientas Contexto muestra la barra de herramientas Dibujo.
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-26}
-\end{center}
+\insertimage[\label{img::4.9}]{2022_12_20_3E2ffe6ad124ec91ee5cg-26}{width=10cm}{Figura 4.9: Barra de herramientas de dibujo.}
 
-\section{Figure 4.9: Drawing Toolbar}
-The tools include the following: selection tool, pencil (free style drawing), eraser, text insert, straight line, rectangle, rounded rectangle, oval, diamond, alignment tool, drawing outline tool, drawing fill tool, and line style tool. Tip: For the text, line, rectangle, round rectangle, oval, and diamond tools,
+Las herramientas incluyen las siguientes: herramienta de selección, lápiz (dibujo de estilo libre), borrador, inserción de texto, línea recta, rectángulo, rectángulo redondeado, óvalo, diamante, herramienta de alineación, herramienta de contorno de dibujo, herramienta de relleno de dibujo y herramienta de estilo de línea. Sugerencia: para las herramientas de texto, línea, rectángulo, rectángulo redondo, óvalo y diamante,
 
 \begin{itemize}
-  \item Click once on the toolbar icon to insert that type of object into the drawing. The tool is activated. For example, $\sqrt{3}$
+  \item Haga clic una vez en el icono de la barra de herramientas para insertar ese tipo de objeto en el dibujo. La herramienta está activada. Por ejemplo, $\sqrt{3}$
 
-  \item Click twice on the toolbar icon to insert multiple objects of the same type without having to reselect the tool.
-
+\item Haga clic dos veces en el icono de la barra de herramientas para insertar varios objetos del mismo tipo sin tener que volver a seleccionar la herramienta.
 \end{itemize}
 
-The icon is highlighted yellow. For example, . The tool remains activated until you select another toolbar icon.
+El icono está resaltado en amarillo. Por ejemplo,. La herramienta permanece activada hasta que seleccione otro icono de la barra de herramientas.
 
-Text
+Texto
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-27}
-\end{center}
+\insertimage[\label{img::4.10}]{2022_12_20_3E2ffe6ad124ec91ee5cg-27}{width=10cm}{Para insertar texto en el lienzo de dibujo:.}
 
-To insert text in the drawing canvas:
+
+
+
 
 \begin{enumerate}
-  \item Click the text icon (T).
+  \item Haga clic en el icono de texto (T).
 
-  \item Click in the drawing canvas (on the image). A text box appears.
+\item Haga clic en el lienzo de dibujo (en la imagen). Aparece un cuadro de texto.
 
-  \item Enter text and modify font as necessary using the toolbar font and font size drop-down lists. Include math in the text box in the same way you include math in a text container. See Entering Math in a Text Container (page 16).
+\item Ingrese texto y modifique la fuente según sea necesario utilizando las listas desplegables de fuente y tamaño de fuente de la barra de herramientas. Incluya matemáticas en el cuadro de texto de la misma manera que incluye matemáticas en un contenedor de texto. Consulte Ingresar matemáticas en un contenedor de texto (página 16).
 
-  \item Optional. Select a fill color for a text box or select the line color for the border in the same way it is done for objects.
+\item Opcional. Seleccione un color de relleno para un cuadro de texto o seleccione el color de línea para el borde de la misma manera que se hace con los objetos.
+\end{enumerate}
+
+\textbf{Líneas - Rectas, Cambiar tamaño, Agregar flechas}
+
+\textbf{Dibujar líneas rectas}
+
+\textbf{Para dibujar una línea recta:}
+
+\begin{enumerate}
+  \item Haga clic en el icono de línea recta $(\backslash)$.
+ 
+ \item (Opcional) Desde el
 
 \end{enumerate}
 
-\section{Lines - Straight, Resizing, Adding Arrows}
-\section{Drawing Straight Lines}
-\section{To draw a straight line:}
-\begin{enumerate}
-  \item Click the straight line icon $(\backslash)$.
-
-  \item (Optional) From the
-
-\end{enumerate}
-
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-28}
-\end{center}
+\insertimage[]{2022_12_20_3E2ffe6ad124ec91ee5cg-28}{width=5cm}{}
 
 \begin{enumerate}
   \setcounter{enumi}{2}
-  \item In the canvas, click and drag the mouse. A straight line is drawn.
+  \item En el lienzo, haga clic y arrastre el mouse. Se dibuja una línea recta.
 
-  \item To complete the line, click the mouse twice or press Enter. The drawing feature switches to the Selection tool.
+\item Para completar la línea, haga clic con el mouse dos veces o presione Enter. La función de dibujo cambia a la herramienta Selección.
 
-  \item You can draw more than one connected line; to complete your drawing, click the mouse twice, press Enter, or bring the end of the last line back to the start of the first line.
+\item Puede dibujar más de una línea conectada; para completar su dibujo, haga clic con el mouse dos veces, presione Entrar o lleve el final de la última línea al comienzo de la primera línea.
 
-  \item To remove the last point drawn, press Esc.
-
+\item Para eliminar el último punto dibujado, presione Esc.
 \end{enumerate}
 
-\section{Drawing a Line that Snaps to Vertical, Horizontal, or a 45 Degree Angle}
-To draw a line that snaps to an orientation that is a multiple of 45 degrees:
+\textbf{Dibujar una línea que se ajuste a un ángulo vertical, horizontal o de 45 grados}
 
+Para dibujar una línea que se ajuste a una orientación que sea un múltiplo de 45 grados:
 \begin{enumerate}
-  \item Click the straight line icon.
+  \item Haga clic en el icono de línea recta.
 
-  \item In the canvas, click and drag the mouse.
+\item En el lienzo, haga clic y arrastre el mouse.
 
-  \item Press and hold the Shift key to snap to a 45 degree increment.
+\item Mantenga presionada la tecla Shift para ajustar a un incremento de 45 grados.
 
-  \item To complete the line, click the mouse twice or press Enter.
-
+\item Para completar la línea, haga clic con el mouse dos veces o presione Enter.
 \end{enumerate}
 
-\section{Drawing a Line that is Attached to a Shape}
-\section{To draw a line that is attached to a shape in the drawing canvas:}
-If you have inserted a shape in the canvas, you can draw a line that is automatically attached to that shape.
+\textbf{Dibujar una línea unida a una forma}
 
+\textbf{Para dibujar una línea que está unida a una forma en el lienzo de dibujo:}
+
+Si ha insertado una forma en el lienzo, puede dibujar una línea que se adjunte automáticamente a esa forma.
 \begin{enumerate}
-  \item Click the straight line icon.
+  \item Haga clic en el icono de línea recta.
 
-  \item Press and hold the Ctrl key, and, in the canvas, hover your mouse cursor over the existing shape to which you want to attach the line. The shape is highlighted in green.
+\item Mantenga presionada la tecla Ctrl y, en el lienzo, desplace el cursor del mouse sobre la forma existente a la que desea adjuntar la línea. La forma está resaltada en verde.
 
-  \item To draw the line, click and drag the mouse.
+\item Para dibujar la línea, haga clic y arrastre el ratón.
 
-  \item To complete the line, click the mouse twice or press Enter. The drawing feature switches to the Selection tool.
-
+\item Para completar la línea, haga clic con el mouse dos veces o presione Enter. La función de dibujo cambia a la herramienta Selección.
 \end{enumerate}
 
-\section{Resizing Lines}
-\section{To resize objects drawn with straight lines:}
+\textbf{Cambio de tamaño de líneas}
+
+\textbf{Para cambiar el tamaño de objetos dibujados con líneas rectas:}
+
 \begin{enumerate}
-  \item Select the line to be resized using the selection tool.
+  \item Seleccione la línea a redimensionar usando la herramienta de selección.
 
-  \item With the mouse pointer over a grab box, click and drag the line to increase or decrease its size.
+\item Con el puntero del mouse sobre un cuadro de captura, haga clic y arrastre la línea para aumentar o disminuir su tamaño.
 
-  \item Release the mouse button.
-
+\item Suelte el botón del ratón.
 \end{enumerate}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-29}
-\end{center}
+\insertimage[\label{img::n1}]{2022_12_20_3E2ffe6ad124ec91ee5cg-29}{width=5cm}{}
 
-\section{Changing Vertices of Lines}
-\section{To change vertices of drawn lines in the canvas:}
-When an object is selected, grab boxes and nodes at the vertices are displayed.
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-29(1)}
-\end{center}
+
+\textbf{Cambio de vértices de líneas}
+
+\textbf{Para cambiar los vértices de las líneas dibujadas en el lienzo:}
+
+Cuando se selecciona un objeto, se muestran cuadros de agarre y nodos en los vértices.
+
+\insertimage[\label{img::n2}]{2022_12_20_3E2ffe6ad124ec91ee5cg-29(1)}{width=5cm}{}
+
+
 
 \begin{enumerate}
-  \item Click a node and drag the mouse to the desired point, thereby changing the vertex position.
+  \item Haga clic en un nodo y arrastre el ratón hasta el punto deseado, cambiando así la posición del vértice.
 
-  \item Release the mouse.
-
+\item Suelta el ratón.
 \end{enumerate}
 
-\section{Changing the Line Style}
-\section{To change the style of drawn lines:}
-You can change the line style, thickness, and arrow points of a line either when it is drawn or afterwards.
+\textbf{Cambiar el estilo de línea}
+
+\textbf{Para cambiar el estilo de las líneas dibujadas:}
+
+Puede cambiar el estilo de línea, el grosor y los puntos de flecha de una línea cuando se dibuja o después.
 
 \begin{enumerate}
-  \item Select a line using the selection tool.
+  \item Seleccione una línea usando la herramienta de selección.
 
-  \item From the $\square$ menu, select a line style, thickness, or arrow direction and shape.
-
+\item En el menú $\square$, seleccione un estilo de línea, grosor o dirección y forma de flecha.
 \end{enumerate}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-30}
-\end{center}
+\insertimage[\label{img::n3}]{2022_12_20_3E2ffe6ad124ec91ee5cg-30}{width=5cm}{}
 
-The selected change is automatically applied to the straight line.
+El cambio seleccionado se aplica automáticamente a la línea recta.
 
-For example, a straight, thick line will have a solid arrow on the right end after clicking on the menu item displayed above.
+Por ejemplo, una línea recta y gruesa tendrá una flecha sólida en el extremo derecho después de hacer clic en el elemento del menú que se muestra arriba.
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-30(1)}
-\end{center}
+\insertimage[\label{img::n4}]{2022_12_20_3E2ffe6ad124ec91ee5cg-30(1)}{width=2cm}{}
 
-\section{Rotating Images or Rotating Objects in a Drawing}
-You can rotate an image, or an object in a drawing. The process is the same.
+\textbf{Rotación de imágenes o rotación de objetos en un dibujo}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-30(2)}
-\end{center}
+Puede rotar una imagen o un objeto en un dibujo. El proceso es el mismo.
 
-To rotate an object:
+\insertimage[\label{img::n5}]{2022_12_20_3E2ffe6ad124ec91ee5cg-30(2)}{width=5cm}{}
 
+Para rotar un objeto:
 \begin{enumerate}
-  \item Select the object. The vertices of the object are designated by grab boxes.
+  \item Selecciona el objeto. Los vértices del objeto se designan mediante cajas de agarre.
 
-  \item Place the cursor at one of the vertices.
+\item Coloca el cursor en uno de los vértices.
 
-  \item Press Ctrl. The rotate icon is displayed.
+\item Presione Ctrl. Se muestra el icono de rotación.
 
-  \item While pressing Ctrl, click the mouse and drag. The object rotates. Release the mouse once the object is positioned as you want.
-
+\item Mientras presiona Ctrl, haga clic con el mouse y arrastre. El objeto gira. Suelte el mouse una vez que el objeto esté posicionado como desee.
 \end{enumerate}
 
-\section{Color Selection Dialog}
-The drawing outline tool, drawing fill tool, and canvas properties tool allow you to select colors for shapes, lines, and the canvas grid lines. Choose a color by using one of the following tools in the color selection dialog:
+\textbf{Diálogo de selección de color}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-31}
-\end{center}
+La herramienta de contorno de dibujo, la herramienta de relleno de dibujo y la herramienta de propiedades del lienzo le permiten seleccionar colores para formas, líneas y las líneas de cuadrícula del lienzo. Elija un color utilizando una de las siguientes herramientas en el cuadro de diálogo de selección de color:
 
-To select a color, click a color from a palette of pre-defined colors.
+%\insertimage[\label{img::n6}]{{2022_12_20_3E2ffe6ad124ec91ee5cg-31}{width=5cm}{}
 
-The last five colors that you select are displayed in the box below the color swatches. If you want to view the RGB values of a particular color, hover your mouse cursor over a color swatch.
 
-\section{Color Wheel}
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-31(1)}
-\end{center}
 
-\section{To select a color:}
+Para seleccionar un color, haga clic en un color de una paleta de colores predefinidos.
+
+Los últimos cinco colores que seleccione se muestran en el cuadro debajo de las muestras de color. Si desea ver los valores RGB de un color en particular, desplace el cursor del mouse sobre una muestra de color.
+
+\textbf{Rueda de colores}
+
+\insertimage[\label{img::n7}]{2022_12_20_3E2ffe6ad124ec91ee5cg-31(1)}{width=5cm}{}
+
+
+
+\textbf{Para seleccionar un color:}
+
 \begin{enumerate}
-  \item Move the slider beside the color wheel to display a range of colors.
-
-  \item To select a color, click a point in the color wheel.
-
+  \item Mueva el control deslizante junto a la rueda de colores para mostrar una gama de colores.
+  
+  \item Para seleccionar un color, haga clic en un punto en la rueda de colores.
 \end{enumerate}
 
-\section{Color Value Sliders}
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-32}
-\end{center}
+\textbf{Deslizadores de valor de color}
 
-To select a color, specify the RGB values of the color by moving the sliders. Alternatively, you can use the spinners to scroll to certain values or type the values directly in the fields. For each RGB value, you can specify a number from 0 to 225 .
+\insertimage[\label{img::n8}]{2022_12_20_3E2ffe6ad124ec91ee5cg-32}{width=5cm}{}
 
-\begin{center}
-\includegraphics[max width=\textwidth]{2022_12_20_3e2ffe6ad124ec91ee5cg-32(1)}
-\end{center}
 
-To select a color:
 
+Para seleccionar un color, especifique los valores RGB del color moviendo los controles deslizantes. Alternativamente, puede usar los botones giratorios para desplazarse a ciertos valores o escribir los valores directamente en los campos. Para cada valor RGB, puede especificar un número de 0 a 225.
+
+\insertimage[\label{img::n9}]{2022_12_20_3E2ffe6ad124ec91ee5cg-32(1)}{width=5cm}{}
+
+
+
+Para seleccionar un color:
 \begin{enumerate}
-  \item Select the eye dropper icon ( ).
+  \item Seleccione el icono del cuentagotas ( ).
 
-  \item Hover the color magnifying glass over an area on your screen that displays the color you want to select.
+\item Pase la lupa de color sobre un área de su pantalla que muestre el color que desea seleccionar.
 
-  \item Using your mouse cursor, in the circle, click a point that displays the color.
-
+\item Con el cursor del mouse, en el círculo, haga clic en un punto que muestre el color.
 \end{enumerate}
 
-To cancel your selection, right-click the circle.
+Para cancelar su selección, haga clic derecho en el círculo.
 
-\section{Pencil Tool - Free Form drawing}
-To draw with the pencil tool in the canvas:
+\textbf{Herramienta Lápiz - Dibujo de forma libre}
+Para dibujar con la herramienta Lápiz en el lienzo:
 
 \begin{enumerate}
-  \item From the drawing icons, select the pencil tool icon ( ).
+  \item De los iconos de dibujo, seleccione el icono de la herramienta de lápiz ( ).
 
-  \item Click and drag your mouse in the canvas to draw lines. Release the mouse to complete the drawing.
-
+\item Haga clic y arrastre el mouse en el lienzo para dibujar líneas. Suelta el ratón para completar el dibujo.
 \end{enumerate}
 
 \section{Selection Tool - How and When to Use}
