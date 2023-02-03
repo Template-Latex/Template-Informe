@@ -1,0 +1,108 @@
+% Template:     Informe LaTeX
+% Documento:    Archivo principal
+% Versión:      8.1.8 (12/01/2023)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/informe]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[
+	spanish, % Idioma: spanish, english, etc.
+	letterpaper, oneside
+]{article}
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\documenttitle {Manual de usuario de Maple Flow}
+\def\documentsubtitle {}
+\def\documentsubject {}
+
+\def\documentauthor {Nombre del autor}
+\def\coursename {}
+\def\coursecode {}
+
+\def\universityname {Universidad Autónoma de Nuevo León}
+\def\universityfaculty {Facultad de Ingeniería Mecánica y Eléctrica}
+\def\universitydepartment {Maestría en ciencias de la Ingeniería Eléctrica}
+\def\universitydepartmentimage {departamentos/fcfm}
+\def\universitydepartmentimagecfg {height=1.57cm}
+\def\universitylocation {Ciudad Universitaria, San Nicolás de los Garza, N.L.}
+
+% INTEGRANTES, PROFESORES Y FECHAS
+\def\authortable {
+\begin{tabular}{ll}
+%	Integrantes:
+%	& \begin{tabular}[t]{l}
+%		Integrante 1 \\
+%		Integrante 2
+%	\end{tabular} \\
+%	Profesor:
+%	& \begin{tabular}[t]{l}
+%		Profesor 1
+%	\end{tabular} \\
+%	Auxiliar:
+%	& \begin{tabular}[t]{l}
+%		Auxiliar 1
+%	\end{tabular} \\
+%	Ayudantes:
+%	& \begin{tabular}[t]{l}
+%		Ayudante 1 \\
+%		Ayudante 2
+%	\end{tabular} \\
+%	\multicolumn{2}{l}{Ayudante de laboratorio: Ayudante 1} \\
+%	& \\
+	\multicolumn{2}{l}{Fecha de realización: \today} \\
+%	\multicolumn{2}{l}{Fecha de entrega: \today} \\
+	\multicolumn{2}{l}{\universitylocation}
+\end{tabular}
+}
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+
+% INICIO DE PÁGINAS
+\begin{document}
+	
+% PORTADA
+\templatePortrait
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+% RESUMEN O ABSTRACT
+\begin{abstractd}
+%	\lipsum[1] % Párrafo ejemplo, se puede borrar
+Maplesoft, Maple y Maple Flow son marcas comerciales de Waterloo Maple Inc.
+
+(C) Maplesoft, una división de Waterloo Maple Inc. 2022. Todos los derechos reservados.
+
+Ninguna parte de este libro puede reproducirse, almacenarse en un sistema de recuperación o transcribirse de ninguna forma ni por ningún medio: electrónico, mecánico, fotocopia, grabación u otros. La información de este documento está sujeta a cambios sin previo aviso y no representa un compromiso por parte del vendedor. El software descrito en este documento se proporciona bajo un acuerdo de licencia y puede usarse o copiarse solo de acuerdo con el acuerdo. Es contra la ley copiar el software en cualquier medio, excepto en los casos permitidos específicamente en el acuerdo.
+
+Linux es una marca registrada de Linus Torvalds.
+
+Macintosh es una marca registrada de Apple Computer, Inc.
+
+Windows es una marca registrada de Microsoft Corporation.
+
+Todas las demás marcas comerciales son propiedad de sus respectivos dueños.
+
+Este documento fue producido utilizando Maple y DocBook.
+
+\end{abstractd}
+
+% TABLA DE CONTENIDOS - ÍNDICE
+\templateIndex
+
+% CONFIGURACIONES FINALES
+\templateFinalcfg
+
+% ======================= INICIO DEL DOCUMENTO =======================
+\input{src/etc/cnv_2023_01_27_9fd3efd34b2d5a36cac5g}
+%\input{src/etc/example} % Ejemplo, se puede borrar
+
+
+% FIN DEL DOCUMENTO
+\end{document}
