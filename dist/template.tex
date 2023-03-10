@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.1.9 (06/03/2023)
+% Versión:      8.2.0 (10/03/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -157,7 +157,7 @@
 \usepackage{setspace}      % Cambia el espacio entre líneas
 \usepackage{soul}          % Permite subrayar texto
 \usepackage{stfloats}      % Permite cambiar posición de flotantes con [b] y [t]
-\usepackage{subfig}        % Permite agrupar imágenes
+\usepackage{subcaption}    % Permite agrupar imágenes
 \usepackage{textcomp}      % Simbología común
 \usepackage{wrapfig}       % Posición de imágenes
 \usepackage{xspace}        % Administra espacios en párrafos y líneas
@@ -169,7 +169,7 @@
 \usepackage[export]{adjustbox} % Agrega nuevas etiquetas de posicionado
 \usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
 \usepackage[inline]{enumitem} % Permite enumerar ítems
-\usepackage[subfigure,titles]{tocloft} % Maneja entradas en el índice
+\usepackage[titles]{tocloft} % Maneja entradas en el índice
 \usepackage[figure,table,lstlisting]{totalcount} % Contador de objetos
 \usepackage[normalem]{ulem} % Permite tachar y subrayar
 \usepackage[nointegrals]{wasysym} % Contiene caracteres misceláneos
@@ -5690,16 +5690,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={06/03/2023},
+		Template.Date={10/03/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.1.9},
-		Template.Version.Hash={421ACFD42C8EE2B59736A2A9184A5238},
-		Template.Version.Release={8.1.9},
+		Template.Version.Dev={8.2.0},
+		Template.Version.Hash={8909A48A0C4EC5C6AB9FAFB76F65B6AF},
+		Template.Version.Release={8.2.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5711,7 +5711,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.1.9 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.2.0 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -9254,13 +9254,11 @@
 	\ifthenelse{\equal{\objectindexindent}{true}}{
 		\setlength{\cfttabindent}{1.9em} % Tablas
 		\setlength{\cftfigindent}{1.9em} % Figuras
-		\setlength{\cftsubfigindent}{1.9em} % Subfiguras
 		\setlength{\cftmyindexequationsindent}{1.9em} % Ecuaciones
 		\def\cftlstlistingindent {1.9em} % Códigos fuente
 	}{
 		\setlength{\cfttabindent}{0em} % Tablas
 		\setlength{\cftfigindent}{0em} % Figuras
-		\setlength{\cftsubfigindent}{0em} % Subfiguras
 		\setlength{\cftmyindexequationsindent}{0em} % Ecuaciones
 		\def\cftlstlistingindent {0em} % Códigos fuente
 	}
