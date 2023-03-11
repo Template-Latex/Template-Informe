@@ -52,15 +52,15 @@
 		}%
 	}{ % Con label
 		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
-			\subfloat[#5]{%
+			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
-					\fbox{\includegraphics[#3]{#2}}#1%
+					\fbox{\includegraphics[#3]{#2}}%
 				}%
 			}%
 		}{ % Con link
-			\subfloat[#5]{%
+			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
-					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
+					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
 				}%
 			}%
 		}%
@@ -135,25 +135,25 @@
 			}%
 		}%
 	}{ % Con label
-		\subfloat[#7]{%
+		\subfloat[#7#1]{%
 			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}{ % Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
 			}{ % Sin loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}{ % Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
 			}%
