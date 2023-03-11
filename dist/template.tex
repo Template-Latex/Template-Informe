@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.2.0 (10/03/2023)
+% Versión:      8.2.1 (11/03/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -2113,15 +2113,15 @@
 		}%
 	}{ % Con label
 		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
-			\subfloat[#5]{%
+			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
-					\fbox{\includegraphics[#3]{#2}}#1%
+					\fbox{\includegraphics[#3]{#2}}%
 				}%
 			}%
 		}{ % Con link
-			\subfloat[#5]{%
+			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
-					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
+					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
 				}%
 			}%
 		}%
@@ -2196,25 +2196,25 @@
 			}%
 		}%
 	}{ % Con label
-		\subfloat[#7]{%
+		\subfloat[#7#1]{%
 			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}{ % Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
 			}{ % Sin loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}{ % Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
 			}%
@@ -5690,16 +5690,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={10/03/2023},
+		Template.Date={11/03/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.2.0},
-		Template.Version.Hash={8909A48A0C4EC5C6AB9FAFB76F65B6AF},
-		Template.Version.Release={8.2.0},
+		Template.Version.Dev={8.2.1},
+		Template.Version.Hash={04FF51460CE27B20B701E415F2DFD4AD},
+		Template.Version.Release={8.2.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5711,7 +5711,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.2.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.2.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
