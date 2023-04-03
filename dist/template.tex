@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.2.2 (12/03/2023)
+% Versión:      8.2.3 (03/04/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -5640,6 +5640,11 @@
 	\def\authortable {}}{
 }
 
+\ifthenelse{\isundefined{\documentsubtitle}}{
+	\errmessage{LaTeX Warning: Se borro la variable \noexpand\documentsubtitle, creando una vacia}
+	\def\documentsubtitle {}}{
+}
+
 \ifthenelse{\equal{\documentsubtitle}{}}{
 	\def\documenttitlehf {\documenttitle}
 }{
@@ -5706,16 +5711,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={12/03/2023},
+		Template.Date={03/04/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.2.2},
-		Template.Version.Hash={2E42497D5E0378542B57D5B066F4CF94},
-		Template.Version.Release={8.2.2},
+		Template.Version.Dev={8.2.3},
+		Template.Version.Hash={EC7D0B20119222103BE7BC6149B5F8B8},
+		Template.Version.Release={8.2.3},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5727,7 +5732,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.2.2 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.2.3 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
