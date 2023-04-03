@@ -44,6 +44,11 @@
 	\def\authortable {}}{
 }
 
+\ifthenelse{\isundefined{\documentsubtitle}}{
+	\errmessage{LaTeX Warning: Se borro la variable \noexpand\documentsubtitle, creando una vacia}
+	\def\documentsubtitle {}}{
+}
+
 \ifthenelse{\equal{\documentsubtitle}{}}{
 	\def\documenttitlehf {\documenttitle}
 }{
