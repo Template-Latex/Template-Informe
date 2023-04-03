@@ -45,13 +45,15 @@
 		\pdfbookmark{#3}{#4}}{%
 	}%
 	% Inserta la tabla resumen
-	\ifthenelse{\equal{\showabstracttable}{true}}{%
+	\ifthenelse{\equal{#1}{}}{%
+		\vspace*{0\baselineskip}%
+	}{%
 		\begin{flushright}%
 			\small%
 			#1%
 		\end{flushright}%
-	}{}%
-	\vspace*{0.5\baselineskip}%
+		\vspace*{0.5\baselineskip}%
+	}%
 	% Título
 	\begin{center}%
 		\textcolor{\sectioncolor}{\MakeUppercase{\textbf{#2}}}%
@@ -66,6 +68,9 @@
 }
 % Llama al entorno de resumen
 \newenvironment{abstractd}{%
+	\ifthenelse{\isundefined{\abstracttable}}{%
+		\def\abstracttable {}}{%
+	}%
 	\begin{abstractenv}{\abstracttable}{\documenttitle}{\nameabstract}{abstractbookmark}%
 	}{%
 	\end{abstractenv}
