@@ -58,10 +58,10 @@
 	\begin{center}%
 		\textcolor{\sectioncolor}{\MakeUppercase{\textbf{#2}}}%
 	\end{center} \newp%
-	\ifthenelse{\equal{\showabstracttable}{true}}{%
-		\vspace{-\baselineskip}%
-	}{%
+	\ifthenelse{\equal{#1}{}}{%
 		\vspace{-0.5\baselineskip}%
+	}{%
+		\vspace{-\baselineskip}%
 	}%
 	}{%
 	\vfill\null%
