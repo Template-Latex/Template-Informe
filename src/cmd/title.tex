@@ -29,7 +29,7 @@
 % Activa la numeración en las secciones
 \def\coreintializetitlenumbering {%
 	% Capítulo
-	\renewcommand{\thechapter}{\GLOBALformatnumchapter{chapter}}
+	\renewcommand{\thechapter}{\GLOBALformatnumchapter{chapter}}%
 	% Section
 	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{%
 		\renewcommand{\thesection}{%
