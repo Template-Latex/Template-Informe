@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.2.3 (03/04/2023)
+% Versión:      8.2.4 (29/04/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -1882,7 +1882,7 @@
 %	#1	Ecuación
 %	#2	Leyenda
 \newcommand{\insertgatheredcaptionedanum}[2]{
-	\emptyvarerr{\insertgatheredcaptionedanum}{#1}{Ecuacion no definida}
+	\emptyvarerr{\insertgatheredcaptionedanum}{#1}{Ecuacion no definida}%
 	\ifx\hfuzz#2\hfuzz%
 		\insertgatheredanum{#1}%
 	\else%
@@ -3042,7 +3042,7 @@
 % Activa la numeración en las secciones
 \def\coreintializetitlenumbering {%
 	% Capítulo
-	\renewcommand{\thechapter}{\GLOBALformatnumchapter{chapter}}
+	\renewcommand{\thechapter}{\GLOBALformatnumchapter{chapter}}%
 	% Section
 	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{%
 		\renewcommand{\thesection}{%
@@ -4132,7 +4132,7 @@
 			\throwbadconfig{Ajuste de linea referencias bibtex desconocido}{\bibtextextalign}{justified,left,right,center}}}}%
 		}%
 	}%
-	{
+	{%
 	\end{thebibliography}
 	\endgroup % Termina el grupo
 }
@@ -4415,20 +4415,20 @@
 \newenvironment{images}[2][]{%
 	% Modifica globales
 	\def\envimageslabelvar {#1}%
+	\def\envimagescaptioncf {false}%
 	\def\envimagescaptionvar {#2}%
 	\global\def\GLOBALenvimageadded {false}%
 	\global\def\GLOBALenvimageinitialized {true}%
-	
 	% Configura caption y márgenes
 	\corevspacevarcm{\marginimagetop}%
 	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
-	
 	% Inicia la figura
 	\begin{samepage}%
 	\begin{figure}[H] \centering%
 		\ifthenelse{\equal{\GLOBALenvimagecf}{true}}{%
 			\ContinuedFloat%
 			\global\def\GLOBALenvimagecf {false}%
+			\def\envimagescaptioncf {true}%
 		}{}%
 		\corevspacevarcm{\marginimagemulttop}%
 		}{%
@@ -4437,15 +4437,17 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
 			\corevspacevarcm{\captionmarginimages}%
-			\caption{\envimagescaptionvar\envimageslabelvar}%
+			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
+				\caption[]{\envimagescaptionvar\envimageslabelvar}%
+			}{%
+				\caption{\envimagescaptionvar\envimageslabelvar}%
+			}%
 		}%
 	\end{figure}%
-
 	% Restablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}%
 	\corevspacevarcm{\marginimagebottom}%
 	\end{samepage}
-	
 	% Restablece globales
 	\global\def\GLOBALenvimageinitialized {false}%
 }
@@ -4458,15 +4460,14 @@
 	% Modifica globales
 	\def\envimageslabelvar {#1}%
 	\def\envimagesmcpos {#2}%
+	\def\envimagescaptioncf {false}%
 	\def\envimagescaptionvar {#3}%
 	\global\def\GLOBALenvimageadded {false}%
 	\global\def\GLOBALenvimageinitialized {true}%
 	\checkinsidemulticol%
 	\checkoutsideappendix%
-	
 	% Configura caption y márgenes
 	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
-	
 	% Inicia la figura
 	\ifthenelse{\equal{#2}{bottom}}{%
 		\begin{figure*}[!b] \centering%
@@ -4480,6 +4481,7 @@
 		\ifthenelse{\equal{\GLOBALenvimagecf}{true}}{%
 			\ContinuedFloat%
 			\global\def\GLOBALenvimagecf {false}%
+			\def\envimagescaptioncf {true}%
 		}{}%
 		\corevspacevarcm{\marginimagemulttop}%
 	}{%
@@ -4488,13 +4490,15 @@
 			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
 			\corevspacevarcm{\captionmarginimagesmc}%
-			\caption{\envimagescaptionvar\envimageslabelvar}%
+			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
+				\caption[]{\envimagescaptionvar\envimageslabelvar}%
+			}{%
+				\caption{\envimagescaptionvar\envimageslabelvar}%
+			}%
 		}%
 	\end{figure*}%
-	
 	% Restablece caption y márgenes
 	\setcaptionmargincm{\captionlrmarginmc}%
-	
 	% Restablece globales
 	\global\def\GLOBALenvimageinitialized {false}%
 }
@@ -5711,16 +5715,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={03/04/2023},
+		Template.Date={29/04/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.2.3-1},
-		Template.Version.Hash={67E6C74E37E2A3C9C162B064D2CBC642},
-		Template.Version.Release={8.2.3},
+		Template.Version.Dev={8.2.4-1},
+		Template.Version.Hash={A8398B3B3C8D33B2B308729BDDA0D011},
+		Template.Version.Release={8.2.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5732,7 +5736,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.2.3 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.2.4 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
