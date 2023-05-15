@@ -52,7 +52,7 @@
 			\small%
 			#1%
 		\end{flushright}%
-		\vspace*{0.5\baselineskip}%
+		\vspace*{0.05\baselineskip}%
 	}%
 	% Título
 	\begin{center}%
@@ -64,7 +64,7 @@
 		\vspace{-\baselineskip}%
 	}%
 	}{%
-	\vfill\null%
+	\vspace{-1\baselineskip}%
 }
 % Llama al entorno de resumen
 \newenvironment{abstractd}{%
@@ -73,7 +73,7 @@
 	}%
 	\begin{abstractenv}{\abstracttable}{\documenttitle}{\nameabstract}{abstractbookmark}%
 	}{%
-	\end{abstractenv}
+	\end{abstractenv}%
 }
 
 % Crea una sección de dedicatoria
@@ -84,9 +84,6 @@
 	}{}%
 	\null%
 	\phantomsection%
-	% \ifthenelse{\equal{\adddedictobookmarks}{true}}{
-	% 	\pdfbookmark{\nameadedic}{contents}}{
-	% }
 	\vspace{\stretch{1}}%
 	\begin{flushright}%
 		\itshape}{%
