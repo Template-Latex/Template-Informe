@@ -20,7 +20,9 @@
 \global\def\GLOBALtabularframebartextcentered {true}
 \global\def\GLOBALtabularframecontentheight {0.65}
 \global\def\GLOBALtabularframecontentleftcentered {false}
+\global\def\GLOBALtabularframecontentleftfontsize {\normalsize}
 \global\def\GLOBALtabularframecontentrightcentered {false}
+\global\def\GLOBALtabularframecontentrightfontsize {\normalsize}
 \global\def\GLOBALtabularframecontentwidthleft {0.4}
 \global\def\GLOBALtabularframecontentwidthright {0.6}
 
@@ -80,6 +82,16 @@
 	\corecheckbooleanvar{#2}%
 	\global\def\GLOBALtabularframecontentleftcentered {#1}%
 	\global\def\GLOBALtabularframecontentrightcentered {#2}%
+}
+
+% Función que configura el tamaño de fuente de los tabular frames
+%	#1	Tamaño fuente columna izquierda
+%	#2	Tamaño fuente columna derecha
+\newcommand{\tabularframecfgfontsize}[2]{%
+	\emptyvarerr{\tabularframecfgfontsize}{#1}{Tamano fuente columna izquierda no definido}%
+	\emptyvarerr{\tabularframecfgfontsize}{#2}{Tamano fuente columna derecha no definido}%
+	\global\def\GLOBALtabularframecontentleftfontsize {#1}%
+	\global\def\GLOBALtabularframecontentrightfontsize {#2}%
 }
 
 % Crea el header del tabular frame, acepta columnas creadas con \addtfheadcolumn
@@ -163,6 +175,7 @@
 			\vspace{\tabularframepaddingtop em}%
 			\hspace{\tabularframepaddingleft em}%
 			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth - \tabularframepaddingleft em - \tabularframepaddingright em}
+				\GLOBALtabularframecontentleftfontsize%
 				\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
 					#1%
 				}{%
@@ -176,6 +189,7 @@
 			\vspace{\tabularframepaddingtop em}%
 			\hspace{\tabularframepaddingleft em}%
 			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth - \tabularframepaddingleft em - \tabularframepaddingright em}
+				\GLOBALtabularframecontentrightfontsize%
 				\ifthenelse{\equal{\GLOBALtabularframecontentrightcentered}{false}}{%
 					#2%
 				}{%
@@ -209,9 +223,11 @@
 			\vspace{\tabularframepaddingtop em}%
 			\hspace{\tabularframepaddingleft em}%
 			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth - \tabularframepaddingleft em - \tabularframepaddingright em}%
+				\GLOBALtabularframecontentleftfontsize%
 				\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
 					#2%
 				}{%
+					\vspace{-0.5\baselineskip}%
 					\verticallycentertext{#2}%
 				}%
 			\end{minipage}
