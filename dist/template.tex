@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.2.4 (29/04/2023)
+% Versión:      8.2.5 (01/06/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -1581,21 +1581,13 @@
 % Insertar una ecuación en el índice
 % 	#1	Label (opcional)
 %	#2	Ecuación
-%	#3	Título de la ecuación
+%	#3	Leyenda de la ecuación
 \newcommand{\insertindexequation}[3][]{%
 	\emptyvarerr{\insertindexequation}{#2}{Ecuacion no definida}%
 	\emptyvarerr{\insertindexequation}{#3}{Leyenda no definida}%
-	\corevspacevarcm{\margineqnindextop}%
-	\begin{samepage}%
-	\begin{align}%
-		\text{#1} \ensuremath{#2}
-	\end{align}
-	\myindexequations{#3}%
-	\corevspacevarcm{\margineqnindexbottom}%
-	\end{samepage}
-	\coreinsertequationcaption{\textit{#3}}%
-	\addtocounter{templateIndexEquations}{1}%
-	\coreafterequationfn%
+	\begin{equationindex}[#1]{#3}%
+		#2
+	\end{equationindex}
 }
 
 % Insertar una ecuación alineada a la izquierda
@@ -4503,6 +4495,26 @@
 	\global\def\GLOBALenvimageinitialized {false}%
 }
 
+% Crea un entorno para insertar ecuaciones en el índice
+% 	#1	Label (opcional)
+%	#2	Leyenda de la ecuación
+\newenvironment{equationindex}[2][]{
+	\def\coreequationindexcaption {#2}%
+	\emptyvarerr{\coreequationindexcaption}{#2}{Leyenda no definida}%
+	\corevspacevarcm{\margineqnindextop}%
+	\begin{samepage}%
+		\begin{equation}%
+			\text{#1}%
+		}{
+		\end{equation}
+		\myindexequations{\coreequationindexcaption}%
+		\corevspacevarcm{\margineqnindexbottom}%
+	\end{samepage}
+	\coreinsertequationcaption{\textit{\coreequationindexcaption}}%
+	\addtocounter{templateIndexEquations}{1}%
+	\coreafterequationfn%
+}
+
 % -----------------------------------------------------------------------------
 % IMPORTACIÓN DE ESTILOS
 % -----------------------------------------------------------------------------
@@ -5715,16 +5727,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={29/04/2023},
+		Template.Date={01/06/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.2.4-1},
-		Template.Version.Hash={A8398B3B3C8D33B2B308729BDDA0D011},
-		Template.Version.Release={8.2.4},
+		Template.Version.Dev={8.2.5},
+		Template.Version.Hash={53D11903AE84713E52833FF7D8116CF2},
+		Template.Version.Release={8.2.5},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5736,7 +5748,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.2.4 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.2.5 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
