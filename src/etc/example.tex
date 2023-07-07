@@ -36,8 +36,8 @@
 	% Para insertar una imagen se puede usar la función \insertimage la cual
 	% toma un primer parámetro opcional para definir una etiqueta (dentro de
 	% los corchetes), luego toma la dirección de la imagen, sus parámetros
-	% (en este caso se definió la escala de 0.14) y una leyenda opcional
-	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.14}{Where are you? de \quotes{Internet}.}
+	% (en este caso se definió la escala de 0.1) y una leyenda opcional
+	\insertimage[\label{img:testimage}]{ejemplos/test-image.png}{scale=0.1}{Where are you? de \quotes{Internet}.}
 
 	A continuación\footnote{Como se puede observar las funciones \texttt{\textbackslash insert...} añaden un párrafo automáticamente.} se muestra un ejemplo de inserción de ecuaciones simples con el comando \href{https://latex.ppizarror.com/informe.html#hlp-formulae}{\textbackslash insertequation}:
 
@@ -65,7 +65,6 @@
 			\textbf{Columna 1} & \textbf{Columna 2} & \textbf{Columna 3} \bigstrut\\
 			\hline
 			$\omega$ & $\nu$ & $\delta$ \bigstrut[t]\\
-			$\Phi$ & $\Theta$ & $\varSigma$ \\
 			$\xi$ & $\kappa$ & $\varpi$ \bigstrut[b] \\
 			\hline
 		\end{tabular}
@@ -104,17 +103,13 @@
 		$$\frac{d}{dx}\int_a^xf(y)dy=f(x)$$
 	\end{defn}
 
-	\lipsum[115] \\
-	
-	\lipsum[116]
+	\lipsum[115]
 
 % Inserta un subtítulo sin número
 \subsection{Otros párrafos más normales}
 
 	% Párrafos
-	\lipsum[7] \\
-	
-	\lipsum[2]
+	\lipsum[7]
 
 	% Se inserta una ecuación larga con el entorno gathered (1 solo número de ecuación)
 	\insertgathered[\label{eqn:eqn-larga}]{
@@ -123,7 +118,7 @@
 	}
 
 	% Nuevo párrafo
-	\lipsum[4]
+	\lipsum[2]
 
 	% Se inserta un multicols, con esto se pueden escribir párrafos en varias columnas
 	\begin{multicols}{2}
@@ -159,8 +154,7 @@ import numpy as np
 
 def incmatrix(genl1, genl2):
 	m, n = len(genl1), len(genl2)
-	M = None # Comentario 1
-	VT = np.zeros((n*m, 1), int) # Comentario 2
+	VT = np.zeros((n*m, 1), int) # Comentario
 \end{sourcecode}
 
 \begin{sourcecode}[]{java}{Ejemplo en Java.}
@@ -179,14 +173,11 @@ public class Hola extends GenericServlet {
 \begin{sourcecode}{matlab}{Ejemplo en Matlab.}
 % Se crea gráfico
 f = figure(1); hold on; movegui(f, 'center');
-xlabel('td/Tn'); ylabel('FAD=Umax/Uf0');
 
-for j = 1:length(BETA)
-	fad = ones(1, NDATOS); % Arreglo para el FAD
-	for i = 1:NDATOS
-		[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
-		fad(i) = max(abs(u_t)) / uf0;
-	end
+fad = ones(1, NDATOS); % Arreglo para el FAD
+for i = 1:NDATOS
+	[t, u_t, ~, ~] = main(BETA(j), r(i), M, K, F0, 0);
+	fad(i) = max(abs(u_t)) / uf0;
 end
 \end{sourcecode}
 
@@ -204,7 +195,7 @@ end
 \end{images}
 \end{sourcecode}
 
-	Obteniendo así:
+	Obteniendo así: \\
 
 	\begin{images}{Ejemplo de imagen múltiple.}
 		\addimage{ejemplos/test-image}{width=6.5cm}{Ciudad}
@@ -298,7 +289,7 @@ end
 
 	\subsection{Metodología}
 
-	\lipsum[1-2] \eqref{eqn:identidad-imposible}
+	\lipsum[1] \eqref{eqn:identidad-imposible}
 
 	% Imagen, se numerará automáticamente con la letra del anexo según
 	% la configuración \appendixindepobjnum
