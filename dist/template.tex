@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.2.6 (06/07/2023)
+% Versión:      8.2.7 (21/08/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -238,7 +238,7 @@
 
 % Dimensiones y geometría del documento
 \ifthenelse{\equal{\compilertype}{lualatex}}{ % En lualatex sólo se puede cambiar 1 vez el margen
-	\usepackage[top=\pagemargintop cm,bottom=\pagemarginbottom cm,left=\pagemarginleft cm,right=\pagemarginright cm]{geometry}
+	\usepackage[top=\pagemargintop cm,bottom=\pagemarginbottom cm,left=\pagemarginleft cm,right=\pagemarginright cm, footnotesep=\footnotetopmargin cm]{geometry}
 }{ % pdf2latex, xelatex
 	\usepackage{geometry}
 }
@@ -1018,7 +1018,7 @@
 	\ifthenelse{\equal{\compilertype}{lualatex}}{
 		% Geometry no válido en lualatex
 	}{
-		\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm}
+		\newgeometry{left=#1cm, top=#2cm, right=#3cm, bottom=#4cm, footnotesep=\footnotetopmargin cm}
 	}
 }
 
@@ -5727,16 +5727,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={06/07/2023},
+		Template.Date={21/08/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.2.6-5},
-		Template.Version.Hash={796927EA73FB0EAE7D0D9F5990821FFE},
-		Template.Version.Release={8.2.6},
+		Template.Version.Dev={8.2.7},
+		Template.Version.Hash={65C7883D7DAD00646599AE569DD4D7C0},
+		Template.Version.Release={8.2.7},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5748,7 +5748,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.2.6 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.2.7 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
