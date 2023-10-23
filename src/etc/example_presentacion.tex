@@ -248,8 +248,19 @@ def incmatrix(genl1, genl2):
 	}
 \end{frame}
 
+\begin{frame}{Entorno tabular (1/3)}
+	\tabularframeheadrepeat{1} % Repite el header anterior, pasa como argumento la columna activa
+	\tabularframecontent{
+		\tabularframerepeatleftcolumn % Repite el mismo contenido anterior
+	}{
+		\begin{center}
+			\Huge\LaTeX
+		\end{center}
+	}
+\end{frame}
+
 \begin{frame}{Entorno tabular (2/3)}
-	\tabularframeheadrepeat{2} % Repite el header anterior, pasa como argumento la columna activa
+	\tabularframeheadrepeat{2} % Repite el header anterior
 	\tabularframecontent{
 		La ecuación \eqref{eqtabular} indica la profundidad de un elemento, aunque no tiene mucho sentido ya que sólo se usa dentro del template. \\
 		\insertequation[\label{eqtabular}]{a = \frac{1}{2} + \cos c} 

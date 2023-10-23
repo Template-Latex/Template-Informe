@@ -25,13 +25,15 @@
 \global\def\GLOBALtabularframecontentrightfontsize {\normalsize}
 \global\def\GLOBALtabularframecontentwidthleft {0.4}
 \global\def\GLOBALtabularframecontentwidthright {0.6}
+\global\def\GLOBALtabularframeupdateleftcontent {true}
 
 \def\LOCALtabularframecolumnselected {1}
 \def\LOCALtabularframeinit {false}
 \def\LOCALtabularframestorevar {true}
 
-% Archivo que guarda el código generado del framehead
+% Archivo que guarda códigos generados
 \newwrite\filetabularframehead
+\newwrite\filetabularframeleftcontent
 
 % Define contadores
 \newcounter{tabularcolnumber}
@@ -174,7 +176,7 @@
 		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 15\fboxrule}%
 			\vspace{\tabularframepaddingtop em}%
 			\hspace{\tabularframepaddingleft em}%
-			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth - \tabularframepaddingleft em - \tabularframepaddingright em}
+			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth - \tabularframepaddingleft em - \tabularframepaddingright em}%
 				\GLOBALtabularframecontentleftfontsize%
 				\ifthenelse{\equal{\GLOBALtabularframecontentleftcentered}{false}}{%
 					#1%
@@ -184,11 +186,11 @@
 			\end{minipage}
 		\end{minipage}}
 		\column{\GLOBALtabularframecontentwidthright\linewidth}%
-		\centering
+		\centering%
 		{\begin{minipage}[t][\GLOBALtabularframecontentheight \textheight][t]{\dimexpr\textwidth - 10\fboxrule}%
 			\vspace{\tabularframepaddingtop em}%
 			\hspace{\tabularframepaddingleft em}%
-			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth - \tabularframepaddingleft em - \tabularframepaddingright em}
+			\begin{minipage}[t][\dimexpr\GLOBALtabularframecontentheight \textheight-\tabularframepaddingtop em][t]{\dimexpr\linewidth - \tabularframepaddingleft em - \tabularframepaddingright em}%
 				\GLOBALtabularframecontentrightfontsize%
 				\ifthenelse{\equal{\GLOBALtabularframecontentrightcentered}{false}}{%
 					#2%
@@ -199,7 +201,21 @@
 			\end{minipage}
 		\end{minipage}}
 	\end{columns}
+	\ifthenelse{\equal{\GLOBALtabularframeupdateleftcontent}{true}}{%
+		\immediate\openout\filetabularframeleftcontent=\jobname.tframelc%
+		\immediate\write\filetabularframeleftcontent{\unexpanded{#1}\LOCALpercentchar}%
+		\immediate\closeout\filetabularframeleftcontent%
+	}{}%
 	\def\LOCALtabularframeinit {false}%
+	\global\def\GLOBALtabularframeupdateleftcontent {true}%
+}
+
+% Repite el tabularframe
+\newcommand{\tabularframerepeatleftcolumn}{%
+	\ifthenelse{\equal{\thetabularcolnumber}{-1}}{}{%
+		\throwwarning{Funcion \noexpand\tabularframerepeatleftcolumn no puede usarse sin haber inicializado \noexpand\tabularframehead}\stop}%
+	\input{\jobname.tframelc}%
+	\global\def\GLOBALtabularframeupdateleftcontent {false}%
 }
 
 % Tabular frame de una sola columna
