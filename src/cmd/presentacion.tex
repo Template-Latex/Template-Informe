@@ -210,7 +210,7 @@
 	\global\def\GLOBALtabularframeupdateleftcontent {true}%
 }
 
-% Repite el tabularframe
+% Repite el contenido de la columna izquierda del último tabular frame
 \newcommand{\tabularframerepeatleftcolumn}{%
 	\ifthenelse{\equal{\thetabularcolnumber}{-1}}{}{%
 		\throwwarning{Funcion \noexpand\tabularframerepeatleftcolumn no puede usarse sin haber inicializado \noexpand\tabularframehead}\stop}%
