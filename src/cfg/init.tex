@@ -311,7 +311,7 @@
 % Configuración de referencias y citas
 % -----------------------------------------------------------------------------
 \ifthenelse{\equal{\stylecitereferences}{natbib}}{
-	\def\twocolumnreferencesmargin{-0.35cm}
+	\def\twocolumnreferencesmargin {-0.35cm}
 	\bibliographystyle{\natbibrefstyle}
 	\setlength{\bibsep}{\natbibrefsep pt}
 	\newcommand{\shortcite}[1]{\citep{#1}}
@@ -338,14 +338,14 @@
 	}
 }{
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
-	\def\twocolumnreferencesmargin{-0.39cm}
+	\def\twocolumnreferencesmargin {-0.39cm}
 	\bibliographystyle{\apacitestyle}
 	\setlength{\bibitemsep}{\apaciterefsep pt}
 	\newcommand{\citep}[1]{\fullcite{#1}}
 	\newcommand{\citet}[1]{\shortcite{#1}}
 }{
 \ifthenelse{\equal{\stylecitereferences}{bibtex}}{
-	\def\twocolumnreferencesmargin{-0.35cm}
+	\def\twocolumnreferencesmargin {-0.35cm}
 	\bibliographystyle{\bibtexstyle}
 	\newlength{\bibitemsep}
 	\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
@@ -470,7 +470,7 @@
 % Configura las fuentes
 % -----------------------------------------------------------------------------
 \makeatletter
-\def\Hv@scale {.95}
+\def\Hv@scale {0.95}
 \makeatother
 
 % -----------------------------------------------------------------------------
