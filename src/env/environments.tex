@@ -124,18 +124,18 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\rightlinenumbers}{%
 	}%
-	\lstset{
+	\lstset{%
 		backgroundcolor=\color{\sourcecodebgcolor}
 	}%
 	\ifthenelse{\equal{\codecaptiontop}{true}}{%
 		\ifx\hfuzz#4\hfuzz%
 			\ifx\hfuzz#3\hfuzz%
-				\lstset{
+				\lstset{%
 					escapeinside={(*@}{@*)},
 					style=#2
 				}%
 			\else%
-				\lstset{
+				\lstset{%
 					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
@@ -143,14 +143,14 @@
 			\fi%
 		\else%
 			\ifx\hfuzz#3\hfuzz%
-				\lstset{
+				\lstset{%
 					caption={#4 #1},
 					captionpos=t,
 					escapeinside={(*@}{@*)},
 					style=#2
 				}%
 			\else%
-				\lstset{
+				\lstset{%
 					caption={#4 #1},
 					captionpos=t,
 					escapeinside={(*@}{@*)},
@@ -162,12 +162,12 @@
 	}{%
 		\ifx\hfuzz#4\hfuzz%
 			\ifx\hfuzz#3\hfuzz%
-				\lstset{
+				\lstset{%
 					escapeinside={(*@}{@*)},
 					style=#2
 				}%
 			\else%
-				\lstset{
+				\lstset{%
 					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
@@ -175,13 +175,13 @@
 			\fi%
 		\else%
 			\ifx\hfuzz#3\hfuzz%
-				\lstset{
+				\lstset{%
 					caption={#4 #1},
 					captionpos=b,
 					style=#2
 				}%
 			\else%
-				\lstset{
+				\lstset{%
 					caption={#4 #1},
 					captionpos=b,
 					escapeinside={(*@}{@*)},
@@ -230,17 +230,17 @@
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\rightlinenumbers}{%
 	}%
-	\lstset{
+	\lstset{%
 		backgroundcolor=\color{\sourcecodebgcolor}
 	}%
-	\ifthenelse{\equal{\codecaptiontop}{true}}{
+	\ifthenelse{\equal{\codecaptiontop}{true}}{%
 		\ifx\hfuzz#3\hfuzz%
-			\lstset{
+			\lstset{%
 				escapeinside={(*@}{@*)},
 				style=#2
 			}%
 		\else%
-			\lstset{
+			\lstset{%
 				escapeinside={(*@}{@*)},
 				caption={#3 #1},
 				captionpos=t,
@@ -249,12 +249,12 @@
 		\fi%
 	}{%
 		\ifx\hfuzz#3\hfuzz%
-			\lstset{
+			\lstset{%
 				escapeinside={(*@}{@*)},
 				style=#2
 			}%
 		\else%
-			\lstset{
+			\lstset{%
 				escapeinside={(*@}{@*)},
 				caption={#3 #1},
 				captionpos=b,
@@ -411,14 +411,14 @@
 % Crea un entorno para insertar ecuaciones en el índice
 % 	#1	Label (opcional)
 %	#2	Leyenda de la ecuación
-\newenvironment{equationindex}[2][]{
+\newenvironment{equationindex}[2][]{%
 	\def\coreequationindexcaption {#2}%
 	\emptyvarerr{\coreequationindexcaption}{#2}{Leyenda no definida}%
 	\corevspacevarcm{\margineqnindextop}%
 	\begin{samepage}%
 		\begin{equation}%
 			\text{#1}%
-		}{
+		}{%
 		\end{equation}
 		\myindexequations{\coreequationindexcaption}%
 		\corevspacevarcm{\margineqnindexbottom}%

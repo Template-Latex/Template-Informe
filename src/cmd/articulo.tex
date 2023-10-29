@@ -59,7 +59,7 @@
 }
 
 % Define funciones de los estilos de títulos
-\ifthenelse{\equal{\titlestyle}{style1}}{
+\ifthenelse{\equal{\titlestyle}{style1}}{%
 	\def\LOCALhasname {false}
 	\newcommand{\titleauthorname}[2][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{\titleauthorspacing cm}}{}%
@@ -96,8 +96,8 @@
 		\vspace{0.05cm}%
 		\normalsize%
 	}%
-}{
-\ifthenelse{\equal{\titlestyle}{style2}}{
+}{%
+\ifthenelse{\equal{\titlestyle}{style2}}{%
 	\def\LOCALhasname {false}
 	\newcommand{\titleauthorname}[2][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{\titleauthorspacing cm}}{}%
@@ -131,8 +131,8 @@
 		\vspace{0.3cm}%
 		\normalsize%
 	}%
-}{
-\ifthenelse{\equal{\titlestyle}{style3}}{
+}{%
+\ifthenelse{\equal{\titlestyle}{style3}}{%
 	\def\LOCALhasname {false}
 	\newcommand{\titleauthorname}[2][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{,\ }{}%
@@ -156,8 +156,8 @@
 		\end{center}
 		\normalsize%
 	}%
-}{
-\ifthenelse{\equal{\titlestyle}{style4}}{
+}{%
+\ifthenelse{\equal{\titlestyle}{style4}}{%
 	\def\LOCALhasname {false}
 	\newcommand{\titleauthorname}[2][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{,\ }{}%
@@ -184,8 +184,8 @@
 		\end{center}%
 		\normalsize%
 	}%
-}{
-\ifthenelse{\equal{\titlestyle}{style5}}{
+}{%
+\ifthenelse{\equal{\titlestyle}{style5}}{%
 	\def\LOCALhasname {false}
 	\newcommand{\titleauthornamedata}[5][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{\titleauthorspacing cm}}{}%
@@ -218,7 +218,7 @@
 		\end{center}
 		\normalsize%
 	}%
-}{
+}{%
 	\throwbadconfig{Valor configuracion incorrecto}{\titlestyle}{style1 .. style5}}}}}
 }
 
@@ -235,7 +235,7 @@
 	\begin{small}%
 		\textbf{Keywords:} %
 		\begin{em}%
-		}{
+		}{%
 		\end{em}%
 	\end{small}%
 	\normalfont\selectfont%

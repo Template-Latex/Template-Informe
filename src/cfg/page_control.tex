@@ -17,7 +17,7 @@
 	% -----------------------------------------------------------------------------
 	\fancyheadoffset{0pt}
 	\pagestyle{fancy}
-	\newcommand{\COREstyledefinition}{
+	\newcommand{\COREstyledefinition}{%
 		\fancyhf{} % Headers y footers
 		\fancyhead[L]{}
 		\fancyhead[R]{}
@@ -65,17 +65,17 @@
 	\begin{center}
 		\vspace*{0.35cm}
 		\huge {\documenttitle} ~ \\
-		\ifdefempty{\teachingstaff}{}{
+		\ifdefempty{\teachingstaff}{}{%
 			\vspace{0.2cm}
 			\normalsize{\teachingstaff}
 		}
-		\ifdefempty{\evaluationindication}{}{
+		\ifdefempty{\evaluationindication}{}{%
 			\vspace{0.5cm}
 			\normalsize{\evaluationindication}
 		}
 	\end{center}
 	% Aplica el estilo de página
-	\fancypagestyle{plain}{
+	\fancypagestyle{plain}{%
 		\fancyheadoffset{0pt}
 		\COREstyledefinition
 	}

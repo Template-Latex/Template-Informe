@@ -1,6 +1,6 @@
 	% Inicio índice, desactiva espacio entre objetos
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\objectchaptermargin}{false}}{
+	\ifthenelse{\equal{\objectchaptermargin}{false}}{%
 		\let\origaddvspace\addvspace
 		\renewcommand{\addvspace}[1]{}
 	}{}
@@ -15,11 +15,11 @@
 	
 	% Cambia tabulación índice de objetos para alinear con contenidos
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\objectindexindent}{true}}{
+	\ifthenelse{\equal{\objectindexindent}{true}}{%
 		\setlength{\cfttabindent}{1.5em}
 		\setlength{\cftfigindent}{1.5em}
 		\def\cftlstlistingindent {1.5em}
-	}{
+	}{%
 		\setlength{\cfttabindent}{0em}
 		\setlength{\cftfigindent}{0em}
 		\def\cftlstlistingindent {0em}
@@ -27,7 +27,7 @@
 	
 	% Final del índice, restablece el espacio
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\objectchaptermargin}{false}}{
+	\ifthenelse{\equal{\objectchaptermargin}{false}}{%
 		\renewcommand{\addvspace}[1]{\origaddvspace{##1}}
 	}{}
 

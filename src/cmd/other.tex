@@ -15,11 +15,11 @@
 }
 
 % Crea un salto de columna en el entorno multicol
-\ifthenelse{\isundefined{\newcolumn}}{
+\ifthenelse{\isundefined{\newcolumn}}{%
 	\newcommand{\newcolumn}{%
 		\checkinsidemulticol\vfill\null\columnbreak%
 	}
-}{
+}{%
 	\renewcommand{\newcolumn}{%
 		\checkinsidemulticol\vfill\null\columnbreak%
 	}
@@ -216,7 +216,7 @@
 }
 
 % Alterna los colores de las tablas a la última ejecución
-\newcommand{\settablerowcolorslast}{
+\newcommand{\settablerowcolorslast}{%
 	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{ % Usa colores normales
 		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%

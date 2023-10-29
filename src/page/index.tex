@@ -9,7 +9,7 @@
 % Manual template: [https://latex.ppizarror.com/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-\newcommand{\templateIndex}{
+\newcommand{\templateIndex}{%
 	
 	% -------------------------------------------------------------------------
 	% Crea nueva página y establece estilo de títulos
@@ -28,9 +28,9 @@
 	% -------------------------------------------------------------------------
 	% Añade la entrada del índice a los marcadores del pdf
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\addindextobookmarks}{true}}{
+	\ifthenelse{\equal{\addindextobookmarks}{true}}{%
 		\phantomsection
-		\belowpdfbookmark{\nameltcont}{contents}}{
+		\belowpdfbookmark{\nameltcont}{contents}}{%
 	}
 	\tocloftpagestyle{fancy}
 	
@@ -44,7 +44,7 @@
 	\def\cftsubsubsecaftersnum {\charaftersectionnum}
 	\def\cftsubsubsubsecaftersnum {\charaftersectionnum}
 	% Modifica los márgenes
-	\ifthenelse{\equal{\charaftersectionnum}{}}{}{
+	\ifthenelse{\equal{\charaftersectionnum}{}}{}{%
 		\def\cftsecnumwidth {1.9em}
 		\def\cftsubsecnumwidth {2.57em} % Incremento 0.67
 		\renewcommand\cftsubsubsecnumwidth{3.35em} % Incremento 0.78
@@ -69,19 +69,19 @@
 	% -------------------------------------------------------------------------
 	% Desactiva los números de línea
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\nolinenumbers}{
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\nolinenumbers}{%
 	}
 	
 	% -------------------------------------------------------------------------
 	% Cambia tabulación índice de objetos para alinear con contenidos
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\objectindexindent}{true}}{
+	\ifthenelse{\equal{\objectindexindent}{true}}{%
 		\setlength{\cfttabindent}{1.9em} % Tablas
 		\setlength{\cftfigindent}{1.9em} % Figuras
 		\setlength{\cftmyindexequationsindent}{1.9em} % Ecuaciones
 		\def\cftlstlistingindent {1.9em} % Códigos fuente
-	}{
+	}{%
 		\setlength{\cfttabindent}{0em} % Tablas
 		\setlength{\cftfigindent}{0em} % Figuras
 		\setlength{\cftmyindexequationsindent}{0em} % Ecuaciones
@@ -92,114 +92,114 @@
 	% Calcula tamaño del margen de los números en objetos del índice
 	% -------------------------------------------------------------------------
 	% Código fuente
-	\ifthenelse{\equal{\showsectioncaptioncode}{none}}{
+	\ifthenelse{\equal{\showsectioncaptioncode}{none}}{%
 		\def\cftdefautnumwidthcode {3.0em} % Añade +0.7em
 		\def\cftdefaultnumwidthromancode {5.25em} % Añade +0.5em para no overflow
-	}{
-	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{%
 		\def\cftdefautnumwidthcode {3.7em}
 		\def\cftdefaultnumwidthromancode {5.75em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{%
 		\def\cftdefautnumwidthcode {4.4em}
 		\def\cftdefaultnumwidthromancode {6.25em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{%
 		\def\cftdefautnumwidthcode {5.1em}
 		\def\cftdefaultnumwidthromancode {6.75em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{%
 		\def\cftdefautnumwidthcode {5.8em}
 		\def\cftdefaultnumwidthromancode {7.25em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{%
 		\def\cftdefautnumwidthcode {3.0em}
 		\def\cftdefaultnumwidthromancode {5.25em}
-	}{
+	}{%
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioncode}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 	}
 	
 	% Código fuente
-	\ifthenelse{\equal{\showsectioncaptioneqn}{none}}{
+	\ifthenelse{\equal{\showsectioncaptioneqn}{none}}{%
 		\def\cftdefautnumwidtheqn {3.0em} % Añade +0.7em
 		\def\cftdefaultnumwidthromaneqn {5.25em} % Añade +0.5em para no overflow
-	}{
-	\ifthenelse{\equal{\showsectioncaptioneqn}{sec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptioneqn}{sec}}{%
 		\def\cftdefautnumwidtheqn {3.7em}
 		\def\cftdefaultnumwidthromaneqn {5.75em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptioneqn}{ssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptioneqn}{ssec}}{%
 		\def\cftdefautnumwidtheqn {4.4em}
 		\def\cftdefaultnumwidthromaneqn {6.25em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptioneqn}{sssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptioneqn}{sssec}}{%
 		\def\cftdefautnumwidtheqn {5.1em}
 		\def\cftdefaultnumwidthromaneqn {6.75em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{%
 		\def\cftdefautnumwidtheqn {5.8em}
 		\def\cftdefaultnumwidthromaneqn {7.25em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptioneqn}{chap}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptioneqn}{chap}}{%
 		\def\cftdefautnumwidtheqn {3.0em}
 		\def\cftdefaultnumwidthromaneqn {5.25em}
-	}{
+	}{%
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptioneqn}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 	}
 	
 	% Figuras
-	\ifthenelse{\equal{\showsectioncaptionfig}{none}}{
+	\ifthenelse{\equal{\showsectioncaptionfig}{none}}{%
 		\def\cftdefautnumwidthfig {3.0em} % Añade +0.7em
 		\def\cftdefaultnumwidthromanfig {5.25em} % Añade +0.5em
-	}{
-	\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{%
 		\def\cftdefautnumwidthfig {3.7em}
 		\def\cftdefaultnumwidthromanfig {5.75em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{%
 		\def\cftdefautnumwidthfig {4.4em}
 		\def\cftdefaultnumwidthromanfig {6.25em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{%
 		\def\cftdefautnumwidthfig {5.1em}
 		\def\cftdefaultnumwidthromanfig {6.75em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{%
 		\def\cftdefautnumwidthfig {5.8em}
 		\def\cftdefaultnumwidthromanfig {7.25em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptionfig}{chap}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptionfig}{chap}}{%
 		\def\cftdefautnumwidthfig {3.0em}
 		\def\cftdefaultnumwidthromanfig {5.25em}
-	}{
+	}{%
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionfig}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 	}
 	
 	% Tablas
-	\ifthenelse{\equal{\showsectioncaptiontab}{none}}{
+	\ifthenelse{\equal{\showsectioncaptiontab}{none}}{%
 		\def\cftdefautnumwidthtab {3.0em} % Añade +0.7em
 		\def\cftdefaultnumwidthromantab {5.25em} % Añade +0.5em
-	}{
-	\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{%
 		\def\cftdefautnumwidthtab {3.7em}
 		\def\cftdefaultnumwidthromantab {5.75em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{%
 		\def\cftdefautnumwidthtab {4.4em}
 		\def\cftdefaultnumwidthromantab {6.25em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{%
 		\def\cftdefautnumwidthtab {5.1em}
 		\def\cftdefaultnumwidthromantab {6.75em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{%
 		\def\cftdefautnumwidthtab {5.8em}
 		\def\cftdefaultnumwidthromantab {7.25em}
-	}{
-	\ifthenelse{\equal{\showsectioncaptiontab}{chap}}{
+	}{%
+	\ifthenelse{\equal{\showsectioncaptiontab}{chap}}{%
 		\def\cftdefautnumwidthtab {3.0em}
 		\def\cftdefaultnumwidthromantab {5.25em}
-	}{
+	}{%
 		\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptiontab}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 	}
 	
@@ -212,13 +212,13 @@
 	% Código fuente
 	\ifthenelse{\equal{\captionnumcode}{arabic}}{ % No hace nada (default)
 		\def\cftlstlistingnumwidth {\cftdefautnumwidthcode}
-	}{
-		\ifthenelse{\equal{\captionnumcode}{roman}}{
+	}{%
+		\ifthenelse{\equal{\captionnumcode}{roman}}{%
 			\def\cftlstlistingnumwidth {\cftdefaultnumwidthromancode}
-		}{
-		\ifthenelse{\equal{\captionnumcode}{Roman}}{
+		}{%
+		\ifthenelse{\equal{\captionnumcode}{Roman}}{%
 			\def\cftlstlistingnumwidth {\cftdefaultnumwidthromancode}
-		}{
+		}{%
 			\def\cftlstlistingnumwidth {\cftdefautnumwidthcode}
 		}}
 	}
@@ -226,13 +226,13 @@
 	% Ecuaciones
 	\ifthenelse{\equal{\captionnumequation}{arabic}}{ % No hace nada (default)
 		\def\cftmyindexequationsnumwidth {\cftdefautnumwidtheqn}
-	}{
-		\ifthenelse{\equal{\captionnumequation}{roman}}{
+	}{%
+		\ifthenelse{\equal{\captionnumequation}{roman}}{%
 			\def\cftmyindexequationsnumwidth {\cftdefaultnumwidthromaneqn}
-		}{
-		\ifthenelse{\equal{\captionnumequation}{Roman}}{
+		}{%
+		\ifthenelse{\equal{\captionnumequation}{Roman}}{%
 			\def\cftmyindexequationsnumwidth {\cftdefaultnumwidthromaneqn}
-		}{
+		}{%
 			\def\cftmyindexequationsnumwidth {\cftdefautnumwidtheqn}
 		}}
 	}
@@ -240,13 +240,13 @@
 	% Figuras
 	\ifthenelse{\equal{\captionnumfigure}{arabic}}{ % No hace nada (default)
 		\def\cftfignumwidth {\cftdefautnumwidthfig}
-	}{
-		\ifthenelse{\equal{\captionnumfigure}{roman}}{
+	}{%
+		\ifthenelse{\equal{\captionnumfigure}{roman}}{%
 			\def\cftfignumwidth {\cftdefaultnumwidthromanfig}
-		}{
-			\ifthenelse{\equal{\captionnumfigure}{Roman}}{
+		}{%
+			\ifthenelse{\equal{\captionnumfigure}{Roman}}{%
 				\def\cftfignumwidth {\cftdefaultnumwidthromanfig}
-			}{
+			}{%
 				\def\cftfignumwidth {\cftdefautnumwidthfig}
 			}}
 	}
@@ -254,13 +254,13 @@
 	% Tablas
 	\ifthenelse{\equal{\captionnumtable}{arabic}}{ % No hace nada (default)
 		\def\cfttabnumwidth {\cftdefautnumwidthtab}
-	}{
-		\ifthenelse{\equal{\captionnumtable}{roman}}{
+	}{%
+		\ifthenelse{\equal{\captionnumtable}{roman}}{%
 			\def\cfttabnumwidth {\cftdefaultnumwidthromantab}
-		}{
-			\ifthenelse{\equal{\captionnumtable}{Roman}}{
+		}{%
+			\ifthenelse{\equal{\captionnumtable}{Roman}}{%
 				\def\cfttabnumwidth {\cftdefaultnumwidthromantab}
-			}{
+			}{%
 				\def\cfttabnumwidth {\cftdefautnumwidthtab}
 			}}
 	}
@@ -271,10 +271,10 @@
 	\newcommand{\LoIf}{ % Lista de figuras
 		\iftotalfigures
 			\ifthenelse{\equal{\indexnewpagef}{true}}{\clearpage}{}
-			\ifthenelse{\equal{\addindextobookmarks}{true}}{
-				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{
+			\ifthenelse{\equal{\addindextobookmarks}{true}}{%
+				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{%
 					\phantomsection
-					\belowpdfbookmark{\nameltfigure}{clof}}{}}{
+					\belowpdfbookmark{\nameltfigure}{clof}}{}}{%
 			}
 			\listoffigures
 		\fi
@@ -282,10 +282,10 @@
 	\newcommand{\LoIt}{ % Tablas
 		\iftotaltables
 			\ifthenelse{\equal{\indexnewpaget}{true}}{\clearpage}{}
-			\ifthenelse{\equal{\addindextobookmarks}{true}}{
-				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{
+			\ifthenelse{\equal{\addindextobookmarks}{true}}{%
+				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{%
 					\phantomsection
-					\belowpdfbookmark{\namelttable}{clot}}{}}{
+					\belowpdfbookmark{\namelttable}{clot}}{}}{%
 			}
 			\listoftables
 		\fi
@@ -293,10 +293,10 @@
 	\newcommand{\LoIc}{ % Códigos fuente (listings)
 		\iftotallstlistings
 			\ifthenelse{\equal{\indexnewpagec}{true}}{\clearpage}{}
-			\ifthenelse{\equal{\addindextobookmarks}{true}}{
-				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{
+			\ifthenelse{\equal{\addindextobookmarks}{true}}{%
+				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{%
 					\phantomsection
-					\belowpdfbookmark{\nameltsrc}{clsrc}}{}}{
+					\belowpdfbookmark{\nameltsrc}{clsrc}}{}}{%
 			}
 			\lstlistoflistings
 		\fi
@@ -304,10 +304,10 @@
 	\newcommand{\LoIe}{ % Ecuaciones
 		\iftotaltemplateIndexEquationss
 			\ifthenelse{\equal{\indexnewpagee}{true}}{\clearpage}{}
-			\ifthenelse{\equal{\addindextobookmarks}{true}}{
-				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{
+			\ifthenelse{\equal{\addindextobookmarks}{true}}{%
+				\ifthenelse{\equal{\addindexsubtobookmarks}{true}}{%
 					\phantomsection
-					\belowpdfbookmark{\namelteqn}{cleqn}}{}}{
+					\belowpdfbookmark{\namelteqn}{cleqn}}{}}{%
 			}
 			\listofmyindexequations
 		\fi
@@ -316,7 +316,7 @@
 	% -------------------------------------------------------------------------
 	% Índice de contenidos
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\showindexofcontents}{true}}{
+	\ifthenelse{\equal{\showindexofcontents}{true}}{%
 		\tableofcontents
 	}{}
 	
@@ -325,198 +325,198 @@
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\indexstyle}{ftc}}{%
 		\LoIf\LoIt\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{}}{%
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{e}}{%
 		\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{c}}{%
 		\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{f}}{%
 		\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{t}}{%
 		\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ec}}{%
 		\LoIe\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ce}}{%
 		\LoIc\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ef}}{%
 		\LoIe\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fe}}{%
 		\LoIf\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{et}}{%
 		\LoIe\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{te}}{%
 		\LoIt\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{cf}}{%
 		\LoIc\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fc}}{%
 		\LoIf\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ct}}{%
 		\LoIc\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tc}}{%
 		\LoIt\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ft}}{%
 		\LoIf\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tf}}{%
 		\LoIt\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ecf}}{%
 		\LoIe\LoIc\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{efc}}{%
 		\LoIe\LoIf\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{cef}}{%
 		\LoIc\LoIe\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{cfe}}{%
 		\LoIc\LoIf\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fec}}{%
 		\LoIf\LoIe\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fce}}{%
 		\LoIf\LoIc\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ect}}{%
 		\LoIe\LoIc\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{etc}}{%
 		\LoIe\LoIt\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{cet}}{%
 		\LoIc\LoIe\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{cte}}{%
 		\LoIc\LoIt\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tec}}{%
 		\LoIt\LoIe\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tce}}{%
 		\LoIt\LoIc\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{eft}}{%
 		\LoIe\LoIf\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{etf}}{%
 		\LoIe\LoIt\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fet}}{%
 		\LoIf\LoIe\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fte}}{%
 		\LoIf\LoIt\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tef}}{%
 		\LoIt\LoIe\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tfe}}{%
 		\LoIt\LoIf\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{cft}}{%
 		\LoIc\LoIf\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ctf}}{%
 		\LoIc\LoIt\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fct}}{%
 		\LoIf\LoIc\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tcf}}{%
 		\LoIt\LoIc\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tfc}}{%
 		\LoIt\LoIf\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ecft}}{%
 		\LoIe\LoIc\LoIf\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ectf}}{%
 		\LoIe\LoIc\LoIt\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{efct}}{%
 		\LoIe\LoIf\LoIc\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{eftc}}{%
 		\LoIe\LoIf\LoIt\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{etcf}}{%
 		\LoIe\LoIt\LoIc\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{etfc}}{%
 		\LoIe\LoIt\LoIf\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ceft}}{%
 		\LoIc\LoIe\LoIf\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{cetf}}{%
 		\LoIc\LoIe\LoIt\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{cfet}}{%
 		\LoIc\LoIf\LoIe\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{cfte}}{%
 		\LoIc\LoIf\LoIt\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ctef}}{%
 		\LoIc\LoIt\LoIe\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ctfe}}{%
 		\LoIc\LoIt\LoIf\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fect}}{%
 		\LoIf\LoIe\LoIc\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fetc}}{%
 		\LoIf\LoIe\LoIt\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fcet}}{%
 		\LoIf\LoIc\LoIe\LoIt
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{fcte}}{%
 		\LoIf\LoIc\LoIt\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ftec}}{%
 		\LoIf\LoIt\LoIe\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{ftce}}{%
 		\LoIf\LoIt\LoIc\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tecf}}{%
 		\LoIt\LoIe\LoIc\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tefc}}{%
 		\LoIt\LoIe\LoIf\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tcef}}{%
 		\LoIt\LoIc\LoIe\LoIf
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tcfe}}{%
 		\LoIt\LoIc\LoIf\LoIe
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tfec}}{%
 		\LoIt\LoIf\LoIe\LoIc
-	}{
+	}{%
 	\ifthenelse{\equal{\indexstyle}{tfce}}{%
 		\LoIt\LoIf\LoIc\LoIe
-	}{
+	}{%
 		\throwbadconfig{Estilo desconocido del indice}{\indexstyle}{ftc,,e,c,f,t,ec,ce,ef,fe,et,te,cf,fc,ct,tc,ft,tf,ecf,efc,cef,cfe,fec,fce,ect,etc,cet,cte,tec,tce,eft,etf,fet,fte,tef,tfe,cft,ctf,fct,tcf,tfc,ecft,ectf,efct,eftc,etcf,etfc,ceft,cetf,cfet,cfte,ctef,ctfe,fect,fetc,fcet,fcte,ftec,ftce,tecf,tefc,tcef,tcfe,tfec,tfce}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 	}
 	

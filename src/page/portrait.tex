@@ -12,7 +12,7 @@
 \newcommand{\COREwriteheaderitem}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{#2 ~ \\}}
 \newcommand{\COREwriteheaderitemsc}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{\small \scshape{\MakeUppercase{#2}} ~ \\}}
 
-\newcommand{\templatePortrait}{
+\newcommand{\templatePortrait}{%
 	
 	% Se escribe el header de la portada
 	\clearpage
@@ -23,9 +23,9 @@
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		% Escribe el header
-		\fancypagestyle{portraitstyle}{
+		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
-			\fancyhead[L]{
+			\fancyhead[L]{%
 				\COREwriteheaderitem{\universityname}
 				\COREwriteheaderitem{\universityfaculty}
 				\COREwriteheaderitem{\universitydepartment}
@@ -44,7 +44,7 @@
 		~ \\
 		\vfill
 		\begin{center}
-			\textcolor{\portraittitlecolor}{
+			\textcolor{\portraittitlecolor}{%
 				{\noindent \Huge{\documenttitle} \vspace{0.5cm}} ~ \\
 				{\noindent \large{\documentsubject}}
 			}
@@ -59,14 +59,14 @@
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style2}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		% Escribe el header
-		\fancypagestyle{portraitstyle}{
+		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
-			\fancyhead[L]{
+			\fancyhead[L]{%
 				\COREwriteheaderitem{\universityname}
 				\COREwriteheaderitem{\universityfaculty}
 				\COREwriteheaderitem{\universitydepartment}
@@ -87,7 +87,7 @@
 		\begin{center}
 			{\noindent \LARGE{\coursename} \vspace{0.3cm}} ~ \\
 			\vspace*{1.5cm}
-			\textcolor{\portraittitlecolor}{
+			\textcolor{\portraittitlecolor}{%
 				{\centering \noindent \Huge{\documenttitle} \vspace{0.3cm}} ~ \\
 				{\noindent \large{\documentsubject}}
 			}
@@ -102,14 +102,14 @@
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style3}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
 		% Escribe el header
-		\fancypagestyle{portraitstyle}{
+		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
-			\fancyhead[L]{
+			\fancyhead[L]{%
 				\COREwriteheaderitem{\universityname}
 				\COREwriteheaderitem{\universityfaculty}
 				\COREwriteheaderitem{\universitydepartment}
@@ -132,7 +132,7 @@
 			{\noindent \huge{\coursename} \vspace{0.3cm}} ~ \\
 			{\noindent \large{Código del curso: \coursecode}} ~ \\
 			\vspace*{1.8cm}
-			\textcolor{\portraittitlecolor}{
+			\textcolor{\portraittitlecolor}{%
 				{\noindent \Huge{\documenttitle} \vspace{0.3cm}} ~ \\
 				{\noindent \large{\documentsubject}}
 			}
@@ -147,7 +147,7 @@
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style4}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -187,7 +187,7 @@
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style5}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -212,7 +212,7 @@
 		\vfill
 		\begin{center}
 			\fontsize{8mm}{9mm}\selectfont
-			\textcolor{\portraittitlecolor}{
+			\textcolor{\portraittitlecolor}{%
 				\noindent \documenttitle ~ \\
 			}
 			\vspace*{0.35cm}
@@ -228,7 +228,7 @@
 			\noindent \normalsize{\authortable}%
 		\end{center}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style6}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -245,22 +245,22 @@
 			\coreinsertkeyimage{\portraitimageparamsH}{\portraitimageH}%
 		\end{wrapfigure}
 		\def\COREstylefirstmargin {-2.2cm}
-		\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{
+		\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{%
 			\hspace*{0.07cm}
 			\noindent \textsc{\color{red} \hspace{\COREstylefirstmargin} \universitydepartment} ~ \\
 			\def\COREstylefirstmargin {-1.6cm}
 		}
-		\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{
+		\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{%
 			\hspace*{0cm}
 			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \universityfaculty} ~ \\
 			\def\COREstylefirstmargin {-1.6cm}
 		}
-		\ifthenelse{\equal{\universityname}{\xspace}}{}{
+		\ifthenelse{\equal{\universityname}{\xspace}}{}{%
 			\hspace*{0cm}
 			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \universityname} ~ \\
 			\def\COREstylefirstmargin {-1.6cm}
 		}
-		\ifthenelse{\equal{\coursename}{\xspace}}{}{
+		\ifthenelse{\equal{\coursename}{\xspace}}{}{%
 			\hspace*{0cm}
 			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \coursecode \coursename} ~ \\
 			\def\COREstylefirstmargin {-1.6cm}
@@ -287,7 +287,7 @@
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style7}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -327,7 +327,7 @@
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style8}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -363,7 +363,7 @@
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style9}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -396,7 +396,7 @@
 			\indent \scshape{\authortable}%
 		\end{center}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style10}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -407,9 +407,9 @@
 		~ \\
 		\vfill
 		\begin{center}
-			\ifthenelse{\equal{\universityname}{\xspace}}{
+			\ifthenelse{\equal{\universityname}{\xspace}}{%
 				\noindent {\large \textsc{\universitydepartment}}
-			}{
+			}{%
 				\noindent {\large \textsc{\universityname, \universitydepartment}}
 			}
 			\vspace{1.0cm}
@@ -418,10 +418,10 @@
 		% Título informe
 		\vfill
 		\begin{center}
-			\ifthenelse{\equal{\coursename}{\xspace}}{}{
+			\ifthenelse{\equal{\coursename}{\xspace}}{}{%
 				\noindent {\large \scshape{\coursename}} \vspace{0.5cm} ~ \\
 			}
-			\ifthenelse{\equal{\coursecode}{\xspace}}{}{
+			\ifthenelse{\equal{\coursecode}{\xspace}}{}{%
 				\noindent {\large \scshape{\coursecode}} \vspace{0.5cm} ~ \\
 			}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
@@ -437,7 +437,7 @@
 		\vfill
 		~ \\
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style11}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -447,13 +447,13 @@
 		% Header
 		\begin{center}
 			\vspace*{-1.0cm}
-			\ifthenelse{\equal{\universityname}{\xspace}}{}{
+			\ifthenelse{\equal{\universityname}{\xspace}}{}{%
 				\scshape{\universityname} ~ \\
 			}
-			\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{
+			\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{%
 				\scshape{\universityfaculty} ~ \\
 			}
-			\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{
+			\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{%
 				\scshape{\universitydepartment}
 			}
 		\end{center}
@@ -471,7 +471,7 @@
 			\indent \authortable%
 		\end{center}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style12}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -501,15 +501,15 @@
 		\vspace{0.5cm}
 		\noindent \rule{\linewidth}{0.4mm}
 		\begin{center}
-			\ifthenelse{\equal{\universityname}{\xspace}}{
+			\ifthenelse{\equal{\universityname}{\xspace}}{%
 				\scshape{\universityfaculty} \\
-			}{
+			}{%
 				\scshape{\universityname, \universityfaculty} \\
 			}
 			\scshape{\universitydepartment}
 		\end{center}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style13}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -521,10 +521,10 @@
 		\vspace*{-1.5cm}
 		\begin{flushleft}
 			\begin{minipage}{0.625\linewidth}
-				% Aqui no se puede hacer nada con departamentouniversidad
-				\ifthenelse{\equal{\universityname}{\xspace}}{
+				% Aqui no se puede hacer nada con \universitydepartment
+				\ifthenelse{\equal{\universityname}{\xspace}}{%
 					{\fontsize{3.5mm}{0.5mm} \selectfont \noindent \textsf{\universityfaculty}} ~ \\
-				}{
+				}{%
 					{\fontsize{3.5mm}{0.5mm} \selectfont \noindent \textsf{\universityname, \universityfaculty}} ~ \\
 				}
 				\noindent {\fontsize{3.0mm}{0.5mm} \selectfont \textsf{\universitydepartment} \vspace{-0.3cm}} ~ \\
@@ -558,7 +558,7 @@
 			\noindent \textsf{\authortable}%
 		\end{flushright}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style14}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -583,7 +583,7 @@
 			\noindent \textsf{\authortable}%
 		\end{flushright}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style15}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -605,15 +605,15 @@
 			\begin{minipage}{0.6\linewidth}
 				\begin{flushleft}
 					\vspace*{-0.05cm}
-					\textsc{
+					\textsc{%
 					\begin{tabular}{l}
-						\ifthenelse{\equal{\universityname}{\xspace}}{}{
+						\ifthenelse{\equal{\universityname}{\xspace}}{}{%
 							{\small \universityname} ~ \\
 						}
-						\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{
+						\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{%
 							{\small \universityfaculty} ~ \\
 						}
-						\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{
+						\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{%
 							{\small \universitydepartment}
 						}
 					\end{tabular}
@@ -644,7 +644,7 @@
 			\noindent \authortable%
 		\end{center}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style16}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -656,14 +656,14 @@
 			\thispagestyle{empty}
 			\begin{tikzpicture}[remember picture,overlay]
 				\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\portraitbackgroundimageB}};
-				\draw (current page.center) node [fill=\portraitbackgroundcolorB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
+				\draw (current page.center) node [fill=\portraitbackgroundcolorB!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{%
 						\centering \textcolor{\portraittitlecolor}{\documenttitle} \\ [10pt]
 						{\Large \textcolor{\portraittitlecolor}{\documentsubject}} \\ [25pt]
 						{\huge \documentauthor}}};
 			\end{tikzpicture}
 			\vfill
 		\endgroup
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style17}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -673,9 +673,9 @@
 		\checkextravarexist{\portraitimageparamsC}{[portrait-style17] Defina los parametros de la imagen de la portada}
 		
 		% Header
-		\fancypagestyle{portraitstyle}{
+		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
-			\fancyhead[L]{
+			\fancyhead[L]{%
 				\COREwriteheaderitem{\universityname}
 				\COREwriteheaderitem{\universityfaculty}
 				\COREwriteheaderitem{\universitydepartment}
@@ -694,7 +694,7 @@
 		~ \\
 		\vfill
 		\begin{center}
-			\textcolor{\portraittitlecolor}{
+			\textcolor{\portraittitlecolor}{%
 				{\noindent \Huge{\documenttitle} \vspace{0.5cm}} ~ \\
 				{\noindent \large{\documentsubject}}
 			}
@@ -704,13 +704,13 @@
 		~ \\
 		\vspace{2\baselineskip}
 		\begin{center}
-			\ifthenelse{\equal{\portraitimageboxedC}{true}}{
+			\ifthenelse{\equal{\portraitimageboxedC}{true}}{%
 				\begingroup
 				\setlength{\fboxsep}{0 pt}
 				\setlength{\fboxrule}{\portraitimageboxedwidthC pt}
 				\fbox{\coreinsertkeyimage{\portraitimageparamsC}{\portraitimageC}}%
 				\endgroup
-			}{
+			}{%
 				\coreinsertkeyimage{\portraitimageparamsC}{\portraitimageC}
 			}
 		\end{center}
@@ -725,7 +725,7 @@
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style18}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -735,9 +735,9 @@
 		\checkextravarexist{\portraitimageparamsD}{[portrait-style18] Defina los parametros de la imagen de la portada}
 		
 		% Header
-		\fancypagestyle{portraitstyle}{
+		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
-			\fancyhead[L]{
+			\fancyhead[L]{%
 				\COREwriteheaderitem{\universityname}
 				\COREwriteheaderitem{\universityfaculty}
 				\COREwriteheaderitem{\universitydepartment}
@@ -755,13 +755,13 @@
 		% Imagen de la portada
 		~ \\
 		\begin{center}
-			\ifthenelse{\equal{\portraitimageboxedD}{true}}{
+			\ifthenelse{\equal{\portraitimageboxedD}{true}}{%
 				\begingroup
 				\setlength{\fboxsep}{0 pt}
 				\setlength{\fboxrule}{\portraitimageboxedwidthD pt}
 				\fbox{\coreinsertkeyimage{\portraitimageparamsD}{\portraitimageD}}%
 				\endgroup
-			}{
+			}{%
 				\coreinsertkeyimage{\portraitimageparamsD}{\portraitimageD}
 			}
 		\end{center}
@@ -770,7 +770,7 @@
 		% Título del informe
 		\vfill
 		\begin{center}
-			\textcolor{\portraittitlecolor}{
+			\textcolor{\portraittitlecolor}{%
 				{\noindent \Huge{\documenttitle} \vspace{0.5cm}} ~ \\
 				{\noindent \large{\documentsubject}}
 			}
@@ -785,7 +785,7 @@
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style19}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -804,9 +804,9 @@
 		~ \\
 		\begin{center}
 			\noindent {\large \scshape{\coursecode} \large \scshape{\coursename}} \vspace{0.5cm} ~ \\
-			\ifthenelse{\equal{\universityname}{\xspace}}{
+			\ifthenelse{\equal{\universityname}{\xspace}}{%
 				\noindent {\large \textsc{\universitydepartment}}
-			}{
+			}{%
 				\noindent {\large \textsc{\universityname, \universitydepartment}}
 			}
 			\vspace{1.0cm}
@@ -819,7 +819,7 @@
 		\end{center}
 		~ \\
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style20}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		
@@ -831,11 +831,11 @@
 		{\raggedleft	
 		\noindent \rule{1pt}{\textheight}
 		\hspace{0.05\linewidth}
-		\parbox[b]{0.75\linewidth}{
+		\parbox[b]{0.75\linewidth}{%
 			{\Huge\bfseries \textcolor{\portraittitlecolor}{\documenttitle}}\\[2\baselineskip]
 			{\large\textit{\textcolor{\portraittitlecolor}{\documentsubject}}}\\[4\baselineskip]
 			\vspace*{2cm}
-			{\textsc{
+			{\textsc{%
 			\begin{flushleft}
 				\noindent\hspace{-0.36cm}\authortable
 			\end{flushleft}
@@ -848,7 +848,7 @@
 			\universitydepartment}\\[\baselineskip]
 		}}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{style21}}{%
 		\setpagemargincm{\pagemarginleft}{\firstpagemargintop}{\pagemarginright}{\pagemarginbottom}
 			
@@ -858,9 +858,9 @@
 		\checkextravarexist{\portraitimageparamsI}{[portrait-style21] Defina los parametros de la imagen de la portada}
 		
 		% Header
-		\fancypagestyle{portraitstyle}{
+		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
-			\fancyhead[L]{
+			\fancyhead[L]{%
 				\COREwriteheaderitem{\universityname}
 				\COREwriteheaderitem{\universityfaculty}
 				\COREwriteheaderitem{\universitydepartment}
@@ -878,13 +878,13 @@
 		% Imagen de la portada
 		~ \vfill
 		\begin{center}
-			\ifthenelse{\equal{\portraitimageboxedI}{true}}{
+			\ifthenelse{\equal{\portraitimageboxedI}{true}}{%
 				\begingroup
 				\setlength{\fboxsep}{0 pt}
 				\setlength{\fboxrule}{\portraitimageboxedwidthI pt}
 				\fbox{\coreinsertkeyimage{\portraitimageparamsI}{\portraitimageC}}%
 				\endgroup
-			}{
+			}{%
 				\coreinsertkeyimage{\portraitimageparamsI}{\portraitimageC}
 			}
 		\end{center}
@@ -898,7 +898,7 @@
 			\end{flushright}
 		\end{minipage}
 		\end{spacing}
-	}{
+	}{%
 	\ifthenelse{\equal{\portraitstyle}{\bgtemplatetestcode}}{%
 		\setpagemargincm{\pagemarginleft}{\pagemargintop}{\pagemarginright}{\pagemarginbottom}
 		\pagestyle{empty}
@@ -906,13 +906,13 @@
 		\begin{spacing}{1.025}
 		\begin{center}
 			\vspace*{-1.0cm}
-			\ifthenelse{\equal{\universityname}{\xspace}}{}{
+			\ifthenelse{\equal{\universityname}{\xspace}}{}{%
 				\scshape{\universityname} ~ \\
 			}
-			\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{
+			\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{%
 				\scshape{\universityfaculty} ~ \\
 			}
-			\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{
+			\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{%
 				\scshape{\universitydepartment}
 			}
 		\end{center}

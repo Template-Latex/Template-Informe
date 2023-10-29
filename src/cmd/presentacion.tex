@@ -119,7 +119,7 @@
 
 % Función que repite el último entorno tabular frames
 %	#1	Número de la columna destacada (desde 1)
-\newcommand{\tabularframeheadrepeat}[1]{
+\newcommand{\tabularframeheadrepeat}[1]{%
 	\ifthenelse{\equal{\GLOBALtabularframebarcreated}{true}}{}{%
 		\throwwarning{Funcion \noexpand\tabularframeheadrepeat no puede usarse si no existe un \noexpand\tabularframehead previo}\stop}%
 	\emptyvarerr{\tabularframeheadrepeat}{#1}{Numero de columna destacada no definido}%
