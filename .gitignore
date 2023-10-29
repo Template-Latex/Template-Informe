@@ -47,6 +47,7 @@ dist/example.tex
 dist/template_config.tex
 
 # Archivos temporales
+*.xlsx
 *_temp.tex
 TODO.txt
 
