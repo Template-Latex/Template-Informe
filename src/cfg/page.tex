@@ -15,7 +15,7 @@
 	% Numeración de páginas
 	% -------------------------------------------------------------------------
 	\clearpage
-	\ifthenelse{\equal{\predocpageromannumber}{true}}{ % Si se usan números romanos en el pre-documento
+	\ifthenelse{\equal{\predocpageromannumber}{true}}{% Si se usan números romanos en el pre-documento
 		\ifthenelse{\equal{\predocpageromanupper}{true}}{%
 			\pagenumbering{Roman}
 		}{%
@@ -122,7 +122,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style1-i}}{ % Impar izquierdo
+	\ifthenelse{\equal{\hfstyle}{style1-i}}{% Impar izquierdo
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -155,7 +155,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style1-d}}{ % Impar derecho
+	\ifthenelse{\equal{\hfstyle}{style1-d}}{% Impar derecho
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -221,7 +221,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style2-i}}{ % Impar izquierdo
+	\ifthenelse{\equal{\hfstyle}{style2-i}}{% Impar izquierdo
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -254,7 +254,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style1-d}}{ % Impar derecho
+	\ifthenelse{\equal{\hfstyle}{style1-d}}{% Impar derecho
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -362,7 +362,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style5-d}}{ % Impar derecho
+	\ifthenelse{\equal{\hfstyle}{style5-d}}{% Impar derecho
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -397,7 +397,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style5-i}}{ % Impar izquierdo
+	\ifthenelse{\equal{\hfstyle}{style5-i}}{% Impar izquierdo
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -467,7 +467,7 @@
 		\setlength{\headheight}{49pt}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style8-d}}{ % Impar derecho
+	\ifthenelse{\equal{\hfstyle}{style8-d}}{% Impar derecho
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -478,7 +478,7 @@
 		\setlength{\headheight}{49pt}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style8-i}}{ % Impar izquierdo
+	\ifthenelse{\equal{\hfstyle}{style8-i}}{% Impar izquierdo
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -505,7 +505,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style9-d}}{ % Impar derecho
+	\ifthenelse{\equal{\hfstyle}{style9-d}}{% Impar derecho
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -521,7 +521,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style9-i}}{ % Impar izquierdo
+	\ifthenelse{\equal{\hfstyle}{style9-i}}{% Impar izquierdo
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -572,7 +572,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style10-i}}{ % Impar izquierdo
+	\ifthenelse{\equal{\hfstyle}{style10-i}}{% Impar izquierdo
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -607,7 +607,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style10-d}}{ % Impar derecho
+	\ifthenelse{\equal{\hfstyle}{style10-d}}{% Impar derecho
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -642,7 +642,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
+	\ifthenelse{\equal{\hfstyle}{style11}}{% Similar a 1
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -675,7 +675,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style12}}{ % Similar a 6
+	\ifthenelse{\equal{\hfstyle}{style12}}{% Similar a 6
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -688,7 +688,7 @@
 		\setlength{\headheight}{49pt}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style13}}{ % Similar a 3
+	\ifthenelse{\equal{\hfstyle}{style13}}{% Similar a 3
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -713,7 +713,7 @@
 		}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style14}}{ % Similar a 4
+	\ifthenelse{\equal{\hfstyle}{style14}}{% Similar a 4
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}
@@ -728,7 +728,7 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-	\ifthenelse{\equal{\hfstyle}{style15}}{ % Similar a 1
+	\ifthenelse{\equal{\hfstyle}{style15}}{% Similar a 1
 		\pagestyle{fancy}
 		\newcommand{\COREstyledefinition}{%
 			\fancyhf{}

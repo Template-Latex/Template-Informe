@@ -19,11 +19,11 @@
 	% Actualiza headers
 	\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 		% Define funciones generales
-		\def\COREhfstyledefA { % 1, 2, 4, 9, 11, 14, 15
+		\def\COREhfstyledefA {% 1, 2, 4, 9, 11, 14, 15
 			\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
 			\fancyhead[L]{\nouppercase{\leftmark}}
 		}
-		\def\COREhfstyledefB { % 5
+		\def\COREhfstyledefB {% 5
 			\fancypagestyle{plain}{%
 				\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 					\fancyhead[R]{%
@@ -49,7 +49,7 @@
 				\fancyhead[R]{\nouppercase{\leftmark}}
 			}
 		}
-		\def\COREhfstyledefC { % 10
+		\def\COREhfstyledefC {% 10
 			\fancypagestyle{plain}{%
 				\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 					\fancyhead[L]{%
@@ -79,22 +79,22 @@
 		\ifthenelse{\equal{\hfstyle}{style1}}{%
 			\COREhfstyledefA
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style1-i}}{ % Impar izquierdo
+		\ifthenelse{\equal{\hfstyle}{style1-i}}{% Impar izquierdo
 			\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
 			\fancyhead[LE,RO]{\nouppercase{\leftmark}}
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style1-d}}{ % Impar derecho
+		\ifthenelse{\equal{\hfstyle}{style1-d}}{% Impar derecho
 			\fancypagestyle{plain}{\fancyhead[LO,RE]{\nouppercase{\leftmark}}}
 			\fancyhead[LO,RE]{\nouppercase{\leftmark}}
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style2}}{%
 			\COREhfstyledefA
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style2-i}}{ % Impar izquierdo
+		\ifthenelse{\equal{\hfstyle}{style2-i}}{% Impar izquierdo
 			\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
 			\fancyhead[LE,RO]{\nouppercase{\leftmark}}
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style2-d}}{ % Impar derecho
+		\ifthenelse{\equal{\hfstyle}{style2-d}}{% Impar derecho
 			\fancypagestyle{plain}{\fancyhead[LO,RE]{\nouppercase{\leftmark}}}
 			\fancyhead[LO,RE]{\nouppercase{\leftmark}}
 		}{%
@@ -104,37 +104,37 @@
 		\ifthenelse{\equal{\hfstyle}{style5}}{%
 			\COREhfstyledefB
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style5-d}}{ % Impar derecho
+		\ifthenelse{\equal{\hfstyle}{style5-d}}{% Impar derecho
 			\COREhfstyledefB
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style5-i}}{ % Impar izquierdo
+		\ifthenelse{\equal{\hfstyle}{style5-i}}{% Impar izquierdo
 			\COREhfstyledefB
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style9}}{%
 			\COREhfstyledefA
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style9-d}}{ % Impar derecho
+		\ifthenelse{\equal{\hfstyle}{style9-d}}{% Impar derecho
 			\COREhfstyledefA
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style9-i}}{ % Impar izquierdo
+		\ifthenelse{\equal{\hfstyle}{style9-i}}{% Impar izquierdo
 			\COREhfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style10}}{%
 			\COREhfstyledefC
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style10-d}}{ % Impar derecho
+		\ifthenelse{\equal{\hfstyle}{style10-d}}{% Impar derecho
 			\COREhfstyledefC
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style10-i}}{ % Impar izquierdo
+		\ifthenelse{\equal{\hfstyle}{style10-i}}{% Impar izquierdo
 			\COREhfstyledefC
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style11}}{ % Similar a 1
+		\ifthenelse{\equal{\hfstyle}{style11}}{% Similar a 1
 			\COREhfstyledefA
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style14}}{ % Similar a 4
+		\ifthenelse{\equal{\hfstyle}{style14}}{% Similar a 4
 			\COREhfstyledefA
 		}{%
-		\ifthenelse{\equal{\hfstyle}{style15}}{ % Similar a 1
+		\ifthenelse{\equal{\hfstyle}{style15}}{% Similar a 1
 			\COREhfstyledefA
 		}{%
 			% No se encontró el header-footer, no hace nada

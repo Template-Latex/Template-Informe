@@ -75,7 +75,7 @@
 
 % Chequea si los capítulos están activados
 \def\corecheckchapterenabled {%
-	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{ % Verifica que el entorno esté activo
+	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{% Verifica que el entorno esté activo
 		\throwwarning{La insercion de capitulos esta desactivada}%
 	}{}%
 }
@@ -113,23 +113,23 @@
 % Parcha el formato de capítulos
 \pretocmd{\chapter}{%
 	\corecheckchapterenabled%
-	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
+	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{chap}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\showsectioncaptioneqn}{chap}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\equationrestart}{chap}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\equationrestart}{chap}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{chap}}{ % Reinicia figuras
+	\ifthenelse{\equal{\showsectioncaptionfig}{chap}}{% Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{chap}}{ % Reinicia tablas
+	\ifthenelse{\equal{\showsectioncaptiontab}{chap}}{%Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%
@@ -148,23 +148,23 @@
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
 % de la sección
 \pretocmd{\section}{%
-	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{ % Reinicia código fuente
+	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{sec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\showsectioncaptioneqn}{sec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\equationrestart}{sec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\equationrestart}{sec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{ % Reinicia figuras
+	\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{% Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{ % Reinicia tablas
+	\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{% Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%
@@ -182,23 +182,23 @@
 % Comienza nueva subsección, si está dentro de una sectionanum entonces no dibuja el
 % número de sección, si no entonces dibuja el número de forma normal
 \pretocmd{\subsection}{%
-	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{ % Reinicia código fuente
+	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{ssec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\showsectioncaptioneqn}{ssec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\equationrestart}{ssec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\equationrestart}{ssec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{ % Reinicia figuras
+	\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{% Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{ % Reinicia tablas
+	\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{% Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%
@@ -217,23 +217,23 @@
 %	- si no, entonces puede estar dentro de una sección sin número o no, en ese caso
 %	  debe evaluar ambas posibilidades
 \pretocmd{\subsubsection}{%
-	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{ % Reinicia código fuente
+	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{sssec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\showsectioncaptioneqn}{sssec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\equationrestart}{sssec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\equationrestart}{sssec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{ % Reinicia figuras
+	\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{% Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{ % Reinicia tablas
+	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{% Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%
@@ -248,23 +248,23 @@
 
 % Parcha sub-sub-subsecciones
 \def\corepatchaftersubsubsubsection {%
-	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{ % Reinicia código fuente
+	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\equationrestart}{ssssec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\equationrestart}{ssssec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{ % Reinicia figuras
+	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{% Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{ % Reinicia tablas
+	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{% Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%

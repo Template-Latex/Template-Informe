@@ -54,7 +54,7 @@
 \usepackage{tracklang}
 \IfTrackedLanguage{spanish}{
 	\usepackage[es-nosectiondot,es-lcroman,es-noquoting]{babel}
-}{ % english, otros
+}{% english, otros
 	\usepackage{babel}
 }
 
@@ -194,7 +194,7 @@
 }{
 	\usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
 }
-\ifthenelse{\equal{\stylecitereferences}{natbib}}{ % Formato citas natbib
+\ifthenelse{\equal{\stylecitereferences}{natbib}}{% Formato citas natbib
 	\usepackage[nottoc,notlof,notlot]{tocbibind}
 	\ifthenelse{\equal{\natbibrefcitecompress}{true}}{
 		\usepackage[sort&compress]{natbib}
@@ -202,13 +202,13 @@
 		\usepackage{natbib}
 	}
 }{
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{ % Formato citas apacite
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{% Formato citas apacite
 	\usepackage[nottoc,notlof,notlot]{tocbibind}
 	\usepackage{apacite}
 }{
-\ifthenelse{\equal{\stylecitereferences}{bibtex}}{ % Formato citas bibtex
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{% Formato citas bibtex
 }{
-\ifthenelse{\equal{\stylecitereferences}{custom}}{ % Formato citas custom
+\ifthenelse{\equal{\stylecitereferences}{custom}}{% Formato citas custom
 }{}}}
 }
 
@@ -220,9 +220,9 @@
 }
 
 % Dimensiones y geometría del documento
-\ifthenelse{\equal{\compilertype}{lualatex}}{ % En lualatex sólo se puede cambiar 1 vez el margen
+\ifthenelse{\equal{\compilertype}{lualatex}}{% En lualatex sólo se puede cambiar 1 vez el margen
 	\usepackage[top=\pagemargintop cm,bottom=\pagemarginbottom cm,left=\pagemarginleft cm,right=\pagemarginright cm, footnotesep=\footnotetopmargin cm]{geometry}
-}{ % pdf2latex, xelatex
+}{% pdf2latex, xelatex
 	\usepackage{geometry}
 }
 
@@ -823,10 +823,10 @@
 % Finales
 % -----------------------------------------------------------------------------
 \usepackage[T1]{fontenc} % Caracteres acentuados
-\ifthenelse{\equal{\showlayoutlines}{true}}{ % Muestra las líneas del layout
+\ifthenelse{\equal{\showlayoutlines}{true}}{% Muestra las líneas del layout
 	\usepackage{showframe}}{
 }
-\ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
+\ifthenelse{\equal{\showlinenumbers}{true}}{% Muestra los números de línea
 	\usepackage[switch,columnwise,running]{lineno}
 	\newcommand*\linenomathpatch[1]{% Parcha entornos
 		\cspreto{#1}{\linenomath}%

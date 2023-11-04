@@ -39,25 +39,25 @@
 	\setlength{\fboxrule}{#4 pt}%
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\dimexpr \marginimagemultright cm -\coreimageshspace}%
-	}{}%
+	}{} % Obs: No sacar el espacio en blanco, tampoco en sin/con label
 	\ifthenelse{\equal{#5}{\GLOBALemptyvar}}{ % Sin label
-		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
+		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{% Sin link
 			\raisebox{\GLOBALimagenextmarginv}{%
 				\fbox{\includegraphics[#3]{#2}}%
 			}%
-		}{ % Con link
+		}{% Con link
 			\raisebox{\GLOBALimagenextmarginv}{%
 				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
 			}%
 		}%
 	}{ % Con label
-		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
+		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{% Sin link
 			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\includegraphics[#3]{#2}}%
 				}%
 			}%
-		}{ % Con link
+		}{% Con link
 			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
@@ -112,46 +112,46 @@
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\dimexpr \marginimagemultright cm - \coreimageshspace}%
 	}{}%
-	\ifthenelse{\equal{#7}{\GLOBALemptyvar}}{ % Sin label
-		\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
-			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+	\ifthenelse{\equal{#7}{\GLOBALemptyvar}}{% Sin label
+		\ifthenelse{\equal{\animatedimageloop}{true}}{% Con loop
+			\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
 				}%
-			}{ % Sin autoplay
+			}{% Sin autoplay
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
 				}%
 			}%
-		}{ % Sin loop
-			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+		}{% Sin loop
+			\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
 				}%
-			}{ % Sin autoplay
+			}{% Sin autoplay
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 				}%
 			}%
 		}%
-	}{ % Con label
+	}{% Con label
 		\subfloat[#7#1]{%
-			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
-				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+			\ifthenelse{\equal{\animatedimageloop}{true}}{% Con loop
+				\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
 						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
-				}{ % Sin autoplay
+				}{% Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
 						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
-			}{ % Sin loop
-				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+			}{% Sin loop
+				\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
 						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
-				}{ % Sin autoplay
+				}{% Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
 						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 					}%
@@ -288,9 +288,9 @@
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
 			\centering%
-			\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
+			\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{% Sin link
 				\fbox{\includegraphics[#3]{#2}}%
-			}{ % Con link
+			}{% Con link
 				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
 			}%
 		\endgroup%
@@ -340,31 +340,31 @@
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#6 pt}%
 			\centering%
-			\ifthenelse{\equal{\animatedimagecontrols}{true}}{ % Muestra los controles
-				\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
-					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+			\ifthenelse{\equal{\animatedimagecontrols}{true}}{% Muestra los controles
+				\ifthenelse{\equal{\animatedimageloop}{true}}{% Con loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 						\fbox{\animategraphics[controls,loop,autoplay,#3]{#4}{#2-}{0}{#5}}%	
-					}{ % Sin autoplay
+					}{% Sin autoplay
 						\fbox{\animategraphics[controls,loop,#3]{#4}{#2-}{0}{#5}}%
 					}%
-				}{ % Sin loop
-					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+				}{% Sin loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 						\fbox{\animategraphics[controls,autoplay,#3]{#4}{#2-}{0}{#5}}%
-					}{ % Sin autoplay
+					}{% Sin autoplay
 						\fbox{\animategraphics[controls,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
-			}{ % Sin controles
-				\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
-					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+			}{% Sin controles
+				\ifthenelse{\equal{\animatedimageloop}{true}}{% Con loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
-					}{ % Sin autoplay
+					}{% Sin autoplay
 						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
 					}%
-				}{ % Sin loop
-					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+				}{% Sin loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
-					}{ % Sin autoplay
+					}{% Sin autoplay
 						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%

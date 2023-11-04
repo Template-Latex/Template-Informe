@@ -194,7 +194,7 @@
 	}
 }{
 	% Color de links sin borde
-	\hypersetup{ % No reorganizar
+	\hypersetup{% No reorganizar
 		hidelinks,
 		colorlinks=true,
 		citecolor=\numcitecolor,
@@ -212,11 +212,11 @@
 % -----------------------------------------------------------------------------
 % Márgenes de las leyendas por defecto
 \setcaptionmargincm{\captionlrmargin}
-\ifthenelse{\equal{\captiontextbold}{true}}{ % Texto en negrita en etiquetas
+\ifthenelse{\equal{\captiontextbold}{true}}{% Texto en negrita en etiquetas
 	\renewcommand{\captiontextbold}{bf}}{
 	\renewcommand{\captiontextbold}{}
 }
-\ifthenelse{\equal{\captiontextsubnumbold}{true}}{ % Número en negritas
+\ifthenelse{\equal{\captiontextsubnumbold}{true}}{% Número en negritas
 	\renewcommand{\captiontextsubnumbold}{bf}}{
 	\renewcommand{\captiontextsubnumbold}{}
 }
@@ -281,24 +281,24 @@
 }
 
 % Alineado de leyendas
-\ifthenelse{\equal{\captionalignment}{justified}}{ % Leyenda justificada
+\ifthenelse{\equal{\captionalignment}{justified}}{% Leyenda justificada
 	\captionsetup{
 		format=plain,
 		justification=justified
 	}
 }{
-\ifthenelse{\equal{\captionalignment}{centered}}{ % Leyenda centrada
+\ifthenelse{\equal{\captionalignment}{centered}}{% Leyenda centrada
 	\captionsetup{
 		justification=centering
 	}
 }{
-\ifthenelse{\equal{\captionalignment}{left}}{ % Leyenda alineada a la izquierda
+\ifthenelse{\equal{\captionalignment}{left}}{% Leyenda alineada a la izquierda
 	\captionsetup{
 		justification=raggedright,
 		singlelinecheck=false
 	}
 }{
-\ifthenelse{\equal{\captionalignment}{right}}{ % Leyenda alineada a la derecha
+\ifthenelse{\equal{\captionalignment}{right}}{% Leyenda alineada a la derecha
 	\captionsetup{
 		justification=raggedleft,
 		singlelinecheck=false
@@ -376,7 +376,7 @@
 \ifthenelse{\equal{\stylecitereferences}{apacite}}{
 	\ifthenelse{\equal{\apaciterefnumber}{true}}{
 		\newcounter{apaciteNumberCounter}
-		\renewcommand{\theapaciteNumberCounter}{ % Formato de número
+		\renewcommand{\theapaciteNumberCounter}{% Formato de número
 			\apaciterefcitecharopen\arabic{apaciteNumberCounter}\apaciterefcitecharclose
 		}
 		\patchcmd{\@lbibitem}{\item[}{\item[\stepcounter{apaciteNumberCounter}{\hss\llap{\theapaciteNumberCounter}\quad}}{}{}
@@ -537,11 +537,11 @@
 	\def\toclevel@subsubsubsection {4}
 	\def\toclevel@paragraph {5}
 	\def\toclevel@subparagraph {6}
-	\ifthenelse{\equal{\charaftersectionnum}{}}{ % Sin caracter
+	\ifthenelse{\equal{\charaftersectionnum}{}}{% Sin caracter
 		\def\l@subsubsubsection {\@dottedtocline{4}{6.97em}{4em}}
 		\def\l@paragraph {\@dottedtocline{5}{10.97em}{5em}}
 		\def\l@subparagraph {\@dottedtocline{6}{14em}{6em}}
-	}{ % Posee caracter, Incremento 0.77+3.35 a 3.35
+	}{% Posee caracter, Incremento 0.77+3.35 a 3.35
 		\def\l@subsubsubsection {\@dottedtocline{4}{7.83em}{4.15em}}
 		\def\l@paragraph {\@dottedtocline{5}{11.98em}{4.92em}}
 		\def\l@subparagraph {\@dottedtocline{6}{14.65em}{5.69em}}
