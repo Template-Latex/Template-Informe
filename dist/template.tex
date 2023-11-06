@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.3.0 (04/11/2023)
+% Versión:      8.3.1 (06/11/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -83,6 +83,23 @@
 
 % Carga el idioma
 \usepackage{tracklang}
+\ifthenelse{\equal{\stylecitereferences}{natbib}}{% Formato citas natbib
+	\usepackage[nottoc,notlof,notlot]{tocbibind}
+	\ifthenelse{\equal{\natbibrefcitecompress}{true}}{
+		\usepackage[sort&compress]{natbib}
+	}{
+		\usepackage{natbib}
+	}
+}{
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{% Formato citas apacite
+	\usepackage[nottoc,notlof,notlot]{tocbibind}
+	\usepackage{apacite}
+}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{% Formato citas bibtex
+}{
+\ifthenelse{\equal{\stylecitereferences}{custom}}{% Formato citas custom
+}{}}}
+}
 \IfTrackedLanguage{spanish}{
 	\usepackage[es-nosectiondot,es-lcroman,es-noquoting]{babel}
 }{% english, otros
@@ -224,23 +241,6 @@
 	\usepackage[pdfencoding=auto,psdextra,backref=page]{hyperref} % Enlaces, referencias
 }{
 	\usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
-}
-\ifthenelse{\equal{\stylecitereferences}{natbib}}{% Formato citas natbib
-	\usepackage[nottoc,notlof,notlot]{tocbibind}
-	\ifthenelse{\equal{\natbibrefcitecompress}{true}}{
-		\usepackage[sort&compress]{natbib}
-	}{
-		\usepackage{natbib}
-	}
-}{
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{% Formato citas apacite
-	\usepackage[nottoc,notlof,notlot]{tocbibind}
-	\usepackage{apacite}
-}{
-\ifthenelse{\equal{\stylecitereferences}{bibtex}}{% Formato citas bibtex
-}{
-\ifthenelse{\equal{\stylecitereferences}{custom}}{% Formato citas custom
-}{}}}
 }
 
 % Anexos/Apéndices
@@ -5729,16 +5729,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={04/11/2023},
+		Template.Date={06/11/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.3.0-1},
-		Template.Version.Hash={13FBD5BF3490D83CAF808B8D386EC1D7},
-		Template.Version.Release={8.3.0},
+		Template.Version.Dev={8.3.1-2},
+		Template.Version.Hash={122180469A9448913D8483EBF8614CA6},
+		Template.Version.Release={8.3.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5750,7 +5750,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.3.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.3.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
