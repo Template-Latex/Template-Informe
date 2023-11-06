@@ -52,6 +52,23 @@
 
 % Carga el idioma
 \usepackage{tracklang}
+\ifthenelse{\equal{\stylecitereferences}{natbib}}{% Formato citas natbib
+	\usepackage[nottoc,notlof,notlot]{tocbibind}
+	\ifthenelse{\equal{\natbibrefcitecompress}{true}}{
+		\usepackage[sort&compress]{natbib}
+	}{
+		\usepackage{natbib}
+	}
+}{
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{% Formato citas apacite
+	\usepackage[nottoc,notlof,notlot]{tocbibind}
+	\usepackage{apacite}
+}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{% Formato citas bibtex
+}{
+\ifthenelse{\equal{\stylecitereferences}{custom}}{% Formato citas custom
+}{}}}
+}
 \IfTrackedLanguage{spanish}{
 	\usepackage[es-nosectiondot,es-lcroman,es-noquoting]{babel}
 }{% english, otros
@@ -193,23 +210,6 @@
 	\usepackage[pdfencoding=auto,psdextra,backref=page]{hyperref} % Enlaces, referencias
 }{
 	\usepackage[pdfencoding=auto,psdextra]{hyperref} % Enlaces, referencias
-}
-\ifthenelse{\equal{\stylecitereferences}{natbib}}{% Formato citas natbib
-	\usepackage[nottoc,notlof,notlot]{tocbibind}
-	\ifthenelse{\equal{\natbibrefcitecompress}{true}}{
-		\usepackage[sort&compress]{natbib}
-	}{
-		\usepackage{natbib}
-	}
-}{
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{% Formato citas apacite
-	\usepackage[nottoc,notlof,notlot]{tocbibind}
-	\usepackage{apacite}
-}{
-\ifthenelse{\equal{\stylecitereferences}{bibtex}}{% Formato citas bibtex
-}{
-\ifthenelse{\equal{\stylecitereferences}{custom}}{% Formato citas custom
-}{}}}
 }
 
 % Anexos/Apéndices
