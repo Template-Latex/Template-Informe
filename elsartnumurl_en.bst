@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Estilo elsarticle numerado + url (doi, arxivId) [en]
-%% Versión:      1.4.1 (18/04/2022)
+%% Versión:      1.5 (20/11/2023)
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.

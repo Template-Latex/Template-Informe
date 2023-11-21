@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    [NATNUM_DESCRIPTION]
-%% Versión:      1.4.1
+%% Versión:      1.5
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.

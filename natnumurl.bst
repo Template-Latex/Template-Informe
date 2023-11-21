@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Archivo de estilos simple numerados + url (doi, arxivId) [es]
-%% Versión:      1.4.1 (18/04/2022)
+%% Versión:      1.5 (20/11/2023)
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -290,7 +290,7 @@ FUNCTION {format.title} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ",''" *
+        "``" title "t" change.case$ * "''," *
     } if$
 }
 
@@ -298,7 +298,7 @@ FUNCTION {format.title.p} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ".''" *
+        "``" title "t" change.case$ * "''." *
     } if$
 }
 
