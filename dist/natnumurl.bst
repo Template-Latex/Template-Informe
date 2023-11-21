@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Archivo de estilos simple numerados + url (doi, arxivId) [es]
-%% Versión:      1.3.0 (14/10/2021)
+%% Versión:      1.5 (20/11/2023)
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -130,18 +130,10 @@ FUNCTION {output.links} {
                 } if$
             } if$
         }{
-            url empty$ {
-                ", \href{https://arxiv.org/abs/" * arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" *
-            }{
-                ", \href{" * url * "}{\nolinkurl{arXiv:\detokenize{" * arxivId * "}}}" *
-            } if$
+            ", \href{https://arxiv.org/abs/" * arxivId * "}{arXiv:\detokenize{" * arxivId * "}}" *
         } if$
     }{
-        url empty$ {
-            ", \href{https://dx.doi.org/" * doi * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
-        }{
-            ", \href{" * url * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
-        } if$
+        ", \href{https://dx.doi.org/" * doi * "}{\nolinkurl{doi:\detokenize{" * doi * "}}}" *
     } if$
 }
 
@@ -257,6 +249,7 @@ FUNCTION {format.names} {
             namesleft #1 > {
                 ", " * t *
             }{
+                "" *
                 numnames #2 > {
                     "," *
                 } 'skip$ if$
@@ -297,7 +290,7 @@ FUNCTION {format.title} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ",''" *
+        "``" title "t" change.case$ * "''," *
     } if$
 }
 
@@ -305,7 +298,7 @@ FUNCTION {format.title.p} {
     title empty$ {
         ""
     }{
-        "``" title "t" change.case$ * ".''" *
+        "``" title "t" change.case$ * "''." *
     } if$
 }
 
