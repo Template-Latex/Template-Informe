@@ -59,16 +59,7 @@
 	}{
 		\usepackage{natbib}
 	}
-}{
-\ifthenelse{\equal{\stylecitereferences}{apacite}}{% Formato citas apacite
-	\usepackage[nottoc,notlof,notlot]{tocbibind}
-	\usepackage{apacite}
-}{
-\ifthenelse{\equal{\stylecitereferences}{bibtex}}{% Formato citas bibtex
-}{
-\ifthenelse{\equal{\stylecitereferences}{custom}}{% Formato citas custom
-}{}}}
-}
+}{}% Fin carga natbib
 \IfTrackedLanguage{spanish}{
 	\usepackage[es-nosectiondot,es-lcroman,es-noquoting]{babel}
 }{% english, otros
@@ -218,6 +209,16 @@
 }{
 	\usepackage{appendix}
 }
+
+% Citado
+\ifthenelse{\equal{\stylecitereferences}{apacite}}{% Formato citas apacite
+	\usepackage[nottoc,notlof,notlot]{tocbibind}
+	\usepackage{apacite}
+}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{% Formato citas bibtex
+}{
+\ifthenelse{\equal{\stylecitereferences}{custom}}{% Formato citas custom
+}{}}}
 
 % Dimensiones y geometría del documento
 \ifthenelse{\equal{\compilertype}{lualatex}}{% En lualatex sólo se puede cambiar 1 vez el margen
