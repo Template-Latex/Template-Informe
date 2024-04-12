@@ -80,7 +80,7 @@
 			}{%
 				\Large{\documenttitle} \\%
 			}%
-			\vspace{0.6cm}%
+			\vspace{\titleauthormargintop cm}%
 			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}
 				\centering
 				\input{\jobname.authn}%
@@ -93,7 +93,6 @@
 				\input{\jobname.authd}%
 			\end{minipage}
 		\end{center}
-		\vspace{0.05cm}%
 		\normalsize%
 	}%
 }{%
@@ -119,7 +118,7 @@
 			}{%
 				\Large{\documenttitle} \\%
 			}%
-			\vspace{0.7cm}%
+			\vspace{\titleauthormargintop cm}%
 			\input{\jobname.authn}%
 			\vspace{\titleauthormarginbottom cm}%
 		\end{center}
@@ -128,7 +127,6 @@
 		\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
 			\input{\jobname.authd}%
 		\end{minipage}
-		\vspace{0.3cm}%
 		\normalsize%
 	}%
 }{%
@@ -146,7 +144,7 @@
 			}{%
 				\Large{\documenttitle} \\%
 			}%
-			\vspace{0.7cm}%
+			\vspace{\titleauthormargintop cm}%
 			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
 				\centering%
 				\input{\jobname.authn}%
@@ -171,7 +169,7 @@
 			}{%
 				\Large{\documenttitle} \\%
 			}%
-			\vspace{0.7cm}%
+			\vspace{\titleauthormargintop cm}%
 			\begin{minipage}[t]{\titleauthormaxwidth\textwidth}%
 				\centering%
 				\input{\jobname.authn}%
@@ -179,8 +177,7 @@
 			\vspace{\titleauthormarginbottom cm}%
 			\def\LOCALhasname {false}%
 			~ \\%
-			\small{\documentdate} \\
-			\vspace{0.3cm}%
+			\small{\documentdate} \\%
 		\end{center}%
 		\normalsize%
 	}%
@@ -204,7 +201,7 @@
 			}{%
 				\Large{\documenttitle} \\%
 			}%
-			\vspace{0.9cm}%
+			\vspace{\titleauthormargintop cm}%
 			\noindent%
 			\settablecellpadding{0}{1.5}%
 			\linespread{0.6}\selectfont{%
