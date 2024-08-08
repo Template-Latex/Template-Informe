@@ -43,9 +43,20 @@
 %	#3	Institución del autor
 %	#4	Correo
 \newcommand{\addauthorsamenumber}[4][]{%
+	\addauthorsamenumberfull[#1]{#2}{#3}{#4}{}{}%
+}
+
+% Inserta un autor sin aumentar el contador de autores, agregando una entrada de texto pre/post data
+%	#1	ORCID (opcional)
+%	#2	Nombre del autor
+%	#3	Institución del autor
+%	#4	Correo
+%	#5	Entrada previa a datos
+%	#6	Entrada posterior a datos
+\newcommand{\addauthorsamenumberfull}[6][]{%
 	\immediate\write\fileauthornames{\unexpanded{\titleauthorname}[\theauthornumber]\unexpanded{{#2}}\LOCALpercentchar}%
-	\immediate\write\fileauthordata{\unexpanded{\titleauthordata}[\theauthornumber]\unexpanded{{#3}{#4}{#1}}\LOCALpercentchar}%
-	\immediate\write\fileauthornamesdata{\unexpanded{\titleauthornamedata}[\theauthornumber]\unexpanded{{#2}{#3}{#4}{#1}}\LOCALpercentchar}%
+	\immediate\write\fileauthordata{\unexpanded{\titleauthordata}[\theauthornumber]\unexpanded{{#3}{#4}{#1}{#5}{#6}}\LOCALpercentchar}%
+	\immediate\write\fileauthornamesdata{\unexpanded{\titleauthornamedata}[\theauthornumber]\unexpanded{{#2}{#3}{#4}{#1}{#5}{#6}}\LOCALpercentchar}%
 }
 
 % Inserta un autor
@@ -54,7 +65,18 @@
 %	#3	Institución del autor
 %	#4	Correo
 \newcommand{\addauthor}[4][]{%
-	\addauthorsamenumber[#1]{#2}{#3}{#4}%
+	\addauthorfull[#1]{#2}{#3}{#4}{}{}%
+}
+
+% Inserta un autor, agregando una entrada de texto pre/post data
+%	#1	ORCID (opcional)
+%	#2	Nombre del autor
+%	#3	Institución del autor
+%	#4	Correo
+%	#5	Entrada previa a datos
+%	#6	Entrada posterior a datos
+\newcommand{\addauthorfull}[6][]{%
+	\addauthorsamenumberfull[#1]{#2}{#3}{#4}{#5}{#6}%
 	\stepcounter{authornumber}%
 }
 
@@ -66,11 +88,15 @@
 		\normalsize{#2} \ifthenelse{\equal{#1}{}}{}{\textsuperscript{(#1)}}%
 		\def\LOCALhasname {true}%
 	}%
-	\newcommand{\titleauthordata}[4][]{%
+	\newcommand{\titleauthordata}[6][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{\vspace{0.025cm}\\}{}%
-		\indent \footnotesize{\textsuperscript{(#1)} #2%
+		\indent \footnotesize{%
+			#5%
+			\textsuperscript{(#1)} #2%
 			\ifthenelse{\equal{#3}{}}{}{, \insertemail{#3}}%
-			\ifthenelse{\equal{#4}{}}{}{, ORCID \href{https://orcid.org/#4}{#4}}}%
+			\ifthenelse{\equal{#4}{}}{}{, ORCID \href{https://orcid.org/#4}{#4}}%
+			#6%
+		}%
 		\def\LOCALhasname {true}%
 	}%
 	\newcommand{\inserttitle}{%
@@ -103,11 +129,15 @@
 		\normalsize{#2} \ifthenelse{\equal{#1}{}}{}{\textsuperscript{(#1)}}%
 		\def\LOCALhasname {true}%
 	}%
-	\newcommand{\titleauthordata}[4][]{%
+	\newcommand{\titleauthordata}[6][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{\vspace{0.025cm}\\}{}%
-		\indent \footnotesize{\textsuperscript{(#1)} #2%
-		\ifthenelse{\equal{#3}{}}{}{, \insertemail{#3}}%
-		\ifthenelse{\equal{#4}{}}{}{, ORCID \href{https://orcid.org/#4}{#4}}}%
+		\indent \footnotesize{%
+			#5%
+			\textsuperscript{(#1)} #2%
+			\ifthenelse{\equal{#3}{}}{}{, \insertemail{#3}}%
+			\ifthenelse{\equal{#4}{}}{}{, ORCID \href{https://orcid.org/#4}{#4}}%
+			#6%
+		}%
 		\def\LOCALhasname {true}%
 		\vspace{-0.05cm}%
 	}%
@@ -184,13 +214,15 @@
 }{%
 \ifthenelse{\equal{\titlestyle}{style5}}{%
 	\def\LOCALhasname {false}
-	\newcommand{\titleauthornamedata}[5][]{%
+	\newcommand{\titleauthornamedata}[7][]{%
 		\ifthenelse{\equal{\LOCALhasname}{true}}{\hspace{\titleauthorspacing cm}}{}%
 		\begin{tabular}[t]{C{4cm}}%
 			\normalsize{#2} \\%
+			#6%
 			\small{#3} \\%
 			\ifthenelse{\equal{#4}{}}{}{\small{\insertemail{#4}} \\}%
 			\ifthenelse{\equal{#5}{}}{}{\small{ORCID \href{https://orcid.org/#5}{#5}}}%
+			#7%
 		\end{tabular}
 		\def\LOCALhasname {true}%
 	}%
