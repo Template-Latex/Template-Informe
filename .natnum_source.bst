@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    [NATNUM_DESCRIPTION]
-%% Versión:      1.5
+%% Versión:      1.6
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -69,7 +69,7 @@ STRINGS {
 }
 
 % -----------------------------------------------------------------------------
-% FUNCIONES UTILITARIAS BASE
+% FUNCIONES UTILITARIAS
 % -----------------------------------------------------------------------------
 
 FUNCTION {and} {
@@ -78,18 +78,28 @@ FUNCTION {and} {
     } if$
 }
 
-FUNCTION {blank.sep} {
-    after.quote 'output.state :=
+FUNCTION {not} {
+    {
+        #0
+    }{
+        #1
+    } if$
 }
 
-FUNCTION {default.type} {
-    misc
+FUNCTION {or} {
+    {
+        pop$ #1
+    } 'skip$ if$
+}
+
+FUNCTION {blank.sep} {
+    after.quote 'output.state :=
 }
 
 FUNCTION {either.or.check} {
     empty$
     'pop$ {
-        "can't use both " swap$ * " fields in " * cite$ * warning$
+        "[ERROR_EITHER_OR_CHECK_1]" swap$ * "[ERROR_EITHER_OR_CHECK_2]" * cite$ * warning$
     } if$
 }
 
@@ -105,7 +115,7 @@ FUNCTION {empty.misc.check} {
     author empty$ title empty$ howpublished empty$
     month empty$ year empty$ note empty$
     and and and and and {
-        "all relevant fields are empty in " cite$ * warning$
+        "[ERROR_EMPTY_MISC]" cite$ * warning$
     } 'skip$ if$
 }
 
@@ -233,27 +243,6 @@ FUNCTION {new.sentence.checka} {
     if$
 }
 
-FUNCTION {not} {
-    {
-        #0
-    }{
-        #1
-    } if$
-}
-
-FUNCTION {or} {
-    {
-        pop$ #1
-    } 'skip$ if$
-}
-
-FUNCTION {output} {
-    duplicate$ empty$
-    'pop$
-    'output.nonnull
-    if$
-}
-
 FUNCTION {output.bibitem} {
     newline$
     "\backrefparscanfalse" write$ newline$
@@ -263,13 +252,6 @@ FUNCTION {output.bibitem} {
     newline$
     ""
     before.all 'output.state :=
-}
-
-FUNCTION {output.check} {
-    't :=
-    duplicate$ empty$ {
-        pop$ "empty " t * " in " * cite$ * warning$
-    } 'output.nonnull if$
 }
 
 FUNCTION {output.links} {
@@ -322,6 +304,20 @@ FUNCTION {output.nonnull} {
     s
 }
 
+FUNCTION {output} {
+    duplicate$ empty$
+    'pop$
+    'output.nonnull
+    if$
+}
+
+FUNCTION {output.check} {
+    't :=
+    duplicate$ empty$ {
+        pop$ "[ERROR_OUTPUT_CHECK_1]" t * "[ERROR_OUTPUT_CHECK_2]" * cite$ * warning$
+    } 'output.nonnull if$
+}
+
 FUNCTION {tie.or.space.connect} {
     duplicate$ text.length$ #3 < {
         "~"
@@ -334,6 +330,34 @@ FUNCTION {tie.or.space.connect} {
 % -----------------------------------------------------------------------------
 % FUNCIONES DE FORMATEO
 % -----------------------------------------------------------------------------
+
+FUNCTION {format.names} {
+    's :=
+    #1 'nameptr :=
+    s num.names$ 'numnames :=
+    numnames 'namesleft := {
+        namesleft #0 >
+    }{
+        s nameptr "[FORMAT_NAMES_F]" format.name$ 't :=
+        nameptr #1 > {
+            namesleft #1 > {
+                ", " * t *
+            }{
+                "[FORMAT_NAMES_SEP]" *
+                numnames #2 > {
+                    "[FORMAT_NAMES_SEP2]" *
+                } 'skip$ if$
+                t "others" = { 
+                    " {\em [LANG_ET_AL]}" *
+                }{
+                    "[LANG_AND]" * t *
+                } if$
+            } if$
+        } 't if$
+        nameptr #1 + 'nameptr :=
+        namesleft #1 - 'namesleft :=
+    } while$
+}
 
 FUNCTION {format.addr.pub} {
     publisher empty$ {
@@ -351,8 +375,7 @@ FUNCTION {format.addr.pub} {
 FUNCTION {format.article.crossref} {
     key empty$ {
         journal empty$ {
-            "need key or journal for " cite$ * " to crossref " * crossref *
-            warning$
+            "[ERROR_FORMAT_ARTICLE_CROSSREF_1]" cite$ * "[ERROR_FORMAT_ARTICLE_CROSSREF_2]" * crossref * warning$
             ""
         }{
             "[IN_OBJECT]{ " journal * "\/}" *
@@ -371,9 +394,25 @@ FUNCTION {format.authors} {
     } if$
 }
 
+FUNCTION {format.crossref.editor} {
+    editor #1 "{vv~}{ll}" format.name$
+    editor num.names$ duplicate$
+    #2 > {
+        pop$ " {\em [LANG_ET_AL]}" *
+    }{
+        #2 < 'skip$ {
+            editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" = {
+                " {\em [LANG_ET_AL]}" *
+            }{
+                "[LANG_AND]" * editor #2 "{vv~}{ll}" format.name$ *
+            } if$
+        } if$
+    } if$
+}
+
 FUNCTION {format.book.crossref} {
     volume empty$ {
-        "empty volume in " cite$ * "'s crossref of " * crossref * warning$
+        "[ERROR_FORMAT_BOOK_CROSSREF_1]" cite$ * "[ERROR_FORMAT_BOOK_CROSSREF_2]" * crossref * warning$
         "[IN_OBJECT_M]"
     }{
         "[VOLUME_M]" volume *
@@ -383,8 +422,7 @@ FUNCTION {format.book.crossref} {
     editor field.or.null author field.or.null = or {
         key empty$ {
             series empty$ {
-                "need editor, key, or series for " cite$ * " to crossref " *
-                crossref * warning$
+                "[ERROR_FORMAT_BOOK_CROSSREF_3]" cite$ * "[ERROR_FORMAT_BOOK_CROSSREF_2]" * crossref * warning$
                 "" *
             }{
                 "{ " * series * "\/}" *
@@ -415,6 +453,18 @@ FUNCTION {format.bvolume} {
     } if$
 }
 
+FUNCTION {format.pages} {
+    pages empty$ {
+        ""
+    }{
+        pages multi.page.check {
+            "[PAGES]" pages n.dashify *
+        }{
+            "[PAGE]" pages *
+        } if$
+    } if$
+}
+
 FUNCTION {format.chapter.pages} {
     chapter empty$ 'format.pages {
         type empty$ {
@@ -428,34 +478,19 @@ FUNCTION {format.chapter.pages} {
     } if$
 }
 
-FUNCTION {format.crossref.editor} {
-    editor #1 "{vv~}{ll}" format.name$
-    editor num.names$ duplicate$
-    #2 > {
-        pop$ " {\em [LANG_ET_AL]}" *
-    }{
-        #2 < 'skip$ {
-            editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" = {
-                " {\em [LANG_ET_AL]}" *
-            }{
-                "[LANG_AND]" * editor #2 "{vv~}{ll}" format.name$ *
-            } if$
-        } if$
-    } if$
-}
-
 FUNCTION {format.date} {
     year empty$ {
         month empty$ {
             ""
         }{
-            "there's a month but no year in " cite$ * warning$
+            "[ERROR_FORMAT_DATE]" cite$ * warning$
             month
         } if$
     }{
-        month empty$
-        'year {
+        month empty$ {
             year
+        }{
+            month " " * year *
         } if$
     } if$
 }
@@ -498,8 +533,7 @@ FUNCTION {format.incoll.inproc.crossref} {
     editor field.or.null author field.or.null = or {
         key empty$ {
             booktitle empty$ {
-                "need editor, key, or booktitle for " cite$ * " to crossref " *
-                crossref * warning$
+                "[ERROR_FORMAT_INCOLL_INPROC_CROSSREF_1]" cite$ * "[ERROR_FORMAT_INCOLL_INPROC_CROSSREF_2]" * crossref * warning$
                 ""
             }{
                 "[IN_OBJECT]{ " booktitle * "\/}" *
@@ -511,34 +545,6 @@ FUNCTION {format.incoll.inproc.crossref} {
         "[IN_OBJECT]" format.crossref.editor *
     } if$
     " \cite{" * crossref * "}" *
-}
-
-FUNCTION {format.names} {
-    's :=
-    #1 'nameptr :=
-    s num.names$ 'numnames :=
-    numnames 'namesleft := {
-        namesleft #0 >
-    }{
-        s nameptr "[FORMAT_NAMES_F]" format.name$ 't :=
-        nameptr #1 > {
-            namesleft #1 > {
-                ", " * t *
-            }{
-                "[FORMAT_NAMES_SEP]" *
-                numnames #2 > {
-                    "[FORMAT_NAMES_SEP2]" *
-                } 'skip$ if$
-                t "others" = { 
-                    " {\em [LANG_ET_AL]}" *
-                }{
-                    "[LANG_AND]" * t *
-                } if$
-            } if$
-        } 't if$
-        nameptr #1 + 'nameptr :=
-        namesleft #1 - 'namesleft :=
-    } while$
 }
 
 FUNCTION {format.number} {
@@ -561,7 +567,7 @@ FUNCTION {format.number.series} {
             } if$
             number *
             series empty$ {
-                "there's a number but no series in " cite$ * warning$
+                "[ERROR_FORMAT_NUMBER_SERIES]" cite$ * warning$
             }{
                 "[IN]" * series *
             } if$
@@ -576,18 +582,6 @@ FUNCTION {format.paddress} {
         ""
     }{
         "(" address * ")" *
-    } if$
-}
-
-FUNCTION {format.pages} {
-    pages empty$ {
-        ""
-    }{
-        pages multi.page.check {
-            "[PAGES]" pages n.dashify *
-        }{
-            "[PAGE]" pages *
-        } if$
     } if$
 }
 
@@ -699,7 +693,7 @@ FUNCTION {booklet} {
     output.bibitem
     format.authors output
     title empty$ {
-        "empty title in " cite$ * warning$
+        "[ERROR_BOOKLET]" cite$ * warning$
         howpublished new.sentence.checka
     }{
         howpublished empty$ not
@@ -719,10 +713,6 @@ FUNCTION {booklet} {
     new.block
     note output
     end.entry
-}
-
-FUNCTION {conference} {
-    inproceedings
 }
 
 FUNCTION {inbook} {
@@ -803,6 +793,10 @@ FUNCTION {inproceedings} {
     new.block
     note output
     end.entry
+}
+
+FUNCTION {conference} {
+    inproceedings
 }
 
 FUNCTION {manual} {
@@ -904,7 +898,7 @@ FUNCTION {proceedings} {
     format.date "year" output.check
     new.block
     note output
-    emd.entry
+    end.entry
 }
 
 FUNCTION {techreport} {
@@ -947,6 +941,10 @@ FUNCTION {begin.bib} {
     write$ newline$
     "  \providecommand\backrefprint{}"
     write$ newline$
+}
+
+FUNCTION {default.type} {
+    misc
 }
 
 FUNCTION {end.bib} {
