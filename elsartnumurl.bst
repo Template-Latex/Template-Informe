@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    Estilo elsarticle numerado + url (doi, arxivId) [es]
-%% Versión:      1.6 (22/08/2024)
+%% Versión:      1.6 (23/08/2024)
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -15,9 +15,11 @@
 
 ENTRY {
     address
+    arxivId
     author
     booktitle
     chapter
+    doi
     edition
     editor
     howpublished
@@ -34,12 +36,10 @@ ENTRY {
     series
     title
     type
-    volume
-    year
-    doi
-    arxivId
     url
     urldate
+    volume
+    year
 }
 {}
 {
@@ -63,9 +63,9 @@ INTEGERS {
 }
 
 STRINGS {
+    longest.label
     s
     t
-    longest.label
 }
 
 % -----------------------------------------------------------------------------
@@ -107,7 +107,7 @@ FUNCTION {emphasize} {
     duplicate$ empty$ {
         pop$ ""
     }{
-        "{ " swap$ * "}" *
+        "{" swap$ * "}" *
     } if$
 }
 
@@ -124,9 +124,8 @@ FUNCTION {end.entry} {
     'skip$
     'add.period$
     if$
-    write$
-    newline$ "\backrefprint\backrefparscantrue" write$
-    newline$
+    write$ newline$
+    "\backrefprint\backrefparscantrue" write$ newline$
 }
 
 FUNCTION {field.or.null} {
@@ -246,10 +245,7 @@ FUNCTION {new.sentence.checka} {
 FUNCTION {output.bibitem} {
     newline$
     "\backrefparscanfalse" write$ newline$
-    "\bibitem{" write$
-    cite$ write$
-    "}" write$
-    newline$
+    "\bibitem{" write$ cite$ write$ "}" write$ newline$
     ""
     before.all 'output.state :=
 }
@@ -284,14 +280,12 @@ FUNCTION {output.nonnull} {
             " " * write$
         }{
             output.state after.block = {
-                add.period$ write$
-                newline$
+                add.period$ write$ newline$
                 "\newblock " write$
             }{
                 output.state before.all = 'write$ {
                     output.state after.quoted.block = {
-                        write$
-                        newline$
+                        write$ newline$
                         "\newblock " write$
                     }{
                         add.period$ " " * write$
@@ -378,7 +372,7 @@ FUNCTION {format.article.crossref} {
             "se necesita key o journal en " cite$ * " para validar crossref " * crossref * warning$
             ""
         }{
-            "en { " journal * "\/}" *
+            "en {" journal * "\/}" *
         } if$
     }{
         "en " key *
@@ -425,7 +419,7 @@ FUNCTION {format.book.crossref} {
                 "se necesita editor, key o series en " cite$ * "para validar crossref " * crossref * warning$
                 "" *
             }{
-                "{ " * series * "\/}" *
+                "{" * series * "\/}" *
             } if$
         }{
             key *
@@ -536,7 +530,7 @@ FUNCTION {format.incoll.inproc.crossref} {
                 "se necesita editor, key o booktitle en " cite$ * " para validar crossref " * crossref * warning$
                 ""
             }{
-                "en { " booktitle * "\/}" *
+                "en {" booktitle * "\/}" *
             } if$
         }{
             "en " key *
@@ -832,7 +826,7 @@ FUNCTION {mastersthesis} {
     format.authors "author" output.check
     format.title "title" output.check
     blank.sep
-    "Master's thesis" format.thesis.type output.nonnull
+    "Tesis M.Sc." format.thesis.type output.nonnull
     school "school" output.check
     address output
     format.date "year" output.check
@@ -871,7 +865,7 @@ FUNCTION {phdthesis} {
     format.authors "author" output.check
     format.btitle "title" output.check
     new.block
-    "PhD thesis" format.thesis.type output.nonnull
+    "Tesis PhD" format.thesis.type output.nonnull
     school "school" output.check
     address output
     format.date "year" output.check
@@ -933,14 +927,10 @@ FUNCTION {begin.bib} {
     preamble$ empty$ 'skip$ {
         preamble$ write$ newline$
     } if$
-    "\begin{thebibliography}{" longest.label * "}" *
-    write$ newline$
-    "  \providecommand\backrefparscanfalse{}"
-    write$ newline$
-    "  \providecommand\backrefparscantrue{}"
-    write$ newline$
-    "  \providecommand\backrefprint{}"
-    write$ newline$
+    "\begin{thebibliography}{" longest.label * "}" * write$ newline$
+    "  \providecommand\backrefparscanfalse{}" write$ newline$
+    "  \providecommand\backrefparscantrue{}" write$ newline$
+    "  \providecommand\backrefprint{}" write$ newline$
 }
 
 FUNCTION {default.type} {
