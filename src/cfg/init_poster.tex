@@ -15,6 +15,13 @@
 % -----------------------------------------------------------------------------
 \captionsetup[lstlisting]{margin={0pt,5pt}}
 
+% Configura los colores
+% -----------------------------------------------------------------------------
+\makeatletter
+\pretocmd\env@cases{\def\@rowc@lors{}}{}{}
+\pretocmd\start@align{\def\@rowc@lors{}}{}{}
+\makeatother
+
 % Define el tamaño de página
 % -----------------------------------------------------------------------------
 % (N+1)*\sepwidth + N*\colwidth = \paperwidth
