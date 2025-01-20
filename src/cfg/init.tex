@@ -206,6 +206,10 @@
 \ifthenelse{\equal{\pagescolor}{white}}{}{
 	\pagecolor{\pagescolor}
 }
+\makeatletter % Desactiva color de tablas en entornos matemáticos
+\pretocmd\env@cases{\def\@rowc@lors{}}{}{}
+\pretocmd\start@align{\def\@rowc@lors{}}{}{}
+\makeatother
 
 % -----------------------------------------------------------------------------
 % Configuración de las leyendas
