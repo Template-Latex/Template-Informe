@@ -64,6 +64,11 @@
 \addtobeamertemplate{footline}{\disablebeamercolorlinks{}}{}
 % Modifica color de fondo de la página
 \setbeamercolor{background canvas}{bg=\pagescolor}
+% Desactiva color de tablas en entornos matemáticos
+\makeatletter
+\pretocmd\env@cases{\def\@rowc@lors{}}{}{}
+\pretocmd\start@align{\def\@rowc@lors{}}{}{}
+\makeatother
 
 % Configura los bloques
 % -----------------------------------------------------------------------------
