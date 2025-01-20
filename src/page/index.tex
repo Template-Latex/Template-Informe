@@ -209,6 +209,17 @@
 	\def\cfttabnumwidth {\cftdefautnumwidth}
 	\def\cftlstlistingnumwidth {\cftdefautnumwidth}
 	
+	% Actualiza colores
+	\ifthenelse{\equal{\showborderonlinks}{true}}{%
+		\hypersetup{%
+			linkbordercolor=\linkcolorindex
+		}
+	}{%
+		\hypersetup{%
+			linkcolor=\linkcolorindex
+		}
+	}
+	
 	% Código fuente
 	\ifthenelse{\equal{\captionnumcode}{arabic}}{% No hace nada (default)
 		\def\cftlstlistingnumwidth {\cftdefautnumwidthcode}
@@ -524,6 +535,15 @@
 	% Termina el bloque de índice
 	% -------------------------------------------------------------------------
 	\sectionfont{\color{\sectioncolor} \sectionfontsize \sectionfontstyle \selectfont}
+	\ifthenelse{\equal{\showborderonlinks}{true}}{% Actualiza colores
+		\hypersetup{%
+			linkbordercolor=\linkcolor
+		}
+	}{%
+		\hypersetup{%
+			linkcolor=\linkcolor
+		}
+	}
 	\endgroup
 	
 }
