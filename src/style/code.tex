@@ -311,13 +311,28 @@
 
 % JSON
 \lstdefinestyle{json}{
-	literate=*{0}{{{\color{cardinalred}0}}}{1}{1}{{{\color{cardinalred}1}}}{1}{2}
-	{{{\color{cardinalred}2}}}{1}{3}{{{\color{cardinalred}3}}}{1}{4}{{{\color{cardinalred}4}}}
-	{1}{5}{{{\color{cardinalred}5}}}{1}{6}{{{\color{cardinalred}6}}}{1}{7}{{{\color{cardinalred}7}}}
-	{1}{8}{{{\color{cardinalred}8}}}{1}{9}{{{\color{cardinalred}9}}}{1}{:}
-	{{{\color{dkcyan}{:}}}}{1}{,}{{{\color{dkcyan}{,}}}}{1}{\{}
-	{{{\color{MidnightBlue}{\{}}}}{1}{\}}{{{\color{MidnightBlue}{\}}}}}
-	{1}{[}{{{\color{MidnightBlue}{[}}}}{1}{]}{{{\color{MidnightBlue}{]}}}}{1},
+	literate=*
+		{0}{{{\color{cardinalred}0}}}{1}
+		{1}{{{\color{cardinalred}1}}}{1}
+		{2}{{{\color{cardinalred}2}}}{1}
+		{3}{{{\color{cardinalred}3}}}{1}
+		{4}{{{\color{cardinalred}4}}}{1}
+		{5}{{{\color{cardinalred}5}}}{1}
+		{6}{{{\color{cardinalred}6}}}{1}
+		{7}{{{\color{cardinalred}7}}}{1}
+		{8}{{{\color{cardinalred}8}}}{1}
+		{9}{{{\color{cardinalred}9}}}{1}
+		{true}{{{\color{cardinalred}true}}}{1}
+		{false}{{{\color{cardinalred}false}}}{1}
+		{:}{{{\color{dkcyan}{:}}}}{1}
+		{,}{{{\color{dkcyan}{,}}}}{1}
+		{\{}{{{\color{MidnightBlue}{\{}}}}{1}
+		{\}}{{{\color{MidnightBlue}{\}}}}}{1}
+		{[}{{{\color{MidnightBlue}{[}}}}{1}
+		{]}{{{\color{MidnightBlue}{]}}}}{1},
+	morestring=[b]',
+	morestring=[b]",
+	stringstyle=\color{black},
 	tabsize=2
 }
 
@@ -336,8 +351,9 @@
 % Kotlin
 \lstdefinestyle{kotlin}{
 	comment=[l]{//},
-	emph={delegate,filter,first,firstOrNull,forEach,lazy,map,mapNotNull,println,
-		return@},
+	emph={
+		delegate,filter,first,firstOrNull,forEach,lazy,map,mapNotNull,println,return@
+	},
 	emphstyle={\color{blue}},
 	keywords={
 		abstract,actual,as,as?,break,by,class,companion,continue,data,do,dynamic,else,enum,expect,false,final,for,fun,get,if,import,in,interface,internal,is,null,object,override,package,private,public,return,set,super,suspend,this,throw,true,try,typealias,val,var,vararg,when,where,while
@@ -427,9 +443,7 @@
 	language=[Objective]C,
 	breakatwhitespace=false,
 	keepspaces=true,
-	moredirectives={
-		import
-	},
+	moredirectives={import},
 	morekeywords={
 		@catch,@class,@dynamic,@encode,@end,@finally,@implementation,@interface,@package,@private,@property,@protected,@protocol,@public,@selector,@synchronized,@synthesize,@throw,@try,assign,BOOL,bycopy,byref,Class,copy,id,IMP,in,inout,Nil,nil,NO,nonatomic,oneway,out,readonly,readwrite,retain,SEL,self,super,YES,_cmd
 	}
@@ -524,7 +538,6 @@
 }
 
 % Powershell
-% https://github.com/rmainer/latex-listings-powershell/blob/master/src/latex-listings-powershell.tex
 \lstdefinestyle{powershell}{
 	alsodigit={-},
 	morecomment=[l]{\#},
@@ -842,7 +855,8 @@
 	identifierstyle=\color{\maintextcolor},
 	keepspaces=true,
 	keywordstyle=\color{blue},
-	literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	literate=
+		{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
 		{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1 {à}{{\`a}}1
 		{è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1 {À}{{\`A}}1 {È}{{\'E}}1
 		{Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1 {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1
