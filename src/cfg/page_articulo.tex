@@ -277,7 +277,46 @@
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
 		\COREstyledefinition
 	}{%
-		\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style17}}}}}}}}}}}}}}}}}
+	\ifthenelse{\equal{\hfstyle}{style18}}{%
+		\pagestyle{fancy}
+		\newcommand{\COREstyledefinition}{%
+			\fancyhf{}
+			\fancyhead[R]{\small \textit{\documenttitlehf}}
+			\fancyfoot[L]{\small \journalname}
+			\fancyfoot[R]{\small \thepage\ / \getpagerefnumber{TotPages}}
+			\renewcommand{\headrulewidth}{0pt}
+			\renewcommand{\footrulewidth}{0.5pt}
+		}
+		\fancypagestyle{portraitstyle}{%
+			\fancyhf{}
+			\fancyfoot[L]{\small \journalname}
+			\renewcommand{\headrulewidth}{0pt}
+			\renewcommand{\footrulewidth}{0.5pt}
+		}
+		\thispagestyle{portraitstyle}
+		\COREstyledefinition
+	}{%
+	\ifthenelse{\equal{\hfstyle}{style19}}{%
+		\pagestyle{fancy}
+		\newcommand{\COREstyledefinition}{%
+			\fancyhf{}
+			\fancyhead[R]{\small \textit{\documenttitlehf}}
+			\fancyfoot[L]{\small \textit{\authorshf}}
+			\fancyfoot[R]{\small \thepage\ / \getpagerefnumber{TotPages}}
+			\renewcommand{\headrulewidth}{0pt}
+			\renewcommand{\footrulewidth}{0.5pt}
+		}
+		\fancypagestyle{portraitstyle}{%
+			\fancyhf{}
+			\fancyfoot[L]{\small \textit{\authorshf}}
+			\fancyfoot[R]{\small \thepage\ / \getpagerefnumber{TotPages}}
+			\renewcommand{\headrulewidth}{0pt}
+			\renewcommand{\footrulewidth}{0.5pt}
+		}
+		\thispagestyle{portraitstyle}
+		\COREstyledefinition
+	}{%
+		\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style19}}}}}}}}}}}}}}}}}}}
 	}
 	% Aplica el estilo de página
 	\fancypagestyle{plain}{%
