@@ -741,10 +741,10 @@
 % Configura número de objetos en el final del documento
 % -----------------------------------------------------------------------------
 \AtEndDocument{
-	\addtocounter{equation}{\value{templateEquations}}
-	\addtocounter{figure}{\value{templateFigures}}
-	\addtocounter{lstlisting}{\value{templateListings}}
-	\addtocounter{table}{\value{templateTables}}
+	\addtocounter{equation}{\value{templateEquations}}%
+	\addtocounter{figure}{\value{templateFigures}}%
+	\addtocounter{lstlisting}{\value{templateListings}}%
+	\addtocounter{table}{\value{templateTables}}%
 }
 
 % -----------------------------------------------------------------------------
@@ -797,14 +797,15 @@
 	\global\def\GLOBALenvmulticol {true}%
 	\setcaptionmargincm{\captionlrmargin}%
 	\addtocounter{multicoldepth}{1}%
+	\coreintializetitlenumbering%
 }
 \AfterEndEnvironment{multicols}{%
 	\def\captionlrmargin {\SOURCEcaptionlrmargin}%
 	\setcaptionmargincm{\captionlrmargin}%
 	\addtocounter{multicoldepth}{-1}
 	\ifnumequal{\number\value{multicoldepth}}{0}{%
-		\global\def\GLOBALenvmulticol {false}
-	}{}
+		\global\def\GLOBALenvmulticol {false}%
+	}{}%
 }
 
 % -----------------------------------------------------------------------------
