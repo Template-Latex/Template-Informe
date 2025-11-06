@@ -1,6 +1,6 @@
 %% Template:     Template LaTeX
 %% Documento:    [NATNUM_DESCRIPTION]
-%% Versión:      1.6
+%% Versión:      1.7
 %% Codificación: UTF-8
 %%
 %% Autor: Pablo Pizarro R.
@@ -66,6 +66,7 @@ STRINGS {
     longest.label
     s
     t
+    shortlabel
 }
 
 % -----------------------------------------------------------------------------
@@ -242,16 +243,6 @@ FUNCTION {new.sentence.checka} {
     'skip$
     'new.sentence
     if$
-}
-
-FUNCTION {output.bibitem} {
-    newline$
-    "\backrefparscanfalse" write$
-    newline$
-    "\bibitem{" write$ cite$ write$ "}" write$
-    newline$
-    ""
-    before.all 'output.state :=
 }
 
 FUNCTION {output.links} {
@@ -514,6 +505,57 @@ FUNCTION {format.editors} {
             "[EDITOR]" *
         } if$
     } if$
+}
+
+FUNCTION {shortlabel.build} {
+    author empty$ {
+        editor empty$ {
+            "" 'shortlabel :=
+        }{
+            editor num.names$ 'numnames :=
+            numnames #1 = {
+                editor #1 "{vv~}{ll}" format.name$ 'shortlabel :=
+            }{
+                numnames #2 = {
+                    editor #1 "{vv~}{ll}" format.name$ 't :=
+                    editor #2 "{vv~}{ll}" format.name$ 's :=
+                    t "[LANG_AND_SHORT]" * s * 'shortlabel :=
+                }{
+                    editor #1 "{vv~}{ll}" format.name$ " {\em [LANG_ET_AL]}" * 'shortlabel :=
+                } if$
+            } if$
+        } if$
+    }{
+        author num.names$ 'numnames :=
+        numnames #1 = {
+            author #1 "{vv~}{ll}" format.name$ 'shortlabel :=
+        }{
+            numnames #2 = {
+                author #1 "{vv~}{ll}" format.name$ 't :=
+                author #2 "{vv~}{ll}" format.name$ 's :=
+                t "[LANG_AND_SHORT]" * s * 'shortlabel :=
+            }{
+                author #1 "{vv~}{ll}" format.name$ " {\em [LANG_ET_AL]}" * 'shortlabel :=
+            } if$
+        } if$
+    } if$
+}
+
+FUNCTION {output.bibitem} {
+    newline$
+    "\backrefparscanfalse" write$
+    newline$
+    shortlabel.build
+    "\bibitem[" write$
+    "\protect\citeauthoryear{" write$
+    shortlabel write$
+    "}{" write$
+    year empty$ { "" write$ } { year write$ } if$
+    "}]" write$
+    "{" write$ cite$ write$ "}" write$
+    newline$
+    ""
+    before.all 'output.state :=
 }
 
 FUNCTION {format.in.ed.booktitle} {
