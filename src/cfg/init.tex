@@ -311,6 +311,28 @@
 	\throwbadconfig{Posicion de leyendas desconocida}{\captionalignment}{justified,centered,left,right}}}}
 }
 
+% Corrige soporte para librerías stfloats y floatpag
+\makeatletter
+\let\fps@style\@empty
+\let\rotfps@style\@empty
+\newcommand*\floatpagestyle[1]{\gdef\fps@style{#1}}
+\newcommand*\rotfloatpagestyle[1]{\gdef\rotfps@style{#1}}
+\AddToHook{shipout/before}{%
+	\ifx\fps@style\@empty\else
+	\if@fcolmade
+	\thispagestyle{\fps@style}%
+	\fi
+	\fi
+}
+\@ifpackageloaded{rotating}{%
+	\RequirePackage{etoolbox}%
+	\AtBeginEnvironment{sidewaysfigure}{%
+		\ifx\rotfps@style\@empty\else \thispagestyle{\rotfps@style}\fi}
+	\AtBeginEnvironment{sidewaystable}{%
+		\ifx\rotfps@style\@empty\else \thispagestyle{\rotfps@style}\fi}
+}{}
+\makeatother
+
 % -----------------------------------------------------------------------------
 % Configuración de referencias y citas
 % -----------------------------------------------------------------------------
