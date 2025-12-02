@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.4.3 (08/11/2025)
+% Versión:      8.4.4 (02/12/2025)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -3521,22 +3521,6 @@
 	\hbadness=10000 \vspace{\baselinestretch\baselineskip} \par%
 }
 
-% Crea un salto de columna en el entorno multicol
-\ifthenelse{\isundefined{\newcolumn}}{%
-	\newcommand{\newcolumn}{%
-		\checkinsidemulticol\vfill\null\columnbreak%
-	}
-}{%
-	\renewcommand{\newcolumn}{%
-		\checkinsidemulticol\vfill\null\columnbreak%
-	}
-}
-
-% Salto de página en entorno multicol
-\newcommand{\newpagemulticol}{%
-	\newcolumn\newcolumn\clearpage%
-}
-
 % Redimensiona un ítem
 % 	#1	Tamaño del nuevo objeto (En linewidth)
 %	#2	Objeto a redimensionar
@@ -4110,6 +4094,56 @@
 \newcommand{\createthirdcolumn}[3]{%
 	\createthreecolumn{0.3333}{0.3333}{0.3333}{0}{0}{#1}{#2}{#3}%
 }
+
+% Crea un salto de columna en el entorno multicol
+\ifthenelse{\isundefined{\newcolumn}}{%
+	\newcommand{\newcolumn}{%
+		\checkinsidemulticol\vfill\null\columnbreak%
+	}
+}{%
+	\renewcommand{\newcolumn}{%
+		\checkinsidemulticol\vfill\null\columnbreak%
+	}
+}
+
+% Salto de página en entorno multicol
+\newcommand{\newpagemulticol}{%
+	\newcolumn\newcolumn\clearpage%
+}
+
+% Centrado
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{\CColor}[2]{>{\columncolor{#1}\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
+
+\newcolumntype{P}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{\PColor}[2]{>{\columncolor{#1}\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
+
+\newcolumntype{B}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{\BColor}[2]{>{\columncolor{#1}\centering\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
+
+% Izquierda
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{\LColor}[2]{>{\columncolor{#1}\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
+\newcolumntype{T}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{\TColor}[2]{>{\columncolor{#1}\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
+\newcolumntype{F}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{\FColor}[2]{>{\columncolor{#1}\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
+
+% Derecha
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{\RColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
+\newcolumntype{H}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{\HColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
+\newcolumntype{G}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{\GColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
+
+% Justificado
+\newcolumntype{Y}[1]{>{\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{\YColor}[2]{>{\columncolor{#1}\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
+\newcolumntype{K}[1]{>{\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{\KColor}[2]{>{\columncolor{#1}\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
+\newcolumntype{J}[1]{>{\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{\JColor}[2]{>{\columncolor{#1}\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
 
 % Crea una sección de referencias solo para bibtex
 \newenvironment{references}{%
@@ -5743,16 +5777,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={08/11/2025},
+		Template.Date={02/12/2025},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.4.3},
-		Template.Version.Hash={3D4B370A048F9D2F095245E0E4555A3B},
-		Template.Version.Release={8.4.3},
+		Template.Version.Dev={8.4.4},
+		Template.Version.Hash={6FDCF249A103E118EB7D9949C8E44521},
+		Template.Version.Release={8.4.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5764,7 +5798,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.4.3 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.4.4 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -6397,35 +6431,6 @@
 	\addtocounter{lstlisting}{\value{templateListings}}%
 	\addtocounter{table}{\value{templateTables}}%
 }
-
-% -----------------------------------------------------------------------------
-% Formato de columnas
-% -----------------------------------------------------------------------------
-% Centrado
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{\CColor}[2]{>{\columncolor{#1}\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
-
-\newcolumntype{P}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
-\newcolumntype{\PColor}[2]{>{\columncolor{#1}\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
-
-\newcolumntype{B}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
-\newcolumntype{\BColor}[2]{>{\columncolor{#1}\centering\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
-
-% Izquierda
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{\LColor}[2]{>{\columncolor{#1}\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
-\newcolumntype{T}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
-\newcolumntype{\TColor}[2]{>{\columncolor{#1}\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
-\newcolumntype{F}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
-\newcolumntype{\FColor}[2]{>{\columncolor{#1}\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
-
-% Derecha
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{\RColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
-\newcolumntype{H}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
-\newcolumntype{\HColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
-\newcolumntype{G}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
-\newcolumntype{\GColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
 
 % -----------------------------------------------------------------------------
 % Parcha el entorno tablenotes
