@@ -216,4 +216,54 @@
 	\createthreecolumn{0.3333}{0.3333}{0.3333}{0}{0}{#1}{#2}{#3}%
 }
 
+% Crea un salto de columna en el entorno multicol
+\ifthenelse{\isundefined{\newcolumn}}{%
+	\newcommand{\newcolumn}{%
+		\checkinsidemulticol\vfill\null\columnbreak%
+	}
+}{%
+	\renewcommand{\newcolumn}{%
+		\checkinsidemulticol\vfill\null\columnbreak%
+	}
+}
+
+% Salto de página en entorno multicol
+\newcommand{\newpagemulticol}{%
+	\newcolumn\newcolumn\clearpage%
+}
+
+% Centrado
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{\CColor}[2]{>{\columncolor{#1}\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
+
+\newcolumntype{P}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{\PColor}[2]{>{\columncolor{#1}\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
+
+\newcolumntype{B}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{\BColor}[2]{>{\columncolor{#1}\centering\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
+
+% Izquierda
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{\LColor}[2]{>{\columncolor{#1}\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
+\newcolumntype{T}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{\TColor}[2]{>{\columncolor{#1}\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
+\newcolumntype{F}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{\FColor}[2]{>{\columncolor{#1}\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
+
+% Derecha
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{\RColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
+\newcolumntype{H}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{\HColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
+\newcolumntype{G}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{\GColor}[2]{>{\columncolor{#1}\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
+
+% Justificado
+\newcolumntype{Y}[1]{>{\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{\YColor}[2]{>{\columncolor{#1}\let\newline\\\arraybackslash\hspace{0pt}}m{#2}}
+\newcolumntype{K}[1]{>{\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{\KColor}[2]{>{\columncolor{#1}\let\newline\\\arraybackslash\hspace{0pt}}p{#2}}
+\newcolumntype{J}[1]{>{\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{\JColor}[2]{>{\columncolor{#1}\let\newline\\\arraybackslash\hspace{0pt}}b{#2}}
+
 % END

@@ -14,22 +14,6 @@
 	\hbadness=10000 \vspace{\baselinestretch\baselineskip} \par%
 }
 
-% Crea un salto de columna en el entorno multicol
-\ifthenelse{\isundefined{\newcolumn}}{%
-	\newcommand{\newcolumn}{%
-		\checkinsidemulticol\vfill\null\columnbreak%
-	}
-}{%
-	\renewcommand{\newcolumn}{%
-		\checkinsidemulticol\vfill\null\columnbreak%
-	}
-}
-
-% Salto de página en entorno multicol
-\newcommand{\newpagemulticol}{%
-	\newcolumn\newcolumn\clearpage%
-}
-
 % Redimensiona un ítem
 % 	#1	Tamaño del nuevo objeto (En linewidth)
 %	#2	Objeto a redimensionar
