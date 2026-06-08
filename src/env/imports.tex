@@ -827,7 +827,11 @@
 	\usepackage{showframe}}{
 }
 \ifthenelse{\equal{\showlinenumbers}{true}}{% Muestra los números de línea
-	\usepackage[switch,columnwise,running]{lineno}
+	\ifthenelse{\equal{\linenumberspagereset}{true}}{% Reinicia la numeración en cada página
+		\usepackage[left,pagewise]{lineno}
+	}{% Numeración continua (compatible con multicol)
+		\usepackage[switch,columnwise,running]{lineno}
+	}
 	\newcommand*\linenomathpatch[1]{% Parcha entornos
 		\cspreto{#1}{\linenomath}%
 		\cspreto{#1*}{\linenomath}%
