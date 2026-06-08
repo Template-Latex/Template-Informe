@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.4.5 (05/06/2026)
+% Versión:      8.4.6 (07/06/2026)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -858,7 +858,11 @@
 	\usepackage{showframe}}{
 }
 \ifthenelse{\equal{\showlinenumbers}{true}}{% Muestra los números de línea
-	\usepackage[switch,columnwise,running]{lineno}
+	\ifthenelse{\equal{\linenumberspagereset}{true}}{% Reinicia la numeración en cada página
+		\usepackage[left,pagewise]{lineno}
+	}{% Numeración continua (compatible con multicol)
+		\usepackage[switch,columnwise,running]{lineno}
+	}
 	\newcommand*\linenomathpatch[1]{% Parcha entornos
 		\cspreto{#1}{\linenomath}%
 		\cspreto{#1*}{\linenomath}%
@@ -5777,16 +5781,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={05/06/2026},
+		Template.Date={07/06/2026},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.4.5},
-		Template.Version.Hash={69E5616A91209C56FA2D03D59501F58E},
-		Template.Version.Release={8.4.5},
+		Template.Version.Dev={8.4.6},
+		Template.Version.Hash={A08944FEC8C723499E289EEC16B13951},
+		Template.Version.Release={8.4.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://latex.ppizarror.com/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5798,7 +5802,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.4.5 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.4.6 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
