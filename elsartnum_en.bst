@@ -6,7 +6,7 @@
 %% Autor: Pablo Pizarro R.
 %%        pablo@ppizarror.com
 %%
-%% Manual template: [https://latex.ppizarror.com]
+%% Manual template: [https://template-latex.github.io]
 %% Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % -----------------------------------------------------------------------------
