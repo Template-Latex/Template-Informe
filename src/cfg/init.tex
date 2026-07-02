@@ -93,16 +93,6 @@
 	\def\pdfmetainfouniversityfaculty {}
 	\def\pdfmetainfouniversitylocation {}
 }
-% El paquete bookmark (TeX Live 2026) reenvía el valor de bookmarksopen sin
-% expandir a su clave booleana 'open', que solo acepta true/false literales.
-% Se expanden los valores de configuración antes de pasarlos a \hypersetup.
-\begingroup
-\edef\x{\endgroup
-	\noexpand\hypersetup{%
-		bookmarksopen={\cfgpdfbookmarkopen},%
-		bookmarksopenlevel={\cfgbookmarksopenlevel}%
-	}%
-}\x
 \hypersetup{
 	keeppdfinfo,
 	bookmarkstype={toc},
@@ -152,6 +142,16 @@
 	pdftitle={\pdfmetainfotitle},
 	pdftoolbar={\cfgpdftoolbar}
 }
+% El paquete bookmark (TeX Live 2026) reenvía el valor de bookmarksopen sin
+% expandir a su clave booleana 'open', que solo acepta true/false literales.
+% Se expanden los valores de configuración antes de pasarlos a \hypersetup.
+\begingroup
+\edef\x{\endgroup
+	\noexpand\hypersetup{%
+		bookmarksopen={\cfgpdfbookmarkopen},%
+		bookmarksopenlevel={\cfgbookmarksopenlevel}%
+	}%
+}\x
 
 % -----------------------------------------------------------------------------
 % Establece la carpeta de imágenes por defecto

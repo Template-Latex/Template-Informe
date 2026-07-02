@@ -104,10 +104,15 @@
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Restablece índice marcador
-	\bookmarksetup{%
-		numbered={\cfgpdfsecnumbookmarks},
-		openlevel={\cfgbookmarksopenlevel}
-	}%
+	% bookmark valida 'numbered' como booleano literal (true/false), no una macro:
+	% se expanden los valores antes de pasarlos a \bookmarksetup.
+	\begingroup
+	\edef\x{\endgroup
+		\noexpand\bookmarksetup{%
+			numbered={\cfgpdfsecnumbookmarks},%
+			openlevel={\cfgbookmarksopenlevel}%
+		}%
+	}\x%
 	\endgroup%
 	\global\def\GLOBALenvappendix {false}%
 	\global\def\GLOBALtitlerequirechapter {false}%
