@@ -27,7 +27,7 @@
 \global\def\GLOBALtitlechapterenabled {true}
 
 % Activa la numeración en las secciones
-\def\coreintializetitlenumbering {%
+\def\COREintializetitlenumbering {%
 	% Capítulo
 	\renewcommand{\thechapter}{\GLOBALformatnumchapter{chapter}}%
 	% Section
@@ -74,14 +74,14 @@
 }
 
 % Chequea si los capítulos están activados
-\def\corecheckchapterenabled {%
+\def\COREcheckchapterenabled {%
 	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{% Verifica que el entorno esté activo
 		\throwwarning{La insercion de capitulos esta desactivada}%
 	}{}%
 }
 
 % Chequea si los capítulos han sido iniciados
-\def\corecheckchapterinitialized {%
+\def\COREcheckchapterinitialized {%
 	\ifthenelse{\equal{\GLOBALtitlerequirechapter}{true}}{%
 		\ifthenelse{\equal{\GLOBALtitleinitchapter}{false}}{%
 			\throwwarning{Se requiere un nuevo capitulo}%
@@ -90,21 +90,21 @@
 }
 
 % Chequea si una sección han sido iniciada
-\def\corechecksectioninitialized {%
+\def\COREchecksectioninitialized {%
 	\ifthenelse{\equal{\GLOBALtitleinitsection}{false}}{%
 		\throwwarning{Se requiere una nueva seccion}%
 	}{}%
 }
 
 % Chequea si una subsección han sido iniciada
-\def\corechecksubsectioninitialized {%
+\def\COREchecksubsectioninitialized {%
 	\ifthenelse{\equal{\GLOBALtitleinitsubsection}{false}}{%
 		\throwwarning{Se requiere una nueva subseccion}%
 	}{}%
 }
 
 % Chequea si una subsubsección han sido iniciada
-\def\corechecksubsubsectioninitialized {%
+\def\COREchecksubsubsectioninitialized {%
 	\ifthenelse{\equal{\GLOBALtitleinitsubsubsection}{false}}{%
 		\throwwarning{Se requiere una nueva subsubseccion}%
 	}{}%
@@ -112,7 +112,7 @@
 
 % Parcha el formato de capítulos
 \pretocmd{\chapter}{%
-	\corecheckchapterenabled%
+	\COREcheckchapterenabled%
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -142,7 +142,7 @@
 	\global\def\GLOBALtitleinitsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
-	\coreintializetitlenumbering%
+	\COREintializetitlenumbering%
 }{}{}
 
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
@@ -175,8 +175,8 @@
 	\global\def\GLOBALtitleinitsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
-	\corecheckchapterinitialized%
-	\coreintializetitlenumbering%
+	\COREcheckchapterinitialized%
+	\COREintializetitlenumbering%
 }{}{}
 
 % Comienza nueva subsección, si está dentro de una sectionanum entonces no dibuja el
@@ -207,9 +207,9 @@
 	\global\def\GLOBALtitleinitsubsection {true}%
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
-	\corecheckchapterinitialized%
-	\corechecksectioninitialized%
-	\coreintializetitlenumbering%
+	\COREcheckchapterinitialized%
+	\COREchecksectioninitialized%
+	\COREintializetitlenumbering%
 }{}{}
 
 % Comienza nueva subsubsección, aquí hay varios casos:
@@ -240,14 +240,14 @@
 	\global\def\GLOBALsubsubsectionanumenabled {false}%
 	\global\def\GLOBALtitleinitsubsubsection {true}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
-	\corecheckchapterinitialized%
-	\corechecksectioninitialized%
-	\corechecksubsectioninitialized%
-	\coreintializetitlenumbering%
+	\COREcheckchapterinitialized%
+	\COREchecksectioninitialized%
+	\COREchecksubsectioninitialized%
+	\COREintializetitlenumbering%
 }{}{}
 
 % Parcha sub-sub-subsecciones
-\def\corepatchaftersubsubsubsection {%
+\def\COREpatchaftersubsubsubsection {%
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -269,21 +269,21 @@
 		\setcounter{table}{0}%
 	}{}%
 	\global\def\GLOBALtitleinitsubsubsubsection {true}%
-	\corecheckchapterinitialized%
-	\corechecksectioninitialized%
-	\corechecksubsectioninitialized%
-	\corechecksubsubsectioninitialized%
+	\COREcheckchapterinitialized%
+	\COREchecksectioninitialized%
+	\COREchecksubsectioninitialized%
+	\COREchecksubsubsectioninitialized%
 }
 
 % Entorno que permite desactivar los capítulos
 \makeatletter
-\newcommand*\coredisabledchapter{%
-	\@ifstar{\coredisabledchapterstar}{\@dblarg\coredisabledchapternostar}}
-\newcommand*\coredisabledchapterstar[1]{%
+\newcommand*\COREdisabledchapter{%
+	\@ifstar{\COREdisabledchapterstar}{\@dblarg\COREdisabledchapternostar}}
+\newcommand*\COREdisabledchapterstar[1]{%
 	\noindent\textcolor{red}{Error (chapter):} \newline#1%
 	\throwwarning{La insercion de capitulos esta desactivada}%
 }
-\def\coredisabledchapternostar[#1]#2{%
+\def\COREdisabledchapternostar[#1]#2{%
 	\noindent\textcolor{red}{Error (chapter):} #1%
 	\throwwarning{La insercion de capitulos esta desactivada}%
 }
@@ -292,7 +292,7 @@
 
 % Desactiva los capítulos
 \newcommand{\disablechapter}{%
-	\let\chapter\coredisabledchapter%
+	\let\chapter\COREdisabledchapter%
 	\global\def\GLOBALtitlechapterenabled {false}%
 }
 
@@ -305,7 +305,7 @@
 % Insertar un capítulo sin número
 % 	#1	Título
 \newcommand{\chapteranum}[1]{%
-	\corecheckchapterenabled%
+	\COREcheckchapterenabled%
 	\emptyvarerr{\chapteranum}{#1}{Titulo no definido}%
 	\phantomsection%
 	\needspace{3\baselineskip}%
@@ -315,7 +315,7 @@
 	\changeheadertitle{#1}%
 	\setcounter{section}{0}%
 	\global\def\GLOBALchapternumenabled {false}%
-	\coreintializetitlenumbering%
+	\COREintializetitlenumbering%
 }
 
 % Insertar un título sin número
@@ -330,7 +330,7 @@
 	\changeheadertitle{#1}%
 	\setcounter{subsection}{0}%
 	\global\def\GLOBALsectionanumenabled {true}%
-	\coreintializetitlenumbering%
+	\COREintializetitlenumbering%
 }
 
 % Insertar un título sin número y sin indexar
@@ -344,7 +344,7 @@
 	\changeheadertitle{#1}%
 	\setcounter{subsection}{0}%
 	\global\def\GLOBALsectionanumenabled {true}%
-	\coreintializetitlenumbering%
+	\COREintializetitlenumbering%
 }
 
 % Insertar un título sin número sin cambiar el título del header
@@ -356,7 +356,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}%
 	\setcounter{subsection}{0}%
 	\global\def\GLOBALsectionanumenabled {true}%
-	\coreintializetitlenumbering%
+	\COREintializetitlenumbering%
 }
 
 % Insertar un título sin número, sin indexar y sin cambiar el título del header
@@ -367,7 +367,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}%
 	\setcounter{subsection}{0}%
 	\global\def\GLOBALsectionanumenabled {true}%
-	\coreintializetitlenumbering%
+	\COREintializetitlenumbering%
 }
 
 % Insertar un subtítulo sin número
@@ -379,7 +379,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}%
 	\setcounter{subsubsection}{0}%
 	\global\def\GLOBALsubsectionanumenabled {true}%
-	\coreintializetitlenumbering%
+	\COREintializetitlenumbering%
 }
 
 % Insertar un subtítulo sin número y sin indexar
@@ -390,7 +390,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}%
 	\setcounter{subsubsection}{0}%
 	\global\def\GLOBALsubsectionanumenabled {true}%
-	\coreintializetitlenumbering%
+	\COREintializetitlenumbering%
 }
 
 % Insertar un sub-subtítulo sin número
@@ -402,7 +402,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}%
 	\setcounter{subsubsubsection}{0}%
 	\global\def\GLOBALsubsubsectionanumenabled {true}%
-	\coreintializetitlenumbering%
+	\COREintializetitlenumbering%
 }
 
 % Insertar un sub-subtítulo sin número y sin indexar
@@ -413,7 +413,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}%
 	\setcounter{subsubsubsection}{0}%
 	\global\def\GLOBALsubsubsectionanumenabled {true}%
-	\coreintializetitlenumbering%
+	\COREintializetitlenumbering%
 }
 
 % Insertar un sub-sub-subtítulo sin número

@@ -39,7 +39,7 @@
 }
 
 % Función personalizada \cleardoublepage
-\def\corecleardoublepage {%
+\def\COREcleardoublepage {%
 	\clearpage %
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
 		\ifodd\thepage %
@@ -52,7 +52,7 @@
 % Ejecuta una función dependiendo si la página es par o impar
 %	#1	Par
 %	#2	Impar
-\newcommand{\coretriggeronpage}[2]{%
+\newcommand{\COREtriggeronpage}[2]{%
 	\ifthenelse{\isodd{\value{templatePageCounter}}}{%
 		#2%
 	}{%

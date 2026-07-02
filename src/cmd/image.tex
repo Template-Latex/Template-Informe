@@ -14,8 +14,8 @@
 
 % Calcula largo hspace
 % Regresión entre 35,46446->9 y 52,68402->13,5
-\newlength{\coreimageshspace}
-\setlength{\coreimageshspace}{\dimexpr 9pt + 0.261330719\corefontwidth - 9.26795284pt}
+\newlength{\COREimageshspace}
+\setlength{\COREimageshspace}{\dimexpr 9pt + 0.261330719\COREfontwidth - 9.26795284pt}
 
 % Añade una imagen en el entorno "images" con borde
 % 	#1	Label (opcional)
@@ -38,7 +38,7 @@
 	\setlength{\fboxsep}{0 pt}%
 	\setlength{\fboxrule}{#4 pt}%
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
-		\hspace{\dimexpr \marginimagemultright cm -\coreimageshspace}%
+		\hspace{\dimexpr \marginimagemultright cm -\COREimageshspace}%
 	}{} % Obs: No sacar el espacio en blanco, tampoco en sin/con label
 	\ifthenelse{\equal{#5}{\GLOBALemptyvar}}{ % Sin label
 		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{% Sin link
@@ -110,7 +110,7 @@
 	\setlength{\fboxsep}{0 pt}%
 	\setlength{\fboxrule}{#6 pt}%
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
-		\hspace{\dimexpr \marginimagemultright cm - \coreimageshspace}%
+		\hspace{\dimexpr \marginimagemultright cm - \COREimageshspace}%
 	}{}%
 	\ifthenelse{\equal{#7}{\GLOBALemptyvar}}{% Sin label
 		\ifthenelse{\equal{\animatedimageloop}{true}}{% Con loop
@@ -241,7 +241,7 @@
 \newcommand{\imagesnewline}{%
 	\checkonlyonenvimage%
 	\global\def\GLOBALenvimageadded {false}%
-	\corevspacevarcm{\marginimagemultbottom}%
+	\COREvspacevarcm{\marginimagemultbottom}%
 	~\linebreak\noindent%
 }
 
@@ -281,7 +281,7 @@
 	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}%
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}%
 	\checkoutsideenvimage%
-	\corevspacevarcm{\marginimagetop}%
+	\COREvspacevarcm{\marginimagetop}%
 	\begin{samepage}%
 	\begin{figure}[H]%
 		\begingroup%
@@ -295,14 +295,14 @@
 			}%
 		\endgroup%
 		\ifx\hfuzz#5\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
 			\hspace{0cm}%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{figure}
-	\corevspacevarcm{\marginimagebottom}%
+	\COREvspacevarcm{\marginimagebottom}%
 	\end{samepage}
 	\resetindexcaption%
 }
@@ -333,7 +333,7 @@
 	\emptyvarerr{\insertanimatedimage}{#5}{Total imagenes no definido}%
 	\emptyvarerr{\insertanimatedimage}{#6}{Ancho de la línea no definido}%
 	\checkoutsideenvimage%
-	\corevspacevarcm{\marginimagetop}%
+	\COREvspacevarcm{\marginimagetop}%
 	\begin{samepage}%
 	\begin{figure}[H]%
 		\begingroup%
@@ -371,14 +371,14 @@
 			}%
 		\endgroup%
 		\ifx\hfuzz#7\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
 			\hspace{0cm}%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{figure}
-	\corevspacevarcm{\marginimagebottom}%
+	\COREvspacevarcm{\marginimagebottom}%
 	\end{samepage}
 	\resetindexcaption%
 }
@@ -495,10 +495,10 @@
 			\fbox{\includegraphics[#3]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#6\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
 			\hspace{0cm}%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{figure*}
@@ -594,9 +594,9 @@
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#5\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -641,9 +641,9 @@
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#6\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -686,9 +686,9 @@
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#5\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -734,9 +734,9 @@
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#6\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -785,9 +785,9 @@
 			\fbox{\includegraphics[#4]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#6\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -836,9 +836,9 @@
 			\fbox{\includegraphics[#4]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#7\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -887,9 +887,9 @@
 			\fbox{\includegraphics[#4]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#6\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -938,9 +938,9 @@
 			\fbox{\includegraphics[#4]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#7\hfuzz%
-			\corevspacevarcm{\captionlessmarginimage}%
+			\COREvspacevarcm{\captionlessmarginimage}%
 		\else%
-			\corevspacevarcm{\captionmarginimage}%
+			\COREvspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -951,7 +951,7 @@
 % Inserta una imagen con parametros keyvals almacenados en una variable
 % 	#1	Parámetros (keyvals)
 %	#2	Dirección de la imagen
-\newcommand{\coreinsertkeyimage}[2]{%
+\newcommand{\COREinsertkeyimage}[2]{%
 	\expandafter\includegraphics\expandafter[#1]{\expandafter#2}%
 }
 
