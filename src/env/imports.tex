@@ -14,7 +14,7 @@
 \let\IM\Im
 
 % Parches de librerías
-\newcommand{\COREpatchatleast}[2]{
+\newcommand{\corepatchatleast}[2]{
 	\ifdefined\IfFormatAtLeastTF
 		\IfFormatAtLeastTF{#1}{}{#2}%
 	\else
@@ -25,7 +25,7 @@
 % borrar \counterwithin deja \numberwithin indefinido y rompe el hook de hyperref
 % ("Command \numberwithin undefined"). Se aplica el parche solo en formatos
 % anteriores a 2025-06-01, donde amsmath aún define \numberwithin de forma propia.
-\COREpatchatleast{2025-06-01}{
+\corepatchatleast{2025-06-01}{
 	\let\counterwithout\relax
 	\let\counterwithin\relax
 }

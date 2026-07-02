@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.4.6 (07/06/2026)
+% Versión:      8.4.7 (02/07/2026)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -45,8 +45,21 @@
 \let\IM\Im
 
 % Parches de librerías
-\let\counterwithout\relax
-\let\counterwithin\relax
+\newcommand{\corepatchatleast}[2]{
+	\ifdefined\IfFormatAtLeastTF
+		\IfFormatAtLeastTF{#1}{}{#2}%
+	\else
+		#2
+	\fi
+}
+% Desde LaTeX 2025-06-01 amsmath define \numberwithin como copia de \counterwithin;
+% borrar \counterwithin deja \numberwithin indefinido y rompe el hook de hyperref
+% ("Command \numberwithin undefined"). Se aplica el parche solo en formatos
+% anteriores a 2025-06-01, donde amsmath aún define \numberwithin de forma propia.
+\corepatchatleast{2025-06-01}{
+	\let\counterwithout\relax
+	\let\counterwithin\relax
+}
 \let\underbar\relax
 \let\underline\relax
 
@@ -944,10 +957,10 @@
 \let\latex\LaTeX
 
 % Nuevas dimensiones
-\newlength{\COREgluevarcm}
-\setlength{\COREgluevarcm}{0.25 cm}
-\newlength{\COREfontwidth}
-\settowidth{\COREfontwidth}{template}
+\newlength{\coregluevarcm}
+\setlength{\coregluevarcm}{0.25 cm}
+\newlength{\corefontwidth}
+\settowidth{\corefontwidth}{template}
 
 % Lanza un mensaje de error
 % 	#1	Función del error
@@ -994,7 +1007,7 @@
 
 % Escribe un mensaje en la consola
 %	#1	Mensaje
-\newcommand{\COREtemplatemessage}[1]{%
+\newcommand{\coretemplatemessage}[1]{%
 	\message{Template: #1}%
 }
 
@@ -1108,8 +1121,8 @@
 }
 
 % Verifica que una variable sea del estilo "true" o "false"
-\newcommand{\COREcheckbooleanvar}[1]{%
-	\emptyvarerr{\COREcheckbooleanvar}{#1}{Variable no definida}%
+\newcommand{\corecheckbooleanvar}[1]{%
+	\emptyvarerr{\corecheckbooleanvar}{#1}{Variable no definida}%
 	\ifthenelse{\equal{#1}{true}}{}{%
 	\ifthenelse{\equal{#1}{false}}{}{%
 		\throwwarning{Variable debe ser true o false}\stop%
@@ -1128,10 +1141,10 @@
 
 % Inserta un espacio vertical en cm con una variación +/-
 %	#1	Espacio (en cm)
-\newcommand{\COREvspacevarcm}[1]{%
+\newcommand{\corevspacevarcm}[1]{%
 	\ifthenelse{\equal{#1}{0}}{}{%
 	\ifthenelse{\equal{#1}{0.0}}{}{%
-		\vspace{\dimexpr#1 cm plus #1\COREgluevarcm minus #1\COREgluevarcm}%
+		\vspace{\dimexpr#1 cm plus #1\coregluevarcm minus #1\coregluevarcm}%
 	}}%
 }
 
@@ -1145,7 +1158,7 @@
 
 % Verifica que un tamaño de fuente sea correcto
 %	#1	Tamaño de fuente
-\newcommand{\COREcheckfontsize}[1]{%
+\newcommand{\corecheckfontsize}[1]{%
 	\ifthenelse{\equal{#1}{normalsize}}{}{%
 	\ifthenelse{\equal{#1}{small}}{}{%
 	\ifthenelse{\equal{#1}{large}}{}{%
@@ -1530,7 +1543,7 @@
 \makeatother
 
 % Función que se ejecuta tras un equation
-\newcommand{\COREafterequationfn}{%
+\newcommand{\coreafterequationfn}{%
 	\hbadness=10000%
 }
 
@@ -1545,7 +1558,7 @@
 
 % Inserta el caption de un objeto tipo ecuación
 %	#1	Texto del caption
-\newcommand{\COREinsertequationcaption}[1]{%
+\newcommand{\coreinsertequationcaption}[1]{%
 	\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}%
 		\ifthenelse{\equal{\equationcaptioncenter}{true}}{%
 			\centering%
@@ -1566,14 +1579,14 @@
 \newcommand{\insertequation}[2][]{%
 	\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\COREvspacevarcm{\marginequationtop}%
+		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation}%
 			\text{#1} #2
 		\end{equation}
-		\COREvspacevarcm{\marginequationbottom}%
+		\corevspacevarcm{\marginequationbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
@@ -1587,14 +1600,14 @@
 %	#1	Ecuación
 \newcommand{\insertequationanum}[1]{%
 	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}%
-	\COREvspacevarcm{\marginequationtop}%
+	\corevspacevarcm{\marginequationtop}%
 	\begin{samepage}%
 	\begin{equation*}%
 		\ensuremath{#1}
 	\end{equation*}
-	\COREvspacevarcm{\marginequationbottom}%
+	\corevspacevarcm{\marginequationbottom}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación en el índice
@@ -1622,7 +1635,7 @@
 		\end{equation}
 		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
@@ -1643,7 +1656,7 @@
 	\end{equation*}
 	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación alineada a la derecha
@@ -1659,7 +1672,7 @@
 		\end{equation}
 		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
@@ -1680,7 +1693,7 @@
 	\end{equation*}
 	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación con leyenda
@@ -1693,16 +1706,16 @@
 		\insertequation[#1]{#2}%
 	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
-			\COREvspacevarcm{\marginequationtop}%
+			\corevspacevarcm{\marginequationtop}%
 			\begin{samepage}%
 			\begin{equation}
 				\text{#1} #2
 			\end{equation}
-			\COREvspacevarcm{\margineqncaptiontop}%
-			\COREinsertequationcaption{#3}%
-			\COREvspacevarcm{\margineqncaptionbottom}%
+			\corevspacevarcm{\margineqncaptiontop}%
+			\coreinsertequationcaption{#3}%
+			\corevspacevarcm{\margineqncaptionbottom}%
 			\end{samepage}
-			\COREafterequationfn%
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz%
 			\else%
@@ -1721,16 +1734,16 @@
 	\ifx\hfuzz#2\hfuzz%
 		\insertequationanum{#1}%
 	\else%
-		\COREvspacevarcm{\marginequationtop}%
+		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation*}
 			\ensuremath{#1}%
 		\end{equation*}
-		\COREvspacevarcm{\margineqncaptiontop}%
-		\COREinsertequationcaption{#2}%
-		\COREvspacevarcm{\margineqncaptionbottom}%
+		\corevspacevarcm{\margineqncaptiontop}%
+		\coreinsertequationcaption{#2}%
+		\corevspacevarcm{\margineqncaptionbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	\fi%
 }
 
@@ -1739,14 +1752,14 @@
 \newcommand{\insertgather}[1]{%
 	\emptyvarerr{\insertgather}{#1}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\COREvspacevarcm{\margingathertop}%
+		\corevspacevarcm{\margingathertop}%
 		\begin{samepage}%
 		\begin{gather}%
 			\ensuremath{#1}
 		\end{gather}
-		\COREvspacevarcm{\margingatherbottom}%
+		\corevspacevarcm{\margingatherbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\insertgatheranum{#1}%
 	}%
@@ -1756,14 +1769,14 @@
 %	#1	Ecuación
 \newcommand{\insertgatheranum}[1]{%
 	\emptyvarerr{\insertgatheranum}{#1}{Ecuacion no definida}%
-	\COREvspacevarcm{\margingathertop}%
+	\corevspacevarcm{\margingathertop}%
 	\begin{samepage}%
 	\begin{gather*}%
 		\ensuremath{#1}
 	\end{gather*}
-	\COREvspacevarcm{\margingatherbottom}%
+	\corevspacevarcm{\margingatherbottom}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (gather) con leyenda
@@ -1775,16 +1788,16 @@
 		\insertgather{#1}%
 	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
-			\COREvspacevarcm{\margingathertop}%
+			\corevspacevarcm{\margingathertop}%
 			\begin{samepage}%
 			\begin{gather}%
 				\ensuremath{#1}
 			\end{gather}
-			\COREvspacevarcm{\margingathercapttop}%
-			\COREinsertequationcaption{#2}%
-			\COREvspacevarcm{\margingathercaptbottom}%
+			\corevspacevarcm{\margingathercapttop}%
+			\coreinsertequationcaption{#2}%
+			\corevspacevarcm{\margingathercaptbottom}%
 			\end{samepage}
-			\COREafterequationfn%
+			\coreafterequationfn%
 		}{%
 			\insertgathercaptionedanum{#1}{#2}%
 		}%
@@ -1799,16 +1812,16 @@
 	\ifx\hfuzz#2\hfuzz%
 		\insertgatheranum{#1}%
 	\else%
-		\COREvspacevarcm{\margingathertop}%
+		\corevspacevarcm{\margingathertop}%
 		\begin{samepage}%
 		\begin{gather*}%
 			\ensuremath{#1}
 		\end{gather*}
-		\COREvspacevarcm{\margingathercapttop}%
-		\COREinsertequationcaption{#2}%
-		\COREvspacevarcm{\margingathercaptbottom}%
+		\corevspacevarcm{\margingathercapttop}%
+		\coreinsertequationcaption{#2}%
+		\corevspacevarcm{\margingathercaptbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	\fi%
 }
 
@@ -1818,43 +1831,43 @@
 \newcommand{\insertgathered}[2][]{%
 	\emptyvarerr{\insertgathered}{#2}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\COREvspacevarcm{\marginequationtop}%
+		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation}
 			\begin{gathered}
 				\text{#1} \ensuremath{#2}
 			\end{gathered}
 		\end{equation}
-		\COREvspacevarcm{\margingatheredbottom}%
+		\corevspacevarcm{\margingatheredbottom}%
 		\end{samepage}
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
 			\throwwarning{Label invalido en ecuacion (gathered) sin numero}%
 		\fi%
-		\COREvspacevarcm{\margingatheredtop}%
+		\corevspacevarcm{\margingatheredtop}%
 		\begin{samepage}%
 		\begin{gather*}%
 			\ensuremath{#2}
 		\end{gather*}
-		\COREvspacevarcm{\margingatheredbottom}%
+		\corevspacevarcm{\margingatheredbottom}%
 		\end{samepage}
 	}%
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación con el ambiente gathered sin número
 %	#1	Ecuación
 \newcommand{\insertgatheredanum}[1]{%
 	\emptyvarerr{\insertgatheredanum}{#1}{Ecuacion no definida}%
-	\COREvspacevarcm{\margingatheredtop}%
+	\corevspacevarcm{\margingatheredtop}%
 	\begin{samepage}%
 	\begin{gather*}
 		\ensuremath{#1}
 	\end{gather*}
 	\vspace{\dimexpr-0.15cm + \margingatheredbottom cm}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (gathered) con leyenda
@@ -1867,18 +1880,18 @@
 		\insertgathered[#1]{#2}%
 	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
-			\COREvspacevarcm{\marginequationtop}%
+			\corevspacevarcm{\marginequationtop}%
 			\begin{samepage}%
 			\begin{equation}
 				\begin{gathered}
 					\text{#1} \ensuremath{#2}
 				\end{gathered}
 			\end{equation}
-			\COREvspacevarcm{\margingatheredcapttop}%
-			\COREinsertequationcaption{#3}%
-			\COREvspacevarcm{\margingatheredcaptbottom}%
+			\corevspacevarcm{\margingatheredcapttop}%
+			\coreinsertequationcaption{#3}%
+			\corevspacevarcm{\margingatheredcaptbottom}%
 			\end{samepage}
-			\COREafterequationfn%
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz%
 			\else%
@@ -1897,16 +1910,16 @@
 	\ifx\hfuzz#2\hfuzz%
 		\insertgatheredanum{#1}%
 	\else%
-		\COREvspacevarcm{\margingatheredtop}%
+		\corevspacevarcm{\margingatheredtop}%
 		\begin{samepage}%
 		\begin{gather*}
 			\ensuremath{#1}
 		\end{gather*}
 		\vspace{\dimexpr-0.2cm + \margingatheredcapttop cm}%
-		\COREinsertequationcaption{#2}%
+		\coreinsertequationcaption{#2}%
 		\vspace{\dimexpr-0.05cm + \margingatheredcaptbottom cm}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	\fi%
 }
 
@@ -1915,14 +1928,14 @@
 \newcommand{\insertalign}[1]{%
 	\emptyvarerr{\insertalign}{#1}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\COREvspacevarcm{\marginaligntop}%
+		\corevspacevarcm{\marginaligntop}%
 		\begin{samepage}%
 		\begin{align}
 			\ensuremath{#1}
 		\end{align}
-		\COREvspacevarcm{\marginalignbottom}%
+		\corevspacevarcm{\marginalignbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\insertalignanum{#1}%
 	}%
@@ -1932,14 +1945,14 @@
 %	#1	Ecuación
 \newcommand{\insertalignanum}[1]{%
 	\emptyvarerr{\insertalignanum}{#1}{Ecuacion no definida}%
-	\COREvspacevarcm{\marginaligntop}%
+	\corevspacevarcm{\marginaligntop}%
 	\begin{samepage}%
 	\begin{align*}
 		\ensuremath{#1}
 	\end{align*}
-	\COREvspacevarcm{\marginalignbottom}%
+	\corevspacevarcm{\marginalignbottom}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (align) con leyenda
@@ -1951,16 +1964,16 @@
 		\insertalign{#1}%
 	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
-			\COREvspacevarcm{\marginaligntop}%
+			\corevspacevarcm{\marginaligntop}%
 			\begin{samepage}%
 			\begin{align}
 				\ensuremath{#1}
 			\end{align}
-			\COREvspacevarcm{\marginaligncapttop}%
-			\COREinsertequationcaption{#2}%
-			\COREvspacevarcm{\marginaligncaptbottom}%
+			\corevspacevarcm{\marginaligncapttop}%
+			\coreinsertequationcaption{#2}%
+			\corevspacevarcm{\marginaligncaptbottom}%
 			\end{samepage}
-			\COREafterequationfn%
+			\coreafterequationfn%
 		}{%
 			\insertaligncaptionedanum{#1}{#2}%
 		}%
@@ -1975,16 +1988,16 @@
 	\ifx\hfuzz#2\hfuzz%
 		\insertalignanum{#1}%
 	\else%
-		\COREvspacevarcm{\marginaligntop}%
+		\corevspacevarcm{\marginaligntop}%
 		\begin{samepage}%
 		\begin{align*}
 			\ensuremath{#1}
 		\end{align*}
-		\COREvspacevarcm{\marginaligncapttop}%
-		\COREinsertequationcaption{#2}%
-		\COREvspacevarcm{\marginaligncaptbottom}%
+		\corevspacevarcm{\marginaligncapttop}%
+		\coreinsertequationcaption{#2}%
+		\corevspacevarcm{\marginaligncaptbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	\fi%
 }
 
@@ -1994,16 +2007,16 @@
 \newcommand{\insertaligned}[2][]{%
 	\emptyvarerr{\insertaligned}{#2}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\COREvspacevarcm{\marginequationtop}%
+		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation}
 			\begin{aligned}
 				\text{#1} \ensuremath{#2}
 			\end{aligned}
 		\end{equation}
-		\COREvspacevarcm{\marginalignedbottom}%
+		\corevspacevarcm{\marginalignedbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
@@ -2017,14 +2030,14 @@
 %	#1	Ecuación
 \newcommand{\insertalignedanum}[1]{%
 	\emptyvarerr{\insertalignedanum}{#1}{Ecuacion no definida}%
-	\COREvspacevarcm{\marginalignedtop}%
+	\corevspacevarcm{\marginalignedtop}%
 	\begin{samepage}%
 	\begin{align*}
 		\ensuremath{#1}
 	\end{align*}
 	\vspace{\dimexpr-0.2cm + \marginalignedbottom cm}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (aligned) con leyenda
@@ -2037,18 +2050,18 @@
 		\insertaligned[#1]{#2}%
 	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
-			\COREvspacevarcm{\marginequationtop}%
+			\corevspacevarcm{\marginequationtop}%
 			\begin{samepage}%
 			\begin{equation}
 				\begin{aligned}
 					\text{#1} \ensuremath{#2}
 				\end{aligned}
 			\end{equation}
-			\COREvspacevarcm{\marginalignedcapttop}%
-			\COREinsertequationcaption{#3}%
-			\COREvspacevarcm{\marginalignedcaptbottom}%
+			\corevspacevarcm{\marginalignedcapttop}%
+			\coreinsertequationcaption{#3}%
+			\corevspacevarcm{\marginalignedcaptbottom}%
 			\end{samepage}
-			\COREafterequationfn%
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz%
 			\else%
@@ -2067,18 +2080,18 @@
 	\ifx\hfuzz#2\hfuzz%
 		\insertalignedanum{#1}%
 	\else%
-		\COREvspacevarcm{\marginequationtop}%
+		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation}
 			\begin{aligned}
 				\ensuremath{#1}
 			\end{aligned}
 		\end{equation}
-		\COREvspacevarcm{\marginalignedcapttop}%
-		\COREinsertequationcaption{#2}%
-		\COREvspacevarcm{\marginalignedcaptbottom}%
+		\corevspacevarcm{\marginalignedcapttop}%
+		\coreinsertequationcaption{#2}%
+		\corevspacevarcm{\marginalignedcaptbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	\fi%
 }
 
@@ -2087,8 +2100,8 @@
 
 % Calcula largo hspace
 % Regresión entre 35,46446->9 y 52,68402->13,5
-\newlength{\COREimageshspace}
-\setlength{\COREimageshspace}{\dimexpr 9pt + 0.261330719\COREfontwidth - 9.26795284pt}
+\newlength{\coreimageshspace}
+\setlength{\coreimageshspace}{\dimexpr 9pt + 0.261330719\corefontwidth - 9.26795284pt}
 
 % Añade una imagen en el entorno "images" con borde
 % 	#1	Label (opcional)
@@ -2111,7 +2124,7 @@
 	\setlength{\fboxsep}{0 pt}%
 	\setlength{\fboxrule}{#4 pt}%
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
-		\hspace{\dimexpr \marginimagemultright cm -\COREimageshspace}%
+		\hspace{\dimexpr \marginimagemultright cm -\coreimageshspace}%
 	}{} % Obs: No sacar el espacio en blanco, tampoco en sin/con label
 	\ifthenelse{\equal{#5}{\GLOBALemptyvar}}{ % Sin label
 		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{% Sin link
@@ -2183,7 +2196,7 @@
 	\setlength{\fboxsep}{0 pt}%
 	\setlength{\fboxrule}{#6 pt}%
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
-		\hspace{\dimexpr \marginimagemultright cm - \COREimageshspace}%
+		\hspace{\dimexpr \marginimagemultright cm - \coreimageshspace}%
 	}{}%
 	\ifthenelse{\equal{#7}{\GLOBALemptyvar}}{% Sin label
 		\ifthenelse{\equal{\animatedimageloop}{true}}{% Con loop
@@ -2314,7 +2327,7 @@
 \newcommand{\imagesnewline}{%
 	\checkonlyonenvimage%
 	\global\def\GLOBALenvimageadded {false}%
-	\COREvspacevarcm{\marginimagemultbottom}%
+	\corevspacevarcm{\marginimagemultbottom}%
 	~\linebreak\noindent%
 }
 
@@ -2354,7 +2367,7 @@
 	\emptyvarerr{\insertimageboxed}{#3}{Parametros de la imagen no definidos}%
 	\emptyvarerr{\insertimageboxed}{#4}{Ancho de la linea no definido}%
 	\checkoutsideenvimage%
-	\COREvspacevarcm{\marginimagetop}%
+	\corevspacevarcm{\marginimagetop}%
 	\begin{samepage}%
 	\begin{figure}[H]%
 		\begingroup%
@@ -2368,14 +2381,14 @@
 			}%
 		\endgroup%
 		\ifx\hfuzz#5\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\hspace{0cm}%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{figure}
-	\COREvspacevarcm{\marginimagebottom}%
+	\corevspacevarcm{\marginimagebottom}%
 	\end{samepage}
 	\resetindexcaption%
 }
@@ -2406,7 +2419,7 @@
 	\emptyvarerr{\insertanimatedimage}{#5}{Total imagenes no definido}%
 	\emptyvarerr{\insertanimatedimage}{#6}{Ancho de la línea no definido}%
 	\checkoutsideenvimage%
-	\COREvspacevarcm{\marginimagetop}%
+	\corevspacevarcm{\marginimagetop}%
 	\begin{samepage}%
 	\begin{figure}[H]%
 		\begingroup%
@@ -2444,14 +2457,14 @@
 			}%
 		\endgroup%
 		\ifx\hfuzz#7\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\hspace{0cm}%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{figure}
-	\COREvspacevarcm{\marginimagebottom}%
+	\corevspacevarcm{\marginimagebottom}%
 	\end{samepage}
 	\resetindexcaption%
 }
@@ -2568,10 +2581,10 @@
 			\fbox{\includegraphics[#3]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#6\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
 			\hspace{0cm}%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{figure*}
@@ -2667,9 +2680,9 @@
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#5\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -2714,9 +2727,9 @@
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#6\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -2759,9 +2772,9 @@
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#5\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#5 #1}}{\caption[\GLOBALcaptiondefn]{#5 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -2807,9 +2820,9 @@
 			\fbox{\includegraphics[width=\linewidth]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#6\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -2858,9 +2871,9 @@
 			\fbox{\includegraphics[#4]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#6\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -2909,9 +2922,9 @@
 			\fbox{\includegraphics[#4]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#7\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -2960,9 +2973,9 @@
 			\fbox{\includegraphics[#4]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#6\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#6 #1}}{\caption[\GLOBALcaptiondefn]{#6 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -3011,9 +3024,9 @@
 			\fbox{\includegraphics[#4]{#2}}%
 		\endgroup%
 		\ifx\hfuzz#7\hfuzz%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		\else%
-			\COREvspacevarcm{\captionmarginimage}%
+			\corevspacevarcm{\captionmarginimage}%
 			\ifthenelse{\equal{\GLOBALcaptiondefn}{\GLOBALemptyvar}}{\caption{#7 #1}}{\caption[\GLOBALcaptiondefn]{#7 #1}}%
 		\fi%
 	\end{wrapfigure}
@@ -3024,7 +3037,7 @@
 % Inserta una imagen con parametros keyvals almacenados en una variable
 % 	#1	Parámetros (keyvals)
 %	#2	Dirección de la imagen
-\newcommand{\COREinsertkeyimage}[2]{%
+\newcommand{\coreinsertkeyimage}[2]{%
 	\expandafter\includegraphics\expandafter[#1]{\expandafter#2}%
 }
 
@@ -3051,7 +3064,7 @@
 \global\def\GLOBALtitlechapterenabled {true}
 
 % Activa la numeración en las secciones
-\def\COREintializetitlenumbering {%
+\def\coreintializetitlenumbering {%
 	% Capítulo
 	\renewcommand{\thechapter}{\GLOBALformatnumchapter{chapter}}%
 	% Section
@@ -3098,14 +3111,14 @@
 }
 
 % Chequea si los capítulos están activados
-\def\COREcheckchapterenabled {%
+\def\corecheckchapterenabled {%
 	\ifthenelse{\equal{\GLOBALtitlechapterenabled}{false}}{% Verifica que el entorno esté activo
 		\throwwarning{La insercion de capitulos esta desactivada}%
 	}{}%
 }
 
 % Chequea si los capítulos han sido iniciados
-\def\COREcheckchapterinitialized {%
+\def\corecheckchapterinitialized {%
 	\ifthenelse{\equal{\GLOBALtitlerequirechapter}{true}}{%
 		\ifthenelse{\equal{\GLOBALtitleinitchapter}{false}}{%
 			\throwwarning{Se requiere un nuevo capitulo}%
@@ -3114,21 +3127,21 @@
 }
 
 % Chequea si una sección han sido iniciada
-\def\COREchecksectioninitialized {%
+\def\corechecksectioninitialized {%
 	\ifthenelse{\equal{\GLOBALtitleinitsection}{false}}{%
 		\throwwarning{Se requiere una nueva seccion}%
 	}{}%
 }
 
 % Chequea si una subsección han sido iniciada
-\def\COREchecksubsectioninitialized {%
+\def\corechecksubsectioninitialized {%
 	\ifthenelse{\equal{\GLOBALtitleinitsubsection}{false}}{%
 		\throwwarning{Se requiere una nueva subseccion}%
 	}{}%
 }
 
 % Chequea si una subsubsección han sido iniciada
-\def\COREchecksubsubsectioninitialized {%
+\def\corechecksubsubsectioninitialized {%
 	\ifthenelse{\equal{\GLOBALtitleinitsubsubsection}{false}}{%
 		\throwwarning{Se requiere una nueva subsubseccion}%
 	}{}%
@@ -3136,7 +3149,7 @@
 
 % Parcha el formato de capítulos
 \pretocmd{\chapter}{%
-	\COREcheckchapterenabled%
+	\corecheckchapterenabled%
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -3166,7 +3179,7 @@
 	\global\def\GLOBALtitleinitsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }{}{}
 
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
@@ -3199,8 +3212,8 @@
 	\global\def\GLOBALtitleinitsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
-	\COREcheckchapterinitialized%
-	\COREintializetitlenumbering%
+	\corecheckchapterinitialized%
+	\coreintializetitlenumbering%
 }{}{}
 
 % Comienza nueva subsección, si está dentro de una sectionanum entonces no dibuja el
@@ -3231,9 +3244,9 @@
 	\global\def\GLOBALtitleinitsubsection {true}%
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
-	\COREcheckchapterinitialized%
-	\COREchecksectioninitialized%
-	\COREintializetitlenumbering%
+	\corecheckchapterinitialized%
+	\corechecksectioninitialized%
+	\coreintializetitlenumbering%
 }{}{}
 
 % Comienza nueva subsubsección, aquí hay varios casos:
@@ -3264,14 +3277,14 @@
 	\global\def\GLOBALsubsubsectionanumenabled {false}%
 	\global\def\GLOBALtitleinitsubsubsection {true}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
-	\COREcheckchapterinitialized%
-	\COREchecksectioninitialized%
-	\COREchecksubsectioninitialized%
-	\COREintializetitlenumbering%
+	\corecheckchapterinitialized%
+	\corechecksectioninitialized%
+	\corechecksubsectioninitialized%
+	\coreintializetitlenumbering%
 }{}{}
 
 % Parcha sub-sub-subsecciones
-\def\COREpatchaftersubsubsubsection {%
+\def\corepatchaftersubsubsubsection {%
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -3293,21 +3306,21 @@
 		\setcounter{table}{0}%
 	}{}%
 	\global\def\GLOBALtitleinitsubsubsubsection {true}%
-	\COREcheckchapterinitialized%
-	\COREchecksectioninitialized%
-	\COREchecksubsectioninitialized%
-	\COREchecksubsubsectioninitialized%
+	\corecheckchapterinitialized%
+	\corechecksectioninitialized%
+	\corechecksubsectioninitialized%
+	\corechecksubsubsectioninitialized%
 }
 
 % Entorno que permite desactivar los capítulos
 \makeatletter
-\newcommand*\COREdisabledchapter{%
-	\@ifstar{\COREdisabledchapterstar}{\@dblarg\COREdisabledchapternostar}}
-\newcommand*\COREdisabledchapterstar[1]{%
+\newcommand*\coredisabledchapter{%
+	\@ifstar{\coredisabledchapterstar}{\@dblarg\coredisabledchapternostar}}
+\newcommand*\coredisabledchapterstar[1]{%
 	\noindent\textcolor{red}{Error (chapter):} \newline#1%
 	\throwwarning{La insercion de capitulos esta desactivada}%
 }
-\def\COREdisabledchapternostar[#1]#2{%
+\def\coredisabledchapternostar[#1]#2{%
 	\noindent\textcolor{red}{Error (chapter):} #1%
 	\throwwarning{La insercion de capitulos esta desactivada}%
 }
@@ -3316,7 +3329,7 @@
 
 % Desactiva los capítulos
 \newcommand{\disablechapter}{%
-	\let\chapter\COREdisabledchapter%
+	\let\chapter\coredisabledchapter%
 	\global\def\GLOBALtitlechapterenabled {false}%
 }
 
@@ -3329,7 +3342,7 @@
 % Insertar un capítulo sin número
 % 	#1	Título
 \newcommand{\chapteranum}[1]{%
-	\COREcheckchapterenabled%
+	\corecheckchapterenabled%
 	\emptyvarerr{\chapteranum}{#1}{Titulo no definido}%
 	\phantomsection%
 	\needspace{3\baselineskip}%
@@ -3339,7 +3352,7 @@
 	\changeheadertitle{#1}%
 	\setcounter{section}{0}%
 	\global\def\GLOBALchapternumenabled {false}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un título sin número
@@ -3354,7 +3367,7 @@
 	\changeheadertitle{#1}%
 	\setcounter{subsection}{0}%
 	\global\def\GLOBALsectionanumenabled {true}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un título sin número y sin indexar
@@ -3368,7 +3381,7 @@
 	\changeheadertitle{#1}%
 	\setcounter{subsection}{0}%
 	\global\def\GLOBALsectionanumenabled {true}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un título sin número sin cambiar el título del header
@@ -3380,7 +3393,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}%
 	\setcounter{subsection}{0}%
 	\global\def\GLOBALsectionanumenabled {true}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un título sin número, sin indexar y sin cambiar el título del header
@@ -3391,7 +3404,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{section}}{}%
 	\setcounter{subsection}{0}%
 	\global\def\GLOBALsectionanumenabled {true}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un subtítulo sin número
@@ -3403,7 +3416,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}%
 	\setcounter{subsubsection}{0}%
 	\global\def\GLOBALsubsectionanumenabled {true}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un subtítulo sin número y sin indexar
@@ -3414,7 +3427,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsection}}{}%
 	\setcounter{subsubsection}{0}%
 	\global\def\GLOBALsubsectionanumenabled {true}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un sub-subtítulo sin número
@@ -3426,7 +3439,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}%
 	\setcounter{subsubsubsection}{0}%
 	\global\def\GLOBALsubsubsectionanumenabled {true}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un sub-subtítulo sin número y sin indexar
@@ -3437,7 +3450,7 @@
 	\ifthenelse{\equal{\anumsecaddtocounter}{true}}{\stepcounter{subsubsection}}{}%
 	\setcounter{subsubsubsection}{0}%
 	\global\def\GLOBALsubsubsectionanumenabled {true}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 
 % Insertar un sub-sub-subtítulo sin número
@@ -3550,7 +3563,7 @@
 }
 
 % Función personalizada \cleardoublepage
-\def\COREcleardoublepage {%
+\def\corecleardoublepage {%
 	\clearpage %
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
 		\ifodd\thepage %
@@ -3563,7 +3576,7 @@
 % Ejecuta una función dependiendo si la página es par o impar
 %	#1	Par
 %	#2	Impar
-\newcommand{\COREtriggeronpage}[2]{%
+\newcommand{\coretriggeronpage}[2]{%
 	\ifthenelse{\isodd{\value{templatePageCounter}}}{%
 		#2%
 	}{%
@@ -3906,7 +3919,7 @@
 
 % Chequea posición columna
 %	#1	Valor posición (c, t, b)
-\newcommand{\COREcheckcolumnvvalue}[1]{%
+\newcommand{\corecheckcolumnvvalue}[1]{%
 	\ifthenelse{\equal{#1}{c}}{}{%
 	\ifthenelse{\equal{#1}{t}}{}{%
 	\ifthenelse{\equal{#1}{b}}{}{%
@@ -3916,7 +3929,7 @@
 
 % Chequea alineación columna
 %	#1	Valor alineación (c, l, r)
-\newcommand{\COREcheckcolumnpvalue}[1]{%
+\newcommand{\corecheckcolumnpvalue}[1]{%
 	\ifthenelse{\equal{#1}{c}}{}{%
 	\ifthenelse{\equal{#1}{l}}{}{%
 	\ifthenelse{\equal{#1}{r}}{}{%
@@ -3930,10 +3943,10 @@
 %	#3	Posición vertical columna derecha (c, t, b)
 %	#4	Alineación horizontal columna derecha (c, l, r)
 \newcommand{\createtwocolumncfg}[4]{%
-	\COREcheckcolumnvvalue{#1}%
-	\COREcheckcolumnpvalue{#2}%
-	\COREcheckcolumnvvalue{#3}%
-	\COREcheckcolumnpvalue{#4}%
+	\corecheckcolumnvvalue{#1}%
+	\corecheckcolumnpvalue{#2}%
+	\corecheckcolumnvvalue{#3}%
+	\corecheckcolumnpvalue{#4}%
 	\global\def\GLOBALtwocolumnav {#1}%
 	\global\def\GLOBALtwocolumnap {#2}%
 	\global\def\GLOBALtwocolumnbv {#3}%
@@ -3953,12 +3966,12 @@
 %	#5	Posición vertical columna derecha (c, t, b)
 %	#6	Alineación horizontal columna derecha (c, l, r)
 \newcommand{\createthreecolumncfg}[6]{%
-	\COREcheckcolumnvvalue{#1}%
-	\COREcheckcolumnpvalue{#2}%
-	\COREcheckcolumnvvalue{#3}%
-	\COREcheckcolumnpvalue{#4}%
-	\COREcheckcolumnvvalue{#5}%
-	\COREcheckcolumnpvalue{#6}%
+	\corecheckcolumnvvalue{#1}%
+	\corecheckcolumnpvalue{#2}%
+	\corecheckcolumnvvalue{#3}%
+	\corecheckcolumnpvalue{#4}%
+	\corecheckcolumnvvalue{#5}%
+	\corecheckcolumnpvalue{#6}%
 	\global\def\GLOBALthreecolumnav {#1}%
 	\global\def\GLOBALthreecolumnap {#2}%
 	\global\def\GLOBALthreecolumnbv {#3}%
@@ -4244,10 +4257,15 @@
 	\global\def\GLOBALtitleinitsubsubsection {false}%
 	\global\def\GLOBALtitleinitsubsubsubsection {false}%
 	\bookmarksetupnext{level={\thetemplateBookmarksLevelPrev}} % Restablece índice marcador
-	\bookmarksetup{%
-		numbered={\cfgpdfsecnumbookmarks},
-		openlevel={\cfgbookmarksopenlevel}
-	}%
+	% bookmark valida 'numbered' como booleano literal (true/false), no una macro:
+	% se expanden los valores antes de pasarlos a \bookmarksetup.
+	\begingroup
+	\edef\x{\endgroup
+		\noexpand\bookmarksetup{%
+			numbered={\cfgpdfsecnumbookmarks},%
+			openlevel={\cfgbookmarksopenlevel}%
+		}%
+	}\x%
 	\endgroup%
 	\global\def\GLOBALenvappendix {false}%
 	\global\def\GLOBALtitlerequirechapter {false}%
@@ -4258,8 +4276,8 @@
 %	#2	Estilo de código
 %	#3	Parámetros
 %	#4	Caption
-\newcommand{\COREinitsourcecodep}[4]{%
-	\emptyvarerr{\COREinitsourcecodep}{#2}{Estilo de codigo no definido}%
+\newcommand{\coreinitsourcecodep}[4]{%
+	\emptyvarerr{\coreinitsourcecodep}{#2}{Estilo de codigo no definido}%
 	\checkvalidsourcecodestyle{#2}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\rightlinenumbers}{%
@@ -4339,7 +4357,7 @@
 %	#3	Parámetros
 %	#4	Caption
 \lstnewenvironment{sourcecodep}[4][]{%
-	\COREinitsourcecodep{#1}{#2}{#3}{#4}%
+	\coreinitsourcecodep{#1}{#2}{#3}{#4}%
 }{%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
@@ -4353,7 +4371,7 @@
 %	#4	Archivo de código fuente
 %	#5	Caption
 \newcommand{\importsourcecodep}[5][]{%
-	\COREinitsourcecodep{#1}{#2}{#3}{#5}%
+	\coreinitsourcecodep{#1}{#2}{#3}{#5}%
 	\inputlisting{#4}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
@@ -4364,8 +4382,8 @@
 %	#1	Label (opcional)
 %	#2	Estilo de código
 %	#3	Caption
-\newcommand{\COREinitsourcecode}[3]{%
-	\emptyvarerr{\COREinitsourcecode}{#2}{Estilo de codigo no definido}%
+\newcommand{\coreinitsourcecode}[3]{%
+	\emptyvarerr{\coreinitsourcecode}{#2}{Estilo de codigo no definido}%
 	\checkvalidsourcecodestyle{#2}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\rightlinenumbers}{%
@@ -4409,7 +4427,7 @@
 %	#2	Estilo de código
 %	#3	Caption
 \lstnewenvironment{sourcecode}[3][]{%
-	\COREinitsourcecode{#1}{#2}{#3}%
+	\coreinitsourcecode{#1}{#2}{#3}%
 }{%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
@@ -4422,7 +4440,7 @@
 %	#3	Archivo de código fuente
 %	#4	Caption
 \newcommand{\importsourcecode}[4][]{%
-	\COREinitsourcecode{#1}{#2}{#4}%
+	\coreinitsourcecode{#1}{#2}{#4}%
 	\lstinputlisting{#3}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
@@ -4465,7 +4483,7 @@
 	\global\def\GLOBALenvimageadded {false}%
 	\global\def\GLOBALenvimageinitialized {true}%
 	% Configura caption y márgenes
-	\COREvspacevarcm{\marginimagetop}%
+	\corevspacevarcm{\marginimagetop}%
 	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
 	% Inicia la figura
 	\begin{samepage}%
@@ -4475,13 +4493,13 @@
 			\global\def\GLOBALenvimagecf {false}%
 			\def\envimagescaptioncf {true}%
 		}{}%
-		\COREvspacevarcm{\marginimagemulttop}%
+		\corevspacevarcm{\marginimagemulttop}%
 		}{%
 		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
-			\COREvspacevarcm{\captionmarginimages}%
+			\corevspacevarcm{\captionmarginimages}%
 			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
 				\caption[]{\envimagescaptionvar\envimageslabelvar}%
 			}{%
@@ -4491,7 +4509,7 @@
 	\end{figure}%
 	% Restablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}%
-	\COREvspacevarcm{\marginimagebottom}%
+	\corevspacevarcm{\marginimagebottom}%
 	\end{samepage}
 	% Restablece globales
 	\global\def\GLOBALenvimageinitialized {false}%
@@ -4528,13 +4546,13 @@
 			\global\def\GLOBALenvimagecf {false}%
 			\def\envimagescaptioncf {true}%
 		}{}%
-		\COREvspacevarcm{\marginimagemulttop}%
+		\corevspacevarcm{\marginimagemulttop}%
 	}{%
 		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
-			\COREvspacevarcm{\captionmarginimagesmc}%
+			\corevspacevarcm{\captionmarginimagesmc}%
 			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
 				\caption[]{\envimagescaptionvar\envimageslabelvar}%
 			}{%
@@ -4552,20 +4570,20 @@
 % 	#1	Label (opcional)
 %	#2	Leyenda de la ecuación
 \newenvironment{equationindex}[2][]{%
-	\def\COREequationindexcaption {#2}%
-	\emptyvarerr{\COREequationindexcaption}{#2}{Leyenda no definida}%
-	\COREvspacevarcm{\margineqnindextop}%
+	\def\coreequationindexcaption {#2}%
+	\emptyvarerr{\coreequationindexcaption}{#2}{Leyenda no definida}%
+	\corevspacevarcm{\margineqnindextop}%
 	\begin{samepage}%
 		\begin{equation}%
 			\text{#1}%
 		}{%
 		\end{equation}
-		\myindexequations{\COREequationindexcaption}%
-		\COREvspacevarcm{\margineqnindexbottom}%
+		\myindexequations{\coreequationindexcaption}%
+		\corevspacevarcm{\margineqnindexbottom}%
 	\end{samepage}
-	\COREinsertequationcaption{\textit{\COREequationindexcaption}}%
+	\coreinsertequationcaption{\textit{\coreequationindexcaption}}%
 	\addtocounter{templateIndexEquations}{1}%
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % -----------------------------------------------------------------------------
@@ -5761,8 +5779,6 @@
 }
 \hypersetup{
 	keeppdfinfo,
-	bookmarksopen={\cfgpdfbookmarkopen},
-	bookmarksopenlevel={\cfgbookmarksopenlevel},
 	bookmarkstype={toc},
 	pdfauthor={\pdfmetainfoauthor},
 	pdfcenterwindow={\cfgpdfcenterwindow},
@@ -5781,16 +5797,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={07/06/2026},
+		Template.Date={02/07/2026},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.4.6},
-		Template.Version.Hash={A08944FEC8C723499E289EEC16B13951},
-		Template.Version.Release={8.4.6},
+		Template.Version.Dev={8.4.7},
+		Template.Version.Hash={B5B293D044970E7DC2A7D48E471B948C},
+		Template.Version.Release={8.4.7},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://template-latex.github.io/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5802,7 +5818,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.4.6 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.4.7 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5810,6 +5826,16 @@
 	pdftitle={\pdfmetainfotitle},
 	pdftoolbar={\cfgpdftoolbar}
 }
+% El paquete bookmark (TeX Live 2026) reenvía el valor de bookmarksopen sin
+% expandir a su clave booleana 'open', que solo acepta true/false literales.
+% Se expanden los valores de configuración antes de pasarlos a \hypersetup.
+\begingroup
+\edef\x{\endgroup
+	\noexpand\hypersetup{%
+		bookmarksopen={\cfgpdfbookmarkopen},%
+		bookmarksopenlevel={\cfgbookmarksopenlevel}%
+	}%
+}\x
 
 % -----------------------------------------------------------------------------
 % Establece la carpeta de imágenes por defecto
@@ -5892,7 +5918,7 @@
 }
 
 % Se configura el texto de los caption
-\COREcheckfontsize{\captionfontsize}
+\corecheckfontsize{\captionfontsize}
 \captionsetup{
 	font={\captionfontsize},
 	labelfont={color=\captioncolor, \captiontextbold},
@@ -5903,7 +5929,7 @@
 }
 
 % Configura texto de los subcaption
-\COREcheckfontsize{\subcaptionfsize}
+\corecheckfontsize{\subcaptionfsize}
 \captionsetup*[subfigure]{
 	font={\subcaptionfsize},
 	labelfont={color=\captioncolor, \captiontextsubnumbold},
@@ -6059,7 +6085,7 @@
 	\setlength{\bibitemsep}{\bibtexrefsep pt}
 }{
 \ifthenelse{\equal{\stylecitereferences}{custom}}{
-	\COREtemplatemessage{Usando estilo citas referencias custom, importar librerias y configuraciones posterior al llamado de template.tex en archivo principal}
+	\coretemplatemessage{Usando estilo citas referencias custom, importar librerias y configuraciones posterior al llamado de template.tex en archivo principal}
 }{
 	\throwbadconfig{Estilo citas desconocido}{\stylecitereferences}{bibtex,apacite,natbib,custom}}}}
 }
@@ -6457,7 +6483,7 @@
 	\global\def\GLOBALenvmulticol {true}%
 	\setcaptionmargincm{\captionlrmargin}%
 	\addtocounter{multicoldepth}{1}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 \AfterEndEnvironment{multicols}{%
 	\def\captionlrmargin {\SOURCEcaptionlrmargin}%
@@ -6524,8 +6550,8 @@
 % -----------------------------------------------------------------------------
 % PORTADA
 % -----------------------------------------------------------------------------
-\newcommand{\COREwriteheaderitem}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{#2 ~ \\}}
-\newcommand{\COREwriteheaderitemsc}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{\small \scshape{\MakeUppercase{#2}} ~ \\}}
+\newcommand{\corewriteheaderitem}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{#2 ~ \\}}
+\newcommand{\corewriteheaderitemsc}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{\small \scshape{\MakeUppercase{#2}} ~ \\}}
 
 \newcommand{\templatePortrait}{%
 	
@@ -6541,14 +6567,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -6582,14 +6608,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -6625,14 +6651,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -6674,13 +6700,13 @@
 		
 		% Escribe el header
 		\vspace*{-1.5cm}
-		\noindent \COREinsertkeyimage{\portraitimageparamsF}{\portraitimageF}
+		\noindent \coreinsertkeyimage{\portraitimageparamsF}{\portraitimageF}
 		\hspace*{-0.15cm}
 		\begin{tabular}{l}
 			% Inserta nuevas lineas independiente de si tiene texto o no
-			\COREwriteheaderitemsc[~ \\]{\universityname}
-			\COREwriteheaderitemsc[~ \\]{\universityfaculty}
-			\COREwriteheaderitemsc[~ \\]{\universitydepartment}
+			\corewriteheaderitemsc[~ \\]{\universityname}
+			\corewriteheaderitemsc[~ \\]{\universityfaculty}
+			\corewriteheaderitemsc[~ \\]{\universitydepartment}
 			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
 		
@@ -6713,13 +6739,13 @@
 		\checkextravarexist{\portraitimageparamsG}{[portrait-style5] Defina los parametros de la imagen extra de la portada}
 		
 		% Escribe el header
-		\COREinsertkeyimage{\portraitimageparamsG}{\portraitimageG}
+		\coreinsertkeyimage{\portraitimageparamsG}{\portraitimageG}
 		\hspace{-0.2cm}
 		\begin{tabular}{l}
 			% Inserta nuevas lineas independiente de si tiene texto o no
-			\COREwriteheaderitemsc[~ \\]{\universityname}
-			\COREwriteheaderitemsc[~ \\]{\universityfaculty}
-			\COREwriteheaderitemsc[~ \\]{\universitydepartment}
+			\corewriteheaderitemsc[~ \\]{\universityname}
+			\corewriteheaderitemsc[~ \\]{\universityfaculty}
+			\corewriteheaderitemsc[~ \\]{\universitydepartment}
 			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
 		
@@ -6757,28 +6783,28 @@
 		\begin{wrapfigure}{l}{0.305\linewidth}%
 			\vspace{-0.69cm}%
 			\noindent \hspace{-0.85cm}%
-			\COREinsertkeyimage{\portraitimageparamsH}{\portraitimageH}%
+			\coreinsertkeyimage{\portraitimageparamsH}{\portraitimageH}%
 		\end{wrapfigure}
-		\def\COREstylefirstmargin {-2.2cm}
+		\def\corestylefirstmargin {-2.2cm}
 		\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{%
 			\hspace*{0.07cm}
-			\noindent \textsc{\color{red} \hspace{\COREstylefirstmargin} \universitydepartment} ~ \\
-			\def\COREstylefirstmargin {-1.6cm}
+			\noindent \textsc{\color{red} \hspace{\corestylefirstmargin} \universitydepartment} ~ \\
+			\def\corestylefirstmargin {-1.6cm}
 		}
 		\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{%
 			\hspace*{0cm}
-			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \universityfaculty} ~ \\
-			\def\COREstylefirstmargin {-1.6cm}
+			\noindent \textsc{\color{dkgray} \hspace{\corestylefirstmargin} \universityfaculty} ~ \\
+			\def\corestylefirstmargin {-1.6cm}
 		}
 		\ifthenelse{\equal{\universityname}{\xspace}}{}{%
 			\hspace*{0cm}
-			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \universityname} ~ \\
-			\def\COREstylefirstmargin {-1.6cm}
+			\noindent \textsc{\color{dkgray} \hspace{\corestylefirstmargin} \universityname} ~ \\
+			\def\corestylefirstmargin {-1.6cm}
 		}
 		\ifthenelse{\equal{\coursename}{\xspace}}{}{%
 			\hspace*{0cm}
-			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \coursecode \coursename} ~ \\
-			\def\COREstylefirstmargin {-1.6cm}
+			\noindent \textsc{\color{dkgray} \hspace{\corestylefirstmargin} \coursecode \coursename} ~ \\
+			\def\corestylefirstmargin {-1.6cm}
 		}
 		
 		% Título informe - tema
@@ -6813,13 +6839,13 @@
 		\begin{center}
 			\vspace*{-1.5cm}
 			\hspace*{-1.25cm}
-			\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
+			\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
 			\hspace*{-0.25cm}
 			\begin{tabular}{l}
 				\vspace*{0.26cm}\mbox{} ~ \\
-				\COREwriteheaderitemsc{\universityname}
-				\COREwriteheaderitemsc{\universityfaculty}
-				\COREwriteheaderitemsc{\universitydepartment}
+				\corewriteheaderitemsc{\universityname}
+				\corewriteheaderitemsc{\universityfaculty}
+				\corewriteheaderitemsc{\universitydepartment}
 				\vspace*{1.25cm}\mbox{}
 			\end{tabular}
 		\end{center}
@@ -6853,10 +6879,10 @@
 		\begin{center}
 			\vspace*{-1.0cm}
 			\begin{tabular}{c}
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0.5cm} ~ \\
-				\COREwriteheaderitemsc{\universityname}
-				\COREwriteheaderitemsc{\universityfaculty}
-				\COREwriteheaderitemsc{\universitydepartment}
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0.5cm} ~ \\
+				\corewriteheaderitemsc{\universityname}
+				\corewriteheaderitemsc{\universityfaculty}
+				\corewriteheaderitemsc{\universitydepartment}
 			\end{tabular}
 		\end{center}
 		
@@ -6886,7 +6912,7 @@
 		\begin{spacing}{1.025}
 		
 		% Título del informe
-		\noindent \hspace{-0.10cm} \COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
+		\noindent \hspace{-0.10cm} \coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
 		\vfill
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
@@ -6899,9 +6925,9 @@
 		\vfill
 		\begin{center}
 			\begin{tabular}{c}
-				\COREwriteheaderitemsc{\universityname}
-				\COREwriteheaderitemsc{\universityfaculty}
-				\COREwriteheaderitemsc{\universitydepartment}
+				\corewriteheaderitemsc{\universityname}
+				\corewriteheaderitemsc{\universityfaculty}
+				\corewriteheaderitemsc{\universitydepartment}
 			\end{tabular}
 		\end{center}
 		
@@ -6996,7 +7022,7 @@
 		% Imagen departamento
 		\begin{center}
 			\vspace*{-1.0cm}
-			\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
+			\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
 		\end{center}
 		
 		% Título informe
@@ -7050,7 +7076,7 @@
 		\begin{flushright}%
 			\begin{minipage}{0.3\linewidth}%
 				\hspace*{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 			\end{minipage}
 		\end{flushright}
 		
@@ -7084,7 +7110,7 @@
 		\noindent
 		\begin{flushleft}%
 			\vspace*{-1.0cm}%
-			\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \\
+			\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \\
 		\end{flushleft}
 		
 		% Título del informe
@@ -7114,7 +7140,7 @@
 		\vspace*{-1.5cm}
 		\noindent \begin{minipage}{0.8\linewidth}
 			\noindent \begin{minipage}{0.21\linewidth}
-				\COREinsertkeyimage{\portraitimageparamsA}{\portraitimageA} \\
+				\coreinsertkeyimage{\portraitimageparamsA}{\portraitimageA} \\
 			\end{minipage}
 			\hspace{-0.25cm}
 			\begin{minipage}{0.6\linewidth}
@@ -7140,7 +7166,7 @@
 			\begin{flushright}%
 				\ifthenelse{\isundefined{\portraitimagerightA}}{}{%
 					\ifthenelse{\isundefined{\portraitimagerightparamsA}}{}{%
-						\noindent \COREinsertkeyimage{\portraitimagerightparamsA}{\portraitimagerightA} \\
+						\noindent \coreinsertkeyimage{\portraitimagerightparamsA}{\portraitimagerightA} \\
 					}
 				}
 			\end{flushright}
@@ -7191,14 +7217,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -7223,10 +7249,10 @@
 				\begingroup
 				\setlength{\fboxsep}{0 pt}
 				\setlength{\fboxrule}{\portraitimageboxedwidthC pt}
-				\fbox{\COREinsertkeyimage{\portraitimageparamsC}{\portraitimageC}}%
+				\fbox{\coreinsertkeyimage{\portraitimageparamsC}{\portraitimageC}}%
 				\endgroup
 			}{%
-				\COREinsertkeyimage{\portraitimageparamsC}{\portraitimageC}
+				\coreinsertkeyimage{\portraitimageparamsC}{\portraitimageC}
 			}
 		\end{center}
 		~ \\
@@ -7253,14 +7279,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -7274,10 +7300,10 @@
 				\begingroup
 				\setlength{\fboxsep}{0 pt}
 				\setlength{\fboxrule}{\portraitimageboxedwidthD pt}
-				\fbox{\COREinsertkeyimage{\portraitimageparamsD}{\portraitimageD}}%
+				\fbox{\coreinsertkeyimage{\portraitimageparamsD}{\portraitimageD}}%
 				\endgroup
 			}{%
-				\COREinsertkeyimage{\portraitimageparamsD}{\portraitimageD}
+				\coreinsertkeyimage{\portraitimageparamsD}{\portraitimageD}
 			}
 		\end{center}
 		\vspace{-2\baselineskip}
@@ -7376,14 +7402,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -7397,10 +7423,10 @@
 				\begingroup
 				\setlength{\fboxsep}{0 pt}
 				\setlength{\fboxrule}{\portraitimageboxedwidthI pt}
-				\fbox{\COREinsertkeyimage{\portraitimageparamsI}{\portraitimageC}}%
+				\fbox{\coreinsertkeyimage{\portraitimageparamsI}{\portraitimageC}}%
 				\endgroup
 			}{%
-				\COREinsertkeyimage{\portraitimageparamsI}{\portraitimageC}
+				\coreinsertkeyimage{\portraitimageparamsI}{\portraitimageC}
 			}
 		\end{center}
 		~ \vfill
@@ -7570,7 +7596,7 @@
 		\color{\ssssectioncolor} \ssssectionfontsz \ssssectionfontstyle%
 	}{%
 		\GLOBALtitlepresubsubsubsectionstr\thesubsubsubsection\charaftersectionnum\spacingaftersection%
-		\COREpatchaftersubsubsubsection%
+		\corepatchaftersubsubsubsection%
 	}{0em}{%
 	}
 	\def\bibfont {\fontsizerefbibl} % Tamaño de fuente de las referencias
@@ -7589,7 +7615,7 @@
 	\def\hfheaderimageparamsA {height=\baselineskip} % Tamaño de las imágenes del encabezado estilo 3/13
 	\ifthenelse{\equal{\hfstyle}{style1}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[L]{\nouppercase{\rightmark}}
@@ -7618,11 +7644,11 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style1-i}}{% Impar izquierdo
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[LE,RO]{\nouppercase{\rightmark}}
@@ -7651,11 +7677,11 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style1-d}}{% Impar derecho
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[LO,RE]{\nouppercase{\rightmark}}
@@ -7684,11 +7710,11 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style2}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[L]{\nouppercase{\rightmark}}
@@ -7717,11 +7743,11 @@
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style2-i}}{% Impar izquierdo
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[LE,RO]{\nouppercase{\rightmark}}
@@ -7750,11 +7776,11 @@
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style1-d}}{% Impar derecho
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[LO,RE]{\nouppercase{\rightmark}}
@@ -7783,11 +7809,11 @@
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style3}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 				\fancyhead[L]{%
@@ -7801,18 +7827,18 @@
 				\fancyhead[L]{\small \textit{\coursecode \coursename}}
 			}
 			\fancyhead[R]{%
-				\COREinsertkeyimage{\hfheaderimageparamsA}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\hfheaderimageparamsA}{\universitydepartmentimage}%
 				\vspace{-0.15cm}%
 			}
 			\fancyfoot[C]{\thepage}
 			\renewcommand{\headrulewidth}{0.5pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style4}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[L]{\nouppercase{\rightmark}}
@@ -7823,11 +7849,11 @@
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style5}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 				\fancyhead[L]{%
@@ -7858,11 +7884,11 @@
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style5-d}}{% Impar derecho
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 				\fancyhead[L]{%
@@ -7893,11 +7919,11 @@
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style5-i}}{% Impar izquierdo
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 				\fancyhead[L]{%
@@ -7928,11 +7954,11 @@
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style6}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\fancyfoot[L]{\universitydepartment}
 			\fancyfoot[C]{\thepage}
@@ -7941,55 +7967,55 @@
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\setlength{\headheight}{49pt}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style7}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\fancyfoot[C]{\thepage}
 			\renewcommand{\headrulewidth}{0pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\setlength{\headheight}{49pt}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style8}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\fancyfoot[R]{\thepage}
 			\renewcommand{\headrulewidth}{0pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\setlength{\headheight}{49pt}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style8-d}}{% Impar derecho
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\fancyfoot[RO,LE]{\thepage}
 			\renewcommand{\headrulewidth}{0pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\setlength{\headheight}{49pt}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style8-i}}{% Impar izquierdo
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\fancyfoot[RE,LO]{\thepage}
 			\renewcommand{\headrulewidth}{0pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\setlength{\headheight}{49pt}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style9}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[L]{\nouppercase{\rightmark}}
@@ -8001,11 +8027,11 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style9-d}}{% Impar derecho
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[L]{\nouppercase{\rightmark}}
@@ -8017,11 +8043,11 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style9-i}}{% Impar izquierdo
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[L]{\nouppercase{\rightmark}}
@@ -8033,11 +8059,11 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style10}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 				\ifthenelse{\equal{\disablehfrightmark}{false}}{%
@@ -8068,11 +8094,11 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style10-i}}{% Impar izquierdo
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 				\ifthenelse{\equal{\disablehfrightmark}{false}}{%
@@ -8103,11 +8129,11 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style10-d}}{% Impar derecho
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 				\ifthenelse{\equal{\disablehfrightmark}{false}}{%
@@ -8138,11 +8164,11 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style11}}{% Similar a 1
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[L]{\nouppercase{\rightmark}}
@@ -8171,11 +8197,11 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style12}}{% Similar a 6
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\fancyfoot[L]{\universitydepartment}
 			\fancyfoot[C]{\thepage \namepageof \getpagerefnumber{TotPages}}
@@ -8184,11 +8210,11 @@
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\setlength{\headheight}{49pt}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style13}}{% Similar a 3
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 				\fancyhead[L]{%
@@ -8202,18 +8228,18 @@
 				\fancyhead[L]{\small \textit{\coursecode \coursename}}
 			}
 			\fancyhead[R]{%
-				\COREinsertkeyimage{\hfheaderimageparamsA}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\hfheaderimageparamsA}{\universitydepartmentimage}%
 				\vspace{-0.15cm}%
 			}
 			\fancyfoot[C]{\thepage \namepageof \getpagerefnumber{TotPages}}
 			\renewcommand{\headrulewidth}{0.5pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style14}}{% Similar a 4
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[L]{\nouppercase{\rightmark}}
@@ -8224,11 +8250,11 @@
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style15}}{% Similar a 1
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 				\fancyhead[L]{\nouppercase{\rightmark}}
@@ -8244,24 +8270,24 @@
 			\renewcommand{\footrulewidth}{0.5pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 	\ifthenelse{\equal{\hfstyle}{style16}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{}
 			\renewcommand{\headrulewidth}{0pt}
 			\renewcommand{\footrulewidth}{0pt}
 		}
 		\renewcommand{\sectionmark}[1]{\markboth{##1}{}}
-		\COREstyledefinition
+		\corestyledefinition
 	}{%
 		\throwbadconfigondoc{Estilo de header-footer incorrecto}{\hfstyle}{style1 .. style16}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 	}
 	% Aplica el estilo de página
 	\fancypagestyle{plain}{%
 		\fancyheadoffset{0pt}
-		\COREstyledefinition
+		\corestyledefinition
 	}
 	% Define estilos por defecto en flotantes
 	\floatpagestyle{plain}
@@ -8292,7 +8318,7 @@
 	% Salta de página si está imprimiendo por ambas caras
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
-		\COREtriggeronpage{\emptypagespredocformat}{}%
+		\coretriggeronpage{\emptypagespredocformat}{}%
 	}{}
 	
 	% -------------------------------------------------------------------------
@@ -8831,11 +8857,11 @@
 	% Actualiza headers
 	\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 		% Define funciones generales
-		\def\COREhfstyledefA {% 1, 2, 4, 9, 11, 14, 15
+		\def\corehfstyledefA {% 1, 2, 4, 9, 11, 14, 15
 			\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
 			\fancyhead[L]{\nouppercase{\leftmark}}
 		}
-		\def\COREhfstyledefB {% 5
+		\def\corehfstyledefB {% 5
 			\fancypagestyle{plain}{%
 				\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 					\fancyhead[R]{%
@@ -8861,7 +8887,7 @@
 				\fancyhead[R]{\nouppercase{\leftmark}}
 			}
 		}
-		\def\COREhfstyledefC {% 10
+		\def\corehfstyledefC {% 10
 			\fancypagestyle{plain}{%
 				\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 					\fancyhead[L]{%
@@ -8889,7 +8915,7 @@
 		}
 		% Actualiza los header-footer
 		\ifthenelse{\equal{\hfstyle}{style1}}{%
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style1-i}}{% Impar izquierdo
 			\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
@@ -8900,7 +8926,7 @@
 			\fancyhead[LO,RE]{\nouppercase{\leftmark}}
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style2}}{%
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style2-i}}{% Impar izquierdo
 			\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
@@ -8911,43 +8937,43 @@
 			\fancyhead[LO,RE]{\nouppercase{\leftmark}}
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style4}}{%
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style5}}{%
-			\COREhfstyledefB
+			\corehfstyledefB
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style5-d}}{% Impar derecho
-			\COREhfstyledefB
+			\corehfstyledefB
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style5-i}}{% Impar izquierdo
-			\COREhfstyledefB
+			\corehfstyledefB
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style9}}{%
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style9-d}}{% Impar derecho
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style9-i}}{% Impar izquierdo
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style10}}{%
-			\COREhfstyledefC
+			\corehfstyledefC
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style10-d}}{% Impar derecho
-			\COREhfstyledefC
+			\corehfstyledefC
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style10-i}}{% Impar izquierdo
-			\COREhfstyledefC
+			\corehfstyledefC
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style11}}{% Similar a 1
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style14}}{% Similar a 4
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style15}}{% Similar a 1
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 			% No se encontró el header-footer, no hace nada
 		}}}}}}}}}}}}}}}}}}}
@@ -9166,14 +9192,14 @@
 	% Agrega páginas dependiendo del formato
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
-		\COREtriggeronpage{\emptypagespredocformat}{}}{%
+		\coretriggeronpage{\emptypagespredocformat}{}}{%
 	}
 	
 	% -------------------------------------------------------------------------
 	% Reestablece \cleardoublepage
 	% -------------------------------------------------------------------------
 	% \let\cleardoublepage\oldcleardoublepage
-	\let\cleardoublepage\COREcleardoublepage
+	\let\cleardoublepage\corecleardoublepage
 	
 	% -------------------------------------------------------------------------
 	% Se restablecen números de página y secciones

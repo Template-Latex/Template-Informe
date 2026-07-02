@@ -40,7 +40,7 @@
 \setcounter{tabularcolnumber}{0}
 
 % Define tamaños
-\newlength{\COREtabularheightsize}
+\newlength{\coretabularheightsize}
 
 % Función que configura el texto de la barra superior del tabular frame
 % 	#1 Tamaño de letra
@@ -48,7 +48,7 @@
 \newcommand{\tabularframebartextcfg}[2]{%
 	\emptyvarerr{\tabularframebartextcfg}{#1}{Tamano fuente no definida}%
 	\emptyvarerr{\tabularframebartextcfg}{#2}{Texto centrado no definido}%
-	\COREcheckbooleanvar{#2}%
+	\corecheckbooleanvar{#2}%
 	\global\def\GLOBALtabularframebarfontsize {#1}%
 	\global\def\GLOBALtabularframebartextcentered {#2}%
 }
@@ -71,7 +71,7 @@
 	\global\def\GLOBALtabularframecontentheight {#3}%
 	\global\def\GLOBALtabularframecontentwidthleft {#4}%
 	\global\def\GLOBALtabularframecontentwidthright {#5}%
-	\setlength{\COREtabularheightsize}{\GLOBALtabularframebarheight\textheight}%
+	\setlength{\coretabularheightsize}{\GLOBALtabularframebarheight\textheight}%
 }
 
 % Función que configura la alineación del entorno tabular frames
@@ -80,8 +80,8 @@
 \newcommand{\tabularframecfgalign}[2]{%
 	\emptyvarerr{\tabularframecfgalign}{#1}{Centrado columna izquierda no definido}%
 	\emptyvarerr{\tabularframecfgalign}{#2}{Centrado columna derecha no definido}%
-	\COREcheckbooleanvar{#1}%
-	\COREcheckbooleanvar{#2}%
+	\corecheckbooleanvar{#1}%
+	\corecheckbooleanvar{#2}%
 	\global\def\GLOBALtabularframecontentleftcentered {#1}%
 	\global\def\GLOBALtabularframecontentrightcentered {#2}%
 }
@@ -106,7 +106,7 @@
 	\ifthenelse{\equal{\LOCALtabularframestorevar}{true}}{%
 		\immediate\openout\filetabularframehead=\jobname.tframeh%
 	}{}%
-	\vspace{\dimexpr-0.5\COREtabularheightsize + \GLOBALtabularframebarheightmargin\textheight}%
+	\vspace{\dimexpr-0.5\coretabularheightsize + \GLOBALtabularframebarheightmargin\textheight}%
 	\begin{columns}[t,onlytextwidth]%
 	}{%
 	\end{columns}

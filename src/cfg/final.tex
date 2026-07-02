@@ -19,11 +19,11 @@
 	% Actualiza headers
 	\ifthenelse{\equal{\disablehfrightmark}{false}}{%
 		% Define funciones generales
-		\def\COREhfstyledefA {% 1, 2, 4, 9, 11, 14, 15
+		\def\corehfstyledefA {% 1, 2, 4, 9, 11, 14, 15
 			\fancypagestyle{plain}{\fancyhead[L]{\nouppercase{\leftmark}}}
 			\fancyhead[L]{\nouppercase{\leftmark}}
 		}
-		\def\COREhfstyledefB {% 5
+		\def\corehfstyledefB {% 5
 			\fancypagestyle{plain}{%
 				\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 					\fancyhead[R]{%
@@ -49,7 +49,7 @@
 				\fancyhead[R]{\nouppercase{\leftmark}}
 			}
 		}
-		\def\COREhfstyledefC {% 10
+		\def\corehfstyledefC {% 10
 			\fancypagestyle{plain}{%
 				\ifthenelse{\equal{\hfwidthwrap}{true}}{%
 					\fancyhead[L]{%
@@ -77,7 +77,7 @@
 		}
 		% Actualiza los header-footer
 		\ifthenelse{\equal{\hfstyle}{style1}}{%
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style1-i}}{% Impar izquierdo
 			\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
@@ -88,7 +88,7 @@
 			\fancyhead[LO,RE]{\nouppercase{\leftmark}}
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style2}}{%
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style2-i}}{% Impar izquierdo
 			\fancypagestyle{plain}{\fancyhead[LE,RO]{\nouppercase{\leftmark}}}
@@ -99,43 +99,43 @@
 			\fancyhead[LO,RE]{\nouppercase{\leftmark}}
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style4}}{%
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style5}}{%
-			\COREhfstyledefB
+			\corehfstyledefB
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style5-d}}{% Impar derecho
-			\COREhfstyledefB
+			\corehfstyledefB
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style5-i}}{% Impar izquierdo
-			\COREhfstyledefB
+			\corehfstyledefB
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style9}}{%
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style9-d}}{% Impar derecho
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style9-i}}{% Impar izquierdo
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style10}}{%
-			\COREhfstyledefC
+			\corehfstyledefC
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style10-d}}{% Impar derecho
-			\COREhfstyledefC
+			\corehfstyledefC
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style10-i}}{% Impar izquierdo
-			\COREhfstyledefC
+			\corehfstyledefC
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style11}}{% Similar a 1
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style14}}{% Similar a 4
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 		\ifthenelse{\equal{\hfstyle}{style15}}{% Similar a 1
-			\COREhfstyledefA
+			\corehfstyledefA
 		}{%
 			% No se encontró el header-footer, no hace nada
 		}}}}}}}}}}}}}}}}}}}
@@ -354,14 +354,14 @@
 	% Agrega páginas dependiendo del formato
 	% -------------------------------------------------------------------------
 	\ifthenelse{\equal{\GLOBALtwoside}{true}}{%
-		\COREtriggeronpage{\emptypagespredocformat}{}}{%
+		\coretriggeronpage{\emptypagespredocformat}{}}{%
 	}
 	
 	% -------------------------------------------------------------------------
 	% Reestablece \cleardoublepage
 	% -------------------------------------------------------------------------
 	% \let\cleardoublepage\oldcleardoublepage
-	\let\cleardoublepage\COREcleardoublepage
+	\let\cleardoublepage\corecleardoublepage
 	
 	% -------------------------------------------------------------------------
 	% Se restablecen números de página y secciones

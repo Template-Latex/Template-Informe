@@ -10,7 +10,7 @@
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
 % Función que se ejecuta tras un equation
-\newcommand{\COREafterequationfn}{%
+\newcommand{\coreafterequationfn}{%
 	\hbadness=10000%
 }
 
@@ -25,7 +25,7 @@
 
 % Inserta el caption de un objeto tipo ecuación
 %	#1	Texto del caption
-\newcommand{\COREinsertequationcaption}[1]{%
+\newcommand{\coreinsertequationcaption}[1]{%
 	\begin{changemargin}{\captionlrmargin cm}{\captionlrmargin cm}%
 		\ifthenelse{\equal{\equationcaptioncenter}{true}}{%
 			\centering%
@@ -46,14 +46,14 @@
 \newcommand{\insertequation}[2][]{%
 	\emptyvarerr{\insertequation}{#2}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\COREvspacevarcm{\marginequationtop}%
+		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation}%
 			\text{#1} #2
 		\end{equation}
-		\COREvspacevarcm{\marginequationbottom}%
+		\corevspacevarcm{\marginequationbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
@@ -67,14 +67,14 @@
 %	#1	Ecuación
 \newcommand{\insertequationanum}[1]{%
 	\emptyvarerr{\insertequationanum}{#1}{Ecuacion no definida}%
-	\COREvspacevarcm{\marginequationtop}%
+	\corevspacevarcm{\marginequationtop}%
 	\begin{samepage}%
 	\begin{equation*}%
 		\ensuremath{#1}
 	\end{equation*}
-	\COREvspacevarcm{\marginequationbottom}%
+	\corevspacevarcm{\marginequationbottom}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación en el índice
@@ -102,7 +102,7 @@
 		\end{equation}
 		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
@@ -123,7 +123,7 @@
 	\end{equation*}
 	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación alineada a la derecha
@@ -139,7 +139,7 @@
 		\end{equation}
 		\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
@@ -160,7 +160,7 @@
 	\end{equation*}
 	\vspace{\dimexpr-0.2\baselineskip + \marginequationbottom cm}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación con leyenda
@@ -173,16 +173,16 @@
 		\insertequation[#1]{#2}%
 	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
-			\COREvspacevarcm{\marginequationtop}%
+			\corevspacevarcm{\marginequationtop}%
 			\begin{samepage}%
 			\begin{equation}
 				\text{#1} #2
 			\end{equation}
-			\COREvspacevarcm{\margineqncaptiontop}%
-			\COREinsertequationcaption{#3}%
-			\COREvspacevarcm{\margineqncaptionbottom}%
+			\corevspacevarcm{\margineqncaptiontop}%
+			\coreinsertequationcaption{#3}%
+			\corevspacevarcm{\margineqncaptionbottom}%
 			\end{samepage}
-			\COREafterequationfn%
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz%
 			\else%
@@ -201,16 +201,16 @@
 	\ifx\hfuzz#2\hfuzz%
 		\insertequationanum{#1}%
 	\else%
-		\COREvspacevarcm{\marginequationtop}%
+		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation*}
 			\ensuremath{#1}%
 		\end{equation*}
-		\COREvspacevarcm{\margineqncaptiontop}%
-		\COREinsertequationcaption{#2}%
-		\COREvspacevarcm{\margineqncaptionbottom}%
+		\corevspacevarcm{\margineqncaptiontop}%
+		\coreinsertequationcaption{#2}%
+		\corevspacevarcm{\margineqncaptionbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	\fi%
 }
 
@@ -219,14 +219,14 @@
 \newcommand{\insertgather}[1]{%
 	\emptyvarerr{\insertgather}{#1}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\COREvspacevarcm{\margingathertop}%
+		\corevspacevarcm{\margingathertop}%
 		\begin{samepage}%
 		\begin{gather}%
 			\ensuremath{#1}
 		\end{gather}
-		\COREvspacevarcm{\margingatherbottom}%
+		\corevspacevarcm{\margingatherbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\insertgatheranum{#1}%
 	}%
@@ -236,14 +236,14 @@
 %	#1	Ecuación
 \newcommand{\insertgatheranum}[1]{%
 	\emptyvarerr{\insertgatheranum}{#1}{Ecuacion no definida}%
-	\COREvspacevarcm{\margingathertop}%
+	\corevspacevarcm{\margingathertop}%
 	\begin{samepage}%
 	\begin{gather*}%
 		\ensuremath{#1}
 	\end{gather*}
-	\COREvspacevarcm{\margingatherbottom}%
+	\corevspacevarcm{\margingatherbottom}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (gather) con leyenda
@@ -255,16 +255,16 @@
 		\insertgather{#1}%
 	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
-			\COREvspacevarcm{\margingathertop}%
+			\corevspacevarcm{\margingathertop}%
 			\begin{samepage}%
 			\begin{gather}%
 				\ensuremath{#1}
 			\end{gather}
-			\COREvspacevarcm{\margingathercapttop}%
-			\COREinsertequationcaption{#2}%
-			\COREvspacevarcm{\margingathercaptbottom}%
+			\corevspacevarcm{\margingathercapttop}%
+			\coreinsertequationcaption{#2}%
+			\corevspacevarcm{\margingathercaptbottom}%
 			\end{samepage}
-			\COREafterequationfn%
+			\coreafterequationfn%
 		}{%
 			\insertgathercaptionedanum{#1}{#2}%
 		}%
@@ -279,16 +279,16 @@
 	\ifx\hfuzz#2\hfuzz%
 		\insertgatheranum{#1}%
 	\else%
-		\COREvspacevarcm{\margingathertop}%
+		\corevspacevarcm{\margingathertop}%
 		\begin{samepage}%
 		\begin{gather*}%
 			\ensuremath{#1}
 		\end{gather*}
-		\COREvspacevarcm{\margingathercapttop}%
-		\COREinsertequationcaption{#2}%
-		\COREvspacevarcm{\margingathercaptbottom}%
+		\corevspacevarcm{\margingathercapttop}%
+		\coreinsertequationcaption{#2}%
+		\corevspacevarcm{\margingathercaptbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	\fi%
 }
 
@@ -298,43 +298,43 @@
 \newcommand{\insertgathered}[2][]{%
 	\emptyvarerr{\insertgathered}{#2}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\COREvspacevarcm{\marginequationtop}%
+		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation}
 			\begin{gathered}
 				\text{#1} \ensuremath{#2}
 			\end{gathered}
 		\end{equation}
-		\COREvspacevarcm{\margingatheredbottom}%
+		\corevspacevarcm{\margingatheredbottom}%
 		\end{samepage}
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
 			\throwwarning{Label invalido en ecuacion (gathered) sin numero}%
 		\fi%
-		\COREvspacevarcm{\margingatheredtop}%
+		\corevspacevarcm{\margingatheredtop}%
 		\begin{samepage}%
 		\begin{gather*}%
 			\ensuremath{#2}
 		\end{gather*}
-		\COREvspacevarcm{\margingatheredbottom}%
+		\corevspacevarcm{\margingatheredbottom}%
 		\end{samepage}
 	}%
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación con el ambiente gathered sin número
 %	#1	Ecuación
 \newcommand{\insertgatheredanum}[1]{%
 	\emptyvarerr{\insertgatheredanum}{#1}{Ecuacion no definida}%
-	\COREvspacevarcm{\margingatheredtop}%
+	\corevspacevarcm{\margingatheredtop}%
 	\begin{samepage}%
 	\begin{gather*}
 		\ensuremath{#1}
 	\end{gather*}
 	\vspace{\dimexpr-0.15cm + \margingatheredbottom cm}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (gathered) con leyenda
@@ -347,18 +347,18 @@
 		\insertgathered[#1]{#2}%
 	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
-			\COREvspacevarcm{\marginequationtop}%
+			\corevspacevarcm{\marginequationtop}%
 			\begin{samepage}%
 			\begin{equation}
 				\begin{gathered}
 					\text{#1} \ensuremath{#2}
 				\end{gathered}
 			\end{equation}
-			\COREvspacevarcm{\margingatheredcapttop}%
-			\COREinsertequationcaption{#3}%
-			\COREvspacevarcm{\margingatheredcaptbottom}%
+			\corevspacevarcm{\margingatheredcapttop}%
+			\coreinsertequationcaption{#3}%
+			\corevspacevarcm{\margingatheredcaptbottom}%
 			\end{samepage}
-			\COREafterequationfn%
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz%
 			\else%
@@ -377,16 +377,16 @@
 	\ifx\hfuzz#2\hfuzz%
 		\insertgatheredanum{#1}%
 	\else%
-		\COREvspacevarcm{\margingatheredtop}%
+		\corevspacevarcm{\margingatheredtop}%
 		\begin{samepage}%
 		\begin{gather*}
 			\ensuremath{#1}
 		\end{gather*}
 		\vspace{\dimexpr-0.2cm + \margingatheredcapttop cm}%
-		\COREinsertequationcaption{#2}%
+		\coreinsertequationcaption{#2}%
 		\vspace{\dimexpr-0.05cm + \margingatheredcaptbottom cm}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	\fi%
 }
 
@@ -395,14 +395,14 @@
 \newcommand{\insertalign}[1]{%
 	\emptyvarerr{\insertalign}{#1}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\COREvspacevarcm{\marginaligntop}%
+		\corevspacevarcm{\marginaligntop}%
 		\begin{samepage}%
 		\begin{align}
 			\ensuremath{#1}
 		\end{align}
-		\COREvspacevarcm{\marginalignbottom}%
+		\corevspacevarcm{\marginalignbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\insertalignanum{#1}%
 	}%
@@ -412,14 +412,14 @@
 %	#1	Ecuación
 \newcommand{\insertalignanum}[1]{%
 	\emptyvarerr{\insertalignanum}{#1}{Ecuacion no definida}%
-	\COREvspacevarcm{\marginaligntop}%
+	\corevspacevarcm{\marginaligntop}%
 	\begin{samepage}%
 	\begin{align*}
 		\ensuremath{#1}
 	\end{align*}
-	\COREvspacevarcm{\marginalignbottom}%
+	\corevspacevarcm{\marginalignbottom}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (align) con leyenda
@@ -431,16 +431,16 @@
 		\insertalign{#1}%
 	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
-			\COREvspacevarcm{\marginaligntop}%
+			\corevspacevarcm{\marginaligntop}%
 			\begin{samepage}%
 			\begin{align}
 				\ensuremath{#1}
 			\end{align}
-			\COREvspacevarcm{\marginaligncapttop}%
-			\COREinsertequationcaption{#2}%
-			\COREvspacevarcm{\marginaligncaptbottom}%
+			\corevspacevarcm{\marginaligncapttop}%
+			\coreinsertequationcaption{#2}%
+			\corevspacevarcm{\marginaligncaptbottom}%
 			\end{samepage}
-			\COREafterequationfn%
+			\coreafterequationfn%
 		}{%
 			\insertaligncaptionedanum{#1}{#2}%
 		}%
@@ -455,16 +455,16 @@
 	\ifx\hfuzz#2\hfuzz%
 		\insertalignanum{#1}%
 	\else%
-		\COREvspacevarcm{\marginaligntop}%
+		\corevspacevarcm{\marginaligntop}%
 		\begin{samepage}%
 		\begin{align*}
 			\ensuremath{#1}
 		\end{align*}
-		\COREvspacevarcm{\marginaligncapttop}%
-		\COREinsertequationcaption{#2}%
-		\COREvspacevarcm{\marginaligncaptbottom}%
+		\corevspacevarcm{\marginaligncapttop}%
+		\coreinsertequationcaption{#2}%
+		\corevspacevarcm{\marginaligncaptbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	\fi%
 }
 
@@ -474,16 +474,16 @@
 \newcommand{\insertaligned}[2][]{%
 	\emptyvarerr{\insertaligned}{#2}{Ecuacion no definida}%
 	\ifthenelse{\equal{\numberedequation}{true}}{%
-		\COREvspacevarcm{\marginequationtop}%
+		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation}
 			\begin{aligned}
 				\text{#1} \ensuremath{#2}
 			\end{aligned}
 		\end{equation}
-		\COREvspacevarcm{\marginalignedbottom}%
+		\corevspacevarcm{\marginalignedbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	}{%
 		\ifx\hfuzz#1\hfuzz%
 		\else%
@@ -497,14 +497,14 @@
 %	#1	Ecuación
 \newcommand{\insertalignedanum}[1]{%
 	\emptyvarerr{\insertalignedanum}{#1}{Ecuacion no definida}%
-	\COREvspacevarcm{\marginalignedtop}%
+	\corevspacevarcm{\marginalignedtop}%
 	\begin{samepage}%
 	\begin{align*}
 		\ensuremath{#1}
 	\end{align*}
 	\vspace{\dimexpr-0.2cm + \marginalignedbottom cm}%
 	\end{samepage}
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % Insertar una ecuación (aligned) con leyenda
@@ -517,18 +517,18 @@
 		\insertaligned[#1]{#2}%
 	\else%
 		\ifthenelse{\equal{\numberedequation}{true}}{%
-			\COREvspacevarcm{\marginequationtop}%
+			\corevspacevarcm{\marginequationtop}%
 			\begin{samepage}%
 			\begin{equation}
 				\begin{aligned}
 					\text{#1} \ensuremath{#2}
 				\end{aligned}
 			\end{equation}
-			\COREvspacevarcm{\marginalignedcapttop}%
-			\COREinsertequationcaption{#3}%
-			\COREvspacevarcm{\marginalignedcaptbottom}%
+			\corevspacevarcm{\marginalignedcapttop}%
+			\coreinsertequationcaption{#3}%
+			\corevspacevarcm{\marginalignedcaptbottom}%
 			\end{samepage}
-			\COREafterequationfn%
+			\coreafterequationfn%
 		}{%
 			\ifx\hfuzz#1\hfuzz%
 			\else%
@@ -547,18 +547,18 @@
 	\ifx\hfuzz#2\hfuzz%
 		\insertalignedanum{#1}%
 	\else%
-		\COREvspacevarcm{\marginequationtop}%
+		\corevspacevarcm{\marginequationtop}%
 		\begin{samepage}%
 		\begin{equation}
 			\begin{aligned}
 				\ensuremath{#1}
 			\end{aligned}
 		\end{equation}
-		\COREvspacevarcm{\marginalignedcapttop}%
-		\COREinsertequationcaption{#2}%
-		\COREvspacevarcm{\marginalignedcaptbottom}%
+		\corevspacevarcm{\marginalignedcapttop}%
+		\coreinsertequationcaption{#2}%
+		\corevspacevarcm{\marginalignedcaptbottom}%
 		\end{samepage}
-		\COREafterequationfn%
+		\coreafterequationfn%
 	\fi%
 }
 

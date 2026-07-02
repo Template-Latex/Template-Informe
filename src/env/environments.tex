@@ -123,8 +123,8 @@
 %	#2	Estilo de código
 %	#3	Parámetros
 %	#4	Caption
-\newcommand{\COREinitsourcecodep}[4]{%
-	\emptyvarerr{\COREinitsourcecodep}{#2}{Estilo de codigo no definido}%
+\newcommand{\coreinitsourcecodep}[4]{%
+	\emptyvarerr{\coreinitsourcecodep}{#2}{Estilo de codigo no definido}%
 	\checkvalidsourcecodestyle{#2}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\rightlinenumbers}{%
@@ -204,7 +204,7 @@
 %	#3	Parámetros
 %	#4	Caption
 \lstnewenvironment{sourcecodep}[4][]{%
-	\COREinitsourcecodep{#1}{#2}{#3}{#4}%
+	\coreinitsourcecodep{#1}{#2}{#3}{#4}%
 }{%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
@@ -218,7 +218,7 @@
 %	#4	Archivo de código fuente
 %	#5	Caption
 \newcommand{\importsourcecodep}[5][]{%
-	\COREinitsourcecodep{#1}{#2}{#3}{#5}%
+	\coreinitsourcecodep{#1}{#2}{#3}{#5}%
 	\inputlisting{#4}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
@@ -229,8 +229,8 @@
 %	#1	Label (opcional)
 %	#2	Estilo de código
 %	#3	Caption
-\newcommand{\COREinitsourcecode}[3]{%
-	\emptyvarerr{\COREinitsourcecode}{#2}{Estilo de codigo no definido}%
+\newcommand{\coreinitsourcecode}[3]{%
+	\emptyvarerr{\coreinitsourcecode}{#2}{Estilo de codigo no definido}%
 	\checkvalidsourcecodestyle{#2}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\rightlinenumbers}{%
@@ -274,7 +274,7 @@
 %	#2	Estilo de código
 %	#3	Caption
 \lstnewenvironment{sourcecode}[3][]{%
-	\COREinitsourcecode{#1}{#2}{#3}%
+	\coreinitsourcecode{#1}{#2}{#3}%
 }{%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
@@ -287,7 +287,7 @@
 %	#3	Archivo de código fuente
 %	#4	Caption
 \newcommand{\importsourcecode}[4][]{%
-	\COREinitsourcecode{#1}{#2}{#4}%
+	\coreinitsourcecode{#1}{#2}{#4}%
 	\lstinputlisting{#3}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
@@ -330,7 +330,7 @@
 	\global\def\GLOBALenvimageadded {false}%
 	\global\def\GLOBALenvimageinitialized {true}%
 	% Configura caption y márgenes
-	\COREvspacevarcm{\marginimagetop}%
+	\corevspacevarcm{\marginimagetop}%
 	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
 	% Inicia la figura
 	\begin{samepage}%
@@ -340,13 +340,13 @@
 			\global\def\GLOBALenvimagecf {false}%
 			\def\envimagescaptioncf {true}%
 		}{}%
-		\COREvspacevarcm{\marginimagemulttop}%
+		\corevspacevarcm{\marginimagemulttop}%
 		}{%
 		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
-			\COREvspacevarcm{\captionmarginimages}%
+			\corevspacevarcm{\captionmarginimages}%
 			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
 				\caption[]{\envimagescaptionvar\envimageslabelvar}%
 			}{%
@@ -356,7 +356,7 @@
 	\end{figure}%
 	% Restablece caption y márgenes
 	\setcaptionmargincm{\captionlrmargin}%
-	\COREvspacevarcm{\marginimagebottom}%
+	\corevspacevarcm{\marginimagebottom}%
 	\end{samepage}
 	% Restablece globales
 	\global\def\GLOBALenvimageinitialized {false}%
@@ -393,13 +393,13 @@
 			\global\def\GLOBALenvimagecf {false}%
 			\def\envimagescaptioncf {true}%
 		}{}%
-		\COREvspacevarcm{\marginimagemulttop}%
+		\corevspacevarcm{\marginimagemulttop}%
 	}{%
 		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{%
-			\COREvspacevarcm{\captionlessmarginimage}%
+			\corevspacevarcm{\captionlessmarginimage}%
 		}{%
-			\COREvspacevarcm{\captionmarginimagesmc}%
+			\corevspacevarcm{\captionmarginimagesmc}%
 			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
 				\caption[]{\envimagescaptionvar\envimageslabelvar}%
 			}{%
@@ -417,20 +417,20 @@
 % 	#1	Label (opcional)
 %	#2	Leyenda de la ecuación
 \newenvironment{equationindex}[2][]{%
-	\def\COREequationindexcaption {#2}%
-	\emptyvarerr{\COREequationindexcaption}{#2}{Leyenda no definida}%
-	\COREvspacevarcm{\margineqnindextop}%
+	\def\coreequationindexcaption {#2}%
+	\emptyvarerr{\coreequationindexcaption}{#2}{Leyenda no definida}%
+	\corevspacevarcm{\margineqnindextop}%
 	\begin{samepage}%
 		\begin{equation}%
 			\text{#1}%
 		}{%
 		\end{equation}
-		\myindexequations{\COREequationindexcaption}%
-		\COREvspacevarcm{\margineqnindexbottom}%
+		\myindexequations{\coreequationindexcaption}%
+		\corevspacevarcm{\margineqnindexbottom}%
 	\end{samepage}
-	\COREinsertequationcaption{\textit{\COREequationindexcaption}}%
+	\coreinsertequationcaption{\textit{\coreequationindexcaption}}%
 	\addtocounter{templateIndexEquations}{1}%
-	\COREafterequationfn%
+	\coreafterequationfn%
 }
 
 % END

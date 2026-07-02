@@ -215,7 +215,7 @@
 	\fancyheadoffset{0pt}
 	\ifthenelse{\equal{\templatestyle}{style1}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{} % Headers y footers
 			\fancyhead[L]{}
 			\fancyhead[R]{}
@@ -224,7 +224,7 @@
 			\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
-		\COREstyledefinition
+		\corestyledefinition
 		\fancypagestyle{styleportrait}{% Estilo portada
 			\pagestyle{fancy}
 			\fancyhf{}
@@ -248,7 +248,7 @@
 					\universitydepartment ~ \\
 					\coursecode\ \hfpdashcharstyle\ \coursename ~ \\
 					\begin{flushright}%
-						\vspace{-6.7em}\nobreak~\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm} ~
+						\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm} ~
 					\end{flushright}
 				\end{minipage}
 				\\
@@ -278,7 +278,7 @@
 	}{%
 	\ifthenelse{\equal{\templatestyle}{style2}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{} % Headers y footers
 			\fancyhead[L]{}
 			\fancyhead[R]{}
@@ -288,7 +288,7 @@
 			\fancyfoot[R]{} % Footer der
 			\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
 		}
-		\COREstyledefinition
+		\corestyledefinition
 		\fancypagestyle{styleportrait}{% Estilo portada
 			\pagestyle{fancy}
 			\fancyhf{}
@@ -308,7 +308,7 @@
 				\hspace{-0.60cm}
 				\begin{minipage}[t]{1.0\linewidth}
 					\begin{flushleft}
-						\vspace{-5.1em}\nobreak~\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm}
+						\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm}
 					\end{flushleft}
 				\end{minipage}
 				\\
@@ -339,7 +339,7 @@
 	}{%
 	\ifthenelse{\equal{\templatestyle}{style3}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{} % Headers y footers
 			\fancyhead[L]{}
 			\fancyhead[R]{}
@@ -349,7 +349,7 @@
 			\fancyfoot[R]{} % Footer der
 			\renewcommand{\footrulewidth}{0pt} % Ancho de la barra del footer
 		}
-		\COREstyledefinition
+		\corestyledefinition
 		\fancypagestyle{styleportrait}{% Estilo portada
 			\pagestyle{fancy}
 			\fancyhf{}
@@ -369,7 +369,7 @@
 				\hspace{-0.33cm}
 				\begin{minipage}[t]{1.0\linewidth}
 					\begin{flushright}
-						\vspace{-5.1em}\nobreak~\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm}
+						\vspace{-5.1em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm}
 					\end{flushright}
 				\end{minipage}
 				\\
@@ -400,7 +400,7 @@
 	}{%
 	\ifthenelse{\equal{\templatestyle}{style4}}{%
 		\pagestyle{fancy}
-		\newcommand{\COREstyledefinition}{%
+		\newcommand{\corestyledefinition}{%
 			\fancyhf{} % Headers y footers
 			\fancyhead[L]{}
 			\fancyhead[R]{}
@@ -409,7 +409,7 @@
 			\fancyfoot[R]{\small \rm \nouppercase{\thepage}} % Footer der, curso
 			\renewcommand{\footrulewidth}{0.5pt} % Ancho de la barra del footer
 		}
-		\COREstyledefinition
+		\corestyledefinition
 		\fancypagestyle{styleportrait}{% Estilo portada
 			\pagestyle{fancy}
 			\fancyhf{}
@@ -433,7 +433,7 @@
 					\universitydepartment ~ \\
 					\coursecode\ \hfpdashcharstyle\ \coursename ~ \\
 					\begin{flushright}%
-						\vspace{-6.7em}\nobreak~\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm} ~
+						\vspace{-6.7em}\nobreak~\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0cm} ~
 					\end{flushright}
 				\end{minipage}
 				\\
@@ -449,7 +449,7 @@
 	% Aplica el estilo de página
 	\fancypagestyle{plain}{%
 		\fancyheadoffset{0pt}
-		\COREstyledefinition
+		\corestyledefinition
 	}
 	% Define estilos por defecto en flotantes
 	\floatpagestyle{plain}
@@ -464,7 +464,7 @@
 	% Reestablece \cleardoublepage
 	% -------------------------------------------------------------------------
 	% \let\cleardoublepage\oldcleardoublepage
-	\let\cleardoublepage\COREcleardoublepage
+	\let\cleardoublepage\corecleardoublepage
 
 	% -------------------------------------------------------------------------
 	% Reestablece los valores del estado de los títulos

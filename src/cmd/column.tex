@@ -23,7 +23,7 @@
 
 % Chequea posición columna
 %	#1	Valor posición (c, t, b)
-\newcommand{\COREcheckcolumnvvalue}[1]{%
+\newcommand{\corecheckcolumnvvalue}[1]{%
 	\ifthenelse{\equal{#1}{c}}{}{%
 	\ifthenelse{\equal{#1}{t}}{}{%
 	\ifthenelse{\equal{#1}{b}}{}{%
@@ -33,7 +33,7 @@
 
 % Chequea alineación columna
 %	#1	Valor alineación (c, l, r)
-\newcommand{\COREcheckcolumnpvalue}[1]{%
+\newcommand{\corecheckcolumnpvalue}[1]{%
 	\ifthenelse{\equal{#1}{c}}{}{%
 	\ifthenelse{\equal{#1}{l}}{}{%
 	\ifthenelse{\equal{#1}{r}}{}{%
@@ -47,10 +47,10 @@
 %	#3	Posición vertical columna derecha (c, t, b)
 %	#4	Alineación horizontal columna derecha (c, l, r)
 \newcommand{\createtwocolumncfg}[4]{%
-	\COREcheckcolumnvvalue{#1}%
-	\COREcheckcolumnpvalue{#2}%
-	\COREcheckcolumnvvalue{#3}%
-	\COREcheckcolumnpvalue{#4}%
+	\corecheckcolumnvvalue{#1}%
+	\corecheckcolumnpvalue{#2}%
+	\corecheckcolumnvvalue{#3}%
+	\corecheckcolumnpvalue{#4}%
 	\global\def\GLOBALtwocolumnav {#1}%
 	\global\def\GLOBALtwocolumnap {#2}%
 	\global\def\GLOBALtwocolumnbv {#3}%
@@ -70,12 +70,12 @@
 %	#5	Posición vertical columna derecha (c, t, b)
 %	#6	Alineación horizontal columna derecha (c, l, r)
 \newcommand{\createthreecolumncfg}[6]{%
-	\COREcheckcolumnvvalue{#1}%
-	\COREcheckcolumnpvalue{#2}%
-	\COREcheckcolumnvvalue{#3}%
-	\COREcheckcolumnpvalue{#4}%
-	\COREcheckcolumnvvalue{#5}%
-	\COREcheckcolumnpvalue{#6}%
+	\corecheckcolumnvvalue{#1}%
+	\corecheckcolumnpvalue{#2}%
+	\corecheckcolumnvvalue{#3}%
+	\corecheckcolumnpvalue{#4}%
+	\corecheckcolumnvvalue{#5}%
+	\corecheckcolumnpvalue{#6}%
 	\global\def\GLOBALthreecolumnav {#1}%
 	\global\def\GLOBALthreecolumnap {#2}%
 	\global\def\GLOBALthreecolumnbv {#3}%

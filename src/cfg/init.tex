@@ -234,7 +234,7 @@
 }
 
 % Se configura el texto de los caption
-\COREcheckfontsize{\captionfontsize}
+\corecheckfontsize{\captionfontsize}
 \captionsetup{
 	font={\captionfontsize},
 	labelfont={color=\captioncolor, \captiontextbold},
@@ -245,7 +245,7 @@
 }
 
 % Configura texto de los subcaption
-\COREcheckfontsize{\subcaptionfsize}
+\corecheckfontsize{\subcaptionfsize}
 \captionsetup*[subfigure]{
 	font={\subcaptionfsize},
 	labelfont={color=\captioncolor, \captiontextsubnumbold},
@@ -401,7 +401,7 @@
 	\setlength{\bibitemsep}{\bibtexrefsep pt}
 }{
 \ifthenelse{\equal{\stylecitereferences}{custom}}{
-	\COREtemplatemessage{Usando estilo citas referencias custom, importar librerias y configuraciones posterior al llamado de template.tex en archivo principal}
+	\coretemplatemessage{Usando estilo citas referencias custom, importar librerias y configuraciones posterior al llamado de template.tex en archivo principal}
 }{
 	\throwbadconfig{Estilo citas desconocido}{\stylecitereferences}{bibtex,apacite,natbib,custom}}}}
 }
@@ -799,7 +799,7 @@
 	\global\def\GLOBALenvmulticol {true}%
 	\setcaptionmargincm{\captionlrmargin}%
 	\addtocounter{multicoldepth}{1}%
-	\COREintializetitlenumbering%
+	\coreintializetitlenumbering%
 }
 \AfterEndEnvironment{multicols}{%
 	\def\captionlrmargin {\SOURCEcaptionlrmargin}%

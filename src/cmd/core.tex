@@ -69,10 +69,10 @@
 \let\latex\LaTeX
 
 % Nuevas dimensiones
-\newlength{\COREgluevarcm}
-\setlength{\COREgluevarcm}{0.25 cm}
-\newlength{\COREfontwidth}
-\settowidth{\COREfontwidth}{template}
+\newlength{\coregluevarcm}
+\setlength{\coregluevarcm}{0.25 cm}
+\newlength{\corefontwidth}
+\settowidth{\corefontwidth}{template}
 
 % Lanza un mensaje de error
 % 	#1	Función del error
@@ -119,7 +119,7 @@
 
 % Escribe un mensaje en la consola
 %	#1	Mensaje
-\newcommand{\COREtemplatemessage}[1]{%
+\newcommand{\coretemplatemessage}[1]{%
 	\message{Template: #1}%
 }
 
@@ -233,8 +233,8 @@
 }
 
 % Verifica que una variable sea del estilo "true" o "false"
-\newcommand{\COREcheckbooleanvar}[1]{%
-	\emptyvarerr{\COREcheckbooleanvar}{#1}{Variable no definida}%
+\newcommand{\corecheckbooleanvar}[1]{%
+	\emptyvarerr{\corecheckbooleanvar}{#1}{Variable no definida}%
 	\ifthenelse{\equal{#1}{true}}{}{%
 	\ifthenelse{\equal{#1}{false}}{}{%
 		\throwwarning{Variable debe ser true o false}\stop%
@@ -253,10 +253,10 @@
 
 % Inserta un espacio vertical en cm con una variación +/-
 %	#1	Espacio (en cm)
-\newcommand{\COREvspacevarcm}[1]{%
+\newcommand{\corevspacevarcm}[1]{%
 	\ifthenelse{\equal{#1}{0}}{}{%
 	\ifthenelse{\equal{#1}{0.0}}{}{%
-		\vspace{\dimexpr#1 cm plus #1\COREgluevarcm minus #1\COREgluevarcm}%
+		\vspace{\dimexpr#1 cm plus #1\coregluevarcm minus #1\coregluevarcm}%
 	}}%
 }
 
@@ -270,7 +270,7 @@
 
 % Verifica que un tamaño de fuente sea correcto
 %	#1	Tamaño de fuente
-\newcommand{\COREcheckfontsize}[1]{%
+\newcommand{\corecheckfontsize}[1]{%
 	\ifthenelse{\equal{#1}{normalsize}}{}{%
 	\ifthenelse{\equal{#1}{small}}{}{%
 	\ifthenelse{\equal{#1}{large}}{}{%

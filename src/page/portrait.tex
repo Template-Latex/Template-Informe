@@ -9,8 +9,8 @@
 % Manual template: [https://template-latex.github.io/informe]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-\newcommand{\COREwriteheaderitem}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{#2 ~ \\}}
-\newcommand{\COREwriteheaderitemsc}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{\small \scshape{\MakeUppercase{#2}} ~ \\}}
+\newcommand{\corewriteheaderitem}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{#2 ~ \\}}
+\newcommand{\corewriteheaderitemsc}[2][]{\ifthenelse{\equal{#2}{\xspace}}{#1}{\small \scshape{\MakeUppercase{#2}} ~ \\}}
 
 \newcommand{\templatePortrait}{%
 	
@@ -26,14 +26,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -67,14 +67,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -110,14 +110,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -159,13 +159,13 @@
 		
 		% Escribe el header
 		\vspace*{-1.5cm}
-		\noindent \COREinsertkeyimage{\portraitimageparamsF}{\portraitimageF}
+		\noindent \coreinsertkeyimage{\portraitimageparamsF}{\portraitimageF}
 		\hspace*{-0.15cm}
 		\begin{tabular}{l}
 			% Inserta nuevas lineas independiente de si tiene texto o no
-			\COREwriteheaderitemsc[~ \\]{\universityname}
-			\COREwriteheaderitemsc[~ \\]{\universityfaculty}
-			\COREwriteheaderitemsc[~ \\]{\universitydepartment}
+			\corewriteheaderitemsc[~ \\]{\universityname}
+			\corewriteheaderitemsc[~ \\]{\universityfaculty}
+			\corewriteheaderitemsc[~ \\]{\universitydepartment}
 			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
 		
@@ -198,13 +198,13 @@
 		\checkextravarexist{\portraitimageparamsG}{[portrait-style5] Defina los parametros de la imagen extra de la portada}
 		
 		% Escribe el header
-		\COREinsertkeyimage{\portraitimageparamsG}{\portraitimageG}
+		\coreinsertkeyimage{\portraitimageparamsG}{\portraitimageG}
 		\hspace{-0.2cm}
 		\begin{tabular}{l}
 			% Inserta nuevas lineas independiente de si tiene texto o no
-			\COREwriteheaderitemsc[~ \\]{\universityname}
-			\COREwriteheaderitemsc[~ \\]{\universityfaculty}
-			\COREwriteheaderitemsc[~ \\]{\universitydepartment}
+			\corewriteheaderitemsc[~ \\]{\universityname}
+			\corewriteheaderitemsc[~ \\]{\universityfaculty}
+			\corewriteheaderitemsc[~ \\]{\universitydepartment}
 			\vspace*{1.25cm}\mbox{}
 		\end{tabular}
 		
@@ -242,28 +242,28 @@
 		\begin{wrapfigure}{l}{0.305\linewidth}%
 			\vspace{-0.69cm}%
 			\noindent \hspace{-0.85cm}%
-			\COREinsertkeyimage{\portraitimageparamsH}{\portraitimageH}%
+			\coreinsertkeyimage{\portraitimageparamsH}{\portraitimageH}%
 		\end{wrapfigure}
-		\def\COREstylefirstmargin {-2.2cm}
+		\def\corestylefirstmargin {-2.2cm}
 		\ifthenelse{\equal{\universitydepartment}{\xspace}}{}{%
 			\hspace*{0.07cm}
-			\noindent \textsc{\color{red} \hspace{\COREstylefirstmargin} \universitydepartment} ~ \\
-			\def\COREstylefirstmargin {-1.6cm}
+			\noindent \textsc{\color{red} \hspace{\corestylefirstmargin} \universitydepartment} ~ \\
+			\def\corestylefirstmargin {-1.6cm}
 		}
 		\ifthenelse{\equal{\universityfaculty}{\xspace}}{}{%
 			\hspace*{0cm}
-			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \universityfaculty} ~ \\
-			\def\COREstylefirstmargin {-1.6cm}
+			\noindent \textsc{\color{dkgray} \hspace{\corestylefirstmargin} \universityfaculty} ~ \\
+			\def\corestylefirstmargin {-1.6cm}
 		}
 		\ifthenelse{\equal{\universityname}{\xspace}}{}{%
 			\hspace*{0cm}
-			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \universityname} ~ \\
-			\def\COREstylefirstmargin {-1.6cm}
+			\noindent \textsc{\color{dkgray} \hspace{\corestylefirstmargin} \universityname} ~ \\
+			\def\corestylefirstmargin {-1.6cm}
 		}
 		\ifthenelse{\equal{\coursename}{\xspace}}{}{%
 			\hspace*{0cm}
-			\noindent \textsc{\color{dkgray} \hspace{\COREstylefirstmargin} \coursecode \coursename} ~ \\
-			\def\COREstylefirstmargin {-1.6cm}
+			\noindent \textsc{\color{dkgray} \hspace{\corestylefirstmargin} \coursecode \coursename} ~ \\
+			\def\corestylefirstmargin {-1.6cm}
 		}
 		
 		% Título informe - tema
@@ -298,13 +298,13 @@
 		\begin{center}
 			\vspace*{-1.5cm}
 			\hspace*{-1.25cm}
-			\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
+			\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
 			\hspace*{-0.25cm}
 			\begin{tabular}{l}
 				\vspace*{0.26cm}\mbox{} ~ \\
-				\COREwriteheaderitemsc{\universityname}
-				\COREwriteheaderitemsc{\universityfaculty}
-				\COREwriteheaderitemsc{\universitydepartment}
+				\corewriteheaderitemsc{\universityname}
+				\corewriteheaderitemsc{\universityfaculty}
+				\corewriteheaderitemsc{\universitydepartment}
 				\vspace*{1.25cm}\mbox{}
 			\end{tabular}
 		\end{center}
@@ -338,10 +338,10 @@
 		\begin{center}
 			\vspace*{-1.0cm}
 			\begin{tabular}{c}
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0.5cm} ~ \\
-				\COREwriteheaderitemsc{\universityname}
-				\COREwriteheaderitemsc{\universityfaculty}
-				\COREwriteheaderitemsc{\universitydepartment}
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \vspace{0.5cm} ~ \\
+				\corewriteheaderitemsc{\universityname}
+				\corewriteheaderitemsc{\universityfaculty}
+				\corewriteheaderitemsc{\universitydepartment}
 			\end{tabular}
 		\end{center}
 		
@@ -371,7 +371,7 @@
 		\begin{spacing}{1.025}
 		
 		% Título del informe
-		\noindent \hspace{-0.10cm} \COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
+		\noindent \hspace{-0.10cm} \coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
 		\vfill
 		\begin{center}
 			\noindent \rule{\linewidth}{0.4mm} \\ \vspace{0.3cm}
@@ -384,9 +384,9 @@
 		\vfill
 		\begin{center}
 			\begin{tabular}{c}
-				\COREwriteheaderitemsc{\universityname}
-				\COREwriteheaderitemsc{\universityfaculty}
-				\COREwriteheaderitemsc{\universitydepartment}
+				\corewriteheaderitemsc{\universityname}
+				\corewriteheaderitemsc{\universityfaculty}
+				\corewriteheaderitemsc{\universitydepartment}
 			\end{tabular}
 		\end{center}
 		
@@ -481,7 +481,7 @@
 		% Imagen departamento
 		\begin{center}
 			\vspace*{-1.0cm}
-			\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
+			\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}
 		\end{center}
 		
 		% Título informe
@@ -535,7 +535,7 @@
 		\begin{flushright}%
 			\begin{minipage}{0.3\linewidth}%
 				\hspace*{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 			\end{minipage}
 		\end{flushright}
 		
@@ -569,7 +569,7 @@
 		\noindent
 		\begin{flushleft}%
 			\vspace*{-1.0cm}%
-			\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \\
+			\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage} \\
 		\end{flushleft}
 		
 		% Título del informe
@@ -599,7 +599,7 @@
 		\vspace*{-1.5cm}
 		\noindent \begin{minipage}{0.8\linewidth}
 			\noindent \begin{minipage}{0.21\linewidth}
-				\COREinsertkeyimage{\portraitimageparamsA}{\portraitimageA} \\
+				\coreinsertkeyimage{\portraitimageparamsA}{\portraitimageA} \\
 			\end{minipage}
 			\hspace{-0.25cm}
 			\begin{minipage}{0.6\linewidth}
@@ -625,7 +625,7 @@
 			\begin{flushright}%
 				\ifthenelse{\isundefined{\portraitimagerightA}}{}{%
 					\ifthenelse{\isundefined{\portraitimagerightparamsA}}{}{%
-						\noindent \COREinsertkeyimage{\portraitimagerightparamsA}{\portraitimagerightA} \\
+						\noindent \coreinsertkeyimage{\portraitimagerightparamsA}{\portraitimagerightA} \\
 					}
 				}
 			\end{flushright}
@@ -676,14 +676,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -708,10 +708,10 @@
 				\begingroup
 				\setlength{\fboxsep}{0 pt}
 				\setlength{\fboxrule}{\portraitimageboxedwidthC pt}
-				\fbox{\COREinsertkeyimage{\portraitimageparamsC}{\portraitimageC}}%
+				\fbox{\coreinsertkeyimage{\portraitimageparamsC}{\portraitimageC}}%
 				\endgroup
 			}{%
-				\COREinsertkeyimage{\portraitimageparamsC}{\portraitimageC}
+				\coreinsertkeyimage{\portraitimageparamsC}{\portraitimageC}
 			}
 		\end{center}
 		~ \\
@@ -738,14 +738,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -759,10 +759,10 @@
 				\begingroup
 				\setlength{\fboxsep}{0 pt}
 				\setlength{\fboxrule}{\portraitimageboxedwidthD pt}
-				\fbox{\COREinsertkeyimage{\portraitimageparamsD}{\portraitimageD}}%
+				\fbox{\coreinsertkeyimage{\portraitimageparamsD}{\portraitimageD}}%
 				\endgroup
 			}{%
-				\COREinsertkeyimage{\portraitimageparamsD}{\portraitimageD}
+				\coreinsertkeyimage{\portraitimageparamsD}{\portraitimageD}
 			}
 		\end{center}
 		\vspace{-2\baselineskip}
@@ -861,14 +861,14 @@
 		\fancypagestyle{portraitstyle}{%
 			\fancyhf{}
 			\fancyhead[L]{%
-				\COREwriteheaderitem{\universityname}
-				\COREwriteheaderitem{\universityfaculty}
-				\COREwriteheaderitem{\universitydepartment}
+				\corewriteheaderitem{\universityname}
+				\corewriteheaderitem{\universityfaculty}
+				\corewriteheaderitem{\universitydepartment}
 				\vspace{-0.95\baselineskip}
 			}
 			\fancyhead[R]{%
 				\hspace{-0.255cm}%
-				\COREinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
+				\coreinsertkeyimage{\universitydepartmentimagecfg}{\universitydepartmentimage}%
 				\vspace{-0.175cm}%
 			}
 		}
@@ -882,10 +882,10 @@
 				\begingroup
 				\setlength{\fboxsep}{0 pt}
 				\setlength{\fboxrule}{\portraitimageboxedwidthI pt}
-				\fbox{\COREinsertkeyimage{\portraitimageparamsI}{\portraitimageC}}%
+				\fbox{\coreinsertkeyimage{\portraitimageparamsI}{\portraitimageC}}%
 				\endgroup
 			}{%
-				\COREinsertkeyimage{\portraitimageparamsI}{\portraitimageC}
+				\coreinsertkeyimage{\portraitimageparamsI}{\portraitimageC}
 			}
 		\end{center}
 		~ \vfill
