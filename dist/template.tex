@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.4.7 (02/07/2026)
+% Versión:      8.4.8 (12/07/2026)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -4492,7 +4492,7 @@
 			\ContinuedFloat%
 			\global\def\GLOBALenvimagecf {false}%
 			\def\envimagescaptioncf {true}%
-		}{}%
+		}{\ifdefined\HCode\ifthenelse{\equal{\envimagescaptionvar}{}}{}{\refstepcounter{figure}}\fi}%
 		\corevspacevarcm{\marginimagemulttop}%
 		}{%
 		\setcaptionmargincm{\captionlrmargin}%
@@ -4503,6 +4503,7 @@
 			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
 				\caption[]{\envimagescaptionvar\envimageslabelvar}%
 			}{%
+				\ifdefined\HCode\addtocounter{figure}{-1}\fi%
 				\caption{\envimagescaptionvar\envimageslabelvar}%
 			}%
 		}%
@@ -4545,7 +4546,7 @@
 			\ContinuedFloat%
 			\global\def\GLOBALenvimagecf {false}%
 			\def\envimagescaptioncf {true}%
-		}{}%
+		}{\ifdefined\HCode\ifthenelse{\equal{\envimagescaptionvar}{}}{}{\refstepcounter{figure}}\fi}%
 		\corevspacevarcm{\marginimagemulttop}%
 	}{%
 		\setcaptionmargincm{\captionlrmargin}%
@@ -4556,6 +4557,7 @@
 			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
 				\caption[]{\envimagescaptionvar\envimageslabelvar}%
 			}{%
+				\ifdefined\HCode\addtocounter{figure}{-1}\fi%
 				\caption{\envimagescaptionvar\envimageslabelvar}%
 			}%
 		}%
@@ -5797,16 +5799,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={02/07/2026},
+		Template.Date={12/07/2026},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.4.7},
-		Template.Version.Hash={B5B293D044970E7DC2A7D48E471B948C},
-		Template.Version.Release={8.4.7},
+		Template.Version.Dev={8.4.8},
+		Template.Version.Hash={7C042EDBB4D720F1ABA7CEE560F9F9E1},
+		Template.Version.Release={8.4.8},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://template-latex.github.io/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5818,7 +5820,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.4.7 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.4.8 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},

@@ -339,7 +339,7 @@
 			\ContinuedFloat%
 			\global\def\GLOBALenvimagecf {false}%
 			\def\envimagescaptioncf {true}%
-		}{}%
+		}{\ifdefined\HCode\ifthenelse{\equal{\envimagescaptionvar}{}}{}{\refstepcounter{figure}}\fi}%
 		\corevspacevarcm{\marginimagemulttop}%
 		}{%
 		\setcaptionmargincm{\captionlrmargin}%
@@ -350,6 +350,7 @@
 			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
 				\caption[]{\envimagescaptionvar\envimageslabelvar}%
 			}{%
+				\ifdefined\HCode\addtocounter{figure}{-1}\fi%
 				\caption{\envimagescaptionvar\envimageslabelvar}%
 			}%
 		}%
@@ -392,7 +393,7 @@
 			\ContinuedFloat%
 			\global\def\GLOBALenvimagecf {false}%
 			\def\envimagescaptioncf {true}%
-		}{}%
+		}{\ifdefined\HCode\ifthenelse{\equal{\envimagescaptionvar}{}}{}{\refstepcounter{figure}}\fi}%
 		\corevspacevarcm{\marginimagemulttop}%
 	}{%
 		\setcaptionmargincm{\captionlrmargin}%
@@ -403,6 +404,7 @@
 			\ifthenelse{\equal{\envimagescaptioncf}{true}}{%
 				\caption[]{\envimagescaptionvar\envimageslabelvar}%
 			}{%
+				\ifdefined\HCode\addtocounter{figure}{-1}\fi%
 				\caption{\envimagescaptionvar\envimageslabelvar}%
 			}%
 		}%
