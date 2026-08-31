@@ -1,6 +1,6 @@
 % Template:     Informe LaTeX
 % Documento:    Núcleo del template
-% Versión:      8.4.8 (12/07/2026)
+% Versión:      8.4.9 (30/08/2026)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -3538,13 +3538,35 @@
 	\hbadness=10000 \vspace{\baselinestretch\baselineskip} \par%
 }
 
+% Ancho final al que \itemresize escala su contenido
+\newlength{\itemresizewidth}
+
+% Corrige el ancho de las notas de threeparttable tras un \itemresize.
+% threeparttable mide la tabular para fijar el ancho del caption y de las
+% notas, pero dentro de \resizebox esa medida es el ancho natural y no el
+% ancho final: las notas quedan más anchas (o más angostas) que la tabla y
+% se salen de la columna. Fuera de un threeparttable no hace nada.
+\makeatletter
+\newcommand{\itemresizetpthsize}{%
+	\@ifundefined{TPT@LA@caption}{}{%
+		\ifx\TPT@LA@caption\relax\else%
+			\hsize\itemresizewidth%
+			\xdef\TPT@hsize{\hsize\the\hsize \noexpand\@parboxrestore}%
+			\TPT@hsize%
+		\fi%
+	}%
+}
+\makeatother
+
 % Redimensiona un ítem
 % 	#1	Tamaño del nuevo objeto (En linewidth)
 %	#2	Objeto a redimensionar
 \newcommand{\itemresize}[2]{%
 	\emptyvarerr{\itemresize}{#1}{Tamano del nuevo objeto no definido}%
 	\emptyvarerr{\itemresize}{#2}{Objeto a redimensionar no definido}%
-	\resizebox{#1\linewidth}{!}{#2}%
+	\setlength{\itemresizewidth}{#1\linewidth}%
+	\resizebox{\itemresizewidth}{!}{#2}%
+	\itemresizetpthsize%
 }
 
 % Crea una página vacía sin header o footer
@@ -5799,16 +5821,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={12/07/2026},
+		Template.Date={30/08/2026},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Informe},
 		Template.Type={Normal},
-		Template.Version.Dev={8.4.8},
-		Template.Version.Hash={7C042EDBB4D720F1ABA7CEE560F9F9E1},
-		Template.Version.Release={8.4.8},
+		Template.Version.Dev={8.4.9},
+		Template.Version.Hash={5869FF0C095961DF2618E95140CFAE46},
+		Template.Version.Release={8.4.9},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Informe},
 		Template.Web.Manual={https://template-latex.github.io/informe},
 		University.Department={\pdfmetainfouniversitydepartment},
@@ -5820,7 +5842,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Informe v8.4.8 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Informe v8.4.9 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
